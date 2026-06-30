@@ -514,13 +514,13 @@
     <div class="header-title">
       <h1>OT/ICS Cybersecurity Threat Intelligence</h1>
       <div class="header-meta">
-        <span>Generated Tue, 30 Jun 2026, 00:17 ET</span>
+        <span>Generated Tue, 30 Jun 2026, 06:16 ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>13</strong> stories across
+      <strong>12</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -532,7 +532,7 @@
     <div class="top-story" id="story-windchill" data-applies="advisory" data-vendor="ptc" data-vendor-label="PTC">
       <span class="top-story-pill">Top Story</span>
       <h2>CISA confirms PTC Windchill RCE is being exploited in the wild &mdash; the PLM backbone that holds engineering drawings and pivots toward the shop floor</h2>
-      <p>The most urgent OT-adjacent item this week: on 25 June CISA added CVE-2026-12569, a critical improper-input-validation remote-code-execution flaw in PTC Windchill and FlexPLM, to its Known Exploited Vulnerabilities catalog with a near-term federal remediation deadline. Windchill is the product-lifecycle-management hub for automotive, aerospace, defense and other discrete manufacturers, so a compromise exposes engineering drawings, bills of material and supply-chain data &mdash; and gives an attacker a credible pivot toward connected OT and shop-floor systems. Reporting describes attackers dropping persistent web shells to run commands and exfiltrate data; PTC has shipped fixes and published indicators of compromise. Treat any internet-reachable Windchill/FlexPLM instance as presumed-targeted, patch now, hunt with PTC's IoCs, and review what OT and supplier data the PLM tier can reach.</p>
+      <p>The most urgent OT-adjacent item this week: on 25 June CISA added CVE-2026-12569 &mdash; a critical (CVSS 9.3) improper-input-validation flaw enabling unauthenticated remote code execution in PTC Windchill PDMLink and FlexPLM &mdash; to its Known Exploited Vulnerabilities catalog, setting a 28 June federal remediation deadline. That deadline has now passed and exploitation is continuing: researchers reported as recently as 29 June that attackers are still dropping JSP web shells onto unpatched, internet-reachable instances. Windchill is the product-lifecycle-management hub for automotive, aerospace, defense and other discrete manufacturers, so a compromise exposes engineering drawings, bills of material and supply-chain data &mdash; and gives an attacker a credible pivot toward connected OT and shop-floor systems. Treat any internet-facing Windchill/FlexPLM instance as presumed-targeted: patch immediately, hunt for unexpected JSP files and web shells, remove internet exposure, rotate credentials, and review what OT and supplier data the PLM tier can reach.</p>
       <div class="ops-strip">
         <div class="ops-row">
           <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; web shells observed in the wild</span>
@@ -551,9 +551,9 @@
       <div class="card-meta">
         <span class="severity sev-critical">Critical</span>
         <span class="cve-badge">CVE-2026-12569</span>
-        <span>CISA KEV / PTC</span>
+        <span>CISA KEV / PTC (CVSS 9.3)</span>
         <span class="dot">&bull;</span>
-        <span>Added to KEV 25 Jun 2026 (active)</span>
+        <span>KEV 25 Jun 2026 &mdash; exploitation ongoing</span>
       </div>
       <a href="https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
@@ -593,7 +593,7 @@
         <a href="#story-adriatic"><circle class="blip high" cx="258" cy="102" r="9.5"/><text class="blip-num" style="font-size:9px" x="258" y="105">3</text></a>
         <a href="#story-powerlogic"><circle class="blip high" cx="102" cy="102" r="9"/><text class="blip-num" style="font-size:8.5px" x="102" y="105">4</text></a>
         <a href="#story-bur"><circle class="blip high" cx="102" cy="258" r="8.5"/><text class="blip-num" style="font-size:8px" x="102" y="261">5</text></a>
-        <a href="#story-patchtues"><circle class="blip high" cx="258" cy="258" r="8"/><text class="blip-num" style="font-size:8px" x="258" y="261">6</text></a>
+        <a href="#story-siemens"><circle class="blip high" cx="258" cy="258" r="8"/><text class="blip-num" style="font-size:8px" x="258" y="261">6</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -602,7 +602,7 @@
         <a href="#story-adriatic"><span class="ld high"></span><b>3</b> Adriatic Port ransomware</a>
         <a href="#story-powerlogic"><span class="ld high"></span><b>4</b> Schneider PowerLogic P7</a>
         <a href="#story-bur"><span class="ld high"></span><b>5</b> B&amp;R Linux kernel flaws</a>
-        <a href="#story-patchtues"><span class="ld high"></span><b>6</b> ICS Patch Tuesday wave</a>
+        <a href="#story-siemens"><span class="ld high"></span><b>6</b> Siemens June advisory wave</a>
       </div>
     </div>
 
@@ -783,38 +783,38 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-06" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-patchtues" data-applies="advisory" data-vendor="siemens" data-vendor-label="Siemens">
+      <div class="card" id="story-siemens" data-applies="advisory" data-vendor="siemens" data-vendor-label="Siemens">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>ICS Patch Tuesday &mdash; Siemens, Schneider and Phoenix Contact ship a fresh wave of fixes</h3>
-        <p>This month's ICS Patch Tuesday saw Siemens, Schneider Electric and Phoenix Contact publish new advisories. Siemens addressed authenticated command execution, information disclosure, privilege-escalation and password-exposure flaws in SINEC INS, a DoS/potential-code-execution issue in SIPROTEC 5, and a sensitive-information-exposure weakness in the WinCC Certificate Manager, plus an OpenSSL RCE (CVE-2025-15467) affecting Scalance, SIMATIC, SINAMICS and SINEC lines. Schneider covered DoS/command-execution in PowerLogic P7, credential-exposure issues in EasyLogic T150 and the Saitel DP RTU/controller, and information disclosure in EcoStruxure IT Data Center Expert. Map the wave to your installed base and prioritize the command-execution and credential-exposure items.</p>
+        <h3>Siemens' 23 June advisory wave &mdash; SINEC INS command injection, SIPROTEC 5, WinCC Certificate Manager and an OpenSSL RCE</h3>
+        <p>CISA echoed a cluster of Siemens ProductCERT advisories on 23 June, several flagged for use in the energy sector. The headline item is a critical authenticated command-injection flaw in SINEC INS (fixed in V1.0 SP2 Update 6) that can allow arbitrary code execution, alongside information-disclosure, privilege-escalation and password-exposure issues in the same product. The set also covers a denial-of-service / potential-code-execution issue in the SIPROTEC 5 protection relay, a certificate-parsing weakness in the WinCC Certificate Manager (CVE-2026-24349, patched in WinCC Unified V21 Update 2), and an OpenSSL flaw affecting Scalance, SIMATIC, SINAMICS and SINEC product lines. Map the advisories to your installed base and prioritize the SINEC INS command-injection and the protection-relay DoS.</p>
         <div class="card-meta">
-          <span class="cve-badge">ICS Patch Tuesday</span>
-          <span>SecurityWeek / vendor PSIRTs</span>
+          <span class="cve-badge">CVE-2026-24349</span>
+          <span>CISA ICS Advisories / Siemens ProductCERT</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
-            <span class="ops-tag kev-off">Multi-vendor &mdash; mixed severity</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes / mitigations available</span>
-            <span class="ops-cc"><b>Action:</b> Triage the advisories against your inventory, prioritize Siemens SINEC INS command-execution and the OpenSSL RCE plus Schneider's credential-exposure items, and apply or compensate per each vendor's guidance.</span>
+            <span class="ops-tag patch-yes">Vendor fixes available</span>
+            <span class="ops-cc"><b>Action:</b> Triage the Siemens advisories against your inventory, prioritize the SINEC INS command-injection fix and the SIPROTEC 5 relay update, apply the WinCC Unified V21 Update 2 and OpenSSL fixes, and restrict management access to affected services in the interim.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Triage &mdash; 7 days; high-impact items &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="patchtues" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="patchtues">Open</button>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="siemens" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="siemens">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek (ICS Patch Tuesday)</span>
+          <span>CISA ICS Advisories (23 Jun 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Jun 2026 (Siemens / Schneider / Phoenix Contact)</span>
+          <span>Siemens SINEC INS / SIPROTEC 5 / WinCC</span>
         </div>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -868,21 +868,6 @@
           <span>Jun 2026 (research)</span>
         </div>
         <a href="https://industrialcyber.co/threats-attacks/forescout-flags-spike-in-high-severity-ot-ics-flaws-exposing-visibility-gaps-that-leave-critical-infrastructure-at-risk/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-dragosyir" data-applies="intel" data-vendor="" data-vendor-label="">
-        <div class="card-header">
-          <span class="severity sev-info">Report</span>
-          <span class="category">Year in Review</span>
-        </div>
-        <h3>Dragos 2026 OT/ICS Year in Review: industrial ransomware up ~49%, AI-assisted intrusions arrive, adversaries map the control loop</h3>
-        <p>Dragos's annual report finds ransomware groups hitting industrial organizations grew roughly 49% year over year, with more than 3,300 victims and manufacturing absorbing the brunt. Two threads stand out for OT defenders. First, adversaries are moving past mere persistence to actively learn the physics of a process &mdash; exfiltrating configuration files, logic and alarm data to understand how the plant runs &mdash; raising the ceiling on potential physical impact. Second, Dragos documented an AI-assisted intrusion at a Mexican municipal water-and-drainage utility where attackers used commercial LLMs to plan and tool an enterprise-IT compromise and probe toward the OT boundary (control systems were not reached). The practical takeaway is unchanged but more urgent: segment IT from OT, kill internet-exposed devices, monitor east-west traffic, and rehearse manual recovery.</p>
-        <div class="card-meta">
-          <span>Dragos (2026 Year in Review)</span>
-          <span class="dot">&bull;</span>
-          <span>Jun 2026 (annual report)</span>
-        </div>
-        <a href="https://www.dragos.com/ot-cybersecurity-year-in-review" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -991,4 +976,4 @@
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
