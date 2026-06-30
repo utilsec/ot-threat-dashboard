@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OT/ICS Cybersecurity Threat Intelligence Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #ffffff;
+    color: #1f2328;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 11.5px;
+    color: #57606a;
+    line-height: 1.5;
+  }
+  .disclaimer strong { color: #1f2328; font-weight: 700; }
+
+  /* Brand bar */
+  .brandbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .brandbar .brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2328;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .brandbar .brand span { color: #2c7480; }
+  .brandbar .tag {
+    font-size: 11px;
+    color: #6e7781;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid #1f2328;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: #1f2328;
+  }
+  .header-meta {
+    color: #6e7781;
+    font-size: 13px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .header-meta .dot { color: #d0d7de; }
+  .sector-badge {
+    background: #e6f1f2;
+    color: #2c7480;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #bfe0e3;
+  }
+  .story-count {
+    color: #6e7781;
+    font-size: 13px;
+    text-align: right;
+  }
+  .story-count strong { color: #1f2328; font-weight: 700; }
+
+  /* Control bar (fleet filter) */
+  .control-bar {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .cb-left { flex: 1 1 520px; }
+  .cb-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-right: 8px;
+  }
+  .cb-hint { font-size: 11.5px; color: #6e7781; }
+  .fleet-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .fleet-chip {
+    font: inherit;
+    font-size: 11.5px;
+    cursor: pointer;
+    background: #ffffff;
+    color: #57606a;
+    border: 1px solid #d0d7de;
+    border-radius: 20px;
+    padding: 4px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.12s ease;
+  }
+  .fleet-chip:hover { border-color: #4e9da8; color: #1f2328; }
+  .fleet-chip[aria-pressed="true"] {
+    background: #e6f1f2;
+    color: #2c7480;
+    border-color: #4e9da8;
+    font-weight: 600;
+  }
+  .fleet-chip .chk { font-size: 10px; opacity: 0.8; }
+  .fleet-toggle {
+    font-size: 12px;
+    color: #1f2328;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .fleet-toggle input { accent-color: #4e9da8; width: 14px; height: 14px; cursor: pointer; }
+  .fleet-status {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: #6e7781;
+    text-align: right;
+  }
+  .fleet-status b { color: #2c7480; font-weight: 700; }
+  .fleet-clear {
+    font: inherit; font-size: 11px; cursor: pointer;
+    background: none; border: none; color: #2c7480; padding: 0; margin-left: 4px;
+  }
+  .fleet-clear:hover { text-decoration: underline; }
+
+  /* Hero: top story + radar side by side */
+  .hero {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  /* Top story */
+  .top-story {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-left: 3px solid #4e9da8;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 440px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(31,35,40,0.06);
+  }
+  .top-story-pill {
+    display: inline-block;
+    background: #4e9da8;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .top-story h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #1f2328;
+  }
+  .top-story p {
+    color: #424a53;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* Radar panel */
+  .radar-panel {
+    flex: 1 1 320px;
+    min-width: 300px;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .radar-panel .radar-head {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 4px;
+  }
+  .radar-panel .radar-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin-bottom: 10px;
+  }
+  .radar-svg {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .radar-sweep { animation: radar-rot 8s linear infinite; transform-origin: 180px 180px; }
+  @keyframes radar-rot { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .radar-sweep { animation: none; } }
+  .ring-label {
+    fill: #8b949e;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+  .blip { cursor: pointer; transition: stroke-width 0.15s ease; }
+  .blip.crit { fill: #cf222e; stroke: rgba(207,34,46,0.25); stroke-width: 5; }
+  .blip.high { fill: #e0701a; stroke: rgba(224,112,26,0.25); stroke-width: 5; }
+  .radar-svg a:hover .blip.crit { stroke: rgba(207,34,46,0.45); stroke-width: 9; }
+  .radar-svg a:hover .blip.high { stroke: rgba(224,112,26,0.45); stroke-width: 9; }
+  .blip-num { fill: #ffffff; font-size: 9px; font-weight: 800; text-anchor: middle; pointer-events: none; }
+
+  /* Radar legend */
+  .radar-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; margin-top: 2px; }
+  .radar-legend a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #57606a;
+    text-decoration: none;
+    padding: 3px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .radar-legend a:hover { color: #1f2328; background: #eaeef2; }
+  .radar-legend b { color: #1f2328; font-weight: 700; min-width: 12px; text-align: center; }
+  .radar-legend .ld { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .radar-legend .ld.crit { background: #cf222e; }
+  .radar-legend .ld.high { background: #e0701a; }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(31,35,40,0.04);
+  }
+  .card:hover { border-color: #afb8c1; box-shadow: 0 2px 6px rgba(31,35,40,0.08); }
+  .card.hidden-by-filter { display: none; }
+  /* Anchor highlight when a radar blip targets a card */
+  .card, .top-story { scroll-margin-top: 16px; }
+  .card:target { border-color: #4e9da8; box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .top-story:target { box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  /* In-fleet highlight */
+  .card.in-fleet { border-color: #4e9da8; }
+  .fleet-ribbon {
+    display: none;
+    position: absolute;
+    top: -1px; right: -1px;
+    background: #4e9da8;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 0 6px 0 6px;
+  }
+  .card.in-fleet .fleet-ribbon { display: block; }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #1f2328;
+  }
+  .card p {
+    color: #57606a;
+    font-size: 13px;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+  .card-meta {
+    color: #6e7781;
+    font-size: 11px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-meta .dot { color: #d0d7de; }
+  .cve-badge {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-size: 10px;
+    background: #f6f8fa;
+    color: #57606a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #d0d7de;
+    margin-right: 4px;
+  }
+
+  /* Severity pills */
+  .severity {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sev-critical { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .sev-high     { background: rgba(188,76,0,0.08);  color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .sev-medium   { background: rgba(154,103,0,0.1);  color: #9a6700; border: 1px solid rgba(154,103,0,0.3); }
+  .sev-low      { background: rgba(9,105,218,0.08); color: #0969da; border: 1px solid rgba(9,105,218,0.3); }
+  .sev-info     { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+
+  /* Category tag */
+  .category {
+    color: #8b949e;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Ops strip (exploitation + action) */
+  .ops-strip {
+    border-top: 1px dashed #d0d7de;
+    margin-top: 4px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ops-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11px; color: #57606a; }
+  .ops-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 2px 8px; border-radius: 10px; text-transform: uppercase;
+  }
+  .ops-tag .d { width: 6px; height: 6px; border-radius: 50%; }
+  .ex-active { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .ex-active .d { background: #cf222e; }
+  .ex-poc    { background: rgba(188,76,0,0.08); color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .ex-poc .d { background: #bc4c00; }
+  .ex-none   { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+  .ex-none .d { background: #8b949e; }
+  .kev-on  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.35); }
+  .kev-off { background: #f6f8fa; color: #6e7781; border: 1px solid #d0d7de; }
+  .patch-yes { background: rgba(26,127,55,0.08); color: #1a7f37; border: 1px solid rgba(26,127,55,0.3); }
+  .patch-no  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .patch-na  { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+  .ops-cc { font-size: 11px; color: #57606a; line-height: 1.45; }
+  .ops-cc b { color: #1f2328; font-weight: 700; }
+  .ops-assign {
+    justify-content: space-between;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    padding: 7px 9px;
+    margin-top: 1px;
+  }
+  .ops-sla b { color: #1f2328; font-weight: 700; }
+  .ops-owner { display: inline-flex; align-items: center; gap: 4px; }
+  .owner-edit {
+    color: #1f2328;
+    border-bottom: 1px dashed #afb8c1;
+    min-width: 64px;
+    display: inline-block;
+    outline: none;
+    padding: 0 2px;
+  }
+  .owner-edit:focus { border-bottom-color: #4e9da8; }
+  .owner-edit:empty:before { content: attr(data-placeholder); color: #8b949e; }
+  .status-pill {
+    font: inherit; font-size: 10px; font-weight: 700; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 10px; border: 1px solid;
+    transition: all 0.12s ease;
+  }
+  .status-pill.st-open { background: #ffffff; color: #57606a; border-color: #d0d7de; }
+  .status-pill.st-ack  { background: rgba(9,105,218,0.08); color: #0969da; border-color: rgba(9,105,218,0.4); }
+  .status-pill.st-mit  { background: rgba(26,127,55,0.08); color: #1a7f37; border-color: rgba(26,127,55,0.4); }
+  .status-pill.st-na   { background: #f6f8fa; color: #8b949e; border-color: #d0d7de; }
+
+  /* Link */
+  .source-link {
+    color: #2c7480;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+  .source-link::after { content: " \2192"; }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1f2328;
+    color: #6e7781;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .footer p { margin-bottom: 8px; }
+  .footer a { color: #2c7480; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer strong { color: #1f2328; }
+  .footer .byline { color: #424a53; }
+  .footer .byline span { color: #2c7480; font-weight: 700; }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .story-count { text-align: left; }
+    .card-grid { grid-template-columns: 1fr; }
+    .control-bar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity, exploitation, and fleet-relevance indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
+  </div>
+
+  <!-- BRAND BAR -->
+  <div class="brandbar">
+    <div class="brand">Mike Holcomb &middot; <span>OT/ICS Cybersecurity</span></div>
+    <div class="tag">In partnership with UtilSec</div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-title">
+      <h1>OT/ICS Cybersecurity Threat Intelligence</h1>
+      <div class="header-meta">
+        <span>Generated Mon, 29 Jun 2026, 21:15 ET</span>
+        <span class="dot">&bull;</span>
+        <span class="sector-badge">Sector: All Critical Infrastructure</span>
+      </div>
+    </div>
+    <div class="story-count">
+      <strong>13</strong> stories across
+      <strong>4</strong> categories
+    </div>
+  </div>
+
+  <!-- CONTROL BAR: FLEET FILTER -->
+  <div class="control-bar">
+    <div class="cb-left">
+      <span class="cb-title">My Fleet</span>
+      <span class="cb-hint">Tap the vendors in your environment to flag relevant advisories. <button class="fleet-clear" id="fleetClear">Clear</button></span>
+      <div class="fleet-chips" id="fleetChips"></div>
+    </div>
+    <div>
+      <label class="fleet-toggle">
+        <input type="checkbox" id="fleetOnly">
+        Show vendor advisories for my fleet only
+      </label>
+      <span class="fleet-status" id="fleetStatus"></span>
+    </div>
+  </div>
+
+  <!-- HERO: TOP STORY + RADAR -->
+  <div class="hero">
+
+    <!-- TOP STORY -->
+    <div class="top-story" id="story-lantronix" data-applies="incident" data-vendor="" data-vendor-label="">
+      <span class="top-story-pill">Top Story</span>
+      <h2>CISA confirms active exploitation of Lantronix EDS5000 serial-to-IP servers &mdash; unauthenticated root on the box that bridges legacy OT to the network</h2>
+      <p>The most urgent OT item this week: CISA has confirmed in-the-wild exploitation of CVE-2025-67038, a maximum-severity (CVSS 9.8) OS command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, and added it to the Known Exploited Vulnerabilities catalog as part of a four-CVE batch. An unauthenticated attacker can inject arbitrary OS commands &mdash; executed as root &mdash; and because these converters are precisely what plants use to put serial PLCs, meters and field gear onto an Ethernet network, a takeover sits directly astride the IT/OT boundary. The flaw traces to Forescout's BRIDGE:BREAK research, and this week's ICS Patch Tuesday added fresh CISA advisories for Lantronix EDS3000PS and EDS5000. Treat any internet-reachable EDS5000 as presumed-compromised, pull it off the public internet now, patch, and threat-hunt the OT segment behind it.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation</span>
+          <span class="ops-tag kev-on">In CISA KEV</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-yes">Patch available &mdash; apply immediately</span>
+          <span class="ops-cc"><b>Action:</b> Inventory all Lantronix EDS5000/EDS3000 (and UniFi OS) devices, remove internet exposure, apply vendor fixes now, rotate credentials, and threat-hunt the serial-connected OT behind each converter for signs of post-exploitation per CISA's guidance.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure sweep &mdash; 24h; patch &amp; hunt &mdash; 48h (KEV, unauth root)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="lantronix" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="lantronix">Open</button>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="severity sev-critical">Critical</span>
+        <span class="cve-badge">CVE-2025-67038</span>
+        <span>CISA KEV / Forescout (BRIDGE:BREAK)</span>
+        <span class="dot">&bull;</span>
+        <span>Added to KEV 23 Jun 2026 (active)</span>
+      </div>
+      <a href="https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-panel">
+      <div class="radar-head">Threat Radar</div>
+      <div class="radar-sub">Critical &amp; high items across all sections &mdash; larger blips = higher severity/priority. Click a blip to jump to the story.</div>
+      <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
+        <defs>
+          <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.10)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </radialGradient>
+          <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="40%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.25)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="180" r="160" fill="url(#rg)" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="110" fill="none" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="60" fill="none" stroke="#d0d7de"/>
+        <line x1="20" y1="180" x2="340" y2="180" stroke="#e5e8eb"/>
+        <line x1="180" y1="20" x2="180" y2="340" stroke="#e5e8eb"/>
+        <g class="radar-sweep">
+          <path d="M180 180 L340 180 A160 160 0 0 1 318.6 260 Z" fill="url(#sweep)"/>
+        </g>
+        <circle cx="180" cy="180" r="3" fill="#8b949e"/>
+        <text class="ring-label" x="180" y="127">Critical</text>
+        <text class="ring-label" x="180" y="77">High</text>
+
+        <!-- Critical blips (inner ring, r=60) ranked 1-4, descending size -->
+        <a href="#story-lantronix"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
+        <a href="#story-windchill"><circle class="blip crit" cx="240" cy="180" r="13.5"/><text class="blip-num" style="font-size:12px" x="240" y="184">2</text></a>
+        <a href="#story-splunk"><circle class="blip crit" cx="180" cy="240" r="12"/><text class="blip-num" style="font-size:11px" x="180" y="244">3</text></a>
+        <a href="#story-wincc"><circle class="blip crit" cx="120" cy="180" r="10.5"/><text class="blip-num" style="font-size:10px" x="120" y="183.5">4</text></a>
+
+        <!-- High blips (outer ring, r=110) ranked 5-7, descending size -->
+        <a href="#story-adriatic"><circle class="blip high" cx="258" cy="102" r="9"/><text class="blip-num" style="font-size:9px" x="258" y="105">5</text></a>
+        <a href="#story-powerlogic"><circle class="blip high" cx="102" cy="102" r="8"/><text class="blip-num" style="font-size:8.5px" x="102" y="105">6</text></a>
+        <a href="#story-patchtues"><circle class="blip high" cx="180" cy="290" r="7"/><text class="blip-num" style="font-size:8px" x="180" y="293">7</text></a>
+      </svg>
+
+      <div class="radar-legend">
+        <a href="#story-lantronix"><span class="ld crit"></span><b>1</b> Lantronix EDS5000 exploited</a>
+        <a href="#story-windchill"><span class="ld crit"></span><b>2</b> PTC Windchill in-wild RCE</a>
+        <a href="#story-splunk"><span class="ld crit"></span><b>3</b> Splunk Enterprise exploited</a>
+        <a href="#story-wincc"><span class="ld crit"></span><b>4</b> Siemens WinCC Unified RCE</a>
+        <a href="#story-adriatic"><span class="ld high"></span><b>5</b> Adriatic Port ransomware</a>
+        <a href="#story-powerlogic"><span class="ld high"></span><b>6</b> Schneider PowerLogic P7</a>
+        <a href="#story-patchtues"><span class="ld high"></span><b>7</b> ICS Patch Tuesday wave</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: Incidents & Attacks -->
+  <div class="section">
+    <div class="section-title">Incidents &amp; Attacks</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-adriatic" data-applies="incident" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Anubis ransomware crippled the Adriatic Port Authority &mdash; a maritime hit that needed no OT access</h3>
+        <p>A Resecurity case study (published 11 June) details the Anubis ransomware attack on Italy's Adriatic Sea Port Authority (port of Ancona): attackers entered via a spear-phishing email against a port-management contractor, moved laterally through insecure Microsoft 365/Azure accounts, then encrypted the IT systems behind cargo tracking, shipping schedules and customs processing and exfiltrated contracts, employee records and &mdash; more sensitively &mdash; port safety and security-operations plans. Vessels had to reroute to other ports, driving millions in losses, on a roughly $10M bitcoin demand. The pointed lesson for ports and vessel operators: the attackers never touched OT &mdash; pure IT weaknesses produced the operational shutdown, which is exactly the IT/OT-interdependency risk maritime cyber rules are written to address.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; operations disrupted (IT-only)</span>
+            <span class="ops-tag kev-off">Ransomware / Anubis (claimed &amp; leaked)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; identity, phishing &amp; resilience</span>
+            <span class="ops-cc"><b>Action:</b> Harden cloud/identity (MFA, conditional access on M365/Azure), phishing-test the third parties that manage your systems, validate IT/OT segmentation so an IT outage can't halt operations, and confirm offline backups plus a manual-fallback playbook for port/vessel functions.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Identity &amp; segmentation review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="adriatic" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="adriatic">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Resecurity / Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Analysis 11 Jun 2026 (incident Dec 2025)</span>
+        </div>
+        <a href="https://industrialcyber.co/transport/resecurity-details-anubis-ransomware-attack-on-adriatic-port-authority-exposing-maritime-infrastructure-risks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-calwater" data-applies="incident" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Cal Water: Mandiant finds no IT or OT breach after Iran-linked Handala's water-disruption claim</h3>
+        <p>California Water Service disclosed that the Iran-aligned hacktivist group Handala gained unauthorized access to accounts on two third-party service-provider platforms and leaked roughly 5&nbsp;GB of data. Google's Mandiant investigated and concluded the activity did not reach Cal Water's own IT or OT environments and produced no service impact, despite Handala's public claim it could disrupt the water supply. The episode is a clean reminder that hacktivist &ldquo;we breached a water utility&rdquo; claims routinely outrun the facts &mdash; and that fast, evidence-based forensics and messaging matter as much as the technical containment when nation-state-aligned actors target the water sector through supply-chain access.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Claimed &mdash; no confirmed IT/OT impact</span>
+            <span class="ops-tag kev-off">Hacktivist / Handala (claimed)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; third-party &amp; identity hygiene</span>
+            <span class="ops-cc"><b>Action:</b> Inventory third-party SaaS/service-provider access into your environment, enforce MFA and least privilege on those accounts, and pre-stage incident messaging so an exaggerated claim doesn't set the public narrative.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Third-party access review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="calwater" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="calwater">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek / Mandiant</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (claim; no confirmed OT impact)</span>
+        </div>
+        <a href="https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Threat Intelligence & Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-fiveeyes" data-applies="intel" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-info">Alert</span>
+          <span class="category">Threat Outlook</span>
+        </div>
+        <h3>Five Eyes joint alert: frontier AI will reshape cyber offense and defense &ldquo;within months&rdquo;</h3>
+        <p>Cybersecurity agencies from the US, UK, Canada, Australia and New Zealand issued a rare joint alert (23 June) warning that frontier AI models are about to surpass current capabilities and will fundamentally change both offensive and defensive cyber operations &mdash; on a timeline measured in months, not years. The agencies urged immediate action to strengthen defenses, accelerate patching and confront legacy-system risk, calling out OT and critical-infrastructure sectors where slow patch cycles leave the widest gap. The practical read for OT operators: the window to close basic exposure (internet-facing devices, weak credentials, flat networks) is shrinking as automated attack tooling matures.</p>
+        <div class="card-meta">
+          <span>The Record (joint Five Eyes alert)</span>
+          <span class="dot">&bull;</span>
+          <span>23 Jun 2026</span>
+        </div>
+        <a href="https://therecord.media/five-eyes-alert-artificial-intelligence" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-ncsc" data-applies="intel" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-info">Assessment</span>
+          <span class="category">Nation-State</span>
+        </div>
+        <h3>UK NCSC chief warns critical infrastructure is under sustained pressure from Russia, China and Iran</h3>
+        <p>The UK National Cyber Security Centre's leadership warned that British critical national infrastructure faces sustained, persistent cyber pressure from state actors &mdash; Russia, China and Iran &mdash; spanning espionage, pre-positioning and disruptive intent, and urged operators to prioritize resilience rather than assume deterrence will hold. For OT operators the message reinforces what Dragos and others have reported: adversaries are increasingly interested in the access and control-loop knowledge that enables physical impact, so segmentation, monitoring, tested recovery and removal of internet-exposed assets remain the highest-leverage investments.</p>
+        <div class="card-meta">
+          <span>UK NCSC / Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/critical-infrastructure/ncscs-horne-warns-uk-infrastructure-under-sustained-cyber-pressure-from-russia-china-and-iran-urges-resilience/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-dragosyir" data-applies="intel" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-info">Report</span>
+          <span class="category">Year in Review</span>
+        </div>
+        <h3>Dragos 2026 OT/ICS Year in Review: ransomware on industrials up 49%, AI-assisted intrusions arrive, adversaries map the control loop</h3>
+        <p>Dragos's newly released annual report finds ransomware groups hitting industrial organizations grew roughly 49% year over year, with more than 3,300 victims and manufacturing absorbing the brunt. Two threads stand out for OT defenders. First, adversaries are moving past mere persistence to actively learn the physics of a process &mdash; exfiltrating configuration files, logic and alarm data to understand how the plant runs &mdash; raising the ceiling on potential physical impact. Second, the report documents the first AI-assisted intrusions reaching toward OT, including a municipal water-and-drainage utility case where attackers leveraged commercial LLMs during an enterprise-IT compromise that escalated toward the OT boundary. The practical takeaway is unchanged but more urgent: segment IT from OT, kill internet-exposed devices, monitor east-west traffic, and rehearse manual recovery.</p>
+        <div class="card-meta">
+          <span>Dragos (2026 Year in Review) / Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (annual report)</span>
+        </div>
+        <a href="https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Critical Advisories -->
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-windchill" data-applies="advisory" data-vendor="ptc" data-vendor-label="PTC">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>PTC Windchill &amp; FlexPLM &mdash; improper-input-validation RCE exploited in the wild, added to CISA KEV</h3>
+        <p>CVE-2026-12569, a critical RCE in PTC Windchill and FlexPLM, has been confirmed exploited in the wild and added to CISA's KEV catalog (25 June batch) with an urgent federal remediation deadline. Attackers have dropped persistent JSP web shells to run commands and exfiltrate data. Windchill is the product-lifecycle-management backbone for automotive, aerospace, defense and other discrete manufacturers, so a compromise exposes engineering drawings, BOMs and supply-chain data &mdash; and a pivot toward connected OT and shop-floor systems. PTC has shipped patches and published indicators of compromise; hunt before assuming you're clean.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-12569</span>
+          <span>CISA KEV / PTC</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; web shells observed in the wild</span>
+            <span class="ops-tag kev-on">In CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (PTC) + published IoCs</span>
+            <span class="ops-cc"><b>Action:</b> Patch Windchill/FlexPLM now, hunt for unexpected JSP files and web shells using PTC's IoCs, restrict internet exposure of the PLM tier, and review what OT and supply-chain data it can reach.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 48h (KEV, active)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="windchill" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="windchill">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV alert (25 Jun 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>PTC Windchill / FlexPLM</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-splunk" data-applies="advisory" data-vendor="splunk" data-vendor-label="Splunk">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Splunk Enterprise RCE exploited in attacks days after disclosure &mdash; a blind-spot risk for OT monitoring</h3>
+        <p>SecurityWeek reports that CVE-2026-20253, a critical unauthenticated remote-code-execution flaw in Splunk Enterprise, is being exploited in attacks just days after disclosure; CISA added it to the KEV catalog on 18 June. The bug stems from a missing authentication check on a sidecar recovery endpoint reachable through Splunk Web, and attackers can chain file-write primitives to execute code as the Splunk service account &mdash; enabling log tampering, credential theft and lateral movement. Because Splunk is the security-telemetry hub for many industrial operators, its compromise can blind defenders to OT activity and clear the path for deeper intrusion, making this a monitoring-integrity problem rather than just an IT patch.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20253</span>
+          <span>CISA KEV / Splunk / SecurityWeek</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited days after disclosure</span>
+            <span class="ops-tag kev-on">In CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Splunk)</span>
+            <span class="ops-cc"><b>Action:</b> Patch Splunk Enterprise immediately, restrict Splunk Web exposure, validate the integrity of OT-relevant logs and detections, and hunt for tampering or unexpected activity under the Splunk service account.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 48h (KEV, active, unauth RCE)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="splunk" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="splunk">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek / CISA KEV</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (Splunk Enterprise)</span>
+        </div>
+        <a href="https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-wincc" data-applies="advisory" data-vendor="siemens" data-vendor-label="Siemens">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Siemens WinCC Unified Certificate Manager &mdash; critical RCE spanning releases from V16 through V21</h3>
+        <p>A CISA/Siemens advisory (ICSA-26-174-01) covers a critical remote-code-execution weakness in the WinCC Unified Certificate Manager, the component that handles certificates for Siemens' flagship SCADA/HMI platform. Because the issue affects a long line of releases &mdash; reportedly every build from V16 through V21 &mdash; the installed base is very large across manufacturing, energy and water operators running WinCC Unified. Compromising the certificate manager undermines the trust fabric the visualization and control layer relies on. Siemens has published fixes and interim mitigations; prioritize patching and restrict access to the certificate-management function in the meantime. (Consult the advisory for exact CVE IDs and CVSS.)</p>
+        <div class="card-meta">
+          <span class="cve-badge">ICSA-26-174-01</span>
+          <span>CISA / Siemens ProductCERT</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (+ mitigations)</span>
+            <span class="ops-cc"><b>If you can't patch:</b> Apply Siemens' fixes; meanwhile restrict and segment access to the WinCC Unified certificate-management function, limit who can reach the host, and monitor for unexpected certificate or configuration changes.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 7 days (critical RCE, broad install base)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wincc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wincc">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-174-01)</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (WinCC Unified Certificate Manager)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-01" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-powerlogic" data-applies="advisory" data-vendor="schneider" data-vendor-label="Schneider Electric">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Schneider Electric PowerLogic P7 &mdash; OS command injection on a protection-and-control relay (CVSS up to 7.5)</h3>
+        <p>CISA advisory ICSA-26-176-07 covers multiple flaws in Schneider's PowerLogic P7 protection-and-control relay (CVE-2026-9716/-9717/-9718), including an OS command-injection weakness that can allow execution of commands with elevated privileges when a privileged, authenticated user reaches a network-exposed service &mdash; alongside denial-of-service conditions. CVSS tops out around 7.5 (High), but the consequence on a protection relay is what matters: command execution or a forced outage on this class of device can mean loss of visibility or control over part of the electrical network. Schneider has released fixed firmware (V02.004.001); where you can't patch immediately, restrict access to the P7 service ports (8080/3702), apply least privilege, and watch for anomalous requests.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-9716</span>
+          <span>CISA ICS Advisory / Schneider Electric</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (firmware V02.004.001)</span>
+            <span class="ops-cc"><b>If you can't patch:</b> Apply Schneider's firmware; meanwhile restrict network access to P7 endpoints (ports 8080/3702), enforce least privilege for anyone interacting with the relay, and alert on anomalous SOAP/management requests.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 14 days (High; protection-relay impact)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="powerlogic" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="powerlogic">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-176-07)</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (PowerLogic P7)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-07" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-patchtues" data-applies="advisory" data-vendor="schneider" data-vendor-label="Schneider Electric">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>ICS Patch Tuesday &mdash; Siemens, Schneider, Moxa and Mitsubishi ship a fresh wave of fixes</h3>
+        <p>This month's ICS Patch Tuesday saw Siemens and Schneider Electric each publish six new advisories, with Moxa and Mitsubishi Electric adding more. The standout for asset owners is Schneider's EcoStruxure Automation Expert, where flaws can allow command execution and full system compromise; Schneider also flagged hard-coded credentials in EcoStruxure IT Data Center Expert and local code execution in Power Monitoring Expert / Power Operation, plus Modicon controller DoS/account-takeover and a Foxboro DCS RCE. CISA published companion advisories for Ceragon Siklu MultiHaul/EtherHaul, Lantronix EDS3000PS/EDS5000 and Apeman cameras, and VDE-CERT covered CODESYS, Janitza and Weidmueller. Map the wave to your installed base and prioritize the full-compromise and credential issues.</p>
+        <div class="card-meta">
+          <span class="cve-badge">ICS Patch Tuesday</span>
+          <span>SecurityWeek / vendor PSIRTs</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">Multi-vendor &mdash; mixed severity</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor fixes / mitigations available</span>
+            <span class="ops-cc"><b>Action:</b> Triage the advisories against your inventory, prioritize Schneider EcoStruxure Automation Expert (full compromise) and hard-coded-credential items, and apply or compensate per each vendor's guidance.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Triage &mdash; 7 days; high-impact items &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="patchtues" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="patchtues">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek (ICS Patch Tuesday)</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (Siemens / Schneider / Moxa / Mitsubishi)</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-moxa-mitsubishi-electric/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Regulation & Policy -->
+  <div class="section">
+    <div class="section-title">Regulation &amp; Policy</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-nerccip" data-applies="policy" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-info">Policy</span>
+          <span class="category">Standard</span>
+        </div>
+        <h3>NERC CIP-012-2 takes effect 1 July 2026 &mdash; two days away &mdash; tighter protection for control-center data</h3>
+        <p>The revised NERC CIP-012-2 standard becomes enforceable on 1 July, now two days out, strengthening requirements to protect the confidentiality and integrity of real-time assessment and monitoring data exchanged between control centers and closing gaps the earlier version left around how that inter-control-center traffic is secured. For bulk-electric-system operators it is an immediate compliance milestone; for everyone else it is a useful reminder that control-center-to-control-center links are a prime target and deserve encryption, integrity protection and monitoring regardless of regulatory scope.</p>
+        <div class="card-meta">
+          <span>NERC</span>
+          <span class="dot">&bull;</span>
+          <span>Effective 1 Jul 2026</span>
+        </div>
+        <a href="https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-nis2" data-applies="policy" data-vendor="" data-vendor-label="">
+        <span class="fleet-ribbon">In your fleet</span>
+        <div class="card-header">
+          <span class="severity sev-info">Policy</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>EU NIS2: first compliance-audit deadline lands 30 June 2026 &mdash; tomorrow</h3>
+        <p>The deadline for in-scope entities to complete their first NIS2 compliance audit falls on 30 June 2026 &mdash; tomorrow &mdash; and 2026 is shaping up as the year first enforcement actions begin to bite, even as the Commission works through targeted NIS2 simplification amendments. For OT operators and vendors serving EU critical infrastructure, IEC 62443 remains the practical control set regulators and customers expect to see evidenced, so it is worth a final check on where clients sit against the timeline and whether their assessment evidence is genuinely audit-ready rather than aspirational.</p>
+        <div class="card-meta">
+          <span>European Commission</span>
+          <span class="dot">&bull;</span>
+          <span>Jun 2026 (deadline 30 Jun)</span>
+        </div>
+        <a href="https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
+    <p><strong>How to use the action fields.</strong> "My Fleet" flags and (optionally) filters vendor advisories to the gear you run; incidents, intelligence and policy always remain visible. Exploitation and CISA&nbsp;KEV indicators reflect status at generation time &mdash; "No known exploitation / Not in CISA KEV" means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status entries are saved only in your local browser and are not transmitted anywhere.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor PSIRTs (Siemens, Schneider Electric, PTC, Splunk, Lantronix, Moxa, Mitsubishi), Forescout, Resecurity, the UK NCSC, the Five Eyes agencies, Doppel, NERC and the European Commission, via reporting from SecurityWeek, Industrial Cyber and others. Default lookback: 7&ndash;14 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var LS = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+  };
+  var STATUSES = [
+    { key: "open", label: "Open",         cls: "st-open" },
+    { key: "ack",  label: "Acknowledged", cls: "st-ack" },
+    { key: "mit",  label: "Mitigated",    cls: "st-mit" },
+    { key: "na",   label: "Not applicable", cls: "st-na" }
+  ];
+  function statusByKey(k) { for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === k) return STATUSES[i]; } return STATUSES[0]; }
+
+  // ---- Owner (editable, persisted) ----
+  var owners = document.querySelectorAll(".owner-edit");
+  owners.forEach(function (el) {
+    var key = "otdash.owner." + el.getAttribute("data-key");
+    var saved = LS.get(key);
+    if (saved) el.textContent = saved;
+    el.addEventListener("blur", function () {
+      var val = el.textContent.replace(/\s+/g, " ").trim();
+      el.textContent = val;
+      if (val) LS.set(key, val); else LS.del(key);
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); el.blur(); }
+    });
+  });
+
+  // ---- Status pill (cycle, persisted) ----
+  var pills = document.querySelectorAll(".status-pill");
+  pills.forEach(function (btn) {
+    var key = "otdash.status." + btn.getAttribute("data-key");
+    function render(stKey) {
+      var st = statusByKey(stKey);
+      btn.className = "status-pill " + st.cls;
+      btn.textContent = st.label;
+    }
+    render(LS.get(key) || "open");
+    btn.addEventListener("click", function () {
+      var cur = LS.get(key) || "open";
+      var idx = 0;
+      for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === cur) { idx = i; break; } }
+      var next = STATUSES[(idx + 1) % STATUSES.length].key;
+      LS.set(key, next);
+      render(next);
+    });
+  });
+
+  // ---- Fleet filter ----
+  var advisoryCards = Array.prototype.slice.call(document.querySelectorAll('[data-applies="advisory"]'));
+  var allCards = Array.prototype.slice.call(document.querySelectorAll(".card, .top-story"));
+  var chipWrap = document.getElementById("fleetChips");
+  var fleetOnly = document.getElementById("fleetOnly");
+  var fleetClear = document.getElementById("fleetClear");
+  var fleetStatus = document.getElementById("fleetStatus");
+
+  var vendorMap = {};
+  advisoryCards.forEach(function (c) {
+    var v = c.getAttribute("data-vendor");
+    var label = c.getAttribute("data-vendor-label");
+    if (v && !vendorMap[v]) vendorMap[v] = label || v;
+  });
+
+  function loadSelected() {
+    try { return new Set(JSON.parse(LS.get("otdash.fleet") || "[]")); }
+    catch (e) { return new Set(); }
+  }
+  function saveSelected(set) { LS.set("otdash.fleet", JSON.stringify(Array.prototype.slice.call(set))); }
+  var selected = loadSelected();
+
+  Object.keys(vendorMap).sort().forEach(function (v) {
+    var b = document.createElement("button");
+    b.className = "fleet-chip";
+    b.setAttribute("data-vendor", v);
+    b.setAttribute("aria-pressed", selected.has(v) ? "true" : "false");
+    b.innerHTML = '<span class="chk">' + (selected.has(v) ? "✓" : "+") + '</span>' + vendorMap[v];
+    b.addEventListener("click", function () {
+      if (selected.has(v)) selected.delete(v); else selected.add(v);
+      saveSelected(selected);
+      b.setAttribute("aria-pressed", selected.has(v) ? 
