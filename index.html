@@ -514,7 +514,7 @@
     <div class="header-title">
       <h1>OT/ICS Cybersecurity Threat Intelligence</h1>
       <div class="header-meta">
-        <span>Generated Tue, 30 Jun 2026, 18:16 ET</span>
+        <span>Generated Wed, 01 Jul 2026, 00:15 ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -529,33 +529,32 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-ubiquiti" data-applies="advisory" data-vendor="ubiquiti" data-vendor-label="Ubiquiti">
+    <div class="top-story" id="story-quebec" data-applies="incident" data-vendor="" data-vendor-label="">
       <span class="top-story-pill">Top Story</span>
-      <h2>Max-severity Ubiquiti UniFi OS chain is under active exploitation &mdash; full root takeover of the network gear that underpins many OT and building sites</h2>
-      <p>The most urgent item this week is a three-flaw chain in Ubiquiti UniFi OS that CISA confirmed is being exploited in the wild and added to its Known Exploited Vulnerabilities catalog on 23 June, with a 26 June federal remediation deadline that has now passed. The chain &mdash; CVE-2026-34908 (improper access control), CVE-2026-34909 (path traversal) and CVE-2026-34910 (improper input validation / OS command injection), each rated at the maximum CVSS 9.8&ndash;10.0 &mdash; lets a network-adjacent attacker with no credentials reach arbitrary command execution, and Bishop Fox researchers showed the three can be chained into full remote code execution with root privileges. UniFi gateways, switches and controllers are widely deployed at industrial plants, utilities, remote sites and commercial facilities, frequently sitting astride the IT/OT boundary and providing the routing, segmentation and remote access that OT depends on &mdash; so a root-level compromise of this layer is a direct path to pivot toward control networks. Treat any internet-reachable UniFi device as presumed-targeted: update UniFi OS now, pull management interfaces off the public internet, rotate credentials and admin sessions, and hunt the connected OT segments for follow-on activity.</p>
+      <h2>Canada confirms a pro-Russia group gained hands-on control of a Quebec water plant's OT &mdash; pumps, chlorine dosing and pressure were all reachable</h2>
+      <p>The most alarming item this cycle is a confirmed operational-technology compromise, not just a claim. In its latest annual report, Canada's Communications Security Establishment (CSE) and its Canadian Centre for Cyber Security disclosed that the pro-Russia group NoName057(16) reached the control systems of an unnamed Quebec municipality's water treatment plant and gained the ability to covertly manipulate pumps, chlorine dosing, pressure settings and the monitoring and alerting that operators rely on. CSE learned of the intrusion from the group's own public boast and then verified the access; the agency logged more than 3,200 cyber incidents touching federal bodies or the ten critical-infrastructure sectors over the reporting period. What makes this stand out from the steady stream of inflated hacktivist claims is that a national cyber authority confirmed genuine reach into safety-critical process controls at a water utility &mdash; the exact nightmare scenario the sector has warned about. Treat it as a template threat: assume internet-exposed or weakly-authenticated HMI/SCADA at small utilities is being hunted, verify no unauthorized changes to chemical-dosing or pressure setpoints, pull operator interfaces off any public path, and enforce MFA on all remote access.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation</span>
-          <span class="ops-tag kev-on">In CISA KEV</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified OT control access</span>
+          <span class="ops-tag kev-off">Nation-state / pro-Russia (NoName057(16))</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Patch available (Ubiquiti)</span>
-          <span class="ops-cc"><b>Action:</b> Inventory all UniFi OS gateways/consoles, update to the fixed firmware immediately, remove internet exposure of management/UI ports, rotate admin credentials and active sessions, and threat-hunt OT and remote-access paths that sit behind UniFi infrastructure for signs of post-exploitation.</span>
+          <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; access hardening</span>
+          <span class="ops-cc"><b>Action:</b> Verify pumps, chemical-dosing and pressure setpoints against known-good baselines, remove internet exposure of HMI/SCADA and remote-access paths, enforce MFA and strong unique credentials, and hunt for unauthorized logic or configuration changes on water/wastewater control systems.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; patch &mdash; 48h (KEV, unauth root RCE)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ubiquiti" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="ubiquiti">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Setpoint integrity &amp; exposure check &mdash; 72h (confirmed OT reach)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="quebec" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="quebec">Open</button>
         </div>
       </div>
       <div class="card-meta">
         <span class="severity sev-critical">Critical</span>
-        <span class="cve-badge">CVE-2026-34910</span>
-        <span>CISA KEV / Ubiquiti (CVSS up to 10.0)</span>
+        <span>CSE / Canadian Centre for Cyber Security (annual report)</span>
         <span class="dot">&bull;</span>
-        <span>KEV 23 Jun 2026 &mdash; exploitation ongoing</span>
+        <span>Reported 29 Jun 2026 &mdash; confirmed OT access</span>
       </div>
-      <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-max-severity-ubiquiti-flaws-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.govinfosecurity.com/russian-water-system-hack-attempted-to-turn-canada-dry-a-32122" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -585,26 +584,28 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <!-- Critical blips (inner ring, r=60) ranked 1-4, descending size -->
-        <a href="#story-ubiquiti"><circle class="blip crit" cx="222" cy="138" r="15"/><text class="blip-num" style="font-size:13px" x="222" y="142.5">1</text></a>
-        <a href="#story-windchill"><circle class="blip crit" cx="138" cy="138" r="13.5"/><text class="blip-num" style="font-size:12px" x="138" y="142">2</text></a>
-        <a href="#story-lantronix"><circle class="blip crit" cx="138" cy="222" r="12"/><text class="blip-num" style="font-size:11px" x="138" y="225.5">3</text></a>
-        <a href="#story-rockwell"><circle class="blip crit" cx="222" cy="222" r="10.5"/><text class="blip-num" style="font-size:10px" x="222" y="225.5">4</text></a>
+        <!-- Critical blips (inner ring, r=60) ranked 1-6, descending size -->
+        <a href="#story-quebec"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
+        <a href="#story-ubiquiti"><circle class="blip crit" cx="232" cy="150" r="13.8"/><text class="blip-num" style="font-size:12px" x="232" y="154">2</text></a>
+        <a href="#story-windchill"><circle class="blip crit" cx="232" cy="210" r="12.6"/><text class="blip-num" style="font-size:11px" x="232" y="213.5">3</text></a>
+        <a href="#story-lantronix"><circle class="blip crit" cx="180" cy="240" r="11.4"/><text class="blip-num" style="font-size:10px" x="180" y="243.5">4</text></a>
+        <a href="#story-stonefly"><circle class="blip crit" cx="128" cy="210" r="10.6"/><text class="blip-num" style="font-size:9.5px" x="128" y="213.5">5</text></a>
+        <a href="#story-rockwell"><circle class="blip crit" cx="128" cy="150" r="10"/><text class="blip-num" style="font-size:9px" x="128" y="153">6</text></a>
 
-        <!-- High blips (outer ring, r=110) ranked 5-7, descending size -->
-        <a href="#story-iranplc"><circle class="blip high" cx="275" cy="125" r="9"/><text class="blip-num" style="font-size:9px" x="275" y="128">5</text></a>
-        <a href="#story-powerlogic"><circle class="blip high" cx="85" cy="125" r="8"/><text class="blip-num" style="font-size:8px" x="85" y="128">6</text></a>
-        <a href="#story-siemens"><circle class="blip high" cx="180" cy="290" r="7"/><text class="blip-num" style="font-size:7.5px" x="180" y="292.5">7</text></a>
+        <!-- High blips (outer ring, r=110) ranked 7-8, descending size -->
+        <a href="#story-iranplc"><circle class="blip high" cx="235" cy="85" r="9"/><text class="blip-num" style="font-size:8.5px" x="235" y="88">7</text></a>
+        <a href="#story-powerlogic"><circle class="blip high" cx="125" cy="275" r="8"/><text class="blip-num" style="font-size:7.5px" x="125" y="277.5">8</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-ubiquiti"><span class="ld crit"></span><b>1</b> Ubiquiti UniFi OS RCE chain</a>
-        <a href="#story-windchill"><span class="ld crit"></span><b>2</b> PTC Windchill in-wild RCE</a>
-        <a href="#story-lantronix"><span class="ld crit"></span><b>3</b> Lantronix EDS5000 exploited</a>
-        <a href="#story-rockwell"><span class="ld crit"></span><b>4</b> Rockwell FLEX I/O 9.4 flaw</a>
-        <a href="#story-iranplc"><span class="ld high"></span><b>5</b> Iran-linked PLC exploitation</a>
-        <a href="#story-powerlogic"><span class="ld high"></span><b>6</b> Schneider PowerLogic P7</a>
-        <a href="#story-siemens"><span class="ld high"></span><b>7</b> Siemens June advisory wave</a>
+        <a href="#story-quebec"><span class="ld crit"></span><b>1</b> Quebec water plant OT hack</a>
+        <a href="#story-ubiquiti"><span class="ld crit"></span><b>2</b> Ubiquiti UniFi OS RCE chain</a>
+        <a href="#story-windchill"><span class="ld crit"></span><b>3</b> PTC Windchill in-wild RCE</a>
+        <a href="#story-lantronix"><span class="ld crit"></span><b>4</b> Lantronix EDS5000 exploited</a>
+        <a href="#story-stonefly"><span class="ld crit"></span><b>5</b> StoneFly root command inject</a>
+        <a href="#story-rockwell"><span class="ld crit"></span><b>6</b> Rockwell FLEX I/O 9.4 flaw</a>
+        <a href="#story-iranplc"><span class="ld high"></span><b>7</b> Iran-linked PLC exploitation</a>
+        <a href="#story-powerlogic"><span class="ld high"></span><b>8</b> Schneider PowerLogic P7</a>
       </div>
     </div>
 
@@ -621,7 +622,7 @@
           <span class="category">Incident</span>
         </div>
         <h3>CISA/FBI: Iranian-affiliated actors are still hitting internet-exposed Allen-Bradley PLCs &mdash; with confirmed operational disruption</h3>
-        <p>U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers across water and wastewater, energy and government-facilities sectors, a campaign running since at least March and re-emphasized amid heightened Middle East tensions this month. Unlike the many inflated hacktivist claims, this activity is agency-confirmed and some victims have experienced real operational disruption and financial loss. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits &mdash; which makes the fix largely one of hygiene and exposure reduction. Get every PLC and OT device off the public internet or behind a VPN with MFA, change all default/shared credentials, and hunt for unexpected configuration or logic changes on internet-reachable controllers.</p>
+        <p>U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers across water and wastewater, energy and government-facilities sectors, a campaign running since at least March and re-emphasized this month amid heightened Middle East tensions. Unlike the many inflated hacktivist claims, this activity is agency-confirmed and some victims have experienced real operational disruption and financial loss. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits &mdash; which makes the fix largely one of hygiene and exposure reduction. Get every PLC and OT device off the public internet or behind a VPN with MFA, change all default/shared credentials, and hunt for unexpected configuration or logic changes on internet-reachable controllers.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified, operational disruption reported</span>
@@ -638,11 +639,11 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / FBI joint advisory (AA26-097a)</span>
+          <span>CISA / FBI joint advisory</span>
           <span class="dot">&bull;</span>
-          <span>Ongoing 2026 &mdash; re-warned amid Mideast tensions</span>
+          <span>Ongoing &mdash; re-warned Jun 2026 amid Mideast tensions</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-calwater" data-applies="incident" data-vendor="" data-vendor-label="">
@@ -651,7 +652,7 @@
           <span class="category">Incident</span>
         </div>
         <h3>Cal Water: Mandiant finds no IT or OT breach after Iran-linked Handala's water-disruption claim</h3>
-        <p>California Water Service disclosed that the Iran-aligned hacktivist group Handala gained unauthorized access to a small set of accounts on third-party service-provider platforms and leaked data tied to utilities serving Bakersfield, Visalia and Chico. Google's Mandiant investigated and concluded the activity was limited to a GPS-correction server and a billing database and did not reach Cal Water's own IT or OT environments or affect service, despite Handala's public claim it could disrupt the water supply. The episode is a clean reminder that hacktivist &ldquo;we breached a water utility&rdquo; claims routinely outrun the facts &mdash; and that fast, evidence-based forensics and messaging matter as much as containment when nation-state-aligned actors target the water sector through supply-chain access.</p>
+        <p>California Water Service disclosed that the Iran-aligned hacktivist group Handala gained unauthorized access to a small set of accounts on third-party service-provider platforms and leaked roughly 5&nbsp;GB of data tied to utilities serving Bakersfield, Visalia and Chico. Google's Mandiant investigated and concluded the activity was limited to a GPS-correction server and a billing database and did not reach Cal Water's own IT or OT environments or affect service, despite Handala's public claim it could disrupt the water supply. The episode is a clean reminder that hacktivist &ldquo;we breached a water utility&rdquo; claims routinely outrun the facts &mdash; and that fast, evidence-based forensics and messaging matter as much as containment when nation-state-aligned actors target the water sector through supply-chain access.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-poc"><span class="d"></span>Claimed &mdash; no confirmed IT/OT impact</span>
@@ -683,34 +684,19 @@
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
 
-      <div class="card" id="story-harmonic" data-applies="intel" data-vendor="" data-vendor-label="">
+      <div class="card" id="story-dragosyir" data-applies="intel" data-vendor="" data-vendor-label="">
         <div class="card-header">
           <span class="severity sev-info">Research</span>
-          <span class="category">Grid / DER</span>
+          <span class="category">Threat Groups</span>
         </div>
-        <h3>&ldquo;Harmonic swarm&rdquo; research weaponizes distributed energy resources against the grid</h3>
-        <p>Emerging research highlighted around the S4 conference describes a &ldquo;harmonic swarm&rdquo; attack that abuses centralized control over software-defined smart inverters in distributed energy resources. By retuning inverter parameters to inject coordinated high-frequency signals &mdash; reportedly above the roughly 3&nbsp;kHz range that conventional protection relays monitor &mdash; an attacker could drive grid-wide oscillations and electrical stress on substation transformers while staying beneath the threshold that trips standard protection. The broader point for asset owners: as generation shifts from mechanical machines to fleets of internet-connected, software-controlled inverters, the grid becomes programmable and the aggregate cyber control of many small DER assets becomes a systemic risk that traditional relay protection wasn't designed to catch. It's a forward-looking threat model, not a confirmed in-the-wild incident, but it argues for treating DER aggregation platforms and inverter management as critical OT.</p>
+        <h3>Dragos 2026 Year in Review: adversaries move from pre-positioning to actively mapping physical control loops</h3>
+        <p>Dragos published its 2026 OT/ICS Cybersecurity Year in Review, drawing on incident-response engagements, threat intelligence and vulnerability research. The headline shift is that adversaries are no longer just breaking in and waiting &mdash; several are now mapping control loops to understand how to manipulate physical processes. Dragos names three newly tracked groups (AZURITE, PYROXENE and SYLVANITE) and documents expansion by ELECTRUM and KAMACITE into the U.S. and Europe, alongside continued VOLTZITE and BAUXITE activity. It also argues that ransomware's OT impact is being systematically under-counted through misclassification. For defenders the takeaway is to prioritize visibility into the control layer and to treat any adversary that has reached engineering or HMI systems as a candidate for process manipulation, not just data theft.</p>
         <div class="card-meta">
-          <span>S4 / IIoT World</span>
+          <span>Dragos / Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Jun 2026 (research / threat model)</span>
+          <span>23 Jun 2026 (report)</span>
         </div>
-        <a href="https://www.iiot-world.com/ics-security/industrial-cybersecurity-threats-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-lontalk" data-applies="intel" data-vendor="" data-vendor-label="">
-        <div class="card-header">
-          <span class="severity sev-info">Research</span>
-          <span class="category">Protocol Risk</span>
-        </div>
-        <h3>Claroty Team82: 1990s LonTalk protocol now exposed over IP is a quiet attack surface in building management systems</h3>
-        <p>Claroty's Team82 published research on LonTalk, a 1990s building-automation protocol still embedded in legacy BMS across commercial real estate, retail, hospitality and data centers. The concern is the move to carry LonTalk over IP via CEA-852: gateways and servers designed for isolated serial networks are now reachable from enterprise networks and, in some cases, the internet. Team82 says it identified vulnerabilities and design weaknesses in the IP implementation that create remote attack paths into exposed BMS gateways, and an internet scan turned up a meaningful number of exposed controllers. For owners of large facilities, the practical step is to inventory LonTalk/CEA-852 devices, get them off any internet-reachable path, and segment building-automation networks away from both IT and core OT.</p>
-        <div class="card-meta">
-          <span>Claroty Team82 / Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Jun 2026 (research)</span>
-        </div>
-        <a href="https://industrialcyber.co/threat-landscape/claroty-team82-warns-of-growing-cybersecurity-risks-in-legacy-lontalk-protocols-across-bms-deployments/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.dragos.com/blog/ot-threat-landscape-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-accenture" data-applies="intel" data-vendor="" data-vendor-label="">
@@ -719,11 +705,11 @@
           <span class="category">Market</span>
         </div>
         <h3>Accenture to buy a majority of Dragos plus all of runZero and NetRise in a ~$4.18B OT-security push</h3>
-        <p>Accenture announced agreements to acquire a majority stake in Dragos and 100% of runZero and NetRise at a combined enterprise value of roughly $4.18 billion (Dragos alone valued near $3.2B), with the deals expected to close around August&ndash;September 2026 subject to regulatory approval. Dragos is set to remain an independent business under CEO Robert Lee and absorb runZero's asset-discovery and NetRise's firmware/supply-chain visibility. For asset owners the signal is consolidation: a Big Four integrator is betting heavily that OT detection, asset intelligence and firmware visibility belong in one critical-infrastructure platform &mdash; worth watching for how it affects tooling, threat-intel access and vendor independence.</p>
+        <p>Accenture announced agreements to acquire a majority stake in Dragos and 100% of runZero and NetRise at a combined enterprise value of roughly $4.18 billion, with Dragos valued near $3.2B and the deals expected to close around August&ndash;September 2026 subject to regulatory approval. Dragos is set to remain an independent business absorbing runZero's exposure/asset-discovery and NetRise's firmware and software-supply-chain visibility. The three units are said to generate roughly $208M in annual recurring revenue. For asset owners the signal is consolidation: a Big Four integrator is betting heavily that OT detection, asset intelligence and firmware visibility belong in one critical-infrastructure platform &mdash; worth watching for how it affects tooling, threat-intel access and vendor independence.</p>
         <div class="card-meta">
-          <span>SecurityWeek / Accenture</span>
+          <span>SecurityWeek / Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>23 Jun 2026</span>
+          <span>18 Jun 2026</span>
         </div>
         <a href="https://www.securityweek.com/accenture-to-acquire-majority-stake-in-dragos-all-of-runzero-netrise-in-4-1-billion-ot-cybersecurity-push/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -736,15 +722,49 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
+      <div class="card" id="story-stonefly" data-applies="advisory" data-vendor="" data-vendor-label="">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>StoneFly Storage Concentrator &mdash; unauthenticated command injection gives root on the storage tier behind many OT and DIB sites</h3>
+        <p>CISA advisory ICSA-26-181-06 (30 June) covers vulnerabilities in StoneFly Storage Concentrator and its virtual-machine variant, the most serious being a command-injection flaw in the ms_service.pl service that listens on TCP 9000 by default. A remote, unauthenticated attacker can send a crafted packet whose payload is processed without adequate sanitization, yielding arbitrary command execution with root-level privileges &mdash; a full takeover of the storage appliance. CISA lists impact across Defense Industrial Base, Energy, Healthcare, Financial Services and IT sectors, where these concentrators often hold backups and shared data for adjacent OT and enterprise systems. Update to the fixed release (8.0.4.29 or later), remove any exposure of the management/service ports, and restrict who can reach the appliance while you verify integrity.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-56415</span>
+          <span>CISA ICS Advisory / StoneFly</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (v8.0.4.29+)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory StoneFly Storage Concentrator appliances and VMs, upgrade to 8.0.4.29 or later, block external access to TCP 9000 and the management interface, and verify appliance integrity and backups given the unauthenticated root path.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; patch &mdash; 72h (unauth root RCE)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="stonefly" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="stonefly">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-181-06)</span>
+          <span class="dot">&bull;</span>
+          <span>30 Jun 2026 (StoneFly Storage Concentrator)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-06" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-windchill" data-applies="advisory" data-vendor="ptc" data-vendor-label="PTC">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
         <h3>PTC Windchill RCE under active exploitation &mdash; the PLM backbone that holds engineering drawings and pivots toward the shop floor</h3>
-        <p>On 25 June CISA added a critical (CVSS ~9.3) improper-input-validation flaw enabling unauthenticated remote code execution in PTC Windchill PDMLink/FlexPLM to its Known Exploited Vulnerabilities catalog, with a 28 June federal remediation deadline. Reporting indicates attackers continued dropping web shells onto unpatched, internet-reachable instances after the deadline passed. Windchill is the product-lifecycle-management hub for automotive, aerospace, defense and other discrete manufacturers, so a compromise exposes engineering drawings, bills of material and supplier data &mdash; and gives an attacker a credible pivot toward connected OT and shop-floor systems. Treat any internet-facing Windchill/FlexPLM instance as presumed-targeted: patch immediately, hunt for unexpected JSP files and web shells, remove internet exposure, rotate credentials, and review what OT and supplier data the PLM tier can reach.</p>
+        <p>On 25 June CISA added a critical improper-input-validation flaw (CVE-2026-12569) enabling unauthenticated remote code execution in PTC Windchill PDMLink/FlexPLM to its Known Exploited Vulnerabilities catalog, with a 28 June federal remediation deadline. Reporting indicates attackers continued dropping web shells onto unpatched, internet-reachable instances after the deadline passed. Windchill is the product-lifecycle-management hub for automotive, aerospace, defense and other discrete manufacturers, so a compromise exposes engineering drawings, bills of material and supplier data &mdash; and gives an attacker a credible pivot toward connected OT and shop-floor systems. Treat any internet-facing Windchill/FlexPLM instance as presumed-targeted: patch immediately, hunt for unexpected JSP files and web shells, remove internet exposure, rotate credentials, and review what OT and supplier data the PLM tier can reach.</p>
         <div class="card-meta">
-          <span class="cve-badge">PTC Windchill RCE</span>
+          <span class="cve-badge">CVE-2026-12569</span>
           <span>CISA KEV / PTC</span>
         </div>
         <div class="ops-strip">
@@ -776,10 +796,10 @@
           <span class="category">Advisory</span>
         </div>
         <h3>Lantronix EDS5000 serial-to-IP servers exploited &mdash; unauthenticated root on the box that bridges legacy OT to the network</h3>
-        <p>CISA added CVE-2025-67038, a maximum-severity (CVSS 9.8) OS command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, to the Known Exploited Vulnerabilities catalog on 23 June after confirming in-the-wild exploitation &mdash; the same KEV batch as the Ubiquiti UniFi chain. An unauthenticated attacker can inject arbitrary OS commands that execute as root, and because these converters are precisely what plants use to put serial PLCs, meters and field gear onto an Ethernet network, a takeover sits directly astride the IT/OT boundary. The flaw traces to Forescout's BRIDGE:BREAK research. Treat any internet-reachable EDS5000 as presumed-compromised, pull it off the public internet, patch, and threat-hunt the OT segment behind it.</p>
+        <p>CISA added CVE-2025-67038, a maximum-severity (CVSS 9.8) OS command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, to the Known Exploited Vulnerabilities catalog on 23 June after confirming in-the-wild exploitation &mdash; the same KEV batch as the Ubiquiti UniFi chain. An unauthenticated attacker can inject arbitrary OS commands that execute as root, and because these converters are precisely what plants use to put serial PLCs, meters and field gear onto an Ethernet network, a takeover sits directly astride the IT/OT boundary. Treat any internet-reachable EDS5000 as presumed-compromised, pull it off the public internet, patch, and threat-hunt the OT segment behind it.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2025-67038</span>
-          <span>CISA KEV / Forescout (BRIDGE:BREAK)</span>
+          <span>CISA KEV / Lantronix</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
@@ -788,7 +808,7 @@
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patch available &mdash; apply immediately</span>
-            <span class="ops-cc"><b>Action:</b> Inventory all Lantronix EDS5000/EDS3000 device servers, remove internet exposure, apply vendor fixes, rotate credentials, and threat-hunt the serial-connected OT behind each converter for signs of post-exploitation per CISA's guidance.</span>
+            <span class="ops-cc"><b>Action:</b> Inventory all Lantronix EDS5000/EDS-series device servers, remove internet exposure, apply vendor fixes, rotate credentials, and threat-hunt the serial-connected OT behind each converter for signs of post-exploitation per CISA's guidance.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &mdash; 24h; patch &amp; hunt &mdash; 48h (KEV, unauth root)</span>
@@ -800,6 +820,40 @@
           <span>CISA KEV alert (23 Jun 2026)</span>
           <span class="dot">&bull;</span>
           <span>Lantronix EDS5000</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-ubiquiti" data-applies="advisory" data-vendor="ubiquiti" data-vendor-label="Ubiquiti">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Max-severity Ubiquiti UniFi OS chain exploited in the wild &mdash; full root takeover of network gear that underpins many OT and building sites</h3>
+        <p>CISA confirmed a three-flaw chain in Ubiquiti UniFi OS is being exploited in the wild and added it to the Known Exploited Vulnerabilities catalog on 23 June, with a 26 June federal remediation deadline. The chain &mdash; CVE-2026-34908 (improper access control), CVE-2026-34909 (path traversal) and CVE-2026-34910 (improper input validation) &mdash; lets a network-adjacent attacker with no credentials reach arbitrary command execution, and researchers showed the three can be combined into full remote code execution with root privileges. UniFi gateways, switches and controllers are widely deployed at industrial plants, utilities, remote sites and commercial facilities, frequently sitting astride the IT/OT boundary and providing the routing, segmentation and remote access that OT depends on &mdash; so a root-level compromise here is a direct path to pivot toward control networks. Update UniFi OS now, pull management interfaces off the public internet, rotate credentials and sessions, and hunt connected OT segments for follow-on activity.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-34910</span>
+          <span>CISA KEV / Ubiquiti</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation</span>
+            <span class="ops-tag kev-on">In CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Ubiquiti)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory all UniFi OS gateways/consoles, update to fixed firmware immediately, remove internet exposure of management/UI ports, rotate admin credentials and active sessions, and threat-hunt OT and remote-access paths behind UniFi infrastructure for post-exploitation.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; patch &mdash; 48h (KEV, unauth root RCE)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ubiquiti" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ubiquiti">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV alert (23 Jun 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Ubiquiti UniFi OS</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -855,7 +909,7 @@
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patch available (vendor firmware)</span>
-            <span class="ops-cc"><b>If you can't patch:</b> Apply Schneider's firmware; meanwhile restrict network access to P7 endpoints, enforce least privilege for anyone interacting with the relay, and alert on anomalous management/SOAP requests.</span>
+            <span class="ops-cc"><b>If you can't patch:</b> Apply Schneider's firmware; meanwhile restrict network access to P7 endpoints, enforce least privilege for anyone interacting with the relay, and alert on anomalous management requests.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 14 days (High; protection-relay impact)</span>
@@ -871,39 +925,6 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-07" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-siemens" data-applies="advisory" data-vendor="siemens" data-vendor-label="Siemens">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Siemens' late-June advisory wave &mdash; SINEC INS command injection, SIPROTEC 5, WinCC Certificate Manager and an OpenSSL RCE</h3>
-        <p>CISA echoed a cluster of Siemens ProductCERT advisories in late June, several flagged for use in the energy sector. The headline item is a critical authenticated command-injection flaw in SINEC INS that can allow arbitrary code execution, alongside information-disclosure, privilege-escalation and password-exposure issues in the same product. The set also covers a denial-of-service / potential-code-execution issue in the SIPROTEC 5 protection relay, a certificate-parsing weakness in the WinCC Certificate Manager, and an OpenSSL flaw affecting Scalance, SIMATIC, SINAMICS and SINEC product lines. Map the advisories to your installed base and prioritize the SINEC INS command-injection and the protection-relay DoS.</p>
-        <div class="card-meta">
-          <span>CISA ICS Advisories / Siemens ProductCERT</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes available</span>
-            <span class="ops-cc"><b>Action:</b> Triage the Siemens advisories against your inventory, prioritize the SINEC INS command-injection fix and the SIPROTEC 5 relay update, apply the WinCC and OpenSSL fixes, and restrict management access to affected services in the interim.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Triage &mdash; 7 days; high-impact items &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="siemens" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="siemens">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS Advisories (Jun 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Siemens SINEC INS / SIPROTEC 5 / WinCC</span>
-        </div>
-        <a href="https://industrialcyber.co/cisa/cisa-flags-ics-vulnerabilities-in-products-from-siemens-schneider-electric-rockwell-and-others/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -917,8 +938,8 @@
           <span class="severity sev-info">Policy</span>
           <span class="category">Standard</span>
         </div>
-        <h3>NERC CIP-012-2 takes effect 1 July 2026 &mdash; tomorrow &mdash; tighter protection for control-center data</h3>
-        <p>The revised NERC CIP-012-2 standard becomes enforceable on 1 July, now one day out, strengthening requirements to protect the confidentiality and integrity of real-time assessment and monitoring data exchanged between control centers and closing gaps the earlier version left around how that inter-control-center traffic is secured. For bulk-electric-system operators it is an immediate compliance milestone; for everyone else it is a useful reminder that control-center-to-control-center links are a prime target and deserve encryption, integrity protection and monitoring regardless of regulatory scope.</p>
+        <h3>NERC CIP-012-2 takes effect today, 1 July 2026 &mdash; tighter protection for control-center data</h3>
+        <p>The revised NERC CIP-012-2 standard becomes enforceable today, strengthening requirements to protect the confidentiality and integrity of real-time assessment and monitoring data exchanged between control centers and closing gaps the earlier version left around how that inter-control-center traffic is secured. For bulk-electric-system operators it is an immediate compliance milestone; for everyone else it is a useful reminder that control-center-to-control-center links are a prime target and deserve encryption, integrity protection and monitoring regardless of regulatory scope.</p>
         <div class="card-meta">
           <span>NERC</span>
           <span class="dot">&bull;</span>
@@ -932,7 +953,7 @@
           <span class="severity sev-info">Policy</span>
           <span class="category">Policy</span>
         </div>
-        <h3>EU NIS2: first compliance-audit milestone lands mid-2026 as enforcement begins to bite</h3>
+        <h3>EU NIS2: first compliance-audit milestones land through mid-2026 as enforcement begins to bite</h3>
         <p>2026 is shaping up as the year first NIS2 enforcement actions begin to land for in-scope entities, even as the Commission works through targeted NIS2 simplification amendments. For OT operators and vendors serving EU critical infrastructure, IEC 62443 remains the practical control set regulators and customers expect to see evidenced, so it is worth a final check on where clients sit against the timeline and whether their assessment evidence is genuinely audit-ready rather than aspirational.</p>
         <div class="card-meta">
           <span>European Commission</span>
@@ -949,7 +970,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor PSIRTs (Ubiquiti, PTC, Lantronix, Rockwell Automation, Schneider Electric, Siemens), Forescout, Claroty Team82, Mandiant, Accenture/Dragos, NERC and the European Commission, via reporting from SecurityWeek, BleepingComputer, Industrial Cyber and others. Default lookback: 7&ndash;14 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor PSIRTs (StoneFly, PTC, Lantronix, Ubiquiti, Rockwell Automation, Schneider Electric), Dragos, Mandiant, Canada's CSE / Canadian Centre for Cyber Security, Accenture, NERC and the European Commission, via reporting from SecurityWeek, GovInfoSecurity, Help Net Security and Industrial Cyber. Default lookback: 7&ndash;14 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
