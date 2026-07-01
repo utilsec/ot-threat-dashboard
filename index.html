@@ -591,9 +591,10 @@
         <a href="#story-lantronix"><circle class="blip crit" cx="138" cy="222" r="12"/><text class="blip-num" style="font-size:11px" x="138" y="225.5">3</text></a>
         <a href="#story-rockwell"><circle class="blip crit" cx="222" cy="222" r="10.5"/><text class="blip-num" style="font-size:10px" x="222" y="225.5">4</text></a>
 
-        <!-- High blips (outer ring, r=110) ranked 5-6, descending size -->
-        <a href="#story-powerlogic"><circle class="blip high" cx="102" cy="102" r="9"/><text class="blip-num" style="font-size:9px" x="102" y="105">5</text></a>
-        <a href="#story-siemens"><circle class="blip high" cx="258" cy="258" r="8"/><text class="blip-num" style="font-size:8px" x="258" y="261">6</text></a>
+        <!-- High blips (outer ring, r=110) ranked 5-7, descending size -->
+        <a href="#story-iranplc"><circle class="blip high" cx="275" cy="125" r="9"/><text class="blip-num" style="font-size:9px" x="275" y="128">5</text></a>
+        <a href="#story-powerlogic"><circle class="blip high" cx="85" cy="125" r="8"/><text class="blip-num" style="font-size:8px" x="85" y="128">6</text></a>
+        <a href="#story-siemens"><circle class="blip high" cx="180" cy="290" r="7"/><text class="blip-num" style="font-size:7.5px" x="180" y="292.5">7</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -601,8 +602,9 @@
         <a href="#story-windchill"><span class="ld crit"></span><b>2</b> PTC Windchill in-wild RCE</a>
         <a href="#story-lantronix"><span class="ld crit"></span><b>3</b> Lantronix EDS5000 exploited</a>
         <a href="#story-rockwell"><span class="ld crit"></span><b>4</b> Rockwell FLEX I/O 9.4 flaw</a>
-        <a href="#story-powerlogic"><span class="ld high"></span><b>5</b> Schneider PowerLogic P7</a>
-        <a href="#story-siemens"><span class="ld high"></span><b>6</b> Siemens June advisory wave</a>
+        <a href="#story-iranplc"><span class="ld high"></span><b>5</b> Iran-linked PLC exploitation</a>
+        <a href="#story-powerlogic"><span class="ld high"></span><b>6</b> Schneider PowerLogic P7</a>
+        <a href="#story-siemens"><span class="ld high"></span><b>7</b> Siemens June advisory wave</a>
       </div>
     </div>
 
@@ -613,34 +615,34 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-twonet" data-applies="incident" data-vendor="" data-vendor-label="">
+      <div class="card" id="story-iranplc" data-applies="incident" data-vendor="rockwell" data-vendor-label="Rockwell Automation">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
+          <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Forescout honeypot catches pro-Russia TwoNet manufacturing a fake water-utility &ldquo;victory&rdquo;</h3>
-        <p>Forescout's Vedere Labs documented how the pro-Russia hacktivist persona TwoNet breached one of its OT honeypots &mdash; a decoy water-treatment HMI &mdash; using default credentials it had deliberately left accepting, then posted screenshots to Telegram framing the access as a real attack on a U.S. water utility before abandoning the channel. Inside, the actors ran Metasploit reconnaissance, attempted setpoint changes via Modbus function codes, and probed S7Comm/S7Comm-Plus on adjacent decoy PLCs, showing basic but real multi-protocol OT fluency. Forescout says it's the first time an actor publicly claimed an attack that actually landed on one of its honeypots. The lesson cuts two ways: exposed HMIs with default credentials remain trivially compromised, and hacktivist &ldquo;we hit a water utility&rdquo; claims are routinely inflated &mdash; defenders should verify before reacting and get internet-facing HMIs off the public net.</p>
+        <h3>CISA/FBI: Iranian-affiliated actors are still hitting internet-exposed Allen-Bradley PLCs &mdash; with confirmed operational disruption</h3>
+        <p>U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers across water and wastewater, energy and government-facilities sectors, a campaign running since at least March and re-emphasized amid heightened Middle East tensions this month. Unlike the many inflated hacktivist claims, this activity is agency-confirmed and some victims have experienced real operational disruption and financial loss. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits &mdash; which makes the fix largely one of hygiene and exposure reduction. Get every PLC and OT device off the public internet or behind a VPN with MFA, change all default/shared credentials, and hunt for unexpected configuration or logic changes on internet-reachable controllers.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Confirmed on honeypot &mdash; claim against real utility fabricated</span>
-            <span class="ops-tag kev-off">Hacktivist / TwoNet (claimed)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified, operational disruption reported</span>
+            <span class="ops-tag kev-off">Nation-state / Iran-affiliated</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; credential &amp; exposure hygiene</span>
-            <span class="ops-cc"><b>Action:</b> Find and remove internet-exposed HMIs/PLCs, kill default and shared credentials, enforce MFA on remote access, monitor for Modbus/S7Comm setpoint writes from unexpected sources, and pre-stage messaging so an inflated hacktivist claim doesn't drive your response.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; credential hardening</span>
+            <span class="ops-cc"><b>Action:</b> Remove internet exposure of Allen-Bradley and all OT PLCs (place behind VPN + MFA), replace default/weak credentials, restrict remote access, and threat-hunt exposed controllers for unauthorized logic or configuration changes per the CISA/FBI advisory.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposed-HMI &amp; default-cred sweep &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="twonet" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="twonet">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposed PLC sweep &mdash; 72h; credential reset &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="iranplc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="iranplc">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Forescout / Industrial Cyber</span>
+          <span>CISA / FBI joint advisory (AA26-097a)</span>
           <span class="dot">&bull;</span>
-          <span>Jun 2026 (honeypot research)</span>
+          <span>Ongoing 2026 &mdash; re-warned amid Mideast tensions</span>
         </div>
-        <a href="https://industrialcyber.co/industrial-cyber-attacks/forescout-exposes-twonet-hacktivists-targeting-water-utility-honeypot-in-latest-ot-cyberattack-findings/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-calwater" data-applies="incident" data-vendor="" data-vendor-label="">
