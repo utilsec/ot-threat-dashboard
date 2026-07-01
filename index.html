@@ -95,76 +95,6 @@
   }
   .story-count strong { color: #1f2328; font-weight: 700; }
 
-  /* Control bar (fleet filter) */
-  .control-bar {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-  .cb-left { flex: 1 1 520px; }
-  .cb-title {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #1f2328;
-    margin-right: 8px;
-  }
-  .cb-hint { font-size: 11.5px; color: #6e7781; }
-  .fleet-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  .fleet-chip {
-    font: inherit;
-    font-size: 11.5px;
-    cursor: pointer;
-    background: #ffffff;
-    color: #57606a;
-    border: 1px solid #d0d7de;
-    border-radius: 20px;
-    padding: 4px 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.12s ease;
-  }
-  .fleet-chip:hover { border-color: #4e9da8; color: #1f2328; }
-  .fleet-chip[aria-pressed="true"] {
-    background: #e6f1f2;
-    color: #2c7480;
-    border-color: #4e9da8;
-    font-weight: 600;
-  }
-  .fleet-chip .chk { font-size: 10px; opacity: 0.8; }
-  .fleet-toggle {
-    font-size: 12px;
-    color: #1f2328;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .fleet-toggle input { accent-color: #4e9da8; width: 14px; height: 14px; cursor: pointer; }
-  .fleet-status {
-    display: block;
-    margin-top: 6px;
-    font-size: 11px;
-    color: #6e7781;
-    text-align: right;
-  }
-  .fleet-status b { color: #2c7480; font-weight: 700; }
-  .fleet-clear {
-    font: inherit; font-size: 11px; cursor: pointer;
-    background: none; border: none; color: #2c7480; padding: 0; margin-left: 4px;
-  }
-  .fleet-clear:hover { text-decoration: underline; }
-
   /* Hero: top story + radar side by side */
   .hero {
     display: flex;
@@ -309,27 +239,10 @@
     box-shadow: 0 1px 2px rgba(31,35,40,0.04);
   }
   .card:hover { border-color: #afb8c1; box-shadow: 0 2px 6px rgba(31,35,40,0.08); }
-  .card.hidden-by-filter { display: none; }
   /* Anchor highlight when a radar blip targets a card */
   .card, .top-story { scroll-margin-top: 16px; }
   .card:target { border-color: #4e9da8; box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
   .top-story:target { box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
-  /* In-fleet highlight */
-  .card.in-fleet { border-color: #4e9da8; }
-  .fleet-ribbon {
-    display: none;
-    position: absolute;
-    top: -1px; right: -1px;
-    background: #4e9da8;
-    color: #ffffff;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 0 6px 0 6px;
-  }
-  .card.in-fleet .fleet-ribbon { display: block; }
   .card-header {
     display: flex;
     justify-content: space-between;
@@ -491,7 +404,6 @@
     .header { flex-direction: column; align-items: flex-start; }
     .story-count { text-align: left; }
     .card-grid { grid-template-columns: 1fr; }
-    .control-bar { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -514,7 +426,7 @@
     <div class="header-title">
       <h1>OT/ICS Cybersecurity Threat Intelligence</h1>
       <div class="header-meta">
-        <span>Generated Wed, 01 Jul 2026, 12:20 ET</span>
+        <span>Generated Wed, 01 Jul 2026, 18:15 ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -532,7 +444,7 @@
     <div class="top-story" id="story-quebec">
       <span class="top-story-pill">Top Story</span>
       <h2>Canada's CSE reveals a pro-Russia group claimed control-level access to a Quebec water plant &mdash; pumps, chlorine dosing and pressure allegedly within reach</h2>
-      <p>In its 2025&ndash;2026 annual report released last week, Canada's Communications Security Establishment (CSE) and its Canadian Centre for Cyber Security disclosed that pro-Russia hacktivist group NoName057(16) claimed it had breached an unnamed Quebec municipality's water treatment plant and gained the ability to covertly control pumps, chlorine dosing, pressure settings and the monitoring and alert systems operators depend on. CSE said it learned of the activity in October only through the group's own public claim of responsibility &mdash; the utility did not detect it independently, which is the most telling detail. The report does not confirm whether NoName's claimed level of control was real; pro-Russia hacktivists routinely exaggerate. But a national cyber authority treating the claim as credible enough to feature is itself the signal. Treat it as a template threat: assume internet-exposed or weakly-authenticated HMI/SCADA at small utilities is being hunted, verify no unauthorized changes to chemical-dosing or pressure setpoints, pull operator interfaces off any public path, and enforce MFA on all remote access.</p>
+      <p>In its 2025&ndash;2026 annual report, published Monday, Canada's Communications Security Establishment (CSE) and its Canadian Centre for Cyber Security disclosed that pro-Russia hacktivist group NoName057(16) claimed it had breached an unnamed Quebec municipality's water treatment plant and gained the ability to covertly control pumps, chlorine dosing, pressure settings and the monitoring and alert systems operators depend on. CSE said it learned of the activity in October only through the group's own public claim of responsibility &mdash; the utility did not detect it independently, which is the most telling detail. The report does not confirm whether NoName's claimed level of control was real; pro-Russia hacktivists routinely exaggerate. But a national cyber authority treating the claim as credible enough to feature is itself the signal. Treat it as a template threat: assume internet-exposed or weakly-authenticated HMI/SCADA at small utilities is being hunted, verify no unauthorized changes to chemical-dosing or pressure setpoints, pull operator interfaces off any public path, and enforce MFA on all remote access.</p>
       <div class="ops-strip">
         <div class="ops-row">
           <span class="ops-tag ex-poc"><span class="d"></span>Claimed by NoName &mdash; disclosed by CSE; control access not independently confirmed</span>
@@ -552,9 +464,9 @@
         <span class="severity sev-critical">Critical</span>
         <span>CSE / Canadian Centre for Cyber Security (annual report)</span>
         <span class="dot">&bull;</span>
-        <span>Disclosed 29 Jun 2026 &mdash; NoName claim, not confirmed</span>
+        <span>Disclosed 30 Jun 2026 &mdash; NoName claim, not confirmed</span>
       </div>
-      <a href="https://www.govinfosecurity.com/russian-water-system-hack-attempted-to-turn-canada-dry-a-32122" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cuinfosecurity.com/russian-water-system-hack-attempted-to-turn-canada-dry-a-32122" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -586,32 +498,32 @@
 
         <!-- Critical blips (inner ring, r=60) ranked 1-6, descending size -->
         <a href="#story-quebec"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
-        <a href="#story-ubiquiti"><circle class="blip crit" cx="232" cy="150" r="13.5"/><text class="blip-num" style="font-size:12px" x="232" y="154">2</text></a>
-        <a href="#story-windchill"><circle class="blip crit" cx="232" cy="210" r="12"/><text class="blip-num" style="font-size:11px" x="232" y="213.5">3</text></a>
-        <a href="#story-lantronix"><circle class="blip crit" cx="180" cy="240" r="11"/><text class="blip-num" style="font-size:10px" x="180" y="243.5">4</text></a>
-        <a href="#story-delmia"><circle class="blip crit" cx="128" cy="210" r="10"/><text class="blip-num" style="font-size:9.5px" x="128" y="213">5</text></a>
-        <a href="#story-stonefly"><circle class="blip crit" cx="128" cy="150" r="9.5"/><text class="blip-num" style="font-size:9px" x="128" y="153">6</text></a>
+        <a href="#story-windchill"><circle class="blip crit" cx="232" cy="150" r="13.5"/><text class="blip-num" style="font-size:12px" x="232" y="154">2</text></a>
+        <a href="#story-ubiquiti"><circle class="blip crit" cx="232" cy="210" r="12"/><text class="blip-num" style="font-size:11px" x="232" y="213.5">3</text></a>
+        <a href="#story-lantronix"><circle class="blip crit" cx="180" cy="240" r="10.5"/><text class="blip-num" style="font-size:10px" x="180" y="243.5">4</text></a>
+        <a href="#story-stonefly"><circle class="blip crit" cx="128" cy="210" r="9.5"/><text class="blip-num" style="font-size:9.5px" x="128" y="213.2">5</text></a>
+        <a href="#story-delta"><circle class="blip crit" cx="128" cy="150" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="128" y="153">6</text></a>
 
         <!-- High blips (outer ring, r=110) ranked 7-11, descending size -->
-        <a href="#story-iranplc"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73">7</text></a>
-        <a href="#story-calwater"><circle class="blip high" cx="285" cy="146" r="8.2"/><text class="blip-num" style="font-size:8px" x="285" y="149">8</text></a>
-        <a href="#story-atg"><circle class="blip high" cx="245" cy="269" r="7.5"/><text class="blip-num" style="font-size:7.5px" x="245" y="271.5">9</text></a>
-        <a href="#story-schneider"><circle class="blip high" cx="115" cy="269" r="7"/><text class="blip-num" style="font-size:7px" x="115" y="271.5">10</text></a>
-        <a href="#story-team82"><circle class="blip high" cx="75" cy="146" r="6.5"/><text class="blip-num" style="font-size:6.5px" x="75" y="148.5">11</text></a>
+        <a href="#story-iranplc"><circle class="blip high" cx="115.3" cy="91" r="9"/><text class="blip-num" style="font-size:8.5px" x="115.3" y="94">7</text></a>
+        <a href="#story-calwater"><circle class="blip high" cx="244.7" cy="91" r="8.4"/><text class="blip-num" style="font-size:8px" x="244.7" y="93.9">8</text></a>
+        <a href="#story-anubis"><circle class="blip high" cx="284.6" cy="214" r="7.8"/><text class="blip-num" style="font-size:7.8px" x="284.6" y="216.8">9</text></a>
+        <a href="#story-team82"><circle class="blip high" cx="180" cy="290" r="7.2"/><text class="blip-num" style="font-size:7.4px" x="180" y="292.7">10</text></a>
+        <a href="#story-fuxa"><circle class="blip high" cx="75.4" cy="214" r="6.6"/><text class="blip-num" style="font-size:7px" x="75.4" y="216.6">11</text></a>
       </svg>
 
       <div class="radar-legend">
         <a href="#story-quebec"><span class="ld crit"></span><b>1</b> Quebec water plant OT claim</a>
-        <a href="#story-ubiquiti"><span class="ld crit"></span><b>2</b> Ubiquiti UniFi OS RCE chain</a>
-        <a href="#story-windchill"><span class="ld crit"></span><b>3</b> PTC Windchill in-wild RCE</a>
+        <a href="#story-windchill"><span class="ld crit"></span><b>2</b> PTC Windchill in-wild RCE</a>
+        <a href="#story-ubiquiti"><span class="ld crit"></span><b>3</b> Ubiquiti UniFi OS RCE chain</a>
         <a href="#story-lantronix"><span class="ld crit"></span><b>4</b> Lantronix EDS5000 exploited</a>
-        <a href="#story-delmia"><span class="ld crit"></span><b>5</b> DELMIA Apriso MES KEV</a>
-        <a href="#story-stonefly"><span class="ld crit"></span><b>6</b> StoneFly root command inject</a>
+        <a href="#story-stonefly"><span class="ld crit"></span><b>5</b> StoneFly root command inject</a>
+        <a href="#story-delta"><span class="ld crit"></span><b>6</b> Delta DVP12SE unauth Modbus</a>
         <a href="#story-iranplc"><span class="ld high"></span><b>7</b> Iran-linked PLC exploitation</a>
         <a href="#story-calwater"><span class="ld high"></span><b>8</b> Cal Water Handala breach</a>
-        <a href="#story-atg"><span class="ld high"></span><b>9</b> Tank-gauge (ATG) intrusions</a>
-        <a href="#story-schneider"><span class="ld high"></span><b>10</b> Schneider PowerLogic P7</a>
-        <a href="#story-team82"><span class="ld high"></span><b>11</b> Team82 data-center RCE</a>
+        <a href="#story-anubis"><span class="ld high"></span><b>9</b> Anubis port ransomware</a>
+        <a href="#story-team82"><span class="ld high"></span><b>10</b> Team82 data-center RCE</a>
+        <a href="#story-fuxa"><span class="ld high"></span><b>11</b> FUXA SCADA auth bypass</a>
       </div>
     </div>
 
@@ -658,7 +570,7 @@
           <span class="category">Incident</span>
         </div>
         <h3>Iran-linked Handala claims breach of California Water Service &mdash; Cal Water confirms an IT/billing compromise but says no OT activity was found</h3>
-        <p>The Iran-linked group Handala claimed a breach of California Water Service (Cal Water), one of the largest investor-owned U.S. water utilities, publishing a roughly 5GB data set that analysts assess contains customer billing PII and administrative credentials for an internal GPS-correction (RTKBase/NTRIP) network spanning several service districts. Cal Water investigated and reported it found no evidence of activity in its operational-technology environment, framing the incident as an IT and billing-system compromise rather than a control-system intrusion &mdash; while Handala publicly boasted it could have disrupted the water supply. Handala is assessed as an Iranian MOIS-aligned front (also tracked as Void Manticore / Storm-0842) whose toolkit includes destructive wipers, so the episode is a reminder that an enterprise or billing foothold at a utility is a staging point toward OT. Verify IT/OT segmentation and monitoring between business systems and SCADA, rotate any exposed credentials, and hunt for wiper staging and lateral movement toward control networks.</p>
+        <p>The Iran-linked group Handala claimed a breach of California Water Service (Cal Water), one of the largest investor-owned U.S. water utilities, publishing a roughly 5GB data set that analysts assess contains customer billing PII and administrative credentials for an internal GPS-correction network spanning several service districts (Bakersfield, Visalia and Chico among those named). Cal Water investigated and reported it found no evidence of activity in its operational-technology environment, framing the incident as an IT and billing-system compromise rather than a control-system intrusion &mdash; while Handala publicly boasted it could have disrupted the water supply. Handala is assessed as an Iranian MOIS-aligned front (also tracked as Void Manticore / Storm-0842) whose toolkit includes destructive wipers, so the episode is a reminder that an enterprise or billing foothold at a utility is a staging point toward OT. Verify IT/OT segmentation and monitoring between business systems and SCADA, rotate any exposed credentials, and hunt for wiper staging and lateral movement toward control networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed IT breach &mdash; OT impact claimed by Handala, not confirmed by Cal Water</span>
@@ -675,41 +587,41 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek / Cybersecurity Dive</span>
+          <span>SecurityWeek / Rescana</span>
           <span class="dot">&bull;</span>
-          <span>Claimed 11 Jun 2026 &mdash; Cal Water confirms IT breach, no OT activity found</span>
+          <span>Claimed 12 Jun 2026 &mdash; Cal Water confirms IT breach, no OT activity found</span>
         </div>
         <a href="https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-atg">
+      <div class="card" id="story-anubis">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>CISA, NSA and partners: attackers are actively modifying internet-exposed automatic tank gauge (ATG) systems</h3>
-        <p>A joint CISA/NSA/FBI/EPA fact sheet warns that threat actors are compromising internet-exposed automatic tank gauge systems &mdash; the controllers that remotely monitor fuel and liquid levels, temperature and leaks &mdash; and altering them through command execution. The agencies describe access gained via authentication bypasses, hardcoded credentials, SQL injection and privilege escalation, after which an attacker can change tank settings, disable alarms, and falsify level readings, creating operational disruption or safety hazards. ATGs sit across the Energy, Chemical, Food &amp; Agriculture and Transportation sectors, and are a classic example of small field devices casually put on the public internet. The remedy is blunt: get ATGs off the internet, put them behind a VPN or firewall, and replace default and hardcoded credentials with strong unique passwords.</p>
+        <h3>Anubis ransomware at the Adriatic Port Authority &mdash; a fresh case study of how an IT breach halts maritime logistics and leaks port security plans</h3>
+        <p>Threat-intelligence firm Resecurity published a detailed case study on the Anubis ransomware attack against Italy's Central Adriatic Sea Port Authority (which runs the port of Ancona), and the reporting drew a maritime-sector warning across the trade press. The intrusion &mdash; assessed to have started from a spear-phishing email at the port-management company before lateral movement into core systems &mdash; encrypted the platforms behind cargo tracking, shipping schedules and customs processing and exfiltrated contracts, employee records and, most concerning, port safety plans and security-operations details. Attackers reportedly demanded a multi-million-dollar bitcoin ransom under a seven-day publish threat. The episode is a clean illustration of the pattern that dominates OT incident data: adversaries land in enterprise IT and cause operational and safety impact without ever touching a PLC, and the stolen physical-security documentation is exactly what smuggling or insider-recruitment operations prize. For port and vessel operators, treat phishing resistance, IT/OT segmentation and protection of physical-security documents as OT-safety controls, not just IT hygiene.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; ongoing exploitation reported</span>
-            <span class="ops-tag kev-off">Opportunistic / multiple actors</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware &mdash; data leaked; OT/logistics operations disrupted</span>
+            <span class="ops-tag kev-off">Ransomware (Anubis)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; credential hardening</span>
-            <span class="ops-cc"><b>Action:</b> Inventory all ATG consoles (Veeder-Root/others), remove them from the public internet, place behind VPN/firewall, replace default and hardcoded credentials, and verify tank setpoints and alarms against known-good values.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; phishing resistance, segmentation &amp; IR</span>
+            <span class="ops-cc"><b>Action:</b> For ports and vessel operators, harden against spear-phishing (MFA, email defenses), segment logistics/customs IT from OT and safety systems, restrict and monitor access to port safety and security-operations documents, and rehearse ransomware IR and backup restoration for cargo/customs platforms.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure sweep &mdash; 72h; credential reset &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="atg" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="atg">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Phishing &amp; segmentation review &mdash; 14 days; sensitive-doc access audit &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="anubis" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="anubis">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / NSA / FBI / EPA joint fact sheet</span>
+          <span>Resecurity / Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>2 Jun 2026 &mdash; ongoing exploitation</span>
+          <span>Case study reported 11 Jun 2026 (Adriatic Port Authority / Ancona)</span>
         </div>
-        <a href="https://www.cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://industrialcyber.co/transport/resecurity-details-anubis-ransomware-attack-on-adriatic-port-authority-exposing-maritime-infrastructure-risks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -758,40 +670,6 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
-      <div class="card" id="story-delmia">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>CISA adds actively-exploited DELMIA Apriso MES flaws to KEV &mdash; the manufacturing-execution layer between ERP and the shop floor</h3>
-        <p>On 25 June CISA added two Dassault Syst&egrave;mes DELMIA Apriso vulnerabilities to its Known Exploited Vulnerabilities catalog after confirming active exploitation: CVE-2025-6205, a missing-authorization flaw (CVSS 9.1) that can hand an attacker privileged access, and CVE-2025-6204, a code-injection flaw (CVSS 8.0). Apriso is a manufacturing execution system that orchestrates production, quality and warehouse operations and sits squarely between enterprise ERP and plant-floor OT, so a compromise threatens both production data and a credible pivot toward controllers and HMIs. Releases 2020 through 2025 are affected &mdash; the same product line CISA previously flagged via CVE-2025-5086. Patch to a fixed release immediately, pull any internet-facing Apriso instances behind the firewall, hunt for web shells and unauthorized privileged access, and review what OT and shop-floor systems the MES tier can reach.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2025-6205</span>
-          <span>CISA KEV / Dassault Syst&egrave;mes</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation</span>
-            <span class="ops-tag kev-on">In CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Dassault)</span>
-            <span class="ops-cc"><b>Action:</b> Patch DELMIA Apriso to a fixed release now, remove internet exposure of the MES tier, hunt for web shells and unauthorized privileged access, rotate credentials, and review the OT/shop-floor systems Apriso integrates with.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 48h (KEV, active exploitation)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="delmia" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="delmia">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA KEV alert (25 Jun 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Dassault Syst&egrave;mes DELMIA Apriso</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="story-windchill">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -832,7 +710,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>Max-severity Ubiquiti UniFi OS chain exploited in the wild &mdash; full root takeover of network gear that underpins many OT and building sites</h3>
-        <p>CISA confirmed a three-flaw chain in Ubiquiti UniFi OS is being exploited in the wild and added it to the Known Exploited Vulnerabilities catalog on 23 June. The chain &mdash; CVE-2026-34908 (improper access control), CVE-2026-34909 (path traversal) and CVE-2026-34910 (improper input validation), each rated CVSS 10.0 &mdash; lets a network-adjacent attacker with no credentials reach arbitrary command execution, and researchers showed the three can be combined into full remote code execution with root privileges. UniFi gateways, switches and controllers are widely deployed at industrial plants, utilities, remote sites and commercial facilities, frequently sitting astride the IT/OT boundary and providing the routing, segmentation and remote access that OT depends on &mdash; so a root-level compromise here is a direct path to pivot toward control networks. Update UniFi OS now, pull management interfaces off the public internet, rotate credentials and sessions, and hunt connected OT segments for follow-on activity.</p>
+        <p>CISA confirmed a three-flaw chain in Ubiquiti UniFi OS is being exploited in the wild and added it to the Known Exploited Vulnerabilities catalog on 23 June. The chain &mdash; CVE-2026-34908 (improper access control), CVE-2026-34909 (path traversal) and CVE-2026-34910 (improper input validation) &mdash; lets a network-adjacent attacker with no credentials reach arbitrary command execution, and researchers showed the three can be combined into full remote code execution with root privileges. UniFi gateways, switches and controllers are widely deployed at industrial plants, utilities, remote sites and commercial facilities, frequently sitting astride the IT/OT boundary and providing the routing, segmentation and remote access that OT depends on &mdash; so a root-level compromise here is a direct path to pivot toward control networks. Update UniFi OS now, pull management interfaces off the public internet, rotate credentials and sessions, and hunt connected OT segments for follow-on activity.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-34910</span>
           <span>CISA KEV / Ubiquiti</span>
@@ -866,7 +744,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>Lantronix EDS5000 serial-to-IP servers exploited &mdash; unauthenticated root on the box that bridges legacy OT to the network</h3>
-        <p>CISA added CVE-2025-67038, a maximum-severity (CVSS 9.8) OS command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, to the Known Exploited Vulnerabilities catalog on 23 June after confirming in-the-wild exploitation &mdash; the same KEV batch as the Ubiquiti UniFi chain. An unauthenticated attacker can inject arbitrary OS commands that execute as root, and because these converters are precisely what plants use to put serial PLCs, meters and field gear onto an Ethernet network, a takeover sits directly astride the IT/OT boundary. Treat any internet-reachable EDS5000 as presumed-compromised, pull it off the public internet, patch, and threat-hunt the OT segment behind it.</p>
+        <p>CISA added CVE-2025-67038, a maximum-severity OS command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, to the Known Exploited Vulnerabilities catalog on 23 June after confirming in-the-wild exploitation &mdash; the same KEV batch as the Ubiquiti UniFi chain. An unauthenticated attacker can inject arbitrary OS commands that execute as root, and because these converters are precisely what plants use to put serial PLCs, meters and field gear onto an Ethernet network, a takeover sits directly astride the IT/OT boundary. Treat any internet-reachable EDS5000 as presumed-compromised, pull it off the public internet, patch, and threat-hunt the OT segment behind it.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2025-67038</span>
           <span>CISA KEV / Lantronix</span>
@@ -928,38 +806,72 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-06" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-schneider">
+      <div class="card" id="story-delta">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Delta Electronics DVP12SE PLC exposes unauthenticated Modbus &mdash; anyone on the network can rewrite control logic, and no patch yet</h3>
+        <p>CISA advisory ICSA-26-181-07 (30 June) warns that the Delta Electronics DVP12SE programmable logic controller exposes its Modbus TCP service on port 502 with no authentication or access control, so any reachable network source can read and write coils, holding registers, relay states and process-control functions without credentials or operator approval (CVE-2026-12818, CVE-2026-12819). A companion resource-exhaustion issue lets an attacker flood the Modbus port to degrade the device. In practice this means an attacker with network line-of-sight can remotely issue commands, change operational values and interfere with control logic &mdash; the classic insecure-by-design exposure that makes flat OT networks and internet-reachable PLCs so dangerous. All versions are affected and Delta is still working on a fix, so mitigation is compensating controls: enable the PLC's built-in IP Filter, segment and firewall the controller off any untrusted network, and never expose Modbus/502 to the internet.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-12819</span>
+          <span>CISA ICS Advisory / Delta Electronics</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; unauthenticated, insecure-by-design Modbus</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No patch yet &mdash; vendor working on fix</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Delta DVP12SE PLCs, enable the built-in IP Filter to restrict Modbus/502 to known hosts, segment and firewall the controllers off untrusted and internet-facing networks, and monitor for unexpected Modbus writes and control-logic changes until a firmware fix ships.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; IP-filter/segmentation &mdash; 72h (unauth control-logic write, no patch)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="delta" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="delta">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-181-07)</span>
+          <span class="dot">&bull;</span>
+          <span>30 Jun 2026 (Delta Electronics DVP12SE PLC)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-07" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-fuxa">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Schneider Electric PowerLogic P7 &mdash; unauthorized command execution and DoS on a power-grid protection &amp; control relay</h3>
-        <p>CISA advisory ICSA-26-176-07 covers three flaws (CVE-2026-9716, -9717, -9718) in Schneider Electric's PowerLogic P7, a protection-and-control platform for advanced electrical-network applications. The issues can allow unauthorized privileged command execution and a denial-of-service condition &mdash; including a NULL-pointer dereference that renders the device's HMI and configuration functions unavailable when malformed requests hit exposed network interfaces. Because P7 relays sit in substations and power-distribution schemes, loss of control or protection functionality carries direct safety and reliability implications for the energy sector. Schneider has released fixed firmware (V02.004.001); upgrade, and in the interim restrict network access to the P7 service endpoints (ports 8080 and 3702) and monitor for anomalous SOAP requests to the device.</p>
+        <h3>Critical auth-bypass in Frangoteam FUXA web SCADA/HMI &mdash; 1,200+ instances exposed, many at water and solar sites</h3>
+        <p>CISA advisory ICSA-26-181-02 (30 June) covers CVE-2026-13207, an authentication-bypass flaw (CVSS v4 8.6) in the open-source FUXA web SCADA/HMI platform (versions 1.3.1 and earlier) caused by dot-segment path normalization in its REST API. An unauthenticated attacker can reach user accounts and role assignments, exposing the OT privilege structure to reconnaissance. Researchers at GreyNoise reported finding more than 1,200 internet-facing FUXA instances shortly after disclosure &mdash; most still unpatched and a number of them at water-treatment and solar operations, exactly the small, distributed sites that put dashboards online for remote monitoring. Frangoteam shipped a fix in version 1.3.2 and CISA released Snort/Suricata signatures. Upgrade to 1.3.2, pull FUXA off the public internet behind a VPN, rotate credentials, and load the detection signatures into your IDS/IPS.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-9716</span>
-          <span>CISA ICS Advisory / Schneider Electric</span>
+          <span class="cve-badge">CVE-2026-13207</span>
+          <span>CISA ICS Advisory / Frangoteam</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; 1,200+ exposed instances, high recon risk</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (V02.004.001)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory PowerLogic P7 relays, upgrade to the fixed firmware, restrict access to service ports 8080/3702, and monitor for anomalous SOAP requests to the device given its protection-and-control role.</span>
+            <span class="ops-tag patch-yes">Patch available (v1.3.2)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory FUXA deployments, upgrade to version 1.3.2, remove internet exposure of FUXA dashboards (place behind VPN/firewall), rotate credentials, and deploy CISA's Snort/Suricata signatures to detect exploitation attempts.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; access restriction &mdash; 14 days (privileged command exec / DoS)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="schneider" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="schneider">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; patch &mdash; 7 days (unauth auth-bypass, mass exposure)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fuxa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fuxa">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisory (ICSA-26-176-07)</span>
+          <span>CISA ICS Advisory (ICSA-26-181-02)</span>
           <span class="dot">&bull;</span>
-          <span>25 Jun 2026 (Schneider PowerLogic P7)</span>
+          <span>30 Jun 2026 (Frangoteam FUXA)</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-07" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -1007,7 +919,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor PSIRTs (StoneFly, PTC, Ubiquiti, Lantronix, Schneider Electric, Dassault Syst&egrave;mes), Claroty Team82, Canada's CSE / Canadian Centre for Cyber Security, NSA, NERC and the European Commission, via reporting from SecurityWeek, GovInfoSecurity, Cybersecurity Dive and Industrial Cyber. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor PSIRTs (StoneFly, PTC, Ubiquiti, Lantronix, Delta Electronics, Frangoteam), Claroty Team82, Resecurity, Canada's CSE / Canadian Centre for Cyber Security, NSA, NERC and the European Commission, via reporting from SecurityWeek, GovInfoSecurity, Rescana and Industrial Cyber. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
