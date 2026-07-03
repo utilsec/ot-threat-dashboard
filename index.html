@@ -426,13 +426,13 @@
     <div class="header-title">
       <h1>OT/ICS Cybersecurity Threat Intelligence</h1>
       <div class="header-meta">
-        <span>Generated Fri, 03 Jul 2026, 00:15 ET</span>
+        <span>Generated Fri, 03 Jul 2026, 06:16 ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>15</strong> stories across
+      <strong>14</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -667,21 +667,6 @@
         <a href="https://claroty.com/press-releases/new-research-reveals-vulnerabilities-in-data-center-equipment-with-high-potential-for-operational-disruption" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-waterfall">
-        <div class="card-header">
-          <span class="severity sev-info">Report</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>Waterfall Threat Report 2026: physical-consequence breaches fell 25% &mdash; but a ransomware lull is masking a doubling of nation-state and hacktivist attacks</h3>
-        <p>Waterfall Security's 2026 OT threat report found that publicly recorded cyberattacks with physical consequences across heavy industry and critical infrastructure fell about 25% to 57 incidents in 2025 (from 76 in 2024), driven mostly by temporary factors dampening ransomware volume. The report cautions against reading that dip as improvement: nation-state and hacktivist attacks roughly doubled, most of them aimed at critical infrastructure, with the U.S., Germany and Russia the top victim geographies. It also expects ransomware &mdash; still the leading cause of OT-impacting disruption &mdash; to resume climbing across 2026&ndash;2027. The practical takeaway for operators is that headline incident counts are a noisy metric; the structural trend is more capable, more targeted adversaries against OT, and defenses (segmentation, remote-access control, engineering-led response) should be sized to that trajectory rather than to last year's tally.</p>
-        <div class="card-meta">
-          <span>Waterfall Security / Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Reported Jun 2026 (2026 OT Threat Report)</span>
-        </div>
-        <a href="https://industrialcyber.co/reports/waterfall-threat-report-2026-finds-ransomware-slowdown-masks-deeper-shift-toward-nation-state-attacks-on-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -894,38 +879,38 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-schneider">
+      <div class="card" id="story-gardyn">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Schneider patches credential-exposure flaws in EasyLogic T150 and Saitel DP RTUs &mdash; the remote terminal units that run substation and process telemetry</h3>
-        <p>CISA advisory ICSA-26-181-04 (30 June) covers a pair of insufficiently-protected-credentials weaknesses (CVE-2026-9650, CVE-2026-9651) in Schneider Electric's EasyLogic T150 (formerly Saitel DR) and Saitel DP remote terminal units, used across energy and critical-manufacturing sites. The flaws let an attacker who can reach credentials stored in firmware or system files recover them and potentially take over the device, with some paths requiring local or physical access. RTUs are the field workhorses that gather telemetry and issue control commands at substations, pumping stations and remote process sites, so credential theft here can hand an intruder legitimate control of downstream logic. Schneider shipped fixed firmware &mdash; version 11.06.32 for EasyLogic T150 and 11.06.38 for Saitel DP &mdash; through its Customer Care Center; updates require a reboot. Inventory affected RTUs, schedule the firmware upgrade into the next maintenance window, and tighten physical and network access to the devices in the meantime.</p>
+        <h3>New 2 July CISA ICS batch: unauthenticated takeover of Gardyn IoT Hub exposes a Food &amp; Agriculture connected-grow platform</h3>
+        <p>CISA's newest ICS advisory batch (ICSA-26-183-01/-02/-03, published 2 July) leads with ICSA-26-183-03 covering the Gardyn IoT Hub, tagged to the Food &amp; Agriculture sector (CVE-2026-13768, CVE-2026-55726, CVE-2026-54477). The core weakness is a privileged &ldquo;iothubowner&rdquo; key exposed on the device: an unauthenticated attacker who obtains it can call the IoT Hub registry-manager function and pull connection details for every Gardyn Home Kit and Studio unit, enabling access to and control of the managed devices across the fleet. Gardyn says it has already updated its cloud-side IoT Hub infrastructure to remediate and is pushing firmware to devices that stay internet-connected; CISA reports no known public exploitation so far. The broader lesson for critical-infrastructure operators is the recurring one from cloud-managed OT/IoT: a single over-privileged provisioning credential can expose an entire connected fleet, so confirm any internet-facing IoT/OT hub auto-updated, and review how registry/provisioning keys are scoped. Confirm Gardyn devices took the update and verify no unexpected device enrollments.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-9651</span>
-          <span>CISA ICS Advisory / Schneider Electric</span>
+          <span class="cve-badge">CVE-2026-13768</span>
+          <span>CISA ICS Advisory / Gardyn</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; credential exposure, some paths need local/physical access</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; unauthenticated fleet exposure via over-privileged key</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Schneider firmware)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory EasyLogic T150 and Saitel DP RTUs, apply firmware 11.06.32 / 11.06.38 in the next maintenance window (reboot required), and restrict physical and network access to the devices and their configuration files until patched.</span>
+            <span class="ops-tag patch-yes">Vendor-side fix deployed (cloud + firmware)</span>
+            <span class="ops-cc"><b>Action:</b> Confirm Gardyn IoT Hub devices are internet-connected and received the automatic firmware/cloud update, verify no unauthorized device enrollments, and more broadly audit any cloud-managed OT/IoT hub for over-privileged provisioning/registry keys and internet exposure.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory &amp; patch scheduling &mdash; 30 days (credential exposure, no known exploitation)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="schneider" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="schneider">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Update confirmation &amp; enrollment review &mdash; 30 days (no known exploitation, vendor fix deployed)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="gardyn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="gardyn">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisory (ICSA-26-181-04)</span>
+          <span>CISA ICS Advisory (ICSA-26-183-03)</span>
           <span class="dot">&bull;</span>
-          <span>30 Jun 2026 (Schneider EasyLogic T150 / Saitel DP RTU)</span>
+          <span>2 Jul 2026 (Gardyn IoT Hub &mdash; Food &amp; Agriculture)</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-04" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-sharepoint">
@@ -992,7 +977,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor PSIRTs (PTC, Ubiquiti, Lantronix, Delta Electronics, Schneider Electric, Frangoteam, Progress, Microsoft), Claroty Team82, Waterfall Security, Canada's CSE / Canadian Centre for Cyber Security, and NERC, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Ubiquiti, Lantronix, Delta Electronics, Frangoteam, Progress, Microsoft, Gardyn), Claroty Team82, Canada's CSE / Canadian Centre for Cyber Security, and NERC, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
