@@ -460,7 +460,7 @@
     <div class="header-title">
       <h1>OT/ICS Cybersecurity Threat Intelligence</h1>
       <div class="header-meta">
-        <span>Generated Fri, 03 Jul 2026, 10:20 ET</span>
+        <span>Generated Fri, 03 Jul 2026, 12:20 ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -957,40 +957,6 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-gardyn">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>New 2 July CISA ICS batch: unauthenticated takeover of Gardyn IoT Hub exposes a Food &amp; Agriculture connected-grow platform</h3>
-        <p>CISA's newest ICS advisory batch (ICSA-26-183-01/-02/-03, published 2 July) leads with ICSA-26-183-03 covering the Gardyn IoT Hub, tagged to the Food &amp; Agriculture sector (CVE-2026-13768, CVE-2026-55726, CVE-2026-54477). The core weakness is a privileged &ldquo;iothubowner&rdquo; key exposed on the device: an unauthenticated attacker who obtains it can call the IoT Hub registry-manager function and pull connection details for every Gardyn Home Kit and Studio unit, enabling access to and control of the managed devices across the fleet. Gardyn says it has already updated its cloud-side IoT Hub infrastructure to remediate and is pushing firmware to devices that stay internet-connected; CISA reports no known public exploitation so far. The broader lesson for critical-infrastructure operators is the recurring one from cloud-managed OT/IoT: a single over-privileged provisioning credential can expose an entire connected fleet, so confirm any internet-facing IoT/OT hub auto-updated, and review how registry/provisioning keys are scoped. Confirm Gardyn devices took the update and verify no unexpected device enrollments.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-13768</span>
-          <span>CISA ICS Advisory / Gardyn</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; unauthenticated fleet exposure via over-privileged key</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor-side fix deployed (cloud + firmware)</span>
-            <span class="ops-cc"><b>Action:</b> Confirm Gardyn IoT Hub devices are internet-connected and received the automatic firmware/cloud update, verify no unauthorized device enrollments, and more broadly audit any cloud-managed OT/IoT hub for over-privileged provisioning/registry keys and internet exposure.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Update confirmation &amp; enrollment review &mdash; 30 days (no known exploitation, vendor fix deployed)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="gardyn" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="gardyn">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS Advisory (ICSA-26-183-03)</span>
-          <span class="dot">&bull;</span>
-          <span>2 Jul 2026 (Gardyn IoT Hub &mdash; Food &amp; Agriculture)</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="story-sharepoint">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1048,6 +1014,21 @@
         <a href="https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-meddevice">
+        <div class="card-header">
+          <span class="severity sev-info">Policy</span>
+          <span class="category">Legislation</span>
+        </div>
+        <h3>Senate bill would force cybersecurity review &mdash; and possible recall &mdash; of Chinese-made networked medical devices in U.S. healthcare</h3>
+        <p>Senator Tom Cotton introduced the Countering Chinese Cyberthreats for Patients (&ldquo;Countering CCP&rdquo;) Act, which would direct the FDA and CISA to retroactively review the cybersecurity of Chinese-made networked medical devices already deployed in U.S. healthcare. Manufacturers would have to disclose the software in their devices, their development processes and server locations; regulators would verify that U.S. patient data is not stored on or transmitted through China-based servers; and HHS could halt distribution of devices deemed risky &mdash; with recall for vendors that fail to provide the required information within three months. The bill follows the FDA's earlier warning that Contec CMS8000 patient monitors (also relabeled as Epsimed MN-120) shipped with a backdoor enabling remote access and data exfiltration. For critical-infrastructure operators beyond healthcare, it is another marker of where supply-chain scrutiny of foreign-made connected devices is heading &mdash; SBOM-style disclosure, data-flow verification and recall authority as regulatory tools. No action required yet; it is proposed legislation, not law.</p>
+        <div class="card-meta">
+          <span>U.S. Senate / Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Introduced &mdash; reported 1 Jul 2026 (proposed, not enacted)</span>
+        </div>
+        <a href="https://industrialcyber.co/regulation-standards-and-compliance/senate-bill-seeks-cybersecurity-review-potential-recall-of-chinese-made-medical-devices-used-in-us-healthcare-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1055,7 +1036,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Ubiquiti, Lantronix, Delta Electronics, Frangoteam, Progress, Microsoft, Gardyn), Claroty Team82, Canada's CSE / Canadian Centre for Cyber Security, and NERC, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Ubiquiti, Lantronix, Delta Electronics, Frangoteam, Progress, Microsoft), Claroty Team82, Canada's CSE / Canadian Centre for Cyber Security, NERC and the U.S. Congress, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
