@@ -485,6 +485,11 @@
   .sector-nav a:hover { color: #1f2328; border-color: #afb8c1; }
   .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
 
+  /* Nav row: sector nav on the left, partnership line on the right */
+  .navrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 18px; }
+  .navrow .sector-nav { order: 1; margin-bottom: 0; }
+  .navrow .brandbar { order: 2; margin-bottom: 0; margin-left: auto; }
+
   /* Dark mode — every override keys off body.dark; keep in sync with the light palette above */
   body.dark { background: #0d1117; color: #e6edf3; }
   body.dark .disclaimer { background: #161b22; border-color: #30363d; color: #8b949e; }
@@ -584,6 +589,9 @@
     <strong>For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity and exploitation indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
   </div>
 
+  <!-- NAV + PARTNERSHIP ROW -->
+  <div class="navrow">
+
   <!-- BRAND BAR -->
   <div class="brandbar">
     <div class="brand-right">
@@ -601,6 +609,7 @@
     <a href="https://otthreatfeed.com/manufacturing" target="_top">Manufacturing</a>
     <a href="https://otthreatfeed.com/food" target="_top">Food &amp; Ag</a>
   </div>
+  </div><!-- /navrow -->
 
   <!-- HEADER -->
   <div class="header">
@@ -609,13 +618,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 04 Jul 2026, 4:17 PM ET</span>
+        <span>Generated Sat, 04 Jul 2026, 6:16 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across
+      <strong>15</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -1144,6 +1153,40 @@
         <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-idirect">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Unauthenticated API on ST Engineering iDirect iQ-Series satellite terminals leaks device secrets &mdash; the VSAT gear that backhauls remote energy and transport sites</h3>
+        <p>CISA advisory ICSA-26-183-01 (2 July) covers two flaws in ST Engineering iDirect iQ-Series satellite terminals used across communications, energy, defense, government and transportation. The more serious, CVE-2026-38059, is a missing-authentication issue: the terminal exposes REST API endpoints (/api/identity and others) with no authentication, so an unauthenticated attacker with network access can pull sensitive device data &mdash; serial number, Device ID, terminal private-key identifier, MAC address and exact firmware version &mdash; ideal reconnaissance for a follow-on attack. A companion CSRF flaw (CVE-2026-38057) lets an attacker force state-changing API calls against an authenticated session. VSAT terminals often provide the only connectivity for remote pipelines, substations, offshore and transport assets, so the device is frequently the network edge for OT. Update to firmware 4.5.2.2 or newer via the iDirect support portal, restrict management-network access to the terminals, and keep their APIs off any untrusted or internet-facing path.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-38059</span>
+          <span>CISA ICS Advisory / ST Engineering iDirect</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; unauth info disclosure + CSRF</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (v4.5.2.2)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory iDirect iQ-Series (Evolution iQ, 3315- and 9-Series) terminals, update to firmware 4.5.2.2 or newer, restrict terminal management interfaces and REST APIs to trusted networks only, and monitor for unauthenticated API access and unexpected configuration changes on satellite-connected OT sites.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Firmware update &amp; exposure review &mdash; 30 days (unauth info disclosure on OT-edge VSAT gear)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="idirect" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="idirect">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-183-01)</span>
+          <span class="dot">&bull;</span>
+          <span>2 Jul 2026 (ST Engineering iDirect iQ-Series)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1189,7 +1232,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Citrix, Delta Electronics, Frangoteam, Progress, Microsoft, Lantronix), Sysdig and Forescout threat research, watchTowr, Canada's CSE / Canadian Centre for Cyber Security, NERC and the U.S. Congress, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber, CyberScoop and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Citrix, Delta Electronics, Frangoteam, Progress, Microsoft, Lantronix, ST Engineering iDirect), Sysdig and Forescout threat research, watchTowr, Canada's CSE / Canadian Centre for Cyber Security, NERC and the U.S. Congress, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber, CyberScoop and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
