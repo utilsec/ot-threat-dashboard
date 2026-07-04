@@ -556,6 +556,25 @@
   body.dark .radar-svg > circle { stroke: #30363d; }
   body.dark .radar-svg > line { stroke: #21262d; }
 
+  /* Sector theme */
+  .header {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #bae6fd;
+    border-bottom: 2px solid #0284c7;
+    border-left: 5px solid #0284c7;
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+    background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 72%);
+  }
+  .header .header-title, .header .story-count { position: relative; z-index: 1; }
+  .sector-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 120px; height: 120px; opacity: 0.14; z-index: 0; pointer-events: none; }
+  .sector-badge { background: #e0f2fe; color: #075985; border-color: #bae6fd; }
+  @media (max-width: 640px) { .sector-icon { width: 78px; opacity: 0.10; right: 10px; } }
+  body.dark .header { background: linear-gradient(135deg, rgba(2,132,199,0.16) 0%, #0d1117 72%); border-color: #30363d; border-left-color: #0284c7; border-bottom-color: #0284c7; }
+  body.dark .sector-icon { opacity: 0.28; }
+  body.dark .sector-badge { background: rgba(2,132,199,0.16); color: #38bdf8; border-color: rgba(2,132,199,0.45); }
+
   /* Mobile */
   @media (max-width: 600px) {
     body { padding: 16px; }
@@ -594,6 +613,7 @@
 
   <!-- HEADER -->
   <div class="header">
+    <svg class="sector-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#0284c7" d="M12 2.4C12 2.4 5.4 10 5.4 14.7a6.6 6.6 0 0 0 13.2 0C18.6 10 12 2.4 12 2.4z"/></svg>
     <div class="header-title">
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
