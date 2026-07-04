@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OT/ICS Cybersecurity Threat Intelligence Dashboard &mdash; Food & Agriculture</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #ffffff;
+    color: #1f2328;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 11.5px;
+    color: #57606a;
+    line-height: 1.5;
+  }
+  .disclaimer strong { color: #1f2328; font-weight: 700; }
+
+  /* Brand bar */
+  .brandbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .brandbar .brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2328;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .brandbar .brand span { color: #2c7480; }
+  .brandbar .tag {
+    font-size: 11px;
+    color: #6e7781;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .partner-logo { height: 20px; width: auto; display: inline-block; }
+  body.dark .partner-logo { background: #ffffff; border-radius: 4px; padding: 2px 6px; height: 24px; }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid #1f2328;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: #1f2328;
+  }
+  .header-sub {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #57606a;
+    margin-bottom: 6px;
+  }
+  .header-meta {
+    color: #6e7781;
+    font-size: 13px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .header-meta .dot { color: #d0d7de; }
+  .sector-badge {
+    background: #e6f1f2;
+    color: #2c7480;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #bfe0e3;
+  }
+  .story-count {
+    color: #6e7781;
+    font-size: 13px;
+    text-align: right;
+  }
+  .story-count strong { color: #1f2328; font-weight: 700; }
+
+  /* Hero: top story + radar side by side */
+  .hero {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  /* Trends strip */
+  .trends-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin: -8px 0 12px;
+  }
+  .trends-strip {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px 20px;
+  }
+  .trend { display: flex; flex-direction: column; font-size: 12px; color: #57606a; line-height: 1.5; }
+  .trend-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background: #e6f1f2;
+    color: #2c7480;
+    border: 1px solid #bfe0e3;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 7px;
+  }
+  .trend b.trend-head { color: #1f2328; font-weight: 700; font-size: 12.5px; margin-bottom: 4px; }
+  .trend p { margin-bottom: 8px; flex-grow: 1; }
+  .trend .source-link { font-size: 11px; }
+
+  /* Top story */
+  .top-story {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-left: 3px solid #4e9da8;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 440px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(31,35,40,0.06);
+  }
+  .top-story-pill {
+    display: inline-block;
+    background: #4e9da8;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .top-story h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #1f2328;
+  }
+  .top-story p {
+    color: #424a53;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* Radar panel */
+  .radar-panel {
+    flex: 1 1 320px;
+    min-width: 300px;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .radar-panel .radar-head {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 4px;
+  }
+  .radar-panel .radar-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin-bottom: 10px;
+  }
+  .radar-svg {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .radar-sweep { animation: radar-rot 8s linear infinite; transform-origin: 180px 180px; }
+  @keyframes radar-rot { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .radar-sweep { animation: none; } }
+  .ring-label {
+    fill: #8b949e;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+  .blip { cursor: pointer; transition: stroke-width 0.15s ease; }
+  .blip.crit { fill: #cf222e; stroke: rgba(207,34,46,0.25); stroke-width: 5; }
+  .blip.high { fill: #e0701a; stroke: rgba(224,112,26,0.25); stroke-width: 5; }
+  .radar-svg a:hover .blip.crit { stroke: rgba(207,34,46,0.45); stroke-width: 9; }
+  .radar-svg a:hover .blip.high { stroke: rgba(224,112,26,0.45); stroke-width: 9; }
+  .blip-num { fill: #ffffff; font-size: 9px; font-weight: 800; text-anchor: middle; pointer-events: none; }
+
+  /* Radar legend */
+  .radar-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; margin-top: 2px; }
+  .radar-legend a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #57606a;
+    text-decoration: none;
+    padding: 3px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .radar-legend a:hover { color: #1f2328; background: #eaeef2; }
+  .radar-legend b { color: #1f2328; font-weight: 700; min-width: 12px; text-align: center; }
+  .radar-legend .ld { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .radar-legend .ld.crit { background: #cf222e; }
+  .radar-legend .ld.high { background: #e0701a; }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(31,35,40,0.04);
+  }
+  .card:hover { border-color: #afb8c1; box-shadow: 0 2px 6px rgba(31,35,40,0.08); }
+  /* Anchor highlight when a radar blip targets a card */
+  .card, .top-story { scroll-margin-top: 16px; }
+  .card:target { border-color: #4e9da8; box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .top-story:target { box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #1f2328;
+  }
+  .card p {
+    color: #57606a;
+    font-size: 13px;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+  .card-meta {
+    color: #6e7781;
+    font-size: 11px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-meta .dot { color: #d0d7de; }
+  .cve-badge {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-size: 10px;
+    background: #f6f8fa;
+    color: #57606a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #d0d7de;
+    margin-right: 4px;
+  }
+
+  /* Severity pills */
+  .severity {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sev-critical { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .sev-high     { background: rgba(188,76,0,0.08);  color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .sev-medium   { background: rgba(154,103,0,0.1);  color: #9a6700; border: 1px solid rgba(154,103,0,0.3); }
+  .sev-low      { background: rgba(9,105,218,0.08); color: #0969da; border: 1px solid rgba(9,105,218,0.3); }
+  .sev-info     { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+
+  /* Category tag */
+  .category {
+    color: #8b949e;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Ops strip (exploitation + action) */
+  .ops-strip {
+    border-top: 1px dashed #d0d7de;
+    margin-top: 4px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ops-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11px; color: #57606a; }
+  .ops-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 2px 8px; border-radius: 10px; text-transform: uppercase;
+  }
+  .ops-tag .d { width: 6px; height: 6px; border-radius: 50%; }
+  .ex-active { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .ex-active .d { background: #cf222e; }
+  .ex-poc    { background: rgba(188,76,0,0.08); color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .ex-poc .d { background: #bc4c00; }
+  .ex-none   { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+  .ex-none .d { background: #8b949e; }
+  .kev-on  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.35); }
+  .kev-off { background: #f6f8fa; color: #6e7781; border: 1px solid #d0d7de; }
+  .patch-yes { background: rgba(26,127,55,0.08); color: #1a7f37; border: 1px solid rgba(26,127,55,0.3); }
+  .patch-no  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .patch-na  { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+  .ops-cc { font-size: 11px; color: #57606a; line-height: 1.45; }
+  .ops-cc b { color: #1f2328; font-weight: 700; }
+  .ops-assign {
+    justify-content: space-between;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    padding: 7px 9px;
+    margin-top: 1px;
+  }
+  .ops-sla b { color: #1f2328; font-weight: 700; }
+  .ops-owner { display: inline-flex; align-items: center; gap: 4px; }
+  .owner-edit {
+    color: #1f2328;
+    border-bottom: 1px dashed #afb8c1;
+    min-width: 64px;
+    display: inline-block;
+    outline: none;
+    padding: 0 2px;
+  }
+  .owner-edit:focus { border-bottom-color: #4e9da8; }
+  .owner-edit:empty:before { content: attr(data-placeholder); color: #8b949e; }
+  .status-pill {
+    font: inherit; font-size: 10px; font-weight: 700; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 10px; border: 1px solid;
+    transition: all 0.12s ease;
+  }
+  .status-pill.st-open { background: #ffffff; color: #57606a; border-color: #d0d7de; }
+  .status-pill.st-ack  { background: rgba(9,105,218,0.08); color: #0969da; border-color: rgba(9,105,218,0.4); }
+  .status-pill.st-mit  { background: rgba(26,127,55,0.08); color: #1a7f37; border-color: rgba(26,127,55,0.4); }
+  .status-pill.st-na   { background: #f6f8fa; color: #8b949e; border-color: #d0d7de; }
+
+  /* Link */
+  .source-link {
+    color: #2c7480;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+  .source-link::after { content: " \2192"; }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1f2328;
+    color: #6e7781;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .footer p { margin-bottom: 8px; }
+  .footer a { color: #2c7480; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer strong { color: #1f2328; }
+  .footer .byline { color: #424a53; }
+  .footer .byline span { color: #2c7480; font-weight: 700; }
+
+  /* Theme toggle button (upper right, in brand bar) */
+  .brand-right { display: flex; align-items: center; gap: 12px; }
+  .theme-toggle {
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: #57606a;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: #1f2328; border-color: #afb8c1; }
+
+  /* Sector navigation */
+  .sector-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .sector-nav a {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #57606a;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 14px;
+    background: #f6f8fa;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sector-nav a:hover { color: #1f2328; border-color: #afb8c1; }
+  .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
+
+  /* Dark mode — every override keys off body.dark; keep in sync with the light palette above */
+  body.dark { background: #0d1117; color: #e6edf3; }
+  body.dark .disclaimer { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .disclaimer strong { color: #e6edf3; }
+  body.dark .brandbar .brand { color: #e6edf3; }
+  body.dark .brandbar .brand span { color: #58b0bd; }
+  body.dark .brandbar .tag { color: #8b949e; }
+  body.dark .theme-toggle { color: #8b949e; background: #161b22; border-color: #30363d; }
+  body.dark .theme-toggle:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .sector-nav a:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
+  body.dark .header { border-bottom-color: #e6edf3; }
+  body.dark .header-title h1 { color: #e6edf3; }
+  body.dark .header-sub { color: #9198a1; }
+  body.dark .header-meta { color: #8b949e; }
+  body.dark .header-meta .dot { color: #30363d; }
+  body.dark .sector-badge { background: rgba(88,176,189,0.12); color: #58b0bd; border-color: rgba(88,176,189,0.35); }
+  body.dark .story-count { color: #8b949e; }
+  body.dark .story-count strong { color: #e6edf3; }
+  body.dark .section-title { color: #e6edf3; border-bottom-color: #30363d; }
+  body.dark .trends-sub { color: #8b949e; }
+  body.dark .trends-strip { background: #161b22; border-color: #30363d; }
+  body.dark .trend { color: #9198a1; }
+  body.dark .trend-tag { background: rgba(88,176,189,0.12); color: #58b0bd; border-color: rgba(88,176,189,0.35); }
+  body.dark .trend b.trend-head { color: #e6edf3; }
+  body.dark .top-story { background: #161b22; border-color: #30363d; border-left-color: #4e9da8; }
+  body.dark .top-story h2 { color: #e6edf3; }
+  body.dark .top-story p { color: #9198a1; }
+  body.dark .radar-panel { background: #161b22; border-color: #30363d; }
+  body.dark .radar-panel .radar-head { color: #e6edf3; }
+  body.dark .radar-panel .radar-sub { color: #8b949e; }
+  body.dark .radar-legend a { color: #9198a1; }
+  body.dark .radar-legend a:hover { color: #e6edf3; background: #21262d; }
+  body.dark .radar-legend b { color: #e6edf3; }
+  body.dark .card { background: #161b22; border-color: #30363d; }
+  body.dark .card:hover { border-color: #8b949e; }
+  body.dark .card:target { border-color: #4e9da8; }
+  body.dark .card h3 { color: #e6edf3; }
+  body.dark .card p { color: #9198a1; }
+  body.dark .card-meta { color: #8b949e; }
+  body.dark .card-meta .dot { color: #30363d; }
+  body.dark .cve-badge { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .sev-critical { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .sev-high     { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .sev-medium   { color: #d29922; border-color: rgba(210,153,34,0.4); background: rgba(210,153,34,0.1); }
+  body.dark .sev-low      { color: #58a6ff; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.1); }
+  body.dark .sev-info     { color: #9198a1; border-color: rgba(145,152,161,0.4); background: rgba(145,152,161,0.1); }
+  body.dark .category { color: #8b949e; }
+  body.dark .ops-strip { border-top-color: #30363d; }
+  body.dark .ops-row { color: #9198a1; }
+  body.dark .ex-active { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .ex-active .d { background: #f85149; }
+  body.dark .ex-poc { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .ex-poc .d { background: #db6d28; }
+  body.dark .ex-none { color: #9198a1; border-color: rgba(145,152,161,0.35); background: rgba(145,152,161,0.1); }
+  body.dark .ex-none .d { background: #8b949e; }
+  body.dark .kev-on { color: #f85149; border-color: rgba(248,81,73,0.45); background: rgba(248,81,73,0.1); }
+  body.dark .kev-off { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .patch-yes { color: #3fb950; border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.1); }
+  body.dark .patch-no  { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .patch-na  { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .ops-cc { color: #9198a1; }
+  body.dark .ops-cc b { color: #e6edf3; }
+  body.dark .ops-assign { background: #21262d; border-color: #30363d; }
+  body.dark .ops-sla b { color: #e6edf3; }
+  body.dark .owner-edit { color: #e6edf3; border-bottom-color: #8b949e; }
+  body.dark .owner-edit:empty:before { color: #8b949e; }
+  body.dark .status-pill.st-open { background: #161b22; color: #9198a1; border-color: #30363d; }
+  body.dark .status-pill.st-ack { color: #58a6ff; border-color: rgba(88,166,255,0.5); background: rgba(88,166,255,0.1); }
+  body.dark .status-pill.st-mit { color: #3fb950; border-color: rgba(63,185,80,0.5); background: rgba(63,185,80,0.1); }
+  body.dark .status-pill.st-na { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .source-link { color: #58b0bd; }
+  body.dark .footer { border-top-color: #e6edf3; color: #8b949e; }
+  body.dark .footer a { color: #58b0bd; }
+  body.dark .footer strong { color: #e6edf3; }
+  body.dark .footer .byline { color: #9198a1; }
+  body.dark .footer .byline span { color: #58b0bd; }
+  body.dark .radar-svg > circle { stroke: #30363d; }
+  body.dark .radar-svg > line { stroke: #21262d; }
+
+  /* Sector theme */
+  .header {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d9f99d;
+    border-bottom: 2px solid #65a30d;
+    border-left: 5px solid #65a30d;
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+    background: linear-gradient(135deg, #ecfccb 0%, #ffffff 72%);
+  }
+  .header .header-title, .header .story-count { position: relative; z-index: 1; }
+  .sector-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 120px; height: 120px; opacity: 0.14; z-index: 0; pointer-events: none; }
+  .sector-badge { background: #ecfccb; color: #3f6212; border-color: #d9f99d; }
+  @media (max-width: 640px) { .sector-icon { width: 78px; opacity: 0.10; right: 10px; } }
+  body.dark .header { background: linear-gradient(135deg, rgba(101,163,13,0.16) 0%, #0d1117 72%); border-color: #30363d; border-left-color: #65a30d; border-bottom-color: #65a30d; }
+  body.dark .sector-icon { opacity: 0.28; }
+  body.dark .sector-badge { background: rgba(101,163,13,0.16); color: #a3e635; border-color: rgba(101,163,13,0.45); }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .story-count { text-align: left; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
+<div class="container">
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Sector-scoped edition &mdash; Food &amp; Agriculture. For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity and exploitation indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
+  </div>
+
+  <!-- BRAND BAR -->
+  <div class="brandbar">
+    <div class="brand">Mike Holcomb &middot; <span>OT/ICS Cybersecurity</span></div>
+    <div class="brand-right">
+      <div class="tag">In partnership with <img class="partner-logo" alt="UtilSec" src="data:image/png;base64,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"></div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" title="Switch between light and dark mode">&#9790; Dark mode</button>
+    </div>
+  </div>
+
+  <!-- SECTOR NAV -->
+  <div class="sector-nav">
+    <a href="https://otthreatfeed.com/" target="_top">All Sectors</a>
+    <a href="https://otthreatfeed.com/power" target="_top">Power</a>
+    <a href="https://otthreatfeed.com/water" target="_top">Water</a>
+    <a href="https://otthreatfeed.com/marine" target="_top">Marine</a>
+    <a href="https://otthreatfeed.com/manufacturing" target="_top">Manufacturing</a>
+    <a href="https://otthreatfeed.com/food" class="sn-active" target="_top">Food &amp; Ag</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <svg class="sector-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#65a30d" d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C19.43 14.47 20 4 20 4S9.53 4.57 6.05 8.05z"/></svg>
+    <div class="header-title">
+      <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
+      <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
+      <div class="header-meta">
+        <span>Generated Sat, 04 Jul 2026, 10:40 ET</span>
+        <span class="dot">&bull;</span>
+        <span class="sector-badge">Sector: Food &amp; Agriculture</span>
+      </div>
+    </div>
+    <div class="story-count">
+      <strong>9</strong> stories across
+      <strong>4</strong> categories
+    </div>
+  </div>
+
+  <!-- HERO: TOP STORY + RADAR -->
+  <div class="hero">
+
+    <!-- TOP STORY -->
+    <div class="top-story" id="story-gardyn">
+      <span class="top-story-pill">Top Story</span>
+      <h2>CISA flags CVSS 10.0 flaws in Gardyn's cloud-connected growing systems &mdash; a leaked master key could hand an attacker every hub-managed device in the fleet</h2>
+      <p>CISA advisory ICSA-26-183-03, published 2 July and tagged to the Food and Agriculture sector, covers three critical vulnerabilities (CVE-2026-13768, CVE-2026-55726, CVE-2026-54477, maximum CVSS 10.0) in Gardyn's cloud-managed indoor growing platforms &mdash; Gardyn Home and Studio firmware plus the Cloud API in versions before 2.12.2026. The core failure is architectural: devices shipped with access to a privileged <em>iothubowner</em> key, and anyone holding that key could invoke the IoT hub's registry-manager function to pull connection information for every Gardyn device in the fleet &mdash; then access and control them without any authentication. Gardyn says the cloud infrastructure has been fixed and devices auto-update when internet-connected; no exploitation has been reported to CISA. The individual devices are small, but the lesson for food and agriculture operators is not: controlled-environment agriculture, irrigation controllers, climate systems and barn monitoring increasingly ride vendor-cloud platforms where one leaked master credential means fleet-wide control. Inventory the cloud-tethered growing and monitoring gear in your operation, confirm claimed auto-updates actually applied, and treat vendor cloud dependencies as supply-chain risk to assess &mdash; not invisible plumbing.</p>
+      <div class="card-meta">
+        <span class="cve-badge">CVE-2026-13768</span>
+        <span>CISA ICS Advisory / Gardyn</span>
+      </div>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported to CISA (as of this edition)</span>
+          <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVSS 10.0, Food &amp; Agriculture sector advisory</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-yes">Fixed &mdash; cloud updated; firmware 2.12.2026 via auto-update</span>
+          <span class="ops-cc"><b>Action:</b> Inventory cloud-managed growing, irrigation and climate-control devices, verify Gardyn units are online and received the 2.12.2026 firmware, segment ag-IoT gear from production and business networks, and add vendor cloud-platform security to supplier risk reviews.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Device inventory &amp; update verification &mdash; 7 days (CVSS 10.0, fleet-wide control path)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-gardyn" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="fd-gardyn">Open</button>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span>CISA ICS Advisory (ICSA-26-183-03)</span>
+        <span class="dot">&bull;</span>
+        <span>Published 2 Jul 2026</span>
+      </div>
+      <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+    </div>
+
+    <!-- THREAT RADAR -->
+    <div class="radar-panel">
+      <div class="radar-head">Threat Radar</div>
+      <div class="radar-sub">Critical &amp; High items this edition &mdash; larger blips = higher severity/priority. Click a blip to jump to its card.</div>
+      <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
+        <defs>
+          <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.10)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </radialGradient>
+          <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="40%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.25)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="180" r="160" fill="url(#rg)" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="110" fill="none" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="60" fill="none" stroke="#d0d7de"/>
+        <line x1="20" y1="180" x2="340" y2="180" stroke="#e5e8eb"/>
+        <line x1="180" y1="20" x2="180" y2="340" stroke="#e5e8eb"/>
+        <g class="radar-sweep">
+          <path d="M180 180 L340 180 A160 160 0 0 1 318.6 260 Z" fill="url(#sweep)"/>
+        </g>
+        <circle cx="180" cy="180" r="3" fill="#8b949e"/>
+        <text class="ring-label" x="180" y="127">Critical</text>
+        <text class="ring-label" x="180" y="77">High</text>
+
+        <a href="#story-gardyn"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="125.1">1</text></a>
+        <a href="#story-simplehelp"><circle class="blip crit" cx="232" cy="210" r="13.5"/><text class="blip-num" style="font-size:12px" x="232" y="214.6">2</text></a>
+        <a href="#story-delta"><circle class="blip crit" cx="128" cy="210" r="12"/><text class="blip-num" style="font-size:11px" x="128" y="214.1">3</text></a>
+        <a href="#story-iranplc"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73.1">4</text></a>
+        <a href="#story-team82"><circle class="blip high" cx="284.6" cy="146" r="8.5"/><text class="blip-num" style="font-size:8.2px" x="284.6" y="148.9">5</text></a>
+        <a href="#story-sharepoint"><circle class="blip high" cx="244.7" cy="269" r="8"/><text class="blip-num" style="font-size:8px" x="244.7" y="271.7">6</text></a>
+        <a href="#story-dragosai"><circle class="blip high" cx="115.3" cy="269" r="7.6"/><text class="blip-num" style="font-size:7.6px" x="115.3" y="271.6">7</text></a>
+        <a href="#story-fuxa"><circle class="blip high" cx="75.4" cy="146" r="7.2"/><text class="blip-num" style="font-size:7.4px" x="75.4" y="148.6">8</text></a>
+      </svg>
+      <div class="radar-legend">
+        <a href="#story-gardyn"><b>1</b><span class="ld crit"></span>Gardyn ag-IoT CVSS 10</a>
+        <a href="#story-simplehelp"><b>2</b><span class="ld crit"></span>SimpleHelp RMM KEV</a>
+        <a href="#story-delta"><b>3</b><span class="ld crit"></span>Delta PLC open Modbus</a>
+        <a href="#story-iranplc"><b>4</b><span class="ld high"></span>Iran-linked PLC attacks</a>
+        <a href="#story-team82"><b>5</b><span class="ld high"></span>Trane/Vertiv cold-chain RCE</a>
+        <a href="#story-sharepoint"><b>6</b><span class="ld high"></span>SharePoint RCE (KEV)</a>
+        <a href="#story-dragosai"><b>7</b><span class="ld high"></span>AI-assisted intrusion</a>
+        <a href="#story-fuxa"><b>8</b><span class="ld high"></span>FUXA SCADA bypass</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: Trends -->
+  <div class="section">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days &mdash; sector lens.</div>
+    <div class="trends-strip">
+
+      <div class="trend">
+        <span class="trend-tag">Ransomware</span>
+        <b class="trend-head">Agri-food ransomware pressure keeps climbing</b>
+        <p>Food and Ag-ISAC / IT-ISAC tracking put 2025 ransomware incidents up 82% year over year with Qilin, Akira and CL0P leading campaigns against the sector, and leak-site trackers have kept logging new agri-food victims through the spring and into June &mdash; production stoppage for food-safety reasons remains the defining OT impact.</p>
+        <a href="https://industrialcyber.co/reports/food-and-ag-isac-reports-82-surge-in-ransomware-attacks-as-qilin-akira-and-cl0p-lead-campaigns-against-sector/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Market</span>
+        <b class="trend-head">OT security consolidation, at scale</b>
+        <p>Accenture's move for a majority stake in Dragos plus full acquisitions of runZero and NetRise (~$4.2B combined) is still the industry's dominant conversation, with Everfield's agreement to acquire Rhebo extending the consolidation wave into the European OT-monitoring market.</p>
+        <a href="https://www.securityweek.com/accenture-to-acquire-majority-stake-in-dragos-all-of-runzero-netrise-in-4-1-billion-ot-cybersecurity-push/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">LLM-assisted intrusions move from theory to casework</b>
+        <p>Dragos' documentation of an AI-assisted intrusion at a Mexican utility (see research card) keeps fueling debate over &ldquo;zero-knowledge&rdquo; threat actors &mdash; directly relevant to food and ag operators, where thin OT security staffing is the norm and unfamiliar control systems no longer slow an attacker down.</p>
+        <a href="https://industrialcyber.co/reports/dragos-details-ai-assisted-intrusion-targeting-mexican-water-utility-as-claude-openai-models-used-to-pursue-ot-access/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Connected Farms</span>
+        <b class="trend-head">Precision agriculture moves up the security agenda</b>
+        <p>Legal and policy commentary keeps pushing farm-tech cyber risk into the boardroom &mdash; from farm-bill proposals for precision-ag standards that bake in cybersecurity to fresh &ldquo;field to firewall&rdquo; analyses of liability for compromised IoT-heavy operations; this week's Gardyn advisory (see top story) is the concrete example.</p>
+        <a href="https://www.cliffedekkerhofmeyr.com/en/news/publications/2026/South-Africa/Agriculture-Aquaculture-Fishing/agriculture-aquaculture-fishing-alert-1-july-from-field-to-firewall-why-cybersecurity-is-the-new-frontier-for-agricultural-businesses" class="source-link" target="_blank" rel="noopener">Cliffe Dekker Hofmeyr</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Edge Exploits</span>
+        <b class="trend-head">Disclosure-to-exploitation now measured in hours</b>
+        <p>This week's NetScaler memory-overread drew in-the-wild exploitation less than 24 hours after disclosure, Kemp LoadMaster attempts followed days after a public PoC, and SimpleHelp remains under attack past its KEV deadline (see advisory) &mdash; the remote-access and edge gear fronting plants must be patched at emergency speed.</p>
+        <a href="https://cyberscoop.com/citrix-netscaler-flaw-cve-2026-8451-citrixbleed/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Incidents &amp; Attacks -->
+  <div class="section">
+    <div class="section-title">Incidents &amp; Attacks</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-iranplc">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>CISA/FBI/EPA/DOE: Iranian-affiliated actors keep hitting internet-exposed Allen-Bradley PLCs &mdash; with confirmed operational disruption</h3>
+        <p>U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers &mdash; a campaign running since at least March, re-emphasized amid heightened Middle East tensions, and agency-confirmed to include manipulation of project files and HMI/SCADA displays with real operational disruption and financial loss in some cases. The named sectors are water, energy and government facilities, but food and beverage manufacturers should read themselves into it directly: the same Allen-Bradley controllers dominate processing and packaging lines, and the 2023&ndash;24 wave of Iranian-linked attacks on internet-exposed controllers hit food and beverage plants among its victims. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits &mdash; which makes the fix largely one of hygiene and exposure reduction. Get every PLC and OT device off the public internet or behind a VPN with MFA, change all default/shared credentials, and hunt for unexpected configuration or logic changes on internet-reachable controllers.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified, operational disruption reported</span>
+            <span class="ops-tag kev-off">Nation-state / Iran-affiliated</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; credential hardening</span>
+            <span class="ops-cc"><b>Action:</b> Remove internet exposure of Allen-Bradley and all OT PLCs (place behind VPN + MFA), replace default/weak credentials, restrict remote access, and threat-hunt exposed controllers for unauthorized logic or configuration changes per the CISA/FBI/EPA/DOE guidance.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposed PLC sweep &mdash; 72h; credential reset &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-iranplc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-iranplc">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / FBI / EPA / DOE joint alert</span>
+          <span class="dot">&bull;</span>
+          <span>Ongoing &mdash; re-warned late Jun 2026 amid Mideast tensions</span>
+        </div>
+        <a href="https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Threat Intelligence &amp; Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-dragosai">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Dragos documents an AI-assisted intrusion at a Mexican water utility &mdash; commercial LLMs used to navigate an unfamiliar OT environment</h3>
+        <p>Dragos case-study reporting describes an intrusion at a Mexican water utility in which the adversary leaned on commercial large language models to interpret an operational-technology environment they had apparently never seen before &mdash; using AI assistance to make sense of unfamiliar control-system software and to build credential lists for further access. The case has become the OT community's concrete reference point for the &ldquo;zero-knowledge&rdquo; threat actor debate: attackers may no longer need ICS-specific expertise up front when AI tooling can supply enough context on the fly, compressing the time between first access and meaningful OT reconnaissance. The case happens to involve a water utility, but the lesson lands hardest in food and agriculture &mdash; a sector of unfamiliar, heterogeneous control systems (batching, CIP skids, refrigeration, packaging) where operators often assume obscurity is protection and security staffing is thin. The takeaways are conventional but urgent: strong unique credentials and MFA on every remote path, OT network monitoring capable of flagging an intruder who is learning the environment as they go, and logging that lets you reconstruct what an interactive adversary actually touched.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed intrusion case study &mdash; AI-assisted tradecraft documented</span>
+            <span class="ops-tag kev-off">Dragos incident-response reporting</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; credential, access &amp; monitoring hygiene</span>
+            <span class="ops-cc"><b>Action:</b> Enforce MFA and unique credentials on all remote OT access, review monitoring coverage for interactive, exploratory adversary behavior, and ensure OT session logging is sufficient to reconstruct attacker activity after the fact.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Remote-access &amp; monitoring review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-dragosai" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-dragosai">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Dragos / Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Case-study reporting &mdash; late Jun 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/reports/dragos-details-ai-assisted-intrusion-targeting-mexican-water-utility-as-claude-openai-models-used-to-pursue-ot-access/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-team82">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Claroty Team82: unauthenticated RCE chain in Trane and Vertiv HVAC/power controllers &mdash; the same gear class that keeps cold chains cold</h3>
+        <p>Claroty's Team82 disclosed a set of severe, highly exploitable vulnerabilities in facility power and HVAC equipment, centered on a chain in the widely deployed Trane Tracer SC+ building-automation controller that could allow unauthenticated remote code execution and full external takeover of a building-management system; Vertiv power gear was also affected. Team82 framed the research around data centers, but food and beverage operators run the same class of controllers for something just as unforgiving: refrigeration support, cold storage, HVAC over hygienic production zones and controlled-atmosphere warehouses, where losing thermal control means spoiled product, failed food-safety holds and disposal costs rather than mere downtime. All findings were responsibly disclosed and Trane and Vertiv shipped fixes before publication, so the action is direct: inventory Tracer SC+ and comparable BMS and facility-power controllers across plants and warehouses, patch them, and stop treating building automation as harmless IT periphery &mdash; segment it away from both process control and business networks.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; responsibly disclosed &amp; patched</span>
+            <span class="ops-tag kev-off">Vulnerability research (Claroty Team82)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available (Trane / Vertiv)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Trane Tracer SC+ and comparable BMS/facility-power controllers at plants, cold stores and distribution centers, apply vendor fixes, remove management-interface exposure to untrusted networks, and segment building automation away from process OT and IT.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; segmentation review &mdash; 30 days (unauth RCE, no known exploitation)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-team82" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-team82">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Claroty Team82</span>
+          <span class="dot">&bull;</span>
+          <span>9 Jun 2026 (SANS ICS Summit research)</span>
+        </div>
+        <a href="https://claroty.com/press-releases/new-research-reveals-vulnerabilities-in-data-center-equipment-with-high-potential-for-operational-disruption" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Critical Advisories -->
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-simplehelp">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Max-severity SimpleHelp auth-bypass stays actively exploited past its federal KEV deadline &mdash; the remote-support tool vendors use to reach your OT</h3>
+        <p>CISA added CVE-2026-48558, a CVSS 10.0 authentication-bypass flaw in the SimpleHelp remote monitoring and management (RMM) platform, to its Known Exploited Vulnerabilities catalog on 29 June with a federal remediation deadline of 2 July &mdash; a deadline that has now passed while exploitation continues. On servers configured for OpenID Connect the software fails to verify identity-token signatures, so an unauthenticated attacker can forge a token and be granted a fully authenticated &ldquo;Technician&rdquo; session &mdash; administrative control of the remote-access server, in some configurations bypassing MFA. The flaw is already being used to drop two newly identified malware families, the TaskWeaver loader and the Djinn infostealer, with roughly 14,000 SimpleHelp servers online and an estimated 1,000 directly vulnerable. For food and beverage manufacturers the relevance is direct: RMM platforms are how packaging-machine OEMs, SCADA integrators and refrigeration service contractors reach lines, batching systems and cold-storage controls for remote support, and a compromised RMM server is a pre-authenticated path into plant networks. Patch to the fixed release immediately, pull the console off the public internet, rotate technician credentials and OIDC secrets, and hunt RMM-connected endpoints for TaskWeaver/Djinn activity and unexpected sessions.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-48558</span>
+          <span>CISA KEV / SimpleHelp</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited in the wild to deploy TaskWeaver / Djinn Stealer</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; federal deadline 2 Jul 2026 (lapsed)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (SimpleHelp)</span>
+            <span class="ops-cc"><b>Action:</b> Patch all SimpleHelp servers now, remove internet exposure, rotate technician credentials and OIDC secrets, ask your packaging OEMs, integrators and service contractors what RMM they use to reach your plants, and hunt RMM-connected endpoints for TaskWeaver/Djinn indicators and unexpected sessions.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h (KEV, CVSS 10.0, active RCE, remote-access path to OT)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-simplehelp" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-simplehelp">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>KEV-added 29 Jun 2026 &mdash; deadline lapsed 2 Jul 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/critical-simplehelp-vulnerability-exploited-for-malware-delivery/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-fuxa">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Critical auth-bypass in Frangoteam FUXA web SCADA/HMI &mdash; 1,200+ instances exposed, the low-cost SCADA pattern common at small ag and processing sites</h3>
+        <p>CISA advisory ICSA-26-181-02 (30 June) covers CVE-2026-13207, an authentication-bypass flaw (CVSS v4 8.6) in the open-source FUXA web SCADA/HMI platform (versions 1.3.1 and earlier) caused by dot-segment path normalization in its REST API. An unauthenticated attacker can reach user accounts and role assignments, exposing the OT privilege structure to reconnaissance. Researchers at GreyNoise reported finding more than 1,200 internet-facing FUXA instances shortly after disclosure &mdash; most still unpatched, at exactly the kind of small, distributed operations that put dashboards online for remote monitoring. That pattern maps squarely onto agriculture and small food processing: free web SCADA watching irrigation pumps, grain handling, tank levels and refrigeration at sites nobody staffs full-time, reachable from the internet because that's how the owner checks it. Frangoteam shipped a fix in version 1.3.2 and CISA released Snort/Suricata signatures. Upgrade to 1.3.2, pull FUXA off the public internet behind a VPN, rotate credentials, and load the detection signatures into your IDS/IPS.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-13207</span>
+          <span>CISA ICS Advisory / Frangoteam</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; 1,200+ exposed instances found post-disclosure</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in FUXA 1.3.2</span>
+            <span class="ops-cc"><b>Action:</b> Identify FUXA instances at plants, barns, irrigation sites and remote monitoring points, upgrade to 1.3.2, remove internet exposure behind a VPN, rotate credentials, and deploy CISA's Snort/Suricata signatures.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; patch &mdash; 7 days (unauth bypass, mass exposure)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fuxa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-fuxa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-181-02)</span>
+          <span class="dot">&bull;</span>
+          <span>30 Jun 2026 (Frangoteam FUXA)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-delta">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Delta Electronics DVP12SE PLC exposes unauthenticated Modbus &mdash; anyone on the network can rewrite control logic, and no patch yet</h3>
+        <p>CISA advisory ICSA-26-181-07 (30 June) warns that the Delta Electronics DVP12SE programmable logic controller exposes its Modbus TCP service on port 502 with no authentication or access control, so any reachable network source can read and write coils, holding registers, relay states and process-control functions without credentials or operator approval (CVE-2026-12818, CVE-2026-12819). A companion resource-exhaustion issue lets an attacker flood the Modbus port to degrade the device. Delta PLCs of this class are everywhere in food and beverage plants &mdash; packaging machines, conveyors, palletizers and vendor-supplied skids from smaller OEMs &mdash; often on flat plant networks where anything can reach port 502. All versions are affected and Delta is still working on a fix, so mitigation is compensating controls: enable the PLC's built-in IP Filter, segment and firewall the controller off any untrusted network, and never expose Modbus/502 to the internet.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-12819</span>
+          <span>CISA ICS Advisory / Delta Electronics</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; unauthenticated, insecure-by-design Modbus</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No patch yet &mdash; vendor working on fix</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Delta DVP12SE PLCs &mdash; including inside vendor-supplied skids and packaged systems &mdash; enable the built-in IP Filter to restrict Modbus/502 to known hosts, segment and firewall the controllers off untrusted networks, and monitor for unexpected Modbus writes until a firmware fix ships.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep &amp; IP-filter/segmentation &mdash; 72h (unauth control-logic write, no patch)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-delta" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-delta">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS Advisory (ICSA-26-181-07)</span>
+          <span class="dot">&bull;</span>
+          <span>30 Jun 2026 (Delta Electronics DVP12SE PLC)</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-07" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-sharepoint">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>On-prem SharePoint RCE jumps into CISA KEV after real-world attacks &mdash; where recipes, HACCP plans and traceability records live at many food companies</h3>
+        <p>CISA added CVE-2026-45659, a remote-code-execution flaw in on-premises Microsoft SharePoint Server (CVSS 8.8, deserialization of untrusted data), to its Known Exploited Vulnerabilities catalog on 1 July after confirming active exploitation, with a federal remediation deadline of 4 July. The bug lets an authenticated user holding only Site Member permissions run code on the server &mdash; and Microsoft had rated exploitation &ldquo;less likely&rdquo; when it patched the issue in May, so organizations that deferred the fix on that basis should re-prioritize now. On-prem SharePoint is a workhorse across food and beverage IT: recipe and formulation libraries, HACCP and food-safety plans, supplier and traceability documentation, engineering drawings &mdash; content that often bridges toward OT-adjacent file shares and identity systems. Storm-2603, the actor behind Warlock ransomware, has been exploiting on-prem SharePoint since mid-2025, so this is also a ransomware precursor in a sector ransomware already leans on. Apply the May 2026 SharePoint update immediately, restrict and monitor authenticated access, and treat any exposed on-prem farm as a candidate pivot point toward plant-supporting IT.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-45659</span>
+          <span>CISA KEV / Microsoft</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA-confirmed exploitation; Storm-2603 / Warlock ransomware nexus</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; federal deadline 4 Jul 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Microsoft, May 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Apply the May 2026 SharePoint Server update to all on-prem farms now, review and restrict authenticated (Site Member+) access, hunt for web shells and anomalous SharePoint process activity, and isolate SharePoint from plant file shares and identity systems.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 48h (KEV, active RCE, ransomware nexus)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-sharepoint" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-sharepoint">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>KEV-added 1 Jul 2026 &mdash; federal deadline 4 Jul 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Regulation &amp; Policy -->
+  <div class="section">
+    <div class="section-title">Regulation &amp; Policy</div>
+    <div class="card-grid">
+
+      <div class="card" id="story-cirmp">
+        <div class="card-header">
+          <span class="severity sev-info">Policy</span>
+          <span class="category">Regulation</span>
+        </div>
+        <h3>Australia's Enhanced CIRMP Rules put food &amp; grocery under a materially tougher risk-management regime &mdash; AI, legacy systems, supply chain and insider risk all named</h3>
+        <p>Australia's Enhanced Critical Infrastructure Risk Management Program (CIRMP) Rules, registered 9 June 2026 under the SOCI Act, are the biggest uplift to the country's critical-infrastructure risk framework since the baseline obligation landed in 2023 &mdash; and food and grocery is one of the covered sectors. The rules explicitly address risks the old framework glossed over: artificial intelligence and emerging technology, legacy and end-of-life OT, insider threats, supply-chain resilience and the interdependencies between critical and non-critical systems. Obligations stage in across two grace periods &mdash; a first tranche from mid-2027 (additional material risks, patching and legacy-technology measures, initial personnel vetting) and a second from mid-2028 (cyber-framework maturity uplift, phishing-resistant MFA, lateral-movement controls, supply-chain measures). Even for operators with no Australian footprint, this is worth reading as a preview: regulators worldwide are converging on the same list &mdash; legacy OT, vendors, insiders, AI &mdash; and multinationals with Australian operations should start the gap assessment now rather than in 2027.</p>
+        <div class="card-meta">
+          <span>CISC / Minister for Home Affairs &mdash; SOCI Act</span>
+          <span class="dot">&bull;</span>
+          <span>Registered 9 Jun 2026 &mdash; obligations staged from mid-2027</span>
+        </div>
+        <a href="https://www.claytonutz.com/insights/2026/june/australias-enhanced-cirmp-rules-what-critical-infrastructure-operators-need-to-know" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec. Sector edition: Food &amp; Agriculture.</p>
+    <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (Gardyn, Delta Electronics, Frangoteam FUXA), joint alerts and the KEV catalog, vendor advisories (SimpleHelp, Microsoft, Trane, Vertiv), Claroty Team82, Dragos, the Food and Ag-ISAC, and Australia's Cyber and Infrastructure Security Centre, via reporting from SecurityWeek, Industrial Cyber, The Hacker News, CyberScoop and Clayton Utz. Default lookback: 7&ndash;30 days; clearly dated older items appear only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the Food and Ag-ISAC, and your vendors' PSIRT feeds directly.</p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var LS = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+  };
+  var STATUSES = [
+    { key: "open", label: "Open",         cls: "st-open" },
+    { key: "ack",  label: "Acknowledged", cls: "st-ack" },
+    { key: "mit",  label: "Mitigated",    cls: "st-mit" },
+    { key: "na",   label: "Not applicable", cls: "st-na" }
+  ];
+  function statusByKey(k) { for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === k) return STATUSES[i]; } return STATUSES[0]; }
+
+  // ---- Owner (editable, persisted) ----
+  var owners = document.querySelectorAll(".owner-edit");
+  owners.forEach(function (el) {
+    var key = "otdash.owner." + el.getAttribute("data-key");
+    var saved = LS.get(key);
+    if (saved) el.textContent = saved;
+    el.addEventListener("blur", function () {
+      var val = el.textContent.replace(/\s+/g, " ").trim();
+      el.textContent = val;
+      if (val) LS.set(key, val); else LS.del(key);
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); el.blur(); }
+    });
+  });
+
+  // ---- Status pill (cycle, persisted) ----
+  var pills = document.querySelectorAll(".status-pill");
+  pills.forEach(function (btn) {
+    var key = "otdash.status." + btn.getAttribute("data-key");
+    function render(stKey) {
+      var st = statusByKey(stKey);
+      btn.className = "status-pill " + st.cls;
+      btn.textContent = st.label;
+    }
+    render(LS.get(key) || "open");
+    btn.addEventListener("click", function () {
+      var cur = LS.get(key) || "open";
+      var idx = 0;
+      for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === cur) { idx = i; break; } }
+      var next = STATUSES[(idx + 1) % STATUSES.length].key;
+      LS.set(key, next);
+      render(next);
+    });
+  });
+
+  // ---- Light/dark theme toggle (persisted) ----
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    var renderTheme = function (dark) {
+      document.body.classList.toggle("dark", dark);
+      themeBtn.innerHTML = dark ? "&#9728; Light mode" : "&#9790; Dark mode";
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    };
+    renderTheme(LS.get("otdash.theme") === "dark");
+    themeBtn.addEventListener("click", function () {
+      var dark = !document.body.classList.contains("dark");
+      LS.set("otdash.theme", dark ? "dark" : "light");
+      renderTheme(dark);
+    });
+  }
+})();
+</script>
+</body>
+</html>
