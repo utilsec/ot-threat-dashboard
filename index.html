@@ -59,6 +59,8 @@
 
   /* Header */
   .header {
+    position: relative;
+    overflow: hidden;
     border-bottom: 2px solid #1f2328;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -68,6 +70,10 @@
     flex-wrap: wrap;
     gap: 16px;
   }
+  .header .header-title, .header .story-count { position: relative; z-index: 1; }
+  .sector-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 110px; height: 110px; opacity: 0.10; z-index: 0; pointer-events: none; }
+  @media (max-width: 640px) { .sector-icon { width: 72px; opacity: 0.08; right: 10px; } }
+  body.dark .sector-icon { opacity: 0.22; }
   .header-title h1 {
     font-size: 24px;
     font-weight: 700;
@@ -595,11 +601,12 @@
 
   <!-- HEADER -->
   <div class="header">
+    <svg class="sector-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#2c7480" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
     <div class="header-title">
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 04 Jul 2026, 09:30 ET</span>
+        <span>Generated Sat, 04 Jul 2026, 12:30 ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -684,7 +691,7 @@
         <a href="#story-netscaler"><circle class="blip high" cx="290" cy="180" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="290" y="183.0">7</text></a>
         <a href="#story-sharepoint"><circle class="blip high" cx="235" cy="275.3" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="235" y="278.3">8</text></a>
         <a href="#story-calwater"><circle class="blip high" cx="125" cy="275.3" r="7.8"/><text class="blip-num" style="font-size:7.6px" x="125" y="278.3">9</text></a>
-        <a href="#story-team82"><circle class="blip high" cx="70" cy="180" r="7.4"/><text class="blip-num" style="font-size:7.2px" x="70" y="183.0">10</text></a>
+        <a href="#story-jadepuffer"><circle class="blip high" cx="70" cy="180" r="7.4"/><text class="blip-num" style="font-size:7.2px" x="70" y="183.0">10</text></a>
         <a href="#story-fuxa"><circle class="blip high" cx="125" cy="84.7" r="7"/><text class="blip-num" style="font-size:7px" x="125" y="87.7">11</text></a>
       </svg>
 
@@ -698,7 +705,7 @@
         <a href="#story-netscaler"><span class="ld high"></span><b>7</b> NetScaler bleed exploited &lt;24h</a>
         <a href="#story-sharepoint"><span class="ld high"></span><b>8</b> SharePoint RCE (KEV, exploited)</a>
         <a href="#story-calwater"><span class="ld high"></span><b>9</b> Cal Water Handala IT breach</a>
-        <a href="#story-team82"><span class="ld high"></span><b>10</b> Team82 data-center RCE</a>
+        <a href="#story-jadepuffer"><span class="ld high"></span><b>10</b> Agentic AI ransomware (Sysdig)</a>
         <a href="#story-fuxa"><span class="ld high"></span><b>11</b> FUXA SCADA auth bypass</a>
       </div>
     </div>
@@ -735,7 +742,7 @@
       <div class="trend">
         <span class="trend-tag">AI Threats</span>
         <b class="trend-head">LLM-assisted intrusions move from theory to casework</b>
-        <p>The casework keeps stacking up: after Dragos documented an AI-assisted intrusion at a Mexican water utility, Sysdig researchers this week described what they assess as the first real-world intrusion where an LLM agent operated autonomously &mdash; exploiting a fresh CVE, pivoting through four systems and stealing cloud credentials in under an hour with no human at the keyboard &mdash; sharpening the debate over what agentic attack tempo means for defenders.</p>
+        <p>The casework keeps stacking up: after Dragos documented an AI-assisted intrusion at a Mexican water utility and Sysdig's first autonomous LLM-agent intrusion, Sysdig this week went further &mdash; documenting &ldquo;JADEPUFFER,&rdquo; what it calls the first extortion attack run end-to-end by an AI agent, from exploit to data destruction (see Threat Intelligence &amp; Research) &mdash; sharpening the debate over what machine-speed attack tempo means for defenders.</p>
         <a href="https://industrialcyber.co/reports/dragos-details-ai-assisted-intrusion-targeting-mexican-water-utility-as-claude-openai-models-used-to-pursue-ot-access/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
 
@@ -882,34 +889,38 @@
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
 
-      <div class="card" id="story-team82">
+      <div class="card" id="story-jadepuffer">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Research</span>
         </div>
-        <h3>Claroty Team82: unauthenticated RCE chain in Trane and Vertiv data-center HVAC/power gear &mdash; the physical layer AI data centers run on</h3>
-        <p>Claroty's Team82 disclosed a set of severe, highly exploitable vulnerabilities in equipment that keeps data centers running &mdash; power-supply devices and HVAC controllers &mdash; centered on a chain in the widely deployed Trane Tracer SC+ automation controller that could allow unauthenticated remote code execution and full external takeover of a building-management system. Vertiv power gear was also affected. Team82 framed the work around a fast-growing new class of critical infrastructure: the cooling and power that AI data centers depend on, where a loss of thermal or power control can force costly downtime or damage. All findings were responsibly disclosed to Trane and Vertiv, which shipped fixes before publication, so the immediate action is to patch and to stop treating building-automation and facility-power controllers as harmless IT peripherals. Inventory Tracer SC+ and comparable BMS/power controllers, apply vendor updates, and pull their management interfaces off any untrusted network.</p>
+        <h3>Sysdig documents &ldquo;JADEPUFFER&rdquo; &mdash; the first ransomware-style attack run end-to-end by an autonomous AI agent, from exploit to data destruction</h3>
+        <p>Sysdig's Threat Research Team this week described what it assesses as the first extortion operation executed end-to-end by an AI agent with no human at the keyboard. The actor, dubbed JADEPUFFER, gained initial access by exploiting CVE-2025-3248 &mdash; a long-known, previously KEV-listed remote-code-execution flaw in the Langflow AI-workflow platform &mdash; on an internet-facing instance, then autonomously performed reconnaissance, stole credentials, established persistence, compromised a production database and destroyed data before demanding payment. It follows Sysdig's May case in which an LLM agent chained a fresh CVE through four internal pivots to exfiltrate a full database dump in under an hour. Why it matters for OT: the entire intrusion ran at machine speed against an unpatched, internet-exposed application &mdash; exactly the profile of the exposed HMIs, historians, remote-access portals and engineering web apps that front industrial networks &mdash; and it compresses the defender's response window from days to minutes. The mitigations are unchanged but the tempo is not: eliminate internet exposure of unpatched apps (especially anything with a KEV-listed CVE), enforce credential vaulting and egress restrictions, and tune detection for machine-speed lateral movement.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2025-3248</span>
+          <span>Sysdig TRT / Langflow</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; responsibly disclosed &amp; patched</span>
-            <span class="ops-tag kev-off">Vulnerability research (Team82)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; real-world autonomous-agent intrusion documented by Sysdig</span>
+            <span class="ops-tag kev-on">Initial-access CVE previously listed in CISA KEV (Langflow, 2025)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available (Trane / Vertiv)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory Trane Tracer SC+ and comparable BMS/facility-power controllers, apply vendor fixes, remove management-interface exposure to untrusted networks, and segment building-automation systems away from OT process and IT networks.</span>
+            <span class="ops-tag patch-yes">Patch long available (Langflow)</span>
+            <span class="ops-cc"><b>Action:</b> Sweep for internet-facing applications with known/KEV-listed CVEs (Langflow included) and patch or remove them, vault and rotate credentials reachable from exposed apps, restrict outbound egress from app servers, and tune detection thresholds for machine-speed reconnaissance and lateral movement.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; segmentation review &mdash; 30 days (unauth RCE, no known exploitation)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="team82" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="team82">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposed-app &amp; KEV-backlog sweep &mdash; 7 days (agentic tempo, known-exploited entry point)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="jadepuffer" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="jadepuffer">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Claroty Team82 / Industrial Cyber</span>
+          <span>Sysdig TRT / The Hacker News / The Register</span>
           <span class="dot">&bull;</span>
-          <span>9 Jun 2026 (SANS ICS Summit research)</span>
+          <span>Reported 2&ndash;3 Jul 2026</span>
         </div>
-        <a href="https://claroty.com/press-releases/new-research-reveals-vulnerabilities-in-data-center-equipment-with-high-potential-for-operational-disruption" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -1169,7 +1180,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb</span>, OT/ICS Cybersecurity &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Citrix, Delta Electronics, Frangoteam, Progress, Microsoft), Claroty Team82, watchTowr, Canada's CSE / Canadian Centre for Cyber Security, NERC and the U.S. Congress, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber, CyberScoop and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Citrix, Delta Electronics, Frangoteam, Progress, Microsoft), Sysdig threat research, watchTowr, Canada's CSE / Canadian Centre for Cyber Security, NERC and the U.S. Congress, via reporting from SecurityWeek, Cybersecurity Dive, The Record, The Hacker News, Industrial Cyber, CyberScoop and GovInfoSecurity. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
