@@ -6,119 +6,79 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Sun, 05 Jul 2026 08:05:00 -0400</lastBuildDate>
+<lastBuildDate>Mon, 06 Jul 2026 04:25:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] Max-severity SimpleHelp auth-bypass stays actively exploited past its federal KEV deadline — the remote-support tool your integrators and OEMs use to reach plant and substation networks</title>
-<link>https://www.securityweek.com/critical-simplehelp-vulnerability-exploited-for-malware-delivery/</link>
-<guid isPermaLink="false">otthreatfeed:power:simplehelp</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Top Story</category><category>CVE-2026-48558</category>
-<description><![CDATA[CISA added CVE-2026-48558, a CVSS 10.0 authentication-bypass flaw in the SimpleHelp remote monitoring and management (RMM) platform, to its KEV catalog on 29 June; the 2 July federal deadline has now lapsed while exploitation continues. On OIDC-configured servers SimpleHelp fails to verify identity-token signatures, so an unauthenticated attacker can forge a fully authenticated “Technician” session — administrative control of the remote-access server, in some configurations bypassing MFA — and attackers are already dropping the TaskWeaver loader and Djinn infostealer through it. Roughly 14,000 servers are online, an estimated 1,000 directly vulnerable. For electric utilities this is the vendor pathway: turbine OEMs, relay technicians and integrators use RMM to reach plants, substations and renewable-site SCADA, so a compromised server bypasses much of an electronic security perimeter's intent. Patch immediately, remove internet exposure, rotate technician credentials and OIDC secrets, ask your OEMs what RMM reaches your sites, and hunt for TaskWeaver/Djinn. - CISA KEV / SecurityWeek - KEV-added 29 Jun 2026 — deadline lapsed 2 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] CISA/FBI/EPA/DOE: Iranian-affiliated actors keep hitting internet-exposed Allen-Bradley PLCs across the energy sector — with confirmed operational disruption</title>
-<link>https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/</link>
-<guid isPermaLink="false">otthreatfeed:power:iranplc</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers across the energy, water and government-facilities sectors, a campaign running since at least March and re-emphasized amid heightened Middle East tensions. Unlike the many inflated hacktivist claims, this activity is agency-confirmed: reporting describes malicious interaction with project files, manipulation of data shown on HMI/SCADA displays, and in some cases real operational disruption and financial loss. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits. For power operators the exposure pattern is most common at the grid edge — small generation sites, balance-of-plant systems, pump storage and distributed-energy installations where controllers were put online for remote monitoring. Get every PLC and OT device off the public internet or behind a VPN with MFA, change all default/shared credentials, and hunt for unexpected configuration or logic changes on internet-reachable controllers. - CISA / FBI / EPA / DOE joint alert - Ongoing — re-warned late Jun 2026 amid Mideast tensions]]></description>
-</item>
-<item>
-<title>[High] “FortiBleed”: ~86,000 Fortinet firewall/VPN credentials leaked and now under mass brute-force — the edge gear guarding utility IT/OT boundaries</title>
+<title>[Critical] FortiBleed: ~86,644 Fortinet firewalls and SSL-VPN gateways under active attack with leaked credentials — the remote-access doorway into utility OT</title>
 <link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
 <guid isPermaLink="false">otthreatfeed:power:fortibleed</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[CISA is pressing every Fortinet operator to act after roughly 86,644 internet-facing FortiGate firewalls and SSL-VPN gateways — about half of those exposed worldwide across 194 countries — had their credentials swept up in the FortiBleed leak and put to use in active attacks. For electric utilities the exposure is direct: these are the boxes that front remote access into EMS/SCADA, substations and the NERC CIP electronic security perimeter, and because credentials leaked rather than a single bug being exploited, there is no patch that closes the hole. An attacker signing in with valid credentials looks like a legitimate engineer, so detection is hard and the window is now. Assume any exposed Fortinet device may already sit at the access layer guarding your control network. - CISA (hardening alert) - CISA alert 18 Jun 2026 — active exploitation]]></description>
+</item>
+<item>
+<title>[High] U.S. agencies keep warning that Iran-affiliated actors are logging into internet-exposed PLCs across energy and water</title>
+<link>https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/</link>
+<guid isPermaLink="false">otthreatfeed:power:iranplc</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
 <category>Incident</category>
-<description><![CDATA[CISA urged Fortinet customers to harden their devices after researcher Volodymyr Diachenko exposed a threat-actor server holding a validated database of FortiGate administrator and SSL-VPN credentials — a dataset that grew to roughly 86,000 unique internet-facing devices across 194 countries, including critical-infrastructure operators. Dubbed “FortiBleed,” the compromise is being actively worked: a Russian-speaking operator ran over a billion credential-validation attempts against hundreds of thousands of FortiGate targets. For electric utilities, FortiGate firewalls and SSL-VPN concentrators routinely sit at the IT/OT boundary, front remote-access into control centers and substations, and terminate vendor and field connections — a valid administrator or VPN credential there is a direct route toward EMS/SCADA and engineering networks. Treat any internet-facing FortiGate as potentially exposed: terminate all SSL-VPN and admin sessions, reset every Fortinet credential (prioritizing OT-adjacent and internet-facing units), enforce MFA, and pull management interfaces off the public internet. - CISA / SecurityWeek / BleepingComputer - CISA alert 18 Jun 2026 — ~86,000 devices as of 19 Jun 2026]]></description>
+<description><![CDATA[CISA, the FBI, EPA and DOE continue to warn that Iranian-affiliated actors are reaching internet-facing programmable logic controllers across the energy, water and government-facilities sectors, a campaign re-emphasized amid heightened Middle East tensions. For power operators the lesson maps onto distributed generation and auxiliary systems, where solar sites, storage and small substations increasingly expose controllers reachable from the public internet, often shielded only by default or shared credentials. The activity is agency-confirmed rather than a hacktivist boast, and in some cases has produced real operational disruption. The remedy is largely hygiene: get controllers off the public internet, replace default credentials, and hunt for unexpected logic or configuration changes. - CISA / FBI / EPA / DOE joint alert - Ongoing — re-warned late Jun 2026]]></description>
 </item>
 <item>
-<title>[Medium] London Hydro discloses customer-data breach — a distribution utility's account portal exploited, meter information among the exposed data</title>
-<link>https://www.securityweek.com/canadian-electricity-provider-london-hydro-discloses-data-breach/</link>
-<guid isPermaLink="false">otthreatfeed:power:londonhydro</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[London Hydro, the distribution utility serving more than 160,000 customers in London, Ontario, disclosed a data-security incident after detecting suspicious activity on a customer account on 18 June: the account was used to exploit a system vulnerability that allowed access to information about other customers. Potentially exposed data includes names, addresses, email addresses, phone numbers, account and billing numbers, service addresses, pricing plans, contract start dates and meter information; the utility says banking details, payment cards, dates of birth and government IDs were not involved, service delivery was unaffected, and the technical flaw was corrected the same day, with law enforcement notified, external forensics engaged and credit monitoring offered. This is an IT-side breach with no reported OT impact — but for utility defenders it is a useful reminder that customer-facing portals are attack surface too, that account, service-address and meter data is exactly what social-engineering and targeting campaigns feed on, and that billing and AMI-adjacent systems deserve a hard look for pathways toward the meter-data-management and head-end tiers. Verify your customer portal's authorization model can't leak across accounts, and review what a compromised portal identity could reach. - SecurityWeek / London Hydro - Detected 18 Jun 2026 — disclosed ~20–22 Jun 2026]]></description>
+<title>[High] Dragos: KAMACITE spent months mapping U.S. grid control loops for ELECTRUM — and VOLTZITE is inside a U.S. electric utility</title>
+<link>https://www.dragos.com/blog/electric-grid-cybersecurity-threats</link>
+<guid isPermaLink="false">otthreatfeed:power:kamacite</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Threat Intel</category>
+<description><![CDATA[Dragos' 2026 electric-grid threat reporting describes KAMACITE, the access team that enables the grid-focused group ELECTRUM, systematically scanning internet-exposed HMIs, variable-frequency drives, meters and cellular gateways across the United States to map entire control loops. Separately, Dragos says VOLTZITE — which receives footholds from the initial-access group SYLVANITE — has been observed operating inside a U.S. electric utility network. The through-line for defenders is that adversaries are investing in patient reconnaissance of the grid edge rather than burning novel exploits, so reducing internet exposure of field devices and watching for reconnaissance is where detection pays off. - Dragos / Industrial Cyber - Dragos 2026 electric-grid threat reporting]]></description>
 </item>
 <item>
-<title>[High] Claroty Team82: unauthenticated RCE chain in Trane and Vertiv HVAC/power gear — the facility layer under control centers and data centers</title>
-<link>https://claroty.com/press-releases/new-research-reveals-vulnerabilities-in-data-center-equipment-with-high-potential-for-operational-disruption</link>
-<guid isPermaLink="false">otthreatfeed:power:team82</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Research</category>
-<description><![CDATA[Claroty's Team82 disclosed a set of severe, highly exploitable vulnerabilities in equipment that keeps facilities running — power-supply devices and HVAC controllers — centered on a chain in the widely deployed Trane Tracer SC+ automation controller that could allow unauthenticated remote code execution and full external takeover of a building-management system. Vertiv power gear was also affected. Team82 framed the research around data centers, but the same families of Vertiv power equipment and Trane/BMS controllers sit under utility control centers, EMS/SCADA server rooms and substation control buildings — environments where loss of cooling or facility power becomes an operational event even though no “grid” system was touched. All findings were responsibly disclosed and Trane and Vertiv shipped fixes before publication, so the action is direct: inventory Tracer SC+ and comparable BMS and facility-power controllers at control centers and critical sites, apply the vendor updates, and pull their management interfaces off any untrusted network. - Claroty Team82 / Industrial Cyber - 9 Jun 2026 (SANS ICS Summit research)]]></description>
+<title>[High] ELECTRUM's attack on Poland's distributed energy resources is the template for grid-edge risk</title>
+<link>https://industrialcyber.co/utilities-energy-power-water-waste/dragos-reports-electrum-group-targets-polish-electric-system-in-first-major-distributed-energy-resources-cyberattack/</link>
+<guid isPermaLink="false">otthreatfeed:power:electrum</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Threat Intel</category>
+<description><![CDATA[Dragos attributes a December 2025 attack on operational-technology systems at multiple sites across Poland's electrical grid to ELECTRUM, calling it the first major cyberattack focused on distributed energy resources — wind farms, solar installations and combined-heat-and-power sites. The intrusion targeted the RTUs and communications managing dozens of smaller generation sites, precisely the edge that expands as grids add renewables. For North American operators building out DER, it is a preview: the distributed edge multiplies remotely reachable controllers faster than most utilities can monitor them, and destructive intent is now demonstrated rather than theoretical. - Dragos / Industrial Cyber - Attack Dec 2025 — foundational context]]></description>
 </item>
 <item>
-<title>[High] CISA flags auth-bypass and CSRF flaws in ST Engineering iDirect satellite terminals — the VSAT backhaul reaching remote substations and renewable sites</title>
+<title>[High] CISA flags Schneider EasyLogic T150 and Saitel DP RTUs — patch the boxes that talk to your relays</title>
+<link>https://www.cisa.gov/news-events/ics-advisories</link>
+<guid isPermaLink="false">otthreatfeed:power:saitel</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Advisory</category>
+<description><![CDATA[On 30 June CISA published an advisory covering Schneider Electric's EasyLogic T150 and Saitel DP remote terminal units, gear used in energy-sector substations and remote monitoring. RTUs sit at the seam between protection and relaying and the wider control network, so weaknesses here can undermine the integrity of the telemetry and commands operators depend on. Review the advisory for affected firmware, apply the vendor's fixes or mitigations, and keep these devices off any internet-reachable path. - CISA ICS Advisories - Advisory 30 Jun 2026]]></description>
+</item>
+<item>
+<title>[High] ST Engineering iDirect iQ-Series satellite terminals flagged for the energy sector</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01</link>
 <guid isPermaLink="false">otthreatfeed:power:idirect</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
 <category>Advisory</category>
-<description><![CDATA[CISA published advisory ICSA-26-183-01 on 2 July covering ST Engineering iDirect Evolution iQ-Series, 3315-Series and 9-Series satellite terminals running software 4.5.2.1 and earlier — equipment deployed worldwide across the energy, communications and transportation sectors. The advisory describes two issues, reported with CVSS v3.1 scores of 8.6 and 8.1: REST API endpoints (including /api/identity) that respond without authentication, letting anyone with network access pull the terminal's serial number, Device ID, Terminal Private Key identifier, MAC address and exact firmware version — identifiers used for satellite-network authentication, raising terminal-impersonation and reconnaissance risk — and a cross-site request forgery weakness in which state-changing endpoints such as /api/reboot accept requests authenticated only by a session cookie, so a session-riding request can reboot the terminal and drop the link. No public exploitation has been reported to CISA. For utilities, VSAT terminals like these are the telemetry backhaul of last resort — remote substations, DER and solar sites, and metering points beyond fiber or cellular reach — so a rebootable, impersonatable terminal is a quiet way to blind SCADA visibility into exactly the sites operators check least. Inventory where satellite backhaul carries OT telemetry, update terminals to 4.5.2.2 or newer, and keep terminal management APIs unreachable from untrusted networks. - CISA ICS Advisory ICSA-26-183-01 - Published 2 Jul 2026]]></description>
+<description><![CDATA[Among six ICS advisories CISA released on 2 July was one for ST Engineering iDirect iQ-Series satellite terminals, called out for energy-sector use. Satellite backhaul is how many remote substations and DER sites phone home, so a vulnerable terminal is a foothold at the very edge of the grid where physical oversight is thinnest. Check the advisory for affected models and firmware and apply the vendor's guidance. - CISA ICS Advisories - Advisory 2 Jul 2026]]></description>
 </item>
 <item>
-<title>[High] Schneider Electric EasyLogic T150 and Saitel DP RTUs expose stored credentials — the remote terminal units running substation and distribution automation</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-04</link>
-<guid isPermaLink="false">otthreatfeed:power:saitel</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-9650</category><category>CVE-2026-9651</category>
-<description><![CDATA[CISA advisory ICSA-26-181-04 (30 June) covers two insufficiently-protected-credentials flaws (CVE-2026-9650, CVE-2026-9651) in Schneider Electric's EasyLogic T150 (formerly Saitel DR) and Saitel DP remote terminal units — platforms deployed for substation automation, distribution automation and telecontrol in electric networks. The weaknesses allow an unauthenticated attacker who can access credentials stored within firmware or system files to gain unauthorized access and expose sensitive information — on devices that typically live inside a NERC CIP electronic security perimeter and speak directly to protection and switching equipment. Affected versions include EasyLogic T150 releases up to 11.06.30/11.06.31 and Saitel DP releases up to 11.06.35/11.06.37; Schneider has released fixed firmware (T150 11.06.32 via its Customer Care Center, Saitel DP 11.06.38), and a device reboot is required after updating. Schedule the firmware during a maintenance window, treat RTU credentials as potentially exposed until updated (rotate them), and verify these units are reachable only from your SCADA/telecontrol zones — never from corporate or public networks. - CISA ICS Advisory (ICSA-26-181-04) - 30 Jun 2026 (Schneider EasyLogic T150 / Saitel DP)]]></description>
+<title>[Medium] Schneider EcoStruxure IT Data Center Expert advisory names the energy sector</title>
+<link>https://www.cisa.gov/news-events/ics-advisories</link>
+<guid isPermaLink="false">otthreatfeed:power:ecostruxureit</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Advisory</category>
+<description><![CDATA[CISA's 30 June batch also covered Schneider Electric EcoStruxure IT Data Center Expert, monitoring software identified for energy-sector deployments. Facility-monitoring platforms straddle IT and OT and often hold broad visibility into power and cooling, making them a useful pivot if left unpatched. Apply the vendor's fixes and confirm the platform is not exposed beyond the management network. - CISA ICS Advisories - Advisory 30 Jun 2026]]></description>
 </item>
 <item>
-<title>[Critical] Delta Electronics DVP12SE PLC exposes unauthenticated Modbus — anyone on the network can rewrite control logic, and no patch yet</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-07</link>
-<guid isPermaLink="false">otthreatfeed:power:delta</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-12819</category>
-<description><![CDATA[CISA advisory ICSA-26-181-07 (30 June) warns that the Delta Electronics DVP12SE programmable logic controller exposes its Modbus TCP service on port 502 with no authentication or access control, so any reachable network source can read and write coils, holding registers, relay states and process-control functions without credentials or operator approval (CVE-2026-12818, CVE-2026-12819). A companion resource-exhaustion issue lets an attacker flood the Modbus port to degrade the device. Delta PLCs of this class turn up across the power sector's edges — balance-of-plant skids, solar and storage integrations, auxiliary systems and packaged equipment supplied by third parties — often on flat networks where anything can reach port 502. All versions are affected and Delta is still working on a fix, so mitigation is compensating controls: enable the PLC's built-in IP Filter, segment and firewall the controller off any untrusted network, and never expose Modbus/502 to the internet. - CISA ICS Advisory (ICSA-26-181-07) - 30 Jun 2026 (Delta Electronics DVP12SE PLC)]]></description>
-</item>
-<item>
-<title>[Critical] Progress Kemp LoadMaster pre-auth RCE now seeing exploitation attempts — the load balancer that fronts enterprise and OT-facing utility services</title>
-<link>https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html</link>
-<guid isPermaLink="false">otthreatfeed:power:kemp</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-8037</category>
-<description><![CDATA[eSentire's Threat Response Unit reported that CVE-2026-8037 (CVSS 9.8), a pre-authentication OS command-injection flaw in Progress Kemp LoadMaster, began drawing active exploitation attempts on 29 June — days after a public proof-of-concept and detailed write-up landed. The bug sits in the appliance's API: unsanitized input to the “/accessv2” endpoint lets an unauthenticated attacker inject commands and run code as root. The same defect affects other Progress ADC products (ECS Connection Manager, ObjectScale Connection Manager and the MOVEit WAF). eSentire noted the attempts it saw failed and produced no post-compromise activity, but with a working PoC circulating, successful exploitation is expected to follow. LoadMaster and ADC gear commonly sits at the network edge in front of web, VPN, remote-access and outage-portal services at utilities — a pre-auth root takeover there is a strong pivot point toward internal and control networks. Apply Progress's fixed release now, restrict management/API access, and pull the appliance off any untrusted network. - The Hacker News / eSentire TRU - Exploitation attempts from 29 Jun 2026 — reported 1 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] New “CitrixBleed-pattern” NetScaler flaw exploited within 24 hours of disclosure — memory leakage from the remote-access gateways utilities sit behind</title>
-<link>https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/</link>
-<guid isPermaLink="false">otthreatfeed:power:netscaler</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-8451</category>
-<description><![CDATA[Citrix shipped fixes this week for six NetScaler ADC / NetScaler Gateway vulnerabilities, and the headline one — CVE-2026-8451 (CVSS 8.8), an insufficient-input-validation bug that causes a memory overread in the appliance's SAML handling — was being exploited in the wild less than 24 hours after public disclosure. Researchers at watchTowr showed that a malformed SAML authentication request padded with whitespace forces the parser to read past its buffer and return adjacent process memory to the client, echoing the CitrixBleed flaws whose leaked session tokens fueled major intrusions in 2023–24; honeypot operators observed live exploitation attempts beginning 30 June. Exposure requires the appliance to be configured as a SAML identity provider, which narrows the affected population but does not diminish the pattern: NetScaler gateways front VPN and remote-access services at control centers, plants and corporate utility networks that bridge toward OT, and leaked memory can include material that lets attackers hijack authenticated sessions. Apply the fixed builds now, confirm whether any NetScaler is configured for SAML, terminate active sessions and rotate credentials after patching, and watch authentication logs for anomalous SAML requests. - SecurityWeek / CyberScoop / watchTowr - Patched late Jun 2026 — exploitation from 30 Jun, reported 1–2 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] Critical auth-bypass in Frangoteam FUXA web SCADA/HMI — 1,200+ instances exposed, a number of them at solar sites</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02</link>
-<guid isPermaLink="false">otthreatfeed:power:fuxa</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-13207</category>
-<description><![CDATA[CISA advisory ICSA-26-181-02 (30 June) covers CVE-2026-13207, an authentication-bypass flaw (CVSS v4 8.6) in the open-source FUXA web SCADA/HMI platform (versions 1.3.1 and earlier) caused by dot-segment path normalization in its REST API. An unauthenticated attacker can reach user accounts and role assignments, exposing the OT privilege structure to reconnaissance. Researchers at GreyNoise reported finding more than 1,200 internet-facing FUXA instances shortly after disclosure — most still unpatched and a number of them at solar and water operations, exactly the small, distributed sites that put dashboards online for remote monitoring. For power-sector defenders this is the distributed-energy attack surface in miniature: lightweight open-source SCADA fronting real generation assets, reachable from the internet. Frangoteam shipped a fix in version 1.3.2 and CISA released Snort/Suricata signatures. Upgrade to 1.3.2, pull FUXA off the public internet behind a VPN, rotate credentials, and load the detection signatures into your IDS/IPS. - CISA ICS Advisory (ICSA-26-181-02) - 30 Jun 2026 (Frangoteam FUXA)]]></description>
-</item>
-<item>
-<title>[High] On-prem SharePoint RCE jumps into CISA KEV after real-world attacks — where utility drawings, procedures and switching orders often live</title>
-<link>https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/</link>
-<guid isPermaLink="false">otthreatfeed:power:sharepoint</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-45659</category>
-<description><![CDATA[CISA added CVE-2026-45659, a remote-code-execution flaw in on-premises Microsoft SharePoint Server (CVSS 8.8, caused by deserialization of untrusted data), to its Known Exploited Vulnerabilities catalog on 1 July after confirming active exploitation, with a federal remediation deadline of 4 July. The bug lets an authenticated user holding only Site Member permissions run code on the server — notably, Microsoft had rated exploitation “less likely” when it patched the issue back in May, so any organization that deferred the fix on that basis should re-prioritize now. On-premises SharePoint is a workhorse across utility engineering and operations, holding one-line diagrams, relay settings documentation, switching procedures and project data, and often bridging toward OT-adjacent file shares and identity systems. Storm-2603, the actor behind Warlock ransomware, has been exploiting on-prem SharePoint since mid-2025, so this is also a ransomware precursor. Apply the May 2026 SharePoint update immediately, restrict and monitor authenticated access, and treat any exposed on-prem farm as a candidate pivot point toward OT-supporting IT. - CISA KEV / SecurityWeek - KEV-added 1 Jul 2026 — federal deadline 4 Jul 2026]]></description>
-</item>
-<item>
-<title>[Policy] NERC CIP-012-2 now in effect (1 July 2026) — tighter protection for control-center data</title>
+<title>[Policy] NERC CIP-012-2 now enforceable (1 July 2026) — tighter protection for control-center data</title>
 <link>https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx</link>
 <guid isPermaLink="false">otthreatfeed:power:cip012</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
 <category>Standard</category>
-<description><![CDATA[The revised NERC CIP-012-2 standard became enforceable on 1 July, strengthening requirements to protect the confidentiality and integrity of real-time assessment and monitoring data exchanged between control centers and closing gaps the earlier version left around how that inter-control-center traffic is secured. For bulk-electric-system operators it is an immediate compliance milestone: confirm your identified control-center-to-control-center links, the security protections applied to them, and the documentation an auditor will ask for. Even entities outside CIP scope should take the hint — control-center data links are a prime target and deserve encryption, integrity protection and monitoring regardless of regulatory obligation. - NERC - Effective 1 Jul 2026]]></description>
+<description><![CDATA[The revised NERC CIP-012-2 standard became enforceable on 1 July, strengthening requirements to protect the confidentiality and integrity of real-time assessment and monitoring data exchanged between control centers and closing gaps the earlier version left open. Registered entities should confirm their control-center data protection plans, encryption or equivalent controls, and inter-control-center communication paths meet the updated obligations, and refresh their evidence for audit. - NERC - Enforceable 1 Jul 2026]]></description>
 </item>
 <item>
-<title>[Policy] FERC Order 919 starts the clock on virtualization-era CIP — eleven revised standards, compliance by 1 April 2028</title>
-<link>https://www.federalregister.gov/documents/2026/03/24/2026-05716/order-no-919-virtualization-reliability-standards</link>
-<guid isPermaLink="false">otthreatfeed:power:ferc919</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Standard</category>
-<description><![CDATA[FERC's Order No. 919, issued 19 March 2026 and effective 26 May 2026, approved eleven revised CIP reliability standards plus new and updated glossary definitions that finally bring virtualization into the CIP framework — letting bulk-electric-system entities secure virtualized EMS/SCADA, hypervisors and software-defined infrastructure under standards written for that architecture instead of shoehorning them into hardware-era definitions. The package sits alongside CIP-003-11 improvements for low-impact BES cyber systems (password protocols for remote users, intrusion detection) and CIP-002-8 changes to how Transmission Operator and Transmission Owner control centers are categorized. Compliance lands 1 April 2028, which sounds distant but is one architecture-refresh cycle away: utilities planning EMS upgrades, control-center virtualization or DMZ redesigns between now and then should sequence those projects against the new standards rather than retrofitting later. This is a forward-looking compliance item — the near-term action is planning, not remediation. - FERC Order No. 919 / Federal Register - Effective 26 May 2026 — compliance due 1 Apr 2028]]></description>
+<title>[Policy] NIST SP 1339 OT Backup Quick Start Guide aims to speed grid recovery</title>
+<link>https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/</link>
+<guid isPermaLink="false">otthreatfeed:power:nistbackup</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Guidance</category>
+<description><![CDATA[NIST released an OT Backup Quick Start Guide (SP 1339) on 19 June to help industrial operators build recoverable backups and accelerate incident recovery. For utilities, tested and isolated backups of EMS/SCADA, historian and engineering-workstation configurations are what turn a destructive event into a restoration exercise rather than a rebuild — an increasingly concrete concern given demonstrated wiper capability against grid OT. Use it to benchmark your OT backup and recovery program. - NIST / Industrial Cyber - Guide released 19 Jun 2026]]></description>
 </item>
 </channel>
 </rss>

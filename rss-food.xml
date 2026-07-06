@@ -6,79 +6,71 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-food.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Sun, 05 Jul 2026 08:05:00 -0400</lastBuildDate>
+<lastBuildDate>Mon, 06 Jul 2026 04:25:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] CISA flags CVSS 10.0 flaws in Gardyn's cloud-connected growing systems — a leaked master key could hand an attacker every hub-managed device in the fleet</title>
+<title>[Critical] CISA flags the Gardyn IoT Hub at CVSS 10.0 — an exposed master key over fleets of precision-ag grow devices</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03</link>
 <guid isPermaLink="false">otthreatfeed:food:gardyn</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Top Story</category><category>CVE-2026-13768</category>
-<description><![CDATA[CISA advisory ICSA-26-183-03 (2 July), tagged to the Food and Agriculture sector, covers three critical flaws (CVE-2026-13768, CVE-2026-55726, CVE-2026-54477, maximum CVSS 10.0) in Gardyn's cloud-managed growing platforms — Home and Studio firmware plus the Cloud API before version 2.12.2026. Devices shipped with access to a privileged iothubowner key; anyone holding it could pull connection details for every Gardyn device in the fleet and control them without authentication. Gardyn has fixed the cloud side and devices auto-update when online; no exploitation has been reported. The lesson is bigger than the gadget: controlled-environment agriculture, irrigation and climate gear increasingly ride vendor clouds where one leaked master credential means fleet-wide control. Inventory cloud-tethered ag-IoT, verify the updates actually applied, and treat vendor cloud dependencies as supply-chain risk — not invisible plumbing. - CISA ICS Advisory (ICSA-26-183-03) - Published 2 Jul 2026]]></description>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[CISA's most severe fresh advisory for the sector lands on the farm's edge: on 2 July it flagged the Gardyn IoT Hub with a maximum CVSS 10.0 score. The flaws center on an exposed, privileged “iothubowner” key that lets an unauthenticated attacker enumerate every Gardyn device in a fleet, run commands on connected units, and pivot onto the owner's home or facility network; device logs were also left publicly listable in cloud storage. Gardyn's automated indoor-growing systems sit squarely in precision agriculture and controlled-environment farming, and the pattern — cheap, cloud-managed grow-IoT with broad reach — is exactly what is proliferating across the sector. Gardyn says it has fixed the cloud infrastructure and is pushing firmware updates; operators should confirm their devices actually pulled them. - CISA ICS Advisories (ICSA-26-183-03) - Advisory 2 Jul 2026 — CVSS 10.0]]></description>
 </item>
 <item>
-<title>[High] CISA/FBI/EPA/DOE: Iranian-affiliated actors keep hitting internet-exposed Allen-Bradley PLCs — with confirmed operational disruption</title>
-<link>https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/</link>
-<guid isPermaLink="false">otthreatfeed:food:iranplc</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
+<title>[High] FortiBleed: ~86,644 Fortinet firewalls and VPNs under active attack — the way ransomware reaches a processing plant</title>
+<link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
+<guid isPermaLink="false">otthreatfeed:food:fortibleed</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
 <category>Incident</category>
-<description><![CDATA[U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers — a campaign running since at least March, re-emphasized amid heightened Middle East tensions, and agency-confirmed to include manipulation of project files and HMI/SCADA displays with real operational disruption and financial loss in some cases. The named sectors are water, energy and government facilities, but food and beverage manufacturers should read themselves into it directly: the same Allen-Bradley controllers dominate processing and packaging lines, and the 2023–24 wave of Iranian-linked attacks on internet-exposed controllers hit food and beverage plants among its victims. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits — which makes the fix largely one of hygiene and exposure reduction. Get every PLC and OT device off the public internet or behind a VPN with MFA, change all default/shared credentials, and hunt for unexpected configuration or logic changes on internet-reachable controllers. - CISA / FBI / EPA / DOE joint alert - Ongoing — re-warned late Jun 2026 amid Mideast tensions]]></description>
+<description><![CDATA[CISA is urging Fortinet operators to act after roughly 86,644 internet-facing FortiGate firewalls and SSL-VPN gateways had their credentials exposed in the FortiBleed leak and put to use in active attacks. For food and beverage processors the exposure is the remote-access layer: these appliances frequently front vendor and operator access into plant, packaging and cold-chain networks, and because credentials leaked rather than a bug being exploited, there is no patch to apply. Valid stolen credentials are precisely how ransomware crews — the sector's dominant threat — get in, so treat any exposed device as compromised and rotate now. - CISA (hardening alert) - CISA alert 18 Jun 2026 — active exploitation]]></description>
 </item>
 <item>
-<title>[High] Dragos documents an AI-assisted intrusion at a Mexican water utility — commercial LLMs used to navigate an unfamiliar OT environment</title>
-<link>https://industrialcyber.co/reports/dragos-details-ai-assisted-intrusion-targeting-mexican-water-utility-as-claude-openai-models-used-to-pursue-ot-access/</link>
-<guid isPermaLink="false">otthreatfeed:food:dragosai</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Research</category>
-<description><![CDATA[Dragos case-study reporting describes an intrusion at a Mexican water utility in which the adversary leaned on commercial large language models to interpret an operational-technology environment they had apparently never seen before — using AI assistance to make sense of unfamiliar control-system software and to build credential lists for further access. The case has become the OT community's concrete reference point for the “zero-knowledge” threat actor debate: attackers may no longer need ICS-specific expertise up front when AI tooling can supply enough context on the fly, compressing the time between first access and meaningful OT reconnaissance. The case happens to involve a water utility, but the lesson lands hardest in food and agriculture — a sector of unfamiliar, heterogeneous control systems (batching, CIP skids, refrigeration, packaging) where operators often assume obscurity is protection and security staffing is thin. The takeaways are conventional but urgent: strong unique credentials and MFA on every remote path, OT network monitoring capable of flagging an intruder who is learning the environment as they go, and logging that lets you reconstruct what an interactive adversary actually touched. - Dragos / Industrial Cyber - Case-study reporting — late Jun 2026]]></description>
+<title>[High] Food and Ag-ISAC: hundreds of ransomware attacks on the sector, led by Qilin and Akira</title>
+<link>https://industrialcyber.co/reports/food-and-ag-isac-reports-82-surge-in-ransomware-attacks-as-qilin-akira-and-cl0p-lead-campaigns-against-sector/</link>
+<guid isPermaLink="false">otthreatfeed:food:foodransom</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Threat Intel</category>
+<description><![CDATA[The Food and Ag-ISAC's ransomware analysis recorded on the order of 265 attacks against food and agriculture in a single year, with Qilin and Akira responsible for the most intrusions and a handful of groups accounting for nearly half of all sector attacks. Its 2026 outlook expects fragmentation into smaller, specialized crews plus DDoS layering, hypervisor attacks and AI-enabled social engineering. For processors and distributors the practical read is that ransomware — not exotic OT malware — remains the dominant risk, and that segmentation, identity hardening and recoverable backups are what keep a compromise from becoming a production or cold-chain stoppage. - Food and Ag-ISAC / Industrial Cyber - Food and Ag-ISAC 2026 ransomware report]]></description>
 </item>
 <item>
-<title>[High] Claroty Team82: unauthenticated RCE chain in Trane and Vertiv HVAC/power controllers — the same gear class that keeps cold chains cold</title>
-<link>https://claroty.com/press-releases/new-research-reveals-vulnerabilities-in-data-center-equipment-with-high-potential-for-operational-disruption</link>
-<guid isPermaLink="false">otthreatfeed:food:team82</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Research</category>
-<description><![CDATA[Claroty's Team82 disclosed a set of severe, highly exploitable vulnerabilities in facility power and HVAC equipment, centered on a chain in the widely deployed Trane Tracer SC+ building-automation controller that could allow unauthenticated remote code execution and full external takeover of a building-management system; Vertiv power gear was also affected. Team82 framed the research around data centers, but food and beverage operators run the same class of controllers for something just as unforgiving: refrigeration support, cold storage, HVAC over hygienic production zones and controlled-atmosphere warehouses, where losing thermal control means spoiled product, failed food-safety holds and disposal costs rather than mere downtime. All findings were responsibly disclosed and Trane and Vertiv shipped fixes before publication, so the action is direct: inventory Tracer SC+ and comparable BMS and facility-power controllers across plants and warehouses, patch them, and stop treating building automation as harmless IT periphery — segment it away from both process control and business networks. - Claroty Team82 - 9 Jun 2026 (SANS ICS Summit research)]]></description>
+<title>[Medium] Gardyn Home Kit advisory updated (Update B) alongside the IoT Hub disclosure</title>
+<link>https://www.cisa.gov/news-events/ics-advisories</link>
+<guid isPermaLink="false">otthreatfeed:food:gardynhome</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Advisory</category>
+<description><![CDATA[In the same 2 July batch CISA issued an update (Update B) to its Gardyn Home Kit advisory, part of the broader disclosure covering the vendor's consumer and small-scale growing hardware. Operators running Gardyn devices should read the Home Kit advisory together with the IoT Hub advisory, confirm firmware is current, and treat the whole product family as one exposure to remediate rather than isolated devices. - CISA ICS Advisories - Advisory 2 Jul 2026 (Update B)]]></description>
 </item>
 <item>
-<title>[Critical] Max-severity SimpleHelp auth-bypass stays actively exploited past its federal KEV deadline — the remote-support tool vendors use to reach your OT</title>
-<link>https://www.securityweek.com/critical-simplehelp-vulnerability-exploited-for-malware-delivery/</link>
-<guid isPermaLink="false">otthreatfeed:food:simplehelp</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-48558</category>
-<description><![CDATA[CISA added CVE-2026-48558, a CVSS 10.0 authentication-bypass flaw in the SimpleHelp remote monitoring and management (RMM) platform, to its Known Exploited Vulnerabilities catalog on 29 June with a federal remediation deadline of 2 July — a deadline that has now passed while exploitation continues. On servers configured for OpenID Connect the software fails to verify identity-token signatures, so an unauthenticated attacker can forge a token and be granted a fully authenticated “Technician” session — administrative control of the remote-access server, in some configurations bypassing MFA. The flaw is already being used to drop two newly identified malware families, the TaskWeaver loader and the Djinn infostealer, with roughly 14,000 SimpleHelp servers online and an estimated 1,000 directly vulnerable. For food and beverage manufacturers the relevance is direct: RMM platforms are how packaging-machine OEMs, SCADA integrators and refrigeration service contractors reach lines, batching systems and cold-storage controls for remote support, and a compromised RMM server is a pre-authenticated path into plant networks. Patch to the fixed release immediately, pull the console off the public internet, rotate technician credentials and OIDC secrets, and hunt RMM-connected endpoints for TaskWeaver/Djinn activity and unexpected sessions. - CISA KEV / SecurityWeek - KEV-added 29 Jun 2026 — deadline lapsed 2 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] Critical auth-bypass in Frangoteam FUXA web SCADA/HMI — 1,200+ instances exposed, the low-cost SCADA pattern common at small ag and processing sites</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02</link>
+<title>[High] CISA flags Frangoteam FUXA SCADA/HMI — lightweight HMI shows up on plant floors too</title>
+<link>https://www.cisa.gov/news-events/ics-advisories</link>
 <guid isPermaLink="false">otthreatfeed:food:fuxa</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-13207</category>
-<description><![CDATA[CISA advisory ICSA-26-181-02 (30 June) covers CVE-2026-13207, an authentication-bypass flaw (CVSS v4 8.6) in the open-source FUXA web SCADA/HMI platform (versions 1.3.1 and earlier) caused by dot-segment path normalization in its REST API. An unauthenticated attacker can reach user accounts and role assignments, exposing the OT privilege structure to reconnaissance. Researchers at GreyNoise reported finding more than 1,200 internet-facing FUXA instances shortly after disclosure — most still unpatched, at exactly the kind of small, distributed operations that put dashboards online for remote monitoring. That pattern maps squarely onto agriculture and small food processing: free web SCADA watching irrigation pumps, grain handling, tank levels and refrigeration at sites nobody staffs full-time, reachable from the internet because that's how the owner checks it. Frangoteam shipped a fix in version 1.3.2 and CISA released Snort/Suricata signatures. Upgrade to 1.3.2, pull FUXA off the public internet behind a VPN, rotate credentials, and load the detection signatures into your IDS/IPS. - CISA ICS Advisory (ICSA-26-181-02) - 30 Jun 2026 (Frangoteam FUXA)]]></description>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Advisory</category>
+<description><![CDATA[CISA's 30 June advisory for Frangoteam FUXA, an open-source SCADA/HMI platform, is tagged for water and energy but matters to food and beverage as well: free, web-based HMI software is attractive to smaller processors and can end up standing in for supervisory control on packaging and process lines. Review the advisory for affected versions, apply the fixes, and make sure any FUXA instance is off the public internet and behind authenticated, segmented access. - CISA ICS Advisories - Advisory 30 Jun 2026]]></description>
 </item>
 <item>
-<title>[Critical] Delta Electronics DVP12SE PLC exposes unauthenticated Modbus — anyone on the network can rewrite control logic, and no patch yet</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-07</link>
+<title>[Medium] Delta Electronics DVP12SE PLC advisory — common in packaging and batching skids</title>
+<link>https://www.cisa.gov/news-events/ics-advisories</link>
 <guid isPermaLink="false">otthreatfeed:food:delta</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-12819</category>
-<description><![CDATA[CISA advisory ICSA-26-181-07 (30 June) warns that the Delta Electronics DVP12SE programmable logic controller exposes its Modbus TCP service on port 502 with no authentication or access control, so any reachable network source can read and write coils, holding registers, relay states and process-control functions without credentials or operator approval (CVE-2026-12818, CVE-2026-12819). A companion resource-exhaustion issue lets an attacker flood the Modbus port to degrade the device. Delta PLCs of this class are everywhere in food and beverage plants — packaging machines, conveyors, palletizers and vendor-supplied skids from smaller OEMs — often on flat plant networks where anything can reach port 502. All versions are affected and Delta is still working on a fix, so mitigation is compensating controls: enable the PLC's built-in IP Filter, segment and firewall the controller off any untrusted network, and never expose Modbus/502 to the internet. - CISA ICS Advisory (ICSA-26-181-07) - 30 Jun 2026 (Delta Electronics DVP12SE PLC)]]></description>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Advisory</category>
+<description><![CDATA[CISA's 30 June batch also covered the Delta Electronics DVP12SE programmable logic controller, a compact PLC used across packaging, batching and process skids in food and beverage plants. Confirm whether any DVP12SE units are in your lines, apply the vendor's fixes, and ensure the controllers are segmented away from business and internet-facing networks. - CISA ICS Advisories - Advisory 30 Jun 2026]]></description>
 </item>
 <item>
-<title>[High] On-prem SharePoint RCE jumps into CISA KEV after real-world attacks — where recipes, HACCP plans and traceability records live at many food companies</title>
-<link>https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/</link>
-<guid isPermaLink="false">otthreatfeed:food:sharepoint</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-45659</category>
-<description><![CDATA[CISA added CVE-2026-45659, a remote-code-execution flaw in on-premises Microsoft SharePoint Server (CVSS 8.8, deserialization of untrusted data), to its Known Exploited Vulnerabilities catalog on 1 July after confirming active exploitation, with a federal remediation deadline of 4 July. The bug lets an authenticated user holding only Site Member permissions run code on the server — and Microsoft had rated exploitation “less likely” when it patched the issue in May, so organizations that deferred the fix on that basis should re-prioritize now. On-prem SharePoint is a workhorse across food and beverage IT: recipe and formulation libraries, HACCP and food-safety plans, supplier and traceability documentation, engineering drawings — content that often bridges toward OT-adjacent file shares and identity systems. Storm-2603, the actor behind Warlock ransomware, has been exploiting on-prem SharePoint since mid-2025, so this is also a ransomware precursor in a sector ransomware already leans on. Apply the May 2026 SharePoint update immediately, restrict and monitor authenticated access, and treat any exposed on-prem farm as a candidate pivot point toward plant-supporting IT. - CISA KEV / SecurityWeek - KEV-added 1 Jul 2026 — federal deadline 4 Jul 2026]]></description>
-</item>
-<item>
-<title>[Policy] Australia's Enhanced CIRMP Rules put food &amp; grocery under a materially tougher risk-management regime — AI, legacy systems, supply chain and insider risk all named</title>
-<link>https://www.claytonutz.com/insights/2026/june/australias-enhanced-cirmp-rules-what-critical-infrastructure-operators-need-to-know</link>
+<title>[Policy] Australia's enhanced CIRMP rules signal where food-and-grocery cyber obligations are heading</title>
+<link>https://industrialcyber.co/regulation-standards-and-compliance/cisc-unveils-enhanced-cirmp-rules-to-address-ai-legacy-systems-supply-chain-and-insider-risks-across-critical-infrastructure/</link>
 <guid isPermaLink="false">otthreatfeed:food:cirmp</guid>
-<pubDate>Sun, 05 Jul 2026 08:05:00 -0400</pubDate>
-<category>Regulation</category>
-<description><![CDATA[Australia's Enhanced Critical Infrastructure Risk Management Program (CIRMP) Rules, registered 9 June 2026 under the SOCI Act, are the biggest uplift to the country's critical-infrastructure risk framework since the baseline obligation landed in 2023 — and food and grocery is one of the covered sectors. The rules explicitly address risks the old framework glossed over: artificial intelligence and emerging technology, legacy and end-of-life OT, insider threats, supply-chain resilience and the interdependencies between critical and non-critical systems. Obligations stage in across two grace periods — a first tranche from mid-2027 (additional material risks, patching and legacy-technology measures, initial personnel vetting) and a second from mid-2028 (cyber-framework maturity uplift, phishing-resistant MFA, lateral-movement controls, supply-chain measures). Even for operators with no Australian footprint, this is worth reading as a preview: regulators worldwide are converging on the same list — legacy OT, vendors, insiders, AI — and multinationals with Australian operations should start the gap assessment now rather than in 2027. - CISC / Minister for Home Affairs — SOCI Act - Registered 9 Jun 2026 — obligations staged from mid-2027]]></description>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Policy</category>
+<description><![CDATA[Australia's Cyber and Infrastructure Security Centre unveiled enhanced Critical Infrastructure Risk Management Program rules on 18 June, expanding obligations to address AI, legacy systems, supply-chain and insider risks across critical sectors that include food and grocery under the SOCI regime. Even for operators outside Australia, the direction of travel is instructive: regulators increasingly expect documented, board-level risk management across the whole food supply chain. Track how these obligations, alongside U.S. FDA/USDA and farm-bill attention, may shape requirements for your operations. - CISC / Industrial Cyber - Announced 18 Jun 2026]]></description>
+</item>
+<item>
+<title>[Policy] NIST SP 1339 OT Backup Quick Start Guide is timely for cold chain and processing</title>
+<link>https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/</link>
+<guid isPermaLink="false">otthreatfeed:food:nistbackup</guid>
+<pubDate>Mon, 06 Jul 2026 04:25:00 -0400</pubDate>
+<category>Guidance</category>
+<description><![CDATA[NIST released an OT Backup Quick Start Guide (SP 1339) on 19 June to help industrial operators build recoverable backups and speed incident recovery. For food and beverage, where a ransomware hit on refrigeration, batching or packaging control can spoil product quickly, tested and isolated backups of process and cold-chain configurations are a food-safety and continuity control. Use it to benchmark your OT backup coverage and recovery timelines. - NIST / Industrial Cyber - Guide released 19 Jun 2026]]></description>
 </item>
 </channel>
 </rss>
