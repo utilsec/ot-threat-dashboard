@@ -627,7 +627,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 07 Jul 2026, 4:30 AM ET</span>
+        <span>Generated Tuesday, 07 Jul 2026, 3:55 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
@@ -642,31 +642,34 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-quebec">
+    <div class="top-story" id="story-iranplc">
       <span class="top-story-pill">Top Story</span>
-      <h2>Canada's CSE reveals a pro-Russia group claimed control-level access to a Quebec water plant &mdash; pumps, chlorine dosing and pressure allegedly within reach</h2>
-      <p>In its 2025&ndash;2026 annual report, Canada's Communications Security Establishment disclosed that pro-Russia hacktivist group NoName057(16) claimed it covertly controlled an unnamed Quebec municipality's water treatment plant &mdash; pumps, chlorine dosing, pressure settings and the monitoring and alerting operators rely on. CSE learned of the activity only from the group's own public boast; the utility never detected it, which is the most telling detail for every other water system. The claimed level of control is unverified and such groups routinely exaggerate, but a national cyber authority featuring the claim is itself the signal. Treat it as a template threat rather than a one-off, and assume small, under-monitored plants are exactly where this plays out.</p>
+      <h2>CISA/FBI/EPA/DOE confirm Iranian-affiliated actors are disrupting internet-exposed Allen-Bradley PLCs across the water sector &mdash; agency-verified, with real operational impact</h2>
+      <p>A joint advisory (CISA AA26-097A) from CISA, FBI, NSA, EPA, the Department of Energy and U.S. Cyber Command confirms Iranian-affiliated APT actors have, since at least March 2026, compromised internet-facing Rockwell Automation/Allen-Bradley PLCs across water &amp; wastewater, energy and government-facilities sectors. Unlike inflated hacktivist claims, this is agency-verified: the actors leased hosting and used legitimate configuration software (e.g. Studio 5000 Logix Designer) to connect to exposed controllers, extracted device project files and manipulated data on HMI/SCADA displays, with some victims experiencing real operational disruption and financial loss. Crucially, they are largely reaching controllers left directly on the public internet behind default or weak credentials rather than burning novel exploits &mdash; so for water utilities the fix is mostly exposure reduction and credential hygiene. Get every PLC off the public internet or behind a VPN with MFA, replace default/shared credentials, and threat-hunt exposed controllers for extracted project files and unauthorized logic/HMI changes per AA26-097A.</p>
+      <div class="card-meta">
+        <span>CISA AA26-097A (FBI/CISA/NSA/EPA/DOE/USCYBERCOM)</span>
+      </div>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-poc"><span class="d"></span>Claimed by NoName &mdash; disclosed by CSE; control access not independently confirmed</span>
-          <span class="ops-tag kev-off">Hacktivist / pro-Russia (NoName057(16))</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified, operational disruption &amp; financial loss reported</span>
+          <span class="ops-tag kev-off">Nation-state / Iran-affiliated (since Mar 2026)</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; access hardening</span>
-          <span class="ops-cc"><b>Action:</b> Verify pumps, chemical-dosing and pressure setpoints against known-good baselines, remove internet exposure of HMI/SCADA and remote-access paths, enforce MFA and strong unique credentials, and hunt for unauthorized logic or configuration changes on water/wastewater control systems.</span>
+          <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; credential hardening</span>
+          <span class="ops-cc"><b>Action:</b> Remove internet exposure of Allen-Bradley and all water/wastewater PLCs (place behind VPN + MFA), replace default/weak credentials, restrict remote access and config software (e.g. Studio 5000), and threat-hunt exposed controllers for extracted project files and unauthorized logic/HMI changes per CISA AA26-097A.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Setpoint integrity &amp; exposure check &mdash; 72h (claimed water-OT reach)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-quebec" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="wd-quebec">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposed PLC sweep &mdash; 24h; credential reset &mdash; 14 days (confirmed active OT campaign)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iranplc" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="wd-iranplc">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>CSE / Canadian Centre for Cyber Security</span>
+        <span>CISA / FBI / NSA / EPA / DOE / USCYBERCOM</span>
         <span class="dot">&bull;</span>
-        <span>Disclosed 30 Jun 2026 &mdash; NoName claim, not confirmed</span>
+        <span>Advisory 7 Apr 2026 &mdash; re-warned late Jun 2026; exploitation ongoing</span>
       </div>
-      <a href="https://www.cuinfosecurity.com/russian-water-system-hack-attempted-to-turn-canada-dry-a-32122" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- THREAT RADAR -->
@@ -696,16 +699,16 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-quebec"><circle class="blip crit" cx="180.0" cy="120.0" r="15"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.1">1</text></a>
-        <a href="#story-iranplc"><circle class="blip high" cx="180.0" cy="70.0" r="13.5"/><text class="blip-num" style="font-size:11.6px" x="180.0" y="74.6">2</text></a>
+        <a href="#story-iranplc"><circle class="blip crit" cx="180.0" cy="120.0" r="15"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.1">1</text></a>
+        <a href="#story-quebec"><circle class="blip high" cx="180.0" cy="70.0" r="13.5"/><text class="blip-num" style="font-size:11.6px" x="180.0" y="74.6">2</text></a>
         <a href="#story-calwater"><circle class="blip high" cx="284.6" cy="146.0" r="12"/><text class="blip-num" style="font-size:10.3px" x="284.6" y="150.1">3</text></a>
         <a href="#story-irancampaign"><circle class="blip high" cx="244.7" cy="269.0" r="10.5"/><text class="blip-num" style="font-size:9.0px" x="244.7" y="272.6">4</text></a>
         <a href="#story-fuxa"><circle class="blip high" cx="115.3" cy="269.0" r="9.5"/><text class="blip-num" style="font-size:8.2px" x="115.3" y="272.2">5</text></a>
         <a href="#story-fortibleed"><circle class="blip high" cx="75.4" cy="146.0" r="9"/><text class="blip-num" style="font-size:7.7px" x="75.4" y="149.1">6</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#story-quebec"><b>1</b><span class="ld crit"></span>Quebec water plant claim</a>
-        <a href="#story-iranplc"><b>2</b><span class="ld high"></span>Iran-linked PLC attacks</a>
+        <a href="#story-iranplc"><b>1</b><span class="ld crit"></span>Iran-affiliated PLC campaign (confirmed)</a>
+        <a href="#story-quebec"><b>2</b><span class="ld high"></span>Quebec water plant claim</a>
         <a href="#story-calwater"><b>3</b><span class="ld high"></span>Cal Water / Handala claim</a>
         <a href="#story-irancampaign"><b>4</b><span class="ld high"></span>Iran sustained campaign</a>
         <a href="#story-fuxa"><b>5</b><span class="ld high"></span>FUXA SCADA/HMI flaws</a>
@@ -757,34 +760,34 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-iranplc">
+      <div class="card" id="story-quebec">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>CISA/FBI/EPA/DOE: Iranian-affiliated actors keep hitting internet-exposed Allen-Bradley PLCs &mdash; with confirmed operational disruption</h3>
-        <p>U.S. agencies continue to warn that Iranian-affiliated actors are exploiting internet-facing Rockwell Automation/Allen-Bradley programmable logic controllers across water and wastewater, energy and government-facilities sectors, a campaign re-emphasized amid heightened Middle East tensions. Unlike inflated hacktivist claims, this activity is agency-confirmed: reporting describes malicious interaction with project files, manipulation of data shown on HMI/SCADA displays, and in some cases real operational disruption. The actors are reaching PLCs left exposed on the public internet, often protected only by default or weak credentials, rather than burning novel exploits &mdash; which makes the fix largely one of hygiene and exposure reduction.</p>
+        <h3>Canada's CSE reveals a pro-Russia group claimed control-level access to a Quebec water plant &mdash; pumps, chlorine dosing and pressure allegedly within reach</h3>
+        <p>In its 2025&ndash;2026 annual report, Canada's Communications Security Establishment disclosed that pro-Russia hacktivist group NoName057(16) claimed it covertly controlled an unnamed Quebec municipality's water treatment plant &mdash; pumps, chlorine dosing, pressure settings and the monitoring and alerting operators rely on. CSE learned of the activity only from the group's own public boast; the utility never detected it, which is the most telling detail for every other water system. The claimed level of control is unverified and such groups routinely exaggerate, but a national cyber authority featuring the claim is itself the signal. Treat it as a template threat rather than a one-off, and assume small, under-monitored plants are exactly where this plays out.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified, operational disruption reported</span>
-            <span class="ops-tag kev-off">Nation-state / Iran-affiliated</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Claimed by NoName &mdash; disclosed by CSE; control access not independently confirmed</span>
+            <span class="ops-tag kev-off">Hacktivist / pro-Russia (NoName057(16))</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; credential hardening</span>
-            <span class="ops-cc"><b>Action:</b> Remove internet exposure of Allen-Bradley and all OT PLCs (place behind VPN + MFA), replace default/weak credentials, restrict remote access, and threat-hunt exposed controllers for unauthorized logic or configuration changes per the joint guidance.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; access hardening</span>
+            <span class="ops-cc"><b>Action:</b> Verify pumps, chemical-dosing and pressure setpoints against known-good baselines, remove internet exposure of HMI/SCADA and remote-access paths, enforce MFA and strong unique credentials, and hunt for unauthorized logic or configuration changes on water/wastewater control systems.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposed PLC sweep &mdash; 72h; credential reset &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iranplc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-iranplc">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Setpoint integrity &amp; exposure check &mdash; 72h (claimed water-OT reach)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-quebec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-quebec">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / FBI / EPA / DOE joint alert</span>
+          <span>CSE / Canadian Centre for Cyber Security</span>
           <span class="dot">&bull;</span>
-          <span>Ongoing &mdash; re-warned late Jun 2026 amid Mideast tensions</span>
+          <span>Disclosed 30 Jun 2026 &mdash; NoName claim, not confirmed</span>
         </div>
-        <a href="https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cuinfosecurity.com/russian-water-system-hack-attempted-to-turn-canada-dry-a-32122" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-calwater">

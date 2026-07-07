@@ -627,14 +627,14 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 07 Jul 2026, 4:30 AM ET</span>
+        <span>Generated Tuesday, 07 Jul 2026, 3:55 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
       <strong>8</strong> stories across
-      <strong>4</strong> categories
+      <strong>3</strong> categories
     </div>
   </div>
 
@@ -642,31 +642,34 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-gardyn">
+    <div class="top-story" id="story-fortibleed">
       <span class="top-story-pill">Top Story</span>
-      <h2>CISA flags the Gardyn IoT Hub at CVSS 10.0 &mdash; an exposed master key over fleets of precision-ag grow devices</h2>
-      <p>CISA's most severe fresh advisory for the sector lands on the farm's edge: on 2 July it flagged the Gardyn IoT Hub with a maximum CVSS 10.0 score. The flaws center on an exposed, privileged &ldquo;iothubowner&rdquo; key that lets an unauthenticated attacker enumerate every Gardyn device in a fleet, run commands on connected units, and pivot onto the owner's home or facility network; device logs were also left publicly listable in cloud storage. Gardyn's automated indoor-growing systems sit squarely in precision agriculture and controlled-environment farming, and the pattern &mdash; cheap, cloud-managed grow-IoT with broad reach &mdash; is exactly what is proliferating across the sector. Gardyn says it has fixed the cloud infrastructure and is pushing firmware updates; operators should confirm their devices actually pulled them.</p>
+      <h2>FortiBleed: ~430,000 Fortinet firewalls swept for 110M+ credentials, now tied to active ransomware &mdash; the remote-access doorway into food-processing OT</h2>
+      <p>CISA is urging Fortinet operators to act after researchers assessed the FortiBleed campaign swept roughly 430,000 internet-facing FortiGate firewalls and SSL-VPN gateways for more than 110 million credentials, now directly linked to active INC Ransom and Lynx ransomware operations. For food and beverage processors the exposure is the remote-access layer: these appliances frequently front vendor and operator access into plant, packaging and cold-chain networks, and because credentials leaked rather than a bug being exploited, there is no patch to apply. Valid stolen credentials are precisely how ransomware crews &mdash; the sector's dominant threat &mdash; get in, so treat any internet-facing device as compromised, rotate credentials and reissue certificates now.</p>
+      <div class="card-meta">
+        <span>CISA hardening alert &mdash; FortiBleed</span>
+      </div>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation as of this edition &mdash; CVSS 10.0</span>
-          <span class="ops-tag kev-off">Not in CISA KEV</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; valid leaked credentials used in the wild (CISA)</span>
+          <span class="ops-tag kev-off">Credential-exposure campaign (no single CVE)</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Cloud fixed; firmware auto-update &mdash; verify devices updated</span>
-          <span class="ops-cc"><b>Action:</b> Confirm Gardyn IoT Hub devices have internet connectivity and have pulled the latest firmware, verify the vendor's cloud fixes are reflected, segment grow-IoT from other networks, and treat any cloud-managed agricultural IoT with a single privileged key as a fleet-wide risk.</span>
+          <span class="ops-tag patch-na">No patch &mdash; credential rotation &amp; access hardening</span>
+          <span class="ops-cc"><b>Action:</b> Rotate credentials and reissue certificates on internet-facing FortiGate/SSL-VPN devices fronting plant, packaging and cold-chain networks, terminate sessions, restrict the management interface, enforce MFA, and hunt for unauthorized logins and config changes.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Firmware/update verification &mdash; 72h</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-gardyn" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="fd-gardyn">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation on plant-facing devices &mdash; 72h (active ransomware link)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fortibleed" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="fd-fortibleed">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>CISA ICS Advisories (ICSA-26-183-03)</span>
+        <span>CISA (hardening alert)</span>
         <span class="dot">&bull;</span>
-        <span>Advisory 2 Jul 2026 &mdash; CVSS 10.0</span>
+        <span>CISA alert 18 Jun 2026 &mdash; active exploitation</span>
       </div>
-      <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- THREAT RADAR -->
@@ -696,14 +699,14 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-gardyn"><circle class="blip crit" cx="180.0" cy="120.0" r="15"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.1">1</text></a>
-        <a href="#story-fortibleed"><circle class="blip high" cx="180.0" cy="70.0" r="13.5"/><text class="blip-num" style="font-size:11.6px" x="180.0" y="74.6">2</text></a>
+        <a href="#story-fortibleed"><circle class="blip high" cx="180.0" cy="120.0" r="15"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.1">1</text></a>
+        <a href="#story-gardyn"><circle class="blip crit" cx="180.0" cy="70.0" r="13.5"/><text class="blip-num" style="font-size:11.6px" x="180.0" y="74.6">2</text></a>
         <a href="#story-foodransom"><circle class="blip high" cx="275.3" cy="235.0" r="12"/><text class="blip-num" style="font-size:10.3px" x="275.3" y="239.1">3</text></a>
         <a href="#story-fuxa"><circle class="blip high" cx="84.7" cy="235.0" r="10.5"/><text class="blip-num" style="font-size:9.0px" x="84.7" y="238.6">4</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#story-gardyn"><b>1</b><span class="ld crit"></span>Gardyn IoT Hub CVSS 10</a>
-        <a href="#story-fortibleed"><b>2</b><span class="ld high"></span>FortiBleed credential leak</a>
+        <a href="#story-fortibleed"><b>1</b><span class="ld high"></span>FortiBleed credential leak (ransomware)</a>
+        <a href="#story-gardyn"><b>2</b><span class="ld crit"></span>Gardyn IoT Hub CVSS 10</a>
         <a href="#story-foodransom"><b>3</b><span class="ld high"></span>Food &amp; Ag ransomware surge</a>
         <a href="#story-fuxa"><b>4</b><span class="ld high"></span>FUXA SCADA/HMI flaws</a>
       </div>
@@ -753,48 +756,10 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-fortibleed">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>FortiBleed: ~430,000 Fortinet firewalls swept for 110M+ credentials &mdash; the way ransomware reaches a processing plant</h3>
-        <p>CISA is urging Fortinet operators to act after researchers assessed the FortiBleed campaign swept roughly 430,000 internet-facing FortiGate firewalls and SSL-VPN gateways for more than 110 million credentials, now directly linked to active INC Ransom and Lynx ransomware. For food and beverage processors the exposure is the remote-access layer: these appliances frequently front vendor and operator access into plant, packaging and cold-chain networks, and because credentials leaked rather than a bug being exploited, there is no patch to apply. Valid stolen credentials are precisely how ransomware crews &mdash; the sector's dominant threat &mdash; get in, so treat any exposed device as compromised and rotate now.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; valid leaked credentials used in the wild (CISA)</span>
-            <span class="ops-tag kev-off">Credential-exposure campaign (no single CVE)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; credential rotation &amp; access hardening</span>
-            <span class="ops-cc"><b>Action:</b> Rotate credentials and reissue certificates on internet-facing FortiGate/SSL-VPN devices fronting plant, packaging and cold-chain networks, terminate sessions, restrict the management interface, enforce MFA, and hunt for unauthorized logins and config changes.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation on plant-facing devices &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-fortibleed">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA (hardening alert)</span>
-          <span class="dot">&bull;</span>
-          <span>CISA alert 18 Jun 2026 &mdash; active exploitation</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- SECTION: Threat Intelligence &amp; Research -->
-  <div class="section">
-    <div class="section-title">Threat Intelligence &amp; Research</div>
-    <div class="card-grid">
-
       <div class="card" id="story-foodransom">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Threat Intel</span>
+          <span class="category">Ransomware</span>
         </div>
         <h3>Food and Ag-ISAC: hundreds of ransomware attacks on the sector, led by Qilin and Akira</h3>
         <p>The Food and Ag-ISAC's ransomware analysis recorded on the order of 265 attacks against food and agriculture in a single year, with Qilin and Akira responsible for the most intrusions and a handful of groups accounting for nearly half of all sector attacks. Its 2026 outlook expects fragmentation into smaller, specialized crews plus DDoS layering, hypervisor attacks and AI-enabled social engineering. For processors and distributors the practical read is that ransomware &mdash; not exotic OT malware &mdash; remains the dominant risk, and that segmentation, identity hardening and recoverable backups are what keep a compromise from becoming a production or cold-chain stoppage.</p>
@@ -828,6 +793,37 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+
+      <div class="card" id="story-gardyn">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>CISA flags the Gardyn IoT Hub at CVSS 10.0 &mdash; an exposed master key over fleets of precision-ag grow devices</h3>
+        <p>On 2 July CISA flagged the Gardyn IoT Hub with a maximum CVSS 10.0 score. The flaws center on an exposed, privileged &ldquo;iothubowner&rdquo; key that lets an unauthenticated attacker enumerate every Gardyn device in a fleet, run commands on connected units, and pivot onto the owner's home or facility network; device logs were also left publicly listable in cloud storage. Gardyn's automated indoor-growing systems sit squarely in precision agriculture and controlled-environment farming, and the pattern &mdash; cheap, cloud-managed grow-IoT with broad reach &mdash; is exactly what is proliferating across the sector. No public exploitation is known yet; Gardyn says it has fixed the cloud infrastructure and is pushing firmware updates, so operators should confirm their devices actually pulled them.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation as of this edition &mdash; CVSS 10.0</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Cloud fixed; firmware auto-update &mdash; verify devices updated</span>
+            <span class="ops-cc"><b>Action:</b> Confirm Gardyn IoT Hub devices have internet connectivity and have pulled the latest firmware, verify the vendor's cloud fixes are reflected, segment grow-IoT from other networks, and treat any cloud-managed agricultural IoT with a single privileged key as a fleet-wide risk.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Firmware/update verification &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-gardyn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-gardyn">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">ICSA-26-183-03</span>
+          <span>CISA ICS Advisories</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory 2 Jul 2026 &mdash; CVSS 10.0</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
       <div class="card" id="story-gardynhome">
         <div class="card-header">
