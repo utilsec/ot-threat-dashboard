@@ -618,13 +618,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tue, 07 Jul 2026, 8:15 PM ET</span>
+        <span>Generated Wed, 08 Jul 2026, 12:16 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>12</strong> stories across
+      <strong>13</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -633,35 +633,34 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-windchill">
+    <div class="top-story" id="story-fortibleed">
       <span class="top-story-pill">Top Story</span>
-      <h2>First-ever in-the-wild exploitation of PTC Windchill hits a PLM platform embedded across manufacturing supply chains</h2>
-      <p>Threat actors are exploiting CVE-2026-12569 in PTC Windchill and FlexPLM in the wild &mdash; the first confirmed real-world abuse of the product lifecycle management platform, and the first PTC flaw ever added to CISA's KEV catalog (added 25 June, federal deadline 28 June). The improper-input-validation bug lets a remote, unauthenticated attacker run arbitrary code via crafted requests; PTC says attackers are dropping persistent JSP webshells for remote command execution and data theft, and on 26 June warned of &ldquo;heightened threat activity.&rdquo; Why OT defenders should care: Windchill is embedded across automotive, aerospace, defense and heavy-machinery engineering, holding the design data, BOMs and process definitions that feed production &mdash; so a compromise threatens intellectual property and the integrity of what reaches the plant floor. PTC began shipping patches and IoCs on 17&ndash;18 June.</p>
+      <h2>&ldquo;FortiBleed&rdquo; credential-theft campaign hits ~86,600 FortiGate devices &mdash; the edge firewalls and VPNs guarding OT networks</h2>
+      <p>CISA is warning that a months-long campaign dubbed FortiBleed has compromised working administrator and VPN credentials on tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways &mdash; roughly 86,600 devices across 194 countries, with active exploitation confirmed and IoCs shared via DHS on 2 July. Why OT defenders should care: these appliances are the front door to industrial networks, terminating the remote access and IT/OT segmentation that most plants depend on, so stolen admin credentials can hand an attacker a straight path toward control systems without touching a single PLC. Researchers attribute the campaign to Russian-speaking actors reusing credentials from earlier Fortinet flaws and brute-forcing devices lacking MFA. CISA urges immediate session termination and password resets on all internet-facing Fortinet gear.</p>
       <div class="card-meta">
-        <span>PTC / CISA KEV &mdash; via SecurityWeek</span>
+        <span>CISA / DHS &mdash; via SecurityWeek &amp; The Hacker News</span>
       </div>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first confirmed in-wild exploitation; persistent JSP webshells deployed</span>
-          <span class="ops-tag kev-on">In CISA KEV &mdash; federal deadline 28 Jun 2026</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation; ~86,600 devices with valid stolen credentials</span>
+          <span class="ops-tag kev-on">CISA hardening alert 18 Jun; DHS IoCs 2 Jul 2026</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Patch available (PTC, from 17 Jun)</span>
-          <span class="ops-cc"><b>Action:</b> Patch Windchill/FlexPLM to the fixed release now, remove internet exposure of the PLM interface, hunt for unauthorized JSP webshells and anomalous processes using PTC's published IoCs, and rotate credentials on affected servers and connected engineering systems.</span>
+          <span class="ops-tag patch-yes">Mitigations available (Fortinet / CISA)</span>
+          <span class="ops-cc"><b>Action:</b> Terminate all active SSL-VPN and admin sessions on internet-facing FortiGate devices, reset every Fortinet VPN and admin credential, enforce MFA, remove management interfaces from the internet, and hunt for unauthorized config pulls and logins using the DHS-shared IoCs.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; webshell/IoC sweep &mdash; 24h (KEV, active unauth RCE, engineering-data exposure)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="windchill" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="windchill">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Session kill, credential reset &amp; IoC sweep &mdash; 24h (active credential abuse on OT-bridging edge)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fortibleed" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="fortibleed">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span class="cve-badge">CVE-2026-12569</span>
-        <span>CISA KEV / SecurityWeek</span>
+        <span>CISA / Fortinet / SecurityWeek</span>
         <span class="dot">&bull;</span>
-        <span>KEV-added 25 Jun 2026 &mdash; exploitation confirmed 26 Jun; ongoing</span>
+        <span>CISA alert 18 Jun 2026 &mdash; DHS IoCs 2 Jul; exploitation ongoing</span>
       </div>
-      <a href="https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -691,24 +690,26 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <!-- Critical blips (inner ring, r=60) ranked 1-4, descending size -->
-        <a href="#story-windchill"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
-        <a href="#story-lantronix"><circle class="blip crit" cx="240" cy="180" r="13.5"/><text class="blip-num" style="font-size:12px" x="240" y="184">2</text></a>
-        <a href="#story-hvacups"><circle class="blip crit" cx="180" cy="240" r="12"/><text class="blip-num" style="font-size:11px" x="180" y="243.8">3</text></a>
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="120" cy="180" r="10.5"/><text class="blip-num" style="font-size:10px" x="120" y="183.6">4</text></a>
+        <!-- Critical blips (inner ring, r=60) ranked 1-5, descending size -->
+        <a href="#story-fortibleed"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
+        <a href="#story-windchill"><circle class="blip crit" cx="237" cy="162" r="13.5"/><text class="blip-num" style="font-size:12px" x="237" y="166">2</text></a>
+        <a href="#story-lantronix"><circle class="blip crit" cx="215" cy="229" r="12"/><text class="blip-num" style="font-size:11px" x="215" y="232.8">3</text></a>
+        <a href="#story-hvacups"><circle class="blip crit" cx="145" cy="229" r="10.5"/><text class="blip-num" style="font-size:10px" x="145" y="232.6">4</text></a>
+        <a href="#story-patchtuesday"><circle class="blip crit" cx="123" cy="162" r="9.5"/><text class="blip-num" style="font-size:9.5px" x="123" y="165.4">5</text></a>
 
-        <!-- High blips (outer ring, r=110) ranked 5-6, descending size -->
-        <a href="#story-calwater"><circle class="blip high" cx="258" cy="102" r="9"/><text class="blip-num" style="font-size:8.5px" x="258" y="105">5</text></a>
-        <a href="#story-rockwell"><circle class="blip high" cx="102" cy="102" r="8"/><text class="blip-num" style="font-size:8px" x="102" y="104.8">6</text></a>
+        <!-- High blips (outer ring, r=110) ranked 6-7, descending size -->
+        <a href="#story-calwater"><circle class="blip high" cx="258" cy="102" r="9"/><text class="blip-num" style="font-size:8.5px" x="258" y="105">6</text></a>
+        <a href="#story-rockwell"><circle class="blip high" cx="102" cy="102" r="8"/><text class="blip-num" style="font-size:8px" x="102" y="104.8">7</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-windchill"><span class="ld crit"></span><b>1</b> PTC Windchill RCE exploited (KEV)</a>
-        <a href="#story-lantronix"><span class="ld crit"></span><b>2</b> Lantronix EDS5000 root RCE (KEV)</a>
-        <a href="#story-hvacups"><span class="ld crit"></span><b>3</b> Vertiv/Trane HVAC-UPS critical flaws</a>
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>4</b> ICS Patch Tuesday &mdash; Siemens critical</a>
-        <a href="#story-calwater"><span class="ld high"></span><b>5</b> Cal Water Handala (Iran) IT breach</a>
-        <a href="#story-rockwell"><span class="ld high"></span><b>6</b> Rockwell controller &amp; software patches</a>
+        <a href="#story-fortibleed"><span class="ld crit"></span><b>1</b> FortiBleed &mdash; FortiGate credential theft (active)</a>
+        <a href="#story-windchill"><span class="ld crit"></span><b>2</b> PTC Windchill RCE exploited (KEV)</a>
+        <a href="#story-lantronix"><span class="ld crit"></span><b>3</b> Lantronix EDS5000 root RCE (KEV)</a>
+        <a href="#story-hvacups"><span class="ld crit"></span><b>4</b> Vertiv/Trane HVAC-UPS critical flaws</a>
+        <a href="#story-patchtuesday"><span class="ld crit"></span><b>5</b> ICS Patch Tuesday &mdash; Siemens critical</a>
+        <a href="#story-calwater"><span class="ld high"></span><b>6</b> Cal Water Handala (Iran) IT breach</a>
+        <a href="#story-rockwell"><span class="ld high"></span><b>7</b> Rockwell controller &amp; software patches</a>
       </div>
     </div>
 
@@ -743,9 +744,9 @@
 
       <div class="trend">
         <span class="trend-tag">Edge Exploits</span>
-        <b class="trend-head">Disclosure-to-exploitation now measured in days</b>
-        <p>The Lantronix serial-to-IP flaw was hit in a honeypot within days of its patch (see Incidents), and PTC Windchill went from patch to confirmed in-wild exploitation in about a week (see top story) &mdash; reinforcing the community view that internet-facing, OT-bridging and engineering gear must be patched at emergency speed.</p>
-        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <b class="trend-head">The OT perimeter is the battleground</b>
+        <p>FortiBleed's mass FortiGate credential theft (see top story), the actively-exploited Lantronix serial-to-IP flaw and PTC Windchill's in-wild RCE (see Incidents) have converged the conversation on one point: internet-facing firewalls, VPNs, serial bridges and engineering apps are where OT gets breached &mdash; and they must be patched and credential-hardened at emergency speed.</p>
+        <a href="https://thehackernews.com/2026/06/cisa-warns-fortinet-customers-as.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
       </div>
 
       <div class="trend">
@@ -762,6 +763,37 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+
+      <div class="card" id="story-windchill">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active Exploitation</span>
+        </div>
+        <h3>First-ever in-the-wild exploitation of PTC Windchill hits a PLM platform embedded across manufacturing supply chains</h3>
+        <p>Threat actors are exploiting CVE-2026-12569 in PTC Windchill and FlexPLM in the wild &mdash; the first confirmed real-world abuse of the product lifecycle management platform, and the first PTC flaw added to CISA's KEV catalog (added 25 June, federal deadline 28 June). The improper-input-validation bug lets a remote, unauthenticated attacker run arbitrary code; PTC says attackers are dropping persistent JSP webshells for command execution and data theft, and on 26 June warned of &ldquo;heightened threat activity.&rdquo; Windchill is embedded across automotive, aerospace, defense and heavy-machinery engineering, holding the design data, BOMs and process definitions that feed production &mdash; so a compromise threatens intellectual property and the integrity of what reaches the plant floor. PTC began shipping patches and IoCs on 17&ndash;18 June.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first confirmed in-wild exploitation; persistent JSP webshells</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; federal deadline 28 Jun 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (PTC, from 17 Jun)</span>
+            <span class="ops-cc"><b>Action:</b> Patch Windchill/FlexPLM to the fixed release now, remove internet exposure of the PLM interface, hunt for unauthorized JSP webshells using PTC's published IoCs, and rotate credentials on affected servers and connected engineering systems.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; webshell/IoC sweep &mdash; 24h (KEV, active unauth RCE)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="windchill" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="windchill">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-12569</span>
+          <span>CISA KEV / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>KEV-added 25 Jun 2026 &mdash; exploitation confirmed 26 Jun; ongoing</span>
+        </div>
+        <a href="https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
       <div class="card" id="story-lantronix">
         <div class="card-header">
@@ -1020,36 +1052,6 @@
         <a href="https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-daktronics">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>CISA flags remote-hacking flaws in Daktronics controllers for highway signs and billboards</h3>
-        <p>CISA published an advisory covering three vulnerabilities a researcher found in Daktronics controllers used to drive highway message signs and billboards. While not plant-floor OT, these are internet-reachable embedded controllers in the transportation and public-signage environment, and successful exploitation could let attackers alter displayed messages or disrupt the units &mdash; a public-safety and reputational concern for road authorities and operators. The lesson generalizes: distributed, remotely managed controllers frequently escape the segmentation and patch cadence applied to core OT. Identify any Daktronics or similar signage/ITS controllers in your footprint, apply the vendor mitigations, remove needless internet exposure and lock down remote management, and fold roadside and signage controllers into your OT asset inventory and monitoring.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
-            <span class="ops-tag kev-off">CISA / Daktronics</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor mitigations available</span>
-            <span class="ops-cc"><b>Action:</b> Identify Daktronics sign/billboard controllers (and similar ITS/signage devices), apply vendor mitigations, remove internet exposure, restrict remote management, and add them to OT asset inventory and monitoring.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory review &amp; exposure check &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="daktronics" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="daktronics">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA / SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Published ~2 Jul 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/new-controller-flaws-expose-highway-signs-and-billboards-to-remote-hacking/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -1118,6 +1120,36 @@
         <a href="https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-anchorci">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>CISA launches ANCHOR-CI, a new public-private framework for critical-infrastructure security collaboration</h3>
+        <p>On 1 July, CISA announced ANCHOR-CI (Alliance of National Councils for Homeland Operational Resilience &ndash; Critical Infrastructure), an advisory-body framework meant to broaden information sharing and government-industry partnership on critical-infrastructure security. It absorbs lessons from the retired CIPAC model and can spin up four council types &mdash; sector, cross-sector, industry, and regional coordinating councils &mdash; drawing federal, state, local, tribal and territorial partners. It will run for an initial two years. For OT asset owners the practical value is a more structured channel for real-time threat sharing and for shaping sector guidance; the near-term move is to identify which council(s) map to your sector and region and to plug your ISAC/sector engagement into the new structure so you are inside the loop as it stands up.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Policy &mdash; collaboration framework, not a threat</span>
+            <span class="ops-tag kev-off">CISA (US critical infrastructure)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No action &mdash; engagement &amp; awareness</span>
+            <span class="ops-cc"><b>Action:</b> Identify which ANCHOR-CI sector/regional council(s) apply to you, route engagement through your ISAC and sector coordinating body, and use the new channel to improve two-way threat sharing and guidance input.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Key dates:</b> Announced 1 Jul 2026; initial two-year term</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="anchorci" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="anchorci">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / Cybersecurity Dive</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 1 Jul 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/news/cisa-announces-new-advisory-council-strengthen-partnerships-and-secure-critical-infrastructure" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1125,7 +1157,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (PTC, Lantronix, Siemens, Schneider Electric, Phoenix Contact, Rockwell Automation, ST Engineering iDirect, Daktronics), Claroty Team82, Dragos and Forescout threat research, Mandiant, NERC/FERC and the European Commission, via reporting from SecurityWeek, Industrial Cyber and Certrec. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (Fortinet, PTC, Lantronix, Siemens, Schneider Electric, Phoenix Contact, Rockwell Automation, ST Engineering iDirect), Claroty Team82, Dragos and Forescout threat research, Mandiant, NERC/FERC, the European Commission and CISA policy announcements, via reporting from SecurityWeek, The Hacker News, Industrial Cyber, Cybersecurity Dive and Certrec. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
