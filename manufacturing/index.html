@@ -627,46 +627,46 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 07 Jul 2026, 3:55 PM ET</span>
+        <span>Generated Wednesday, 08 Jul 2026, 4:33 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>8</strong> stories across
+      <strong>9</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
 
-    <!-- HERO: TOP STORY + RADAR -->
+          <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-ransomware">
+    <div class="top-story" id="story-windchill">
       <span class="top-story-pill">Top Story</span>
-      <h2>Manufacturing is the ransomware bullseye &mdash; about 62% of industrial victims in Q1 2026, and an OT halt can hit within hours</h2>
-      <p>Manufacturing has become the ransomware bullseye. Industrial-ransomware tracking put manufacturing at roughly 62% of all industrial victims in the first quarter of 2026 &mdash; hundreds of incidents in a single quarter &mdash; and Dragos' 2026 report likewise found manufacturing absorbing about two-thirds of OT-relevant ransomware, with dwell times measured in weeks. What makes the sector so exposed is that a crew only has to reach the seam between IT and the plant: once ransomware crosses into OT, production can halt within hours, and a stopped line bleeds revenue immediately. The groups are numerous and rotating, and increasingly reach in through stolen credentials and engineering workstations rather than exotic exploits. The defensible posture is boringly effective &mdash; segment IT from OT, lock down remote access, and keep tested, isolated backups you can actually restore.</p>
+      <h2>PTC Windchill/FlexPLM RCE (CVSS 9.3) added to CISA's KEV after web-shell attacks &mdash; a strike at the plant's engineering brain</h2>
+      <p>CISA added CVE-2026-12569, a critical unauthenticated remote-code-execution flaw in PTC's Windchill and FlexPLM software, to its Known Exploited Vulnerabilities catalog after confirming attackers are dropping JSP web shells on unpatched instances &mdash; the first PTC product ever to make the KEV list. For manufacturers this strikes the heart of the enterprise: Windchill is the product-lifecycle and product-data backbone across automotive, aerospace, defense and heavy industry, holding CAD, BOMs, process plans and supplier data and feeding MES and ERP. A web shell there means silent command execution and theft of the crown-jewel engineering data that defines what the shop floor builds. PTC has patched and CISA set a 28 June federal deadline; hunt logs for POSTs to /Windchill/login/ ending in sixteen hex characters.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Confirmed trend &mdash; hundreds of manufacturing victims per quarter</span>
-          <span class="ops-tag kev-off">Ransomware (many rotating groups)</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; JSP web shells confirmed (CISA KEV)</span>
+          <span class="ops-tag kev-on">In CISA KEV &mdash; added 25 Jun 2026</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No single patch &mdash; segmentation, access control &amp; backups</span>
-          <span class="ops-cc"><b>Action:</b> Segment IT from OT and enforce strict boundary controls, lock down and MFA all remote access, harden engineering workstations, and maintain isolated, tested backups with rehearsed OT restoration so a line stoppage is recoverable in hours, not weeks.</span>
+          <span class="ops-tag patch-yes">PTC patched &mdash; apply and hunt for web shells</span>
+          <span class="ops-cc"><b>Action:</b> Patch Windchill/FlexPLM immediately, then hunt for JSP web shells (POSTs to /Windchill/login/ with 16 hex-character names), rotate secrets and service credentials, review PLM-to-MES/ERP trust, and restrict the application to trusted networks.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> IT/OT segmentation &amp; backup-restore drill &mdash; 30 days</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-ransomware" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="mf-ransomware">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Patch + web-shell hunt &mdash; 72h</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-windchill" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="mf-windchill">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>Cybersecurity Media / Dragos</span>
+        <span>The Hacker News / CISA KEV</span>
         <span class="dot">&bull;</span>
-        <span>Q1 2026 industrial-ransomware tracking; Dragos 2026 report</span>
+        <span>KEV added 25 Jun 2026</span>
       </div>
-      <a href="https://www.cybrsecmedia.com/industrial-ransomware-held-steady-in-q1-2026-thats-the-problem/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://thehackernews.com/2026/06/cisa-adds-exploited-ptc-windchill-rce.html" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- THREAT RADAR -->
@@ -696,20 +696,20 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-ransomware"><circle class="blip crit" cx="180.0" cy="120.0" r="15"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.1">1</text></a>
-        <a href="#story-identity"><circle class="blip high" cx="180.0" cy="70.0" r="13.5"/><text class="blip-num" style="font-size:11.6px" x="180.0" y="74.6">2</text></a>
-        <a href="#story-dragosmfg"><circle class="blip high" cx="284.6" cy="146.0" r="12"/><text class="blip-num" style="font-size:10.3px" x="284.6" y="150.1">3</text></a>
-        <a href="#story-cnc"><circle class="blip high" cx="244.7" cy="269.0" r="10.5"/><text class="blip-num" style="font-size:9.0px" x="244.7" y="272.6">4</text></a>
-        <a href="#story-melsoft"><circle class="blip high" cx="115.3" cy="269.0" r="9.5"/><text class="blip-num" style="font-size:8.2px" x="115.3" y="272.2">5</text></a>
-        <a href="#story-fortibleed"><circle class="blip high" cx="75.4" cy="146.0" r="9"/><text class="blip-num" style="font-size:7.7px" x="75.4" y="149.1">6</text></a>
+        <a href="#story-windchill"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.2">1</text></a>
+        <a href="#story-dataio"><circle class="blip high" cx="180.0" cy="70.0" r="13.8"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="74.7">2</text></a>
+        <a href="#story-fortibleed"><circle class="blip high" cx="284.6" cy="146.0" r="12.6"/><text class="blip-num" style="font-size:10.8px" x="284.6" y="150.3">3</text></a>
+        <a href="#story-ransomwareq1"><circle class="blip high" cx="244.7" cy="269.0" r="11.4"/><text class="blip-num" style="font-size:9.8px" x="244.7" y="272.9">4</text></a>
+        <a href="#story-mitsubishicnc"><circle class="blip high" cx="115.3" cy="269.0" r="10.2"/><text class="blip-num" style="font-size:8.8px" x="115.3" y="272.5">5</text></a>
+        <a href="#story-melsec"><circle class="blip high" cx="75.4" cy="146.0" r="9.0"/><text class="blip-num" style="font-size:7.7px" x="75.4" y="149.1">6</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#story-ransomware"><b>1</b><span class="ld crit"></span>Manufacturing ransomware surge</a>
-        <a href="#story-identity"><b>2</b><span class="ld high"></span>Identity-driven attacks</a>
-        <a href="#story-dragosmfg"><b>3</b><span class="ld high"></span>Dragos: mfg 2/3 of victims</a>
-        <a href="#story-cnc"><b>4</b><span class="ld high"></span>Mitsubishi CNC advisory</a>
-        <a href="#story-melsoft"><b>5</b><span class="ld high"></span>MELSOFT Update Manager</a>
-        <a href="#story-fortibleed"><b>6</b><span class="ld high"></span>FortiBleed credential leak</a>
+        <a href="#story-windchill"><b>1</b><span class="ld crit"></span>PTC Windchill KEV RCE</a>
+        <a href="#story-dataio"><b>2</b><span class="ld high"></span>Data I/O ransomware</a>
+        <a href="#story-fortibleed"><b>3</b><span class="ld high"></span>FortiBleed credential leak</a>
+        <a href="#story-ransomwareq1"><b>4</b><span class="ld high"></span>Manufacturing ransomware Q1</a>
+        <a href="#story-mitsubishicnc"><b>5</b><span class="ld high"></span>Mitsubishi CNC DoS</a>
+        <a href="#story-melsec"><b>6</b><span class="ld high"></span>MELSEC iQ-F Ethernet DoS</a>
       </div>
     </div>
 
@@ -723,30 +723,30 @@
 
       <div class="trend">
         <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Production-halt economics keep drawing attackers</b>
-        <p>With manufacturing absorbing the majority of industrial ransomware and cases like last year's five-week Jaguar Land Rover shutdown still fresh, attackers know a stopped line pays fast &mdash; making segmentation and recoverable backups a production-continuity issue, not just an IT one.</p>
-        <a href="https://www.cybrsecmedia.com/industrial-ransomware-held-steady-in-q1-2026-thats-the-problem/" class="source-link" target="_blank" rel="noopener">Cybersecurity Media</a>
+        <b class="trend-head">Manufacturing is the number-one industrial target</b>
+        <p>Dragos put manufacturing at 62% of industrial ransomware victims in Q1 2026 &mdash; 633 incidents &mdash; as IT and ERP outages cascade into stopped production, keeping resilience and segmentation at the top of the plant agenda.</p>
+        <a href="https://www.dragos.com/dragos-industrial-ransomware-analysis-q1-2026" class="source-link" target="_blank" rel="noopener">Dragos</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Identity</span>
-        <b class="trend-head">Credential leaks and vishing are the new way in</b>
-        <p>Doppel's mid-June warning that manufacturing attacks are shifting toward identity-driven techniques &mdash; leaked credentials and voice phishing &mdash; tracks with what ransomware crews actually do: log in rather than break in, then pivot toward the plant.</p>
-        <a href="https://industrialcyber.co/manufacturing/manufacturing-cyber-threats-shift-toward-identity-driven-attacks-as-credential-leaks-and-vishing-surge-doppel-warns/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">PLM &amp; Supply Chain</span>
+        <b class="trend-head">The engineering data backbone is now a target</b>
+        <p>The PTC Windchill KEV entry shows attackers reaching for the PLM systems that hold CAD, BOMs and process plans &mdash; crown-jewel data that defines what the shop floor builds and feeds MES and ERP.</p>
+        <a href="https://thehackernews.com/2026/06/cisa-adds-exploited-ptc-windchill-rce.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
       </div>
 
       <div class="trend">
         <span class="trend-tag">Engineering Workstations</span>
-        <b class="trend-head">The EWS is the crown-jewel target</b>
-        <p>Dragos' 2026 reporting highlights groups such as AZURITE focused on OT engineering workstations to exfiltrate operational data and hold long-term access &mdash; a reminder that the EWS bridging IT and the plant deserves the same scrutiny as a domain controller.</p>
-        <a href="https://www.dragos.com/blog/ot-threat-landscape-2026" class="source-link" target="_blank" rel="noopener">Dragos</a>
+        <b class="trend-head">Adversaries want your process blueprint</b>
+        <p>Dragos' reporting on AZURITE stealing network diagrams and process data from engineering workstations makes the case for treating these hosts as crown jewels &mdash; hardened, isolated and monitored.</p>
+        <a href="https://www.dragos.com/blog/dragos-2026-ot-cybersecurity-year-in-review" class="source-link" target="_blank" rel="noopener">Dragos</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Resilience</span>
-        <b class="trend-head">Backups move from checkbox to production control</b>
-        <p>NIST's new OT Backup Quick Start Guide arrives as manufacturers reckon with how fast a ransomware event halts a line &mdash; recoverable, isolated backups of PLC, HMI and EWS configurations are what turn a shutdown into a restore.</p>
-        <a href="https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Advisory Triage</span>
+        <b class="trend-head">Not every CVE deserves the same urgency</b>
+        <p>With the ICS advisory firehose never letting up &mdash; and many scores or patches incomplete &mdash; manufacturers are leaning on exposure- and impact-based triage rather than trying to patch everything at once.</p>
+        <a href="https://industrialcyber.co/cisa/cisa-reports-critical-ics-vulnerabilities-across-mitsubishi-schneider-delta-ge-vernova-hitachi-energy-systems/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
 
     </div>
@@ -757,34 +757,64 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-identity">
+      <div class="card" id="story-dataio">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Doppel: manufacturing attacks are shifting toward identity &mdash; leaked credentials and vishing lead the way in</h3>
-        <p>Security firm Doppel warned in mid-June that cyber threats against manufacturers are increasingly identity-driven, with leaked credentials and voice-phishing (vishing) campaigns emerging as primary entry vectors. The pattern matters because it matches how ransomware crews actually operate: rather than burning exploits, they authenticate with valid credentials and then work toward the plant floor, where an engineering workstation or remote-access account can bridge into OT. For manufacturers the implication is that identity hygiene &mdash; MFA everywhere, aggressive credential rotation, help-desk verification against vishing, and monitoring for anomalous logins &mdash; is now front-line OT defense, not just IT housekeeping.</p>
+        <h3>Electronics manufacturer Data I/O discloses ransomware attack to the SEC</h3>
+        <p>Electronics manufacturer Data I/O reported a ransomware attack in a securities filing, joining a June run of manufacturing victims that also included Tata Electronics, hit by the World Leaks extortion group. The pattern is familiar: ransomware lands in enterprise IT &mdash; ERP, engineering systems, virtualization &mdash; and cascades into production as those systems go dark or are isolated for containment. For discrete and process manufacturers the exposure is the tight coupling between business systems and the shop floor, where an IT outage stalls scheduling, quality and shipping even when PLCs keep running.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Reported trend &mdash; identity-driven intrusions rising</span>
-            <span class="ops-tag kev-off">Credential theft / social engineering</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware &mdash; SEC-disclosed</span>
+            <span class="ops-tag kev-off">Ransomware (financially motivated)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; identity hardening &amp; monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Enforce MFA on all remote and engineering access, rotate and monitor credentials, add help-desk verification to counter vishing, and alert on anomalous logins that could bridge IT to the plant floor.</span>
+            <span class="ops-tag patch-na">No patch &mdash; segmentation, backups, IR readiness</span>
+            <span class="ops-cc"><b>Action:</b> Validate IT/OT segmentation so an enterprise ransomware event cannot halt production, keep offline tested backups of ERP/MES and engineering systems, define manual-operation fallbacks, and rehearse incident response with production leadership.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Identity-controls review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-identity" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-identity">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> IT/OT segmentation &amp; backup validation &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-dataio" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-dataio">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Doppel / Industrial Cyber</span>
+          <span>The Record</span>
           <span class="dot">&bull;</span>
-          <span>Reported 19 Jun 2026</span>
+          <span>Reported Jun 2026</span>
         </div>
-        <a href="https://industrialcyber.co/manufacturing/manufacturing-cyber-threats-shift-toward-identity-driven-attacks-as-credential-leaks-and-vishing-surge-doppel-warns/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/electronics-manufacturer-dataio-ransomware" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-fortibleed">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>FortiBleed credential theft now feeds ransomware &mdash; the remote path into plant networks</h3>
+        <p>SOCRadar reported on 2 July that FortiBleed &mdash; a sniffer that harvested 110M+ credentials from some 430,000 internet-facing FortiGate firewalls since mid-June &mdash; is now driving INC Ransom and Lynx intrusions, with at least a dozen ransomware deployments traced to the stolen access. Manufacturers routinely front plant remote access, vendor connections and site-to-site links with Fortinet. Because valid credentials leaked rather than a bug being exploited, there is no patch: an attacker logs in as a trusted engineer. Treat any exposed FortiGate touching OT as compromised and rotate credentials now.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; credentials feeding ransomware (INC / Lynx)</span>
+            <span class="ops-tag kev-off">Credential-exposure campaign (no single CVE)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; credential rotation &amp; access hardening</span>
+            <span class="ops-cc"><b>Action:</b> Rotate all credentials and certificates on internet-facing FortiGate/SSL-VPN devices touching plant networks, terminate sessions, enforce MFA, restrict management access, and hunt for unauthorized logins and configuration changes.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation on OT-facing devices &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-fortibleed" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-fortibleed">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News / SOCRadar</span>
+          <span class="dot">&bull;</span>
+          <span>Ransomware link reported 2 Jul 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -795,34 +825,64 @@
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
 
-      <div class="card" id="story-dragosmfg">
+      <div class="card" id="story-ransomwareq1">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Threat Intel</span>
         </div>
-        <h3>Dragos 2026: manufacturing takes about two-thirds of OT ransomware, and new groups target engineering workstations</h3>
-        <p>Dragos' 2026 report frames manufacturing as the most-targeted OT sector, absorbing roughly two-thirds of ransomware impacting industrial organizations, against a backdrop of a growing number of ransomware groups and dwell times measured in weeks. It also details newly tracked adversaries &mdash; including AZURITE, focused on OT engineering workstations to exfiltrate operational data and maintain long-term access &mdash; alongside a broader shift from data theft toward operational disruption. For plant defenders the takeaways are concrete: treat the engineering workstation as a crown-jewel asset, watch the IT/OT boundary for lateral movement, and assume adversaries may already be resident when planning detection and recovery.</p>
+        <h3>Dragos: manufacturing absorbed 62% of industrial ransomware victims in Q1 2026</h3>
+        <p>Dragos' first-quarter 2026 industrial ransomware analysis found manufacturing accounted for 62% of all observed victims &mdash; 633 incidents spanning construction, industrial equipment, electronics, metals and automotive. The report underscores how ransomware against IT, ERP and virtualization infrastructure cascades into OT disruption, safety risk and extended downtime. Manufacturing's breadth of sub-sectors, deep supply chains and thin OT security staffing keep it the number-one target, so the priority is resilience: segmentation, tested backups and rehearsed manual operation to keep an IT hit from stopping the line.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Threat report &mdash; sector trend, no single CVE</span>
-            <span class="ops-tag kev-off">Ransomware groups / AZURITE and others</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Trend analysis &mdash; not a single vulnerability</span>
+            <span class="ops-tag kev-off">Ransomware ecosystem</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; segmentation, EWS hardening &amp; monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Harden and monitor engineering workstations, segment and watch the IT/OT boundary for lateral movement, and build detection and recovery plans that assume adversary dwell time inside the environment.</span>
+            <span class="ops-tag patch-na">No patch &mdash; resilience, segmentation, backups</span>
+            <span class="ops-cc"><b>Action:</b> Benchmark your resilience against the ransomware cascade: segment IT from OT, maintain offline tested backups of ERP/MES and engineering data, document manual-operation procedures, and exercise recovery with realistic downtime targets.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> EWS hardening &amp; boundary monitoring &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-dragosmfg" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-dragosmfg">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Resilience &amp; recovery assessment &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-ransomwareq1" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-ransomwareq1">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>Dragos</span>
           <span class="dot">&bull;</span>
-          <span>Dragos 2026 OT/ICS report</span>
+          <span>Q1 2026 industrial ransomware analysis</span>
         </div>
-        <a href="https://www.dragos.com/blog/ot-threat-landscape-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.dragos.com/dragos-industrial-ransomware-analysis-q1-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-azurite">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Threat Intel</span>
+        </div>
+        <h3>AZURITE targets engineering workstations to steal the data that describes your process</h3>
+        <p>Dragos' 2026 Year in Review describes AZURITE targeting OT engineering workstations to exfiltrate network diagrams, alarm configurations and process information &mdash; intelligence that supports later, more capable attacks. For manufacturers the engineering workstation is a high-value chokepoint: it holds the project files, PLC logic and network maps that define the plant, yet often sits with broad access and weak monitoring. Treating these hosts as crown jewels &mdash; hardened, isolated and watched &mdash; denies adversaries the blueprint they need.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Reconnaissance / data theft &mdash; no single CVE</span>
+            <span class="ops-tag kev-off">Nation-state (AZURITE)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; harden &amp; monitor EWS</span>
+            <span class="ops-cc"><b>Action:</b> Harden and isolate engineering workstations: restrict access and removable media, apply application allow-listing, monitor for data staging and exfiltration, and store project files and PLC logic in access-controlled repositories.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Engineering-workstation hardening &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-azurite" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-azurite">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Dragos</span>
+          <span class="dot">&bull;</span>
+          <span>2026 Year in Review &mdash; foundational context</span>
+        </div>
+        <a href="https://www.dragos.com/blog/dragos-2026-ot-cybersecurity-year-in-review" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -833,124 +893,94 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
-      <div class="card" id="story-cnc">
+      <div class="card" id="story-mitsubishicnc">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA updates its Mitsubishi Electric CNC Series advisory &mdash; check the machine tools on your floor</h3>
-        <p>CISA's 2 July batch included an updated advisory (Update D) for the Mitsubishi Electric CNC Series, the computer-numerical-control platform that runs machining centers across discrete manufacturing. CNCs sit directly on production and are frequently networked for program transfer and monitoring, so a reachable vulnerability can mean downtime or tampering with machining programs. Review the advisory for affected models and firmware, apply Mitsubishi's fixes or mitigations, and keep CNC networks segmented from business systems.</p>
+        <h3>CISA advisory: Mitsubishi Electric CNC Series can be knocked offline by crafted packets</h3>
+        <p>CISA advisory ICSA-26-078-05 covers an improper-validation flaw in Mitsubishi Electric CNC Series controllers that lets a remote attacker trigger an out-of-bounds read and a denial-of-service by sending specially crafted packets to TCP port 683. On a shop floor a CNC dropping offline means stopped machining and lost throughput. Review the advisory for affected models, apply Mitsubishi's guidance, and restrict access to the control port so only trusted engineering hosts can reach these machines.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation as of this edition</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes/mitigations &mdash; see advisory</span>
-            <span class="ops-cc"><b>Action:</b> Identify affected Mitsubishi CNC models and firmware, apply the updates or mitigations, segment CNC networks from business systems, and restrict program-transfer and monitoring paths.</span>
+            <span class="ops-tag patch-yes">Vendor guidance / mitigations &mdash; see advisory</span>
+            <span class="ops-cc"><b>Action:</b> Identify affected Mitsubishi CNC controllers, apply vendor fixes or IP-filtering mitigations, restrict TCP/683 to trusted engineering hosts, and segment CNC networks from general plant IT.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> CNC patch assessment &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-cnc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-cnc">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> CNC advisory remediation &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-mitsubishicnc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-mitsubishicnc">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>CISA ICS Advisories</span>
           <span class="dot">&bull;</span>
-          <span>Advisory 2 Jul 2026 (Update D)</span>
+          <span>CISA advisory (ICSA-26-078-05), 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-melsoft">
+      <div class="card" id="story-melsec">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Mitsubishi Electric MELSOFT Update Manager flagged &mdash; a foothold in the engineering toolchain</h3>
-        <p>CISA's 30 June advisories covered the Mitsubishi Electric MELSOFT Update Manager (SW1DND-UDM-M), the utility that keeps engineering software current. Toolchain and update components are high-value because they run on engineering workstations with broad access to controllers, so a flaw here can undercut the very systems used to program the plant. Confirm whether the Update Manager is deployed, apply the vendor's fixes, and treat engineering-software hosts as sensitive.</p>
+        <h3>Mitsubishi MELSEC iQ-F Ethernet modules vulnerable to DoS &mdash; one has no fix planned</h3>
+        <p>CISA advisory ICSA-26-169-06 (18 June) flags an expected-behavior-violation flaw in the Mitsubishi Electric MELSEC iQ-F Series FX5-ENET/IP Ethernet module: a flood of communication packets can stop the module's communication and anomaly-detection functions, a denial-of-service against widely deployed factory-automation PLCs. Mitsubishi does not plan a fixed version for this module and instead recommends IP-filtering to block untrusted hosts. That makes network controls, not patching, the remediation &mdash; and a reason to keep these controllers off any broadly reachable network.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation as of this edition</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes &mdash; see advisory</span>
-            <span class="ops-cc"><b>Action:</b> Inventory MELSOFT Update Manager installs, apply Mitsubishi's fixes, restrict and monitor engineering-workstation hosts, and limit which accounts can reach programming tools.</span>
+            <span class="ops-tag patch-no">No fix planned for FX5-ENET/IP &mdash; IP-filter mitigation</span>
+            <span class="ops-cc"><b>Action:</b> Apply IP-filtering to restrict the affected MELSEC iQ-F Ethernet modules to trusted hosts, segment factory-automation networks, and monitor for communication floods; patch related FX5-EIP modules to the fixed version where available.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Engineering-toolchain patch &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-melsoft" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-melsoft">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Network-control mitigation &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-melsec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-melsec">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>CISA ICS Advisories</span>
           <span class="dot">&bull;</span>
-          <span>Advisory 30 Jun 2026</span>
+          <span>Advisory 18 Jun 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-06" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-delta">
+      <div class="card" id="story-vendorbatch">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Delta Electronics DVP12SE PLC advisory &mdash; common in packaging and process skids</h3>
-        <p>CISA's 30 June batch also covered the Delta Electronics DVP12SE programmable logic controller, a compact PLC found across packaging lines and process skids in discrete and process manufacturing. Confirm whether any DVP12SE units are in your lines, apply the vendor's fixes, and ensure the controllers are segmented away from business and internet-facing networks.</p>
+        <h3>June CISA cycle flags ICS flaws across Mitsubishi, Schneider, Delta and more</h3>
+        <p>A June CISA advisory cycle spanned vulnerabilities in products from Mitsubishi Electric, Schneider Electric, Delta and other automation vendors that populate discrete and process plants. Individually most ship with vendor fixes or mitigations; collectively they are a reminder that the advisory firehose never stops. The productive response is triage: map advisories to your actual asset inventory, prioritize the internet-reachable and safety-relevant systems, and accept that many items can wait behind good segmentation.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation as of this edition</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation of these items as of this edition</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes &mdash; see advisory</span>
-            <span class="ops-cc"><b>Action:</b> Inventory Delta DVP12SE PLCs across lines, apply Delta's updates, and segment the controllers from business and internet-facing networks.</span>
+            <span class="ops-tag patch-yes">Vendor fixes/mitigations &mdash; see advisories</span>
+            <span class="ops-cc"><b>Action:</b> Map the flagged Mitsubishi, Schneider and Delta products to your asset inventory, patch internet-reachable and safety-relevant systems first, and rely on segmentation to buy time on lower-risk items.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> PLC inventory &amp; patch &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-delta" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-delta">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; patch plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-vendorbatch" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-vendorbatch">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisories</span>
+          <span>CISA / Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Advisory 30 Jun 2026</span>
+          <span>CISA ICS advisories, Jun 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-fortibleed">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>FortiBleed: ~430,000 Fortinet firewalls swept for 110M+ credentials, now ransomware-linked &mdash; the remote-access path into engineering networks</h3>
-        <p>CISA is urging Fortinet operators to act after researchers assessed the FortiBleed campaign swept roughly 430,000 internet-facing FortiGate firewalls and SSL-VPN gateways for more than 110 million credentials, now directly linked to active INC Ransom and Lynx ransomware. For manufacturers the danger is the remote-access layer: these appliances often front vendor and engineer access into plant and engineering networks, and because credentials leaked rather than a bug being exploited, there is no patch to apply. Valid stolen credentials are exactly how ransomware crews get in, so treat any exposed device as compromised and rotate now.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; valid leaked credentials used in the wild (CISA)</span>
-            <span class="ops-tag kev-off">Credential-exposure campaign (no single CVE)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; credential rotation &amp; access hardening</span>
-            <span class="ops-cc"><b>Action:</b> Rotate credentials and reissue certificates on internet-facing FortiGate/SSL-VPN devices fronting plant and engineering networks, terminate sessions, restrict the management interface, enforce MFA, and hunt for unauthorized logins and config changes.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation on plant-facing devices &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-fortibleed">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA (hardening alert)</span>
-          <span class="dot">&bull;</span>
-          <span>CISA alert 18 Jun 2026 &mdash; active exploitation</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://industrialcyber.co/cisa/cisa-reports-critical-ics-vulnerabilities-across-mitsubishi-schneider-delta-ge-vernova-hitachi-energy-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -961,34 +991,34 @@
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
 
-      <div class="card" id="story-nistbackup">
+      <div class="card" id="story-engir">
         <div class="card-header">
-          <span class="severity sev-info">Policy</span>
-          <span class="category">Guidance</span>
+          <span class="severity sev-info">Guidance</span>
+          <span class="category">Policy</span>
         </div>
-        <h3>NIST SP 1339 OT Backup Quick Start Guide targets faster line recovery</h3>
-        <p>NIST released an OT Backup Quick Start Guide (SP 1339) on 19 June to help industrial operators build recoverable backups and speed incident recovery. For manufacturers weighing how quickly ransomware can halt a line, tested and isolated backups of PLC, HMI and engineering-workstation configurations are the difference between a restore measured in hours and a rebuild measured in weeks. Use it to benchmark your OT backup coverage and recovery timelines.</p>
+        <h3>Engineering-led incident response is becoming the standard as living-off-the-land defeats signatures</h3>
+        <p>Practitioners increasingly argue that OT incident response must be engineering-led, because attackers using legitimate tools and valid accounts leave few signature-based traces &mdash; and because the people who understand a process can spot when it behaves wrongly. For manufacturers the practical implications are organizational as much as technical: give process and controls engineers a defined role in detection and response, pair them with OT-aware monitoring, and ensure safety systems can enforce a safe state independent of the control network.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Guidance &mdash; not a vulnerability</span>
-            <span class="ops-tag kev-off">NIST guidance</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Guidance / practice &mdash; not a vulnerability</span>
+            <span class="ops-tag kev-off">OT incident-response practice</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Program action</span>
-            <span class="ops-cc"><b>Action:</b> Benchmark OT backup coverage against NIST SP 1339, ensure isolated and tested backups of PLC, HMI and EWS configurations, and rehearse line-restoration timelines.</span>
+            <span class="ops-tag patch-na">Program / organizational action</span>
+            <span class="ops-cc"><b>Action:</b> Define an engineering-led OT incident-response process, give controls engineers a role in anomaly detection, deploy OT-aware monitoring with process baselines, and verify independent safety systems can force a safe state.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> OT backup gap assessment &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-nistbackup" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-nistbackup">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> OT IR-program review &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-engir" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-engir">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>NIST / Industrial Cyber</span>
+          <span>Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Guide released 19 Jun 2026</span>
+          <span>2026 analysis</span>
         </div>
-        <a href="https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://industrialcyber.co/industrial-cyber-attacks/living-off-the-land-attacks-reshape-ics-and-ot-incident-response-as-engineering-led-defense-becomes-critical/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -998,7 +1028,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (Mitsubishi Electric CNC Series, MELSOFT Update Manager, Delta Electronics DVP12SE), CISA alerts and the KEV catalog, NIST, Dragos, and vendor PSIRTs (Mitsubishi Electric, Delta Electronics, Fortinet), via reporting from SecurityWeek, Cybersecurity Dive, Industrial Cyber and Cybersecurity Media. Default lookback: 7&ndash;30 days; clearly dated older items (e.g. the 2025 Jaguar Land Rover shutdown) appear only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (Mitsubishi Electric CNC ICSA-26-078-05, MELSEC iQ-F ICSA-26-169-06) and the KEV catalog (PTC Windchill CVE-2026-12569), Dragos threat and ransomware research, and reporting from The Hacker News, SOCRadar, The Record and Industrial Cyber. Default lookback: 7&ndash;30 days; clearly dated foundational research appears only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

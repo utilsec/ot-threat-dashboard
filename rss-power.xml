@@ -6,79 +6,71 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 07 Jul 2026 15:55:00 -0400</lastBuildDate>
+<lastBuildDate>Wed, 08 Jul 2026 04:33:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] FortiBleed: ~430,000 Fortinet firewalls swept for 110M+ credentials, now tied to active ransomware — the remote-access doorway into utility OT</title>
-<link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
+<title>[Critical] FortiBleed: 430,000 Fortinet firewalls swept for 110M+ credentials, now tied to active ransomware — the remote-access doorway into utility OT</title>
+<link>https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html</link>
 <guid isPermaLink="false">otthreatfeed:power:fortibleed</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
 <category>Top Story</category>
-<description><![CDATA[Researchers now assess the FortiBleed campaign swept roughly 430,000 internet-facing FortiGate firewalls and SSL-VPN gateways — about half of those exposed worldwide across 194 countries — for more than 110 million credentials, and July reporting ties that stolen access directly to active INC Ransom and Lynx ransomware operations. For electric utilities the exposure is direct: these boxes front remote access into EMS/SCADA, substations and the NERC CIP electronic security perimeter, and because credentials leaked rather than a single bug being exploited, no patch closes the hole. An attacker signing in with valid credentials looks like a legitimate engineer, so detection is hard and the window is now. Assume any exposed Fortinet device already sits at the access layer guarding your control network. - CISA (hardening alert) - CISA alert 18 Jun; ransomware link reported 2 Jul 2026]]></description>
+<description><![CDATA[Researchers now tie the FortiBleed credential-theft campaign directly to active ransomware. On 2 July, SOCRadar reported the operation — which planted a custom sniffer on roughly 430,000 internet-facing FortiGate firewalls across 150+ countries and harvested more than 110 million credentials since mid-June — is feeding INC Ransom and Lynx intrusions, with at least a dozen ransomware deployments traced to the stolen access. For electric utilities the exposure is direct: these firewalls front remote access into EMS/SCADA, substations and the NERC CIP electronic security perimeter. Because valid credentials leaked rather than a single bug being exploited, no patch closes the gap, and an attacker signing in looks like a legitimate engineer. Treat any exposed FortiGate guarding OT as already compromised. - The Hacker News / SOCRadar - Ransomware link reported 2 Jul 2026 (campaign uncovered mid-Jun)]]></description>
 </item>
 <item>
-<title>[High] U.S. agencies keep warning that Iran-affiliated actors are logging into internet-exposed PLCs across energy and water</title>
-<link>https://industrialcyber.co/cisa/ongoing-cyberattacks-targeting-internet-connected-plcs-disrupt-us-critical-infrastructure-agencies-warn/</link>
-<guid isPermaLink="false">otthreatfeed:power:iranplc</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
+<title>[High] China-linked CL-STA-1062 deploys TinyRCT backdoor in electricity and water utilities across Southeast Asia</title>
+<link>https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html</link>
+<guid isPermaLink="false">otthreatfeed:power:tinyrct</guid>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
 <category>Incident</category>
-<description><![CDATA[CISA, the FBI, EPA and DOE continue to warn that Iranian-affiliated actors are reaching internet-facing programmable logic controllers across the energy, water and government-facilities sectors, a campaign re-emphasized amid heightened Middle East tensions. For power operators the lesson maps onto distributed generation and auxiliary systems, where solar sites, storage and small substations increasingly expose controllers reachable from the public internet, often shielded only by default or shared credentials. The activity is agency-confirmed rather than a hacktivist boast, and in some cases has produced real operational disruption. The remedy is largely hygiene: get controllers off the public internet, replace default credentials, and hunt for unexpected logic or configuration changes. - CISA / FBI / EPA / DOE joint alert - Ongoing — re-warned late Jun 2026]]></description>
+<description><![CDATA[Palo Alto Networks Unit 42 reported in late June that a Chinese-speaking group it tracks as CL-STA-1062 has expanded from Taiwanese web-hosting targets into Southeast Asian critical infrastructure, compromising electricity and water utilities alongside government and military organizations. The group plants a lightweight C# backdoor named TinyRCT for persistence, command execution, file exfiltration and screenshotting, with a self-destruct feature to erase forensic evidence. For grid operators the takeaway is strategic pre-positioning: state actors are quietly establishing footholds in utility IT that can pivot toward OT, so hunt for stealthy persistence rather than waiting for disruption. - The Hacker News / Unit 42 - Reported late Jun 2026]]></description>
 </item>
 <item>
-<title>[High] Dragos: KAMACITE spent months mapping U.S. grid control loops for ELECTRUM — and VOLTZITE is inside a U.S. electric utility</title>
+<title>[High] U.S. agencies keep warning Iran-affiliated actors are logging into internet-exposed PLCs across energy and water</title>
+<link>https://www.cybersecuritydive.com/news/iran-linked-hackers-targeting-water-energy-in-us-fbi-and-cisa-warn/816949/</link>
+<guid isPermaLink="false">otthreatfeed:power:iranplc</guid>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
+<category>Incident</category>
+<description><![CDATA[The April joint advisory AA26-097A from CISA, FBI, NSA, EPA, DOE and Cyber Command — that Iranian-affiliated actors are reaching internet-facing programmable logic controllers across energy, water and government facilities — remains an active campaign, re-emphasized amid Middle East tensions. For power operators the lesson maps onto distributed generation and auxiliary systems, where solar sites, storage and small substations increasingly expose controllers reachable from the public internet, often shielded only by default or shared credentials. The activity is agency-confirmed rather than a hacktivist boast and has produced real operational disruption. The remedy is hygiene: get controllers off the public internet, replace default credentials, and hunt for unexpected logic changes. - CISA / FBI / NSA / EPA / DOE (AA26-097A) - Joint advisory Apr 2026 — campaign ongoing]]></description>
+</item>
+<item>
+<title>[High] Dragos: KAMACITE mapped U.S. grid control loops for ELECTRUM — and VOLTZITE has operated inside a U.S. electric utility</title>
 <link>https://www.dragos.com/blog/electric-grid-cybersecurity-threats</link>
 <guid isPermaLink="false">otthreatfeed:power:kamacite</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
 <category>Threat Intel</category>
-<description><![CDATA[Dragos' 2026 electric-grid threat reporting describes KAMACITE, the access team that enables the grid-focused group ELECTRUM, systematically scanning internet-exposed HMIs, variable-frequency drives, meters and cellular gateways across the United States to map entire control loops. Separately, Dragos says VOLTZITE — which receives footholds from the initial-access group SYLVANITE — has been observed operating inside a U.S. electric utility network. The through-line for defenders is that adversaries are investing in patient reconnaissance of the grid edge rather than burning novel exploits, so reducing internet exposure of field devices and watching for reconnaissance is where detection pays off. - Dragos / Industrial Cyber - Dragos 2026 electric-grid threat reporting]]></description>
+<description><![CDATA[Dragos' 2026 electric-grid threat reporting describes KAMACITE, the access team enabling the grid-focused group ELECTRUM, systematically scanning internet-exposed HMIs, variable-frequency drives, meters and cellular gateways across the United States to map entire control loops. Separately, Dragos says VOLTZITE — which receives footholds from the initial-access group SYLVANITE — has been observed operating inside a U.S. electric utility. The through-line is that adversaries are investing in patient reconnaissance of the grid edge rather than burning novel exploits, so reducing internet exposure of field devices and watching for reconnaissance is where detection pays off. - Dragos - 2026 electric-grid threat reporting]]></description>
 </item>
 <item>
 <title>[High] ELECTRUM's attack on Poland's distributed energy resources is the template for grid-edge risk</title>
 <link>https://industrialcyber.co/utilities-energy-power-water-waste/dragos-reports-electrum-group-targets-polish-electric-system-in-first-major-distributed-energy-resources-cyberattack/</link>
 <guid isPermaLink="false">otthreatfeed:power:electrum</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
 <category>Threat Intel</category>
-<description><![CDATA[Dragos attributes a December 2025 attack on operational-technology systems at multiple sites across Poland's electrical grid to ELECTRUM, calling it the first major cyberattack focused on distributed energy resources — wind farms, solar installations and combined-heat-and-power sites. The intrusion targeted the RTUs and communications managing dozens of smaller generation sites, precisely the edge that expands as grids add renewables. For North American operators building out DER, it is a preview: the distributed edge multiplies remotely reachable controllers faster than most utilities can monitor them, and destructive intent is now demonstrated rather than theoretical. - Dragos / Industrial Cyber - Attack Dec 2025 — foundational context]]></description>
+<description><![CDATA[Dragos attributes a December 2025 attack on operational-technology systems across multiple Polish grid sites to ELECTRUM, calling it the first major cyberattack focused on distributed energy resources — wind, solar and combined-heat-and-power. The intrusion targeted the RTUs and communications managing dozens of smaller generation sites, precisely the edge that expands as grids add renewables. For North American operators building out DER it is a preview: the distributed edge multiplies remotely reachable controllers faster than most utilities can monitor them, and destructive intent is now demonstrated rather than theoretical. - Dragos / Industrial Cyber - Attack Dec 2025 — foundational context]]></description>
 </item>
 <item>
-<title>[High] CISA flags Schneider EasyLogic T150 and Saitel DP RTUs — patch the boxes that talk to your relays</title>
-<link>https://www.cisa.gov/news-events/ics-advisories</link>
-<guid isPermaLink="false">otthreatfeed:power:saitel</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
-<category>Advisory</category>
-<description><![CDATA[On 30 June CISA published an advisory covering Schneider Electric's EasyLogic T150 and Saitel DP remote terminal units, gear used in energy-sector substations and remote monitoring. RTUs sit at the seam between protection and relaying and the wider control network, so weaknesses here can undermine the integrity of the telemetry and commands operators depend on. Review the advisory for affected firmware, apply the vendor's fixes or mitigations, and keep these devices off any internet-reachable path. - CISA ICS Advisories - Advisory 30 Jun 2026]]></description>
-</item>
-<item>
-<title>[High] ST Engineering iDirect iQ-Series satellite terminals flagged for the energy sector</title>
+<title>[High] CISA flags ST Engineering iDirect iQ-Series satellite terminals for the energy sector</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01</link>
 <guid isPermaLink="false">otthreatfeed:power:idirect</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
 <category>Advisory</category>
-<description><![CDATA[Among six ICS advisories CISA released on 2 July was one for ST Engineering iDirect iQ-Series satellite terminals, called out for energy-sector use. Satellite backhaul is how many remote substations and DER sites phone home, so a vulnerable terminal is a foothold at the very edge of the grid where physical oversight is thinnest. Check the advisory for affected models and firmware and apply the vendor's guidance. - CISA ICS Advisories - Advisory 2 Jul 2026]]></description>
+<description><![CDATA[Among six ICS advisories CISA released on 2 July (ICSA-26-183-01) was one for ST Engineering iDirect iQ-Series satellite terminals, called out for energy-sector use. Two API flaws let an unauthenticated attacker on the network read sensitive device data (CVE-2026-38059) and force a reboot via cross-site request (CVE-2026-38057), which repeated can sustain a link outage. Satellite backhaul is how many remote substations and DER sites phone home, so a vulnerable terminal is a foothold — and a denial-of-service risk — at the very edge of the grid. iDirect fixed it in software 4.5.2.2. - CISA ICS Advisories - Advisory 2 Jul 2026]]></description>
 </item>
 <item>
-<title>[Medium] Schneider EcoStruxure IT Data Center Expert advisory names the energy sector</title>
-<link>https://www.cisa.gov/news-events/ics-advisories</link>
-<guid isPermaLink="false">otthreatfeed:power:ecostruxureit</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
+<title>[Medium] CISA batch flags ICS vulnerabilities across GE Vernova, Hitachi Energy, Siemens, Schneider and Mitsubishi</title>
+<link>https://industrialcyber.co/cisa/cisa-reports-critical-ics-vulnerabilities-across-mitsubishi-schneider-delta-ge-vernova-hitachi-energy-systems/</link>
+<guid isPermaLink="false">otthreatfeed:power:gevernova</guid>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
 <category>Advisory</category>
-<description><![CDATA[CISA's 30 June batch also covered Schneider Electric EcoStruxure IT Data Center Expert, monitoring software identified for energy-sector deployments. Facility-monitoring platforms straddle IT and OT and often hold broad visibility into power and cooling, making them a useful pivot if left unpatched. Apply the vendor's fixes and confirm the platform is not exposed beyond the management network. - CISA ICS Advisories - Advisory 30 Jun 2026]]></description>
+<description><![CDATA[A June CISA advisory cycle covered vulnerabilities spanning grid-relevant vendors including GE Vernova and Hitachi Energy alongside Schneider Electric, Mitsubishi Electric and Delta. For power operators the point is less any single CVE than the cadence: the gear running substations, protection and energy management keeps generating advisories, and the vast majority ship with vendor fixes or mitigations. Triage by exposure and impact, patch the internet-reachable and safety-relevant systems first, and keep management interfaces off routable networks. - CISA / Industrial Cyber - CISA ICS advisories, Jun 2026]]></description>
 </item>
 <item>
-<title>[Policy] NERC CIP-012-2 now enforceable (1 July 2026) — tighter protection for control-center data</title>
-<link>https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx</link>
-<guid isPermaLink="false">otthreatfeed:power:cip012</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
-<category>Standard</category>
-<description><![CDATA[The revised NERC CIP-012-2 standard became enforceable on 1 July, strengthening requirements to protect the confidentiality and integrity of real-time assessment and monitoring data exchanged between control centers and closing gaps the earlier version left open. Registered entities should confirm their control-center data protection plans, encryption or equivalent controls, and inter-control-center communication paths meet the updated obligations, and refresh their evidence for audit. - NERC - Enforceable 1 Jul 2026]]></description>
-</item>
-<item>
-<title>[Policy] NIST SP 1339 OT Backup Quick Start Guide aims to speed grid recovery</title>
-<link>https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/</link>
-<guid isPermaLink="false">otthreatfeed:power:nistbackup</guid>
-<pubDate>Tue, 07 Jul 2026 15:55:00 -0400</pubDate>
-<category>Guidance</category>
-<description><![CDATA[NIST released an OT Backup Quick Start Guide (SP 1339) on 19 June to help industrial operators build recoverable backups and accelerate incident recovery. For utilities, tested and isolated backups of EMS/SCADA, historian and engineering-workstation configurations are what turn a destructive event into a restoration exercise rather than a rebuild — an increasingly concrete concern given demonstrated wiper capability against grid OT. Use it to benchmark your OT backup and recovery program. - NIST / Industrial Cyber - Guide released 19 Jun 2026]]></description>
+<title>[Standard] NERC CIP-015-1 internal network security monitoring moves toward enforcement — blind spots inside the ESP close</title>
+<link>https://www.dragos.com/blog/nerc-cip-015-is-approved-what-asset-owners-need-to-do</link>
+<guid isPermaLink="false">otthreatfeed:power:cip015</guid>
+<pubDate>Wed, 08 Jul 2026 04:33:00 -0400</pubDate>
+<category>Policy</category>
+<description><![CDATA[With FERC's Order 907 approving NERC CIP-015-1, registered entities are building toward Internal Network Security Monitoring for high- and medium-impact BES Cyber Systems inside their Electronic Security Perimeters — a shift from perimeter defense to watching east-west traffic where intrusions like the grid-edge reconnaissance Dragos describes would show up. FERC has also directed NERC to extend the requirement to access-control and monitoring systems outside the ESP. Use the runway to deploy OT-aware monitoring, baseline normal control traffic, and close the visibility gap that leaves most incidents detected only by a hunch. - Dragos / NERC - FERC-approved; implementation ramping 2026]]></description>
 </item>
 </channel>
 </rss>
