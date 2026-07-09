@@ -618,7 +618,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thu, 09 Jul 2026, 2:16 PM ET</span>
+        <span>Generated Thu, 09 Jul 2026, 6:16 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -1123,34 +1123,35 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-idirect">
+      <div class="card" id="story-easergymicom">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA issues six ICS advisories, including ST Engineering iDirect satellite terminals used in energy</h3>
-        <p>CISA released six ICS advisories on 2 July, led by ICSA-26-183-01 for ST Engineering iDirect iQ-Series satellite terminals &mdash; equipment used in the energy sector and other geographically distributed operations &mdash; alongside advisories for a CubeSpace reaction wheel and a Gardyn IoT hub. Satellite and VSAT terminals are a recurring soft spot for remote OT sites (pipelines, offshore, distributed utility assets) because they often sit outside the segmentation and patch cadence applied to plant networks, yet provide connectivity straight into them. Review the advisories for affected versions and vendor mitigations, confirm any deployed iDirect terminals are updated and not needlessly management-exposed, and fold remote satellite links into your OT asset inventory and monitoring rather than treating them as someone else's infrastructure.</p>
+        <h3>Hard-coded SNMP credentials in Schneider Easergy MiCOM Px40 protection relays expose substation device data</h3>
+        <p>CISA advisory ICSA-26-190-03 (published 9 July) covers CVE-2026-4832, a use-of-hard-coded-credentials flaw in Schneider Electric's Easergy MiCOM Px40 protection-relay family used for medium-, high- and extra-high-voltage protection. An unauthenticated attacker who can reach the device's SNMP port can use the built-in credentials to read sensitive device information, aiding reconnaissance of substation protection schemes. Affected models include Easergy MiCOM P14x (before B4A), P24x (before D3A) and P341 (before E3F). No in-the-wild exploitation is reported, and impact is information disclosure rather than direct relay manipulation, but these relays sit at the heart of power protection, so exposed SNMP is a real recon foothold. Schneider has published fixed firmware; CISA urges minimizing network exposure and isolating relays behind firewalls off business networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
-            <span class="ops-tag kev-off">CISA ICS advisories (2 Jul 2026)</span>
+            <span class="ops-tag kev-off">Schneider Electric CPCERT (ICSA-26-190-03)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor mitigations available</span>
-            <span class="ops-cc"><b>Action:</b> Review ICSA-26-183 advisories for affected versions, apply vendor updates/mitigations to ST Engineering iDirect terminals and other cited devices, restrict management access, and add remote satellite/VSAT links to OT asset inventory and monitoring.</span>
+            <span class="ops-tag patch-yes">Fixed firmware available (Schneider)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Easergy MiCOM P14x/P24x/P341 relays, apply Schneider firmware (B4A/D3A/E3F or later), disable or restrict SNMP where unused, block SNMP from business/routable networks, and isolate protection relays behind firewalls on a segmented substation network.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory review &amp; patch planning &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="idirect" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="idirect">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Firmware update &amp; SNMP exposure review &mdash; 30 days (Medium, info disclosure on power relays)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="easergymicom" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="easergymicom">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisories</span>
+          <span class="cve-badge">CVE-2026-4832</span>
+          <span>CISA / Schneider Electric</span>
           <span class="dot">&bull;</span>
-          <span>Published 2 Jul 2026</span>
+          <span>Published 9 Jul 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-rockwell">
@@ -1288,7 +1289,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (Fortinet, Citrix, PTC, Lantronix, Siemens, Schneider Electric, Phoenix Contact, Rockwell Automation, ST Engineering iDirect), Claroty Team82, Dragos, Kaspersky and Forescout threat research, Mandiant, NERC/FERC, the European Commission and CISA policy announcements, via reporting from SecurityWeek, The Hacker News, Industrial Cyber, Cybersecurity Dive and Certrec. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (Fortinet, Citrix, PTC, Lantronix, Siemens, Schneider Electric, Phoenix Contact, Rockwell Automation), Claroty Team82, Dragos, Kaspersky and Forescout threat research, Mandiant, NERC/FERC, the European Commission and CISA policy announcements, via reporting from SecurityWeek, The Hacker News, Industrial Cyber, Cybersecurity Dive and Certrec. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
