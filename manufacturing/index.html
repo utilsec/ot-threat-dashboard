@@ -627,7 +627,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wednesday, 08 Jul 2026, 4:33 AM ET</span>
+        <span>Generated Thursday, 09 Jul 2026, 4:18 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
@@ -700,7 +700,7 @@
         <a href="#story-dataio"><circle class="blip high" cx="180.0" cy="70.0" r="13.8"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="74.7">2</text></a>
         <a href="#story-fortibleed"><circle class="blip high" cx="284.6" cy="146.0" r="12.6"/><text class="blip-num" style="font-size:10.8px" x="284.6" y="150.3">3</text></a>
         <a href="#story-ransomwareq1"><circle class="blip high" cx="244.7" cy="269.0" r="11.4"/><text class="blip-num" style="font-size:9.8px" x="244.7" y="272.9">4</text></a>
-        <a href="#story-mitsubishicnc"><circle class="blip high" cx="115.3" cy="269.0" r="10.2"/><text class="blip-num" style="font-size:8.8px" x="115.3" y="272.5">5</text></a>
+        <a href="#story-jul7adv"><circle class="blip high" cx="115.3" cy="269.0" r="10.2"/><text class="blip-num" style="font-size:8.8px" x="115.3" y="272.5">5</text></a>
         <a href="#story-melsec"><circle class="blip high" cx="75.4" cy="146.0" r="9.0"/><text class="blip-num" style="font-size:7.7px" x="75.4" y="149.1">6</text></a>
       </svg>
       <div class="radar-legend">
@@ -708,7 +708,7 @@
         <a href="#story-dataio"><b>2</b><span class="ld high"></span>Data I/O ransomware</a>
         <a href="#story-fortibleed"><b>3</b><span class="ld high"></span>FortiBleed credential leak</a>
         <a href="#story-ransomwareq1"><b>4</b><span class="ld high"></span>Manufacturing ransomware Q1</a>
-        <a href="#story-mitsubishicnc"><b>5</b><span class="ld high"></span>Mitsubishi CNC DoS</a>
+        <a href="#story-jul7adv"><b>5</b><span class="ld high"></span>Siemens SINEC OS / Mendix</a>
         <a href="#story-melsec"><b>6</b><span class="ld high"></span>MELSEC iQ-F Ethernet DoS</a>
       </div>
     </div>
@@ -893,34 +893,34 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
-      <div class="card" id="story-mitsubishicnc">
+      <div class="card" id="story-jul7adv">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA advisory: Mitsubishi Electric CNC Series can be knocked offline by crafted packets</h3>
-        <p>CISA advisory ICSA-26-078-05 covers an improper-validation flaw in Mitsubishi Electric CNC Series controllers that lets a remote attacker trigger an out-of-bounds read and a denial-of-service by sending specially crafted packets to TCP port 683. On a shop floor a CNC dropping offline means stopped machining and lost throughput. Review the advisory for affected models, apply Mitsubishi's guidance, and restrict access to the control port so only trusted engineering hosts can reach these machines.</p>
+        <h3>CISA's 7 July cycle targets the plant toolchain and network fabric: Siemens SINEC OS on RUGGEDCOM, Mendix Studio Pro and Labcenter Proteus</h3>
+        <p>On 7 July CISA issued a run of advisories touching the software and network gear that runs modern plants. ICSA-26-188-05 flags Siemens SINEC OS on RUGGEDCOM RST2428P switches (before V4.0), where a vulnerable third-party component (GNU elfutils) can be triggered remotely; Siemens fixes it in V4.0. ICSA-26-188-04 covers Siemens Mendix Studio Pro (before V11.12), where a crafted project file can be parsed maliciously during the build pipeline &mdash; a supply-chain risk for teams building industrial apps. ICSA-26-188-06 flags an out-of-bounds write in Labcenter Proteus 9, the electronics-design suite. None are known to be exploited and vendor updates exist. The pattern for manufacturers is that the engineering toolchain and industrial network fabric &mdash; not just PLCs &mdash; keep drawing advisories.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation as of this edition</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor guidance / mitigations &mdash; see advisory</span>
-            <span class="ops-cc"><b>Action:</b> Identify affected Mitsubishi CNC controllers, apply vendor fixes or IP-filtering mitigations, restrict TCP/683 to trusted engineering hosts, and segment CNC networks from general plant IT.</span>
+            <span class="ops-tag patch-yes">Vendor updates available &mdash; see advisories</span>
+            <span class="ops-cc"><b>Action:</b> Update RUGGEDCOM RST2428P to SINEC OS V4.0, Mendix Studio Pro to V11.12 or later and Labcenter Proteus per advisory; open engineering project files only from trusted sources; and keep switch-management interfaces and engineering workstations off routable networks.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> CNC advisory remediation &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-mitsubishicnc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-mitsubishicnc">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; patch plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-jul7adv" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-jul7adv">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>CISA ICS Advisories</span>
           <span class="dot">&bull;</span>
-          <span>CISA advisory (ICSA-26-078-05), 2026</span>
+          <span>Advisories 7 Jul 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-melsec">
@@ -1028,7 +1028,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (Mitsubishi Electric CNC ICSA-26-078-05, MELSEC iQ-F ICSA-26-169-06) and the KEV catalog (PTC Windchill CVE-2026-12569), Dragos threat and ransomware research, and reporting from The Hacker News, SOCRadar, The Record and Industrial Cyber. Default lookback: 7&ndash;30 days; clearly dated foundational research appears only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7 July cycle &mdash; Siemens SINEC OS/RUGGEDCOM ICSA-26-188-05, Mendix Studio Pro ICSA-26-188-04, Labcenter Proteus ICSA-26-188-06; MELSEC iQ-F ICSA-26-169-06) and the KEV catalog (PTC Windchill CVE-2026-12569), Dragos threat and ransomware research, and reporting from The Hacker News, SOCRadar, The Record and Industrial Cyber. Default lookback: 7&ndash;30 days; clearly dated foundational research appears only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
