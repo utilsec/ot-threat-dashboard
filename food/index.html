@@ -591,6 +591,11 @@
     .story-count { text-align: left; }
     .card-grid { grid-template-columns: 1fr; }
   }
+
+  /* Vendor / product chips */
+  .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
+  .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+  body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
 </style>
 </head>
 <body>
@@ -1123,6 +1128,66 @@
       renderTheme(dark);
     });
   }
+  // ---- Vendor / product chips (keyword-tagged, client-side) ----
+  (function () {
+    var MAP = [
+      ["Siemens", /siemens|simatic|sinec|ruggedcom|mendix|siprotec/i],
+      ["Rockwell", /rockwell|allen-bradley|controllogix|compactlogix|factorytalk|micro8\d0|studio 5000|rslinx/i],
+      ["Schneider", /schneider|ecostruxure|modicon|foxboro|triconex/i],
+      ["ABB", /\bABB\b/],
+      ["Honeywell", /honeywell/i],
+      ["Emerson", /emerson|\bovation\b|deltav/i],
+      ["Mitsubishi", /mitsubishi|melsec|melsoft|genesis64|iconics/i],
+      ["GE Vernova", /ge vernova/i],
+      ["Hitachi Energy", /hitachi/i],
+      ["SEL", /schweitzer|\bSEL\b/],
+      ["Yokogawa", /yokogawa/i],
+      ["Omron", /omron/i],
+      ["Beckhoff", /beckhoff/i],
+      ["FANUC", /fanuc/i],
+      ["PTC", /\bPTC\b|windchill|flexplm/i],
+      ["Fortinet", /fortinet|fortigate|fortios|fortibleed|fortimanager/i],
+      ["Ivanti", /ivanti/i],
+      ["Citrix", /citrix|netscaler|citrixbleed/i],
+      ["Cisco", /\bcisco\b/i],
+      ["Unitronics", /unitronics/i],
+      ["AVEVA", /aveva/i],
+      ["Ignition", /inductive automation|\bignition\b/i],
+      ["Delta", /delta electronics/i],
+      ["Advantech", /advantech/i],
+      ["Moxa", /moxa/i],
+      ["Sierra Wireless", /sierra wireless|airlink/i],
+      ["iDirect", /idirect/i],
+      ["Hydro-Québec", /hydro-qu|circuit électrique|circuit electrique/i],
+      ["Gardyn", /gardyn/i],
+      ["John Deere", /john deere/i],
+      ["Tetra Pak", /tetra pak/i],
+      ["Krones", /krones/i],
+      ["Kongsberg", /kongsberg/i],
+      ["Labcenter", /labcenter|proteus/i],
+      ["Modbus", /modbus/i],
+      ["Siemens S7", /s7comm|\bs7-?\d/i],
+      ["DNP3", /dnp3/i],
+      ["OPC UA", /opc ua|opc-ua/i],
+      ["OCPP", /\bocpp\b/i]
+    ];
+    document.querySelectorAll(".card, .top-story").forEach(function (card) {
+      if (card.querySelector(".vendor-chips")) return;
+      var ops = card.querySelector(".ops-strip");
+      if (!ops) return;
+      var h = card.querySelector("h2, h3"), p = card.querySelector("p");
+      var txt = ((h && h.textContent) || "") + " " + ((p && p.textContent) || "");
+      var found = [];
+      for (var i = 0; i < MAP.length && found.length < 4; i++) {
+        if (MAP[i][1].test(txt) && found.indexOf(MAP[i][0]) < 0) found.push(MAP[i][0]);
+      }
+      if (!found.length) return;
+      var row = document.createElement("div");
+      row.className = "vendor-chips";
+      row.innerHTML = found.map(function (v) { return '<span class="vchip">' + v + "</span>"; }).join("");
+      ops.parentNode.insertBefore(row, ops);
+    });
+  })();
 })();
 </script>
 </body>

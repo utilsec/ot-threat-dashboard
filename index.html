@@ -582,6 +582,11 @@
     .story-count { text-align: left; }
     .card-grid { grid-template-columns: 1fr; }
   }
+
+  /* Vendor / product chips */
+  .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
+  .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+  body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
 </style>
 </head>
 <body>
@@ -622,7 +627,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thu, 09 Jul 2026, 8:20 PM ET</span>
+        <span>Generated Fri, 10 Jul 2026, 12:16 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -640,13 +645,13 @@
     <div class="top-story" id="story-fortibleed">
       <span class="top-story-pill">Top Story</span>
       <h2>&ldquo;FortiBleed&rdquo; credential-theft campaign hits ~86,600 FortiGate devices &mdash; the edge firewalls and VPNs guarding OT networks</h2>
-      <p>CISA is warning that a months-long campaign dubbed FortiBleed has compromised working administrator and VPN credentials on tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways &mdash; roughly 86,600 devices across 194 countries, with active exploitation confirmed and IoCs shared via DHS on 2 July. Why OT defenders should care: these appliances are the front door to industrial networks, terminating the remote access and IT/OT segmentation that most plants depend on, so stolen admin credentials can hand an attacker a straight path toward control systems without touching a single PLC. Researchers attribute the campaign to Russian-speaking actors reusing credentials from earlier Fortinet flaws and brute-forcing devices lacking MFA. CISA urges immediate session termination and password resets on all internet-facing Fortinet gear.</p>
+      <p>CISA is warning that a months-long campaign dubbed FortiBleed has harvested working administrator and VPN credentials from internet-facing FortiGate firewalls and SSL-VPN gateways at scale &mdash; roughly 86,600 devices across 194 countries, with active exploitation confirmed and IoCs shared via DHS. The escalation this cycle: researchers (SOCRadar) tie the stolen credentials directly to the INC Ransom and Lynx ransomware operations &mdash; a shared operator, full domain-admin compromise on 354 targets, and at least 12 ransomware deployments encrypting hundreds of endpoints. Why OT defenders should care: these appliances are the front door to industrial networks, terminating the remote access and IT/OT segmentation that plants depend on, so stolen admin credentials hand attackers &mdash; now including ransomware crews &mdash; a straight path toward control systems without touching a single PLC. CISA urges immediate session termination and credential resets on all internet-facing Fortinet gear.</p>
       <div class="card-meta">
         <span>CISA / DHS &mdash; via SecurityWeek &amp; The Hacker News</span>
       </div>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation; ~86,600 devices with valid stolen credentials</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation; now feeding INC/Lynx ransomware (12+ deployments)</span>
           <span class="ops-tag kev-on">CISA hardening alert 18 Jun; DHS IoCs 2 Jul 2026</span>
         </div>
         <div class="ops-row">
@@ -662,7 +667,7 @@
       <div class="card-meta">
         <span>CISA / Fortinet / SecurityWeek</span>
         <span class="dot">&bull;</span>
-        <span>CISA alert 18 Jun 2026 &mdash; DHS IoCs 2 Jul; exploitation ongoing</span>
+        <span>CISA alert 18 Jun 2026 &mdash; DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing</span>
       </div>
       <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
@@ -1366,6 +1371,66 @@
       renderTheme(dark);
     });
   }
+  // ---- Vendor / product chips (keyword-tagged, client-side) ----
+  (function () {
+    var MAP = [
+      ["Siemens", /siemens|simatic|sinec|ruggedcom|mendix|siprotec/i],
+      ["Rockwell", /rockwell|allen-bradley|controllogix|compactlogix|factorytalk|micro8\d0|studio 5000|rslinx/i],
+      ["Schneider", /schneider|ecostruxure|modicon|foxboro|triconex/i],
+      ["ABB", /\bABB\b/],
+      ["Honeywell", /honeywell/i],
+      ["Emerson", /emerson|\bovation\b|deltav/i],
+      ["Mitsubishi", /mitsubishi|melsec|melsoft|genesis64|iconics/i],
+      ["GE Vernova", /ge vernova/i],
+      ["Hitachi Energy", /hitachi/i],
+      ["SEL", /schweitzer|\bSEL\b/],
+      ["Yokogawa", /yokogawa/i],
+      ["Omron", /omron/i],
+      ["Beckhoff", /beckhoff/i],
+      ["FANUC", /fanuc/i],
+      ["PTC", /\bPTC\b|windchill|flexplm/i],
+      ["Fortinet", /fortinet|fortigate|fortios|fortibleed|fortimanager/i],
+      ["Ivanti", /ivanti/i],
+      ["Citrix", /citrix|netscaler|citrixbleed/i],
+      ["Cisco", /\bcisco\b/i],
+      ["Unitronics", /unitronics/i],
+      ["AVEVA", /aveva/i],
+      ["Ignition", /inductive automation|\bignition\b/i],
+      ["Delta", /delta electronics/i],
+      ["Advantech", /advantech/i],
+      ["Moxa", /moxa/i],
+      ["Sierra Wireless", /sierra wireless|airlink/i],
+      ["iDirect", /idirect/i],
+      ["Hydro-Québec", /hydro-qu|circuit électrique|circuit electrique/i],
+      ["Gardyn", /gardyn/i],
+      ["John Deere", /john deere/i],
+      ["Tetra Pak", /tetra pak/i],
+      ["Krones", /krones/i],
+      ["Kongsberg", /kongsberg/i],
+      ["Labcenter", /labcenter|proteus/i],
+      ["Modbus", /modbus/i],
+      ["Siemens S7", /s7comm|\bs7-?\d/i],
+      ["DNP3", /dnp3/i],
+      ["OPC UA", /opc ua|opc-ua/i],
+      ["OCPP", /\bocpp\b/i]
+    ];
+    document.querySelectorAll(".card, .top-story").forEach(function (card) {
+      if (card.querySelector(".vendor-chips")) return;
+      var ops = card.querySelector(".ops-strip");
+      if (!ops) return;
+      var h = card.querySelector("h2, h3"), p = card.querySelector("p");
+      var txt = ((h && h.textContent) || "") + " " + ((p && p.textContent) || "");
+      var found = [];
+      for (var i = 0; i < MAP.length && found.length < 4; i++) {
+        if (MAP[i][1].test(txt) && found.indexOf(MAP[i][0]) < 0) found.push(MAP[i][0]);
+      }
+      if (!found.length) return;
+      var row = document.createElement("div");
+      row.className = "vendor-chips";
+      row.innerHTML = found.map(function (v) { return '<span class="vchip">' + v + "</span>"; }).join("");
+      ops.parentNode.insertBefore(row, ops);
+    });
+  })();
 })();
 </script>
 </body>
