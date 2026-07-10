@@ -627,13 +627,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Fri, 10 Jul 2026, 12:19 PM ET</span>
+        <span>Generated Fri, 10 Jul 2026, 6:16 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>17</strong> stories across
+      <strong>19</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -713,6 +713,7 @@
         <a href="#story-schneider"><circle class="blip high" cx="258" cy="258" r="8"/><text class="blip-num" style="font-size:8px" x="258" y="260.7">9</text></a>
         <a href="#story-calwater"><circle class="blip high" cx="102" cy="258" r="7.5"/><text class="blip-num" style="font-size:7.5px" x="102" y="260.6">10</text></a>
         <a href="#story-rockwell"><circle class="blip high" cx="102" cy="102" r="7"/><text class="blip-num" style="font-size:7px" x="102" y="104.4">11</text></a>
+        <a href="#story-daktronics"><circle class="blip high" cx="180" cy="290" r="6.5"/><text class="blip-num" style="font-size:6.5px" x="180" y="292.2">12</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -727,6 +728,7 @@
         <a href="#story-schneider"><span class="ld high"></span><b>9</b> Schneider power RTUs session-hijack flaw</a>
         <a href="#story-calwater"><span class="ld high"></span><b>10</b> Cal Water Handala (Iran) IT breach</a>
         <a href="#story-rockwell"><span class="ld high"></span><b>11</b> Rockwell controller &amp; software patches</a>
+        <a href="#story-daktronics"><span class="ld high"></span><b>12</b> Daktronics sign/billboard controller flaws</a>
       </div>
     </div>
 
@@ -932,6 +934,36 @@
           <span>Reported 25 Jun 2026 &mdash; OT impact not found</span>
         </div>
         <a href="https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-nidec">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>&ldquo;Blackfield&rdquo; ransomware hits motor-maker Nidec&rsquo;s Taiwan subsidiary, claiming 2&nbsp;TB of manufacturing data and a $2M demand</h3>
+        <p>Japanese industrial motor manufacturer Nidec confirmed ransomware-related damage on servers at its Taiwan-based subsidiary Nidec Chaun-Choung Technology, first detected 22 June. The Blackfield extortion group claims it stole more than two terabytes of corporate data &mdash; employee, financial, procurement, manufacturing, legal and IT records &mdash; and is demanding a $2 million ransom, having listed the victim with a leak-or-sell deadline. Nidec says the subsidiary runs on an independent network, which it believes contained the incident and kept it away from the broader corporation; there is no indication of OT or production-line disruption. For OT defenders the relevance is the pattern, not physical impact: manufacturers remain the top ransomware target, stolen engineering/procurement data aids follow-on targeting, and &ldquo;independent network&rdquo; assurances only hold if IT/OT segmentation is real and verified.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware &mdash; enterprise/subsidiary; no OT impact reported</span>
+            <span class="ops-tag kev-off">Blackfield ransomware group</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; segmentation, backups &amp; extortion response</span>
+            <span class="ops-cc"><b>Action:</b> Verify IT/OT segmentation and independent-network claims for subsidiaries, confirm offline backups and recovery for manufacturing systems, hunt for Blackfield TTPs and data-staging, and brief staff on leak-data-driven phishing follow-on.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Segmentation &amp; backup verification &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nidec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="nidec">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer / The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Detected 22 Jun 2026 &mdash; ransom demand late Jun / early Jul; ongoing</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/blackfield-ransomware-asks-nidec-corporation-for-2-million-ransom/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -1193,6 +1225,36 @@
         <a href="https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-daktronics">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Default admin credentials and path-traversal flaws let attackers hijack Daktronics highway-sign and billboard controllers</h3>
+        <p>CISA advisory ICSA-26-176-04 covers three vulnerabilities a Princeton researcher found in Daktronics VFC-DMP-5000, DMP-5000 and DMP-8000 controllers &mdash; the units that drive the company&rsquo;s large-scale LED displays on highways, airports, stadiums and metropolitan billboards. The chain combines an unauthenticated path-traversal bug for file enumeration and credential discovery, an authenticated arbitrary-file-upload flaw, and default administrator credentials that were never required to be changed; CISA warns successful exploitation can give an unauthenticated user complete root-level control. The researcher found many controllers exposed directly to the internet, most still running default creds, letting a remote attacker push false or malicious roadway/billboard messages or fully compromise the device. This is public-facing transportation and commercial-facility OT rather than core process control, but it is a real safety-messaging and public-trust risk. Daktronics has shipped patched firmware and urges customers to change default passwords and remove internet exposure.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>No confirmed in-wild attacks &mdash; many internet-exposed units on default creds (researcher)</span>
+            <span class="ops-tag kev-off">Daktronics via CISA (ICSA-26-176-04)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched firmware available (Daktronics)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Daktronics VFC-DMP-5000/DMP-5000/DMP-8000 controllers, apply patched firmware, change all default administrator credentials, remove display controllers from internet exposure, and restrict management to a segmented network.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Default-credential change &amp; exposure removal &mdash; 7 days; firmware &mdash; 30 days (High, unauth root on exposed units)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="daktronics" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="daktronics">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Published 30 Jun 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/new-controller-flaws-expose-highway-signs-and-billboards-to-remote-hacking/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1298,7 +1360,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (Fortinet, Citrix, PTC, Lantronix, Siemens, Schneider Electric, Phoenix Contact, Rockwell Automation), Claroty Team82, Dragos, Kaspersky and Forescout threat research, Mandiant, NERC/FERC, the European Commission and CISA policy announcements, via reporting from SecurityWeek, The Hacker News, Industrial Cyber, Cybersecurity Dive and Certrec. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories, joint alerts and the KEV catalog, vendor and product advisories (Fortinet, Citrix, PTC, Lantronix, Siemens, Schneider Electric, Phoenix Contact, Rockwell Automation, Daktronics), Claroty Team82, Dragos, Kaspersky and Forescout threat research, Mandiant, NERC/FERC, the European Commission and CISA policy announcements, via reporting from SecurityWeek, The Hacker News, BleepingComputer, The Record, Industrial Cyber, Cybersecurity Dive and Certrec. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. "Claimed" / "reported" items are unverified assertions; "confirmed" items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
