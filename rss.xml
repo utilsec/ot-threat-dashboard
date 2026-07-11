@@ -6,143 +6,111 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 11 Jul 2026 12:20:00 -0400</lastBuildDate>
+<lastBuildDate>Sat, 11 Jul 2026 18:15:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] “FortiBleed” credential-theft campaign hits tens of thousands of FortiGate devices — the edge firewalls and VPNs guarding OT networks</title>
-<link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
-<guid isPermaLink="false">otthreatfeed:all:fortibleed</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Top Story</category>
-<description><![CDATA[CISA is warning that a mass credential-theft campaign dubbed FortiBleed harvested working administrator and VPN credentials from internet-facing FortiGate firewalls and SSL-VPN gateways — roughly 74,000 exposed Fortinet devices tied to a far larger operation that scraped over 110 million credentials with a custom packet sniffer, with active exploitation confirmed and DHS-shared IoCs. The escalation this cycle: SOCRadar links the stolen credentials directly to the INC Ransom and Lynx ransomware crews, with overlapping victims and at least 12 ransomware deployments. Why OT defenders should care: these appliances are the front door to industrial networks, terminating the remote access and IT/OT segmentation plants depend on — so stolen admin credentials, now feeding ransomware operations, hand attackers a straight path toward control systems without touching a single PLC. - CISA / Fortinet / SecurityWeek - CISA alert 18 Jun 2026 — DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing]]></description>
-</item>
-<item>
-<title>[High] BlackField ransomware hits Nidec’s Taiwanese subsidiary, claiming 2 TB stolen from an electronics manufacturer</title>
+<title>[Critical] Nidec confirms ransomware at its Taiwan subsidiary as Blackfield demands $2M and claims 2TB of stolen data</title>
 <link>https://www.bleepingcomputer.com/news/security/blackfield-ransomware-asks-nidec-corporation-for-2-million-ransom/</link>
 <guid isPermaLink="false">otthreatfeed:all:nidec</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[Nidec Chaun Choung Technology (NCCT), the Taiwan-based thermal-management arm of Japanese industrial-motor giant Nidec, confirmed a ransomware attack after the BlackField crew listed it on its leak site and demanded a $2 million ransom (or $400,000 to buy the data outright). The group claims to have exfiltrated more than 2 terabytes — employee, financial, procurement, manufacturing, legal and IT records — and posted sample files as proof, though BleepingComputer could not independently verify the trove. Nidec says it activated its incident-response plan, disconnected affected servers and isolated parts of the corporate network to contain the spread. This is IT-side data theft and extortion with no confirmed impact to production OT, but it lands on a manufacturer that already suffered a separate 2024 breach — a reminder that repeat targeting and shared IT/OT domains keep industrial suppliers squarely in ransomware crosshairs. - BleepingComputer / Check Point Research / The Record - Damage confirmed 22 Jun 2026 — disclosed ~30 Jun; ongoing extortion]]></description>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[Japanese industrial motor and components maker Nidec has confirmed a ransomware attack on its Taiwanese subsidiary, Nidec Chaun Choung Technology (Nidec CCI), with the Blackfield crew demanding roughly $2 million and claiming it exfiltrated more than two terabytes of corporate data spanning employee, financial, procurement, manufacturing and IT records. To contain the intrusion, Nidec shut down affected servers and network segments and says it is still assessing how production, shipping and other operations were affected. Because Nidec supplies motors, thermal modules and precision components used across manufacturing and critical-infrastructure supply chains, disruption at a plant-adjacent subsidiary ripples downstream to OT operators that depend on those parts. It is also Nidec’s second ransomware event since 2024, underscoring how manufacturers with sprawling global subsidiaries struggle to hold a consistent security baseline. - Nidec disclosure / Blackfield leak site — via BleepingComputer & The Record - Confirmed 22 Jun 2026 — actor claim ~24 Jun 2026]]></description>
 </item>
 <item>
-<title>[Critical] “CitrixBleed” returns: NetScaler flaw (CVE-2026-8451) exploited within 24 hours, leaking secrets from the gateways that front OT remote access</title>
-<link>https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/</link>
-<guid isPermaLink="false">otthreatfeed:all:citrixbleed</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Active Exploitation</category><category>CVE-2026-8451</category>
-<description><![CDATA[Citrix patched CVE-2026-8451 on 30 June — an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider — and researchers observed in-the-wild exploitation within 24 hours, aided by same-day public proof-of-concept from watchTowr. Echoing the original CitrixBleed, the flaw lets a remote attacker read appliance memory and harvest live session tokens, cleartext credentials and TLS private keys straight from an HTTP response. Like FortiGate (see top story), NetScaler gateways commonly terminate the remote access and IT/OT segmentation that plants depend on, so leaked secrets can hand an attacker authenticated entry toward control networks without touching a controller. Defenders should assume any internet-facing, unpatched NetScaler had its memory read after 1 July. - CVE-2026-8451 - Patched 30 Jun 2026 — exploited within 24h; ongoing]]></description>
+<title>[High] NATO defense contractor Indra confirms ransomware at one subsidiary as TheGentlemen threatens a data leak</title>
+<link>https://cybernews.com/security/indra-group-ransomware-attack-data-leak/</link>
+<guid isPermaLink="false">otthreatfeed:all:indra</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Incident / Ransomware</category>
+<description><![CDATA[Spanish defense, aerospace and technology group Indra — a NATO supplier with more than 62,000 staff across 140-plus countries — confirmed a ransomware incident after the fast-rising TheGentlemen crew listed it on a leak site with a countdown deadline. Indra says the event was localized to one non-critical subsidiary environment, did not spread to other group companies and had no effect on service delivery, while an investigation continues. TheGentlemen, a ransomware-as-a-service operation that emerged in late 2024, has claimed more than 300 victims in the first half of 2026 — roughly one in ten of all ransomware claims worldwide, second only to Qilin — and favors organizations with government or defense ties. Even a “contained” hit on a defense-adjacent manufacturer is worth watching for supply-chain and extortion fallout. - Indra statement / TheGentlemen leak site — via Cybernews & SecurityWeek - Listed 30 Jun — confirmed 2 Jul 2026]]></description>
 </item>
 <item>
-<title>[High] Ransomware crew leaks 630 GB from Tata Electronics — an Apple and Tesla manufacturing supplier</title>
-<link>https://www.bleepingcomputer.com/news/security/tata-electronics-confirms-cyberattack-as-hackers-leak-data/</link>
-<guid isPermaLink="false">otthreatfeed:all:tata</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[Tata Electronics confirmed a cyberattack after the extortion group World Leaks (widely assessed as a rebrand of Hunters International) published roughly 630 GB — about 204,000 files — stolen from the Indian electronics manufacturer. The dump, posted to the group’s leak site around 12 June and confirmed by Tata on 22 June, reportedly includes unreleased iPhone 18 Pro component and supplier data, Tesla engineering drawings marked as trade secrets, documents referencing TSMC and Qualcomm, and employee passport scans. Tata says business operations were not disrupted, so this is IT-side data theft rather than confirmed OT manipulation. The OT/supply-chain concern is real, though: a tier-one contract manufacturer holds the design data, tooling specs and process files that feed production lines, and leaked engineering and supplier intelligence fuels downstream targeting of the plants and partners that consume it. - TechCrunch / BleepingComputer / CNBC - Leaked 12 Jun 2026 — confirmed 22 Jun; ongoing extortion]]></description>
-</item>
-<item>
-<title>[High] New “Armored Likho” APT hits electric-power and government targets with AI-generated malware</title>
-<link>https://thehackernews.com/2026/07/armored-likho-targets-government.html</link>
-<guid isPermaLink="false">otthreatfeed:all:likho</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Threat Campaign</category>
-<description><![CDATA[Kaspersky disclosed a previously undocumented espionage cluster it calls Armored Likho, targeting government agencies and electric-power sector organizations across Russia, Kazakhstan and Brazil. The intrusions start with spear-phishing that drops a RAR archive and staged loaders pulling a new Python infostealer, BusySnake, from GitHub — it harvests browser credentials, cookies, OTP codes and Telegram sessions and opens reverse-SSH tunnels for remote access. Notably, researchers assess the first-stage loaders were likely AI-generated, citing redundant comments and boilerplate code blocks inconsistent with hand-written malware — an early real-world signal of LLM-accelerated tooling reaching critical-infrastructure targeting. This is IT-side credential and espionage activity, not confirmed OT manipulation, but power-sector engineering staff are squarely in scope, and stolen credentials are the usual bridge from business networks into control systems. - Kaspersky Securelist / The Hacker News - Disclosed 3–4 Jul 2026 — ongoing]]></description>
-</item>
-<item>
-<title>[Critical] First-ever in-the-wild exploitation of PTC Windchill hits a PLM platform embedded across manufacturing supply chains</title>
-<link>https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/</link>
-<guid isPermaLink="false">otthreatfeed:all:windchill</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Active Exploitation</category><category>CVE-2026-12569</category>
-<description><![CDATA[Threat actors are exploiting CVE-2026-12569 in PTC Windchill and FlexPLM in the wild — the first confirmed real-world abuse of the product lifecycle management platform, and the first PTC flaw added to CISA's KEV catalog (added 25 June, federal deadline 28 June). The improper-input-validation bug lets a remote, unauthenticated attacker run arbitrary code; PTC says attackers are dropping persistent JSP webshells for command execution and data theft, and on 26 June warned of “heightened threat activity.” Windchill is embedded across automotive, aerospace, defense and heavy-machinery engineering, holding the design data, BOMs and process definitions that feed production — so a compromise threatens intellectual property and the integrity of what reaches the plant floor. PTC began shipping patches and IoCs on 17–18 June. - CVE-2026-12569 - KEV-added 25 Jun 2026 — exploitation confirmed 26 Jun; ongoing]]></description>
-</item>
-<item>
-<title>[Critical] Actively-exploited Lantronix EDS5000 flaw hands attackers root on a serial-to-IP bridge between PLCs and the enterprise network</title>
-<link>https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/</link>
-<guid isPermaLink="false">otthreatfeed:all:lantronix</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Active Exploitation</category><category>CVE-2025-67038</category>
-<description><![CDATA[CISA says CVE-2025-67038, a command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, is being exploited in the wild and added it to the KEV catalog on 23 June (federal deadline 26 June, advisory ICSA-26-069-02). An unauthenticated attacker can inject OS commands via the username parameter and execute them as root, fully controlling a device whose entire job is bridging legacy serial gear — PLCs, RTUs, meters and sensors — onto IP networks. The flaw is one of 20 “BRIDGE:BREAK” issues Forescout disclosed in April; researchers showed such bugs can manipulate sensor readings to hide dangerous conditions. Forescout observed exploitation in an EDS5000 honeypot on 5 April — targeted fingerprinting, not commodity botnet traffic — suggesting attackers reverse-engineered the patch. - CVE-2025-67038 - KEV-added 23 Jun 2026 — exploitation since 5 Apr]]></description>
-</item>
-<item>
-<title>[High] Iran-linked “Handala” breaches California Water Service — Mandiant finds no OT impact, access limited to third-party accounts</title>
+<title>[Medium] Mandiant confirms Iran-linked Handala breach of California Water Service stopped short of OT — despite the crew’s disruption boast</title>
 <link>https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/</link>
-<guid isPermaLink="false">otthreatfeed:all:handala</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[California Water Service (Cal Water), which serves roughly 2 million people, has closed out its investigation into a breach claimed by the Iran-nexus hacktivist front Handala, and the findings temper the group’s boasts: Mandiant confirmed the intruder activity was limited to unauthorized access to a small number of user accounts on two third-party service-provider platforms — a customer-billing database and an RTKBase NTRIP GPS caster used by field crews — with no evidence of any activity in Cal Water’s operational-technology or water-treatment environment. Handala, widely assessed as a cover for Iran-backed Void Manticore, claimed the hit on 11 June with a 5 GB data dump and screenshots of customer bills, framing it as retaliation for U.S. strikes on Iran. The episode underscores CISA’s heightened-threat warnings: Iran-nexus actors are actively probing U.S. water utilities, and stolen credentials on business/third-party platforms are the usual foothold they hunt for. - SecurityWeek / Cybersecurity Dive / Mandiant - Claimed 11 Jun 2026 — Mandiant findings reported ~9 Jul; investigation closed]]></description>
+<guid isPermaLink="false">otthreatfeed:all:calwater</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Incident / Nation-State</category>
+<description><![CDATA[California Water Service (Cal Water), one of the largest U.S. investor-owned water utilities, said Mandiant’s investigation into the breach claimed by Iran-linked group Handala found no evidence of activity in its IT or OT environments. Handala — widely assessed as a front for Iranian operations — had leaked ~5GB of data and asserted it could have disrupted the water supply, implying deep ICS access. Mandiant instead traced the activity to unauthorized access of a small number of user accounts across two third-party service-provider platforms, one active customer’s online account via stolen credentials, and an external GPS-correction site; no billing or payment systems and no control systems were reached. The case is a clean example of separating a threat actor’s psychological claims from verified impact — while underscoring that third-party and customer-facing accounts remain a soft entry point around OT. - Cal Water / Google Mandiant — via SecurityWeek - Investigation findings 25 Jun 2026 — claim 12 Jun 2026]]></description>
 </item>
 <item>
-<title>[Info] Dragos launches “EmberAI,” an OT-security AI assistant built on its industrial threat dataset</title>
+<title>[Info] Internet-facing ICS plateaus near 170,000 — but Bitsight says the real attack surface is still widening</title>
+<link>https://www.bitsight.com/blog/2026-global-state-of-ics-ot-exposure</link>
+<guid isPermaLink="false">otthreatfeed:all:exposure</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Threat Research</category>
+<description><![CDATA[Bitsight’s 2026 Global State of ICS/OT Exposure finds the count of internet-facing industrial control systems has flattened at roughly 170,000 devices seen monthly — a number defenders might read as progress. The report’s warning is that the risk profile is expanding anyway: modern controllers increasingly speak general-purpose protocols such as SSH, HTTP and MQTT alongside legacy fieldbus protocols, so each exposed device offers more reachable services and a broader attack surface than the raw count implies. For asset owners the takeaway is that exposure management can’t stop at “is this device on the internet?” — it has to account for which services and protocols each controller exposes and whether any of them are reachable from untrusted networks. - Bitsight — via SecurityWeek - Reported early Jul 2026]]></description>
+</item>
+<item>
+<title>[Info] Dragos launches EmberAI, an OT-tuned AI assistant built on its industrial dataset</title>
 <link>https://www.securityweek.com/dragos-unveils-ai-for-ot-security/</link>
 <guid isPermaLink="false">otthreatfeed:all:emberai</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Threat Intel</category>
-<description><![CDATA[Dragos unveiled EmberAI, an AI capability built on its large operational-technology cybersecurity dataset and aimed at helping analysts triage and investigate industrial threats faster. The launch lands amid a broader shift: defenders are adopting AI assistants at roughly the same moment attackers are using LLMs to accelerate their own tooling — including, in Dragos's own casework this spring, an intrusion where an LLM guided reconnaissance toward OT assets at a water utility. The practical takeaway for asset owners is to evaluate OT-focused AI tools for genuine analyst leverage while keeping humans firmly in the loop for control-system decisions, and to scrutinize how any such tool handles sensitive OT telemetry before feeding it production data. - Dragos / SecurityWeek - Announced 23 Jun 2026]]></description>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Tools / Defense</category>
+<description><![CDATA[Dragos unveiled EmberAI, an AI capability trained on the company’s large operational-technology cybersecurity dataset and aimed at speeding investigation and triage for OT analysts. The launch lands amid a broader debate over AI’s two-edged role in industrial security — the same week’s reporting includes threat actors leaning on general-purpose AI to navigate toward OT assets. The practical question for asset owners is where domain-specific, OT-context AI genuinely reduces analyst workload and mean-time-to-understand versus adding another tool to validate. Treat it as a signal that the major OT platforms are racing to embed AI, and evaluate any such assistant on how well it respects OT data-handling, segmentation and human-in-the-loop control rather than on demo polish. - Dragos — via SecurityWeek - Announced 23 Jun 2026]]></description>
 </item>
 <item>
-<title>[Info] Accenture to take majority stake in Dragos in a $4.1B OT-security push, absorbing runZero and NetRise</title>
-<link>https://www.securityweek.com/accenture-to-acquire-majority-stake-in-dragos-all-of-runzero-netrise-in-4-1-billion-ot-cybersecurity-push/</link>
-<guid isPermaLink="false">otthreatfeed:all:accenture</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Market / M&amp;A</category>
-<description><![CDATA[Accenture agreed to acquire a majority stake in Dragos — valuing the industrial-cybersecurity firm at $3.25 billion — plus all of asset-discovery vendor runZero and firmware-security firm NetRise, roughly $4.1 billion combined, with runZero and NetRise to operate under Dragos. The deal is the latest in a consolidation wave that also includes ServiceNow's move for Armis and Dragos's own acquisition of xIoT firm Phosphorus. For asset owners the signal is strategic, not tactical: watch what services-giant ownership means for the independence of OT threat intelligence and product roadmaps, and factor vendor stability and integration risk into procurement and renewal decisions over the coming year. - SecurityWeek (Funding/M&A) - Announced 18 Jun 2026]]></description>
+<title>[Critical] Progress Kemp LoadMaster: pre-auth RCE (CVSS 9.6) now under active exploitation at the network edge</title>
+<link>https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html</link>
+<guid isPermaLink="false">otthreatfeed:all:kemp</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Advisory</category><category>CVE-2026-8037</category>
+<description><![CDATA[A critical OS command-injection flaw, CVE-2026-8037 (CVSS 9.6), lets an unauthenticated remote attacker run arbitrary commands on Progress Kemp LoadMaster load balancers by reaching the appliance’s API. Because LoadMaster typically sits at the outer edge of enterprise and IT/OT boundary networks, a successful hit hands attackers a direct, credential-free foothold into the environment. Progress disclosed the bug on 4 June and shipped a fix; functional proof-of-concept code appeared on 29 June, and security firms and H-ISAC reported exploitation attempts beginning the same day. This is exactly the kind of edge-appliance flaw OT teams should treat as an IT/OT-boundary emergency, since a compromised balancer can become a pivot toward control networks and remote-access paths. - CVE-2026-8037 - Disclosed 4 Jun — exploitation from 29 Jun 2026]]></description>
 </item>
 <item>
-<title>[Critical] Hard-coded SNMP credentials in Schneider Easergy MiCOM Px40 protection relays expose grid devices to unauthenticated access</title>
+<title>[Critical] First in-the-wild exploitation of PTC Windchill RCE lands it in CISA’s KEV catalog</title>
+<link>https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/</link>
+<guid isPermaLink="false">otthreatfeed:all:windchill</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Advisory</category><category>CVE-2026-12569</category>
+<description><![CDATA[CISA added CVE-2026-12569, a remote code-execution flaw in PTC Windchill, to its Known Exploited Vulnerabilities catalog after the first confirmed in-the-wild exploitation of the bug. Windchill is a widely used product-lifecycle-management platform that holds engineering designs, bills of material and manufacturing data — the “crown jewels” that sit adjacent to, and feed, OT production. Exploitation of a PLM system can expose intellectual property and give attackers a route toward manufacturing operations and supply-chain partners. Manufacturers running Windchill should treat the KEV listing as a hard prompt to patch on the KEV timeline and to check exposure of the application to untrusted networks. - CVE-2026-12569 - Added to KEV 26 Jun 2026]]></description>
+</item>
+<item>
+<title>[High] Lantronix serial-to-IP converter flaw exploited in attacks, added to CISA KEV</title>
+<link>https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/</link>
+<guid isPermaLink="false">otthreatfeed:all:lantronix</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Advisory</category><category>CVE-2025-67038</category>
+<description><![CDATA[Attackers are now exploiting CVE-2025-67038, a code-injection flaw in Lantronix serial-to-IP converters, and CISA has added it to the KEV catalog — exploitation that followed earlier warnings about targeting of exposed OT devices. Serial-to-IP gateways are the connective tissue that brings legacy serial field equipment onto IP networks, so a compromised converter can give an attacker a bridge between reachable networks and older, unauthenticated control devices behind it. The flaw was among those surfaced by the BRIDGE:BREAK research effort disclosed earlier in 2026. Asset owners should locate these converters, remove internet exposure, and apply Lantronix’s fixes. - CVE-2025-67038 - Exploitation reported 25 Jun 2026]]></description>
+</item>
+<item>
+<title>[High] Rockwell Automation patches vulnerabilities across Logix, RSLinx and FactoryTalk</title>
+<link>https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/</link>
+<guid isPermaLink="false">otthreatfeed:all:rockwell</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Advisory</category>
+<description><![CDATA[Rockwell Automation issued fixes for security flaws spanning its Logix and CompactLogix controllers, Flex I/O, RSLinx communications software and FactoryTalk products — core building blocks of discrete and process automation in many plants. No confirmed in-the-wild exploitation was reported alongside the advisories, but the breadth of affected products means most Rockwell-heavy environments will have something to remediate. Given that Iran-linked activity has specifically targeted internet-exposed Rockwell/Allen-Bradley PLCs this year, keeping this ecosystem patched and off the public internet is doubly important. Asset owners should map affected versions against their installed base and schedule updates through normal OT change control. - Rockwell Automation PSIRT — via SecurityWeek - Advisories 17 Jun 2026]]></description>
+</item>
+<item>
+<title>[High] Daktronics controller flaws could let attackers hijack highway signs and billboards</title>
+<link>https://www.securityweek.com/new-controller-flaws-expose-highway-signs-and-billboards-to-remote-hacking/</link>
+<guid isPermaLink="false">otthreatfeed:all:daktronics</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Advisory</category><category>CVE-2026-28701</category>
+<description><![CDATA[CISA advisory ICSA-26-176-04 covers three vulnerabilities in Daktronics controller firmware (VFC-DMP-5000, DMP-5000 and DMP-8000) that, chained, could give a remote attacker root-level control over what the signs display — via path traversal, an unrestricted file upload and a weak default administrative account. While tampering with roadway signs and billboards is more disruption-and-disinformation than process safety, spoofed traffic messages carry real public-safety and public-trust consequences, and root on an internet-exposed controller is a serious foothold. Daktronics released patched firmware in March; the risk is concentrated in units left exposed with default credentials. Transportation and outdoor-display operators should update firmware and replace default passwords. - CVE-2026-28701 - CISA advisory 25 Jun 2026]]></description>
+</item>
+<item>
+<title>[Medium] Schneider Easergy MiCOM Px40 protection relays ship with hard-coded SNMP credentials</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03</link>
 <guid isPermaLink="false">otthreatfeed:all:easergy</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-4832</category>
-<description><![CDATA[CISA advisory ICSA-26-190-03 (published 9 July) covers CVE-2026-4832, a use-of-hard-coded-credentials flaw (CWE-798) in Schneider Electric’s Easergy MiCOM Px40-series protection relays — the P14x, P24x, P341 and P342/343/344/345 devices used for medium-, high- and extra-high-voltage protection in substations. An unauthenticated attacker able to reach the SNMP service can use the embedded credentials to read sensitive device information, aiding reconnaissance and follow-on attacks against grid protection. Protection relays are safety-critical: they detect faults and trip breakers, so exposure of their configuration and status is a meaningful step toward manipulating or evading protection schemes. No public in-the-wild exploitation has been reported. Schneider has released updated firmware (P14x B4A, P24x D3A, P341 E3F, P342-345 B3F and later) through its support portal and recommends disabling or restricting SNMP where the fix cannot yet be applied. - CVE-2026-4832 - Published 9 Jul 2026]]></description>
+<description><![CDATA[CISA advisory ICSA-26-190-03, published 9 July, flags CVE-2026-4832 (CVSS 5.3) in Schneider Electric’s Easergy MiCOM Px40 protection relays — hard-coded credentials in the relay’s SNMP implementation that let an unauthenticated attacker who can reach the SNMP port read sensitive device information. Protection relays are safety-critical grid devices, so even an information-disclosure flaw is worth closing: leaked device data can aid targeting and reconnaissance of transmission and distribution assets. Affected models include P14x, P24x and P341 below specified firmware levels. This landed alongside CISA advisories for Schneider PowerChute Serial Shutdown and OpenPLC v3 in the same 9 July batch. - CVE-2026-4832 - CISA advisory 9 Jul 2026]]></description>
 </item>
 <item>
-<title>[Critical] Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05</link>
-<guid isPermaLink="false">otthreatfeed:all:sinecos</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Advisory</category><category>SINEC OS &amp;lt; V4.0</category>
-<description><![CDATA[CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS versions before V4.0, the operating system running on RUGGEDCOM industrial networking gear. The root issue is a memory-corruption bug in a bundled third-party component (GNU elfutils) that a remote attacker can trigger to compromise unpatched devices; a public exploit has already been disclosed. RUGGEDCOM switches and routers are hardened OT networking backbone deployed in substations, rail, energy and heavy-industry environments, so a compromise sits directly in the path that segments and moves control-system traffic. Siemens has released a fixed version for the RUGGEDCOM RST2428P and urges customers to update immediately. No confirmed in-the-wild ICS attacks are reported yet, but with a public exploit and a 9.8 score on widely deployed OT infrastructure this warrants emergency patch prioritization. - SINEC OS &lt; V4.0 - Published 7 Jul 2026]]></description>
-</item>
-<item>
-<title>[Critical] End-of-life OpenPLC v3 carries a critical file-write-to-RCE flaw — CISA urges migration to v4</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-01</link>
-<guid isPermaLink="false">otthreatfeed:all:openplc</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Advisory</category><category>CVE-2026-14480</category>
-<description><![CDATA[CISA advisory ICSA-26-190-01 (published 9 July) covers CVE-2026-14480, an arbitrary-file-write vulnerability in the legacy web UI program-upload workflow of OpenPLC Runtime v3, the widely-used open-source soft-PLC found in labs, small utilities and OT test benches. An authenticated attacker can write files to the filesystem and escalate to native code execution through OpenPLC’s normal program-compilation process, giving full control of the runtime. Because OpenPLC v3 is end-of-life and no longer receiving security fixes, there is no patch — the vendor direction is to migrate to OpenPLC v4. No public in-the-wild exploitation has been reported. The flaw spans critical manufacturing, energy, transportation and water/wastewater uses, so asset owners running v3 anywhere in production or test should treat it as a migration priority and lock down its web interface in the meantime. - CVE-2026-14480 - Published 9 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] CISA flags authentication and DoS flaws in Hydro-Qu&amp;eacute;bec’s Le Circuit &amp;Eacute;lectrique EV-charging backend</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01</link>
-<guid isPermaLink="false">otthreatfeed:all:hydroquebec</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Advisory</category>
-<description><![CDATA[CISA advisory ICSA-26-188-01 (published 7 July) covers vulnerabilities in the cloud backend of Hydro-Qu&eacute;bec’s Le Circuit &Eacute;lectrique network, the platform managing more than 3,500 public EV charging stations across Quebec. The charging-station websocket endpoint accepts connections without proper authentication, which could allow privilege escalation, and there is no throttling on repeated authentication attempts to the backend, enabling a denial-of-service condition. No public exploitation is reported. EV-charging management platforms are an expanding slice of energy-sector OT that ties directly to grid load and public services, so weak backend authentication is a real exposure. Hydro-Qu&eacute;bec has updated most stations to disable the OCPP protocol and added authentication for the remaining OCPP-reliant units to mitigate the risk. - CISA / Hydro-Qu&eacute;bec - Published 7 Jul 2026]]></description>
-</item>
-<item>
-<title>[Info] NERC CIP 2026 milestones hit: control-center data protection now effective, internal network monitoring phasing in</title>
-<link>https://www.certrec.com/blog/most-significant-nerc-cip-updates-for-2026/</link>
-<guid isPermaLink="false">otthreatfeed:all:nerccip</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
+<title>[Policy] Australia’s enhanced CIRMP rules expand critical-infrastructure obligations to AI, legacy and supply-chain risk</title>
+<link>https://industrialcyber.co/regulation-standards-and-compliance/cisc-unveils-enhanced-cirmp-rules-to-address-ai-legacy-systems-supply-chain-and-insider-risks-across-critical-infrastructure/</link>
+<guid isPermaLink="false">otthreatfeed:all:cirmp</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
 <category>Regulation</category>
-<description><![CDATA[A cluster of NERC CIP milestones is now live for electric utilities. CIP-012-2 became effective on 1 July 2026, strengthening protection of real-time operational data exchanged between control centers. Earlier in 2026, CIP-003-9 expanded governance for low-impact BES Cyber Systems around vendor electronic remote access and supply-chain risk, and CIP-015-1 introduced mandatory Internal Network Security Monitoring (INSM) with phased compliance running through 2030. Looking ahead, NERC must file a CIP-015-2 modification by 2 September 2026 to extend INSM scope to Electronic Access Control or Monitoring Systems (EACMS) and Physical Access Control Systems (PACS) outside the electronic security perimeter. Registered entities should confirm CIP-012-2 control-center protections are operating, stand up an INSM roadmap, and begin scoping EACMS/PACS assets ahead of the expansion. - NERC / FERC via Certrec - CIP-012-2 effective 1 Jul 2026 — forward-looking milestones]]></description>
+<description><![CDATA[Australia’s Cyber and Infrastructure Security Centre unveiled enhanced Critical Infrastructure Risk Management Program (CIRMP) rules that broaden what responsible entities must address — explicitly folding in AI-related risk, aging legacy systems, supply-chain dependencies and insider threats. For operators inside or trading with Australia’s SOCI regime, it is a prompt to revisit risk-management programs so these categories are documented and managed, not assumed. More broadly it reflects a global regulatory drift toward naming specific systemic risks — legacy OT, third parties, AI — rather than relying on generic “reasonable steps” language, and gives asset owners elsewhere a useful checklist for their own OT risk programs. - Australia CISC — via Industrial Cyber - Announced 18 Jun 2026]]></description>
 </item>
 <item>
-<title>[Info] EU NIS2: first compliance-audit deadline lands (30 June 2026) as incident reporting is standardized</title>
-<link>https://digital-strategy.ec.europa.eu/en/policies/nis2-directive</link>
-<guid isPermaLink="false">otthreatfeed:all:nis2</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Regulation</category>
-<description><![CDATA[The deadline for organizations to complete their first NIS2 compliance audit moved to 30 June 2026, and the EU has continued to standardize implementation — the NIS2 Cooperation Group adopted common incident-reporting templates and the Commission proposed simplifications to ease administrative burden while keeping notification timelines strict. For energy, water, manufacturing and other essential/important entities operating in or supplying the EU, the direction of travel is clear: broader scope, board-level accountability and faster, more standardized incident notification. Multinationals with OT footprints should confirm which entities and suppliers fall in scope, complete or validate their first audit, reconcile NIS2 obligations with NERC CIP and sector rules to avoid duplicative reporting, and pre-stage incident-reporting workflows against the common templates so regulatory clocks can be met under pressure. - European Commission / NIS2 Cooperation Group - First audit deadline 30 Jun 2026]]></description>
-</item>
-<item>
-<title>[Info] CISA now targets September 2026 for the final CIRCIA rule — 72-hour incident and 24-hour ransom-payment reporting ahead</title>
-<link>https://federalnewsnetwork.com/cybersecurity/2026/07/circia-other-big-cyber-rules-expected-to-get-finalized-this-fall/</link>
-<guid isPermaLink="false">otthreatfeed:all:circia</guid>
-<pubDate>Sat, 11 Jul 2026 12:20:00 -0400</pubDate>
-<category>Regulation</category>
-<description><![CDATA[CISA says it expects to publish the final Cyber Incident Reporting for Critical Infrastructure Act (CIRCIA) rule in September 2026, after missing the statutory October 2025 deadline and reworking its 2024 draft. Once effective, covered entities across all 16 critical-infrastructure sectors — energy, water, manufacturing, chemical and more — will have to report substantial cyber incidents to CISA within 72 hours and ransomware payments within 24 hours. CISA gathered feedback from more than 1,200 stakeholders in June town halls, and the compliance clocks are statutory once the rule lands. For OT operators the practical move is to use the remaining months: map which of your entities are “covered,” pre-stage 72-hour incident and 24-hour payment reporting workflows, and reconcile CIRCIA with NERC CIP, TSA and NIS2 obligations to avoid duplicative or missed filings under pressure. - CISA via Federal News Network / Nextgov - Reported Jul 2026 — final rule expected Sep 2026]]></description>
+<title>[Policy] NIST publishes SP-1339 OT Backup Quick Start Guide to speed industrial recovery</title>
+<link>https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/</link>
+<guid isPermaLink="false">otthreatfeed:all:nist1339</guid>
+<pubDate>Sat, 11 Jul 2026 18:15:00 -0400</pubDate>
+<category>Guidance</category>
+<description><![CDATA[NIST released SP-1339, an OT Backup Quick Start Guide aimed at helping industrial operators build backup and recovery practices tuned to control-system realities — where restoration can involve physical processes, safety interlocks and firmware provenance, not just re-imaging a server. It is practical, actionable guidance rather than a mandate, and it dovetails with the recurring incident-response lesson that OT recovery fails when backups aren’t OT-aware or offline-tested. Asset owners can use it as a template to validate that controller configurations, logic and engineering-workstation images are captured, protected and recoverable — and to rehearse recovery before an incident forces the issue. - NIST — via Industrial Cyber - Released 19 Jun 2026]]></description>
 </item>
 </channel>
 </rss>
