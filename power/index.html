@@ -636,7 +636,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Friday, 10 Jul 2026, 4:19 AM ET</span>
+        <span>Generated Saturday, 11 Jul 2026, 4:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
@@ -647,41 +647,41 @@
     </div>
   </div>
 
-            <!-- HERO: TOP STORY + RADAR -->
+    <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
     <!-- TOP STORY -->
     <div class="top-story" id="story-fortibleed">
       <span class="top-story-pill">Top Story</span>
-      <h2>FortiBleed: 430,000 Fortinet firewalls swept for 110M+ credentials, now tied to active ransomware &mdash; the remote-access doorway into utility OT</h2>
-      <p>Researchers now tie the FortiBleed credential-theft campaign directly to active ransomware. On 2 July, SOCRadar reported the operation &mdash; which planted a custom sniffer on roughly 430,000 internet-facing FortiGate firewalls across 150+ countries and harvested more than 110 million credentials since mid-June &mdash; is feeding INC Ransom and Lynx intrusions, with at least a dozen ransomware deployments traced to the stolen access. For electric utilities the exposure is direct: these firewalls front remote access into EMS/SCADA, substations and the NERC CIP electronic security perimeter. Because valid credentials leaked rather than a single bug being exploited, no patch closes the gap, and an attacker signing in looks like a legitimate engineer. Treat any exposed FortiGate guarding OT as already compromised.</p>
+      <h2>&ldquo;FortiBleed&rdquo; credential theft now feeds active ransomware &mdash; and those FortiGate firewalls front remote access into EMS/SCADA and substations</h2>
+      <p>CISA warns the FortiBleed campaign has harvested working administrator and VPN credentials from tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways &mdash; leaked credentials tie to roughly 74,000 exposed Fortinet devices inside an operation that collected over 110 million credentials since mid-June. On 2 July researchers linked the stolen access directly to the INC Ransom and Lynx ransomware crews, with at least a dozen deployments traced to it. For electric utilities the exposure is immediate: these appliances terminate the remote access and IT/OT segmentation that EMS/SCADA, substations and the NERC CIP electronic security perimeter depend on. Because valid credentials leaked rather than a single bug being exploited, no patch closes the gap and an intruder signing in looks like a legitimate engineer &mdash; so treat any exposed FortiGate guarding grid OT as already compromised.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; leaked credentials now driving ransomware (INC / Lynx)</span>
-          <span class="ops-tag kev-off">Credential-exposure campaign (no single CVE)</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation; now feeding INC/Lynx ransomware (12+ deployments)</span>
+          <span class="ops-tag kev-on">CISA alert 18 Jun; DHS IoCs 2 Jul 2026</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No patch &mdash; credential rotation &amp; access hardening</span>
-          <span class="ops-cc"><b>Action:</b> Treat every internet-facing FortiGate/SSL-VPN fronting OT as compromised: rotate all local and admin credentials, revoke and reissue certificates, terminate active VPN sessions, restrict the management interface to trusted hosts, enforce MFA, and hunt for unauthorized configuration changes.</span>
+          <span class="ops-tag patch-yes">Mitigations available (Fortinet / CISA)</span>
+          <span class="ops-cc"><b>Action:</b> Treat every internet-facing FortiGate/SSL-VPN fronting grid OT as compromised: terminate active sessions, rotate all admin and VPN credentials, reissue certificates, enforce phishing-resistant MFA, remove management interfaces from the internet, and hunt for unauthorized config pulls using the DHS-shared IoCs.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation &amp; session reset on OT-facing devices &mdash; 72h</span>
+          <span class="ops-sla"><b>Suggested SLA:</b> Session kill, credential reset &amp; IoC sweep &mdash; 24h (active credential abuse on OT-bridging edge)</span>
           <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-fortibleed" data-placeholder="Assign&hellip;"></span></span>
           <button class="status-pill st-open" data-key="pd-fortibleed">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>The Hacker News / SOCRadar</span>
+        <span>CISA / DHS / SecurityWeek</span>
         <span class="dot">&bull;</span>
-        <span>Ransomware link reported 2 Jul 2026 (campaign uncovered mid-Jun)</span>
+        <span>CISA alert 18 Jun 2026 &mdash; DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing</span>
       </div>
-      <a href="https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
-    <!-- THREAT RADAR -->
+    <!-- RADAR -->
     <div class="radar-panel">
       <div class="radar-head">Threat Radar</div>
-      <div class="radar-sub">Critical &amp; High items this edition &mdash; larger blips = higher severity/priority. Click a blip to jump to its card.</div>
+      <div class="radar-sub">Critical &amp; high items across all sections &mdash; larger blips = higher severity/priority. Click a blip to jump to the story.</div>
       <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
         <defs>
           <radialGradient id="rg" cx="50%" cy="50%" r="50%">
@@ -705,61 +705,58 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-fortibleed"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.2">1</text></a>
-        <a href="#story-tinyrct"><circle class="blip high" cx="180.0" cy="70.0" r="13.8"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="74.7">2</text></a>
-        <a href="#story-iranplc"><circle class="blip high" cx="275.3" cy="125.0" r="12.6"/><text class="blip-num" style="font-size:10.8px" x="275.3" y="129.3">3</text></a>
-        <a href="#story-kamacite"><circle class="blip high" cx="275.3" cy="235.0" r="11.4"/><text class="blip-num" style="font-size:9.8px" x="275.3" y="238.9">4</text></a>
-        <a href="#story-electrum"><circle class="blip high" cx="180.0" cy="290.0" r="10.2"/><text class="blip-num" style="font-size:8.8px" x="180.0" y="293.5">5</text></a>
-        <a href="#story-idirect"><circle class="blip high" cx="84.7" cy="235.0" r="9.0"/><text class="blip-num" style="font-size:7.7px" x="84.7" y="238.1">6</text></a>
-        <a href="#story-jul7adv"><circle class="blip high" cx="84.7" cy="125.0" r="8.5"/><text class="blip-num" style="font-size:7.3px" x="84.7" y="127.9">7</text></a>
+        <a href="#story-fortibleed"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13.1px" x="180" y="124.5">1</text></a>
+        <a href="#story-citrixbleed"><circle class="blip crit" cx="237" cy="161" r="13.5"/><text class="blip-num" style="font-size:11.7px" x="237" y="165.0">2</text></a>
+        <a href="#story-sinecos"><circle class="blip crit" cx="215" cy="229" r="12"/><text class="blip-num" style="font-size:10.4px" x="215" y="232.5">3</text></a>
+        <a href="#story-likho"><circle class="blip high" cx="235" cy="85" r="9"/><text class="blip-num" style="font-size:9px" x="235" y="88.1">4</text></a>
+        <a href="#story-schneider"><circle class="blip high" cx="290" cy="180" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="290" y="182.9">5</text></a>
+        <a href="#story-hydroquebec"><circle class="blip high" cx="235" cy="275" r="8"/><text class="blip-num" style="font-size:8px" x="235" y="277.7">6</text></a>
       </svg>
+
       <div class="radar-legend">
-        <a href="#story-fortibleed"><b>1</b><span class="ld crit"></span>FortiBleed credential leak</a>
-        <a href="#story-tinyrct"><b>2</b><span class="ld high"></span>TinyRCT / CL-STA-1062</a>
-        <a href="#story-iranplc"><b>3</b><span class="ld high"></span>Iran-linked PLC attacks</a>
-        <a href="#story-kamacite"><b>4</b><span class="ld high"></span>KAMACITE / VOLTZITE recon</a>
-        <a href="#story-electrum"><b>5</b><span class="ld high"></span>ELECTRUM DER attack</a>
-        <a href="#story-idirect"><b>6</b><span class="ld high"></span>iDirect satellite terminals</a>
-        <a href="#story-jul7adv"><b>7</b><span class="ld high"></span>Hydro-Qu&eacute;bec EV / Hitachi Energy</a>
+        <a href="#story-fortibleed"><span class="ld crit"></span><b>1</b> FortiBleed &mdash; FortiGate credential theft (active)</a>
+        <a href="#story-citrixbleed"><span class="ld crit"></span><b>2</b> CitrixBleed NetScaler flaw exploited (active)</a>
+        <a href="#story-sinecos"><span class="ld crit"></span><b>3</b> Siemens SINEC OS / RUGGEDCOM RCE (9.8)</a>
+        <a href="#story-likho"><span class="ld high"></span><b>4</b> Armored Likho AI-malware hits power grids</a>
+        <a href="#story-schneider"><span class="ld high"></span><b>5</b> Schneider power relay session-hijack flaw</a>
+        <a href="#story-hydroquebec"><span class="ld high"></span><b>6</b> Hydro-Qu&eacute;bec EV-charging backend flaws</a>
       </div>
     </div>
 
   </div>
 
   <!-- SECTION: Trends -->
-  <div class="section">
+  <div class="section" id="trends">
     <div class="section-title">Trends</div>
-    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days &mdash; power-sector lens.</div>
+    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
-
       <div class="trend">
         <span class="trend-tag">Edge Exploits</span>
-        <b class="trend-head">Remote-access gear is the grid's soft underbelly</b>
-        <p>FortiBleed put valid credentials for roughly 430,000 Fortinet firewalls &mdash; over 110 million logins, now linked to INC Ransom and Lynx &mdash; into attackers' hands with no patch to apply, underscoring that the appliances bridging engineers into EMS/SCADA are a primary target and that exposure reduction and credential hygiene beat waiting for a CVE fix.</p>
-        <a href="https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+        <b class="trend-head">The OT perimeter is the battleground</b>
+        <p>Two edge appliances fronting grid remote access were hit in quick succession &mdash; FortiBleed&rsquo;s mass FortiGate credential theft (see top story) and a CitrixBleed-class NetScaler flaw exploited within 24 hours (see Incidents) &mdash; alongside an actively-exploited Lantronix serial bridge and a public exploit for a 9.8 Siemens RUGGEDCOM/SINEC OS bug. The takeaway: internet-facing firewalls, VPNs and switches are where grid OT gets breached, and must be patched and credential-hardened at emergency speed.</p>
+        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Threat Groups</span>
-        <b class="trend-head">Patient reconnaissance of the grid edge is the new normal</b>
-        <p>Dragos' 2026 reporting details KAMACITE mapping U.S. control loops for ELECTRUM while VOLTZITE operates inside a U.S. utility &mdash; a shift from smash-and-grab to long dwell time that rewards defenders who watch for scanning of field devices.</p>
-        <a href="https://www.dragos.com/blog/electric-grid-cybersecurity-threats" class="source-link" target="_blank" rel="noopener">Dragos</a>
+        <span class="trend-tag">AI Threat</span>
+        <b class="trend-head">AI-generated malware reaches infrastructure targeting</b>
+        <p>Kaspersky&rsquo;s Armored Likho findings &mdash; loaders that appear LLM-generated used against power and government targets (see Incidents) &mdash; are fueling debate about AI lowering the bar for adversary tooling, just as defenders roll out OT-focused AI assistants like Dragos&rsquo;s EmberAI. Consensus: keep humans in the loop for any control-system decision.</p>
+        <a href="https://securelist.com/tr/armored-likho-apt-with-busysnake-stealer/120292/" class="source-link" target="_blank" rel="noopener">Kaspersky Securelist</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">DER Risk</span>
-        <b class="trend-head">Distributed energy multiplies the attack surface</b>
-        <p>ELECTRUM's December 2025 hit on Poland's wind, solar and CHP sites showed the distributed edge &mdash; RTUs and comms at dozens of small generators &mdash; is now a target class of its own, expanding faster than most utilities can monitor as they add renewables.</p>
-        <a href="https://industrialcyber.co/utilities-energy-power-water-waste/dragos-reports-electrum-group-targets-polish-electric-system-in-first-major-distributed-energy-resources-cyberattack/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Threat Shift</span>
+        <b class="trend-head">Nation-state pressure on the grid persists</b>
+        <p>Dragos&rsquo;s electric-grid threat work continues to stress that adversaries like VOLTZITE inhabit utility networks quietly over long dwell times &mdash; exfiltrating GIS and OT operating data to pre-position &mdash; rather than breaching loudly. Waterfall&rsquo;s 2026 report echoes it: physical-impact breaches dipped, but nation-state and hacktivist activity against critical infrastructure roughly doubled.</p>
+        <a href="https://industrialcyber.co/reports/waterfall-threat-report-2026-finds-ransomware-slowdown-masks-deeper-shift-toward-nation-state-attacks-on-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
 
       <div class="trend">
         <span class="trend-tag">Regulation</span>
-        <b class="trend-head">Internal monitoring becomes mandatory for the grid</b>
-        <p>NERC CIP-015-1 pushes utilities to monitor east-west traffic inside their security perimeters, targeting exactly the blind spot where quiet reconnaissance and lateral movement hide today.</p>
-        <a href="https://www.dragos.com/blog/nerc-cip-015-is-approved-what-asset-owners-need-to-do" class="source-link" target="_blank" rel="noopener">Dragos</a>
+        <b class="trend-head">Grid compliance obligations keep hardening</b>
+        <p>NERC&rsquo;s 2026 CIP milestones (CIP-012-2 control-center data protection now effective, CIP-015 internal network monitoring phasing in, plus a FERC-directed EACMS/PACS expansion) all point one way &mdash; more prescriptive OT duties and faster reporting for electric utilities.</p>
+        <a href="https://www.certrec.com/blog/most-significant-nerc-cip-updates-for-2026/" class="source-link" target="_blank" rel="noopener">Certrec</a>
       </div>
-
     </div>
   </div>
 
@@ -767,67 +764,66 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-
-      <div class="card" id="story-tinyrct">
+      <div class="card" id="story-citrixbleed">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active Exploitation</span>
         </div>
-        <h3>China-linked CL-STA-1062 deploys TinyRCT backdoor in electricity and water utilities across Southeast Asia</h3>
-        <p>Palo Alto Networks Unit 42 reported in late June that a Chinese-speaking group it tracks as CL-STA-1062 has expanded from Taiwanese web-hosting targets into Southeast Asian critical infrastructure, compromising electricity and water utilities alongside government and military organizations. The group plants a lightweight C# backdoor named TinyRCT for persistence, command execution, file exfiltration and screenshotting, with a self-destruct feature to erase forensic evidence. For grid operators the takeaway is strategic pre-positioning: state actors are quietly establishing footholds in utility IT that can pivot toward OT, so hunt for stealthy persistence rather than waiting for disruption.</p>
+        <h3>&ldquo;CitrixBleed&rdquo; returns: NetScaler flaw exploited within 24 hours, leaking secrets from gateways that front utility remote access</h3>
+        <p>Citrix patched CVE-2026-8451 on 30 June &mdash; an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider &mdash; and researchers saw in-the-wild exploitation within 24 hours, aided by a same-day public proof-of-concept. Like the original CitrixBleed, it lets a remote attacker read appliance memory and harvest live session tokens, credentials and TLS private keys. At many utilities NetScaler gateways terminate the remote access and IT/OT segmentation that reach control-center and substation networks, so leaked secrets can hand an attacker authenticated entry toward grid systems without touching a relay. Assume any internet-facing, unpatched NetScaler had its memory read after 1 July.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed intrusions &mdash; Unit 42 attribution, utilities compromised</span>
-            <span class="ops-tag kev-off">Nation-state (CL-STA-1062 / China-linked)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited within 24h of disclosure; public PoC</span>
+            <span class="ops-tag kev-off">Citrix NetScaler ADC / Gateway (SAML IdP)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; threat hunting &amp; IT/OT segmentation</span>
-            <span class="ops-cc"><b>Action:</b> Hunt for TinyRCT indicators and anomalous persistence in utility IT, tighten IT/OT segmentation and remote-access paths, review egress for covert C2, and validate that a foothold in business systems cannot pivot into grid control networks.</span>
+            <span class="ops-tag patch-yes">Patch available (Citrix, 30 Jun)</span>
+            <span class="ops-cc"><b>Action:</b> Patch NetScaler to the fixed build now, terminate all active sessions, and &mdash; assuming memory disclosure &mdash; rotate every session token, credential and TLS private key on the appliance; remove management interfaces from the internet and hunt for anomalous session reuse.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Threat-hunt for pre-positioning &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-tinyrct" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-tinyrct">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch, session kill &amp; secret rotation &mdash; 24h (active exploitation on OT-bridging edge)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-citrixbleed" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-citrixbleed">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News / Unit 42</span>
+          <span class="cve-badge">CVE-2026-8451</span>
+          <span>Citrix / watchTowr / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Reported late Jun 2026</span>
+          <span>Patched 30 Jun 2026 &mdash; exploited within 24h; ongoing</span>
         </div>
-        <a href="https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-iranplc">
+      <div class="card" id="story-likho">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
+          <span class="category">Threat Campaign</span>
         </div>
-        <h3>U.S. agencies keep warning Iran-affiliated actors are logging into internet-exposed PLCs across energy and water</h3>
-        <p>The April joint advisory AA26-097A from CISA, FBI, NSA, EPA, DOE and Cyber Command &mdash; that Iranian-affiliated actors are reaching internet-facing programmable logic controllers across energy, water and government facilities &mdash; remains an active campaign, re-emphasized amid Middle East tensions. For power operators the lesson maps onto distributed generation and auxiliary systems, where solar sites, storage and small substations increasingly expose controllers reachable from the public internet, often shielded only by default or shared credentials. The activity is agency-confirmed rather than a hacktivist boast and has produced real operational disruption. The remedy is hygiene: get controllers off the public internet, replace default credentials, and hunt for unexpected logic changes.</p>
+        <h3>New &ldquo;Armored Likho&rdquo; APT hits electric-power and government targets with apparently AI-generated malware</h3>
+        <p>Kaspersky disclosed a previously undocumented espionage cluster it calls Armored Likho, targeting government agencies and electric-power organizations across Russia, Kazakhstan and Brazil. Intrusions begin with spear-phishing that drops a RAR archive and staged loaders pulling a new Python infostealer, BusySnake, which harvests browser credentials, cookies, OTP codes and Telegram sessions and opens reverse-SSH tunnels. Researchers assess the first-stage loaders were likely AI-generated &mdash; an early real-world signal of LLM-accelerated tooling reaching critical-infrastructure targeting. This is IT-side credential and espionage activity, not confirmed OT manipulation, but power-sector engineering staff are squarely in scope and stolen credentials are the usual bridge from business networks into control systems.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; agency-verified, operational disruption reported</span>
-            <span class="ops-tag kev-off">Nation-state / Iran-affiliated</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active espionage campaign &mdash; power &amp; government targeted (Kaspersky)</span>
+            <span class="ops-tag kev-off">Armored Likho / BusySnake Stealer</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; exposure &amp; credential hardening</span>
-            <span class="ops-cc"><b>Action:</b> Inventory internet-exposed PLCs and DER/substation controllers, place them behind a VPN with MFA, replace default/shared credentials, and threat-hunt for unauthorized logic or configuration changes per the joint guidance.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; phishing defense &amp; credential hygiene</span>
+            <span class="ops-cc"><b>Action:</b> Brief power-sector staff on the spear-phishing lures, block the RAR/EXE dropper and GitHub payload paths, hunt for BusySnake indicators and unexpected reverse-SSH tunnels, enforce phishing-resistant MFA, and rotate any credentials reachable from engineering workstations.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposed controller sweep &mdash; 72h; credential reset &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-iranplc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-iranplc">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Phishing hunt &amp; credential review &mdash; 72h (active infrastructure-targeted espionage)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-likho" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-likho">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / FBI / NSA / EPA / DOE (AA26-097A)</span>
+          <span>Kaspersky Securelist / The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Joint advisory Apr 2026 &mdash; campaign ongoing</span>
+          <span>Disclosed 3&ndash;4 Jul 2026 &mdash; ongoing</span>
         </div>
-        <a href="https://www.cybersecuritydive.com/news/iran-linked-hackers-targeting-water-energy-in-us-fbi-and-cisa-warn/816949/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/07/armored-likho-targets-government.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
     </div>
   </div>
 
@@ -835,67 +831,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-
-      <div class="card" id="story-kamacite">
+      <div class="card" id="story-emberai">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
+          <span class="severity sev-info">Info</span>
           <span class="category">Threat Intel</span>
         </div>
-        <h3>Dragos: KAMACITE mapped U.S. grid control loops for ELECTRUM &mdash; and VOLTZITE has operated inside a U.S. electric utility</h3>
-        <p>Dragos' 2026 electric-grid threat reporting describes KAMACITE, the access team enabling the grid-focused group ELECTRUM, systematically scanning internet-exposed HMIs, variable-frequency drives, meters and cellular gateways across the United States to map entire control loops. Separately, Dragos says VOLTZITE &mdash; which receives footholds from the initial-access group SYLVANITE &mdash; has been observed operating inside a U.S. electric utility. The through-line is that adversaries are investing in patient reconnaissance of the grid edge rather than burning novel exploits, so reducing internet exposure of field devices and watching for reconnaissance is where detection pays off.</p>
+        <h3>Dragos launches &ldquo;EmberAI,&rdquo; an OT-security AI assistant built on its industrial threat dataset</h3>
+        <p>Dragos unveiled EmberAI, an AI capability built on its large operational-technology dataset to help analysts triage and investigate industrial threats faster. The launch lands as attackers begin using LLMs to accelerate their own tooling &mdash; including, in Dragos&rsquo;s spring casework, an intrusion where an LLM guided reconnaissance toward OT assets. For grid operators the practical takeaway is to evaluate OT-focused AI tools for genuine analyst leverage while keeping humans firmly in the loop for any protection, switching or dispatch decision, and to scrutinize how such tools handle sensitive EMS/SCADA telemetry before feeding them production data.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No CVE exploited &mdash; reconnaissance &amp; access development</span>
-            <span class="ops-tag kev-off">Nation-state (KAMACITE / ELECTRUM / VOLTZITE)</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Vendor capability launch &mdash; informational</span>
+            <span class="ops-tag kev-off">Dragos (EmberAI)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; exposure reduction &amp; monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Reduce internet exposure of HMIs, VFDs, meters and cellular gateways, baseline your external attack surface, add detection for scanning of field devices, and validate segmentation between IT and grid-control networks.</span>
+            <span class="ops-tag patch-na">No action &mdash; awareness &amp; evaluation</span>
+            <span class="ops-cc"><b>Action:</b> If evaluating OT-focused AI assistants, pilot on non-production data first, keep human review for every control-system decision, and confirm data-handling and residency for sensitive grid telemetry before adoption.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External attack-surface review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-kamacite" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-kamacite">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Informational &mdash; fold into tooling evaluation</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-emberai" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-emberai">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dragos</span>
+          <span>Dragos / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>2026 electric-grid threat reporting</span>
+          <span>Announced 23 Jun 2026</span>
         </div>
-        <a href="https://www.dragos.com/blog/electric-grid-cybersecurity-threats" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/dragos-unveils-ai-for-ot-security/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="story-electrum">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat Intel</span>
-        </div>
-        <h3>ELECTRUM's attack on Poland's distributed energy resources is the template for grid-edge risk</h3>
-        <p>Dragos attributes a December 2025 attack on operational-technology systems across multiple Polish grid sites to ELECTRUM, calling it the first major cyberattack focused on distributed energy resources &mdash; wind, solar and combined-heat-and-power. The intrusion targeted the RTUs and communications managing dozens of smaller generation sites, precisely the edge that expands as grids add renewables. For North American operators building out DER it is a preview: the distributed edge multiplies remotely reachable controllers faster than most utilities can monitor them, and destructive intent is now demonstrated rather than theoretical.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Confirmed intrusion (Dragos attribution) &mdash; DER-focused</span>
-            <span class="ops-tag kev-off">Nation-state (ELECTRUM)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; DER-edge segmentation &amp; monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Inventory DER and small-generation RTUs and their comms paths, segment and monitor them, remove internet exposure, and rehearse manual or islanded operation for loss of the distributed edge.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> DER-edge exposure &amp; monitoring review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-electrum" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-electrum">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Dragos / Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Attack Dec 2025 &mdash; foundational context</span>
-        </div>
-        <a href="https://industrialcyber.co/utilities-energy-power-water-waste/dragos-reports-electrum-group-targets-polish-electric-system-in-first-major-distributed-energy-resources-cyberattack/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -903,67 +867,97 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-
-      <div class="card" id="story-idirect">
+      <div class="card" id="story-sinecos">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
+          <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA flags ST Engineering iDirect iQ-Series satellite terminals for the energy sector</h3>
-        <p>Among six ICS advisories CISA released on 2 July (ICSA-26-183-01) was one for ST Engineering iDirect iQ-Series satellite terminals, called out for energy-sector use. Two API flaws let an unauthenticated attacker on the network read sensitive device data (CVE-2026-38059) and force a reboot via cross-site request (CVE-2026-38057), which repeated can sustain a link outage. Satellite backhaul is how many remote substations and DER sites phone home, so a vulnerable terminal is a foothold &mdash; and a denial-of-service risk &mdash; at the very edge of the grid. iDirect fixed it in software 4.5.2.2.</p>
+        <h3>Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</h3>
+        <p>CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS before V4.0, the operating system on RUGGEDCOM industrial networking gear. A memory-corruption bug in a bundled third-party component (GNU elfutils) lets a remote attacker compromise unpatched devices, and a public exploit has already been disclosed. RUGGEDCOM switches and routers are the hardened networking backbone in substations, generation plants and rail, sitting directly in the path that segments and moves control-system traffic. No confirmed in-the-wild ICS attacks are reported yet, but a public exploit plus a 9.8 score on widely deployed grid infrastructure warrants emergency patch prioritization.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed in-the-wild exploitation as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Public exploit disclosed &mdash; no confirmed in-wild ICS exploitation yet</span>
+            <span class="ops-tag kev-off">Siemens ProductCERT (ICSA-26-188-05)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed in 4.5.2.2 &mdash; update from &le;4.5.2.1</span>
-            <span class="ops-cc"><b>Action:</b> Locate iDirect iQ-Series terminals used for remote-site backhaul, update to 4.5.2.2 or newer, restrict management interfaces to trusted networks, and monitor satellite-linked sites for anomalous access or unexpected reboots.</span>
+            <span class="ops-tag patch-yes">Vendor fix available (RUGGEDCOM RST2428P)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory RUGGEDCOM devices running SINEC OS below V4.0, apply the Siemens update immediately, remove management interfaces from routable/internet access, restrict them to an isolated management network, and monitor for anomalous access to switch/router management.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Remote-site terminal review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-idirect" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-idirect">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure review &mdash; 7 days (Critical, public exploit, OT network backbone)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-sinecos" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-sinecos">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisories</span>
+          <span class="cve-badge">SINEC OS &lt; V4.0</span>
+          <span>CISA / Siemens ProductCERT</span>
           <span class="dot">&bull;</span>
-          <span>Advisory 2 Jul 2026</span>
+          <span>Published 7 Jul 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-jul7adv">
+      <div class="card" id="story-schneider">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA's 7 July advisory cycle concentrates on the grid edge: Hydro-Qu&eacute;bec EV-charging backend, Hitachi Energy PROMOD V and e-mesh EMS</h3>
-        <p>On 7 July CISA published a run of ICS advisories heavy on power-sector gear. ICSA-26-188-01 covers the backend of Hydro-Qu&eacute;bec's Le Circuit &eacute;lectrique EV-charging network, where an unauthenticated websocket endpoint, no throttling on login attempts and weak session expiry could allow privilege escalation or denial of service; Hydro-Qu&eacute;bec has disabled OCPP on most stations and added authentication to mitigate. The same day brought advisories for Hitachi Energy PROMOD V (ICSA-26-188-02), which transmits data over plain HTTP in versions &le;1.0.10, and Hitachi Energy e-mesh EMS (ICSA-26-188-03), the platform that manages distributed energy, storage and microgrids. None are known to be exploited and vendor fixes or mitigations exist &mdash; but the widening grid edge of public charging, DER and energy-management platforms keeps generating advisories that need triage by exposure.</p>
+        <h3>Weak session tokens let attackers hijack management sessions across Schneider power relays, meters and RTUs</h3>
+        <p>CISA advisory ICSA-26-169-07 covers CVE-2026-4827 (CVSS v4 8.2), an insufficient-entropy flaw that makes web-management session tokens predictable across a wide swath of Schneider Electric power gear &mdash; Easergy P3/P5 and T300 protection relays, EcoStruxure Power Monitoring Expert, PowerLogic ION and PM5000 meters, and Saitel DP/DR RTUs. A remote, unauthenticated attacker who observes a few tokens can predict valid ones and take over an authenticated console session, effectively bypassing login on devices at the heart of substation protection, power monitoring and remote telemetry. No in-wild exploitation is reported yet, but the affected list spans equipment deployed across electric utilities. Schneider has published firmware updates and mitigations.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation of these items as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
+            <span class="ops-tag kev-off">Schneider Electric CPCERT (ICSA-26-169-07)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes/mitigations &mdash; see advisories</span>
-            <span class="ops-cc"><b>Action:</b> Map Hydro-Qu&eacute;bec Le Circuit &eacute;lectrique, Hitachi Energy PROMOD V and e-mesh EMS against your fleet, apply vendor updates, disable OCPP or enforce authentication where required, force HTTPS for PROMOD V, and keep EV-charging and DER management interfaces off routable networks.</span>
+            <span class="ops-tag patch-yes">Firmware updates / mitigations available</span>
+            <span class="ops-cc"><b>Action:</b> Inventory affected Easergy, EcoStruxure, PowerLogic and Saitel devices, apply Schneider firmware updates, remove web-management interfaces from routable/internet access, restrict them to an isolated management network, and monitor for anomalous authenticated sessions.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; patch plan &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-jul7adv" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-jul7adv">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; management-network isolation &mdash; 30 days (High, unauth session hijack)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-schneider" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-schneider">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisories</span>
+          <span class="cve-badge">CVE-2026-4827</span>
+          <span>CISA / Schneider Electric</span>
           <span class="dot">&bull;</span>
-          <span>Advisories 7 Jul 2026</span>
+          <span>Published 18 Jun 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-hydroquebec">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>CISA flags authentication and DoS flaws in Hydro-Qu&eacute;bec&rsquo;s Le Circuit &Eacute;lectrique EV-charging backend</h3>
+        <p>CISA advisory ICSA-26-188-01 (published 7 July) covers vulnerabilities in the cloud backend of Hydro-Qu&eacute;bec&rsquo;s Le Circuit &Eacute;lectrique network, which manages more than 3,500 public EV charging stations across Quebec. A charging-station websocket endpoint accepts connections without proper authentication, enabling privilege escalation, and the backend does not throttle repeated authentication attempts, enabling denial of service. No public exploitation is reported. EV-charging management platforms are an expanding slice of energy-sector OT that ties directly to grid load and public services, so weak backend authentication is a real exposure. Hydro-Qu&eacute;bec has disabled OCPP on most stations and added authentication for the rest.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
+            <span class="ops-tag kev-off">Hydro-Qu&eacute;bec via CISA (ICSA-26-188-01)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor mitigations applied (OCPP disabled / auth added)</span>
+            <span class="ops-cc"><b>Action:</b> EV-charging and energy operators should confirm charging-backend/websocket endpoints enforce authentication, rate-limit authentication attempts, remove management interfaces from internet exposure, and segment charging backends from core grid and business networks.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Backend authentication &amp; exposure review &mdash; 30 days (High, unauth priv-esc / DoS)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-hydroquebec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-hydroquebec">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / Hydro-Qu&eacute;bec</span>
+          <span class="dot">&bull;</span>
+          <span>Published 7 Jul 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
     </div>
   </div>
 
@@ -971,45 +965,43 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-
-      <div class="card" id="story-cip015">
+      <div class="card" id="story-nerccip">
         <div class="card-header">
-          <span class="severity sev-info">Standard</span>
-          <span class="category">Policy</span>
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation</span>
         </div>
-        <h3>NERC CIP-015-1 internal network security monitoring moves toward enforcement &mdash; blind spots inside the ESP close</h3>
-        <p>With FERC's Order 907 approving NERC CIP-015-1, registered entities are building toward Internal Network Security Monitoring for high- and medium-impact BES Cyber Systems inside their Electronic Security Perimeters &mdash; a shift from perimeter defense to watching east-west traffic where intrusions like the grid-edge reconnaissance Dragos describes would show up. FERC has also directed NERC to extend the requirement to access-control and monitoring systems outside the ESP. Use the runway to deploy OT-aware monitoring, baseline normal control traffic, and close the visibility gap that leaves most incidents detected only by a hunch.</p>
+        <h3>NERC CIP 2026 milestones hit: control-center data protection now effective, internal network monitoring phasing in</h3>
+        <p>Several NERC CIP obligations reach milestones this year: CIP-012-2, protecting the confidentiality and integrity of real-time data exchanged between control centers, is now effective, while CIP-015-1 internal network security monitoring (INSM) for high- and medium-impact environments is phasing in, and FERC has directed expanding scope toward EACMS and PACS. For registered entities the direction is clear &mdash; more prescriptive duties around control-center communications, east-west visibility inside the electronic security perimeter, and faster documentation. Utilities should map current CIP posture against these milestones now rather than at the compliance deadline.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Compliance program &mdash; not a vulnerability</span>
-            <span class="ops-tag kev-off">NERC CIP (mandatory standard)</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Regulatory milestone &mdash; informational</span>
+            <span class="ops-tag kev-off">NERC / FERC (CIP-012-2, CIP-015-1)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Program / compliance action</span>
-            <span class="ops-cc"><b>Action:</b> Stand up OT-aware internal network monitoring inside ESPs, baseline normal control-system traffic, define anomaly detection and response, and prepare evidence for CIP-015 implementation timelines.</span>
+            <span class="ops-tag patch-na">No patch &mdash; compliance program action</span>
+            <span class="ops-cc"><b>Action:</b> Map current CIP-012/CIP-015 posture against 2026 milestones, close INSM visibility gaps inside the ESP, confirm control-center data-protection controls, and prepare EACMS/PACS scope for the FERC-directed expansion.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> INSM design &amp; deployment plan &mdash; per compliance schedule</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-cip015" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-cip015">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Informational &mdash; align compliance roadmap</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-nerccip" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-nerccip">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dragos / NERC</span>
+          <span>Certrec / NERC</span>
           <span class="dot">&bull;</span>
-          <span>FERC-approved; implementation ramping 2026</span>
+          <span>2026 CIP milestones &mdash; effective/phasing in</span>
         </div>
-        <a href="https://www.dragos.com/blog/nerc-cip-015-is-approved-what-asset-owners-need-to-do" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.certrec.com/blog/most-significant-nerc-cip-updates-for-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
     </div>
   </div>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Power Generation &amp; Transmission.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7 July cycle &mdash; Hydro-Qu&eacute;bec Le Circuit &eacute;lectrique, Hitachi Energy PROMOD V and e-mesh EMS; ST Engineering iDirect iQ-Series) and the KEV catalog, the CISA/FBI/NSA/EPA/DOE joint advisory AA26-097A, NERC/FERC (CIP-015-1), Dragos electric-grid threat research, Palo Alto Networks Unit 42, and reporting from The Hacker News, SOCRadar, Cybersecurity Dive and Industrial Cyber. Default lookback: 7&ndash;30 days; clearly dated older items (e.g. the December 2025 Poland DER attack) appear only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7 July 2026 cycle &mdash; Siemens SINEC OS/RUGGEDCOM, Hydro-Qu&eacute;bec Le Circuit &eacute;lectrique) and the CISA KEV catalog, Siemens ProductCERT and Schneider Electric CPCERT advisories, NERC/FERC CIP-2026 milestones, Kaspersky Securelist, Dragos electric-grid threat research, and reporting from SecurityWeek, The Hacker News, SOCRadar and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

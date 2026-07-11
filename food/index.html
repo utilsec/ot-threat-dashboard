@@ -686,7 +686,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Friday, 10 Jul 2026, 4:19 AM ET</span>
+        <span>Generated Saturday, 11 Jul 2026, 4:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
@@ -697,41 +697,41 @@
     </div>
   </div>
 
-          <!-- HERO: TOP STORY + RADAR -->
+    <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-mackay">
+    <div class="top-story" id="story-fortibleed">
       <span class="top-story-pill">Top Story</span>
-      <h2>Ransomware shuts two Mackay Sugar mills at the start of crushing season &mdash; harvest disrupted for 1,300 growers</h2>
-      <p>A ransomware attack on Mackay Sugar, Australia's second-largest sugar producer, halted milling and cane haulage at its Farleigh and Racecourse mills after striking on 10 June &mdash; at the very start of the crushing season. More than 1,300 family-owned cane farms had harvesting disrupted, and because the mills' cogeneration plant also feeds the regional grid, the outage rippled beyond the fence line. The Gentlemen ransomware group claimed the intrusion on 16 June and threatened to leak stolen data, a double-extortion pattern the crew has used against Asia-Pacific critical infrastructure since mid-2025. For food and agriculture the lesson is seasonal timing: attackers hit when a processor can least afford downtime, turning IT ransomware into lost harvest, spoiled throughput and idled growers.</p>
+      <h2>&ldquo;FortiBleed&rdquo; credential theft now feeds active ransomware &mdash; and those FortiGate firewalls front the remote access food and beverage plants rely on</h2>
+      <p>CISA warns the FortiBleed campaign has harvested working administrator and VPN credentials from tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways &mdash; tied to roughly 74,000 exposed Fortinet devices inside an operation that collected over 110 million credentials since mid-June. On 2 July researchers linked the stolen access directly to the INC Ransom and Lynx ransomware crews, with at least a dozen deployments traced to it. Food and beverage processors are attractive ransomware targets because production and cold-chain downtime spoils product fast, and these appliances front the remote access and IT/OT segmentation that reach plant PLCs, packaging lines and refrigeration controls. Because valid credentials leaked rather than a bug being exploited, no patch closes the gap and an intruder logs in looking legitimate &mdash; treat any exposed FortiGate fronting plant OT as already compromised.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware &mdash; mills shut, production halted</span>
-          <span class="ops-tag kev-off">Ransomware (The Gentlemen)</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation; now feeding INC/Lynx ransomware (12+ deployments)</span>
+          <span class="ops-tag kev-on">CISA alert 18 Jun; DHS IoCs 2 Jul 2026</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No patch &mdash; segmentation, backups, seasonal IR planning</span>
-          <span class="ops-cc"><b>Action:</b> Segment processing OT from enterprise IT so ransomware cannot stop the line, keep offline tested backups, build seasonal incident-response and manual-operation plans around peak-throughput windows, and pre-arrange recovery support before the busy season.</span>
+          <span class="ops-tag patch-yes">Mitigations available (Fortinet / CISA)</span>
+          <span class="ops-cc"><b>Action:</b> Treat every internet-facing FortiGate/SSL-VPN fronting plant OT as compromised: terminate active sessions, rotate all admin and VPN credentials, reissue certificates, enforce MFA, remove management interfaces from the internet, and hunt for unauthorized config pulls using the DHS-shared IoCs.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Segmentation &amp; seasonal IR plan &mdash; 30 days</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-mackay" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="fd-mackay">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Session kill, credential reset &amp; IoC sweep &mdash; 24h (active credential abuse on OT-bridging edge)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fortibleed" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="fd-fortibleed">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>The Record</span>
+        <span>CISA / DHS / SecurityWeek</span>
         <span class="dot">&bull;</span>
-        <span>Attack 10 Jun; claimed 16 Jun 2026</span>
+        <span>CISA alert 18 Jun 2026 &mdash; DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing</span>
       </div>
-      <a href="https://therecord.media/mackay-sugar-cyberattack-claimed-gentlemen" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
-    <!-- THREAT RADAR -->
+    <!-- RADAR -->
     <div class="radar-panel">
       <div class="radar-head">Threat Radar</div>
-      <div class="radar-sub">Critical &amp; High items this edition &mdash; larger blips = higher severity/priority. Click a blip to jump to its card.</div>
+      <div class="radar-sub">Critical &amp; high items across all sections &mdash; larger blips = higher severity/priority. Click a blip to jump to the story.</div>
       <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
         <defs>
           <radialGradient id="rg" cx="50%" cy="50%" r="50%">
@@ -755,57 +755,58 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-mackay"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:12.9px" x="180.0" y="125.2">1</text></a>
-        <a href="#story-acbev"><circle class="blip high" cx="180.0" cy="70.0" r="13.8"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="74.7">2</text></a>
-        <a href="#story-fortibleed"><circle class="blip high" cx="290.0" cy="180.0" r="12.6"/><text class="blip-num" style="font-size:10.8px" x="290.0" y="184.3">3</text></a>
-        <a href="#story-faisac72"><circle class="blip high" cx="180.0" cy="290.0" r="11.4"/><text class="blip-num" style="font-size:9.8px" x="180.0" y="293.9">4</text></a>
-        <a href="#story-gardyn"><circle class="blip high" cx="70.0" cy="180.0" r="10.2"/><text class="blip-num" style="font-size:8.8px" x="70.0" y="183.5">5</text></a>
+        <a href="#story-fortibleed"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13.1px" x="180" y="124.5">1</text></a>
+        <a href="#story-citrixbleed"><circle class="blip crit" cx="237" cy="161" r="13.5"/><text class="blip-num" style="font-size:11.7px" x="237" y="165.0">2</text></a>
+        <a href="#story-lantronix"><circle class="blip crit" cx="215" cy="229" r="12"/><text class="blip-num" style="font-size:10.4px" x="215" y="232.5">3</text></a>
+        <a href="#story-sinecos"><circle class="blip crit" cx="145" cy="229" r="11"/><text class="blip-num" style="font-size:9.6px" x="145" y="232.3">4</text></a>
+        <a href="#story-dfa"><circle class="blip high" cx="235" cy="85" r="9"/><text class="blip-num" style="font-size:9px" x="235" y="88.1">5</text></a>
+        <a href="#story-rockwell"><circle class="blip high" cx="290" cy="180" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="290" y="182.9">6</text></a>
       </svg>
+
       <div class="radar-legend">
-        <a href="#story-mackay"><b>1</b><span class="ld crit"></span>Mackay Sugar ransomware</a>
-        <a href="#story-acbev"><b>2</b><span class="ld high"></span>AC Beverage / Apex Agro</a>
-        <a href="#story-fortibleed"><b>3</b><span class="ld high"></span>FortiBleed credential leak</a>
-        <a href="#story-faisac72"><b>4</b><span class="ld high"></span>72 active threat actors</a>
-        <a href="#story-gardyn"><b>5</b><span class="ld high"></span>Gardyn IoT Hub CVSS-10</a>
+        <a href="#story-fortibleed"><span class="ld crit"></span><b>1</b> FortiBleed &mdash; FortiGate credential theft (active)</a>
+        <a href="#story-citrixbleed"><span class="ld crit"></span><b>2</b> CitrixBleed NetScaler flaw exploited (active)</a>
+        <a href="#story-lantronix"><span class="ld crit"></span><b>3</b> Lantronix EDS5000 root RCE (KEV)</a>
+        <a href="#story-sinecos"><span class="ld crit"></span><b>4</b> Siemens SINEC OS / RUGGEDCOM RCE (9.8)</a>
+        <a href="#story-dfa"><span class="ld high"></span><b>5</b> Dairy Farmers of America ransomware</a>
+        <a href="#story-rockwell"><span class="ld high"></span><b>6</b> Rockwell Logix / RSLinx / FactoryTalk patches</a>
       </div>
     </div>
 
   </div>
 
   <!-- SECTION: Trends -->
-  <div class="section">
+  <div class="section" id="trends">
     <div class="section-title">Trends</div>
-    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days &mdash; food &amp; agriculture lens.</div>
+    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
-
       <div class="trend">
-        <span class="trend-tag">Seasonal Timing</span>
-        <b class="trend-head">Attackers strike when downtime hurts most</b>
-        <p>The Mackay Sugar ransomware hit landed at the start of crushing season, halting two mills and disrupting 1,300 growers &mdash; a reminder that food and ag operators need incident-response and manual-operation plans built around peak-throughput windows.</p>
-        <a href="https://therecord.media/mackay-sugar-cyberattack-claimed-gentlemen" class="source-link" target="_blank" rel="noopener">The Record</a>
+        <span class="trend-tag">Edge Exploits</span>
+        <b class="trend-head">The OT perimeter is the battleground for food plants</b>
+        <p>FortiBleed&rsquo;s FortiGate credential theft (see top story), a CitrixBleed-class NetScaler flaw exploited within 24 hours, and the actively-exploited Lantronix serial bridge all hit the internet-facing edge and serial gateways connecting business systems to plant and cold-chain OT. Food processors should patch and credential-harden these chokepoints at emergency speed.</p>
+        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Threat Actors</span>
-        <b class="trend-head">Seventy-two adversaries and counting</b>
-        <p>The Food and Ag-ISAC counts 72 active threat actors working the food supply chain, led by Russia- and China-linked groups &mdash; deliberate, sophisticated targeting rather than opportunistic noise.</p>
-        <a href="https://industrialcyber.co/reports/food-and-ag-isac-finds-72-active-threat-actors-behind-persistent-sophisticated-cyber-attacks-targeting-food-supply-chains/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Threat Shift</span>
+        <b class="trend-head">Food &amp; ag squarely in the ransomware crosshairs</b>
+        <p>The Dairy Farmers of America attack (see Incidents) and Food and Ag-ISAC reporting show ransomware crews &mdash; Qilin, Akira, CL0P and others &mdash; increasingly hitting food and beverage, where perishable product and just-in-time supply chains make downtime especially costly. Segmentation and tested backups are the baseline.</p>
+        <a href="https://therecord.media/dairy-farm-leaked-info-ransomware" class="source-link" target="_blank" rel="noopener">The Record</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">An 82% surge with familiar names</b>
-        <p>Qilin, Akira and CL0P lead an 82% jump in ransomware against food and agriculture, with legacy processing systems bridged to modern networks leaving the sector dangerously exposed to production-halting attacks.</p>
-        <a href="https://industrialcyber.co/reports/food-and-ag-isac-reports-82-surge-in-ransomware-attacks-as-qilin-akira-and-cl0p-lead-campaigns-against-sector/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Cold Chain</span>
+        <b class="trend-head">Sensor integrity is a food-safety issue</b>
+        <p>Forescout&rsquo;s BRIDGE:BREAK research (behind the actively-exploited Lantronix flaw) shows serial-to-IP bugs can falsify sensor readings &mdash; a direct concern where those readings govern refrigeration temperature and process safety. Protecting cold-chain telemetry is now a cyber and a food-safety task.</p>
+        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Precision Ag</span>
-        <b class="trend-head">Cloud-managed IoT is a growing attack surface</b>
-        <p>CVSS-10 flaws in the Gardyn IoT Hub &mdash; exposed admin keys and publicly listable logs &mdash; preview the risk as precision-ag and controlled-environment platforms multiply cloud-connected devices across agriculture.</p>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">CISA</a>
+        <span class="trend-tag">Regulation</span>
+        <b class="trend-head">Reporting duties are tightening for food &amp; ag</b>
+        <p>CISA&rsquo;s CIRCIA final rule (targeted ~September 2026) would add 72-hour incident and 24-hour ransom-payment reporting for covered food and agriculture entities &mdash; pushing firms to build an incident-classification and reporting playbook now and align it with Food and Ag-ISAC sharing.</p>
+        <a href="https://federalnewsnetwork.com/cybersecurity/2026/07/circia-other-big-cyber-rules-expected-to-get-finalized-this-fall/" class="source-link" target="_blank" rel="noopener">Federal News Network</a>
       </div>
-
     </div>
   </div>
 
@@ -813,67 +814,66 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="story-citrixbleed">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active Exploitation</span>
+        </div>
+        <h3>&ldquo;CitrixBleed&rdquo; returns: NetScaler flaw exploited within 24 hours, leaking secrets from gateways that front plant and distribution remote access</h3>
+        <p>Citrix patched CVE-2026-8451 on 30 June &mdash; an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider &mdash; and researchers saw in-the-wild exploitation within 24 hours, aided by a same-day public proof-of-concept. Like the original CitrixBleed, it lets a remote attacker read appliance memory and harvest live session tokens, credentials and TLS keys. Food manufacturers and distributors often use NetScaler to publish remote access to MES, ERP, ordering and warehouse systems, so leaked secrets can hand an attacker authenticated entry toward production and logistics networks. Assume any internet-facing, unpatched NetScaler had its memory read after 1 July.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited within 24h of disclosure; public PoC</span>
+            <span class="ops-tag kev-off">Citrix NetScaler ADC / Gateway (SAML IdP)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Citrix, 30 Jun)</span>
+            <span class="ops-cc"><b>Action:</b> Patch NetScaler to the fixed build now, terminate all active sessions, and &mdash; assuming memory disclosure &mdash; rotate every session token, credential and TLS private key on the appliance; remove management interfaces from the internet and hunt for anomalous session reuse.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch, session kill &amp; secret rotation &mdash; 24h (active exploitation on OT-bridging edge)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-citrixbleed" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-citrixbleed">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-8451</span>
+          <span>Citrix / watchTowr / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Patched 30 Jun 2026 &mdash; exploited within 24h; ongoing</span>
+        </div>
+        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
-      <div class="card" id="story-acbev">
+      <div class="card" id="story-dfa">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Fresh extortion victims across food and ag &mdash; AC Beverage and Apex Agro listed in early July</h3>
-        <p>Extortion trackers logged new food-and-agriculture victims in early July, including U.S. beverage-services firm AC Beverage, listed by the PEAR actor, and Texas agricultural-chemical company Apex Agro, listed by Genesis &mdash; both surfacing around 6 July. Individually these are mid-size firms, but the steady drumbeat is the point: the farm-to-table supply chain is a broad, soft target set where a single processor, distributor or input supplier going down ripples outward. For operators the takeaway is that size is no shield; basic segmentation, backups and monitored remote access matter for everyone in the chain.</p>
+        <h3>Ransomware at Dairy Farmers of America processing plants leaks personal data</h3>
+        <p>Dairy Farmers of America (DFA), one of the largest US dairy cooperatives, confirmed a ransomware attack that affected multiple manufacturing plants within its network, with a ransomware group taking credit. DFA has begun filing breach notifications &mdash; disclosing to Maine regulators that the personal information of several thousand people was exposed &mdash; and worked to restore affected operations. The case is a reminder that dairy and perishable processing are squarely in the ransomware crosshairs, where downtime threatens both food safety and highly time-sensitive product. Processors should verify IT/OT segmentation, confirm offline backups for plant systems, and prepare breach-notification and continuity plans before an incident, not during one.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Reported &mdash; listed on extortion leak sites</span>
-            <span class="ops-tag kev-off">Ransomware / extortion (PEAR, Genesis)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware &mdash; multiple plants affected; data leaked</span>
+            <span class="ops-tag kev-off">Ransomware (group claimed credit)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; segmentation, backups, monitored access</span>
-            <span class="ops-cc"><b>Action:</b> Confirm IT/OT segmentation and offline backups, lock down and monitor remote access, and review third-party and supplier connections &mdash; extortion crews pivot through the weakest link in the food and ag supply chain.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; segmentation, backups &amp; recovery</span>
+            <span class="ops-cc"><b>Action:</b> Verify IT/OT segmentation between business and plant networks, confirm and test offline backups for production and refrigeration control, rehearse recovery and breach-notification playbooks, and monitor for leak-driven phishing of staff and members.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Segmentation &amp; access review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-acbev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-acbev">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Segmentation &amp; backup verification &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-dfa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-dfa">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Breachsense</span>
+          <span>The Record / Recorded Future News</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed early Jul 2026</span>
+          <span>Confirmed Jun 2026 &mdash; breach notification early Jul; ongoing</span>
         </div>
-        <a href="https://www.breachsense.com/breaches/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/dairy-farm-leaked-info-ransomware" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="story-fortibleed">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>FortiBleed credential theft now feeds ransomware &mdash; the remote path into processing plants</h3>
-        <p>SOCRadar reported on 2 July that FortiBleed &mdash; a sniffer that harvested 110M+ credentials from roughly 430,000 internet-facing FortiGate firewalls since mid-June &mdash; is now driving INC Ransom and Lynx intrusions. Food and beverage processors, cold-chain operators and distributors lean on Fortinet for remote access to plant networks, refrigeration and packaging controls, and vendor links. Because credentials leaked rather than a bug being exploited, no patch helps: an attacker signs in as a trusted engineer. Assume any exposed FortiGate touching processing or cold-chain OT is compromised and rotate now.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation &mdash; credentials feeding ransomware (INC / Lynx)</span>
-            <span class="ops-tag kev-off">Credential-exposure campaign (no single CVE)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; credential rotation &amp; access hardening</span>
-            <span class="ops-cc"><b>Action:</b> Rotate all credentials and certificates on internet-facing FortiGate/SSL-VPN devices touching processing, refrigeration or packaging OT, terminate sessions, enforce MFA, restrict management access, and hunt for unauthorized logins.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation on OT-facing devices &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-fortibleed">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News / SOCRadar</span>
-          <span class="dot">&bull;</span>
-          <span>Ransomware link reported 2 Jul 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -881,67 +881,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-
-      <div class="card" id="story-faisac72">
+      <div class="card" id="story-foodag">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
+          <span class="severity sev-info">Info</span>
           <span class="category">Threat Intel</span>
         </div>
-        <h3>Food and Ag-ISAC: 72 active threat actors are working the farm-to-table supply chain</h3>
-        <p>The Food and Ag-ISAC identified 72 active threat actors &mdash; from a pool of more than 330 monitored &mdash; consistently targeting food supply chains, spanning both nation-state groups and financially motivated criminals. Russia accounts for the largest share of observed activity, followed by China, with Lazarus Group, Moonstone Sleet and APT41 among the top-scoring adversaries. The most common tradecraft is living-off-the-land using legitimate tools, plus modified malware, long persistence and stealthy exfiltration. The message for the sector: this is deliberate, sophisticated targeting, not opportunistic noise, and defenses should assume patient, stealthy adversaries.</p>
+        <h3>Food and Ag-ISAC: ransomware against the sector surges as Qilin, Akira and CL0P lead campaigns</h3>
+        <p>The Food and Ag-ISAC&rsquo;s ransomware analysis documents a sharp rise in attacks on food and agriculture, with a handful of groups &mdash; Qilin, Akira, CL0P, Play and Lynx &mdash; driving nearly half of recorded incidents against the sector, and separate ISAC work counting dozens of active threat actors targeting food supply chains. The through-line is that food and ag are no longer overlooked: converged IT/OT, thin margins and just-in-time supply chains make downtime expensive and pressure victims to pay. Processors should map their most disruption-sensitive lines, segment and back them up, and use ISAC intelligence to prioritize the groups and techniques actually hitting the sector.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Threat-landscape analysis &mdash; not a single vulnerability</span>
-            <span class="ops-tag kev-off">Nation-state + criminal ecosystem</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Sector threat report &mdash; foundational context</span>
+            <span class="ops-tag kev-off">Food and Ag-ISAC</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; monitoring, hunting, segmentation</span>
-            <span class="ops-cc"><b>Action:</b> Use the Food and Ag-ISAC findings to prioritize detection for living-off-the-land and valid-account abuse, deploy OT-aware monitoring, hunt for long-dwell persistence, and tighten segmentation across processing and supply-chain systems.</span>
+            <span class="ops-tag patch-na">No action &mdash; awareness &amp; prioritization</span>
+            <span class="ops-cc"><b>Action:</b> Use Food and Ag-ISAC intelligence to prioritize defenses against the most active groups (Qilin, Akira, CL0P), map disruption-sensitive production lines, and confirm segmentation and tested backups for those systems.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Detection &amp; hunting review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-faisac72" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-faisac72">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Informational &mdash; feed into risk prioritization</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-foodag" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-foodag">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Industrial Cyber</span>
+          <span>Food and Ag-ISAC / Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Food and Ag-ISAC 2026 report</span>
-        </div>
-        <a href="https://industrialcyber.co/reports/food-and-ag-isac-finds-72-active-threat-actors-behind-persistent-sophisticated-cyber-attacks-targeting-food-supply-chains/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-faisacransom">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Threat Intel</span>
-        </div>
-        <h3>Food and Ag-ISAC reports an 82% surge in ransomware, led by Qilin, Akira and CL0P</h3>
-        <p>The Food and Ag-ISAC also reported an 82% year-over-year surge in ransomware against the sector, with Qilin, Akira, CL0P, Play and Lynx leading the campaigns &mdash; the same ecosystem that listed the world's largest food distributor, Sysco, on a leak site earlier in 2026. Legacy processing systems bridged to modern networks leave the sector dangerously exposed, and ransomware has repeatedly halted processing and packing lines worldwide. The practical response is unchanged but urgent: segmentation, tested backups and rehearsed manual operation.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Trend analysis &mdash; not a single vulnerability</span>
-            <span class="ops-tag kev-off">Ransomware ecosystem</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; resilience, segmentation, backups</span>
-            <span class="ops-cc"><b>Action:</b> Prioritize ransomware resilience: segment processing OT from IT, keep offline tested backups of control and business systems, document manual-operation fallbacks, and exercise recovery against realistic downtime targets.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Ransomware-resilience assessment &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-faisacransom" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-faisacransom">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Food and Ag-ISAC 2026 report</span>
+          <span>Report published 2026 (2025 data)</span>
         </div>
         <a href="https://industrialcyber.co/reports/food-and-ag-isac-reports-82-surge-in-ransomware-attacks-as-qilin-akira-and-cl0p-lead-campaigns-against-sector/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
     </div>
   </div>
 
@@ -949,67 +917,97 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="story-lantronix">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active Exploitation</span>
+        </div>
+        <h3>Actively-exploited Lantronix EDS5000 flaw hands attackers root on serial-to-IP bridges used in processing and cold-chain control</h3>
+        <p>CISA says CVE-2025-67038, a command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, is being exploited in the wild and added it to the KEV catalog on 23 June (advisory ICSA-26-069-02). An unauthenticated attacker can inject OS commands via the username parameter and run them as root, fully controlling a device whose job is bridging legacy serial gear &mdash; PLCs, meters, refrigeration and monitoring sensors &mdash; onto IP networks. Forescout showed such bugs can even manipulate sensor readings to hide dangerous conditions &mdash; a real concern where those readings govern cold-chain temperature or process safety in food production.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; honeypot exploitation observed (Forescout); targeted fingerprinting</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; deadline 26 Jun 2026 (ICSA-26-069-02)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor patch available (Lantronix)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Lantronix EDS5000 and similar serial-to-IP servers in processing and cold-chain control, apply the vendor fix, remove internet exposure, restrict management to a segmented OT network, and hunt for command injection via the username parameter and unexpected root processes.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure removal &mdash; 48h (KEV, active root RCE on OT bridge)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-lantronix" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-lantronix">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2025-67038</span>
+          <span>CISA KEV / Forescout / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>KEV-added 23 Jun 2026 &mdash; exploitation since 5 Apr</span>
+        </div>
+        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
-      <div class="card" id="story-gardyn">
+      <div class="card" id="story-sinecos">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</h3>
+        <p>CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS before V4.0, the operating system on RUGGEDCOM industrial networking gear. A memory-corruption bug in a bundled third-party component lets a remote attacker compromise unpatched devices, and a public exploit has already been disclosed. Alongside Siemens SIMATIC controllers, RUGGEDCOM networking appears in larger food and beverage plants, sitting in the path that segments and moves control-system traffic. No confirmed in-the-wild ICS attacks are reported yet, but a public exploit plus a 9.8 score on this backbone gear warrants emergency patch prioritization.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Public exploit disclosed &mdash; no confirmed in-wild ICS exploitation yet</span>
+            <span class="ops-tag kev-off">Siemens ProductCERT (ICSA-26-188-05)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor fix available (RUGGEDCOM RST2428P)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory RUGGEDCOM devices running SINEC OS below V4.0, apply the Siemens update immediately, remove management interfaces from routable/internet access, restrict them to an isolated management network, and monitor for anomalous management access.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure review &mdash; 7 days (Critical, public exploit, OT network backbone)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-sinecos" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-sinecos">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">SINEC OS &lt; V4.0</span>
+          <span>CISA / Siemens ProductCERT</span>
+          <span class="dot">&bull;</span>
+          <span>Published 7 Jul 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-rockwell">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA flags CVSS-10 flaws in Gardyn IoT Hub &mdash; a warning shot for precision and indoor agriculture</h3>
-        <p>On 2 July CISA published advisory ICSA-26-183-03 for Gardyn IoT Hub, with flaws scoring up to CVSS 10 that let unauthenticated attackers take full control of Gardyn-managed devices. An exposed privileged iothubowner key (CVE-2026-13768) lets an attacker enumerate the entire fleet, run arbitrary commands on connected devices and pivot into the owner's home network, while device logs sat in a publicly listable cloud container. Gardyn is consumer indoor-growing hardware, but CISA scoped it to the food-and-agriculture sector for a reason: as precision-ag and controlled-environment platforms proliferate, cloud-managed IoT with exposed admin keys becomes a real agricultural attack surface.</p>
+        <h3>Rockwell Automation patches flaws across Logix controllers, RSLinx and FactoryTalk used on food processing lines</h3>
+        <p>Rockwell Automation released fixes for multiple vulnerabilities spanning its Logix controller family, RSLinx communications software and FactoryTalk suite &mdash; including a stack-based buffer overflow in RSLinx that could allow remote code execution. Rockwell/Allen-Bradley control gear is pervasive on food and beverage processing and packaging lines, from ControlLogix and CompactLogix processors to FactoryTalk HMIs. None of the issues are reported exploited in the wild, but the affected components sit deep in plant control and engineering workflows, so patching should be scheduled into the next sanitation or maintenance window with management-network isolation in the interim.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed in-the-wild exploitation as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
+            <span class="ops-tag kev-off">Rockwell PSIRT / CISA</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed &mdash; cloud infrastructure updated; ensure connectivity for firmware update</span>
-            <span class="ops-cc"><b>Action:</b> Ensure Gardyn devices are online to receive the fixed firmware, review any cloud-managed ag-IoT for exposed administrative keys and publicly listable storage, and segment IoT platforms from sensitive farm and business networks.</span>
+            <span class="ops-tag patch-yes">Vendor updates available (Rockwell)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory affected Logix, RSLinx and FactoryTalk versions on processing/packaging lines, schedule Rockwell updates into the next maintenance window, restrict engineering hosts and controllers to isolated OT networks, and remove any internet exposure.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Ag-IoT exposure review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-gardyn" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-gardyn">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; isolation &mdash; 30 days (High, RCE in control software)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-rockwell" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-rockwell">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS Advisories</span>
+          <span>Rockwell / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Advisory 2 Jul 2026</span>
+          <span>Reported Jun 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="story-delta">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>June CISA cycle flags Delta and Schneider automation used in food and beverage lines</h3>
-        <p>A June CISA advisory cycle covered vulnerabilities across Delta, Schneider Electric, Mitsubishi and other automation vendors whose controllers, drives and HMIs run food and beverage processing, packaging and bottling lines. Most items ship with vendor fixes or mitigations. For food and ag operators the discipline is to map the flagged products to your line inventory and prioritize anything internet-reachable or tied to food-safety-critical control &mdash; temperature, dosing, CIP &mdash; where an integrity failure carries safety and recall risk.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation of these items as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes/mitigations &mdash; see advisories</span>
-            <span class="ops-cc"><b>Action:</b> Cross-reference the flagged Delta, Schneider and Mitsubishi products against your line inventory, patch internet-reachable and food-safety-critical systems first, and keep controller management interfaces off routable networks.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; patch plan &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-delta" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-delta">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA / Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>CISA ICS advisories, Jun 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/cisa/cisa-reports-critical-ics-vulnerabilities-across-mitsubishi-schneider-delta-ge-vernova-hitachi-energy-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -1017,45 +1015,43 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-
-      <div class="card" id="story-faisacscope">
+      <div class="card" id="story-circia">
         <div class="card-header">
-          <span class="severity sev-info">Guidance</span>
-          <span class="category">Policy</span>
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation</span>
         </div>
-        <h3>Food and Ag-ISAC broadens its threat reporting beyond ransomware &mdash; a maturing sector playbook</h3>
-        <p>The Food and Ag-ISAC has expanded its cyber threat reporting to cover the full adversary landscape &mdash; nation-state espionage, supply-chain compromise and disruptive operations &mdash; not just ransomware, reflecting a sector that is professionalizing its intelligence sharing. For operators, ISAC membership (free to many in the sector) is among the highest-leverage moves available: sector-specific threat intel, early warning and peer benchmarking that a single processor or grower cooperative cannot generate alone. Treat information sharing as core infrastructure, not a nice-to-have.</p>
+        <h3>CISA now targets September 2026 for the final CIRCIA rule &mdash; 72-hour incident and 24-hour ransom-payment reporting ahead</h3>
+        <p>CISA is expected to finalize the CIRCIA rule this fall, with reporting now targeted for around September 2026. Once effective, covered critical-infrastructure entities &mdash; food and agriculture among the 16 sectors &mdash; would have to report substantial cyber incidents within 72 hours and ransom payments within 24 hours to CISA. Given how often food and beverage firms face ransomware (see Threat Intelligence), the practical work is building an incident-classification and reporting playbook now, so a real event does not become a missed federal deadline. Firms should track the final rule text for exact covered-entity thresholds, and align it with Food and Ag-ISAC reporting practices.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Guidance / program &mdash; not a vulnerability</span>
-            <span class="ops-tag kev-off">Food and Ag-ISAC</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Rulemaking milestone &mdash; informational</span>
+            <span class="ops-tag kev-off">CISA (CIRCIA final rule)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Program action</span>
-            <span class="ops-cc"><b>Action:</b> Join and actively use the Food and Ag-ISAC for sector threat intelligence and early warning, feed its indicators into your monitoring, and benchmark your defenses against peers across the food and agriculture supply chain.</span>
+            <span class="ops-tag patch-na">No patch &mdash; incident-reporting readiness</span>
+            <span class="ops-cc"><b>Action:</b> Draft a CIRCIA-ready incident classification and 72h/24h reporting playbook, assign reporting ownership, and align it with Food and Ag-ISAC information-sharing ahead of the final rule.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Information-sharing onboarding &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-faisacscope" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-faisacscope">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Informational &mdash; build reporting playbook</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-circia" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-circia">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Food and Ag-ISAC / Industrial Cyber</span>
+          <span>Federal News Network</span>
           <span class="dot">&bull;</span>
-          <span>Food and Ag-ISAC 2026 threat reporting</span>
+          <span>Final rule targeted ~Sep 2026</span>
         </div>
-        <a href="https://industrialcyber.co/reports/food-and-ag-isac-publishes-cyber-threat-report-broadens-scope-beyond-ransomware/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://federalnewsnetwork.com/cybersecurity/2026/07/circia-other-big-cyber-rules-expected-to-get-finalized-this-fall/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
     </div>
   </div>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Food &amp; Agriculture.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS and food-sector sources including CISA ICS Advisories (2 July cycle &mdash; Gardyn IoT Hub) and the KEV catalog, the Food and Ag-ISAC (72 active threat actors; an 82% ransomware surge led by Qilin, Akira and CL0P; broadened threat reporting), Dragos, and reporting from The Record (Mackay Sugar), SecurityWeek, Industrial Cyber and The Hacker News. Default lookback: 7&ndash;30 days; clearly dated older items appear only as context for current events. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative food/ag and OT/ICS sources including CISA ICS Advisories (7 July 2026 cycle &mdash; Siemens SINEC OS/RUGGEDCOM) and the KEV catalog (Lantronix), Food and Ag-ISAC ransomware reporting, Rockwell PSIRT, Forescout research, and reporting from The Record, SecurityWeek and Industrial Cyber. Default lookback 7&ndash;30 days; the Food and Ag-ISAC ransomware analysis appears as current sector context with its real publication date. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the Food and Ag-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

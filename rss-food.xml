@@ -6,71 +6,71 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-food.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 10 Jul 2026 04:19:00 -0400</lastBuildDate>
+<lastBuildDate>Sat, 11 Jul 2026 04:15:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] Ransomware shuts two Mackay Sugar mills at the start of crushing season — harvest disrupted for 1,300 growers</title>
-<link>https://therecord.media/mackay-sugar-cyberattack-claimed-gentlemen</link>
-<guid isPermaLink="false">otthreatfeed:food:mackay</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
-<category>Top Story</category>
-<description><![CDATA[A ransomware attack on Mackay Sugar, Australia's second-largest sugar producer, halted milling and cane haulage at its Farleigh and Racecourse mills after striking on 10 June — at the very start of the crushing season. More than 1,300 family-owned cane farms had harvesting disrupted, and because the mills' cogeneration plant also feeds the regional grid, the outage rippled beyond the fence line. The Gentlemen ransomware group claimed the intrusion on 16 June and threatened to leak stolen data, a double-extortion pattern the crew has used against Asia-Pacific critical infrastructure since mid-2025. For food and agriculture the lesson is seasonal timing: attackers hit when a processor can least afford downtime, turning IT ransomware into lost harvest, spoiled throughput and idled growers. - The Record - Attack 10 Jun; claimed 16 Jun 2026]]></description>
-</item>
-<item>
-<title>[High] Fresh extortion victims across food and ag — AC Beverage and Apex Agro listed in early July</title>
-<link>https://www.breachsense.com/breaches/</link>
-<guid isPermaLink="false">otthreatfeed:food:acbev</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[Extortion trackers logged new food-and-agriculture victims in early July, including U.S. beverage-services firm AC Beverage, listed by the PEAR actor, and Texas agricultural-chemical company Apex Agro, listed by Genesis — both surfacing around 6 July. Individually these are mid-size firms, but the steady drumbeat is the point: the farm-to-table supply chain is a broad, soft target set where a single processor, distributor or input supplier going down ripples outward. For operators the takeaway is that size is no shield; basic segmentation, backups and monitored remote access matter for everyone in the chain. - Breachsense - Disclosed early Jul 2026]]></description>
-</item>
-<item>
-<title>[High] FortiBleed credential theft now feeds ransomware — the remote path into processing plants</title>
-<link>https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html</link>
+<title>[Critical] “FortiBleed” credential theft now feeds active ransomware — and those FortiGate firewalls front the remote access food and beverage plants rely on</title>
+<link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
 <guid isPermaLink="false">otthreatfeed:food:fortibleed</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[CISA warns the FortiBleed campaign has harvested working administrator and VPN credentials from tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways — tied to roughly 74,000 exposed Fortinet devices inside an operation that collected over 110 million credentials since mid-June. On 2 July researchers linked the stolen access directly to the INC Ransom and Lynx ransomware crews, with at least a dozen deployments traced to it. Food and beverage processors are attractive ransomware targets because production and cold-chain downtime spoils product fast, and these appliances front the remote access and IT/OT segmentation that reach plant PLCs, packaging lines and refrigeration controls. Because valid credentials leaked rather than a bug being exploited, no patch closes the gap and an intruder logs in looking legitimate — treat any exposed FortiGate fronting plant OT as already compromised. - CISA / DHS / SecurityWeek - CISA alert 18 Jun 2026 — DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing]]></description>
+</item>
+<item>
+<title>[Critical] “CitrixBleed” returns: NetScaler flaw exploited within 24 hours, leaking secrets from gateways that front plant and distribution remote access</title>
+<link>https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/</link>
+<guid isPermaLink="false">otthreatfeed:food:citrixbleed</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
+<category>Active Exploitation</category><category>CVE-2026-8451</category>
+<description><![CDATA[Citrix patched CVE-2026-8451 on 30 June — an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider — and researchers saw in-the-wild exploitation within 24 hours, aided by a same-day public proof-of-concept. Like the original CitrixBleed, it lets a remote attacker read appliance memory and harvest live session tokens, credentials and TLS keys. Food manufacturers and distributors often use NetScaler to publish remote access to MES, ERP, ordering and warehouse systems, so leaked secrets can hand an attacker authenticated entry toward production and logistics networks. Assume any internet-facing, unpatched NetScaler had its memory read after 1 July. - CVE-2026-8451 - Patched 30 Jun 2026 — exploited within 24h; ongoing]]></description>
+</item>
+<item>
+<title>[High] Ransomware at Dairy Farmers of America processing plants leaks personal data</title>
+<link>https://therecord.media/dairy-farm-leaked-info-ransomware</link>
+<guid isPermaLink="false">otthreatfeed:food:dfa</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
 <category>Incident</category>
-<description><![CDATA[SOCRadar reported on 2 July that FortiBleed — a sniffer that harvested 110M+ credentials from roughly 430,000 internet-facing FortiGate firewalls since mid-June — is now driving INC Ransom and Lynx intrusions. Food and beverage processors, cold-chain operators and distributors lean on Fortinet for remote access to plant networks, refrigeration and packaging controls, and vendor links. Because credentials leaked rather than a bug being exploited, no patch helps: an attacker signs in as a trusted engineer. Assume any exposed FortiGate touching processing or cold-chain OT is compromised and rotate now. - The Hacker News / SOCRadar - Ransomware link reported 2 Jul 2026]]></description>
+<description><![CDATA[Dairy Farmers of America (DFA), one of the largest US dairy cooperatives, confirmed a ransomware attack that affected multiple manufacturing plants within its network, with a ransomware group taking credit. DFA has begun filing breach notifications — disclosing to Maine regulators that the personal information of several thousand people was exposed — and worked to restore affected operations. The case is a reminder that dairy and perishable processing are squarely in the ransomware crosshairs, where downtime threatens both food safety and highly time-sensitive product. Processors should verify IT/OT segmentation, confirm offline backups for plant systems, and prepare breach-notification and continuity plans before an incident, not during one. - The Record / Recorded Future News - Confirmed Jun 2026 — breach notification early Jul; ongoing]]></description>
 </item>
 <item>
-<title>[High] Food and Ag-ISAC: 72 active threat actors are working the farm-to-table supply chain</title>
-<link>https://industrialcyber.co/reports/food-and-ag-isac-finds-72-active-threat-actors-behind-persistent-sophisticated-cyber-attacks-targeting-food-supply-chains/</link>
-<guid isPermaLink="false">otthreatfeed:food:faisac72</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
-<category>Threat Intel</category>
-<description><![CDATA[The Food and Ag-ISAC identified 72 active threat actors — from a pool of more than 330 monitored — consistently targeting food supply chains, spanning both nation-state groups and financially motivated criminals. Russia accounts for the largest share of observed activity, followed by China, with Lazarus Group, Moonstone Sleet and APT41 among the top-scoring adversaries. The most common tradecraft is living-off-the-land using legitimate tools, plus modified malware, long persistence and stealthy exfiltration. The message for the sector: this is deliberate, sophisticated targeting, not opportunistic noise, and defenses should assume patient, stealthy adversaries. - Industrial Cyber - Food and Ag-ISAC 2026 report]]></description>
-</item>
-<item>
-<title>[Medium] Food and Ag-ISAC reports an 82% surge in ransomware, led by Qilin, Akira and CL0P</title>
+<title>[Info] Food and Ag-ISAC: ransomware against the sector surges as Qilin, Akira and CL0P lead campaigns</title>
 <link>https://industrialcyber.co/reports/food-and-ag-isac-reports-82-surge-in-ransomware-attacks-as-qilin-akira-and-cl0p-lead-campaigns-against-sector/</link>
-<guid isPermaLink="false">otthreatfeed:food:faisacransom</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
+<guid isPermaLink="false">otthreatfeed:food:foodag</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
 <category>Threat Intel</category>
-<description><![CDATA[The Food and Ag-ISAC also reported an 82% year-over-year surge in ransomware against the sector, with Qilin, Akira, CL0P, Play and Lynx leading the campaigns — the same ecosystem that listed the world's largest food distributor, Sysco, on a leak site earlier in 2026. Legacy processing systems bridged to modern networks leave the sector dangerously exposed, and ransomware has repeatedly halted processing and packing lines worldwide. The practical response is unchanged but urgent: segmentation, tested backups and rehearsed manual operation. - Industrial Cyber - Food and Ag-ISAC 2026 report]]></description>
+<description><![CDATA[The Food and Ag-ISAC’s ransomware analysis documents a sharp rise in attacks on food and agriculture, with a handful of groups — Qilin, Akira, CL0P, Play and Lynx — driving nearly half of recorded incidents against the sector, and separate ISAC work counting dozens of active threat actors targeting food supply chains. The through-line is that food and ag are no longer overlooked: converged IT/OT, thin margins and just-in-time supply chains make downtime expensive and pressure victims to pay. Processors should map their most disruption-sensitive lines, segment and back them up, and use ISAC intelligence to prioritize the groups and techniques actually hitting the sector. - Food and Ag-ISAC / Industrial Cyber - Report published 2026 (2025 data)]]></description>
 </item>
 <item>
-<title>[High] CISA flags CVSS-10 flaws in Gardyn IoT Hub — a warning shot for precision and indoor agriculture</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03</link>
-<guid isPermaLink="false">otthreatfeed:food:gardyn</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
+<title>[Critical] Actively-exploited Lantronix EDS5000 flaw hands attackers root on serial-to-IP bridges used in processing and cold-chain control</title>
+<link>https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/</link>
+<guid isPermaLink="false">otthreatfeed:food:lantronix</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
+<category>Active Exploitation</category><category>CVE-2025-67038</category>
+<description><![CDATA[CISA says CVE-2025-67038, a command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, is being exploited in the wild and added it to the KEV catalog on 23 June (advisory ICSA-26-069-02). An unauthenticated attacker can inject OS commands via the username parameter and run them as root, fully controlling a device whose job is bridging legacy serial gear — PLCs, meters, refrigeration and monitoring sensors — onto IP networks. Forescout showed such bugs can even manipulate sensor readings to hide dangerous conditions — a real concern where those readings govern cold-chain temperature or process safety in food production. - CVE-2025-67038 - KEV-added 23 Jun 2026 — exploitation since 5 Apr]]></description>
+</item>
+<item>
+<title>[Critical] Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</title>
+<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05</link>
+<guid isPermaLink="false">otthreatfeed:food:sinecos</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
+<category>Advisory</category><category>SINEC OS &amp;lt; V4.0</category>
+<description><![CDATA[CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS before V4.0, the operating system on RUGGEDCOM industrial networking gear. A memory-corruption bug in a bundled third-party component lets a remote attacker compromise unpatched devices, and a public exploit has already been disclosed. Alongside Siemens SIMATIC controllers, RUGGEDCOM networking appears in larger food and beverage plants, sitting in the path that segments and moves control-system traffic. No confirmed in-the-wild ICS attacks are reported yet, but a public exploit plus a 9.8 score on this backbone gear warrants emergency patch prioritization. - SINEC OS &lt; V4.0 - Published 7 Jul 2026]]></description>
+</item>
+<item>
+<title>[High] Rockwell Automation patches flaws across Logix controllers, RSLinx and FactoryTalk used on food processing lines</title>
+<link>https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/</link>
+<guid isPermaLink="false">otthreatfeed:food:rockwell</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
 <category>Advisory</category>
-<description><![CDATA[On 2 July CISA published advisory ICSA-26-183-03 for Gardyn IoT Hub, with flaws scoring up to CVSS 10 that let unauthenticated attackers take full control of Gardyn-managed devices. An exposed privileged iothubowner key (CVE-2026-13768) lets an attacker enumerate the entire fleet, run arbitrary commands on connected devices and pivot into the owner's home network, while device logs sat in a publicly listable cloud container. Gardyn is consumer indoor-growing hardware, but CISA scoped it to the food-and-agriculture sector for a reason: as precision-ag and controlled-environment platforms proliferate, cloud-managed IoT with exposed admin keys becomes a real agricultural attack surface. - CISA ICS Advisories - Advisory 2 Jul 2026]]></description>
+<description><![CDATA[Rockwell Automation released fixes for multiple vulnerabilities spanning its Logix controller family, RSLinx communications software and FactoryTalk suite — including a stack-based buffer overflow in RSLinx that could allow remote code execution. Rockwell/Allen-Bradley control gear is pervasive on food and beverage processing and packaging lines, from ControlLogix and CompactLogix processors to FactoryTalk HMIs. None of the issues are reported exploited in the wild, but the affected components sit deep in plant control and engineering workflows, so patching should be scheduled into the next sanitation or maintenance window with management-network isolation in the interim. - Rockwell / SecurityWeek - Reported Jun 2026]]></description>
 </item>
 <item>
-<title>[Medium] June CISA cycle flags Delta and Schneider automation used in food and beverage lines</title>
-<link>https://industrialcyber.co/cisa/cisa-reports-critical-ics-vulnerabilities-across-mitsubishi-schneider-delta-ge-vernova-hitachi-energy-systems/</link>
-<guid isPermaLink="false">otthreatfeed:food:delta</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
-<category>Advisory</category>
-<description><![CDATA[A June CISA advisory cycle covered vulnerabilities across Delta, Schneider Electric, Mitsubishi and other automation vendors whose controllers, drives and HMIs run food and beverage processing, packaging and bottling lines. Most items ship with vendor fixes or mitigations. For food and ag operators the discipline is to map the flagged products to your line inventory and prioritize anything internet-reachable or tied to food-safety-critical control — temperature, dosing, CIP — where an integrity failure carries safety and recall risk. - CISA / Industrial Cyber - CISA ICS advisories, Jun 2026]]></description>
-</item>
-<item>
-<title>[Guidance] Food and Ag-ISAC broadens its threat reporting beyond ransomware — a maturing sector playbook</title>
-<link>https://industrialcyber.co/reports/food-and-ag-isac-publishes-cyber-threat-report-broadens-scope-beyond-ransomware/</link>
-<guid isPermaLink="false">otthreatfeed:food:faisacscope</guid>
-<pubDate>Fri, 10 Jul 2026 04:19:00 -0400</pubDate>
-<category>Policy</category>
-<description><![CDATA[The Food and Ag-ISAC has expanded its cyber threat reporting to cover the full adversary landscape — nation-state espionage, supply-chain compromise and disruptive operations — not just ransomware, reflecting a sector that is professionalizing its intelligence sharing. For operators, ISAC membership (free to many in the sector) is among the highest-leverage moves available: sector-specific threat intel, early warning and peer benchmarking that a single processor or grower cooperative cannot generate alone. Treat information sharing as core infrastructure, not a nice-to-have. - Food and Ag-ISAC / Industrial Cyber - Food and Ag-ISAC 2026 threat reporting]]></description>
+<title>[Info] CISA now targets September 2026 for the final CIRCIA rule — 72-hour incident and 24-hour ransom-payment reporting ahead</title>
+<link>https://federalnewsnetwork.com/cybersecurity/2026/07/circia-other-big-cyber-rules-expected-to-get-finalized-this-fall/</link>
+<guid isPermaLink="false">otthreatfeed:food:circia</guid>
+<pubDate>Sat, 11 Jul 2026 04:15:00 -0400</pubDate>
+<category>Regulation</category>
+<description><![CDATA[CISA is expected to finalize the CIRCIA rule this fall, with reporting now targeted for around September 2026. Once effective, covered critical-infrastructure entities — food and agriculture among the 16 sectors — would have to report substantial cyber incidents within 72 hours and ransom payments within 24 hours to CISA. Given how often food and beverage firms face ransomware (see Threat Intelligence), the practical work is building an incident-classification and reporting playbook now, so a real event does not become a missed federal deadline. Firms should track the final rule text for exact covered-entity thresholds, and align it with Food and Ag-ISAC reporting practices. - Federal News Network - Final rule targeted ~Sep 2026]]></description>
 </item>
 </channel>
 </rss>
