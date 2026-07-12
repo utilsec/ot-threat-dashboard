@@ -628,13 +628,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 12 Jul 2026, 12:15 AM ET</span>
+        <span>Generated Sun, 12 Jul 2026, 6:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>11</strong> stories across
+      <strong>12</strong> stories across
       <strong>5</strong> categories
     </div>
   </div>
@@ -707,6 +707,7 @@
         <a href="#story-openplc"><circle class="blip high" cx="258" cy="102" r="9"/><text class="blip-num" style="font-size:9px" x="258" y="105.1">4</text></a>
         <a href="#story-forescout"><circle class="blip high" cx="258" cy="258" r="8"/><text class="blip-num" style="font-size:8px" x="258" y="260.9">5</text></a>
         <a href="#story-waterstates"><circle class="blip high" cx="102" cy="258" r="7"/><text class="blip-num" style="font-size:7px" x="102" y="260.5">6</text></a>
+        <a href="#story-idirect"><circle class="blip high" cx="102" cy="102" r="6.5"/><text class="blip-num" style="font-size:6.5px" x="102" y="104.3">7</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -716,6 +717,7 @@
         <a href="#story-openplc"><span class="ld high"></span><b>4</b> OpenPLC v3 vulnerabilities</a>
         <a href="#story-forescout"><span class="ld high"></span><b>5</b> Forescout: OT serial-to-IP exploited</a>
         <a href="#story-waterstates"><span class="ld high"></span><b>6</b> Iran/Russia/China target water OT</a>
+        <a href="#story-idirect"><span class="ld high"></span><b>7</b> ST Engineering iDirect satellite terminals</a>
       </div>
     </div>
 
@@ -974,15 +976,15 @@
           <span class="category">Advisory</span>
         </div>
         <h3>CISA flags multiple vulnerabilities in OpenPLC v3, used across water and energy</h3>
-        <p>CISA advisory ICSA-26-190-01, published 9 July, covers multiple vulnerabilities in OpenPLC v3, the widely used open-source PLC runtime and programming environment that CISA lists as deployed in water &amp; wastewater and energy. Because OpenPLC is free, cross-platform and increasingly common in labs, pilots, small utilities and academic/training deployments, its flaws can surface in production control paths that lack vendor patch-management discipline. Consult the advisory for the specific issues and affected versions rather than assuming a single fix; open-source ICS software still needs formal tracking, patching and exposure control. Operators running OpenPLC &mdash; especially anything reachable from business networks or the internet &mdash; should update to fixed releases and lock down access to the runtime and its web interface.</p>
+        <p>CISA advisory ICSA-26-190-01, published 9 July, flags an authenticated arbitrary-file-write flaw in the legacy web-UI program-upload workflow of OpenPLC v3, the widely used open-source PLC runtime that CISA lists as deployed in water &amp; wastewater and energy. Crucially, the OpenPLC project says v3 is end-of-life and will receive no further patches &mdash; the recommended fix is to migrate to OpenPLC v4. Because OpenPLC is free, cross-platform and common in labs, pilots, small utilities and training setups, these flaws can drift into production control paths that lack vendor patch-management discipline. Operators running OpenPLC v3 &mdash; especially anything reachable from business networks or the internet &mdash; should plan the v4 upgrade and lock down access to the runtime and its web interface in the meantime.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; multiple vulnerabilities</span>
-            <span class="ops-tag kev-off">OpenPLC v3 &mdash; water &amp; wastewater / energy</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; authenticated file-write (legacy web UI)</span>
+            <span class="ops-tag kev-off">OpenPLC v3 (end-of-life) &mdash; water &amp; wastewater / energy</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixes per CISA/project advisory</span>
-            <span class="ops-cc"><b>Action:</b> Identify OpenPLC v3 deployments (including lab, pilot and training systems that drifted into production), update to fixed releases, remove the runtime and web interface from untrusted networks, and add open-source ICS software to your formal asset and patch inventory.</span>
+            <span class="ops-tag patch-yes">No v3 fix &mdash; migrate to OpenPLC v4</span>
+            <span class="ops-cc"><b>Action:</b> Identify OpenPLC v3 deployments (including lab, pilot and training systems that drifted into production), plan migration to v4 since v3 is end-of-life, remove the runtime and web interface from untrusted networks, and add open-source ICS software to your formal asset and patch inventory.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Inventory &amp; patch &mdash; 30 days</span>
@@ -996,6 +998,36 @@
           <span>CISA advisory 9 Jul 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-01" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-idirect">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>CISA flags unauthenticated API flaws in ST Engineering iDirect satellite terminals used in energy and remote sites</h3>
+        <p>CISA advisory ICSA-26-183-01, published 2 July, warns that two high-severity flaws in ST Engineering iDirect iQ-Series satellite terminals let an unauthenticated remote attacker take full control of an affected device. The iQ200 exposes REST API endpoints (including /api/identity) without authentication, and state-changing endpoints such as /api/reboot lack CSRF protection and rely only on a session cookie missing the SameSite attribute. The bugs carry CVSS scores around 8.6 and 8.1 and affect firmware 4.5.2.1 and earlier. Satellite terminals frequently backhaul connectivity for remote energy, pipeline and utility sites, so a hijacked terminal can be used to intercept traffic or pivot into the OT network behind it. ST Engineering released fixed firmware 4.5.2.2 on 28 June, ahead of the public advisory.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; unauth API access &amp; CSRF</span>
+            <span class="ops-tag kev-off">ST Engineering iDirect iQ-Series &mdash; satellite comms / energy</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed firmware 4.5.2.2 (ST Engineering iDirect)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory iDirect iQ-Series terminals, upgrade to firmware 4.5.2.2, firewall the web/management interface off untrusted networks, remove default local accounts, and ship API access logs to a SIEM to watch for anomalous unauthenticated calls and reboots.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Firmware upgrade &amp; interface lockdown &mdash; 14 days (unauth full control, remote sites)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="idirect" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="idirect">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICSA-26-183-01 / ST Engineering iDirect</span>
+          <span class="dot">&bull;</span>
+          <span>CISA advisory 2 Jul 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-easergy">
@@ -1104,7 +1136,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories and the KEV catalog, PTC and Lantronix advisories, Schneider Electric and Hydro-Qu&eacute;bec advisories, OpenPLC, Forescout exploitation research, DomainTools threat analysis, Dragos and NERC/Certrec, plus Cybersecurity Dive and NIST guidance &mdash; corroborated through coverage from SecurityWeek, Industrial Cyber, Dark Reading, CyberScoop, Help Net Security and Heise. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories and the KEV catalog, PTC and Lantronix advisories, Schneider Electric, Hydro-Qu&eacute;bec and ST Engineering iDirect advisories, OpenPLC, Forescout exploitation research, DomainTools threat analysis, Dragos and NERC/Certrec, plus Cybersecurity Dive and NIST guidance &mdash; corroborated through coverage from SecurityWeek, Industrial Cyber, Dark Reading, CyberScoop, Help Net Security and Heise. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

@@ -637,7 +637,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 11 Jul 2026, 4:15 AM ET</span>
+        <span>Generated Sunday, 12 Jul 2026, 4:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
@@ -711,7 +711,7 @@
         <a href="#story-sinecos"><circle class="blip crit" cx="215" cy="229" r="12"/><text class="blip-num" style="font-size:10.4px" x="215" y="232.5">3</text></a>
         <a href="#story-likho"><circle class="blip high" cx="235" cy="85" r="9"/><text class="blip-num" style="font-size:9px" x="235" y="88.1">4</text></a>
         <a href="#story-schneider"><circle class="blip high" cx="290" cy="180" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="290" y="182.9">5</text></a>
-        <a href="#story-hydroquebec"><circle class="blip high" cx="235" cy="275" r="8"/><text class="blip-num" style="font-size:8px" x="235" y="277.7">6</text></a>
+        <a href="#story-micompx40"><circle class="blip high" cx="235" cy="275" r="8"/><text class="blip-num" style="font-size:8px" x="235" y="277.7">6</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -720,7 +720,7 @@
         <a href="#story-sinecos"><span class="ld crit"></span><b>3</b> Siemens SINEC OS / RUGGEDCOM RCE (9.8)</a>
         <a href="#story-likho"><span class="ld high"></span><b>4</b> Armored Likho AI-malware hits power grids</a>
         <a href="#story-schneider"><span class="ld high"></span><b>5</b> Schneider power relay session-hijack flaw</a>
-        <a href="#story-hydroquebec"><span class="ld high"></span><b>6</b> Hydro-Qu&eacute;bec EV-charging backend flaws</a>
+        <a href="#story-micompx40"><span class="ld high"></span><b>6</b> Schneider Easergy MiCOM Px40 hard-coded creds</a>
       </div>
     </div>
 
@@ -930,34 +930,34 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-hydroquebec">
+      <div class="card" id="story-micompx40">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA flags authentication and DoS flaws in Hydro-Qu&eacute;bec&rsquo;s Le Circuit &Eacute;lectrique EV-charging backend</h3>
-        <p>CISA advisory ICSA-26-188-01 (published 7 July) covers vulnerabilities in the cloud backend of Hydro-Qu&eacute;bec&rsquo;s Le Circuit &Eacute;lectrique network, which manages more than 3,500 public EV charging stations across Quebec. A charging-station websocket endpoint accepts connections without proper authentication, enabling privilege escalation, and the backend does not throttle repeated authentication attempts, enabling denial of service. No public exploitation is reported. EV-charging management platforms are an expanding slice of energy-sector OT that ties directly to grid load and public services, so weak backend authentication is a real exposure. Hydro-Qu&eacute;bec has disabled OCPP on most stations and added authentication for the rest.</p>
+        <h3>Hard-coded credentials in Schneider Easergy MiCOM Px40 protection relays expose device data over SNMP</h3>
+        <p>CISA advisory ICSA-26-190-03 (published 9 July) warns that Schneider Electric&rsquo;s Easergy MiCOM Px40 series &mdash; protection relays deployed for medium-, high- and extra-high-voltage protection across substations and generation plants &mdash; contains hard-coded credentials (CWE-798) reachable through the device SNMP service. An unauthenticated attacker able to reach the SNMP port can interrogate a relay and retrieve sensitive device information, aiding reconnaissance and follow-on targeting of substation protection schemes. No in-wild exploitation is reported. Protection relays sit at the heart of grid fault clearing and equipment protection, so any unauthenticated exposure &mdash; even information disclosure &mdash; warrants tight access control. Schneider has published remediation and mitigations; where firmware can&rsquo;t be updated immediately, restricting SNMP access is the priority.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
-            <span class="ops-tag kev-off">Hydro-Qu&eacute;bec via CISA (ICSA-26-188-01)</span>
+            <span class="ops-tag kev-off">Schneider Electric via CISA (ICSA-26-190-03)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor mitigations applied (OCPP disabled / auth added)</span>
-            <span class="ops-cc"><b>Action:</b> EV-charging and energy operators should confirm charging-backend/websocket endpoints enforce authentication, rate-limit authentication attempts, remove management interfaces from internet exposure, and segment charging backends from core grid and business networks.</span>
+            <span class="ops-tag patch-yes">Remediation / mitigations available</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Easergy MiCOM Px40 relays, apply Schneider&rsquo;s remediation, disable or tightly restrict SNMP on protection relays, block SNMP at the substation boundary, move relay management to an isolated network, and monitor for unexpected SNMP queries.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Backend authentication &amp; exposure review &mdash; 30 days (High, unauth priv-esc / DoS)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-hydroquebec" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-hydroquebec">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> SNMP lockdown &amp; firmware review &mdash; 30 days (High, unauthenticated info disclosure on protection relays)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-micompx40" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-micompx40">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / Hydro-Qu&eacute;bec</span>
+          <span>CISA / Schneider Electric</span>
           <span class="dot">&bull;</span>
-          <span>Published 7 Jul 2026</span>
+          <span>Published 9 Jul 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1002,7 +1002,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Power Generation &amp; Transmission.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7 July 2026 cycle &mdash; Siemens SINEC OS/RUGGEDCOM, Hydro-Qu&eacute;bec Le Circuit &eacute;lectrique) and the CISA KEV catalog, Siemens ProductCERT and Schneider Electric CPCERT advisories, NERC/FERC CIP-2026 milestones, Kaspersky Securelist, Dragos electric-grid threat research, and reporting from SecurityWeek, The Hacker News, SOCRadar and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7&ndash;9 July 2026 cycles &mdash; Siemens SINEC OS/RUGGEDCOM, Schneider Easergy MiCOM Px40) and the CISA KEV catalog, Siemens ProductCERT and Schneider Electric CPCERT advisories, NERC/FERC CIP-2026 milestones, Kaspersky Securelist, Dragos electric-grid threat research, and reporting from SecurityWeek, The Hacker News, SOCRadar and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
