@@ -628,14 +628,14 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 11 Jul 2026, 6:15 PM ET</span>
+        <span>Generated Sun, 12 Jul 2026, 12:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>13</strong> stories across
-      <strong>4</strong> categories
+      <strong>11</strong> stories across
+      <strong>5</strong> categories
     </div>
   </div>
 
@@ -643,31 +643,32 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-nidec">
+    <div class="top-story" id="story-windchill">
       <span class="top-story-pill">Top Story</span>
-      <h2>Nidec confirms ransomware at its Taiwan subsidiary as Blackfield demands $2M and claims 2TB of stolen data</h2>
-      <p>Japanese industrial motor and components maker Nidec has confirmed a ransomware attack on its Taiwanese subsidiary, Nidec Chaun Choung Technology (Nidec CCI), with the Blackfield crew demanding roughly $2 million and claiming it exfiltrated more than two terabytes of corporate data spanning employee, financial, procurement, manufacturing and IT records. To contain the intrusion, Nidec shut down affected servers and network segments and says it is still assessing how production, shipping and other operations were affected. Because Nidec supplies motors, thermal modules and precision components used across manufacturing and critical-infrastructure supply chains, disruption at a plant-adjacent subsidiary ripples downstream to OT operators that depend on those parts. It is also Nidec&rsquo;s second ransomware event since 2024, underscoring how manufacturers with sprawling global subsidiaries struggle to hold a consistent security baseline.</p>
+      <h2>Attackers are exploiting a critical PTC Windchill flaw in the wild &mdash; a first for the manufacturing PLM platform</h2>
+      <p>Threat actors are actively exploiting a critical remote-code-execution flaw in PTC Windchill, the product-lifecycle-management platform that anchors engineering and manufacturing data across automotive, aerospace, defense and heavy-industry suppliers. CISA added CVE-2026-12569 to its Known Exploited Vulnerabilities catalog on 25 June &mdash; the first PTC product ever listed &mdash; after PTC confirmed attackers were chaining the unauthenticated flaw to plant persistent JSP webshells for remote command execution and data theft. German authorities physically warned companies of imminent attacks before exploitation was confirmed. Because Windchill holds the design files, BOMs and process documentation that feed OT and production, a compromised server is both a supply-chain intelligence goldmine and a foothold toward the plant floor. Patches and mitigations began 17 June; internet-exposed instances need triage now.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; company-acknowledged ransomware; data-theft claimed by actor</span>
-          <span class="ops-tag kev-off">Blackfield ransomware &mdash; industrial manufacturing</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation; JSP webshells &amp; data exfiltration</span>
+          <span class="ops-tag kev-on">In CISA KEV (added 25 Jun 2026)</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No single patch &mdash; ransomware / data-theft response</span>
-          <span class="ops-cc"><b>Action:</b> Treat leaked engineering, procurement and credential data as a springboard for follow-on phishing and supply-chain targeting; verify segmentation between corporate IT and plant-floor OT; confirm offline-tested backups and recovery runbooks; rotate exposed credentials and certificates; and monitor subsidiary and supplier networks for lateral movement.</span>
+          <span class="ops-tag patch-yes">Patches &amp; mitigations available (PTC, from 17 Jun)</span>
+          <span class="ops-cc"><b>Action:</b> Identify all Windchill/FlexPLM instances, take internet-exposed ones offline or behind a gateway, apply PTC&rsquo;s patches/mitigations, and hunt for PTC&rsquo;s published IoCs &mdash; unexpected JSP files, new webshells and anomalous outbound traffic from PLM servers.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> IT/OT segmentation &amp; backup verification &mdash; 7 days (active ransomware in the manufacturing supply chain)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nidec" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="nidec">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Patch/isolate &amp; compromise hunt &mdash; 7 days (active exploitation, KEV-listed)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="windchill" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="windchill">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>Nidec disclosure / Blackfield leak site &mdash; via BleepingComputer &amp; The Record</span>
+        <span class="cve-badge">CVE-2026-12569</span>
+        <span>PTC advisory / CISA KEV &mdash; via SecurityWeek &amp; Heise</span>
         <span class="dot">&bull;</span>
-        <span>Confirmed 22 Jun 2026 &mdash; actor claim ~24 Jun 2026</span>
+        <span>Exploitation confirmed 26 Jun 2026</span>
       </div>
-      <a href="https://www.bleepingcomputer.com/news/security/blackfield-ransomware-asks-nidec-corporation-for-2-million-ransom/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -698,25 +699,23 @@
         <text class="ring-label" x="180" y="77">High</text>
 
         <!-- Critical blips (inner ring, r=60), descending size -->
-        <a href="#story-nidec"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.4">1</text></a>
-        <a href="#story-kemp"><circle class="blip crit" cx="232" cy="210" r="13.5"/><text class="blip-num" style="font-size:12.5px" x="232" y="214.2">2</text></a>
-        <a href="#story-windchill"><circle class="blip crit" cx="128" cy="210" r="12"/><text class="blip-num" style="font-size:11px" x="128" y="213.9">3</text></a>
+        <a href="#story-windchill"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.4">1</text></a>
+        <a href="#story-lantronix"><circle class="blip crit" cx="240" cy="180" r="13.5"/><text class="blip-num" style="font-size:12.5px" x="240" y="184.2">2</text></a>
+        <a href="#story-hydroquebec"><circle class="blip crit" cx="180" cy="240" r="12"/><text class="blip-num" style="font-size:11px" x="180" y="243.7">3</text></a>
 
         <!-- High blips (outer ring, r=110), descending size -->
-        <a href="#story-indra"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:9px" x="180" y="73.1">4</text></a>
-        <a href="#story-rockwell"><circle class="blip high" cx="275" cy="235" r="8"/><text class="blip-num" style="font-size:8px" x="275" y="237.9">5</text></a>
-        <a href="#story-lantronix"><circle class="blip high" cx="85" cy="235" r="7"/><text class="blip-num" style="font-size:7px" x="85" y="237.5">6</text></a>
-        <a href="#story-daktronics"><circle class="blip high" cx="85" cy="125" r="6.5"/><text class="blip-num" style="font-size:6.5px" x="85" y="127.3">7</text></a>
+        <a href="#story-openplc"><circle class="blip high" cx="258" cy="102" r="9"/><text class="blip-num" style="font-size:9px" x="258" y="105.1">4</text></a>
+        <a href="#story-forescout"><circle class="blip high" cx="258" cy="258" r="8"/><text class="blip-num" style="font-size:8px" x="258" y="260.9">5</text></a>
+        <a href="#story-waterstates"><circle class="blip high" cx="102" cy="258" r="7"/><text class="blip-num" style="font-size:7px" x="102" y="260.5">6</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-nidec"><span class="ld crit"></span><b>1</b> Nidec ransomware &mdash; Taiwan mfg subsidiary</a>
-        <a href="#story-kemp"><span class="ld crit"></span><b>2</b> Kemp LoadMaster RCE (9.6, exploited)</a>
-        <a href="#story-windchill"><span class="ld crit"></span><b>3</b> PTC Windchill RCE exploited (KEV)</a>
-        <a href="#story-indra"><span class="ld high"></span><b>4</b> Indra Group ransomware (NATO)</a>
-        <a href="#story-rockwell"><span class="ld high"></span><b>5</b> Rockwell ICS patch bundle</a>
-        <a href="#story-lantronix"><span class="ld high"></span><b>6</b> Lantronix serial-IP flaw exploited</a>
-        <a href="#story-daktronics"><span class="ld high"></span><b>7</b> Daktronics sign controller flaws</a>
+        <a href="#story-windchill"><span class="ld crit"></span><b>1</b> PTC Windchill exploited in the wild</a>
+        <a href="#story-lantronix"><span class="ld crit"></span><b>2</b> Lantronix EDS5000 actively exploited</a>
+        <a href="#story-hydroquebec"><span class="ld crit"></span><b>3</b> Hydro-Qu&eacute;bec EV charging RCE (9.8)</a>
+        <a href="#story-openplc"><span class="ld high"></span><b>4</b> OpenPLC v3 vulnerabilities</a>
+        <a href="#story-forescout"><span class="ld high"></span><b>5</b> Forescout: OT serial-to-IP exploited</a>
+        <a href="#story-waterstates"><span class="ld high"></span><b>6</b> Iran/Russia/China target water OT</a>
       </div>
     </div>
 
@@ -730,37 +729,37 @@
 
       <div class="trend">
         <span class="trend-tag">Market</span>
-        <b class="trend-head">Accenture&rsquo;s $4.2B OT-security land grab</b>
-        <p>Accenture&rsquo;s roughly $4.2B move to take a majority stake in Dragos and buy runZero and NetRise has the community weighing what pure-play OT threat intelligence and asset visibility look like inside a global integrator &mdash; and whether consolidation helps or crowds critical-infrastructure defenders. The deal is slated to close in Aug&ndash;Sep 2026.</p>
-        <a href="https://www.securityweek.com/accenture-to-acquire-majority-stake-in-dragos-all-of-runzero-netrise-in-4-1-billion-ot-cybersecurity-push/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <b class="trend-head">Accenture&rsquo;s $4.2B OT deal reshapes the vendor map</b>
+        <p>Accenture&rsquo;s move to take a majority stake in Dragos (valued near $3.25B) and fully acquire runZero and NetRise for a combined ~$4.18B keeps the community weighing what pure-play OT threat intelligence and asset visibility look like inside a global integrator &mdash; and whether consolidation strengthens defenders or narrows their choices.</p>
+        <a href="https://cyberscoop.com/accenture-industrial-cybersecurity-acquisition-dragos-netrise-runzero/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Remote Access</span>
+        <b class="trend-head">Internet-exposed OT edge gear is getting popped fast</b>
+        <p>Active exploitation of Lantronix serial-to-IP converters &mdash; with researchers noting attackers reverse-engineered the patch within days &mdash; has re-centered the conversation on internet-facing OT connectivity devices. The refrain: inventory them, pull them off the public internet, and assume the patch window is shorter than you think (see incidents).</p>
+        <a href="https://www.forescout.com/blog/analyzing-active-exploitation-of-lantronix-and-openwrt-luci/" class="source-link" target="_blank" rel="noopener">Forescout</a>
       </div>
 
       <div class="trend">
         <span class="trend-tag">Geopolitics</span>
-        <b class="trend-head">Iran-nexus targeting keeps water &amp; energy on edge</b>
-        <p>Iran-aligned crews and hacktivists keep probing U.S. water and energy OT amid Middle East tension &mdash; from a campaign against internet-exposed Rockwell/Allen-Bradley PLCs to Handala&rsquo;s Cal Water claim (which Mandiant found never reached OT). Defenders are re-prioritizing exposure reduction on internet-facing controllers.</p>
-        <a href="https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
-      </div>
-
-      <div class="trend">
-        <span class="trend-tag">AI in OT</span>
-        <b class="trend-head">AI cuts both ways in OT</b>
-        <p>The community is debating AI as both weapon and shield: Dragos documented threat actors leaning on Claude to navigate toward OT assets in a Mexican water-utility intrusion, even as vendors ship OT-tuned AI (e.g. Dragos&rsquo; EmberAI) and analysts warn AI is quietly eroding the Purdue Model&rsquo;s trust boundaries.</p>
-        <a href="https://industrialcyber.co/features/how-ai-is-quietly-rewiring-purdue-model-forcing-industrial-defenders-to-rethink-trust-across-operational-environments/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <b class="trend-head">Water stays a three-power target board</b>
+        <p>Agencies and analysts continue drawing sharper lines between how Iran, Russia and China approach water and energy OT &mdash; Iran-linked crews and hacktivists hitting exposed PLCs/HMIs, Russia more willing to manipulate controls, and China&rsquo;s Volt Typhoon pre-positioning for a future conflict. The debate is matching defenses to each actor&rsquo;s intent (see Threat Intel).</p>
+        <a href="https://www.cybersecuritydive.com/news/iran-linked-hackers-targeting-water-energy-in-us-fbi-and-cisa-warn/816949/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive</a>
       </div>
 
       <div class="trend">
         <span class="trend-tag">Threat Landscape</span>
-        <b class="trend-head">From data theft to operational disruption</b>
-        <p>The through-line in this year&rsquo;s reporting is adversaries moving past pre-positioning toward actively mapping control loops and rehearsing physical impact &mdash; Dragos now tracks 26+ OT threat groups. The discussion has shifted from &ldquo;are they in&rdquo; to &ldquo;what can they make the process do.&rdquo;</p>
-        <a href="https://www.dragos.com/blog/ot-threat-landscape-2026/" class="source-link" target="_blank" rel="noopener">Dragos</a>
+        <b class="trend-head">Ransomware dip masks a nation-state shift</b>
+        <p>Waterfall&rsquo;s 2026 threat reporting argues a headline slowdown in OT-impacting ransomware masks a deeper pivot toward nation-state operations aimed at physical disruption. The community read-through: don&rsquo;t mistake fewer ransomware headlines for lower risk when adversaries are rehearsing control-loop manipulation.</p>
+        <a href="https://industrialcyber.co/reports/waterfall-threat-report-2026-finds-ransomware-slowdown-masks-deeper-shift-toward-nation-state-attacks-on-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Regulation</span>
-        <b class="trend-head">OT compliance clocks keep stacking up</b>
-        <p>Between 2026 NERC CIP milestones, Australia&rsquo;s enhanced CIRMP rules, EU NIS2 and the long-running debate over TSA&rsquo;s voluntary-vs-mandatory pipeline model, operators are wrestling with how to reconcile overlapping OT security and reporting obligations without duplicative effort (see Regulation &amp; Policy).</p>
-        <a href="https://industrialcyber.co/regulation-standards-and-compliance/cisc-unveils-enhanced-cirmp-rules-to-address-ai-legacy-systems-supply-chain-and-insider-risks-across-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">AI / Governance</span>
+        <b class="trend-head">OT-native AI arrives in the SOC</b>
+        <p>Dragos&rsquo;s EmberAI launch has sharpened the debate over AI in industrial defense &mdash; where OT-tuned assistants genuinely cut analyst workload versus adding another tool to validate, all while attackers experiment with general-purpose AI to navigate toward OT. Governance, data-handling and human-in-the-loop control are the recurring questions (see Threat Intel).</p>
+        <a href="https://www.helpnetsecurity.com/2026/06/23/dragos-unveils-ot-native-ai-to-help-critical-infrastructure-teams-prioritize-threats-faster/" class="source-link" target="_blank" rel="noopener">Help Net Security</a>
       </div>
 
     </div>
@@ -771,34 +770,35 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-indra">
+      <div class="card" id="story-lantronix">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident / Ransomware</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident / Active Exploitation</span>
         </div>
-        <h3>NATO defense contractor Indra confirms ransomware at one subsidiary as TheGentlemen threatens a data leak</h3>
-        <p>Spanish defense, aerospace and technology group Indra &mdash; a NATO supplier with more than 62,000 staff across 140-plus countries &mdash; confirmed a ransomware incident after the fast-rising TheGentlemen crew listed it on a leak site with a countdown deadline. Indra says the event was localized to one non-critical subsidiary environment, did not spread to other group companies and had no effect on service delivery, while an investigation continues. TheGentlemen, a ransomware-as-a-service operation that emerged in late 2024, has claimed more than 300 victims in the first half of 2026 &mdash; roughly one in ten of all ransomware claims worldwide, second only to Qilin &mdash; and favors organizations with government or defense ties. Even a &ldquo;contained&rdquo; hit on a defense-adjacent manufacturer is worth watching for supply-chain and extortion fallout.</p>
+        <h3>Lantronix serial-to-IP converters under active attack &mdash; unauthenticated root command injection on OT connectivity gear</h3>
+        <p>CISA confirmed in-the-wild exploitation of CVE-2025-67038, an unauthenticated OS-command-injection flaw in Lantronix EDS5000 serial-to-IP device servers that yields root-level code execution. The bug &mdash; one of the 20 &ldquo;BRIDGE:BREAK&rdquo; serial-to-IP issues Forescout disclosed in April &mdash; was added to CISA&rsquo;s KEV catalog on 23 June. Forescout later reported a honeypot caught exploitation as early as 5 April, shortly after the patch shipped, suggesting attackers reverse-engineered the fix; the activity was targeted rather than generic botnet scanning. Serial-to-IP converters bridge legacy serial OT and IoT devices onto networks, so a compromised unit can serve as a lateral-movement foothold or be used to falsify sensor readings and mask dangerous process conditions. Thousands of Lantronix systems sit internet-exposed, most in the U.S.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; company-acknowledged; actor threatens data leak</span>
-            <span class="ops-tag kev-off">TheGentlemen ransomware &mdash; defense/aerospace</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation (honeypot &amp; CISA)</span>
+            <span class="ops-tag kev-on">In CISA KEV (added 23 Jun 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; ransomware / extortion response</span>
-            <span class="ops-cc"><b>Action:</b> Defense-supply-chain partners should watch for extortion-driven phishing and impersonation, verify segmentation between corporate repositories and any production/OT environments, confirm offline-tested backups, and rotate credentials or certificates that could surface in leaked contractor data.</span>
+            <span class="ops-tag patch-yes">Patch available (Lantronix)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Lantronix EDS5000 (and other serial-to-IP converters), patch to fixed firmware, remove them from direct internet exposure, restrict management to trusted paths, and hunt for anomalous root sessions and unexpected outbound traffic from these devices.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Supplier-exposure &amp; identity review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="indra" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="indra">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch/isolate &amp; hunt &mdash; 7 days (active exploitation, KEV-listed)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="lantronix" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="lantronix">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Indra statement / TheGentlemen leak site &mdash; via Cybernews &amp; SecurityWeek</span>
+          <span class="cve-badge">CVE-2025-67038</span>
+          <span>CISA KEV / Forescout &mdash; via SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Listed 30 Jun &mdash; confirmed 2 Jul 2026</span>
+          <span>Exploitation reported 25 Jun 2026</span>
         </div>
-        <a href="https://cybernews.com/security/indra-group-ransomware-attack-data-leak/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-calwater">
@@ -826,7 +826,7 @@
         <div class="card-meta">
           <span>Cal Water / Google Mandiant &mdash; via SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Investigation findings 25 Jun 2026 &mdash; claim 12 Jun 2026</span>
+          <span>Investigation findings 25 Jun 2026 &mdash; claim 11 Jun 2026</span>
         </div>
         <a href="https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -839,34 +839,34 @@
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
 
-      <div class="card" id="story-exposure">
+      <div class="card" id="story-waterstates">
         <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Threat Research</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Research / Nation-State</span>
         </div>
-        <h3>Internet-facing ICS plateaus near 170,000 &mdash; but Bitsight says the real attack surface is still widening</h3>
-        <p>Bitsight&rsquo;s 2026 Global State of ICS/OT Exposure finds the count of internet-facing industrial control systems has flattened at roughly 170,000 devices seen monthly &mdash; a number defenders might read as progress. The report&rsquo;s warning is that the risk profile is expanding anyway: modern controllers increasingly speak general-purpose protocols such as SSH, HTTP and MQTT alongside legacy fieldbus protocols, so each exposed device offers more reachable services and a broader attack surface than the raw count implies. For asset owners the takeaway is that exposure management can&rsquo;t stop at &ldquo;is this device on the internet?&rdquo; &mdash; it has to account for which services and protocols each controller exposes and whether any of them are reachable from untrusted networks.</p>
+        <h3>Iran, Russia and China are hitting water systems differently &mdash; and defenses should follow their intent</h3>
+        <p>Research summarized by DomainTools separates how the three main state threats approach water and wastewater OT. Iran-aligned crews and hacktivists (CyberAv3ngers and similar IRGC-linked groups) go after weakly authenticated, internet-exposed PLCs and HMIs, posing the highest risk to smaller utilities. Russia-aligned actors are more willing to actually manipulate controls &mdash; researchers point to the 2024 Muleshoe, Texas, incident where a remote interface was used to overflow a water tank. China&rsquo;s Volt Typhoon activity looks less like immediate disruption and more like durable pre-positioning for a future conflict. The practical guidance for utilities: reduce internet exposure and enforce strong authentication first, then tune detection and segmentation to the actor most likely to target you.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Research &mdash; exposure telemetry; no single incident</span>
-            <span class="ops-tag kev-off">Internet-facing ICS &mdash; all sectors</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active nation-state targeting &mdash; documented water-OT intrusions</span>
+            <span class="ops-tag kev-off">Iran / Russia / China &mdash; water &amp; wastewater</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; exposure &amp; attack-surface management</span>
-            <span class="ops-cc"><b>Action:</b> Run an external exposure sweep of your own IP ranges for ICS protocols and management services (including SSH/HTTP/MQTT on controllers), remove or gateway anything internet-reachable, and track exposed-service counts &mdash; not just device counts &mdash; as a program metric.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; exposure reduction &amp; threat-informed defense</span>
+            <span class="ops-cc"><b>Action:</b> Remove PLCs/HMIs from direct internet exposure, enforce strong/MFA authentication and change default credentials, segment control networks from IT and remote access, and prioritize monitoring around the actor profile (opportunistic exposure hits vs. control manipulation vs. quiet pre-positioning) most relevant to your utility.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External exposure assessment &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="exposure" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="exposure">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure &amp; authentication review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="waterstates" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="waterstates">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Bitsight &mdash; via SecurityWeek</span>
+          <span>DomainTools &mdash; via Dark Reading</span>
           <span class="dot">&bull;</span>
-          <span>Reported early Jul 2026</span>
+          <span>Reported ~29 Jun 2026</span>
         </div>
-        <a href="https://www.bitsight.com/blog/2026-global-state-of-ics-ot-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.darkreading.com/ics-ot-security/iran-russia-china-target-water-systems-sabotage" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-emberai">
@@ -899,6 +899,36 @@
         <a href="https://www.securityweek.com/dragos-unveils-ai-for-ot-security/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-forescout">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Research / Exploitation</span>
+        </div>
+        <h3>Forescout dissects live exploitation of OT serial-to-IP converters &mdash; attackers moved before the research even dropped</h3>
+        <p>Forescout published analysis of real-world exploitation tied to its BRIDGE:BREAK research, which uncovered 20 vulnerabilities in Lantronix and Silex serial-to-IP converters used to network legacy serial devices in industrial and healthcare settings. Its honeypots recorded targeted exploitation of the now-KEV-listed Lantronix flaw (CVE-2025-67038) on 5 April &mdash; after the vendor patch but before the technical write-up was public &mdash; indicating the attackers reverse-engineered the fix. The traffic showed automated command-injection testing and Lantronix-specific fingerprinting, not the noise of a broad scanner or commodity botnet. The research reinforces two hard lessons for OT defenders: patched-but-exposed devices remain live targets as adversaries close the patch-to-exploit gap, and small connectivity bridges &mdash; capable of forging sensor data &mdash; deserve the same scrutiny as PLCs and HMIs.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; targeted exploitation observed in honeypots</span>
+            <span class="ops-tag kev-off">Serial-to-IP converters (Lantronix/Silex) &mdash; industrial &amp; healthcare</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Research &mdash; drives exposure &amp; patch prioritization</span>
+            <span class="ops-cc"><b>Action:</b> Use BRIDGE:BREAK findings to inventory serial-to-IP converters across OT, prioritize patching internet-reachable units, shorten your emergency-patch window for edge devices, and monitor for command-injection fingerprinting against these bridges.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Serial-bridge exposure review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="forescout" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="forescout">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Forescout Vedere Labs &mdash; via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Published ~25 Jun 2026</span>
+        </div>
+        <a href="https://www.forescout.com/blog/analyzing-active-exploitation-of-lantronix-and-openwrt-luci/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -907,158 +937,65 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
-      <div class="card" id="story-kemp">
+      <div class="card" id="story-hydroquebec">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Progress Kemp LoadMaster: pre-auth RCE (CVSS 9.6) now under active exploitation at the network edge</h3>
-        <p>A critical OS command-injection flaw, CVE-2026-8037 (CVSS 9.6), lets an unauthenticated remote attacker run arbitrary commands on Progress Kemp LoadMaster load balancers by reaching the appliance&rsquo;s API. Because LoadMaster typically sits at the outer edge of enterprise and IT/OT boundary networks, a successful hit hands attackers a direct, credential-free foothold into the environment. Progress disclosed the bug on 4 June and shipped a fix; functional proof-of-concept code appeared on 29 June, and security firms and H-ISAC reported exploitation attempts beginning the same day. This is exactly the kind of edge-appliance flaw OT teams should treat as an IT/OT-boundary emergency, since a compromised balancer can become a pivot toward control networks and remote-access paths.</p>
+        <h3>CISA flags critical flaws in Hydro-Qu&eacute;bec&rsquo;s Le Circuit &Eacute;lectrique EV-charging backend</h3>
+        <p>CISA advisory ICSA-26-188-01 covers three vulnerabilities in the cloud backend behind Hydro-Qu&eacute;bec&rsquo;s Le Circuit &Eacute;lectrique EV-charging network, which manages more than 3,500 public stations. The most serious, CVE-2026-20744 (CVSS 9.8), is an unauthenticated websocket endpoint that could allow privilege escalation; two others enable denial-of-service by hammering authentication (CVE-2026-42952) or by opening multiple sessions under one charging-station ID to overwhelm the backend (CVE-2026-44383). EV-charging is an increasingly OT-adjacent slice of the energy sector, where a compromised management backend can disrupt availability across a whole fleet. Hydro-Qu&eacute;bec has mitigated most stations by disabling OCPP and adding authentication where the protocol is still in use; no in-the-wild exploitation has been reported.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation attempts since 29 Jun; public PoC available</span>
-            <span class="ops-tag kev-off">Progress Kemp LoadMaster &mdash; edge / IT-OT boundary</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; unauth websocket / DoS</span>
+            <span class="ops-tag kev-off">Hydro-Qu&eacute;bec Le Circuit &Eacute;lectrique &mdash; EV charging / energy</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Progress)</span>
-            <span class="ops-cc"><b>Action:</b> Apply Progress&rsquo; fixed LoadMaster build immediately; restrict the management API to trusted networks; put the appliance behind access controls and monitoring; and hunt for signs of exploitation and any lateral movement toward OT or remote-access segments.</span>
+            <span class="ops-tag patch-yes">Mitigated by vendor (OCPP disabled / auth added)</span>
+            <span class="ops-cc"><b>Action:</b> EV-charging and energy operators should confirm vendor mitigations are applied to their station fleet, require authentication on OCPP/websocket management channels, rate-limit and monitor the charging backend, and treat charge-management platforms as OT-adjacent systems in segmentation and incident planning.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 72h (actively exploited pre-auth RCE on an edge appliance)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="kemp" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="kemp">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm mitigations &amp; backend hardening &mdash; ~14 days (CVSS 9.8, fleet-wide backend)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="hydroquebec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="hydroquebec">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8037</span>
-          <span>Progress / eSentire / H-ISAC &mdash; via The Hacker News</span>
+          <span class="cve-badge">CVE-2026-20744</span>
+          <span>CISA ICSA-26-188-01 / Hydro-Qu&eacute;bec</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 4 Jun &mdash; exploitation from 29 Jun 2026</span>
+          <span>CISA advisory 7 Jul 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-windchill">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>First in-the-wild exploitation of PTC Windchill RCE lands it in CISA&rsquo;s KEV catalog</h3>
-        <p>CISA added CVE-2026-12569, a remote code-execution flaw in PTC Windchill, to its Known Exploited Vulnerabilities catalog after the first confirmed in-the-wild exploitation of the bug. Windchill is a widely used product-lifecycle-management platform that holds engineering designs, bills of material and manufacturing data &mdash; the &ldquo;crown jewels&rdquo; that sit adjacent to, and feed, OT production. Exploitation of a PLM system can expose intellectual property and give attackers a route toward manufacturing operations and supply-chain partners. Manufacturers running Windchill should treat the KEV listing as a hard prompt to patch on the KEV timeline and to check exposure of the application to untrusted networks.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first confirmed in-the-wild exploitation</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; PTC Windchill (PLM)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (PTC)</span>
-            <span class="ops-cc"><b>Action:</b> Apply PTC&rsquo;s Windchill update on the CISA KEV remediation timeline, remove any internet exposure of the application, restrict and monitor access to PLM data, and review whether design/manufacturing data flows from Windchill into OT could be abused post-compromise.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch per KEV due date &mdash; ~7 days (exploited RCE, KEV)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="windchill" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="windchill">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-12569</span>
-          <span>CISA KEV / PTC &mdash; via SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Added to KEV 26 Jun 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-lantronix">
+      <div class="card" id="story-openplc">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Lantronix serial-to-IP converter flaw exploited in attacks, added to CISA KEV</h3>
-        <p>Attackers are now exploiting CVE-2025-67038, a code-injection flaw in Lantronix serial-to-IP converters, and CISA has added it to the KEV catalog &mdash; exploitation that followed earlier warnings about targeting of exposed OT devices. Serial-to-IP gateways are the connective tissue that brings legacy serial field equipment onto IP networks, so a compromised converter can give an attacker a bridge between reachable networks and older, unauthenticated control devices behind it. The flaw was among those surfaced by the BRIDGE:BREAK research effort disclosed earlier in 2026. Asset owners should locate these converters, remove internet exposure, and apply Lantronix&rsquo;s fixes.</p>
+        <h3>CISA flags multiple vulnerabilities in OpenPLC v3, used across water and energy</h3>
+        <p>CISA advisory ICSA-26-190-01, published 9 July, covers multiple vulnerabilities in OpenPLC v3, the widely used open-source PLC runtime and programming environment that CISA lists as deployed in water &amp; wastewater and energy. Because OpenPLC is free, cross-platform and increasingly common in labs, pilots, small utilities and academic/training deployments, its flaws can surface in production control paths that lack vendor patch-management discipline. Consult the advisory for the specific issues and affected versions rather than assuming a single fix; open-source ICS software still needs formal tracking, patching and exposure control. Operators running OpenPLC &mdash; especially anything reachable from business networks or the internet &mdash; should update to fixed releases and lock down access to the runtime and its web interface.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited in attacks following OT-targeting warnings</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; Lantronix serial-to-IP converters</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; multiple vulnerabilities</span>
+            <span class="ops-tag kev-off">OpenPLC v3 &mdash; water &amp; wastewater / energy</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch / mitigations available (Lantronix)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory Lantronix and similar serial-to-IP gateways, take them off any internet-facing path, apply vendor fixes, place them behind segmented remote-access controls, and monitor for anomalous connections to the serial devices they front.</span>
+            <span class="ops-tag patch-yes">Fixes per CISA/project advisory</span>
+            <span class="ops-cc"><b>Action:</b> Identify OpenPLC v3 deployments (including lab, pilot and training systems that drifted into production), update to fixed releases, remove the runtime and web interface from untrusted networks, and add open-source ICS software to your formal asset and patch inventory.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; ~14 days (exploited, KEV; OT connectivity device)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="lantronix" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="lantronix">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory &amp; patch &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="openplc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="openplc">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2025-67038</span>
-          <span>CISA KEV / Lantronix &mdash; via SecurityWeek</span>
+          <span>CISA ICSA-26-190-01 / OpenPLC</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation reported 25 Jun 2026</span>
+          <span>CISA advisory 9 Jul 2026</span>
         </div>
-        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-rockwell">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Rockwell Automation patches vulnerabilities across Logix, RSLinx and FactoryTalk</h3>
-        <p>Rockwell Automation issued fixes for security flaws spanning its Logix and CompactLogix controllers, Flex I/O, RSLinx communications software and FactoryTalk products &mdash; core building blocks of discrete and process automation in many plants. No confirmed in-the-wild exploitation was reported alongside the advisories, but the breadth of affected products means most Rockwell-heavy environments will have something to remediate. Given that Iran-linked activity has specifically targeted internet-exposed Rockwell/Allen-Bradley PLCs this year, keeping this ecosystem patched and off the public internet is doubly important. Asset owners should map affected versions against their installed base and schedule updates through normal OT change control.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; multi-product patch set</span>
-            <span class="ops-tag kev-off">Rockwell Logix / CompactLogix / RSLinx / FactoryTalk</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available (Rockwell)</span>
-            <span class="ops-cc"><b>Action:</b> Cross-reference the Rockwell advisories against your Logix/CompactLogix, Flex I/O, RSLinx and FactoryTalk versions, schedule updates via OT change control, and confirm none of these devices or services are reachable from the internet.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Version review &amp; patch planning &mdash; 30 days (widely deployed controllers)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rockwell" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rockwell">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Rockwell Automation PSIRT &mdash; via SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Advisories 17 Jun 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-daktronics">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Daktronics controller flaws could let attackers hijack highway signs and billboards</h3>
-        <p>CISA advisory ICSA-26-176-04 covers three vulnerabilities in Daktronics controller firmware (VFC-DMP-5000, DMP-5000 and DMP-8000) that, chained, could give a remote attacker root-level control over what the signs display &mdash; via path traversal, an unrestricted file upload and a weak default administrative account. While tampering with roadway signs and billboards is more disruption-and-disinformation than process safety, spoofed traffic messages carry real public-safety and public-trust consequences, and root on an internet-exposed controller is a serious foothold. Daktronics released patched firmware in March; the risk is concentrated in units left exposed with default credentials. Transportation and outdoor-display operators should update firmware and replace default passwords.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; unauthenticated root if exposed</span>
-            <span class="ops-tag kev-off">Daktronics DMP-5000 / DMP-8000 &mdash; transportation</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Daktronics firmware)</span>
-            <span class="ops-cc"><b>Action:</b> Update Daktronics controllers to the fixed firmware (8.117.0.x / 9.43.0.x / 10.34.0.x), remove them from direct internet exposure, replace default administrative passwords with strong unique credentials, and monitor for unauthorized content or configuration changes.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Firmware update &amp; credential change &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="daktronics" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="daktronics">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-28701</span>
-          <span>CISA ICSA-26-176-04 &mdash; via SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>CISA advisory 25 Jun 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/new-controller-flaws-expose-highway-signs-and-billboards-to-remote-hacking/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-easergy">
@@ -1100,34 +1037,34 @@
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
 
-      <div class="card" id="story-cirmp">
+      <div class="card" id="story-cip012">
         <div class="card-header">
           <span class="severity sev-info">Policy</span>
           <span class="category">Regulation</span>
         </div>
-        <h3>Australia&rsquo;s enhanced CIRMP rules expand critical-infrastructure obligations to AI, legacy and supply-chain risk</h3>
-        <p>Australia&rsquo;s Cyber and Infrastructure Security Centre unveiled enhanced Critical Infrastructure Risk Management Program (CIRMP) rules that broaden what responsible entities must address &mdash; explicitly folding in AI-related risk, aging legacy systems, supply-chain dependencies and insider threats. For operators inside or trading with Australia&rsquo;s SOCI regime, it is a prompt to revisit risk-management programs so these categories are documented and managed, not assumed. More broadly it reflects a global regulatory drift toward naming specific systemic risks &mdash; legacy OT, third parties, AI &mdash; rather than relying on generic &ldquo;reasonable steps&rdquo; language, and gives asset owners elsewhere a useful checklist for their own OT risk programs.</p>
+        <h3>NERC CIP-012-2 takes effect 1 July, tightening protection of control-center comms</h3>
+        <p>NERC&rsquo;s revised reliability standard CIP-012-2 became enforceable on 1 July 2026, sharpening requirements to protect real-time assessment and monitoring data exchanged between bulk-electric-system control centers &mdash; and closing gaps around the security of that data while it is being transmitted. It applies to Balancing Authorities, Reliability Coordinators, Transmission Operators and Owners, and Generator Operators and Owners. For North American electric entities the effective date is a hard compliance milestone: confidentiality, integrity and availability protections for inter-control-center links must be in place and evidenced, not merely planned. The change also reinforces a broader OT-security principle worth applying beyond NERC&rsquo;s footprint &mdash; that the communication paths between control centers are themselves critical assets deserving encryption, monitoring and formal documentation.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Regulatory update &mdash; enhanced CIRMP rules</span>
-            <span class="ops-tag kev-off">Australia CISC / SOCI &mdash; critical infrastructure</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Effective date &mdash; enforceable 1 Jul 2026</span>
+            <span class="ops-tag kev-off">NERC CIP-012-2 &mdash; bulk electric system</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Compliance readiness</span>
-            <span class="ops-cc"><b>Action:</b> Australian-regulated entities should map the enhanced CIRMP categories (AI, legacy systems, supply chain, insider risk) into their risk-management program and evidence; other operators can adopt the same categories as a gap-check for their OT risk programs.</span>
+            <span class="ops-tag patch-na">Compliance milestone</span>
+            <span class="ops-cc"><b>Action:</b> Electric entities should confirm CIP-012-2 protections for control-center-to-control-center comms are implemented and evidenced (covering data in transit), update the required plan and responsible-entity documentation, and validate encryption/monitoring on those links ahead of audit.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Program gap review &mdash; 30&ndash;60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cirmp" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="cirmp">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Compliance evidence check &mdash; now (already effective)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cip012" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="cip012">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Australia CISC &mdash; via Industrial Cyber</span>
+          <span>NERC &mdash; via Certrec</span>
           <span class="dot">&bull;</span>
-          <span>Announced 18 Jun 2026</span>
+          <span>Effective 1 Jul 2026</span>
         </div>
-        <a href="https://industrialcyber.co/regulation-standards-and-compliance/cisc-unveils-enhanced-cirmp-rules-to-address-ai-legacy-systems-supply-chain-and-insider-risks-across-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.certrec.com/blog/most-significant-nerc-cip-updates-for-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-nist1339">
@@ -1167,7 +1104,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories and the KEV catalog, Schneider Electric, Rockwell Automation and PTC advisories, Bitsight exposure research and Dragos threat analysis, plus WaterISAC, H-ISAC, Australia&rsquo;s CISC and NIST guidance &mdash; corroborated through coverage from Industrial Cyber, SecurityWeek, The Hacker News, BleepingComputer, The Record and Cybernews. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories and the KEV catalog, PTC and Lantronix advisories, Schneider Electric and Hydro-Qu&eacute;bec advisories, OpenPLC, Forescout exploitation research, DomainTools threat analysis, Dragos and NERC/Certrec, plus Cybersecurity Dive and NIST guidance &mdash; corroborated through coverage from SecurityWeek, Industrial Cyber, Dark Reading, CyberScoop, Help Net Security and Heise. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
