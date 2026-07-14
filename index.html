@@ -628,7 +628,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tue, 14 Jul 2026, 6:16 AM ET</span>
+        <span>Generated Tue, 14 Jul 2026, 12:19 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -710,7 +710,7 @@
         <a href="#story-claroty"><circle class="blip high" cx="115" cy="91" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="115" y="93.9">7</text></a>
         <a href="#story-hitachi"><circle class="blip high" cx="75" cy="214" r="8"/><text class="blip-num" style="font-size:8px" x="75" y="216.8">8</text></a>
         <a href="#story-openplc"><circle class="blip high" cx="180" cy="290" r="7.5"/><text class="blip-num" style="font-size:7.5px" x="180" y="292.6">9</text></a>
-        <a href="#story-idirect"><circle class="blip high" cx="285" cy="214" r="7"/><text class="blip-num" style="font-size:7px" x="285" y="216.5">10</text></a>
+        <a href="#story-jadepuffer"><circle class="blip high" cx="285" cy="214" r="7"/><text class="blip-num" style="font-size:7px" x="285" y="216.5">10</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -723,7 +723,7 @@
         <a href="#story-claroty"><span class="ld high"></span><b>7</b> Iran hijacks Israeli warning systems</a>
         <a href="#story-hitachi"><span class="ld high"></span><b>8</b> Hitachi Energy e-mesh EMS overflow</a>
         <a href="#story-openplc"><span class="ld high"></span><b>9</b> OpenPLC v3 vulnerabilities</a>
-        <a href="#story-idirect"><span class="ld high"></span><b>10</b> ST Engineering iDirect satellite terminals</a>
+        <a href="#story-jadepuffer"><span class="ld high"></span><b>10</b> JADEPUFFER first agentic AI ransomware</a>
       </div>
     </div>
 
@@ -751,9 +751,9 @@
 
       <div class="trend">
         <span class="trend-tag">AI / Offense</span>
-        <b class="trend-head">AI keeps compressing the attacker skill curve</b>
-        <p>The debate over AI-enabled offense stays hot: building on Dragos&rsquo;s case where a general-purpose model autonomously flagged a water utility&rsquo;s OT as a crown-jewel target, defenders are arguing that AI is quietly rewiring the Purdue Model &mdash; shrinking the time between an IT foothold and OT-adjacent discovery faster than prevention-only strategies can keep up.</p>
-        <a href="https://industrialcyber.co/features/how-ai-is-quietly-rewiring-purdue-model-forcing-industrial-defenders-to-rethink-trust-across-operational-environments/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <b class="trend-head">Agentic ransomware moves from theory to case study</b>
+        <p>Sysdig&rsquo;s disclosure of JADEPUFFER &mdash; an end-to-end, LLM-driven extortion operation that went from initial access to destroyed production databases in minutes &mdash; dominated the week&rsquo;s AI-offense debate. The takeaway for industrial defenders: the skill floor for machine-speed attacks on exposed app servers, cloud config stores and neglected infrastructure is collapsing, compressing the window between an IT foothold and OT-adjacent damage (see Threat Intelligence).</p>
+        <a href="https://cyberscoop.com/sysdig-judepuffer-ai-agentic-ransomware-attack/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
       </div>
 
       <div class="trend">
@@ -939,6 +939,37 @@
         <a href="https://claroty.com/team82/research/a-cyber-psychological-operation-iran-linked-attackers-target-warning-systems" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-jadepuffer">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Research / AI Threat</span>
+        </div>
+        <h3>Sysdig documents JADEPUFFER &mdash; the first end-to-end AI-driven &ldquo;agentic&rdquo; ransomware, and a warning for exposed industrial infrastructure</h3>
+        <p>Sysdig&rsquo;s Threat Research Team disclosed what it assesses as the first documented case of agentic ransomware: an extortion operation run end-to-end by a large language model rather than a human operator. The agent broke into an internet-facing Langflow server via CVE-2025-3248 (unauthenticated code execution, CVSS 9.8), then harvested credentials, discovered internal services, pivoted to a production environment, and destroyed an Alibaba Nacos database &mdash; leaning on years-old flaws and default keys in neglected, exposed infrastructure. Researchers clocked more than 600 purposeful payloads run at machine speed, moving from access to database destruction in minutes. It didn&rsquo;t touch ICS, but the lesson for OT owners is direct: the skill floor for adaptive, machine-speed attacks on exposed app servers, cloud config stores and forgotten systems is collapsing, and the same neglected, internet-reachable assets that front many plants are exactly what these agents hunt.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed operation (Sysdig research) &mdash; autonomous, machine-speed extortion</span>
+            <span class="ops-tag kev-off">JADEPUFFER (LLM-driven) &mdash; Langflow / Nacos, exposed infrastructure</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Langflow &ge; 1.3.0) &mdash; plus exposure reduction</span>
+            <span class="ops-cc"><b>Action:</b> Inventory and patch internet-facing app/AI-development platforms (Langflow &ge; 1.3.0), retire or isolate exposed cloud config stores and legacy services running known CVEs, rotate default keys/credentials, and add anomalous machine-speed activity to detection for any IT systems adjacent to OT.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposed-asset patch &amp; exposure review &mdash; 14 days (active automated exploitation of known flaws)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="jadepuffer" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="jadepuffer">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2025-3248</span>
+          <span>Sysdig Threat Research &mdash; via CyberScoop &amp; SecurityAffairs</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 1 Jul 2026 &mdash; wide coverage 13 Jul 2026</span>
+        </div>
+        <a href="https://cyberscoop.com/sysdig-judepuffer-ai-agentic-ransomware-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1069,36 +1100,6 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-idirect">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>CISA flags unauthenticated API flaws in ST Engineering iDirect satellite terminals used in energy and remote sites</h3>
-        <p>CISA advisory ICSA-26-183-01, published 2 July, warns that two high-severity flaws in ST Engineering iDirect iQ-Series satellite terminals let an unauthenticated remote attacker take full control of an affected device. The iQ200 exposes REST API endpoints (including /api/identity) without authentication, and state-changing endpoints such as /api/reboot lack CSRF protection and rely only on a session cookie missing the SameSite attribute. The bugs carry CVSS scores around 8.6 and 8.1 and affect firmware 4.5.2.1 and earlier. Satellite terminals frequently backhaul connectivity for remote energy, pipeline and utility sites, so a hijacked terminal can be used to intercept traffic or pivot into the OT network behind it. ST Engineering released fixed firmware 4.5.2.2 on 28 June, ahead of the public advisory.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; unauth API access &amp; CSRF</span>
-            <span class="ops-tag kev-off">ST Engineering iDirect iQ-Series &mdash; satellite comms / energy</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed firmware 4.5.2.2 (ST Engineering iDirect)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory iDirect iQ-Series terminals, upgrade to firmware 4.5.2.2, firewall the web/management interface off untrusted networks, remove default local accounts, and ship API access logs to a SIEM to watch for anomalous unauthenticated calls and reboots.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Firmware upgrade &amp; interface lockdown &mdash; 14 days (unauth full control, remote sites)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="idirect" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="idirect">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICSA-26-183-01 / ST Engineering iDirect</span>
-          <span class="dot">&bull;</span>
-          <span>CISA advisory 2 Jul 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -1174,7 +1175,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the CISA/FBI/NSA joint advisory AA26-194A, CISA ICS Advisories and the KEV catalog, PTC and Lantronix advisories, Siemens ProductCERT, Hydro-Qu&eacute;bec, Hitachi Energy and ST Engineering iDirect advisories, OpenPLC, Claroty Team82 and DomainTools threat analysis, Dragos, NERC/Certrec, NIST and EU regulatory analysis &mdash; corroborated through coverage from SecurityWeek, Industrial Cyber, Dark Reading, CyberScoop, GovInfoSecurity, Help Net Security, Reed Smith and Heise. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the CISA/FBI/NSA joint advisory AA26-194A, CISA ICS Advisories and the KEV catalog, PTC and Lantronix advisories, Siemens ProductCERT, Hydro-Qu&eacute;bec and Hitachi Energy advisories, OpenPLC, Claroty Team82, DomainTools and Sysdig threat research, Dragos, NERC/Certrec, NIST and EU regulatory analysis &mdash; corroborated through coverage from SecurityWeek, Industrial Cyber, Dark Reading, CyberScoop, SecurityAffairs, GovInfoSecurity, Help Net Security, Reed Smith and Heise. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
