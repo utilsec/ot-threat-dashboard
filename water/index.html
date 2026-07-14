@@ -637,13 +637,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 13 Jul 2026, 11:10 AM ET</span>
+        <span>Generated Tuesday, 14 Jul 2026, 4:25 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>9</strong> stories across
+      <strong>10</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -713,6 +713,7 @@
         <a href="#story-aa26"><circle class="blip high" cx="290" cy="180" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="290" y="182.9">5</text></a>
         <a href="#story-openplc"><circle class="blip high" cx="235" cy="275" r="8"/><text class="blip-num" style="font-size:8px" x="235" y="277.7">6</text></a>
         <a href="#story-rockwell"><circle class="blip high" cx="125" cy="275" r="7.5"/><text class="blip-num" style="font-size:7.5px" x="125" y="277.6">7</text></a>
+        <a href="#story-fsbrouters"><circle class="blip high" cx="100" cy="130" r="7"/><text class="blip-num" style="font-size:7px" x="100" y="132.5">8</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -723,6 +724,7 @@
         <a href="#story-aa26"><span class="ld high"></span><b>5</b> Iranian PLC/HMI targeting (AA26-097A)</a>
         <a href="#story-openplc"><span class="ld high"></span><b>6</b> OpenPLC v3 control-runtime flaws</a>
         <a href="#story-rockwell"><span class="ld high"></span><b>7</b> Rockwell Logix / RSLinx / FactoryTalk patches</a>
+        <a href="#story-fsbrouters"><span class="ld high"></span><b>8</b> FSB &ldquo;Berserk Bear&rdquo; router targeting (AA26-194A)</a>
       </div>
     </div>
 
@@ -893,6 +895,36 @@
         </div>
         <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-july-9-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+
+      <div class="card" id="story-fsbrouters">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Nation-State Advisory</span>
+        </div>
+        <h3>CISA and FBI warn Russian FSB &ldquo;Berserk Bear&rdquo; actors are compromising exposed routers &mdash; a direct risk to small water utilities</h3>
+        <p>On 13 July CISA, the FBI and NSA, with international partners, issued advisory AA26-194A warning that Russian FSB Center&nbsp;16 actors &mdash; publicly tracked as Berserk Bear / Dragonfly &mdash; are opportunistically compromising poorly configured and end-of-life networking devices, chiefly internet-facing routers, across critical-infrastructure sectors. The advisory documents them harvesting configurations, abusing legacy SNMP and altering settings to hold long-term footholds. Water and wastewater systems are an acute case: many small and mid-size utilities run aging, internet-exposed routers with default credentials in front of flat SCADA networks, PLCs and lift-station telemetry, with little monitoring. A compromised edge router hands an adversary a quiet path toward the very control devices that dosing, pumping and treatment depend on. This is a second front alongside the Iranian-affiliated PLC targeting utilities already face &mdash; and the fixes are basic router hygiene.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed FSB targeting of critical-infrastructure networking devices</span>
+            <span class="ops-tag kev-off">CISA / FBI / NSA (AA26-194A)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Mitigations available (harden config; patch/replace EOL routers)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory internet-facing and end-of-life routers fronting plant and lift-station networks, disable unused services (especially legacy SNMP/telnet), replace default credentials and enforce phishing-resistant MFA on remote access, patch or replace unsupported devices, and hunt for unauthorized configuration changes using the advisory&rsquo;s IoCs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Edge-router inventory, hardening &amp; IoC sweep &mdash; 7 days (active nation-state targeting of OT-bridging edge)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-fsbrouters" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-fsbrouters">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / FBI / NSA</span>
+          <span class="dot">&bull;</span>
+          <span>Published 13 Jul 2026 &mdash; ongoing</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
@@ -1033,7 +1065,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Water &amp; Wastewater.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative water-sector and OT/ICS sources including CISA ICS Advisories (9 July 2026 cycle &mdash; OpenPLC v3) and the KEV catalog, the CISA/FBI/NSA/EPA joint advisory AA26-097A, WaterISAC TLP:CLEAR bulletins, Rockwell PSIRT, Mandiant incident reporting, Dragos threat research, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; the April 2026 AA26-097A advisory appears as current, still-authoritative guidance for the sector. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative water-sector and OT/ICS sources including CISA ICS Advisories (9 July 2026 cycle &mdash; OpenPLC v3) and the KEV catalog, the CISA/FBI/NSA/EPA joint advisory AA26-097A, a joint CISA/FBI/NSA advisory (AA26-194A, 13 July) on Russian FSB targeting of critical-infrastructure networking devices, WaterISAC TLP:CLEAR bulletins, Rockwell PSIRT, Mandiant incident reporting, Dragos threat research, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; the April 2026 AA26-097A advisory appears as current, still-authoritative guidance for the sector. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

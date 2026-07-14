@@ -6,13 +6,13 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 13 Jul 2026 11:05:00 -0400</lastBuildDate>
+<lastBuildDate>Tue, 14 Jul 2026 04:25:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
 <title>[Critical] “FortiBleed” credential theft now feeds active ransomware — and those FortiGate firewalls front remote access into EMS/SCADA and substations</title>
 <link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
 <guid isPermaLink="false">otthreatfeed:power:fortibleed</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Top Story</category>
 <description><![CDATA[CISA warns the FortiBleed campaign has harvested working administrator and VPN credentials from tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways — leaked credentials tie to roughly 74,000 exposed Fortinet devices inside an operation that collected over 110 million credentials since mid-June. On 2 July researchers linked the stolen access directly to the INC Ransom and Lynx ransomware crews, with at least a dozen deployments traced to it. For electric utilities the exposure is immediate: these appliances terminate the remote access and IT/OT segmentation that EMS/SCADA, substations and the NERC CIP electronic security perimeter depend on. Because valid credentials leaked rather than a single bug being exploited, no patch closes the gap and an intruder signing in looks like a legitimate engineer — so treat any exposed FortiGate guarding grid OT as already compromised. - CISA / DHS / SecurityWeek - CISA alert 18 Jun 2026 — DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing]]></description>
 </item>
@@ -20,7 +20,7 @@
 <title>[Critical] “CitrixBleed” returns: NetScaler flaw exploited within 24 hours, leaking secrets from gateways that front utility remote access</title>
 <link>https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/</link>
 <guid isPermaLink="false">otthreatfeed:power:citrixbleed</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Active Exploitation</category><category>CVE-2026-8451</category>
 <description><![CDATA[Citrix patched CVE-2026-8451 on 30 June — an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider — and researchers saw in-the-wild exploitation within 24 hours, aided by a same-day public proof-of-concept. Like the original CitrixBleed, it lets a remote attacker read appliance memory and harvest live session tokens, credentials and TLS private keys. At many utilities NetScaler gateways terminate the remote access and IT/OT segmentation that reach control-center and substation networks, so leaked secrets can hand an attacker authenticated entry toward grid systems without touching a relay. Assume any internet-facing, unpatched NetScaler had its memory read after 1 July. - CVE-2026-8451 - Patched 30 Jun 2026 — exploited within 24h; ongoing]]></description>
 </item>
@@ -28,7 +28,7 @@
 <title>[High] New “Armored Likho” APT hits electric-power and government targets with apparently AI-generated malware</title>
 <link>https://thehackernews.com/2026/07/armored-likho-targets-government.html</link>
 <guid isPermaLink="false">otthreatfeed:power:likho</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Threat Campaign</category>
 <description><![CDATA[Kaspersky disclosed a previously undocumented espionage cluster it calls Armored Likho, targeting government agencies and electric-power organizations across Russia, Kazakhstan and Brazil. Intrusions begin with spear-phishing that drops a RAR archive and staged loaders pulling a new Python infostealer, BusySnake, which harvests browser credentials, cookies, OTP codes and Telegram sessions and opens reverse-SSH tunnels. Researchers assess the first-stage loaders were likely AI-generated — an early real-world signal of LLM-accelerated tooling reaching critical-infrastructure targeting. This is IT-side credential and espionage activity, not confirmed OT manipulation, but power-sector engineering staff are squarely in scope and stolen credentials are the usual bridge from business networks into control systems. - Kaspersky Securelist / The Hacker News - Disclosed 3–4 Jul 2026 — ongoing]]></description>
 </item>
@@ -36,15 +36,23 @@
 <title>[High] FBI flags hidden comms gear in Chinese-made inverters as a latent kill-switch risk to the grid; FCC drafts an import ban</title>
 <link>https://industrialcyber.co/utilities-energy-power-water-waste/us-energy-sector-at-risk-as-chinese-inverters-are-under-investigation-for-suspicious-communication-gear/</link>
 <guid isPermaLink="false">otthreatfeed:power:inverters</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Supply Chain / Threat Intel</category>
 <description><![CDATA[A new FBI report circulated to critical-infrastructure operators this week warns that Chinese-made power inverters — the internet-connected devices that couple solar, battery and other distributed energy resources to the grid — expose U.S. infrastructure to remote tampering. It follows research (Strider Technologies) reporting undocumented cellular radios and other rogue components in inverters from state-linked vendors, and a survey finding a large majority of utilities run inverters tied to Chinese manufacturers. The concern is latent capability, not a confirmed attack: coordinated malicious firmware or hidden radios could, in theory, let an adversary trip or destabilize large blocks of DER during a crisis. The FCC is drafting a rule to bar imports of new Chinese solar and battery inverter models. For utilities, DER interconnection and inverter fleets are now a supply-chain risk to inventory and segment. - FBI / Strider Technologies / Industrial Cyber / Security Affairs - FBI report circulated 9 Jul 2026 — follow-on reporting 11 Jul; ongoing]]></description>
+</item>
+<item>
+<title>[High] CISA and FBI warn Russian FSB “Berserk Bear” actors are compromising exposed routers that front utility networks</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a</link>
+<guid isPermaLink="false">otthreatfeed:power:fsbrouters</guid>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
+<category>Nation-State Advisory</category>
+<description><![CDATA[On 13 July CISA, the FBI and NSA, with international partners, issued advisory AA26-194A warning that Russian FSB Center 16 actors — publicly tracked as Berserk Bear / Dragonfly — are opportunistically compromising poorly configured and end-of-life networking devices, chiefly internet-facing routers, across multiple critical-infrastructure sectors. The same operators have a long history of energy-sector intrusions; the advisory documents them harvesting configurations, abusing legacy SNMP and altering device settings to hold durable footholds. For electric utilities the exposure is direct: an owned edge router in front of an EMS/SCADA network, a substation link or a vendor remote-access path gives a patient adversary a quiet vantage point to map control traffic and pre-position — the long-dwell behavior Dragos attributes to grid-focused groups. No OT manipulation is alleged, but internet-exposed and unsupported routers guarding grid OT are priority hardening targets. - CISA / FBI / NSA - Published 13 Jul 2026 — ongoing]]></description>
 </item>
 <item>
 <title>[Critical] Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05</link>
 <guid isPermaLink="false">otthreatfeed:power:sinecos</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Advisory</category><category>SINEC OS &amp;lt; V4.0</category>
 <description><![CDATA[CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS before V4.0, the operating system on RUGGEDCOM industrial networking gear. A memory-corruption bug in a bundled third-party component (GNU elfutils) lets a remote attacker compromise unpatched devices, and a public exploit has already been disclosed. RUGGEDCOM switches and routers are the hardened networking backbone in substations, generation plants and rail, sitting directly in the path that segments and moves control-system traffic. No confirmed in-the-wild ICS attacks are reported yet, but a public exploit plus a 9.8 score on widely deployed grid infrastructure warrants emergency patch prioritization. - SINEC OS &lt; V4.0 - Published 7 Jul 2026]]></description>
 </item>
@@ -52,7 +60,7 @@
 <title>[High] Weak session tokens let attackers hijack management sessions across Schneider power relays, meters and RTUs</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07</link>
 <guid isPermaLink="false">otthreatfeed:power:schneider</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-4827</category>
 <description><![CDATA[CISA advisory ICSA-26-169-07 covers CVE-2026-4827 (CVSS v4 8.2), an insufficient-entropy flaw that makes web-management session tokens predictable across a wide swath of Schneider Electric power gear — Easergy P3/P5 and T300 protection relays, EcoStruxure Power Monitoring Expert, PowerLogic ION and PM5000 meters, and Saitel DP/DR RTUs. A remote, unauthenticated attacker who observes a few tokens can predict valid ones and take over an authenticated console session, effectively bypassing login on devices at the heart of substation protection, power monitoring and remote telemetry. No in-wild exploitation is reported yet, but the affected list spans equipment deployed across electric utilities. Schneider has published firmware updates and mitigations. - CVE-2026-4827 - Published 18 Jun 2026]]></description>
 </item>
@@ -60,7 +68,7 @@
 <title>[High] Hard-coded credentials in Schneider Easergy MiCOM Px40 protection relays expose device data over SNMP</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03</link>
 <guid isPermaLink="false">otthreatfeed:power:micompx40</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Advisory</category>
 <description><![CDATA[CISA advisory ICSA-26-190-03 (published 9 July) warns that Schneider Electric’s Easergy MiCOM Px40 series — protection relays deployed for medium-, high- and extra-high-voltage protection across substations and generation plants — contains hard-coded credentials (CWE-798) reachable through the device SNMP service. An unauthenticated attacker able to reach the SNMP port can interrogate a relay and retrieve sensitive device information, aiding reconnaissance and follow-on targeting of substation protection schemes. No in-wild exploitation is reported. Protection relays sit at the heart of grid fault clearing and equipment protection, so any unauthenticated exposure — even information disclosure — warrants tight access control. Schneider has published remediation and mitigations; where firmware can’t be updated immediately, restricting SNMP access is the priority. - CISA / Schneider Electric - Published 9 Jul 2026]]></description>
 </item>
@@ -68,7 +76,7 @@
 <title>[Info] NERC CIP 2026 milestones hit: control-center data protection now effective, internal network monitoring phasing in</title>
 <link>https://www.certrec.com/blog/most-significant-nerc-cip-updates-for-2026/</link>
 <guid isPermaLink="false">otthreatfeed:power:nerccip</guid>
-<pubDate>Mon, 13 Jul 2026 11:05:00 -0400</pubDate>
+<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
 <category>Regulation</category>
 <description><![CDATA[Several NERC CIP obligations reach milestones this year: CIP-012-2, protecting the confidentiality and integrity of real-time data exchanged between control centers, is now effective, while CIP-015-1 internal network security monitoring (INSM) for high- and medium-impact environments is phasing in, and FERC has directed expanding scope toward EACMS and PACS. For registered entities the direction is clear — more prescriptive duties around control-center communications, east-west visibility inside the electronic security perimeter, and faster documentation. Utilities should map current CIP posture against these milestones now rather than at the compliance deadline. - Certrec / NERC - 2026 CIP milestones — effective/phasing in]]></description>
 </item>

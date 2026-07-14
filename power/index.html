@@ -637,13 +637,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 13 Jul 2026, 11:05 AM ET</span>
+        <span>Generated Tuesday, 14 Jul 2026, 4:25 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>8</strong> stories across
+      <strong>9</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -712,6 +712,7 @@
         <a href="#story-likho"><circle class="blip high" cx="235" cy="85" r="9"/><text class="blip-num" style="font-size:9px" x="235" y="88.1">4</text></a>
         <a href="#story-schneider"><circle class="blip high" cx="290" cy="180" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="290" y="182.9">5</text></a>
         <a href="#story-micompx40"><circle class="blip high" cx="235" cy="275" r="8"/><text class="blip-num" style="font-size:8px" x="235" y="277.7">6</text></a>
+        <a href="#story-fsbrouters"><circle class="blip high" cx="105" cy="128" r="7.5"/><text class="blip-num" style="font-size:7.5px" x="105" y="130.7">7</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -721,6 +722,7 @@
         <a href="#story-likho"><span class="ld high"></span><b>4</b> Armored Likho AI-malware hits power grids</a>
         <a href="#story-schneider"><span class="ld high"></span><b>5</b> Schneider power relay session-hijack flaw</a>
         <a href="#story-micompx40"><span class="ld high"></span><b>6</b> Schneider Easergy MiCOM Px40 hard-coded creds</a>
+        <a href="#story-fsbrouters"><span class="ld high"></span><b>7</b> FSB &ldquo;Berserk Bear&rdquo; router targeting (AA26-194A)</a>
       </div>
     </div>
 
@@ -860,6 +862,36 @@
           <span>FBI report circulated 9 Jul 2026 &mdash; follow-on reporting 11 Jul; ongoing</span>
         </div>
         <a href="https://industrialcyber.co/utilities-energy-power-water-waste/us-energy-sector-at-risk-as-chinese-inverters-are-under-investigation-for-suspicious-communication-gear/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-fsbrouters">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Nation-State Advisory</span>
+        </div>
+        <h3>CISA and FBI warn Russian FSB &ldquo;Berserk Bear&rdquo; actors are compromising exposed routers that front utility networks</h3>
+        <p>On 13 July CISA, the FBI and NSA, with international partners, issued advisory AA26-194A warning that Russian FSB Center&nbsp;16 actors &mdash; publicly tracked as Berserk Bear / Dragonfly &mdash; are opportunistically compromising poorly configured and end-of-life networking devices, chiefly internet-facing routers, across multiple critical-infrastructure sectors. The same operators have a long history of energy-sector intrusions; the advisory documents them harvesting configurations, abusing legacy SNMP and altering device settings to hold durable footholds. For electric utilities the exposure is direct: an owned edge router in front of an EMS/SCADA network, a substation link or a vendor remote-access path gives a patient adversary a quiet vantage point to map control traffic and pre-position &mdash; the long-dwell behavior Dragos attributes to grid-focused groups. No OT manipulation is alleged, but internet-exposed and unsupported routers guarding grid OT are priority hardening targets.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed FSB targeting of critical-infrastructure networking devices</span>
+            <span class="ops-tag kev-off">CISA / FBI / NSA (AA26-194A)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Mitigations available (harden config; patch/replace EOL routers)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory internet-facing and end-of-life routers fronting grid OT and remote access, disable unused services (especially legacy SNMP/telnet), enforce strong unique credentials and phishing-resistant MFA, patch or replace unsupported devices, and hunt for unauthorized configuration changes and SNMP activity using the advisory&rsquo;s IoCs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Edge-router inventory, hardening &amp; IoC sweep &mdash; 7 days (active nation-state targeting of OT-bridging edge)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-fsbrouters" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-fsbrouters">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / FBI / NSA</span>
+          <span class="dot">&bull;</span>
+          <span>Published 13 Jul 2026 &mdash; ongoing</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1002,7 +1034,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Power Generation &amp; Transmission.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7&ndash;9 July 2026 cycles &mdash; Siemens SINEC OS/RUGGEDCOM, Schneider Easergy MiCOM Px40) and the CISA KEV catalog, Siemens ProductCERT and Schneider Electric CPCERT advisories, NERC/FERC CIP-2026 milestones, an FBI report on Chinese-made grid inverters (with Strider Technologies research and FCC rulemaking), Kaspersky Securelist, Dragos electric-grid threat research, and reporting from SecurityWeek, The Hacker News, Security Affairs and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (7&ndash;9 July 2026 cycles &mdash; Siemens SINEC OS/RUGGEDCOM, Schneider Easergy MiCOM Px40) and the CISA KEV catalog, Siemens ProductCERT and Schneider Electric CPCERT advisories, a joint CISA/FBI/NSA advisory (AA26-194A, 13 July) on Russian FSB targeting of critical-infrastructure networking devices, NERC/FERC CIP-2026 milestones, an FBI report on Chinese-made grid inverters (with Strider Technologies research and FCC rulemaking), Kaspersky Securelist, Dragos electric-grid threat research, and reporting from SecurityWeek, The Hacker News, Security Affairs and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
