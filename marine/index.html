@@ -637,14 +637,14 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 14 Jul 2026, 4:25 AM ET</span>
+        <span>Generated Thursday, 16 Jul 2026, 5:38 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Marine &amp; Maritime</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>9</strong> stories across
-      <strong>4</strong> categories
+      <strong>7</strong> stories across
+      <strong>3</strong> categories
     </div>
   </div>
 
@@ -652,31 +652,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-fortibleed">
+    <div class="top-story" id="story-sonicwall">
       <span class="top-story-pill">Top Story</span>
-      <h2>&ldquo;FortiBleed&rdquo; credential theft now feeds active ransomware &mdash; and those FortiGate firewalls front the shore-side networks that reach terminal and vessel OT</h2>
-      <p>CISA warns the FortiBleed campaign has harvested working administrator and VPN credentials from tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways &mdash; tied to roughly 74,000 exposed Fortinet devices inside an operation that collected over 110 million credentials since mid-June. On 2 July researchers linked the stolen access directly to the INC Ransom and Lynx ransomware crews, with at least a dozen deployments traced to it. For ports, terminals and vessel operators the exposure is direct: these appliances front the shore-side and remote-access links that reach terminal operating systems, cargo-handling OT and ship-management networks, and ransomware crews increasingly target logistics chokepoints. Because valid credentials leaked rather than a bug being exploited, no patch closes the gap and an intruder logs in looking legitimate &mdash; treat any exposed FortiGate fronting maritime OT as already compromised.</p>
+      <h2>SonicWall SMA 1000 zero-days under active attack &mdash; and a reportable incident under the USCG cyber rule if one is yours</h2>
+      <p>SonicWall confirmed active exploitation of two Secure Mobile Access 1000 flaws after investigating multiple cases. CVE-2026-15409 is a CVSS&nbsp;10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated administrator inject OS commands through the Appliance Management Console. CISA added both to the KEV catalog on 14&nbsp;July with a 17&nbsp;July federal deadline. For ports, terminals and vessel operators the placement is what matters: this class of appliance brokers the shoreside and vendor access that reaches terminal operating systems, crane and gate control, and satcom-backhauled vessel networks. There is a regulatory edge too &mdash; under the USCG Marine Transportation System rule, reportable cyber incidents must go to the National Response Center immediately on discovery, so a confirmed compromise here is a notification decision, not just a patch.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation; now feeding INC/Lynx ransomware (12+ deployments)</span>
-          <span class="ops-tag kev-on">CISA alert 18 Jun; DHS IoCs 2 Jul 2026</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation in multiple investigated cases</span>
+          <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Mitigations available (Fortinet / CISA)</span>
-          <span class="ops-cc"><b>Action:</b> Treat every internet-facing FortiGate/SSL-VPN fronting terminal or vessel OT as compromised: terminate active sessions, rotate all admin and VPN credentials, reissue certificates, enforce MFA, remove management interfaces from the internet, and hunt for unauthorized config pulls using the DHS-shared IoCs.</span>
+          <span class="ops-tag patch-yes">Patch available &mdash; 12.4.3-03453 / 12.5.0-02835 hotfix</span>
+          <span class="ops-cc"><b>Action:</b> Patch SMA 1000 to the fixed hotfix build immediately. Then run SonicWall&rsquo;s forensic checks: <code>/__api__/login</code> or <code>/__api__/logout</code> requests returning HTTP&nbsp;200 in <code>extraweb_access.log</code>, <code>/wsproxy</code> requests with suspicious host parameters (HTTP&nbsp;101), path-traversal hotfix rollbacks in <code>ctrl-service.log</code>, and rogue login/logout routes in <code>/var/lib/unit/conf.json</code>. On any indicator: re-image, rotate all user and admin passwords, reset TOTP tokens &mdash; and involve your Cybersecurity Officer on the NRC reporting question early rather than after the forensics.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Session kill, credential reset &amp; IoC sweep &mdash; 24h (active credential abuse on OT-bridging edge)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="mr-fortibleed">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h; NRC reporting assessment immediately on any confirmed compromise</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-sonicwall" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="mr-sonicwall">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>CISA / DHS / SecurityWeek</span>
+        <span>SonicWall PSIRT (SNWLID-2026-0008) / CISA KEV / The Hacker News</span>
         <span class="dot">&bull;</span>
-        <span>CISA alert 18 Jun 2026 &mdash; DHS IoCs 2 Jul; ransomware linkage confirmed; ongoing</span>
+        <span>SonicWall advisory &amp; KEV addition 14 Jul 2026 &mdash; reporting 15 Jul; exploitation ongoing</span>
       </div>
-      <a href="https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -706,27 +706,26 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-fortibleed"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13.1px" x="180" y="124.5">1</text></a>
-        <a href="#story-citrixbleed"><circle class="blip crit" cx="237" cy="161" r="13.5"/><text class="blip-num" style="font-size:11.7px" x="237" y="165.0">2</text></a>
-        <a href="#story-lantronix"><circle class="blip crit" cx="215" cy="229" r="12"/><text class="blip-num" style="font-size:10.4px" x="215" y="232.5">3</text></a>
-        <a href="#story-sinecos"><circle class="blip crit" cx="145" cy="229" r="11"/><text class="blip-num" style="font-size:9.6px" x="145" y="232.3">4</text></a>
-        <a href="#story-cytur"><circle class="blip high" cx="235" cy="85" r="9"/><text class="blip-num" style="font-size:9px" x="235" y="88.1">5</text></a>
-        <a href="#story-rockwell"><circle class="blip high" cx="290" cy="180" r="8.5"/><text class="blip-num" style="font-size:8.5px" x="290" y="182.9">6</text></a>
-        <a href="#story-fsbrouters"><circle class="blip high" cx="235" cy="275" r="8"/><text class="blip-num" style="font-size:8px" x="235" y="277.7">7</text></a>
+        <a href="#story-sonicwall"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
+        <a href="#story-patchtuesday"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
+        <a href="#story-lantronix"><circle class="blip high" cx="226" cy="80" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="226" y="84.1">3</text></a>
+        <a href="#story-beyondtrust"><circle class="blip high" cx="280" cy="226" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="280" y="229.8">4</text></a>
+        <a href="#story-digi"><circle class="blip high" cx="134" cy="280" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="134" y="282.7">5</text></a>
+        <a href="#story-abb"><circle class="blip high" cx="80" cy="134" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="80" y="136.3">6</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-fortibleed"><span class="ld crit"></span><b>1</b> FortiBleed &mdash; FortiGate credential theft (active)</a>
-        <a href="#story-citrixbleed"><span class="ld crit"></span><b>2</b> CitrixBleed NetScaler flaw exploited (active)</a>
-        <a href="#story-lantronix"><span class="ld crit"></span><b>3</b> Lantronix EDS5000 root RCE (KEV)</a>
-        <a href="#story-sinecos"><span class="ld crit"></span><b>4</b> Siemens SINEC OS / RUGGEDCOM RCE (9.8)</a>
-        <a href="#story-cytur"><span class="ld high"></span><b>5</b> Maritime incidents surge; GNSS spoofing</a>
-        <a href="#story-rockwell"><span class="ld high"></span><b>6</b> Rockwell Logix / RSLinx / FactoryTalk patches</a>
-        <a href="#story-fsbrouters"><span class="ld high"></span><b>7</b> FSB &ldquo;Berserk Bear&rdquo; router targeting (AA26-194A)</a>
+        <a href="#story-sonicwall"><span class="ld crit"></span><b>1</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
+        <a href="#story-patchtuesday"><span class="ld crit"></span><b>2</b> July ICS Patch Tuesday &mdash; Siemens/Rockwell criticals</a>
+        <a href="#story-lantronix"><span class="ld high"></span><b>3</b> Lantronix serial-to-IP flaw exploited in the wild</a>
+        <a href="#story-beyondtrust"><span class="ld high"></span><b>4</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
+        <a href="#story-digi"><span class="ld high"></span><b>5</b> Digi PortServer TS / One SP IA9 advisories</a>
+        <a href="#story-abb"><span class="ld high"></span><b>6</b> ABB advisories (ICSA-26-195) &mdash; shoreside estates</a>
       </div>
     </div>
 
   </div>
+
 
   <!-- SECTION: Trends -->
   <div class="section" id="trends">
@@ -734,265 +733,197 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
-        <span class="trend-tag">Edge Exploits</span>
-        <b class="trend-head">The OT perimeter is the maritime battleground</b>
-        <p>FortiBleed&rsquo;s FortiGate credential theft (see top story), a CitrixBleed-class NetScaler flaw exploited within 24 hours, and the actively-exploited Lantronix serial bridge all hit the internet-facing edge and serial gateways that connect shore-side systems to terminal and vessel OT. Ports and fleets should patch and credential-harden these chokepoints at emergency speed.</p>
-        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <span class="trend-tag">Editorial Note</span>
+        <b class="trend-head">A quiet week for maritime-specific threat reporting</b>
+        <p>Worth saying plainly: this cycle produced no verifiable, sector-native maritime incident or threat-research story inside our 30-day freshness window. Rather than stretch older material &mdash; the CYTUR maritime threat white paper is from February, the Adriatic Port Authority ransomware case from January &mdash; this edition covers the cross-sector items that genuinely reach vessel and terminal OT, framed for that audience, plus the compliance clock. Absence of reporting is not absence of activity.</p>
+        <a href="https://www.securityweek.com/category/ics-ot/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
-
       <div class="trend">
-        <span class="trend-tag">Navigation</span>
-        <b class="trend-head">GNSS spoofing is now routine</b>
-        <p>Recent analyses describe GPS/GNSS spoofing at scale &mdash; on the order of a thousand disruptions a day affecting tens of thousands of vessels &mdash; pushing false positions into ECDIS and AIS. Bridge teams need training to detect it and fall back to radar and visual fixes; it is a safety issue as much as a cyber one.</p>
-        <a href="https://industrialcyber.co/reports/maritime-cyber-incidents-jump-103-as-cytur-warns-smart-ships-under-fire-urges-secure-by-design-overhaul/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Remote Access</span>
+        <b class="trend-head">The brokered vendor path is where the pressure is</b>
+        <p>SonicWall&rsquo;s SMA&nbsp;1000 zero-days are being exploited now (see top story) and BeyondTrust patched a 9.2 pre-auth bypass on 7&nbsp;July. For ports and operators these are one category: the route OEMs and shoreside support take into terminal operating systems, crane control and satcom-backhauled vessel networks. On a ship that path is narrow, high-trust and rarely monitored &mdash; which is precisely the problem.</p>
+        <a href="https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
       </div>
-
       <div class="trend">
-        <span class="trend-tag">Threat Shift</span>
-        <b class="trend-head">Ransomware zeroes in on logistics chokepoints</b>
-        <p>Sector reporting shows maritime ransomware more than doubling year over year, with hacktivist-criminal blends increasingly aiming at ports, terminals and logistics platforms where downtime cascades quickly. Segmentation, tested backups and incident playbooks are the baseline defenses.</p>
-        <a href="https://industrialcyber.co/reports/maritime-cyber-incidents-jump-103-as-cytur-warns-smart-ships-under-fire-urges-secure-by-design-overhaul/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (CYTUR)</a>
+        <span class="trend-tag">Legacy Bridges</span>
+        <b class="trend-head">Researchers have found the serial-server category</b>
+        <p>A Lantronix serial-to-IP flaw is being exploited in the wild (see Incidents) and CISA&rsquo;s 7&nbsp;July batch added Digi PortServer TS and Digi One SP IA9 advisories (see Critical Advisories). Maritime OT is still serial at the sensor layer, and these converters are what put NMEA feeds, alarm panels and cargo systems on the network. They are also the assets least likely to appear on any as-built drawing.</p>
+        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
-
       <div class="trend">
-        <span class="trend-tag">Regulation</span>
-        <b class="trend-head">Maritime cyber mandates converge</b>
-        <p>The USCG MTS cyber rule (CySO and plan deadline in 2027), IACS UR E26/E27 for newbuilds, and a proposed US Maritime Cybersecurity Act for port-facility assessments are converging into one program &mdash; pushing operators to formalize cyber inside safety management now.</p>
-        <a href="https://safety4sea.com/uscg-maritime-cyber-incidents-rise-17-as-phishing-ai-and-ot-risks-reshape-the-threat-landscape/" class="source-link" target="_blank" rel="noopener">Safety4Sea</a>
+        <span class="trend-tag">Compliance</span>
+        <b class="trend-head">Twelve months to the USCG assessment deadline</b>
+        <p>The 16&nbsp;July&nbsp;2027 requirement for a designated Cybersecurity Officer, a completed assessment and an approved plan (see Regulation &amp; Policy) is now inside a one-year horizon. The assessment is the hard part, because it presumes an asset inventory &mdash; and this edition&rsquo;s serial-converter items are a good illustration of why that inventory takes longer than the paperwork.</p>
+        <a href="https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/" class="source-link" target="_blank" rel="noopener">US Coast Guard</a>
       </div>
     </div>
   </div>
+
 
   <!-- SECTION: Incidents &amp; Attacks -->
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="story-citrixbleed">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Active Exploitation</span>
-        </div>
-        <h3>&ldquo;CitrixBleed&rdquo; returns: NetScaler flaw exploited within 24 hours, leaking secrets from gateways that front port and fleet remote access</h3>
-        <p>Citrix patched CVE-2026-8451 on 30 June &mdash; an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider &mdash; and researchers saw in-the-wild exploitation within 24 hours, aided by a same-day public proof-of-concept. Like the original CitrixBleed, it lets a remote attacker read appliance memory and harvest live session tokens, credentials and TLS keys. Ports, terminal operators and shipping lines commonly use NetScaler to publish remote access to terminal operating systems, ERP and fleet-management platforms, so leaked secrets can give an attacker authenticated entry toward operational systems. Assume any internet-facing, unpatched NetScaler had its memory read after 1 July.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited within 24h of disclosure; public PoC</span>
-            <span class="ops-tag kev-off">Citrix NetScaler ADC / Gateway (SAML IdP)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Citrix, 30 Jun)</span>
-            <span class="ops-cc"><b>Action:</b> Patch NetScaler to the fixed build now, terminate all active sessions, and &mdash; assuming memory disclosure &mdash; rotate every session token, credential and TLS private key on the appliance; remove management interfaces from the internet and hunt for anomalous session reuse.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch, session kill &amp; secret rotation &mdash; 24h (active exploitation on OT-bridging edge)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-citrixbleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-citrixbleed">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8451</span>
-          <span>Citrix / watchTowr / SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Patched 30 Jun 2026 &mdash; exploited within 24h; ongoing</span>
-        </div>
-        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="story-lantronix">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
+          <span class="severity sev-high">High</span>
           <span class="category">Active Exploitation</span>
         </div>
-        <h3>Actively-exploited Lantronix EDS5000 flaw hands attackers root on the serial-to-IP bridges used on vessels and at terminals</h3>
-        <p>CISA says CVE-2025-67038, a command-injection flaw in Lantronix EDS5000 serial-to-IP device servers, is being exploited in the wild and added it to the KEV catalog on 23 June (advisory ICSA-26-069-02). An unauthenticated attacker can inject OS commands via the username parameter and run them as root, taking full control of a device whose job is bridging legacy serial equipment onto IP networks. Serial-to-IP converters are common aboard ships and at terminals, linking engine, navigation, cargo and monitoring systems to shipboard and shoreside networks &mdash; and Forescout showed such bugs can even falsify sensor readings, a serious safety concern in a maritime OT context.</p>
+        <h3>Lantronix serial-to-IP converter flaw exploited in the wild &mdash; the bridges between shipboard serial gear and the network</h3>
+        <p>Attackers are exploiting CVE-2025-67038 in Lantronix serial-to-IP converters, one of the flaws disclosed in April through the BRIDGE:BREAK research project. This category deserves particular attention at sea and on the quayside. Maritime OT is still overwhelmingly serial at the sensor and actuator layer &mdash; NMEA feeds, engine and auxiliary monitoring, alarm and monitoring panels, cargo and ballast systems, crane and gate equipment &mdash; and serial-to-IP converters are what connected all of it to shipboard or terminal Ethernet during retrofits and digitalisation projects. They are typically installed by an integrator, absent from any drawing, and never patched because the equipment behind them still works. Exploitation is confirmed and follows an explicit OT threat warning; for most operators the first task is establishing what is actually installed.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; honeypot exploitation observed (Forescout); targeted fingerprinting</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; deadline 26 Jun 2026 (ICSA-26-069-02)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed in the wild</span>
+            <span class="ops-tag kev-off">Lantronix serial-to-IP converters (BRIDGE:BREAK)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor patch available (Lantronix)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory Lantronix EDS5000 and similar serial-to-IP servers aboard vessels and at terminals, apply the vendor fix, remove internet exposure, restrict management to segmented networks, and hunt for command injection via the username parameter and unexpected root processes.</span>
+            <span class="ops-tag patch-yes">Vendor firmware available &mdash; see Lantronix advisory</span>
+            <span class="ops-cc"><b>Action:</b> Sweep vessel and terminal networks for serial-to-IP converters by scanning for management ports rather than trusting as-built documentation &mdash; on ships in particular, the drawings and the installation diverged years ago. Remove internet exposure first, segment the rest, and schedule firmware updates around drydock or planned maintenance. Feed the findings into the asset inventory your cybersecurity assessment will need.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure removal &mdash; 48h (KEV, active root RCE on OT bridge)</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Discovery &amp; exposure remediation &mdash; 72h; firmware &mdash; next maintenance window</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-lantronix" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="mr-lantronix">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span class="cve-badge">CVE-2025-67038</span>
-          <span>CISA KEV / Forescout / SecurityWeek</span>
+          <span>Lantronix / BRIDGE:BREAK / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>KEV-added 23 Jun 2026 &mdash; exploitation since 5 Apr</span>
+          <span>Disclosed Apr 2026 &mdash; exploitation reported 25 Jun 2026; ongoing</span>
         </div>
         <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
 
-  <!-- SECTION: Threat Intelligence &amp; Research -->
-  <div class="section">
-    <div class="section-title">Threat Intelligence &amp; Research</div>
-    <div class="card-grid">
-      <div class="card" id="story-cytur">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat Intel</span>
-        </div>
-        <h3>Maritime cyber incidents surge as GPS/GNSS spoofing becomes a daily hazard</h3>
-        <p>New sector reporting (CYTUR) records a sharp rise in maritime cyber incidents &mdash; roughly 828 in 2025, about a 103% jump year over year, with ransomware cases more than doubling &mdash; and warns that increasingly &ldquo;smart&rdquo; ships expand the attack surface faster than defenses mature. In parallel, GPS/GNSS spoofing has become routine, with recent analyses citing on the order of a thousand disruptions a day affecting tens of thousands of vessels, pushing false positions into ECDIS and AIS. The practical guidance is unchanged but urgent: build cyber into the safety-management system, and train bridge teams to detect spoofing and fall back to radar and visual fixes.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Rising incident volume &mdash; ransomware &amp; GNSS spoofing prominent</span>
-            <span class="ops-tag kev-off">CYTUR / USCG 2026 reporting</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; resilience &amp; crew training</span>
-            <span class="ops-cc"><b>Action:</b> Fold cyber risk into the vessel safety-management system, train bridge crews to recognize GPS/GNSS spoofing and revert to radar/visual position fixing, segment navigation and cargo OT from crew/business networks, and rehearse operating through a cyber event.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> SMS integration &amp; crew training &mdash; ongoing program</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-cytur" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-cytur">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Industrial Cyber (CYTUR)</span>
-          <span class="dot">&bull;</span>
-          <span>2026 reporting &mdash; 2025 incident data</span>
-        </div>
-        <a href="https://industrialcyber.co/reports/maritime-cyber-incidents-jump-103-as-cytur-warns-smart-ships-under-fire-urges-secure-by-design-overhaul/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-gnss">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">GNSS / Navigation</span>
-        </div>
-        <h3>Persistent GPS/GNSS jamming and spoofing keeps disrupting vessels in the Gulf and chokepoints as MARAD warns of Iranian threats to shipping</h3>
-        <p>Navigation-signal interference remains a live operational hazard for mariners: mass GPS/GNSS jamming and spoofing continues across the Strait of Hormuz, Persian Gulf, Black Sea and Baltic, producing false position jumps, degraded AIS and elevated collision and grounding risk &mdash; effects that have been tied to real incidents. MARAD advisory 2026-004 warns of heightened Iranian threats to commercial vessels transiting the Strait of Hormuz and Gulf of Oman, and geopolitical tension has coincided with spikes in electronic interference. This is deliberate electronic warfare and denial rather than a vessel-network compromise, but it degrades the same PNT data bridge, ECDIS and DP systems rely on &mdash; so crews should treat GNSS as untrusted in affected waters and fall back to independent means.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Ongoing GNSS interference &mdash; heightened threat in Hormuz/Gulf transit</span>
-            <span class="ops-tag kev-off">MARAD advisory 2026-004 / USCG</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; navigation resilience &amp; procedures</span>
-            <span class="ops-cc"><b>Action:</b> Brief crews to treat GNSS as untrusted in affected areas, cross-check position with radar, visual and inertial references, guard against spoofed AIS/ECDIS inputs, harden DP and timing dependencies on GNSS, and report interference and any incident to the National Response Center within required timeframes.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Bridge-team brief &amp; PNT contingency review &mdash; before next high-risk transit</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-gnss" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-gnss">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>MARAD / USCG / Ship Universe</span>
-          <span class="dot">&bull;</span>
-          <span>MARAD 2026-004 current &mdash; interference reporting through summer 2026</span>
-        </div>
-        <a href="https://www.maritime.dot.gov/msci/2026-004-persian-gulf-strait-hormuz-and-gulf-oman-iranian-attacks-commercial-vessels" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-fsbrouters">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Nation-State Advisory</span>
-        </div>
-        <h3>CISA and FBI warn Russian FSB &ldquo;Berserk Bear&rdquo; actors are compromising exposed routers &mdash; a concern for ports and vessels</h3>
-        <p>On 13 July CISA, the FBI and NSA, with international partners, issued advisory AA26-194A warning that Russian FSB Center&nbsp;16 actors &mdash; publicly tracked as Berserk Bear / Dragonfly &mdash; are opportunistically compromising poorly configured and end-of-life networking devices, chiefly internet-facing routers, across critical-infrastructure sectors. The advisory documents them harvesting configurations, abusing legacy SNMP and altering settings to hold durable footholds. Maritime is squarely exposed: port terminals lean on internet-facing routers fronting terminal-operating-system and cargo networks, while vessels increasingly ride always-on VSAT and cellular gateways that bridge shipboard IT to navigation and machinery systems. A compromised edge router or satcom gateway gives a patient adversary a quiet foothold to map operations and pre-position, adding to the GNSS-spoofing and ransomware pressure already facing the sector.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed FSB targeting of critical-infrastructure networking devices</span>
-            <span class="ops-tag kev-off">CISA / FBI / NSA (AA26-194A)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Mitigations available (harden config; patch/replace EOL routers)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory internet-facing and end-of-life routers and satcom gateways across terminals and vessels, disable unused services (especially legacy SNMP/telnet), replace default credentials and enforce phishing-resistant MFA on remote access, patch or replace unsupported devices, and hunt for unauthorized configuration changes using the advisory&rsquo;s IoCs.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Edge-router inventory, hardening &amp; IoC sweep &mdash; 7 days (active nation-state targeting of OT-bridging edge)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-fsbrouters" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-fsbrouters">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA / FBI / NSA</span>
-          <span class="dot">&bull;</span>
-          <span>Published 13 Jul 2026 &mdash; ongoing</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-    </div>
-  </div>
 
   <!-- SECTION: Critical Advisories -->
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="story-sinecos">
+      <div class="card" id="story-patchtuesday">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
+          <span class="category">Vendor Advisories</span>
         </div>
-        <h3>Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</h3>
-        <p>CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS before V4.0, the operating system on RUGGEDCOM industrial networking gear. A memory-corruption bug in a bundled third-party component lets a remote attacker compromise unpatched devices, and a public exploit has already been disclosed. RUGGEDCOM switches and routers are hardened networking widely used in port infrastructure, rail-served terminals and marine facilities, sitting in the path that segments and moves control-system traffic. No confirmed in-the-wild ICS attacks are reported yet, but a public exploit plus a 9.8 score on this kind of backbone gear warrants emergency patch prioritization.</p>
+        <h3>July ICS Patch Tuesday: Siemens ships a CVSS 10 auth bypass fix; Rockwell patches critical controller DoS flaws</h3>
+        <p>The July 2026 cycle matters to terminals and shipyards running mainstream industrial automation. Siemens published nine advisories, six critical &mdash; headlined by a CVSS&nbsp;10 token-invalidation flaw in Opencenter X allowing authentication bypass and full application access, with further critical fixes in Simatic S7-1500, Mendix, Sidis Secured SmartPlug, Cadra and Desigo CC (the last being building-management software common in terminal and port facilities). Rockwell published 12 advisories including three critical denial-of-service holes in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can force a major non-recoverable fault, plus a critical unauthenticated CLI exposure in 1715 Redundant I/O. Schneider fixed a high-severity code-execution flaw in IGSS SCADA. VDE CERT added five advisories covering Codesys and Wago among others.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Public exploit disclosed &mdash; no confirmed in-wild ICS exploitation yet</span>
-            <span class="ops-tag kev-off">Siemens ProductCERT (ICSA-26-188-05)</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
+            <span class="ops-tag kev-off">Siemens / Schneider / Rockwell / VDE CERT</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fix available (RUGGEDCOM RST2428P)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory RUGGEDCOM devices running SINEC OS below V4.0 across port and terminal networks, apply the Siemens update immediately, remove management interfaces from routable/internet access, restrict them to an isolated management network, and monitor for anomalous management access.</span>
+            <span class="ops-tag patch-yes">Patches &amp; mitigations available (all vendors)</span>
+            <span class="ops-cc"><b>Action:</b> Match these advisories against terminal and facility automation inventories &mdash; crane and conveyor control, gate systems, building management and shore power. Prioritise anywhere a non-recoverable controller fault would stop cargo operations, and schedule against planned downtime rather than deferring. Note that Desigo CC and similar facility systems often sit outside the OT asset register entirely.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure review &mdash; 7 days (Critical, public exploit, OT network backbone)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-sinecos" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-sinecos">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Triage &amp; scheduling &mdash; 7 days for critical, 30 days for high</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-patchtuesday">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">SINEC OS &lt; V4.0</span>
-          <span>CISA / Siemens ProductCERT</span>
+          <span>Siemens ProductCERT / Schneider / Rockwell PSIRT / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Published 7 Jul 2026</span>
+          <span>Published 14 Jul 2026 (Patch Tuesday) &mdash; reporting 15 Jul</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="story-rockwell">
+      <div class="card" id="story-beyondtrust">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
+          <span class="category">Vulnerability</span>
         </div>
-        <h3>Rockwell Automation patches flaws across Logix controllers, RSLinx and FactoryTalk used in terminal and cargo automation</h3>
-        <p>Rockwell Automation released fixes for multiple vulnerabilities spanning its Logix controller family, RSLinx communications software and FactoryTalk suite &mdash; including a stack-based buffer overflow in RSLinx that could allow remote code execution. Rockwell/Allen-Bradley control gear appears throughout terminal and cargo-handling automation, from crane and conveyor control to bulk-handling systems. None of the issues are reported exploited in the wild, but the affected components sit deep in control and engineering workflows, so patching should be scheduled into the next maintenance window with management-network isolation in the interim.</p>
+        <h3>BeyondTrust patches critical auth-bypass flaws in the privileged remote access tooling vendors use</h3>
+        <p>BeyondTrust disclosed two authentication-bypass vulnerabilities on 7&nbsp;July in Remote Support (RS) and Privileged Remote Access (PRA). CVE-2026-40138 (CVSS&nbsp;9.2) stems from improper validation of authentication data and could let a network-positioned attacker bypass access controls and reach the appliance, including elevated accounts; CVE-2026-40139 involves improper processing of RS authentication requests. Both require a specific authentication configuration to be enabled, which limits exposure, and neither is under active exploitation &mdash; no public proof-of-concept exists. Cloud customers were patched on 21&nbsp;April; self-hosted RS/PRA at 25.3.2 or earlier needs action. Alongside the SonicWall top story, the pattern is clear enough: vendor remote maintenance &mdash; the standing route OEMs use into vessel and terminal systems &mdash; is under sustained research attention.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known in-wild exploitation as of this edition</span>
-            <span class="ops-tag kev-off">Rockwell PSIRT / CISA</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation; no public PoC as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor updates available (Rockwell)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory affected Logix, RSLinx and FactoryTalk versions in terminal automation, schedule Rockwell updates into the next maintenance window, restrict engineering hosts and controllers to isolated OT networks, and remove any internet exposure.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; RS/PRA 25.3.3+ or April rollup (cloud patched 21 Apr)</span>
+            <span class="ops-cc"><b>Action:</b> Check whether you run self-hosted RS/PRA at 25.3.2 or earlier with the affected authentication configuration enabled, and patch. Independently, enumerate which equipment makers and service providers hold standing remote access into vessel or terminal OT, and whether those sessions are time-bounded, individually approved and recorded &mdash; this is exactly the ground a cybersecurity assessment will cover.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; isolation &mdash; 30 days (High, RCE in control software)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-rockwell" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-rockwell">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Version check &amp; patch &mdash; 30 days (no exploitation; high privilege if abused)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-beyondtrust" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-beyondtrust">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Rockwell / SecurityWeek</span>
+          <span class="cve-badge">CVE-2026-40138</span>
+          <span class="cve-badge">CVE-2026-40139</span>
+          <span>BeyondTrust / The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Reported Jun 2026</span>
+          <span>Disclosed 7 Jul 2026</span>
         </div>
-        <a href="https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-digi">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Critical Advisory</span>
+        </div>
+        <h3>CISA advisories cover Digi PortServer TS and Digi One SP IA9 serial device servers</h3>
+        <p>CISA released seven ICS advisories on 7&nbsp;July, among them Digi International PortServer&nbsp;TS and Digi One SP&nbsp;IA9 &mdash; serial device servers from the same family as the Lantronix converters currently being exploited (see Incidents). The rest of the batch covers Hitachi Energy PROMOD&nbsp;V and e-mesh&nbsp;EMS, Siemens Mendix Studio Pro and SINEC&nbsp;OS, Labcenter Proteus&nbsp;9 and the Hydro-Qu&eacute;bec Le Circuit &Eacute;lectrique charging-station backend; those are energy- and water-flagged rather than maritime. The Digi entries are the maritime-relevant part, and worth reading together with the Lantronix exploitation: two advisories against the humble serial-server category inside a fortnight suggests researchers are looking hard at it, which has historically preceded attackers doing the same.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for the Digi advisories</span>
+            <span class="ops-tag kev-off">Digi PortServer TS / Digi One SP IA9</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor updates &mdash; see individual advisories</span>
+            <span class="ops-cc"><b>Action:</b> Treat Digi and Lantronix serial servers as a single problem: one discovery pass across the whole category on vessels and at terminals, one segmentation standard, one firmware baseline. Confirm none are reachable from the internet or from crew/guest networks, and record them properly &mdash; an accurate serial-device inventory is a prerequisite for the assessment work due under the USCG rule.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; serial-server discovery &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-digi" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-digi">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisories / WaterISAC</span>
+          <span class="dot">&bull;</span>
+          <span>CISA advisories published 7 Jul 2026</span>
+        </div>
+        <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-july-9-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-abb">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Critical Advisory</span>
+        </div>
+        <h3>CISA&rsquo;s 14 July batch carries three ABB advisories &mdash; worth a look given ABB&rsquo;s marine automation footprint</h3>
+        <p>CISA issued four ICS advisories on 14&nbsp;July (ICSA-26-195-01 through -04), released alongside vendor Patch Tuesday advisories: three from ABB and one from Rockwell. The ABB entries cover Advant Master Online Builder, where an incorrect Online Builder version was included on installation media, and Ability Edgenius, where a Linux kernel privilege-escalation issue could let a locally authenticated user or a compromised container workload gain root. To be precise about scope: these are ABB industrial products, not ABB Marine systems, so they do not name shipboard equipment. They are flagged here because ABB is a significant supplier into marine propulsion, power and automation, and operators with mixed ABB estates ashore &mdash; at terminals, yards and support facilities &mdash; should check the affected version lists rather than assume the advisories miss them.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">ICSA-26-195-01 &hellip; -04 (ABB, Rockwell) &mdash; industrial, not marine-specific</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor updates available</span>
+            <span class="ops-cc"><b>Action:</b> Check the advisories against shoreside ABB installations at terminals, yards and support facilities. Verify Advant Master installations were built from the correct Online Builder version, and patch Edgenius hosts where untrusted container workloads run. Do not extend conclusions to ABB Marine equipment on the basis of these advisories &mdash; consult ABB directly for marine product status.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &amp; patch planning &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-abb" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-abb">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">ICSA-26-195-01 &hellip; -04</span>
+          <span>CISA ICS advisories / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>CISA advisories published 14 Jul 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
+
 
   <!-- SECTION: Regulation &amp; Policy -->
   <div class="section">
@@ -1003,38 +934,39 @@
           <span class="severity sev-info">Info</span>
           <span class="category">Regulation</span>
         </div>
-        <h3>USCG maritime cyber rule advances as IACS UR E26/E27 and a new Maritime Cybersecurity Act raise the bar</h3>
-        <p>Maritime cyber compliance keeps hardening. Under the USCG&rsquo;s MTS cyber Final Rule, US-flag and MTSA-regulated operators must report cyber incidents promptly, and the Cybersecurity Officer designation and Cybersecurity Plan submission deadline lands in 2027 &mdash; while the training obligation already passed. In parallel, IACS UR E26 (ship) and E27 (systems/equipment) now apply to newbuilds contracted since mid-2024 and are entering the delivery phase, and US lawmakers introduced a Maritime Cybersecurity Act to mandate periodic vulnerability assessments at port facilities. Operators should treat these as one converging program, not separate checklists.</p>
+        <h3>The USCG cyber rule&rsquo;s big deadline is 16 July 2027: Cybersecurity Officer, assessment and plan</h3>
+        <p>A forward-looking compliance marker rather than news. Under the Coast Guard&rsquo;s Cybersecurity in the Marine Transportation System final rule, U.S.-flagged vessels, OCS facilities and waterfront facilities must, by 16&nbsp;July&nbsp;2027, designate a Cybersecurity Officer, complete an initial cybersecurity assessment (annually thereafter) and submit a Cybersecurity Plan to the USCG for approval. Two earlier milestones are already live and worth confirming you meet: reportable cyber incidents have had to go to the National Response Center immediately on discovery since 16&nbsp;July&nbsp;2025, and the personnel cybersecurity training requirement took effect 16&nbsp;January&nbsp;2026. The Coast Guard has also signalled that Port State Control scrutiny will extend to indicators of poor cybersecurity practice on foreign-flagged vessels, with deficiencies, detention or denial of entry available as outcomes.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Regulatory trajectory &mdash; informational</span>
-            <span class="ops-tag kev-off">USCG MTS rule / IACS UR E26-E27 / proposed Act</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Regulatory milestone &mdash; no threat activity</span>
+            <span class="ops-tag kev-off">USCG MTS cyber rule (33 CFR) &mdash; CySO/assessment/plan due 16 Jul 2027</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; compliance program action</span>
-            <span class="ops-cc"><b>Action:</b> Stand up your USCG Cybersecurity Officer and plan ahead of the 2027 deadline, align vessel programs with IACS UR E26/E27, ensure prompt incident-reporting procedures, and track the proposed Maritime Cybersecurity Act for port-facility assessment requirements.</span>
+            <span class="ops-tag patch-na">No patch &mdash; compliance obligation</span>
+            <span class="ops-cc"><b>Action:</b> With twelve months to run, the binding constraint is usually the assessment, not the paperwork: it depends on an asset inventory most operators do not yet have (see the serial-server items above). Start the inventory now, name the Cybersecurity Officer early enough that they can influence the plan rather than inherit it, and confirm your crews and shoreside staff have actually completed the training that became mandatory in January.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Informational &mdash; align compliance roadmap</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> CySO designation &amp; assessment scoping &mdash; start now for 16 Jul 2027 deadline</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-uscg" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="mr-uscg">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Safety4Sea / USCG</span>
+          <span>US Coast Guard / Maritime Commons</span>
           <span class="dot">&bull;</span>
-          <span>2026 &mdash; CySO/plan deadline 2027</span>
+          <span>Final rule effective 16 Jul 2025; training due 16 Jan 2026; CySO, assessment &amp; plan due 16 Jul 2027</span>
         </div>
-        <a href="https://safety4sea.com/uscg-maritime-cyber-incidents-rise-17-as-phishing-ai-and-ot-risks-reshape-the-threat-landscape/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
+
 
 <!-- FOOTER -->
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Marine &amp; Maritime.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative maritime and OT/ICS sources including CISA ICS Advisories (7 July 2026 cycle &mdash; Siemens SINEC OS/RUGGEDCOM) and the KEV catalog, USCG MTS cyber guidance, a joint CISA/FBI/NSA advisory (AA26-194A, 13 July) on Russian FSB targeting of critical-infrastructure networking devices, MARAD maritime advisory 2026-004 (Strait of Hormuz), IMO/IACS UR E26-E27 references, Rockwell PSIRT, Forescout research, and reporting from SecurityWeek, Industrial Cyber (CYTUR), Ship Universe and Safety4Sea. Default lookback 7&ndash;30 days; GNSS-spoofing and incident-trend figures reflect 2025&ndash;2026 sector reporting. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS and maritime sources including the SonicWall PSIRT advisory SNWLID-2026-0008 and the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7 and 14 July cycles (Digi PortServer TS and Digi One SP IA9; ABB Advant Master and Ability Edgenius; Rockwell 1715-AENTR), Siemens ProductCERT, Schneider Electric and Rockwell Automation July 2026 Patch Tuesday advisories, VDE CERT, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, US Coast Guard Maritime Commons guidance on the Cybersecurity in the Marine Transportation System final rule and its implementation timeline, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. This cycle produced no verifiable maritime-specific incident or threat-research story within the 30-day freshness window; cross-sector items are included only where they genuinely reach vessel or terminal OT, and are framed for that audience. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

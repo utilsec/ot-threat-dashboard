@@ -6,79 +6,79 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-manufacturing.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 14 Jul 2026 04:25:00 -0400</lastBuildDate>
+<lastBuildDate>Thu, 16 Jul 2026 05:38:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] First-ever in-the-wild exploitation of PTC Windchill hits a PLM platform embedded across manufacturing supply chains</title>
+<title>[Critical] Rockwell patches three critical DoS flaws that can drop ControlLogix and CompactLogix into a non-recoverable fault</title>
+<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:patchtuesday</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[July’s ICS Patch Tuesday is a bad one for plant floors. Rockwell Automation published 12 advisories, including three critical denial-of-service holes in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can be exploited to cause a major non-recoverable fault — a controller that stops and stays stopped until someone intervenes. A fourth critical flaw in the 1715 Redundant I/O product lets an unauthenticated attacker reach intrusive CLI commands to read or delete files, stop tasks, change I/O states and modify memory. Siemens added nine advisories, six critical, including a CVSS 10 authentication bypass in Opencenter X and fixes for Simatic S7-1500. For discrete and process manufacturers the exposure is unusually direct: these are not adjacent systems, they are the controllers running the line. - Rockwell PSIRT / Siemens ProductCERT / Schneider / SecurityWeek - Vendor advisories published 14 Jul 2026 (Patch Tuesday) — reporting 15 Jul]]></description>
+</item>
+<item>
+<title>[High] First in-the-wild exploitation of a PTC Windchill flaw — the PLM system holding your product data</title>
 <link>https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/</link>
 <guid isPermaLink="false">otthreatfeed:manufacturing:windchill</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Top Story</category>
-<description><![CDATA[Threat actors are exploiting CVE-2026-12569 in PTC Windchill and FlexPLM in the wild — the first confirmed real-world abuse of the product lifecycle management platform, and the first PTC flaw added to CISA’s KEV catalog (added 25 June, federal deadline 28 June). The improper-input-validation bug lets a remote, unauthenticated attacker run arbitrary code; PTC says attackers are dropping persistent JSP webshells for command execution and data theft, and warned on 26 June of heightened threat activity. Windchill is embedded across automotive, aerospace, defense and heavy-machinery engineering, holding the design data, BOMs and process definitions that feed production — so a compromise threatens intellectual property and the integrity of what reaches the plant floor. PTC began shipping patches and IoCs on 17–18 June. - CISA KEV / PTC / SecurityWeek - KEV-added 25 Jun 2026 — exploitation confirmed 26 Jun; ongoing]]></description>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Active Exploitation</category><category>CVE-2026-12569</category>
+<description><![CDATA[CISA added CVE-2026-12569, a remote code execution flaw in PTC Windchill, to its Known Exploited Vulnerabilities catalog after the first observed exploitation in the wild. Windchill is PLM software: it holds CAD models, bills of materials, engineering change orders, supplier drawings and the release state of designs. That makes it an unusually rich target and an awkward one to classify — it is not an OT system, but it sits at the junction where engineering intent becomes manufacturing instruction, and it typically integrates with MES and ERP on one side and engineering workstations on the other. The realistic risk for most manufacturers is intellectual-property theft and supply-chain reconnaissance rather than direct process manipulation, but a foothold in PLM is a foothold with excellent visibility into how the plant works. - CVE-2026-12569 - Exploitation reported & KEV addition 26 Jun 2026]]></description>
 </item>
 <item>
-<title>[Critical] “FortiBleed” credential theft now feeds active ransomware — and those FortiGate firewalls front plant remote access</title>
-<link>https://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:fortibleed</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Active Exploitation</category>
-<description><![CDATA[CISA warns the FortiBleed campaign harvested working administrator and VPN credentials from tens of thousands of internet-facing FortiGate firewalls and SSL-VPN gateways — tied to roughly 74,000 exposed Fortinet devices inside an operation that collected over 110 million credentials since mid-June. On 2 July researchers linked the stolen access directly to the INC Ransom and Lynx ransomware crews. Manufacturing has been the top ransomware target for years, and these appliances front the remote access and IT/OT segmentation that reach engineering workstations, MES and plant controllers. Because valid credentials leaked rather than a bug being exploited, no patch closes the gap — treat any exposed FortiGate fronting plant OT as already compromised. - CISA / DHS / SecurityWeek - CISA alert 18 Jun 2026 — DHS IoCs 2 Jul; ongoing]]></description>
+<title>[Critical] SonicWall SMA 1000 zero-days exploited — the appliances your OEMs and integrators dial through</title>
+<link>https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:sonicwall</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Active Exploitation</category><category>CVE-2026-15409</category><category>CVE-2026-15410</category>
+<description><![CDATA[SonicWall confirmed active exploitation of two Secure Mobile Access 1000 flaws after investigating multiple cases. CVE-2026-15409 is a CVSS 10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS 7.2) allows an authenticated administrator to inject OS commands via the Appliance Management Console. CISA added both to the KEV catalog on 14 July with a 17 July federal deadline. Manufacturers should read this as a supply-chain access problem rather than a firewall problem. Machine builders, OEMs, robotics vendors and system integrators typically hold standing remote access into cells and lines for diagnostics and warranty support, and that access is frequently brokered through exactly this class of appliance. A compromise there does not trip anomaly detection — it looks like the vendor logging in to check a fault, which is what the vendor does. - CVE-2026-15409 - SonicWall advisory & KEV addition 14 Jul 2026 — reporting 15 Jul; ongoing]]></description>
 </item>
 <item>
-<title>[Critical] “CitrixBleed” returns: NetScaler flaw exploited within 24 hours, leaking secrets from gateways that front plant remote access</title>
-<link>https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:citrixbleed</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Active Exploitation</category><category>CVE-2026-8451</category>
-<description><![CDATA[Citrix patched CVE-2026-8451 on 30 June — an unauthenticated memory-overread in NetScaler ADC and Gateway appliances configured as a SAML identity provider — and researchers saw exploitation within 24 hours, aided by a same-day public proof-of-concept. Like the original CitrixBleed, it lets a remote attacker read appliance memory and harvest live session tokens, credentials and TLS keys. Manufacturers frequently use NetScaler to publish remote access to MES, ERP and engineering systems, so leaked secrets can give an attacker authenticated entry toward production networks. Assume any internet-facing, unpatched NetScaler had its memory read after 1 July. - CVE-2026-8451 - Patched 30 Jun 2026 — exploited within 24h; ongoing]]></description>
-</item>
-<item>
-<title>[Medium] “Blackfield” ransomware hits motor-maker Nidec’s Taiwan subsidiary, claiming 2 TB of data and a $2M demand</title>
-<link>https://www.bleepingcomputer.com/news/security/blackfield-ransomware-asks-nidec-corporation-for-2-million-ransom/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:nidec</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Incident</category>
-<description><![CDATA[Japanese industrial motor manufacturer Nidec confirmed ransomware-related damage on servers at its Taiwan-based subsidiary Nidec Chaun-Choung Technology, first detected 22 June. The Blackfield extortion group claims it stole more than two terabytes of corporate data — employee, financial, procurement, manufacturing, legal and IT records — and is demanding a $2 million ransom, having listed the victim with a leak-or-sell deadline. Nidec says the subsidiary runs on an independent network it believes contained the incident, with no indication of production-line disruption. For OT defenders the relevance is the pattern: manufacturers remain the top ransomware target, stolen engineering and procurement data aids follow-on targeting, and “independent network” assurances only hold if IT/OT segmentation is real and verified. - BleepingComputer / The Record - Detected 22 Jun 2026 — ransom demand late Jun; ongoing]]></description>
-</item>
-<item>
-<title>[High] “The Gentlemen” ransomware surges past Qilin, scaling fast against manufacturers with custom EDR/AV killers</title>
-<link>https://unit42.paloaltonetworks.com/the-gentlemen-ransomware/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:gentlemen</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
+<title>[High] Manufacturing attacks shift toward identity: credential leaks and vishing surge, Doppel reports</title>
+<link>https://industrialcyber.co/manufacturing/manufacturing-cyber-threats-shift-toward-identity-driven-attacks-as-credential-leaks-and-vishing-surge-doppel-warns/</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:doppel</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
 <category>Threat Intel</category>
-<description><![CDATA[Manufacturing stayed the most-attacked industry through mid-2026, and the ransomware mix is shifting under it. In June, the rapidly-scaling operation tracked as The Gentlemen — which ships custom endpoint-protection and antivirus “killer” tooling — overtook long-time leader Qilin as the month’s most prolific strain (roughly 115 claimed victims to Qilin’s 78), while Qilin kept hitting industrial firms including German manufacturer Roth Industries. Analysts count 800-plus ransomware victims across 300-plus active groups so far in 2026, with manufacturing near the top and ransomware driving the large majority of sector losses. The direct-to-OT trigger is rarely an ICS exploit; it’s IT-side ransomware cascading into production through shared Active Directory, virtualization and ERP/MES, so plants should assume disruption of business systems can halt the line. - Unit 42 / Infosecurity Magazine / ransomware trackers - June 2026 activity — ongoing into July]]></description>
+<description><![CDATA[Doppel reports that cyber threats against manufacturing are moving toward identity-driven attacks, with credential leaks and voice phishing both rising. The shift is worth taking seriously because it routes around most of what manufacturers have invested in. Segmentation, firewalls and OT monitoring are built to stop an intruder crossing a boundary; none of them fire when someone signs in with working credentials obtained from a leak or talks a service desk into a password reset. Manufacturing is a soft target for the vishing variant specifically — multi-site operations, shift-based staffing, heavy contractor and agency presence, and a service desk conditioned to restore access fast because downtime is measured in units per hour. Treat identity as a control surface with the same seriousness as the network boundary. - Doppel / Industrial Cyber - Reported 19 Jun 2026]]></description>
 </item>
 <item>
-<title>[High] CISA and FBI warn Russian FSB “Berserk Bear” actors are compromising exposed routers that front plant networks</title>
-<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:fsbrouters</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Nation-State Advisory</category>
-<description><![CDATA[On 13 July CISA, the FBI and NSA, with international partners, issued advisory AA26-194A warning that Russian FSB Center 16 actors — publicly tracked as Berserk Bear / Dragonfly — are opportunistically compromising poorly configured and end-of-life networking devices, chiefly internet-facing routers, across critical-infrastructure sectors. The advisory documents them harvesting configurations, abusing legacy SNMP and altering settings to hold durable footholds. For manufacturers the risk is the familiar IT-to-OT bridge: an owned edge or remote-access router lets an adversary reach engineering workstations and jump hosts, then pivot toward PLCs, HMIs and the MES/historian layer — the same path ransomware crews use to turn an IT foothold into a production halt. No OT manipulation is alleged, but exposed and unsupported routers at plants and remote sites are priority hardening targets. - CISA / FBI / NSA - Published 13 Jul 2026 — ongoing]]></description>
+<title>[High] Lantronix serial-to-IP converter flaw exploited in the wild — the retrofit boxes on legacy machines</title>
+<link>https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:lantronix</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Active Exploitation</category><category>CVE-2025-67038</category>
+<description><![CDATA[Attackers are exploiting CVE-2025-67038 in Lantronix serial-to-IP converters, disclosed in April through the BRIDGE:BREAK research project. On a plant floor these devices are how a 20-year-old press, CNC, test rig or weigh station got a network connection without being replaced — installed during a retrofit, commissioned by an integrator, and then left alone precisely because the machine behind it still works. That combination (unmanaged, unpatched, inside the trusted network, with a clear path to a production asset) is what makes the category attractive. Exploitation is confirmed and follows an explicit OT threat warning. For most manufacturers the first task is discovery: these converters rarely appear in the asset register because nobody procured them as IT equipment. - CVE-2025-67038 - Disclosed Apr 2026 — exploitation reported 25 Jun 2026; ongoing]]></description>
 </item>
 <item>
-<title>[Critical] Siemens urges immediate patching of RUGGEDCOM switches as a critical SINEC OS flaw (CVSS 9.8) draws a public exploit</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:sinecos</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Advisory</category><category>SINEC OS &amp;lt; V4.0</category>
-<description><![CDATA[CISA advisory ICSA-26-188-05 (published 7 July) flags a critical CVSS 9.8 vulnerability in Siemens SINEC OS before V4.0, the operating system on RUGGEDCOM industrial networking gear. A memory-corruption bug in a bundled third-party component lets a remote attacker compromise unpatched devices, and a public exploit has already been disclosed. RUGGEDCOM switches and routers form the hardened networking backbone in many discrete and process plants, sitting in the path that segments and moves control-system traffic. No confirmed in-the-wild ICS attacks are reported yet, but a public exploit plus a 9.8 score on widely deployed plant networking warrants emergency patch prioritization. - SINEC OS &lt; V4.0 - Published 7 Jul 2026]]></description>
+<title>[High] CISA’s 14 July batch: Rockwell 1715-AENTR debug port and two ABB advisories</title>
+<link>https://www.cisa.gov/news-events/ics-advisories</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:abbrockwell</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Critical Advisory</category><category>ICSA-26-195-01 … -04</category>
+<description><![CDATA[CISA issued four ICS advisories on 14 July (ICSA-26-195-01 through -04), released alongside the vendors’ own Patch Tuesday advisories — three from ABB and one from Rockwell. The Rockwell entry covers the 1715-AENTR EtherNet/IP adapter, where a network-accessible debug port fails to enforce proper privilege controls, allowing unauthenticated remote access to intrusive command-line functions. The ABB advisories address Advant Master Online Builder (an incorrect Online Builder version included on installation media) and Ability Edgenius, where a Linux kernel privilege-escalation issue could let a locally authenticated user or a compromised container workload obtain root. Check each advisory for exact affected versions. - ICSA-26-195-01 … -04 - CISA advisories published 14 Jul 2026]]></description>
 </item>
 <item>
-<title>[High] Rockwell Automation patches flaws across Logix controllers, RSLinx and FactoryTalk</title>
-<link>https://www.securityweek.com/rockwell-automation-patches-vulnerabilities-in-ics-controllers-and-software/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:rockwell</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
-<category>Advisory</category>
-<description><![CDATA[Rockwell Automation released fixes for multiple vulnerabilities spanning its Logix controller family, RSLinx communications software and FactoryTalk suite — including a stack-based buffer overflow in RSLinx that could allow remote code execution. Rockwell/Allen-Bradley gear is a backbone of discrete manufacturing, from ControlLogix and CompactLogix processors to FactoryTalk HMI and historian software on engineering workstations. None of the issues are reported exploited in the wild, but the affected components sit deep in plant control and engineering workflows, so patching should be scheduled into the next maintenance window with management-network isolation in the interim. - Rockwell / SecurityWeek - Reported Jun 2026]]></description>
+<title>[High] BeyondTrust patches critical auth-bypass flaws in Remote Support and Privileged Remote Access</title>
+<link>https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:beyondtrust</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Vulnerability</category><category>CVE-2026-40138</category><category>CVE-2026-40139</category>
+<description><![CDATA[BeyondTrust disclosed two authentication-bypass vulnerabilities on 7 July in Remote Support (RS) and Privileged Remote Access (PRA). CVE-2026-40138 (CVSS 9.2) stems from improper validation of authentication data and could allow a network-positioned attacker to bypass access controls and reach the appliance, including elevated accounts; CVE-2026-40139 involves improper processing of RS authentication requests. Both depend on a specific authentication configuration being enabled, which limits the exposed population, and neither has been observed under active exploitation — no public proof-of-concept exists. Cloud customers were patched on 21 April; self-hosted RS/PRA at 25.3.2 or earlier requires action. Read it next to the SonicWall item: privileged remote access is how machine builders and integrators reach your lines, and it is under sustained research attention. - CVE-2026-40138 - Disclosed 7 Jul 2026]]></description>
 </item>
 <item>
-<title>[Info] EU NIS2: first compliance-audit deadline lands (30 June 2026) as incident reporting is standardized</title>
-<link>https://digital-strategy.ec.europa.eu/en/policies/nis2-directive</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:nis2</guid>
-<pubDate>Tue, 14 Jul 2026 04:25:00 -0400</pubDate>
+<title>[Info] NIST publishes an OT backup quick-start guide focused on cutting recovery time</title>
+<link>https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:nist1339</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
+<category>Guidance</category><category>NIST SP 1339</category>
+<description><![CDATA[NIST released SP 1339, an OT Backup Quick Start Guide aimed at improving industrial cyber resilience and accelerating incident recovery. For manufacturers the framing lands at a useful moment, given this month’s Rockwell advisories describing faults a controller does not recover from on its own (see top story). The artefacts that actually determine how fast a line restarts are PLC logic, HMI projects, robot programs, recipe and setpoint data, drive parameters and the engineering-workstation image needed to push any of it back — not the file server. Those are the things most often stale, undocumented, or stored on the same domain as the systems they would restore. The guide is short-format and pitched at establishing a workable baseline rather than a programme. - NIST SP 1339 - Published 19 Jun 2026]]></description>
+</item>
+<item>
+<title>[Info] Australia’s CISC unveils Enhanced CIRMP Rules covering AI, legacy systems, supply chain and insider risk</title>
+<link>https://industrialcyber.co/regulation-standards-and-compliance/cisc-unveils-enhanced-cirmp-rules-to-address-ai-legacy-systems-supply-chain-and-insider-risks-across-critical-infrastructure/</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:cirmp</guid>
+<pubDate>Thu, 16 Jul 2026 05:38:00 -0400</pubDate>
 <category>Regulation</category>
-<description><![CDATA[The EU’s NIS2 Directive reached a milestone with a first compliance-audit deadline at the end of June 2026 and increasingly standardized incident-reporting templates and timelines. Manufacturing is squarely in scope as an important or essential entity in many member states, so EU-operating manufacturers — and non-EU firms with EU plants or customers — face concrete duties around risk management, supply-chain security and prompt incident notification, with personal liability for management in some transpositions. Firms should confirm their national transposition status, close governance and reporting gaps, and push security requirements down to suppliers. - European Commission - First audit deadline 30 Jun 2026]]></description>
+<description><![CDATA[Australia’s Cyber and Infrastructure Security Centre published Enhanced CIRMP Rules addressing AI, legacy systems, supply-chain and insider risks across critical infrastructure. Manufacturers with Australian operations or customers should read the detail, but the wider relevance is the direction: legacy systems and supply-chain risk are moving from acknowledged realities into explicit, written obligations. That is a meaningful shift for a sector whose standard answer on a 20-year-old machine has been that it still runs and cannot be touched. Where regulators name legacy assets and insider risk directly, “we accepted it” starts requiring an artefact rather than a conversation — and the same expectations tend to migrate into customer security questionnaires well before they migrate into other jurisdictions’ law. - CISC / Industrial Cyber - Published 18 Jun 2026]]></description>
 </item>
 </channel>
 </rss>
