@@ -637,14 +637,14 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 16 Jul 2026, 5:38 AM ET</span>
+        <span>Generated Friday, 17 Jul 2026, 7:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
     </div>
     <div class="story-count">
       <strong>9</strong> stories across
-      <strong>3</strong> categories
+      <strong>4</strong> categories
     </div>
   </div>
 
@@ -652,31 +652,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-sonicwall">
+    <div class="top-story" id="story-fsbrouters">
       <span class="top-story-pill">Top Story</span>
-      <h2>SonicWall SMA 1000 zero-days under active attack &mdash; the remote-access boxes fronting utility engineer and vendor sessions</h2>
-      <p>SonicWall says it has investigated multiple cases confirming active exploitation of two Secure Mobile Access 1000 flaws. CVE-2026-15409 is a CVSS&nbsp;10.0 server-side request forgery in the Work Place interface, reachable by an unauthenticated remote attacker; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated administrator inject OS commands through the Appliance Management Console. CISA added both to the KEV catalog on 14&nbsp;July with a 17&nbsp;July federal remediation deadline. For electric utilities the concern is placement rather than the bugs themselves: SMA appliances commonly terminate the vendor-maintenance and engineer sessions that reach EMS/SCADA, substation networks and the NERC&nbsp;CIP electronic security perimeter. An attacker who lands on the appliance sits astride that boundary with legitimate-looking access, so patching alone is insufficient &mdash; assume exposure and hunt.</p>
+      <h2>Fourteen agencies attribute a decade-long router campaign to Russia&rsquo;s FSB Center&nbsp;16 &mdash; energy named as a target sector</h2>
+      <p>NSA, CISA, the FBI and partners across twelve countries published joint advisory AA26-194A on 13&nbsp;July, attributing more than a decade of targeting of poorly configured networking devices to FSB Center&nbsp;16. The tradecraft is deliberately unglamorous: scan internet-facing ranges for SNMP agents that still answer to default or common community strings, issue commands from spoofed source addresses, then copy device configuration files out over TFTP to actor-controlled infrastructure. Cisco Smart Install is a second path. Energy is called out by name. For a utility, the value of a stolen router config is not the router &mdash; it is the map: substation addressing, management VLANs, ACLs, tunnel endpoints and the SNMP strings themselves. That is pre-positioning intelligence for a grid intrusion, gathered without touching a relay.</p>
       <div class="ops-strip">
-        <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation in multiple investigated cases</span>
-          <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul</span>
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; decade-plus campaign confirmed by 14 agencies</span>
+            <span class="ops-tag kev-off">Joint advisory AA26-194A &mdash; FSB Center 16</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; configuration hardening</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every internet-reachable router, switch and cellular gateway carrying substation, EMS or DER traffic. Disable SNMPv1/v2c and move to SNMPv3 with authPriv; if a device cannot do v3, restrict SNMP to an out-of-band management path or turn it off. Disable Cisco Smart Install everywhere. Rotate community strings and device credentials on the assumption configs were taken, and diff running configs against a known-good baseline for unexpected ACL, tunnel or TFTP entries.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> SNMP exposure review &amp; config diff &mdash; 7 days (nation-state pre-positioning against energy)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-fsbrouters" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-fsbrouters">Open</button>
+          </div>
         </div>
-        <div class="ops-row">
-          <span class="ops-tag patch-yes">Patch available &mdash; 12.4.3-03453 / 12.5.0-02835 hotfix</span>
-          <span class="ops-cc"><b>Action:</b> Upgrade SMA 1000 to the fixed hotfix build immediately. Then run SonicWall&rsquo;s forensic checks &mdash; look for <code>/__api__/login</code> or <code>/__api__/logout</code> requests returning HTTP&nbsp;200 in <code>extraweb_access.log</code>, <code>/wsproxy</code> requests with suspicious host parameters (HTTP&nbsp;101), hotfix rollbacks with path-traversal names in <code>ctrl-service.log</code>, and rogue login/logout routes in <code>/var/lib/unit/conf.json</code>. If any indicator is present, re-image the appliance, rotate all user and admin passwords and reset TOTP tokens.</span>
-        </div>
-        <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h (confirmed exploitation on an OT-bridging remote-access appliance)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-sonicwall" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="pd-sonicwall">Open</button>
-        </div>
-      </div>
       <div class="card-meta">
-        <span>SonicWall PSIRT (SNWLID-2026-0008) / CISA KEV / The Hacker News</span>
+        <span>CISA / NSA / FBI joint advisory AA26-194A</span>
         <span class="dot">&bull;</span>
-        <span>SonicWall advisory &amp; KEV addition 14 Jul 2026 &mdash; reporting 15 Jul; exploitation ongoing</span>
+        <span>Advisory published 13 Jul 2026 &mdash; campaign ongoing</span>
       </div>
-      <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -706,23 +706,23 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-sonicwall"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
-        <a href="#story-lantronix"><circle class="blip high" cx="226" cy="80" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="226" y="84.1">3</text></a>
-        <a href="#story-beyondtrust"><circle class="blip high" cx="289" cy="193" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="289" y="196.7">4</text></a>
-        <a href="#story-micompx40"><circle class="blip high" cx="201" cy="288" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="201" y="291.0">5</text></a>
-        <a href="#story-hitachi"><circle class="blip high" cx="84" cy="233" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="84" y="236.2">6</text></a>
-        <a href="#story-abbrockwell"><circle class="blip high" cx="100" cy="105" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="100" y="107.7">7</text></a>
+        <a href="#story-fsbrouters"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
+        <a href="#story-sonicwall"><circle class="blip crit" cx="240" cy="180" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="240" y="184.2">2</text></a>
+        <a href="#story-emesh"><circle class="blip crit" cx="180" cy="240" r="12.5"/><text class="blip-num" style="font-size:11.2px" x="180" y="243.9">3</text></a>
+        <a href="#story-patchtuesday"><circle class="blip crit" cx="120" cy="180" r="11.5"/><text class="blip-num" style="font-size:10.3px" x="120" y="183.6">4</text></a>
+        <a href="#story-sicam"><circle class="blip high" cx="226" cy="80" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="226" y="83.7">5</text></a>
+        <a href="#story-sharepoint"><circle class="blip high" cx="243" cy="270" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="243" y="273.2">6</text></a>
+        <a href="#story-inverters"><circle class="blip high" cx="70" cy="190" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="70" y="192.5">7</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-sonicwall"><span class="ld crit"></span><b>1</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>2</b> July ICS Patch Tuesday &mdash; Siemens/Rockwell criticals</a>
-        <a href="#story-lantronix"><span class="ld high"></span><b>3</b> Lantronix serial-to-IP flaw exploited in the wild</a>
-        <a href="#story-beyondtrust"><span class="ld high"></span><b>4</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
-        <a href="#story-micompx40"><span class="ld high"></span><b>5</b> Schneider Easergy MiCOM Px40 relay advisory</a>
-        <a href="#story-hitachi"><span class="ld high"></span><b>6</b> Hitachi Energy PROMOD V / e-mesh EMS advisories</a>
-        <a href="#story-abbrockwell"><span class="ld high"></span><b>7</b> ABB &amp; Rockwell 1715-AENTR debug-port exposure</a>
+        <a href="#story-fsbrouters"><span class="ld crit"></span><b>1</b> FSB Center&nbsp;16 router campaign &mdash; energy named (AA26-194A)</a>
+        <a href="#story-sonicwall"><span class="ld crit"></span><b>2</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
+        <a href="#story-emesh"><span class="ld crit"></span><b>3</b> Hitachi Energy e-mesh EMS heap overflow (CVSS v4 9.2)</a>
+        <a href="#story-patchtuesday"><span class="ld crit"></span><b>4</b> July ICS Patch Tuesday &mdash; Opencenter X CVSS 10, Logix faults</a>
+        <a href="#story-sicam"><span class="ld high"></span><b>5</b> Siemens SICAM 8 &mdash; malicious firmware path on RTUs</a>
+        <a href="#story-sharepoint"><span class="ld high"></span><b>6</b> SharePoint &amp; AD FS flaws exploited, added to KEV</a>
+        <a href="#story-inverters"><span class="ld high"></span><b>7</b> Chinese inverter supply-chain risk &mdash; EU report, US ban drafted</a>
       </div>
     </div>
 
@@ -735,97 +735,103 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
-        <span class="trend-tag">Edge Exploits</span>
-        <b class="trend-head">Remote access is where the grid actually gets breached</b>
-        <p>Two of this week&rsquo;s most consequential items have nothing to do with relays: SonicWall&rsquo;s SMA&nbsp;1000 zero-days are being exploited now (see top story), and BeyondTrust patched a 9.2 pre-auth bypass in the privileged remote access tooling utilities hand to vendors. Add an actively-exploited Lantronix serial bridge and the pattern is hard to miss &mdash; the appliances that terminate remote sessions and bridge legacy gear are the grid&rsquo;s real perimeter, and they are being worked.</p>
-        <a href="https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+        <span class="trend-tag">Network Hygiene</span>
+        <b class="trend-head">SNMP stopped being a footnote this week</b>
+        <p>Fourteen agencies described a decade of Russian config theft riding on default SNMP strings (see top story), and two days earlier CISA published an advisory on Schneider Easergy MiCOM Px40 relays leaking device data over SNMP to unauthenticated callers (see Critical Advisories). The same protocol, the same week, at both ends of the grid: the routers that carry substation traffic and the relays that protect the feeders. Most utilities cannot currently answer which devices still speak v1/v2c.</p>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">CISA AA26-194A</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Patch Volume</span>
-        <b class="trend-head">A heavy Patch Tuesday for anyone running Logix or Siemens gear</b>
-        <p>July&rsquo;s ICS cycle landed 23 advisories across Siemens, Schneider and Rockwell alone, plus five from VDE CERT and four via CISA. Rockwell&rsquo;s three critical DoS flaws in CompactLogix/ControlLogix and Siemens&rsquo; CVSS&nbsp;10 Opencenter X auth bypass are the ones to argue for an outage window over. The recurring problem for utilities is not finding the advisories &mdash; it is that controller patching competes with availability, and the queue only grows.</p>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <span class="trend-tag">Remote Access</span>
+        <b class="trend-head">The appliance in front of the control room is the target, not the perimeter</b>
+        <p>SonicWall&rsquo;s SMA 1000 zero-days were exploited before disclosure and were in KEV within hours (see Incidents). For utilities this category matters disproportionately: the same appliances broker OEM support sessions into EMS, relay engineering and DER platforms. When the broker is compromised, the intrusion arrives as an authenticated session from a vendor you approved &mdash; which is exactly the traffic your monitoring is tuned to ignore.</p>
+        <a href="https://www.securityweek.com/sonicwall-issues-urgent-sma-patch-warning-for-two-zero-day-exploits/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Market</span>
-        <b class="trend-head">Accenture&rsquo;s $4.1B bet reshapes the OT security vendor landscape</b>
-        <p>Accenture agreed to acquire a majority stake in Dragos &mdash; valuing the industrial cybersecurity firm at $3.25&nbsp;billion &mdash; along with all of runZero and NetRise, in a $4.1&nbsp;billion push. runZero and NetRise will operate under Dragos. For utilities the practical question is what it means for independent OT threat intelligence and for the consulting/product boundary in a market where a handful of vendors already hold most grid visibility.</p>
-        <a href="https://www.securityweek.com/accenture-to-acquire-majority-stake-in-dragos-all-of-runzero-netrise-in-4-1-billion-ot-cybersecurity-push/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <span class="trend-tag">Grid Edge</span>
+        <b class="trend-head">DER is where the software risk and the geopolitics now meet</b>
+        <p>A critical NGINX flaw in Hitachi Energy&rsquo;s e-mesh EMS (see Critical Advisories) and the widening inverter supply-chain argument (see Threat Intelligence) are the same problem seen from two directions. The grid edge grew faster than the visibility around it: fleets of inverters and storage assets managed through vendor clouds over links utilities do not own, coordinated by EMS software that now carries its own critical CVEs.</p>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-03" class="source-link" target="_blank" rel="noopener">CISA ICSA-26-188-03</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Resilience</span>
-        <b class="trend-head">The conversation is shifting from prevention to restoration</b>
-        <p>NIST&rsquo;s new OT backup quick-start guide (see Regulation &amp; Policy) lands alongside a broader industry argument that recovery readiness &mdash; not detection coverage &mdash; is the binding constraint in OT. The uncomfortable question it poses to grid operators: if a controller estate had to be rebuilt from backup this week, do you know the measured restore time, or only that the backup job succeeded?</p>
-        <a href="https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Firmware Trust</span>
+        <b class="trend-head">Persistence is moving below the operating system</b>
+        <p>Siemens&rsquo; SICAM 8 fix (see Critical Advisories) closes a path that abuses the firmware-update process itself on substation RTUs. Its 7.2 score reads mild; the consequence does not. Firmware-level persistence on an A8000 survives reboot and re-image, and most utilities have no independent way to attest what firmware a field device is actually running &mdash; only what the asset register claims.</p>
+        <a href="https://www.securityweek.com/siemens-patches-power-grid-product-flaw-allowing-backdoor-deployment/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
     </div>
   </div>
 
 
-  <!-- SECTION: Incidents &amp; Attacks -->
+  <!-- SECTION: Incidents &amp;amp; Attacks -->
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="story-lantronix">
+      <div class="card" id="story-sonicwall">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Active Exploitation</span>
+          <span class="severity sev-crit">Critical</span>
+          <span class="category">Incident &mdash; Active Exploitation</span>
         </div>
-        <h3>Lantronix serial-to-IP converter flaw exploited in the wild &mdash; the quiet boxes bridging legacy substation serial gear</h3>
-        <p>Attackers are exploiting CVE-2025-67038 in Lantronix serial-to-IP converters, one of the flaws disclosed in April as part of the BRIDGE:BREAK research project. Serial-to-IP converters are among the least-inventoried devices in a utility estate: they are frequently retrofitted to bring legacy relays, RTUs and meters onto Ethernet, then left in place for a decade without an owner, a patch process or a monitoring hook. That is exactly what makes them attractive &mdash; a converter typically sits inside the protected network with a clear path to the serial device it fronts, and compromise of the bridge means access to whatever is behind it. Exploitation is confirmed, and it follows an explicit OT threat warning, so treat this as an inventory problem before it is a patch problem.</p>
+        <h3>SonicWall SMA 1000 zero-days exploited in the wild; both added to KEV with a 17 July federal deadline</h3>
+        <p>Rapid7&rsquo;s MDR team observed targeted zero-day exploitation of internet-facing SMA&nbsp;1000 appliances before SonicWall disclosed on 14&nbsp;July. CVE-2026-15409 (CVSS&nbsp;10.0) is an unauthenticated server-side request forgery that lets an attacker open a websocket tunnel to localhost-only services; CVE-2026-15410 chains from there, abusing a path-traversal <code>remove_hotfix</code> workflow on port&nbsp;8188 to execute OS commands as root. CISA added both to the KEV catalog the same day. For transmission and generation operators, SMA-class appliances are frequently the front door for control-room remote access and for OEM support sessions into EMS, relay engineering and DER platforms. An attacker who owns the appliance inherits every session it brokers &mdash; including the vendor ones your change process treats as trusted.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed in the wild</span>
-            <span class="ops-tag kev-off">Lantronix serial-to-IP converters (BRIDGE:BREAK)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; zero-day exploitation observed by Rapid7 before disclosure</span>
+            <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor firmware available &mdash; see Lantronix advisory</span>
-            <span class="ops-cc"><b>Action:</b> Sweep for Lantronix and other serial-to-IP converters, including undocumented ones added during past retrofits &mdash; scan for the management ports rather than trusting the asset register. Remove any internet exposure, place converters behind a controlled segment, update firmware, replace default credentials, and add them to the patch cycle with a named owner.</span>
+            <span class="ops-tag patch-yes">Patch available &mdash; SonicWall platform hotfix</span>
+            <span class="ops-cc"><b>Action:</b> Apply SonicWall&rsquo;s hotfix to every SMA 1000 (6210, 7210, 8200v) now; if you cannot patch today, remove the appliance from the internet rather than leave it exposed. Then hunt: unexpected websocket/wsproxy connections, hotfix rollback activity, and root-level command execution. On any indication of compromise, re-image and rotate every credential and MFA token the appliance touched &mdash; including OEM and integrator accounts.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Discovery &amp; exposure remediation &mdash; 72h; firmware &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-lantronix" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-lantronix">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h (confirmed exploitation on the remote-access path into EMS/relay engineering)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-sonicwall" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-sonicwall">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2025-67038</span>
-          <span>Lantronix / BRIDGE:BREAK / SecurityWeek</span>
+          <span class="cve-badge">CVE-2026-15409 / CVE-2026-15410</span>
+          <span>SonicWall PSIRT / Rapid7 / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed Apr 2026 &mdash; exploitation reported 25 Jun 2026; ongoing</span>
+          <span>Disclosed &amp; KEV-listed 14 Jul 2026 &mdash; exploitation ongoing</span>
         </div>
-        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/sonicwall-issues-urgent-sma-patch-warning-for-two-zero-day-exploits/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-beyondtrust">
+    </div>
+  </div>
+
+
+  <!-- SECTION: Threat Intelligence &amp;amp; Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+      <div class="card" id="story-inverters">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Vulnerability</span>
+          <span class="category">Threat Intelligence &mdash; Supply Chain</span>
         </div>
-        <h3>BeyondTrust patches critical auth-bypass flaws in Remote Support and PRA &mdash; the tooling utilities hand to vendors</h3>
-        <p>BeyondTrust disclosed two authentication-bypass vulnerabilities on 7&nbsp;July affecting Remote Support (RS) and Privileged Remote Access (PRA). CVE-2026-40138 (CVSS&nbsp;9.2) stems from improper validation of authentication data and could let a network-positioned attacker bypass access controls and reach the appliance, including elevated accounts; CVE-2026-40139 involves improper processing of RS authentication requests. Both hinge on a specific authentication configuration being enabled, which limits the exposed population. Neither has been observed under active exploitation and no public proof-of-concept exists. Cloud customers were patched on 21&nbsp;April; self-hosted deployments running RS or PRA 25.3.2 or earlier need action. Privileged remote access is the standing route vendors and integrators use into utility OT, which is why a 9.2 pre-auth bypass in it deserves attention even without exploitation.</p>
+        <h3>Chinese-made inverters draw a second front: European grid-risk analysis lands as Washington drafts an import ban</h3>
+        <p>A report published on 11&nbsp;July argues that with roughly 80% of new European solar installations depending on Chinese-made inverters, a hostile vendor pushing malicious firmware or abusing an undisclosed comms path could act at continental scale. It follows Reuters reporting that rogue communication devices were found inside some Chinese solar and battery inverters deployed in the US, and pv&nbsp;magazine&rsquo;s 30&nbsp;June account of a Trump administration ban being drafted; the FCC is separately weighing an import prohibition. WaterISAC also circulated an FBI report on inverter exposure on 9&nbsp;July. Treat the specific &ldquo;rogue device&rdquo; claims as reported rather than independently confirmed &mdash; but the structural point stands. DER fleets are managed through vendor clouds and cellular backhaul that most utilities neither own nor monitor.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation; no public PoC as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; supply-chain and policy risk</span>
+            <span class="ops-tag kev-off">Reported / under investigation &mdash; not vendor-confirmed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; RS/PRA 25.3.3+ or April rollup (cloud patched 21 Apr)</span>
-            <span class="ops-cc"><b>Action:</b> Confirm whether you run self-hosted RS/PRA at 25.3.2 or earlier and whether the affected authentication configuration is enabled. Apply the April security rollup or upgrade to 25.3.3+. Independently, review which vendors hold standing privileged access into OT, and whether those sessions are time-bounded, approved per-use and recorded.</span>
+            <span class="ops-tag patch-na">No patch &mdash; procurement and segmentation issue</span>
+            <span class="ops-cc"><b>Action:</b> Map which DER, storage and inverter fleets on your system have outbound paths to vendor clouds, and over whose network. Require contractual disclosure of every radio and comms module in the bill of materials for new procurements. Put inverter management traffic behind your own egress control and logging rather than the OEM&rsquo;s cellular link, and rehearse how you would ride through the loss of a vendor management plane.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Version check &amp; patch &mdash; 30 days (no exploitation; high privilege if abused)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-beyondtrust" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-beyondtrust">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> DER comms-path inventory &amp; procurement clause review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-inverters" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-inverters">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-40138</span>
-          <span class="cve-badge">CVE-2026-40139</span>
-          <span>BeyondTrust / The Hacker News</span>
+          <span>Industrial Cyber / pv magazine USA / Reuters (via reporting)</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 7 Jul 2026</span>
+          <span>European analysis 11 Jul 2026; US ban reported 30 Jun 2026; FBI report circulated 9 Jul 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://industrialcyber.co/utilities-energy-power-water-waste/us-energy-sector-at-risk-as-chinese-inverters-are-under-investigation-for-suspicious-communication-gear/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -835,189 +841,191 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="story-patchtuesday">
+      <div class="card" id="story-emesh">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Vendor Advisories</span>
+          <span class="severity sev-crit">Critical</span>
+          <span class="category">Advisory &mdash; DER / EMS</span>
         </div>
-        <h3>July ICS Patch Tuesday: Siemens ships a CVSS&nbsp;10 auth bypass fix, Rockwell patches critical DoS flaws in ControlLogix</h3>
-        <p>The July 2026 cycle is a heavy one for grid operators. Siemens published nine advisories, six of them critical &mdash; headlined by a CVSS&nbsp;10 token-invalidation flaw in Opencenter X that allows an attacker to bypass authentication and gain full application access, plus critical fixes in Simatic S7-1500, Mendix, Sidis Secured SmartPlug, Cadra and Desigo CC. Rockwell Automation published 12 advisories including three critical denial-of-service holes in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can force a major non-recoverable fault &mdash; a controller-down condition, not a data-theft one. Schneider Electric fixed a high-severity arbitrary-code-execution issue in its IGSS SCADA product and an authentication bypass in EcoStruxure Cybersecurity Admin Expert. Germany&rsquo;s VDE CERT added five more covering Murrelektronik, Mettler Toledo, Codesys and Wago.</p>
+        <h3>Hitachi Energy e-mesh EMS carries a critical NGINX heap overflow &mdash; the software sitting on top of your DER fleet</h3>
+        <p>CISA advisory ICSA-26-188-03 (7&nbsp;July) covers a heap-based buffer overflow reaching e-mesh EMS through a bundled NGINX component, tracked as CVE-2026-42945 with a CVSS&nbsp;v3 base of 8.1 and a CVSS&nbsp;v4 base of 9.2. Successful exploitation could cause an application outage and may permit arbitrary code execution. Versions 4.1.6, 4.4.2 and 4.7.0 are affected. e-mesh EMS is the layer that monitors, dispatches and optimises distributed energy resources &mdash; solar, wind, battery storage &mdash; so the blast radius is not one asset but the coordination of many. Hitachi Energy&rsquo;s companion advisory ICSA-26-188-02 for PROMOD&nbsp;V, a transmission planning tool, landed the same day and concerns cleartext handling of sensitive data.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
-            <span class="ops-tag kev-off">Siemens / Schneider / Rockwell / VDE CERT</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation reported to CISA at advisory time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; ICSA-26-188-03</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches &amp; mitigations available (all three vendors)</span>
-            <span class="ops-cc"><b>Action:</b> Pull the vendor advisories and match them against your controller and EMS/SCADA inventory. Prioritise the Rockwell Logix DoS trio anywhere a non-recoverable fault would drop generation or substation control, and the Siemens Opencenter X auth bypass if deployed. Where patching means an outage window, apply network-level compensating controls and schedule against your next maintenance slot.</span>
+            <span class="ops-tag patch-yes">Hotfix available &mdash; updates bundled NGINX to v1.30.2 or later</span>
+            <span class="ops-cc"><b>Action:</b> Confirm which e-mesh EMS version your DER platform runs and apply the vendor hotfix through normal OT change control. Hitachi Energy also directs operators to verify the rewrite configuration does not use &ldquo;?&rdquo; to replace unnamed captures and that ASLR is active (value=2) on all deployment targets. Until patched, keep the EMS off any route reachable from the internet or the corporate domain.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Triage &amp; scheduling &mdash; 7 days for critical, 30 days for high</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or compensating control &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-emesh" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-emesh">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-42945 &mdash; CVSS v4 9.2</span>
+          <span>CISA ICSA-26-188-03 / Hitachi Energy PSIRT</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory published 7 Jul 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-patchtuesday">
+        <div class="card-header">
+          <span class="severity sev-crit">Critical</span>
+          <span class="category">Advisory &mdash; Patch Tuesday</span>
+        </div>
+        <h3>July ICS Patch Tuesday: a CVSS 10 in Siemens Opencenter X, critical Logix faults, and a Schneider SCADA code-execution flaw</h3>
+        <p>Siemens, Schneider Electric and Rockwell Automation shipped their July&nbsp;2026 Patch Tuesday advisories on 15&nbsp;July. Siemens published nine advisories, six critical, headlined by a CVSS&nbsp;10 token-invalidation flaw in Opencenter&nbsp;X that allows full authentication bypass; Mendix, Sidis Secured SmartPlug, Simatic S7-1500, Cadra and Desigo&nbsp;CC also received critical fixes. Schneider addressed a high-severity arbitrary-code-execution flaw in IGSS, its Interactive Graphical SCADA System, plus an authentication bypass in EcoStruxure Cybersecurity Admin Expert. Rockwell issued twelve advisories including three critical DoS conditions that can drive CompactLogix, ControlLogix and GuardLogix controllers into a major non-recoverable fault. VDE CERT added five covering Murrelektronik, Mettler Toledo, Codesys and Wago.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for this batch</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; vendor Patch Tuesday cycle</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available across Siemens, Schneider and Rockwell</span>
+            <span class="ops-cc"><b>Action:</b> Triage against your own estate rather than the CVSS list. For a utility, the priorities are Desigo CC and Simatic S7-1500 in plant and balance-of-plant systems, Schneider IGSS wherever it survives as a legacy SCADA HMI, and the Logix non-recoverable-fault advisories on any Logix controllers in generation or substation auxiliaries. Confirm the fixed firmware exists for your exact catalogue number before promising a date.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Triage &amp; scheduling decision &mdash; 7 days (critical items), 30 days (high)</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="pd-patchtuesday">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT / Schneider / Rockwell PSIRT / SecurityWeek</span>
+          <span>Siemens ProductCERT / Schneider Electric / Rockwell PSIRT / VDE CERT / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Published 14 Jul 2026 (Patch Tuesday) &mdash; reporting 15 Jul</span>
+          <span>Advisories published 15 Jul 2026</span>
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-micompx40">
+      <div class="card" id="story-sicam">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Critical Advisory</span>
+          <span class="category">Advisory &mdash; RTU / Substation</span>
         </div>
-        <h3>CISA flags Schneider Easergy MiCOM Px40 protection relays and PowerChute Serial Shutdown</h3>
-        <p>CISA&rsquo;s 9&nbsp;July batch of three ICS advisories was unusually energy-heavy: two of the three cover Schneider Electric products used in the energy sector &mdash; the Easergy MiCOM Px40 protection relay series and PowerChute Serial Shutdown &mdash; while the third covers OpenPLC&nbsp;v3, flagged for both water/wastewater and energy. The Px40 line matters most to transmission and distribution operators because protection relays sit at the sharp end of the grid: they are the devices that decide when to trip a circuit, and they are frequently reachable from substation automation networks and engineering laptops rather than from the internet. Consult the advisories for the specific CVEs, affected firmware ranges and Schneider&rsquo;s recommended mitigations before planning relay work.</p>
+        <h3>Siemens SICAM 8 fix closes a firmware-update path that could plant a persistent backdoor on substation RTUs</h3>
+        <p>Siemens published an advisory on 9&nbsp;July covering four SICAM&nbsp;8 vulnerabilities; CISA republished it as ICSA-26-197-05 on 16&nbsp;July. The one that matters most is CVE-2026-54799 (CVSS&nbsp;v3 7.2), which turns the trusted firmware-update process itself into an attack vector &mdash; an attacker in a position to abuse it could install malicious firmware and hold persistent control of the device. The affected families are SICAM&nbsp;A8000, SICAM&nbsp;EGS and SICAM&nbsp;S8000, widely deployed as RTUs and gateways in substations and along distribution feeders. Fixes ship in CPCI85 firmware V26.20 and SICORE V26.20.0. A CVSS of 7.2 undersells the operational reality here: firmware persistence on a substation RTU survives the reboot, the re-image and, usually, the investigation.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
-            <span class="ops-tag kev-off">Schneider Easergy MiCOM Px40 / PowerChute Serial Shutdown / OpenPLC v3</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported at publication</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; ICSA-26-197-05 / Siemens SSA</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor mitigations &mdash; see advisories</span>
-            <span class="ops-cc"><b>Action:</b> Inventory Easergy MiCOM Px40 relays by firmware revision and confirm none are reachable from the corporate network or the internet. Apply Schneider&rsquo;s mitigations during a planned relay outage, restrict engineering-workstation access to protection assets, and log configuration changes to relays as security events, not just engineering ones.</span>
+            <span class="ops-tag patch-yes">Patch available &mdash; CPCI85 V26.20 / SICORE V26.20.0</span>
+            <span class="ops-cc"><b>Action:</b> Pull the SICAM 8 firmware inventory for A8000, EGS and S8000 estates and schedule the V26.20 update against your substation maintenance windows &mdash; do not wait for the next annual cycle. Until then, restrict who can reach the update interface: management access from an engineering jump host only, no flat paths from the corporate network, and alarm on unexpected firmware-version changes reported by your relay/RTU asset inventory.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory &amp; exposure check &mdash; 30 days (protection assets; patch on planned outage)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-micompx40" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-micompx40">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Firmware plan agreed &mdash; 7 days; rollout &mdash; next maintenance window</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-sicam" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-sicam">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisories / WaterISAC</span>
+          <span class="cve-badge">CVE-2026-54799 &mdash; CVSS v3 7.2</span>
+          <span>Siemens ProductCERT / CISA / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>CISA advisories published 9 Jul 2026</span>
+          <span>Siemens advisory 9 Jul 2026; CISA republished 16 Jul 2026</span>
         </div>
-        <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-july-9-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/siemens-patches-power-grid-product-flaw-allowing-backdoor-deployment/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-hitachi">
+      <div class="card" id="story-sharepoint">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Critical Advisory</span>
+          <span class="category">Advisory &mdash; IT/OT Bridge</span>
         </div>
-        <h3>Hitachi Energy PROMOD V and e-mesh EMS, plus Siemens SINEC OS, headline CISA&rsquo;s 7 July energy batch</h3>
-        <p>CISA released seven ICS advisories on 7&nbsp;July, five of which name products used in the energy sector: Hitachi Energy PROMOD&nbsp;V and Hitachi Energy e-mesh&nbsp;EMS, Siemens Mendix Studio Pro and Siemens SINEC&nbsp;OS, and Labcenter Proteus&nbsp;9 (flagged for water/wastewater and energy). Digi International PortServer&nbsp;TS and Digi One SP IA9 serial servers, and the Hydro-Qu&eacute;bec Le Circuit &Eacute;lectrique charging-station backend, round out the batch. The Hitachi Energy pair is the notable one for utilities &mdash; e-mesh EMS manages distributed energy and storage assets, while PROMOD&nbsp;V is planning software that typically holds detailed models of your network. Advisory coverage of planning and DER-management tooling is a reminder that grid risk is not confined to relays and RTUs.</p>
+        <h3>CISA urges SharePoint hardening after fresh exploitation &mdash; four flaws added to KEV on 14 July</h3>
+        <p>CISA published a SharePoint hardening alert on 14&nbsp;July following new exploitation, and added four actively exploited vulnerabilities to the KEV catalog the same day: SonicWall&rsquo;s CVE-2026-15409 and CVE-2026-15410 alongside Microsoft&rsquo;s CVE-2026-56155 (AD&nbsp;FS privilege escalation) and CVE-2026-56164 (SharePoint missing authentication for a critical function, exploitable over the network). Federal agencies face remediation deadlines of 17 and 28&nbsp;July. This is an IT story with an OT tail. On-premises SharePoint farms in utilities routinely hold single-line diagrams, relay setting files, NERC&nbsp;CIP evidence, switching orders and vendor contact lists &mdash; and AD&nbsp;FS is often the identity broker in front of the engineering applications that matter.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
-            <span class="ops-tag kev-off">Hitachi Energy / Siemens / Digi / Labcenter</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA reports new exploitation of SharePoint flaws</span>
+            <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17/28 Jul</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor updates &mdash; see individual advisories</span>
-            <span class="ops-cc"><b>Action:</b> Check the seven advisories against your asset register, with priority on Hitachi Energy e-mesh EMS (DER and storage control) and SINEC OS. Treat Digi PortServer serial servers as edge devices: confirm they are not internet-facing and are segmented from control networks. Confirm PROMOD V hosts holding network models are access-controlled &mdash; that data is valuable to an adversary even without control access.</span>
+            <span class="ops-tag patch-yes">Patches available &mdash; Microsoft July updates</span>
+            <span class="ops-cc"><b>Action:</b> Patch on-premises SharePoint and AD FS to Microsoft&rsquo;s July level and apply CISA&rsquo;s hardening guidance. Separately, ask an OT question: what CIP evidence, relay settings and network diagrams sit on that farm, and who outside the control-systems group can read them? If AD FS fronts an engineering application, treat a privilege-escalation flaw there as an OT access-control finding, not just an IT patch.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; asset match &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-hitachi" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-hitachi">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; hardening &mdash; 7 days; OT content exposure review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-sharepoint" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-sharepoint">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisories / WaterISAC</span>
+          <span class="cve-badge">CVE-2026-56164 / CVE-2026-56155</span>
+          <span>CISA alert / CISA KEV catalog</span>
           <span class="dot">&bull;</span>
-          <span>CISA advisories published 7 Jul 2026</span>
+          <span>Alert &amp; KEV additions 14 Jul 2026</span>
         </div>
-        <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-july-9-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-abbrockwell">
+      <div class="card" id="story-easergy">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Critical Advisory</span>
+          <span class="severity sev-med">Medium</span>
+          <span class="category">Advisory &mdash; Protection Relays</span>
         </div>
-        <h3>CISA&rsquo;s 14 July batch: two ABB advisories and a Rockwell EtherNet/IP adapter with an exposed debug port</h3>
-        <p>CISA issued four ICS advisories on 14&nbsp;July (ICSA-26-195-01 through -04), distributed alongside the vendors&rsquo; own Patch Tuesday releases. Three ABB advisories and one Rockwell advisory were pushed through CISA. The Rockwell entry covers the 1715-AENTR EtherNet/IP adapter, where a network-accessible debug port does not enforce proper privilege controls &mdash; allowing unauthenticated remote access to intrusive command-line functions. On the ABB side, advisories address Advant Master Online Builder (an incorrect Online Builder version shipped on installation media) and Ability Edgenius, where a Linux kernel privilege-escalation issue could let a locally authenticated user or a compromised container workload gain root. Consult each advisory for exact affected versions before acting.</p>
+        <h3>Schneider Easergy MiCOM Px40 relays: hard-coded credentials expose device data over SNMP</h3>
+        <p>CISA advisory ICSA-26-190-03 (9&nbsp;July) covers CVE-2026-4832, a use-of-hard-coded-credentials issue rated CVSS&nbsp;v3 5.3 in the Easergy MiCOM Px40 protection relay series used across medium, high and extra-high voltage protection. An unauthenticated attacker able to interrogate the SNMP port can retrieve sensitive device information. Affected firmware: P14x prior to B4A, P24x prior to D3A, P341 prior to E3F, and P342/P343/P344/P345 prior to B3F. On its own this is an information-disclosure finding with a modest score. Read it next to this week&rsquo;s FSB Center&nbsp;16 advisory and it is something else: an SNMP-reachable protection relay handing over device detail to precisely the scanning tradecraft fourteen agencies just described.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
-            <span class="ops-tag kev-off">ICSA-26-195-01 &hellip; -04 (ABB, Rockwell)</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported at advisory time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; ICSA-26-190-03</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor updates available</span>
-            <span class="ops-cc"><b>Action:</b> Locate any 1715-AENTR adapters and confirm the debug port is unreachable from anything but a tightly controlled engineering segment &mdash; an exposed debug CLI on an I/O adapter is a direct path to changing I/O state. Verify Advant Master installations were built from the correct Online Builder version, and patch Edgenius hosts where untrusted container workloads run.</span>
+            <span class="ops-tag patch-yes">Firmware available &mdash; see Schneider thresholds per model</span>
+            <span class="ops-cc"><b>Action:</b> Inventory affected relay models and firmware levels. Check whether SNMP is enabled and reachable from anywhere other than a protected management path &mdash; on most Px40 estates the honest answer is that nobody has looked in years. Restrict or disable SNMP, then plan Schneider-supported firmware upgrades through normal protection-settings change control with the relay engineer in the room.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &amp; patch planning &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-abbrockwell" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-abbrockwell">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> SNMP reachability check &mdash; 14 days; firmware plan &mdash; next protection cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-easergy" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-easergy">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">ICSA-26-195-01 &hellip; -04</span>
-          <span>CISA ICS advisories / SecurityWeek</span>
+          <span class="cve-badge">CVE-2026-4832 &mdash; CVSS v3 5.3</span>
+          <span>CISA ICSA-26-190-03 / Schneider Electric</span>
           <span class="dot">&bull;</span>
-          <span>CISA advisories published 14 Jul 2026</span>
+          <span>Advisory published 9 Jul 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
 
 
-  <!-- SECTION: Regulation &amp; Policy -->
+  <!-- SECTION: Regulation &amp;amp; Policy -->
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="story-nist1339">
+      <div class="card" id="story-resilience">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
-          <span class="category">Guidance</span>
+          <span class="category">Policy &mdash; Federal Posture</span>
         </div>
-        <h3>NIST publishes an OT backup quick-start guide aimed at cutting recovery time after an incident</h3>
-        <p>NIST released SP&nbsp;1339, an OT Backup Quick Start Guide intended to improve industrial cyber resilience and accelerate incident recovery. The framing is worth noting for utilities: the guidance treats backup as an operational-recovery problem rather than a data-retention one. In grid environments the assets that actually determine restoration time are rarely the file servers &mdash; they are relay settings files, controller logic, EMS/SCADA configurations, historian baselines and the engineering-workstation images needed to push any of it back. Those are precisely the artifacts most often missing, stale, or stored on the same domain as the systems they would restore. The guide is short-format and pitched at getting a workable baseline in place, which makes it a reasonable prompt to test whether your OT restore actually works rather than whether the backup job reports success.</p>
+        <h3>Acting CISA chief: plan for adversarial disruption of critical infrastructure rather than assume you can prevent it</h3>
+        <p>Speaking at the ICS Village and Institute for Security and Technology Critical Effect conference, acting CISA director Nick Andersen said the US should expect &ldquo;an adversarial disruption of our critical infrastructure&rdquo; with significant technical and psychological impact, and that operators &ldquo;are not going to be able to keep everything persistently online and available as much as we would like.&rdquo; He argued assumptions should change accordingly &mdash; including planning on the basis that telecommunications infrastructure will be disrupted. For grid operators the message is not new, but the source is notable: the federal posture has moved decisively from prevention toward resilience. Andersen also expressed scepticism that new mandates are the answer, pointing instead to state and local grant funding and prioritised outreach.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Guidance publication &mdash; no threat activity</span>
-            <span class="ops-tag kev-off">NIST SP 1339</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Policy commentary &mdash; no threat activity</span>
+            <span class="ops-tag kev-off">CISA leadership remarks</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; process and resilience guidance</span>
-            <span class="ops-cc"><b>Action:</b> Use SP 1339 as a checklist against your own OT restore path: confirm relay settings, controller logic, EMS/SCADA configuration and engineering-workstation images are backed up, held offline or otherwise isolated from the production domain, and &mdash; the part usually skipped &mdash; actually restored in a test at least once. Record the measured restore time and feed it into your recovery objectives.</span>
+            <span class="ops-tag patch-na">No patch &mdash; strategy and planning</span>
+            <span class="ops-cc"><b>Action:</b> Test the assumption he named. If your telecom carrier dropped for 72 hours, what happens to SCADA polling, DER dispatch, protection communications and your ability to reach field crews? Document which of those degrade gracefully and which stop, and rehearse manual operation for the ones that stop &mdash; then take the answer to your board as a resilience number rather than a maturity score.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Restore test &amp; gap review &mdash; next planning cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-nist1339" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-nist1339">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Comms-loss tabletop &mdash; next planning cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-resilience" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-resilience">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">NIST SP 1339</span>
-          <span>NIST / Industrial Cyber</span>
+          <span>Cybersecurity Dive (Critical Effect conference)</span>
           <span class="dot">&bull;</span>
-          <span>Published 19 Jun 2026</span>
+          <span>Reported 17 Jun 2026</span>
         </div>
-        <a href="https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-nerccip">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Regulation</span>
-        </div>
-        <h3>NERC CIP 2026 milestones keep tightening: low-impact controls, control-centre data protection, virtualization</h3>
-        <p>The 2026 NERC CIP picture continues to move toward more prescriptive OT obligations. CIP-003-9, covering security management controls for lower-risk environments, took effect on 1&nbsp;April&nbsp;2026, and CIP-012-2 addresses the confidentiality and handling of real-time operational data exchanged between control centres. FERC has approved modifications improving baseline cybersecurity for low-impact BES Cyber Systems &mdash; including password requirements for remote users and intrusion detection for low-impact assets &mdash; alongside 11 updated CIP standards enabling the secure use of virtualization. A separate final rule directs NERC to address supply-chain risk in new or modified standards, extending coverage to certain network-connected equipment. The direction of travel is consistent: fewer exemptions for low-impact assets, and more explicit expectations for data in transit and virtualized infrastructure.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Regulatory milestones &mdash; no threat activity</span>
-            <span class="ops-tag kev-off">NERC CIP-003-9 / CIP-012-2 / FERC orders</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; compliance obligation</span>
-            <span class="ops-cc"><b>Action:</b> Map the 2026 milestones against your own CIP programme, paying particular attention to low-impact assets that historically sat outside detailed control expectations and to control-centre-to-control-centre data paths under CIP-012-2. Where virtualization is planned, use the updated standards to shape the design now rather than retrofitting evidence later.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Compliance mapping &mdash; ongoing; align with audit cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-nerccip" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-nerccip">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>FERC / NERC / Certrec</span>
-          <span class="dot">&bull;</span>
-          <span>CIP-003-9 effective 1 Apr 2026; further FERC-approved changes phasing in</span>
-        </div>
-        <a href="https://www.ferc.gov/industries-data/electric/industry-activities/cyber-and-grid-security" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cybersecuritydive.com/news/cybersecurity-resilience-critical-infrastructure-cisa-nick-andersen/823166/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1027,7 +1035,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Power Generation &amp; Transmission.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the SonicWall PSIRT advisory SNWLID-2026-0008, the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7, 9 and 14 July cycles (Schneider Easergy MiCOM Px40 and PowerChute Serial Shutdown; Hitachi Energy PROMOD V and e-mesh EMS; Siemens SINEC OS and Mendix Studio Pro; ABB Advant Master and Ability Edgenius; Rockwell 1715-AENTR), Siemens ProductCERT, Schneider Electric and Rockwell Automation PSIRT July 2026 Patch Tuesday advisories, VDE CERT, WaterISAC&rsquo;s TLP:CLEAR advisory bulletins, BeyondTrust&rsquo;s security advisory, NIST SP 1339, FERC and NERC CIP rulemaking, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources for this sector, including the CISA/NSA/FBI joint advisory AA26-194A on FSB Center&nbsp;16 router targeting, the CISA KEV catalog (14 July additions) and CISA&rsquo;s SharePoint hardening alert, CISA ICS advisories ICSA-26-188-02 and ICSA-26-188-03 (Hitachi Energy PROMOD&nbsp;V and e-mesh EMS), ICSA-26-190-02 and ICSA-26-190-03 (Schneider PowerChute Serial Shutdown and Easergy MiCOM Px40) and ICSA-26-197-05 (Siemens SICAM&nbsp;8), the Siemens ProductCERT, Schneider Electric and Rockwell Automation July&nbsp;2026 Patch Tuesday advisories, VDE CERT, Hitachi Energy PSIRT, SonicWall PSIRT and Rapid7&rsquo;s exploitation research, WaterISAC&rsquo;s TLP:CLEAR bulletin of 9&nbsp;July, and reporting from SecurityWeek, Industrial Cyber, Cybersecurity Dive and pv&nbsp;magazine&nbsp;USA. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
