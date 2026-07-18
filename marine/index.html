@@ -637,46 +637,79 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 16 Jul 2026, 5:38 AM ET</span>
+        <span>Generated Saturday, 18 Jul 2026, 7:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Marine &amp; Maritime</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>7</strong> stories across
-      <strong>3</strong> categories
+      <strong>10</strong> stories across
+      <strong>4</strong> categories
     </div>
   </div>
+
+  <!-- THREAT LEVEL (composite 0-10, CVSS bands; recompute each run — see CLAUDE.md) -->
+  <style>
+  .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+  .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
+  .tl-num{font-size:34px;font-weight:800;color:var(--tl-c,#dc2626);letter-spacing:-.5px;}
+  .tl-den{font-size:15px;font-weight:600;color:#64748b;}
+  .tl-main{flex:1 1 320px;min-width:260px;}
+  .tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .tl-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+  .tl-band{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--tl-c,#dc2626);padding:2px 10px;border-radius:999px;}
+  .tl-meter{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,#16a34a 0%,#16a34a 40%,#eab308 40%,#eab308 70%,#f97316 70%,#f97316 90%,#dc2626 90%,#dc2626 100%);}
+  .tl-marker{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tl-c,#dc2626);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .tl-why{flex:1 1 100%;font-size:12.5px;color:#475569;margin-top:2px;}
+  .tl-why b{color:#334155;}
+  body.dark .threat-level{background:var(--tl-bgd,rgba(220,38,38,.10));border-color:rgba(255,255,255,.12);}
+  body.dark .tl-den,body.dark .tl-label{color:#94a3b8;}
+  body.dark .tl-why{color:#cbd5e1;}
+  body.dark .tl-why b{color:#e2e8f0;}
+  body.dark .tl-marker{background:#0f172a;}
+  </style>
+  <div class="threat-level" style="--tl-c:#dc2626;--tl-bg:#fef2f2;--tl-bd:#fecaca;--tl-bgd:rgba(220,38,38,.10);" title="Composite 0–10 threat level using CVSS bands (Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0). Weighs the severity of current items, active exploitation / CISA KEV listings, and confirmed incidents on this page.">
+    <div class="tl-score"><span class="tl-num">9.4</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-main">
+      <div class="tl-top">
+        <span class="tl-label">Overall Threat Level</span>
+        <span class="tl-band">Critical</span>
+      </div>
+      <div class="tl-meter"><span class="tl-marker" style="left:94%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Region-wide GNSS/AIS interference disrupting 1,100+ ships near the Strait of Hormuz, a confirmed shipping-line breach (King Ocean), and actively-exploited SonicWall SMA&nbsp;1000 zero-days.</div>
+    </div>
+  </div>
+  <!-- /THREAT LEVEL -->
 
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-sonicwall">
+    <div class="top-story" id="story-gnss">
       <span class="top-story-pill">Top Story</span>
-      <h2>SonicWall SMA 1000 zero-days under active attack &mdash; and a reportable incident under the USCG cyber rule if one is yours</h2>
-      <p>SonicWall confirmed active exploitation of two Secure Mobile Access 1000 flaws after investigating multiple cases. CVE-2026-15409 is a CVSS&nbsp;10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated administrator inject OS commands through the Appliance Management Console. CISA added both to the KEV catalog on 14&nbsp;July with a 17&nbsp;July federal deadline. For ports, terminals and vessel operators the placement is what matters: this class of appliance brokers the shoreside and vendor access that reaches terminal operating systems, crane and gate control, and satcom-backhauled vessel networks. There is a regulatory edge too &mdash; under the USCG Marine Transportation System rule, reportable cyber incidents must go to the National Response Center immediately on discovery, so a confirmed compromise here is a notification decision, not just a patch.</p>
+      <h2>GPS spoofing and AIS jamming scramble more than 1,100 ships around the Strait of Hormuz</h2>
+      <p>Maritime-intelligence firms including Windward documented GNSS interference affecting over 1,100 vessels across the Middle East Gulf in a single 24-hour window as hostilities among Iran, the U.S. and Israel escalated. Ships&rsquo; reported positions were displaced onto airports, inland sites and even a nuclear plant; Windward flagged at least 21 new AIS jamming clusters across UAE, Qatari, Omani and Iranian waters, and Hormuz transits fell roughly a third below normal. For vessel and terminal operators the lesson is concrete: in contested waters, satellite position, timing and AIS tracks cannot be treated as authoritative. Spoofed positions raise collision risk in congested lanes and can trigger false compliance and sanctions-screening alerts, while switching AIS off to avoid mislocation sacrifices collision-avoidance visibility &mdash; pushing reliance back onto radar, inertial aids and disciplined visual watchkeeping.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation in multiple investigated cases</span>
-          <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; wide-area GNSS jamming/spoofing ongoing across the Gulf</span>
+          <span class="ops-tag kev-off">Electronic warfare &mdash; no CVE; PNT / navigation threat</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Patch available &mdash; 12.4.3-03453 / 12.5.0-02835 hotfix</span>
-          <span class="ops-cc"><b>Action:</b> Patch SMA 1000 to the fixed hotfix build immediately. Then run SonicWall&rsquo;s forensic checks: <code>/__api__/login</code> or <code>/__api__/logout</code> requests returning HTTP&nbsp;200 in <code>extraweb_access.log</code>, <code>/wsproxy</code> requests with suspicious host parameters (HTTP&nbsp;101), path-traversal hotfix rollbacks in <code>ctrl-service.log</code>, and rogue login/logout routes in <code>/var/lib/unit/conf.json</code>. On any indicator: re-image, rotate all user and admin passwords, reset TOTP tokens &mdash; and involve your Cybersecurity Officer on the NRC reporting question early rather than after the forensics.</span>
+          <span class="ops-tag patch-na">No patch &mdash; resilience &amp; procedures</span>
+          <span class="ops-cc"><b>Action:</b> Brief bridge teams to treat GNSS position as advisory, not authoritative, in the Gulf and Strait of Hormuz &mdash; cross-check against radar, ECDIS dead-reckoning and visual bearings. Make the AIS-on-versus-dark call per voyage on a risk basis, and report interference to USCG NAVCEN and flag/coastal authorities. Confirm sanctions- and compliance-screening systems will not auto-flag a spoofed track as a port call or territorial incursion, and review war-risk cover and routing with the vessel operator before transit.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h; NRC reporting assessment immediately on any confirmed compromise</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-sonicwall" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="mr-sonicwall">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Bridge advisory &amp; procedure update &mdash; before next Gulf transit; standing PNT-resilience review &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-gnss" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="mr-gnss">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>SonicWall PSIRT (SNWLID-2026-0008) / CISA KEV / The Hacker News</span>
+        <span>Inside GNSS / Windward / Wired (corroborating, paywalled)</span>
         <span class="dot">&bull;</span>
-        <span>SonicWall advisory &amp; KEV addition 14 Jul 2026 &mdash; reporting 15 Jul; exploitation ongoing</span>
+        <span>Reported mid-Jul 2026 &mdash; interference ongoing</span>
       </div>
-      <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://insidegnss.com/gnss-interference-complicates-navigation-as-hormuz-shipping-disruption-deepens/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -706,21 +739,23 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-sonicwall"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
-        <a href="#story-lantronix"><circle class="blip high" cx="226" cy="80" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="226" y="84.1">3</text></a>
-        <a href="#story-beyondtrust"><circle class="blip high" cx="280" cy="226" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="280" y="229.8">4</text></a>
-        <a href="#story-digi"><circle class="blip high" cx="134" cy="280" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="134" y="282.7">5</text></a>
-        <a href="#story-abb"><circle class="blip high" cx="80" cy="134" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="80" y="136.3">6</text></a>
+        <a href="#story-gnss"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
+        <a href="#story-sonicwall"><circle class="blip crit" cx="232" cy="210" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="232" y="214.3">2</text></a>
+        <a href="#story-patchtuesday"><circle class="blip crit" cx="128" cy="210" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="128" y="214.1">3</text></a>
+        <a href="#story-lantronix"><circle class="blip high" cx="258" cy="102" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="258" y="105.7">4</text></a>
+        <a href="#story-beyondtrust"><circle class="blip high" cx="258" cy="258" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="258" y="261.3">5</text></a>
+        <a href="#story-digi"><circle class="blip high" cx="102" cy="258" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="102" y="261.1">6</text></a>
+        <a href="#story-abb"><circle class="blip high" cx="102" cy="102" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="102" y="105.0">7</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-sonicwall"><span class="ld crit"></span><b>1</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>2</b> July ICS Patch Tuesday &mdash; Siemens/Rockwell criticals</a>
-        <a href="#story-lantronix"><span class="ld high"></span><b>3</b> Lantronix serial-to-IP flaw exploited in the wild</a>
-        <a href="#story-beyondtrust"><span class="ld high"></span><b>4</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
-        <a href="#story-digi"><span class="ld high"></span><b>5</b> Digi PortServer TS / One SP IA9 advisories</a>
-        <a href="#story-abb"><span class="ld high"></span><b>6</b> ABB advisories (ICSA-26-195) &mdash; shoreside estates</a>
+        <a href="#story-gnss"><span class="ld crit"></span><b>1</b> GPS spoofing/AIS jamming hits 1,100+ ships, Hormuz</a>
+        <a href="#story-sonicwall"><span class="ld crit"></span><b>2</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
+        <a href="#story-patchtuesday"><span class="ld crit"></span><b>3</b> July ICS Patch Tuesday &mdash; Siemens/Rockwell criticals</a>
+        <a href="#story-lantronix"><span class="ld high"></span><b>4</b> Lantronix serial-to-IP flaw exploited in the wild</a>
+        <a href="#story-beyondtrust"><span class="ld high"></span><b>5</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
+        <a href="#story-digi"><span class="ld high"></span><b>6</b> Digi PortServer TS / One SP IA9 advisories</a>
+        <a href="#story-abb"><span class="ld high"></span><b>7</b> ABB advisories (ICSA-26-195) &mdash; shoreside estates</a>
       </div>
     </div>
 
@@ -733,22 +768,22 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
-        <span class="trend-tag">Editorial Note</span>
-        <b class="trend-head">A quiet week for maritime-specific threat reporting</b>
-        <p>Worth saying plainly: this cycle produced no verifiable, sector-native maritime incident or threat-research story inside our 30-day freshness window. Rather than stretch older material &mdash; the CYTUR maritime threat white paper is from February, the Adriatic Port Authority ransomware case from January &mdash; this edition covers the cross-sector items that genuinely reach vessel and terminal OT, framed for that audience, plus the compliance clock. Absence of reporting is not absence of activity.</p>
-        <a href="https://www.securityweek.com/category/ics-ot/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <span class="trend-tag">PNT Resilience</span>
+        <b class="trend-head">Position and timing are now an operational discipline, not a given</b>
+        <p>Wide-area GNSS jamming and AIS spoofing scrambled 1,100+ ships around the Strait of Hormuz in a single day (see top story), with Windward flagging 21 new jamming clusters. In contested waters satellite position has to be treated as advisory. Bridge procedures, radar/inertial cross-checks and an explicit AIS-on-versus-dark policy matter more than any single technical control.</p>
+        <a href="https://insidegnss.com/gnss-interference-complicates-navigation-as-hormuz-shipping-disruption-deepens/" class="source-link" target="_blank" rel="noopener">Inside GNSS</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Threat Data</span>
+        <b class="trend-head">USCG says phishing, not exotic OT exploits, is the way in</b>
+        <p>CGCYBER&rsquo;s fifth CTIME report (see Threat Intelligence) puts reported maritime cyber incidents up 17% year-over-year, with phishing behind 43% of them &mdash; up 18 points &mdash; and OT featuring in 62% of the command&rsquo;s missions. The uncomfortable takeaway: the dominant entry vector is still people and help desks, not zero-days, and it lands in OT-connected environments.</p>
+        <a href="https://industrialcyber.co/reports/new-cgcyber-report-warns-of-cybersecurity-risks-in-marine-environment-due-to-network-connected-ot-systems/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Remote Access</span>
         <b class="trend-head">The brokered vendor path is where the pressure is</b>
-        <p>SonicWall&rsquo;s SMA&nbsp;1000 zero-days are being exploited now (see top story) and BeyondTrust patched a 9.2 pre-auth bypass on 7&nbsp;July. For ports and operators these are one category: the route OEMs and shoreside support take into terminal operating systems, crane control and satcom-backhauled vessel networks. On a ship that path is narrow, high-trust and rarely monitored &mdash; which is precisely the problem.</p>
-        <a href="https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Legacy Bridges</span>
-        <b class="trend-head">Researchers have found the serial-server category</b>
-        <p>A Lantronix serial-to-IP flaw is being exploited in the wild (see Incidents) and CISA&rsquo;s 7&nbsp;July batch added Digi PortServer TS and Digi One SP IA9 advisories (see Critical Advisories). Maritime OT is still serial at the sensor layer, and these converters are what put NMEA feeds, alarm panels and cargo systems on the network. They are also the assets least likely to appear on any as-built drawing.</p>
-        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <p>SonicWall&rsquo;s SMA&nbsp;1000 zero-days are being exploited now (see Critical Advisories) and BeyondTrust patched a 9.2 pre-auth bypass on 7&nbsp;July. For ports and operators these are one category: the route OEMs and shoreside support take into terminal operating systems, crane control and satcom-backhauled vessel networks. On a ship that path is narrow, high-trust and rarely monitored &mdash; which is precisely the problem.</p>
+        <a href="https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Compliance</span>
@@ -764,6 +799,35 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="story-kingocean">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Data Breach</span>
+        </div>
+        <h3>King Ocean Services discloses a data breach at a Florida-based container shipping line</h3>
+        <p>King Ocean Services, a Florida-headquartered ocean-freight and container carrier running services across the Western Hemisphere, began notifying individuals on 11&nbsp;July of a data-security incident that exposed personal information, including government identification numbers. The company has not disclosed the cause, the intrusion timeline, or whether any operational or terminal systems were touched &mdash; the filings describe a data-theft/PII exposure, not a confirmed impact to cargo or vessel OT. It is logged here as a reminder that shipping lines and their shoreside back-office systems are being hit directly, and that an IT compromise at a carrier can ripple into booking, manifest and terminal-handoff processes even when navigation and control systems stay untouched. Confirmed via the company&rsquo;s own breach notice; operational details remain limited.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known OT impact &mdash; PII/data-theft incident</span>
+            <span class="ops-tag kev-off">Maritime carrier &mdash; IT / back-office breach</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; breach response</span>
+            <span class="ops-cc"><b>Action:</b> Watch for the eventual detail on root cause and dwell time. If you exchange EDI/manifest or booking data with King Ocean or similar carriers, review the trust and monitoring on those integrations and confirm that a partner&rsquo;s IT compromise cannot reach your terminal-operating or gate systems. Reinforce phishing and help-desk social-engineering defences &mdash; the USCG&rsquo;s own data (see Threat Intelligence) makes that the dominant maritime entry vector.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Partner-integration &amp; exposure review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-kingocean" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-kingocean">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>King Ocean Services breach notice / Cole &amp; Van Note / ISSSource</span>
+          <span class="dot">&bull;</span>
+          <span>Breach notice issued 11 Jul 2026</span>
+        </div>
+        <a href="https://www.isssource.com/cyberattack-at-maritime-shipping-firm/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-lantronix">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -798,10 +862,78 @@
   </div>
 
 
+  <!-- SECTION: Threat Intelligence &amp; Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+      <div class="card" id="story-ctime">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Threat Report</span>
+        </div>
+        <h3>USCG Cyber Command&rsquo;s fifth CTIME report: reported maritime cyber incidents up 17%, phishing dominant</h3>
+        <p>Coast Guard Cyber Command (CGCYBER) released its fifth annual Cyber Trends and Insights in the Marine Environment (CTIME) report, drawing on a record 42 Cyber Protection Team missions plus industry telemetry from 2025. Reported maritime cyber incidents rose 17% year-over-year. Phishing was the initial-access vector in 43% of incidents &mdash; an 18-point jump &mdash; with syndicates such as Scattered Spider pairing phishing with voice impersonation (vishing) to defeat help desks and weak MFA; ransomware featured in 19% of attack paths, and OT was in scope for 62% of the command&rsquo;s missions. CGCYBER stresses that the blurring IT/OT boundary aboard ships, machinery and port facilities raises the odds of a cyber event producing physical consequences. Notably, Cyber Protection Teams deployed alongside boarding teams in Dark Fleet interdiction operations for the first time.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Threat report &mdash; trend data, not a single incident</span>
+            <span class="ops-tag kev-off">USCG CGCYBER &mdash; CTIME 2026 (5th edition)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; programmatic guidance</span>
+            <span class="ops-cc"><b>Action:</b> Use the report to prioritise. Phishing/vishing awareness and help-desk identity verification come first, because that is the dominant vector; then MFA hardening and IT/OT segmentation so an office-side compromise cannot reach navigation, cargo or engine controls. Map the findings directly onto the cybersecurity assessment you owe under the USCG rule &mdash; the report is effectively a threat model handed to you by the regulator.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Read &amp; fold into assessment scoping &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-ctime" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-ctime">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>USCG CGCYBER / Industrial Cyber / SAFETY4SEA</span>
+          <span class="dot">&bull;</span>
+          <span>Fifth annual CTIME report &mdash; released Jul 2026 (2025 data)</span>
+        </div>
+        <a href="https://industrialcyber.co/reports/new-cgcyber-report-warns-of-cybersecurity-risks-in-marine-environment-due-to-network-connected-ot-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+
   <!-- SECTION: Critical Advisories -->
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="story-sonicwall">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active Exploitation</span>
+        </div>
+        <h3>SonicWall SMA 1000 zero-days under active attack; both added to CISA KEV</h3>
+        <p>SonicWall confirmed active exploitation of two Secure Mobile Access 1000 flaws after investigating multiple cases. CVE-2026-15409 is a CVSS&nbsp;10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated administrator inject OS commands through the Appliance Management Console. CISA added both to the KEV catalog on 14&nbsp;July with a 17&nbsp;July federal deadline. For ports, terminals and vessel operators the placement is what matters: this class of appliance brokers the shoreside and vendor access that reaches terminal operating systems, crane and gate control, and satcom-backhauled vessel networks. A confirmed compromise is also a reportable-incident question under the USCG rule, where notification to the National Response Center is due immediately on discovery &mdash; a notification decision, not just a patch.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation in multiple cases</span>
+            <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; 12.4.3-03453 / 12.5.0-02835 hotfix</span>
+            <span class="ops-cc"><b>Action:</b> Patch SMA 1000 to the fixed build immediately, then run SonicWall&rsquo;s forensic checks &mdash; <code>/__api__/login</code> or <code>/__api__/logout</code> requests returning HTTP&nbsp;200, <code>/wsproxy</code> requests (HTTP&nbsp;101) with suspicious host parameters, path-traversal hotfix rollbacks, and rogue login/logout routes in <code>conf.json</code>. On any indicator, re-image, rotate all user and admin passwords, reset TOTP tokens &mdash; and involve your Cybersecurity Officer on the NRC reporting decision early rather than after the forensics.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h; NRC reporting assessment immediately on any confirmed compromise</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-sonicwall" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-sonicwall">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-15409</span>
+          <span class="cve-badge">CVE-2026-15410</span>
+          <span>SonicWall PSIRT (SNWLID-2026-0008) / CISA KEV / The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory &amp; KEV addition 14 Jul 2026 &mdash; exploitation ongoing</span>
+        </div>
+        <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-patchtuesday">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -966,7 +1098,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Marine &amp; Maritime.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS and maritime sources including the SonicWall PSIRT advisory SNWLID-2026-0008 and the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7 and 14 July cycles (Digi PortServer TS and Digi One SP IA9; ABB Advant Master and Ability Edgenius; Rockwell 1715-AENTR), Siemens ProductCERT, Schneider Electric and Rockwell Automation July 2026 Patch Tuesday advisories, VDE CERT, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, US Coast Guard Maritime Commons guidance on the Cybersecurity in the Marine Transportation System final rule and its implementation timeline, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. This cycle produced no verifiable maritime-specific incident or threat-research story within the 30-day freshness window; cross-sector items are included only where they genuinely reach vessel or terminal OT, and are framed for that audience. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS and maritime sources including Inside GNSS and Windward reporting on GNSS/AIS interference around the Strait of Hormuz (with Wired corroboration, paywalled), the US Coast Guard Cyber Command fifth CTIME report, the King Ocean Services breach notice, the SonicWall PSIRT advisory SNWLID-2026-0008 and the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7 and 14 July cycles (Digi PortServer TS and Digi One SP IA9; ABB Advant Master and Ability Edgenius; Rockwell 1715-AENTR), Siemens ProductCERT, Schneider Electric and Rockwell Automation July 2026 Patch Tuesday advisories, VDE CERT, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, US Coast Guard Maritime Commons guidance on the Cybersecurity in the Marine Transportation System final rule and its implementation timeline, and reporting from SecurityWeek, The Hacker News, Industrial Cyber and SAFETY4SEA. Cross-sector items are included only where they genuinely reach vessel or terminal OT, and are framed for that audience. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

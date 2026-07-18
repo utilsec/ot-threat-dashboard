@@ -637,7 +637,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 16 Jul 2026, 5:38 AM ET</span>
+        <span>Generated Saturday, 18 Jul 2026, 7:09 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
@@ -648,18 +648,51 @@
     </div>
   </div>
 
+  <!-- THREAT LEVEL (composite 0-10, CVSS bands; recompute each run — see CLAUDE.md) -->
+  <style>
+  .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+  .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
+  .tl-num{font-size:34px;font-weight:800;color:var(--tl-c,#dc2626);letter-spacing:-.5px;}
+  .tl-den{font-size:15px;font-weight:600;color:#64748b;}
+  .tl-main{flex:1 1 320px;min-width:260px;}
+  .tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .tl-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+  .tl-band{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--tl-c,#dc2626);padding:2px 10px;border-radius:999px;}
+  .tl-meter{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,#16a34a 0%,#16a34a 40%,#eab308 40%,#eab308 70%,#f97316 70%,#f97316 90%,#dc2626 90%,#dc2626 100%);}
+  .tl-marker{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tl-c,#dc2626);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .tl-why{flex:1 1 100%;font-size:12.5px;color:#475569;margin-top:2px;}
+  .tl-why b{color:#334155;}
+  body.dark .threat-level{background:var(--tl-bgd,rgba(220,38,38,.10));border-color:rgba(255,255,255,.12);}
+  body.dark .tl-den,body.dark .tl-label{color:#94a3b8;}
+  body.dark .tl-why{color:#cbd5e1;}
+  body.dark .tl-why b{color:#e2e8f0;}
+  body.dark .tl-marker{background:#0f172a;}
+  </style>
+  <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level using CVSS bands (Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0). Weighs the severity of current items, active exploitation / CISA KEV listings, and confirmed incidents on this page.">
+    <div class="tl-score"><span class="tl-num">8.2</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-main">
+      <div class="tl-top">
+        <span class="tl-label">Overall Threat Level</span>
+        <span class="tl-band">High</span>
+      </div>
+      <div class="tl-meter"><span class="tl-marker" style="left:82%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Elevated, but no confirmed water-sector compromise this cycle: SonicWall SMA&nbsp;1000 remote-access zero-days under active exploitation (federal patch deadline passed) plus critical Rockwell Logix advisories.</div>
+    </div>
+  </div>
+  <!-- /THREAT LEVEL -->
+
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
     <!-- TOP STORY -->
     <div class="top-story" id="story-sonicwall">
       <span class="top-story-pill">Top Story</span>
-      <h2>Remote-access appliances under active attack: SonicWall SMA 1000 zero-days exploited, federal patch deadline 17 July</h2>
-      <p>SonicWall has confirmed active exploitation of two Secure Mobile Access 1000 flaws after investigating multiple cases. CVE-2026-15409 is a CVSS&nbsp;10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated admin run OS commands via the Appliance Management Console. CISA added both to the KEV catalog on 14&nbsp;July, with federal agencies required to fix by 17&nbsp;July. Water and wastewater utilities are disproportionately exposed here for structural reasons: remote access is not a convenience but the operating model. Lean teams cover distributed treatment plants and lift stations after hours, and integrators dial in for dosing, pump and SCADA support. When the appliance carrying that traffic is the thing being exploited, the compromise arrives wearing a valid session.</p>
+      <h2>Remote-access appliances under active attack: SonicWall SMA 1000 zero-days exploited; federal patch deadline passed 17 July</h2>
+      <p>SonicWall has confirmed active exploitation of two Secure Mobile Access 1000 flaws, which Rapid7&rsquo;s MDR team discovered being used against internet-facing appliances since at least late June. CVE-2026-15409 is a CVSS&nbsp;10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated admin run OS commands via the Appliance Management Console, and attackers are chaining the two for full appliance takeover. CISA added both to the KEV catalog on 14&nbsp;July; the federal fix-by date of 17&nbsp;July has now passed. Water and wastewater utilities are disproportionately exposed here for structural reasons: remote access is not a convenience but the operating model. Lean teams cover distributed treatment plants and lift stations after hours, and integrators dial in for dosing, pump and SCADA support. When the appliance carrying that traffic is the thing being exploited, the compromise arrives wearing a valid session.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation in multiple investigated cases</span>
-          <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation; Rapid7 observed since late June</span>
+          <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul (passed)</span>
         </div>
         <div class="ops-row">
           <span class="ops-tag patch-yes">Patch available &mdash; 12.4.3-03453 / 12.5.0-02835 hotfix</span>
@@ -674,7 +707,7 @@
       <div class="card-meta">
         <span>SonicWall PSIRT (SNWLID-2026-0008) / CISA KEV / The Hacker News</span>
         <span class="dot">&bull;</span>
-        <span>SonicWall advisory &amp; KEV addition 14 Jul 2026 &mdash; reporting 15 Jul; exploitation ongoing</span>
+        <span>SonicWall advisory &amp; KEV addition 14 Jul 2026 &mdash; Rapid7 discovery; FCEB deadline 17 Jul now passed; exploitation ongoing</span>
       </div>
       <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
@@ -868,7 +901,7 @@
           <span class="category">Vendor Advisories</span>
         </div>
         <h3>July ICS Patch Tuesday: critical DoS flaws in Rockwell Logix controllers, plus a Schneider IGSS SCADA code-execution fix</h3>
-        <p>The July 2026 cycle carries two items with direct water-sector weight. Rockwell Automation published 12 advisories including three critical denial-of-service flaws in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can force a major non-recoverable fault &mdash; in plain terms, a controller that stops and does not come back on its own. Allen-Bradley Logix hardware runs a large share of treatment-plant and pumping control, so that is a process-availability issue, not a data one. Schneider Electric separately fixed a high-severity flaw in IGSS, its SCADA product, where crafted files can execute arbitrary code. Siemens published nine advisories, six critical, including a CVSS&nbsp;10 authentication bypass in Opencenter X and fixes for Simatic S7-1500. VDE CERT added five more covering Codesys and Wago among others.</p>
+        <p>The July 2026 cycle carries two items with direct water-sector weight. Rockwell Automation published 12 advisories including three critical denial-of-service flaws in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can force a major non-recoverable fault &mdash; in plain terms, a controller that stops and does not come back on its own. Allen-Bradley Logix hardware runs a large share of treatment-plant and pumping control, so that is a process-availability issue, not a data one. Schneider Electric separately fixed a high-severity flaw in IGSS, its SCADA product, where crafted files can execute arbitrary code. Siemens published nine advisories, six critical, including a CVSS&nbsp;10 authentication bypass in Opencenter X and fixes for Simatic S7-1500. VDE CERT added five more covering Codesys and Wago among others. CISA formalised the Logix denial-of-service issues as ICSA-26-197-06 in its 16&nbsp;July advisory batch, and separately flagged Rockwell&rsquo;s 1715-AENTR EtherNet/IP adapter (ICSA-26-195-04) for Water and Wastewater Systems &mdash; worth checking against remote I/O on your plant networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
@@ -885,9 +918,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT / Schneider / Rockwell PSIRT / SecurityWeek</span>
+          <span>Siemens ProductCERT / Schneider / Rockwell PSIRT / CISA ICS advisories / SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Published 14 Jul 2026 (Patch Tuesday) &mdash; reporting 15 Jul</span>
+          <span>Vendor advisories 14 Jul 2026 (Patch Tuesday); CISA ICSA-26-197 batch 16 Jul 2026</span>
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -997,7 +1030,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Water &amp; Wastewater.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the SonicWall PSIRT advisory SNWLID-2026-0008, the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7 and 9 July cycles (OpenPLC v3 and Labcenter Proteus 9, both flagged for Water and Wastewater Systems; Digi PortServer TS and Digi One SP IA9; Schneider Easergy MiCOM Px40), WaterISAC&rsquo;s TLP:CLEAR advisory bulletins, Siemens ProductCERT, Schneider Electric and Rockwell Automation PSIRT July 2026 Patch Tuesday advisories, VDE CERT, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, Mandiant&rsquo;s investigation findings for California Water Service, NIST SP 1339, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the SonicWall PSIRT advisory SNWLID-2026-0008 and Rapid7&rsquo;s discovery of its active exploitation, the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7, 9 and 16 July cycles (OpenPLC v3 and Labcenter Proteus 9, both flagged for Water and Wastewater Systems; Digi PortServer TS and Digi One SP IA9; Schneider Easergy MiCOM Px40; the ICSA-26-197 batch including the Rockwell Logix denial-of-service advisory ICSA-26-197-06; and the Rockwell 1715-AENTR EtherNet/IP adapter advisory ICSA-26-195-04, also flagged for Water and Wastewater Systems), WaterISAC&rsquo;s TLP:CLEAR advisory bulletins, Siemens ProductCERT, Schneider Electric and Rockwell Automation PSIRT July 2026 Patch Tuesday advisories, VDE CERT, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, Mandiant&rsquo;s investigation findings for California Water Service, NIST SP 1339, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 

@@ -637,46 +637,79 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 16 Jul 2026, 5:38 AM ET</span>
+        <span>Generated Saturday, 18 Jul 2026, 7:08 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>9</strong> stories across
+      <strong>10</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
+
+  <!-- THREAT LEVEL (composite 0-10, CVSS bands; recompute each run — see CLAUDE.md) -->
+  <style>
+  .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+  .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
+  .tl-num{font-size:34px;font-weight:800;color:var(--tl-c,#dc2626);letter-spacing:-.5px;}
+  .tl-den{font-size:15px;font-weight:600;color:#64748b;}
+  .tl-main{flex:1 1 320px;min-width:260px;}
+  .tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .tl-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+  .tl-band{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--tl-c,#dc2626);padding:2px 10px;border-radius:999px;}
+  .tl-meter{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,#16a34a 0%,#16a34a 40%,#eab308 40%,#eab308 70%,#f97316 70%,#f97316 90%,#dc2626 90%,#dc2626 100%);}
+  .tl-marker{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tl-c,#dc2626);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .tl-why{flex:1 1 100%;font-size:12.5px;color:#475569;margin-top:2px;}
+  .tl-why b{color:#334155;}
+  body.dark .threat-level{background:var(--tl-bgd,rgba(220,38,38,.10));border-color:rgba(255,255,255,.12);}
+  body.dark .tl-den,body.dark .tl-label{color:#94a3b8;}
+  body.dark .tl-why{color:#cbd5e1;}
+  body.dark .tl-why b{color:#e2e8f0;}
+  body.dark .tl-marker{background:#0f172a;}
+  </style>
+  <div class="threat-level" style="--tl-c:#dc2626;--tl-bg:#fef2f2;--tl-bd:#fecaca;--tl-bgd:rgba(220,38,38,.10);" title="Composite 0–10 threat level using CVSS bands (Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0). Weighs the severity of current items, active exploitation / CISA KEV listings, and confirmed incidents on this page.">
+    <div class="tl-score"><span class="tl-num">9.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-main">
+      <div class="tl-top">
+        <span class="tl-label">Overall Threat Level</span>
+        <span class="tl-band">Critical</span>
+      </div>
+      <div class="tl-meter"><span class="tl-marker" style="left:98%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Confirmed ransomware halting all US production at a major processor (fairlife/Coca-Cola), an actively-exploited PTC Windchill RCE in CISA KEV, and a heavy critical ICS Patch Tuesday (Rockwell, Siemens, ABB).</div>
+    </div>
+  </div>
+  <!-- /THREAT LEVEL -->
 
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-patchtuesday">
+    <div class="top-story" id="story-fairlife">
       <span class="top-story-pill">Top Story</span>
-      <h2>Rockwell patches three critical DoS flaws that can drop ControlLogix and CompactLogix into a non-recoverable fault</h2>
-      <p>July&rsquo;s ICS Patch Tuesday is a bad one for plant floors. Rockwell Automation published 12 advisories, including three critical denial-of-service holes in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can be exploited to cause a major non-recoverable fault &mdash; a controller that stops and stays stopped until someone intervenes. A fourth critical flaw in the 1715 Redundant I/O product lets an unauthenticated attacker reach intrusive CLI commands to read or delete files, stop tasks, change I/O states and modify memory. Siemens added nine advisories, six critical, including a CVSS&nbsp;10 authentication bypass in Opencenter X and fixes for Simatic S7-1500. For discrete and process manufacturers the exposure is unusually direct: these are not adjacent systems, they are the controllers running the line.</p>
+      <h2>Ransomware forces Coca-Cola&rsquo;s Fairlife to suspend all US production</h2>
+      <p>Coca-Cola disclosed in an SEC filing on 16&nbsp;July that its dairy subsidiary Fairlife suffered a ransomware event in which an unauthorized third party accessed a portion of its systems &mdash; including production-related systems &mdash; forcing the company to temporarily suspend all US production. Canadian operations and product safety are unaffected. Whether the intrusion reached plant-floor OT or production simply stopped as a precaution has not been confirmed. Either way, it is the scenario every manufacturer rehearses: an IT compromise that halts the line because production systems either shared trust with the affected environment or could not be safely operated without it. For a perishable-goods maker the clock is unforgiving &mdash; inputs arrive on fixed schedules and lost output cannot be recovered with overtime. Segmentation and a tested production-restore path are the controls that decide how long a stoppage like this lasts.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
-          <span class="ops-tag kev-on">In CISA KEV: no &mdash; vendor advisories, 14 Jul 2026</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed ransomware; production suspended</span>
+          <span class="ops-tag kev-off">Coca-Cola SEC 8-K, 16 Jul 2026</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Patches available &mdash; Rockwell, Siemens, Schneider, VDE CERT</span>
-          <span class="ops-cc"><b>Action:</b> Map the Rockwell Logix DoS advisories and the 1715 Redundant I/O flaw against your controller inventory and rank by production impact: a non-recoverable fault on a line with no buffer is a different problem from one on a redundant skid. Where patching needs a changeover window, apply segmentation and access controls as compensating measures and book the window rather than deferring indefinitely. Verify the 1715 CLI is unreachable from anything outside a controlled engineering segment.</span>
+          <span class="ops-tag patch-na">No patch &mdash; IT/OT resilience &amp; segmentation</span>
+          <span class="ops-cc"><b>Action:</b> Treat this as a prompt to validate your own IT-to-OT boundary: could production keep running, or shut down safely, if you had to isolate the business network tomorrow? Confirm PLC logic, HMI projects and recipes restore from offline backups, and that ransomware in IT cannot traverse into cell or line networks. Review who &mdash; staff or third parties &mdash; can reach production remotely, and whether that access is brokered, logged and time-bounded.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Triage &amp; scheduling &mdash; 7 days for critical; patch at next changeover window</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="mf-patchtuesday">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> IT/OT isolation &amp; restore validation &mdash; 30 days (resilience exposure; nothing to patch)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-fairlife" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="mf-fairlife">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>Rockwell PSIRT / Siemens ProductCERT / Schneider / SecurityWeek</span>
+        <span>Coca-Cola SEC 8-K / BleepingComputer / Help Net Security</span>
         <span class="dot">&bull;</span>
-        <span>Vendor advisories published 14 Jul 2026 (Patch Tuesday) &mdash; reporting 15 Jul</span>
+        <span>Disclosed 16 Jul 2026 (SEC 8-K) &mdash; reporting 17 Jul; ongoing</span>
       </div>
-      <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.bleepingcomputer.com/news/security/coca-cola-says-fairlife-ransomware-attack-halts-us-dairy-production/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -706,23 +739,25 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
-        <a href="#story-sonicwall"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
-        <a href="#story-windchill"><circle class="blip high" cx="226" cy="80" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="226" y="84.1">3</text></a>
-        <a href="#story-lantronix"><circle class="blip high" cx="289" cy="193" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="289" y="196.7">4</text></a>
-        <a href="#story-beyondtrust"><circle class="blip high" cx="201" cy="288" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="201" y="291.0">5</text></a>
-        <a href="#story-doppel"><circle class="blip high" cx="84" cy="233" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="84" y="236.2">6</text></a>
-        <a href="#story-abbrockwell"><circle class="blip high" cx="100" cy="105" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="100" y="107.7">7</text></a>
+        <a href="#story-fairlife"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
+        <a href="#story-patchtuesday"><circle class="blip crit" cx="232" cy="210" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="232" y="214.3">2</text></a>
+        <a href="#story-sonicwall"><circle class="blip crit" cx="128" cy="210" r="12.5"/><text class="blip-num" style="font-size:11.3px" x="128" y="213.9">3</text></a>
+        <a href="#story-windchill"><circle class="blip high" cx="275" cy="125" r="11.5"/><text class="blip-num" style="font-size:10.4px" x="275" y="128.7">4</text></a>
+        <a href="#story-lantronix"><circle class="blip high" cx="258" cy="258" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="258" y="261.7">5</text></a>
+        <a href="#story-doppel"><circle class="blip high" cx="142" cy="283" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="142" y="286.0">6</text></a>
+        <a href="#story-beyondtrust"><circle class="blip high" cx="77" cy="218" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="77" y="220.9">7</text></a>
+        <a href="#story-abbrockwell"><circle class="blip high" cx="85" cy="125" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="85" y="127.7">8</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>1</b> Rockwell critical Logix non-recoverable-fault DoS flaws</a>
-        <a href="#story-sonicwall"><span class="ld crit"></span><b>2</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
-        <a href="#story-windchill"><span class="ld high"></span><b>3</b> PTC Windchill RCE exploited in the wild (KEV)</a>
-        <a href="#story-lantronix"><span class="ld high"></span><b>4</b> Lantronix serial-to-IP flaw exploited in the wild</a>
-        <a href="#story-beyondtrust"><span class="ld high"></span><b>5</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
+        <a href="#story-fairlife"><span class="ld crit"></span><b>1</b> Fairlife ransomware halts all US production</a>
+        <a href="#story-patchtuesday"><span class="ld crit"></span><b>2</b> Rockwell critical Logix non-recoverable-fault DoS flaws</a>
+        <a href="#story-sonicwall"><span class="ld crit"></span><b>3</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
+        <a href="#story-windchill"><span class="ld high"></span><b>4</b> PTC Windchill RCE exploited in the wild (KEV)</a>
+        <a href="#story-lantronix"><span class="ld high"></span><b>5</b> Lantronix serial-to-IP flaw exploited in the wild</a>
         <a href="#story-doppel"><span class="ld high"></span><b>6</b> Identity attacks &amp; vishing surge vs manufacturing</a>
-        <a href="#story-abbrockwell"><span class="ld high"></span><b>7</b> Rockwell 1715-AENTR debug port; ABB advisories</a>
+        <a href="#story-beyondtrust"><span class="ld high"></span><b>7</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
+        <a href="#story-abbrockwell"><span class="ld high"></span><b>8</b> Rockwell 1715-AENTR debug port; ABB advisories</a>
       </div>
     </div>
 
@@ -737,7 +772,7 @@
       <div class="trend">
         <span class="trend-tag">Patch Volume</span>
         <b class="trend-head">A heavy month for anyone whose line runs on Logix</b>
-        <p>July&rsquo;s ICS cycle brought 23 advisories from Siemens, Schneider and Rockwell alone, plus five from VDE CERT covering Codesys, Wago, Murrelektronik and Mettler Toledo. Rockwell&rsquo;s three critical non-recoverable-fault flaws in CompactLogix/ControlLogix (see top story) are the ones worth arguing for a changeover window over. The structural problem is unchanged: controller patching competes with output, and the queue only grows.</p>
+        <p>July&rsquo;s ICS cycle brought 23 advisories from Siemens, Schneider and Rockwell alone, plus five from VDE CERT covering Codesys, Wago, Murrelektronik and Mettler Toledo. Rockwell&rsquo;s three critical non-recoverable-fault flaws in CompactLogix/ControlLogix (see Critical Advisories) are the ones worth arguing for a changeover window over. The structural problem is unchanged: controller patching competes with output, and the queue only grows.</p>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
@@ -902,6 +937,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="story-patchtuesday">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory</span>
+        </div>
+        <h3>July ICS Patch Tuesday: Rockwell fixes critical DoS flaws that fault ControlLogix and CompactLogix</h3>
+        <p>July&rsquo;s ICS Patch Tuesday is a bad one for plant floors. Rockwell Automation published 12 advisories, including three critical denial-of-service holes in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can be exploited to cause a major non-recoverable fault &mdash; a controller that stops and stays stopped until someone intervenes. A fourth critical flaw in the 1715 Redundant I/O product lets an unauthenticated attacker reach intrusive CLI commands to read or delete files, stop tasks, change I/O states and modify memory. Siemens added nine advisories, six critical, including a CVSS&nbsp;10 authentication bypass in Opencenter X and fixes for Simatic S7-1500. For discrete and process manufacturers the exposure is unusually direct: these are not adjacent systems, they are the controllers running the line.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
+            <span class="ops-tag kev-off">Vendor advisories &mdash; 14 Jul 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available &mdash; Rockwell, Siemens, Schneider, VDE CERT</span>
+            <span class="ops-cc"><b>Action:</b> Map the Rockwell Logix DoS advisories and the 1715 Redundant I/O flaw against your controller inventory and rank by production impact: a non-recoverable fault on a line with no buffer is a different problem from one on a redundant skid. Where patching needs a changeover window, apply segmentation and access controls as compensating measures and book the window rather than deferring indefinitely. Verify the 1715 CLI is unreachable from anything outside a controlled engineering segment.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Triage &amp; scheduling &mdash; 7 days for critical; patch at next changeover window</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-patchtuesday">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Rockwell PSIRT / Siemens ProductCERT / Schneider / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor advisories published 14 Jul 2026 (Patch Tuesday) &mdash; reporting 15 Jul</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-abbrockwell">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1038,7 +1102,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including Rockwell Automation, Siemens ProductCERT and Schneider Electric July 2026 Patch Tuesday advisories, VDE CERT, CISA ICS advisories from the 14 July cycle (ICSA-26-195-01 through -04, covering ABB Advant Master, ABB Ability Edgenius and the Rockwell 1715-AENTR EtherNet/IP adapter), the CISA KEV catalog (PTC Windchill CVE-2026-12569 and the 14 July SonicWall additions), the SonicWall PSIRT advisory SNWLID-2026-0008, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, Doppel&rsquo;s manufacturing threat research, NIST SP 1339, Australia&rsquo;s CISC Enhanced CIRMP Rules, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including The Coca-Cola Company&rsquo;s 16 July SEC Form 8-K on the Fairlife ransomware incident, Rockwell Automation, Siemens ProductCERT and Schneider Electric July 2026 Patch Tuesday advisories, VDE CERT, CISA ICS advisories from the 14 July cycle (ICSA-26-195-01 through -04, covering ABB Advant Master, ABB Ability Edgenius and the Rockwell 1715-AENTR EtherNet/IP adapter), the CISA KEV catalog (PTC Windchill CVE-2026-12569 and the 14 July SonicWall additions), the SonicWall PSIRT advisory SNWLID-2026-0008, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, Doppel&rsquo;s manufacturing threat research, NIST SP 1339, Australia&rsquo;s CISC Enhanced CIRMP Rules, and reporting from BleepingComputer, Help Net Security, SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
