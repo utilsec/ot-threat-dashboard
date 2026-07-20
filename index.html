@@ -628,18 +628,18 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 19 Jul 2026, 8:15 PM ET</span>
+        <span>Generated Mon, 20 Jul 2026, 12:15 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>15</strong> stories across
+      <strong>16</strong> stories across
       <strong>5</strong> categories
     </div>
   </div>
 
-  <!-- THREAT LEVEL (composite 0-10, CVSS bands; recompute each run — see CLAUDE.md) -->
+  <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run — see CLAUDE.md) -->
   <style>
   .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
   .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
@@ -659,7 +659,7 @@
   body.dark .tl-why b{color:#e2e8f0;}
   body.dark .tl-marker{background:#0f172a;}
   </style>
-  <div class="threat-level" style="--tl-c:#dc2626;--tl-bg:#fef2f2;--tl-bd:#fecaca;--tl-bgd:rgba(220,38,38,.10);" title="Composite 0–10 threat level using CVSS bands (Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0). Weighs the severity of current items, active exploitation / CISA KEV listings, and confirmed incidents on this page.">
+  <div class="threat-level" style="--tl-c:#dc2626;--tl-bg:#fef2f2;--tl-bd:#fecaca;--tl-bgd:rgba(220,38,38,.10);" title="Composite 0–10 threat level, weighted to this page's audience across all critical-infrastructure sectors. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. Critical is reserved for active exploitation of an OT-relevant vulnerability (in the wild / CISA KEV) or a confirmed incident impacting multiple environments across multiple sectors; otherwise capped at High. Single-sector threats are weighted down on this all-sectors view.">
     <div class="tl-score"><span class="tl-num">9.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
@@ -995,6 +995,36 @@
           <span>15 Jul 2026</span>
         </div>
         <a href="https://www.aljazeera.com/news/2026/7/16/data-breach-reportedly-targets-indias-kudankulam-nuclear-power-plant" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-nidec">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident / Ransomware</span>
+        </div>
+        <h3>Blackfield ransomware demands $2M from motor maker Nidec after breaching a Taiwanese subsidiary</h3>
+        <p>The Blackfield ransomware crew has listed Nidec &mdash; the large Japanese electric-motor and industrial-component manufacturer &mdash; on its leak site, demanding $2&nbsp;million and claiming it stole more than two terabytes of data from subsidiary Nidec Chaun-Choung Technology in Taiwan. The group says the archive spans employee, financial, procurement, manufacturing, legal and IT records, and is offering to sell or publish it if unpaid. Nidec states the subsidiary runs on an independent network that limited the intrusion&rsquo;s reach and has not confirmed the volume or contents of any stolen files &mdash; the figures come from the attacker, which has every incentive to inflate them. No production impact has been reported, but it is another reminder that manufacturing remains the most-targeted sector for industrial ransomware.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed intrusion (subsidiary) &mdash; data-theft/extortion; no OT or production impact reported</span>
+            <span class="ops-tag kev-off">No CVE &mdash; ransomware intrusion, initial vector not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Extortion/IR ongoing &mdash; no patch applicable</span>
+            <span class="ops-cc"><b>Action:</b> Treat as a prompt to confirm subsidiary and OEM networks really are segmented from your OT and corporate core the way org charts assume &mdash; and that a compromise in a &ldquo;separate&rdquo; plant or regional network cannot pivot inward. Verify OT-relevant backups are offline and restorable, and rehearse how you would triage attacker data-theft claims against your own logs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Validate subsidiary/OT segmentation &amp; backups &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nidec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="nidec">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Blackfield leak-site claim / Nidec &mdash; via BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>17 Jul 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/blackfield-ransomware-asks-nidec-corporation-for-2-million-ransom/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>

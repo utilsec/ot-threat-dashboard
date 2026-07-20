@@ -637,7 +637,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 18 Jul 2026, 7:08 AM ET</span>
+        <span>Generated Monday, 20 Jul 2026, 6:58 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
@@ -648,7 +648,7 @@
     </div>
   </div>
 
-  <!-- THREAT LEVEL (composite 0-10, CVSS bands; recompute each run — see CLAUDE.md) -->
+  <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run — see CLAUDE.md) -->
   <style>
   .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
   .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
@@ -668,15 +668,15 @@
   body.dark .tl-why b{color:#e2e8f0;}
   body.dark .tl-marker{background:#0f172a;}
   </style>
-  <div class="threat-level" style="--tl-c:#dc2626;--tl-bg:#fef2f2;--tl-bd:#fecaca;--tl-bgd:rgba(220,38,38,.10);" title="Composite 0–10 threat level using CVSS bands (Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0). Weighs the severity of current items, active exploitation / CISA KEV listings, and confirmed incidents on this page.">
-    <div class="tl-score"><span class="tl-num">9.8</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level, weighted to manufacturing operators. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. A confirmed single-sector incident rates High here; Critical is reserved for active exploitation of a relevant vulnerability (in the wild / CISA KEV) or a confirmed incident impacting multiple environments across multiple sectors.">
+    <div class="tl-score"><span class="tl-num">8.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
-        <span class="tl-band">Critical</span>
+        <span class="tl-band">High</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:98%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Confirmed ransomware halting all US production at a major processor (fairlife/Coca-Cola), an actively-exploited PTC Windchill RCE in CISA KEV, and a heavy critical ICS Patch Tuesday (Rockwell, Siemens, ABB).</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:87%;"></span></div>
+      <div class="tl-why"><b>Why:</b> A confirmed ransomware production halt drove a German auto/aerospace parts supplier into insolvency (six-week outage), alongside separate confirmed manufacturing intrusions (Nidec, Indra), an actively-exploited SonicWall SMA&nbsp;1000 zero-day and PTC Windchill RCE both in CISA KEV, and a heavy critical ICS Patch Tuesday (Rockwell Logix, Siemens, ABB) &mdash; serious and disruption-proven, but no nation-state grid-scale event this cycle.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -685,31 +685,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-fairlife">
+    <div class="top-story" id="story-insolvency">
       <span class="top-story-pill">Top Story</span>
-      <h2>Ransomware forces Coca-Cola&rsquo;s Fairlife to suspend all US production</h2>
-      <p>Coca-Cola disclosed in an SEC filing on 16&nbsp;July that its dairy subsidiary Fairlife suffered a ransomware event in which an unauthorized third party accessed a portion of its systems &mdash; including production-related systems &mdash; forcing the company to temporarily suspend all US production. Canadian operations and product safety are unaffected. Whether the intrusion reached plant-floor OT or production simply stopped as a precaution has not been confirmed. Either way, it is the scenario every manufacturer rehearses: an IT compromise that halts the line because production systems either shared trust with the affected environment or could not be safely operated without it. For a perishable-goods maker the clock is unforgiving &mdash; inputs arrive on fixed schedules and lost output cannot be recovered with overtime. Segmentation and a tested production-restore path are the controls that decide how long a stoppage like this lasts.</p>
+      <h2>Ransomware halt pushes a German auto and aerospace parts maker into insolvency</h2>
+      <p>A German precision-components supplier to the automotive and aerospace sectors has filed for insolvency after a ransomware attack encrypted both its administrative systems and the industrial software coordinating its production robots, silencing a three-shift plant within hours. Recovery ran to six weeks because backups had never been tested against the malware strain and network segments had to be rebuilt from scratch &mdash; wiping out roughly 40% of projected annual revenue. The firm declined to pay, but the downtime proved fatal: banks pulled credit and contracts moved to competitors. For plant managers the lesson is blunt &mdash; an IT-origin ransomware event that reaches OT can end a business even without ICS-tailored malware. Tested offline controller backups, real network segmentation and validated restore drills are existential, not optional. It lands amid separate confirmed intrusions at Nidec and Indra.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed ransomware; production suspended</span>
-          <span class="ops-tag kev-off">Coca-Cola SEC 8-K, 16 Jul 2026</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed ransomware; six-week production halt, now insolvent</span>
+          <span class="ops-tag kev-off">Insolvency court filings / The Register</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No patch &mdash; IT/OT resilience &amp; segmentation</span>
-          <span class="ops-cc"><b>Action:</b> Treat this as a prompt to validate your own IT-to-OT boundary: could production keep running, or shut down safely, if you had to isolate the business network tomorrow? Confirm PLC logic, HMI projects and recipes restore from offline backups, and that ransomware in IT cannot traverse into cell or line networks. Review who &mdash; staff or third parties &mdash; can reach production remotely, and whether that access is brokered, logged and time-bounded.</span>
+          <span class="ops-tag patch-na">No patch &mdash; IT/OT segmentation &amp; tested recovery</span>
+          <span class="ops-cc"><b>Action:</b> Treat this as a forcing function to validate your IT-to-OT boundary: could production keep running, or stop safely, if you had to isolate the business network tomorrow? Confirm PLC logic, HMI projects, robot programs and recipes restore from offline backups tested against a real ransomware scenario, and that IT-side ransomware cannot traverse into cell or line networks. Review who &mdash; staff or third parties &mdash; can reach production remotely, and whether that access is brokered, logged and time-bounded.</span>
         </div>
         <div class="ops-row ops-assign">
           <span class="ops-sla"><b>Suggested SLA:</b> IT/OT isolation &amp; restore validation &mdash; 30 days (resilience exposure; nothing to patch)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-fairlife" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="mf-fairlife">Open</button>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-insolvency" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="mf-insolvency">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>Coca-Cola SEC 8-K / BleepingComputer / Help Net Security</span>
+        <span>The Register (insolvency filings) / WebProNews</span>
         <span class="dot">&bull;</span>
-        <span>Disclosed 16 Jul 2026 (SEC 8-K) &mdash; reporting 17 Jul; ongoing</span>
+        <span>Reported 13 Jul 2026 &mdash; six-week outage preceding filing</span>
       </div>
-      <a href="https://www.bleepingcomputer.com/news/security/coca-cola-says-fairlife-ransomware-attack-halts-us-dairy-production/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.theregister.com/cyber-crime/2026/07/13/german-firm-files-for-insolvency-blames-cybercrims-who-shut-down-production-for-6-weeks/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -739,7 +739,7 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-fairlife"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
+        <a href="#story-insolvency"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
         <a href="#story-patchtuesday"><circle class="blip crit" cx="232" cy="210" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="232" y="214.3">2</text></a>
         <a href="#story-sonicwall"><circle class="blip crit" cx="128" cy="210" r="12.5"/><text class="blip-num" style="font-size:11.3px" x="128" y="213.9">3</text></a>
         <a href="#story-windchill"><circle class="blip high" cx="275" cy="125" r="11.5"/><text class="blip-num" style="font-size:10.4px" x="275" y="128.7">4</text></a>
@@ -750,7 +750,7 @@
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-fairlife"><span class="ld crit"></span><b>1</b> Fairlife ransomware halts all US production</a>
+        <a href="#story-insolvency"><span class="ld crit"></span><b>1</b> Ransomware halt bankrupts German auto/aerospace supplier</a>
         <a href="#story-patchtuesday"><span class="ld crit"></span><b>2</b> Rockwell critical Logix non-recoverable-fault DoS flaws</a>
         <a href="#story-sonicwall"><span class="ld crit"></span><b>3</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
         <a href="#story-windchill"><span class="ld high"></span><b>4</b> PTC Windchill RCE exploited in the wild (KEV)</a>
@@ -1102,7 +1102,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including The Coca-Cola Company&rsquo;s 16 July SEC Form 8-K on the Fairlife ransomware incident, Rockwell Automation, Siemens ProductCERT and Schneider Electric July 2026 Patch Tuesday advisories, VDE CERT, CISA ICS advisories from the 14 July cycle (ICSA-26-195-01 through -04, covering ABB Advant Master, ABB Ability Edgenius and the Rockwell 1715-AENTR EtherNet/IP adapter), the CISA KEV catalog (PTC Windchill CVE-2026-12569 and the 14 July SonicWall additions), the SonicWall PSIRT advisory SNWLID-2026-0008, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, Doppel&rsquo;s manufacturing threat research, NIST SP 1339, Australia&rsquo;s CISC Enhanced CIRMP Rules, and reporting from BleepingComputer, Help Net Security, SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including The Register&rsquo;s reporting (from insolvency court filings) on the ransomware-driven collapse of a German automotive/aerospace parts supplier, corroborated by WebProNews, plus confirmed manufacturing-sector intrusions at Nidec and Indra Group, Rockwell Automation, Siemens ProductCERT and Schneider Electric July 2026 Patch Tuesday advisories and Schneider Electric July 2026 Patch Tuesday advisories, VDE CERT, CISA ICS advisories from the 14 July cycle (ICSA-26-195-01 through -04, covering ABB Advant Master, ABB Ability Edgenius and the Rockwell 1715-AENTR EtherNet/IP adapter), the CISA KEV catalog (PTC Windchill CVE-2026-12569 and the 14 July SonicWall additions), the SonicWall PSIRT advisory SNWLID-2026-0008, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, Doppel&rsquo;s manufacturing threat research, NIST SP 1339, Australia&rsquo;s CISC Enhanced CIRMP Rules, and reporting from BleepingComputer, Help Net Security, SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
