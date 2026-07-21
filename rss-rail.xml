@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>OT/ICS Threat Intel - Rail</title>
+<link>https://otthreatfeed.com/rail</link>
+<atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-rail.xml" rel="self" type="application/rss+xml"/>
+<description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
+<language>en-us</language>
+<lastBuildDate>Mon, 20 Jul 2026 06:55:00 -0400</lastBuildDate>
+<generator>otthreatfeed update-dashboard.ps1</generator>
+<item>
+<title>[Critical] A radio flaw in the brake link of US freight trains still has no fielded fix</title>
+<link>https://www.cisa.gov/news-events/ics-advisories/icsa-25-191-10</link>
+<guid isPermaLink="false">otthreatfeed:rail:eot</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[CISA advisory ICSA-25-191-10 (first published 10 July 2025, last revised as “Update C” on 18 September 2025) documents CVE-2025-1727, a weak-authentication flaw (CWE-1390) in the End-of-Train / Head-of-Train remote linking protocol that has carried US freight braking telemetry for decades. The protocol authenticates packets with only a BCH checksum and no cryptography, so an attacker with a cheap software-defined radio — researchers put the cost under $500 — can forge the RF packets that pass brake commands between the head-of-train unit and the end-of-train device, potentially triggering an unintended brake application and a sudden stop. CVSS v3.1 is 8.1 and CVSS v4 is 7.2. Affected gear spans Wabtec TrainLink NG/NG3/NG4/NG5, Siemens Trainguard EOT/HOT and DPS Electronics ETD/HTD units. The AAR is moving the fleet to a new IEEE 802.16t-based secure protocol, but replacement is not expected to be fielded before 2027 — so today the mitigation is RF/network isolation and monitoring, not a patch. No public exploitation has been reported. - CISA ICSA-25-191-10 / AAR RESC — corroborated by Industrial Cyber, SecurityWeek, Railway Age - Advisory 10 Jul 2025, Update C 18 Sep 2025; unresolved as of this edition]]></description>
+</item>
+<item>
+<title>[High] Ukraine’s state railway kept trains moving through a major cyberattack — but its ticketing went dark</title>
+<link>https://therecord.media/ukraine-railway-ukrzaliznytsia-cyberattack-online-ticket-system</link>
+<guid isPermaLink="false">otthreatfeed:rail:ukrzaliznytsia</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Incident — Nation-State (context)</category>
+<description><![CDATA[On 24 March 2025 Ukrzaliznytsia, Ukraine’s state railway, was hit by what it called a large-scale, targeted cyberattack that knocked out online ticket sales, the mobile app and other customer-facing IT, forcing long queues at station windows. Crucially, the operator stressed that train movement, dispatching and signalling were unaffected — services ran on manual and backup processes throughout. Ukrainian officials pointed to Russia and called it an act of terrorism; no group publicly claimed it. It is a clean illustration of the pattern rail keeps seeing: attackers reach the enterprise and booking layer, disrupt the passenger experience and generate headlines, while the safety-critical OT that actually moves trains stays walled off — provided that segmentation actually holds. - Ukrzaliznytsia / CERT-UA — via The Record, BleepingComputer, Kyiv Independent - 24 Mar 2025 (foundational context)]]></description>
+</item>
+<item>
+<title>[Medium] Deutsche Bahn’s booking systems knocked offline by a DDoS — trains ran on</title>
+<link>https://securityaffairs.com/188254/breaking-news/germanys-national-rail-operator-deutsche-bahn-hit-by-a-ddos-attack.html</link>
+<guid isPermaLink="false">otthreatfeed:rail:deutschebahn</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Incident — DDoS</category>
+<description><![CDATA[On 17–18 February 2026 a distributed denial-of-service attack disrupted Deutsche Bahn’s customer-facing systems, taking bahn.de and the DB Navigator app offline and degrading passenger information and online booking. Train control and signalling were not affected, and systems were largely stable again by that evening. No group claimed responsibility, though pro-Russian hacktivist crews such as NoName057(16) and Killnet have repeatedly hit European transport portals with the same low-sophistication technique. DDoS against a rail portal is disruptive and reputational rather than safety-impacting — but it ties up responders, erodes public trust, and is cheap enough to be used as harassment or as cover for something else. - Deutsche Bahn — via Security Affairs & Table.Briefings - 17–18 Feb 2026]]></description>
+</item>
+<item>
+<title>[High] The train-brake radio flaw took 20 years and a DEF CON talk to be taken seriously</title>
+<link>https://www.securityweek.com/train-hack-gets-proper-attention-after-20-years-researcher/</link>
+<guid isPermaLink="false">otthreatfeed:rail:brakeradio</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Threat Intel — Research</category>
+<description><![CDATA[The EoT/HoT weakness did not arrive with CISA’s 2025 advisory — it arrived with the flaw finally being acted on. Independent researchers flagged the unauthenticated brake-link protocol as far back as 2012, and Eric Reuter demonstrated the software-defined-radio attack publicly at DEF CON in 2018; for years the response was that the affected devices were end-of-life and the risk theoretical. SecurityWeek frames the episode as a case study in how OT-safety disclosures stall when the fix means re-equipping an entire national fleet. For rail security teams the lesson is procedural as much as technical: a documented, low-cost RF attack on a safety function sat unmitigated for a decade because ownership of the fix was diffuse. - SecurityWeek / DEF CON (Reuter, 2018) - Disclosed 2012 & 2018; escalated 2025 (context)]]></description>
+</item>
+<item>
+<title>[Landscape] Rail’s core problem is still knowing what OT it has — and TS 50701 makes that explicit</title>
+<link>https://knowledgehub.apta.com/resource/cylus-cybersecurity-the-impact-of-ts-50701-on-cybersecurity-in-rail-networks-a-deep-dive</link>
+<guid isPermaLink="false">otthreatfeed:rail:otvisibility</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Threat Intel — Landscape</category>
+<description><![CDATA[Vendor and standards analysis this year keeps returning to the same foundation: rail operators often cannot fully inventory the signalling, interlocking, on-board and trackside OT they run, much of it decades old and bolted onto IP over time. CENELEC’s CLC/TS 50701 railway-cybersecurity specification — and the incoming IEC 63452 international standard built on the same lines — put asset identification and a risk-based zones-and-conduits model (aligned with IEC 62443) at the centre of rail cyber programmes, precisely because you cannot protect or segment what you cannot see. It is landscape rather than incident, but it is the groundwork the EoT saga, the segmentation lessons from Ukrzaliznytsia, and the TSA/EU regulatory push all depend on. - CENELEC CLC/TS 50701 / Cylus analysis — via APTA Knowledge Hub - Standards in force; landscape context]]></description>
+</item>
+<item>
+<title>[Critical] Serial-to-IP converter flaw under active attack — the exact legacy bridge rail runs everywhere</title>
+<link>https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/</link>
+<guid isPermaLink="false">otthreatfeed:rail:lantronix</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Advisory — Active Exploitation</category><category>CVE-2025-67038</category>
+<description><![CDATA[Attackers are exploiting CVE-2025-67038 in Lantronix serial-to-IP converters, disclosed in April via the BRIDGE:BREAK research into serial device servers and now confirmed in in-the-wild attacks. These converters — and comparable Digi and Moxa terminal servers — are the fixture that bolts legacy serial field equipment onto IP networks, and rail is full of them: interlocking, level-crossing, SCADA-telemetry and trackside links that were never designed for IP exposure. They typically sit at the OT edge with little monitoring, so an exploited converter is a quiet foothold ahead of any signalling controller. Not a rail-specific advisory, but a precise fit for rail’s legacy-serial estate. - CVE-2025-67038 - Exploitation confirmed 25 Jun 2026]]></description>
+</item>
+<item>
+<title>[Medium] July ICS Patch Tuesday: nothing rail-specific, but check the Siemens, Rockwell and Schneider gear in your estate</title>
+<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/</link>
+<guid isPermaLink="false">otthreatfeed:rail:patchtues</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Advisory — Cross-Vendor</category>
+<description><![CDATA[The July 2026 ICS Patch Tuesday from Siemens, Rockwell Automation and Schneider Electric was heavy — Siemens alone shipped nine advisories, six critical, led by a CVSS 10 authentication-bypass in Opencenter X, plus critical SIMATIC S7-1500 and Desigo CC fixes; Rockwell and Schneider added their own. None targets rail signalling directly, but rail operators run this automation across depots, stations, HVAC/BMS, power and yard systems, and Siemens Mobility gear is widespread in signalling and rolling stock. The point for rail asset owners is inventory-driven triage: the same PLCs, HMIs and building-automation controllers that halt a factory line also run your facilities. - Siemens ProductCERT / Rockwell / Schneider PSIRT — via SecurityWeek - 14 Jul 2026]]></description>
+</item>
+<item>
+<title>[Info] US rail cyber still runs on TSA security directives — with a permanent rule proposed but not final</title>
+<link>https://www.federalregister.gov/documents/2024/11/07/2024-24704/enhancing-surface-cyber-risk-management</link>
+<guid isPermaLink="false">otthreatfeed:rail:tsa</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Regulation — TSA</category>
+<description><![CDATA[US freight and higher-risk passenger/transit railroads remain bound by TSA’s security directives (the 1580/1582 series), which require reporting cyber incidents to CISA, naming a cybersecurity coordinator, performing an annual vulnerability assessment, and implementing a TSA-approved cybersecurity plan built on IT/OT network segmentation, access control, continuous monitoring and timely patching. These directives are renewed and updated roughly annually. In November 2024 TSA published a proposed rule, “Enhancing Surface Cyber Risk Management,” to make cyber risk-management programmes permanent and mandatory for higher-risk pipeline, freight rail, passenger rail and bus operators; as of this edition that rule is still at the proposed stage, so the directives remain the binding requirement. - TSA / Federal Register (2024-24704) — via The Record & Hunton - Directives in force; NPRM published 7 Nov 2024]]></description>
+</item>
+<item>
+<title>[Info] Cyber Europe 2026 war-gamed a cross-border rail-and-port cyber crisis</title>
+<link>https://www.eenewseurope.com/en/cyber-europe-2026-tests-eu-resilience-against-transport-cyber-crises/</link>
+<guid isPermaLink="false">otthreatfeed:rail:cybereurope</guid>
+<pubDate>Mon, 20 Jul 2026 06:55:00 -0400</pubDate>
+<category>Regulation — Preparedness</category>
+<description><![CDATA[On 10–11 June 2026, ENISA ran Cyber Europe 2026, its large-scale exercise, around a scenario in which coordinated attacks hit both rail and maritime infrastructure — compromising port logistics and navigation while interference to railway networks stopped cross-border train services and delayed thousands of passenger and freight movements, with ransomware against transport authorities and ticketing and stolen data weaponised for disinformation. More than 5,000 participants across national agencies, EU institutions and industry coordinated the response. It is an exercise, not an incident, but the scenario is a fair reading of where rail risk is heading — cross-border, multi-modal, and blending OT disruption with information operations — and a prompt to test your own cross-operator and cross-border coordination. - ENISA — via eeNews Europe - Exercise held 10–11 Jun 2026]]></description>
+</item>
+</channel>
+</rss>

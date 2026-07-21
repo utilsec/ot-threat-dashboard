@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon (served from the GitHub Pages root; absolute URLs so sector subpages resolve them) -->
+<link rel="icon" href="https://utilsec.github.io/ot-threat-dashboard/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://utilsec.github.io/ot-threat-dashboard/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="https://utilsec.github.io/ot-threat-dashboard/apple-touch-icon.png">
+<title>OT/ICS Cybersecurity Threat Intelligence Dashboard &mdash; Rail & Transit</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #ffffff;
+    color: #1f2328;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 11.5px;
+    color: #57606a;
+    line-height: 1.5;
+  }
+  .disclaimer strong { color: #1f2328; font-weight: 700; }
+
+  /* Brand bar */
+  .brandbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .brandbar .brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2328;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .brandbar .brand span { color: #2c7480; }
+  .brandbar .tag {
+    font-size: 11px;
+    color: #6e7781;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .partner-logo { height: 20px; width: auto; display: inline-block; }
+  body.dark .partner-logo { background: #ffffff; border-radius: 4px; padding: 2px 6px; height: 24px; }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid #1f2328;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: #1f2328;
+  }
+  .header-sub {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #57606a;
+    margin-bottom: 6px;
+  }
+  .header-meta {
+    color: #6e7781;
+    font-size: 13px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .header-meta .dot { color: #d0d7de; }
+  .sector-badge {
+    background: #e6f1f2;
+    color: #2c7480;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #bfe0e3;
+  }
+  .story-count {
+    color: #6e7781;
+    font-size: 13px;
+    text-align: right;
+  }
+  .story-count strong { color: #1f2328; font-weight: 700; }
+
+  /* Hero: top story + radar side by side */
+  .hero {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  /* Trends strip */
+  .trends-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin: -8px 0 12px;
+  }
+  .trends-strip {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px 20px;
+  }
+  .trend { display: flex; flex-direction: column; font-size: 12px; color: #57606a; line-height: 1.5; }
+  .trend-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background: #e6f1f2;
+    color: #2c7480;
+    border: 1px solid #bfe0e3;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 7px;
+  }
+  .trend b.trend-head { color: #1f2328; font-weight: 700; font-size: 12.5px; margin-bottom: 4px; }
+  .trend p { margin-bottom: 8px; flex-grow: 1; }
+  .trend .source-link { font-size: 11px; }
+
+  /* Top story */
+  .top-story {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-left: 3px solid #4e9da8;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 440px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(31,35,40,0.06);
+  }
+  .top-story-pill {
+    display: inline-block;
+    background: #4e9da8;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .top-story h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #1f2328;
+  }
+  .top-story p {
+    color: #424a53;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* Radar panel */
+  .radar-panel {
+    flex: 1 1 320px;
+    min-width: 300px;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .radar-panel .radar-head {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 4px;
+  }
+  .radar-panel .radar-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin-bottom: 10px;
+  }
+  .radar-svg {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .radar-sweep { animation: radar-rot 8s linear infinite; transform-origin: 180px 180px; }
+  @keyframes radar-rot { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .radar-sweep { animation: none; } }
+  .ring-label {
+    fill: #8b949e;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+  .blip { cursor: pointer; transition: stroke-width 0.15s ease; }
+  .blip.crit { fill: #cf222e; stroke: rgba(207,34,46,0.25); stroke-width: 5; }
+  .blip.high { fill: #e0701a; stroke: rgba(224,112,26,0.25); stroke-width: 5; }
+  .radar-svg a:hover .blip.crit { stroke: rgba(207,34,46,0.45); stroke-width: 9; }
+  .radar-svg a:hover .blip.high { stroke: rgba(224,112,26,0.45); stroke-width: 9; }
+  .blip-num { fill: #ffffff; font-size: 9px; font-weight: 800; text-anchor: middle; pointer-events: none; }
+
+  /* Radar legend */
+  .radar-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; margin-top: 2px; }
+  .radar-legend a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #57606a;
+    text-decoration: none;
+    padding: 3px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .radar-legend a:hover { color: #1f2328; background: #eaeef2; }
+  .radar-legend b { color: #1f2328; font-weight: 700; min-width: 12px; text-align: center; }
+  .radar-legend .ld { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .radar-legend .ld.crit { background: #cf222e; }
+  .radar-legend .ld.high { background: #e0701a; }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(31,35,40,0.04);
+  }
+  .card:hover { border-color: #afb8c1; box-shadow: 0 2px 6px rgba(31,35,40,0.08); }
+  /* Anchor highlight when a radar blip targets a card */
+  .card, .top-story { scroll-margin-top: 16px; }
+  .card:target { border-color: #4e9da8; box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .top-story:target { box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #1f2328;
+  }
+  .card p {
+    color: #57606a;
+    font-size: 13px;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+  .card-meta {
+    color: #6e7781;
+    font-size: 11px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-meta .dot { color: #d0d7de; }
+  .cve-badge {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-size: 10px;
+    background: #f6f8fa;
+    color: #57606a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #d0d7de;
+    margin-right: 4px;
+  }
+
+  /* Severity pills */
+  .severity {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sev-critical { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .sev-high     { background: rgba(188,76,0,0.08);  color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .sev-medium   { background: rgba(154,103,0,0.1);  color: #9a6700; border: 1px solid rgba(154,103,0,0.3); }
+  .sev-low      { background: rgba(9,105,218,0.08); color: #0969da; border: 1px solid rgba(9,105,218,0.3); }
+  .sev-info     { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+
+  /* Category tag */
+  .category {
+    color: #8b949e;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Ops strip (exploitation + action) */
+  .ops-strip {
+    border-top: 1px dashed #d0d7de;
+    margin-top: 4px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ops-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11px; color: #57606a; }
+  .ops-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 2px 8px; border-radius: 10px; text-transform: uppercase;
+  }
+  .ops-tag .d { width: 6px; height: 6px; border-radius: 50%; }
+  .ex-active { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .ex-active .d { background: #cf222e; }
+  .ex-poc    { background: rgba(188,76,0,0.08); color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .ex-poc .d { background: #bc4c00; }
+  .ex-none   { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+  .ex-none .d { background: #8b949e; }
+  .kev-on  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.35); }
+  .kev-off { background: #f6f8fa; color: #6e7781; border: 1px solid #d0d7de; }
+  .patch-yes { background: rgba(26,127,55,0.08); color: #1a7f37; border: 1px solid rgba(26,127,55,0.3); }
+  .patch-no  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .patch-na  { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+  .ops-cc { font-size: 11px; color: #57606a; line-height: 1.45; }
+  .ops-cc b { color: #1f2328; font-weight: 700; }
+  .ops-assign {
+    justify-content: space-between;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    padding: 7px 9px;
+    margin-top: 1px;
+  }
+  .ops-sla b { color: #1f2328; font-weight: 700; }
+  .ops-owner { display: inline-flex; align-items: center; gap: 4px; }
+  .owner-edit {
+    color: #1f2328;
+    border-bottom: 1px dashed #afb8c1;
+    min-width: 64px;
+    display: inline-block;
+    outline: none;
+    padding: 0 2px;
+  }
+  .owner-edit:focus { border-bottom-color: #4e9da8; }
+  .owner-edit:empty:before { content: attr(data-placeholder); color: #8b949e; }
+  .status-pill {
+    font: inherit; font-size: 10px; font-weight: 700; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 10px; border: 1px solid;
+    transition: all 0.12s ease;
+  }
+  .status-pill.st-open { background: #ffffff; color: #57606a; border-color: #d0d7de; }
+  .status-pill.st-ack  { background: rgba(9,105,218,0.08); color: #0969da; border-color: rgba(9,105,218,0.4); }
+  .status-pill.st-mit  { background: rgba(26,127,55,0.08); color: #1a7f37; border-color: rgba(26,127,55,0.4); }
+  .status-pill.st-na   { background: #f6f8fa; color: #8b949e; border-color: #d0d7de; }
+
+  /* Link */
+  .source-link {
+    color: #2c7480;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+  .source-link::after { content: " \2192"; }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1f2328;
+    color: #6e7781;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .footer p { margin-bottom: 8px; }
+  .footer a { color: #2c7480; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer strong { color: #1f2328; }
+  .footer .byline { color: #424a53; }
+  .footer .byline span { color: #2c7480; font-weight: 700; }
+
+  /* Theme toggle button (upper right, in brand bar) */
+  .brand-right { display: flex; align-items: center; gap: 12px; }
+  .theme-toggle {
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: #57606a;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: #1f2328; border-color: #afb8c1; }
+
+  /* Sector navigation */
+  .sector-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .sector-nav a {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #57606a;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 14px;
+    background: #f6f8fa;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sector-nav a:hover { color: #1f2328; border-color: #afb8c1; }
+  .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
+
+  /* Nav row: sector nav on the left, partnership line on the right */
+  .navrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 18px; }
+  .navrow .sector-nav { order: 1; margin-bottom: 0; }
+  .navrow .brandbar { order: 2; margin-bottom: 0; margin-left: auto; }
+
+  /* Dark mode — every override keys off body.dark; keep in sync with the light palette above */
+  body.dark { background: #0d1117; color: #e6edf3; }
+  body.dark .disclaimer { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .disclaimer strong { color: #e6edf3; }
+  body.dark .brandbar .brand { color: #e6edf3; }
+  body.dark .brandbar .brand span { color: #58b0bd; }
+  body.dark .brandbar .tag { color: #8b949e; }
+  body.dark .theme-toggle { color: #8b949e; background: #161b22; border-color: #30363d; }
+  body.dark .theme-toggle:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .sector-nav a:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
+  body.dark .header { border-bottom-color: #e6edf3; }
+  body.dark .header-title h1 { color: #e6edf3; }
+  body.dark .header-sub { color: #9198a1; }
+  body.dark .header-meta { color: #8b949e; }
+  body.dark .header-meta .dot { color: #30363d; }
+  body.dark .sector-badge { background: rgba(88,176,189,0.12); color: #58b0bd; border-color: rgba(88,176,189,0.35); }
+  body.dark .story-count { color: #8b949e; }
+  body.dark .story-count strong { color: #e6edf3; }
+  body.dark .section-title { color: #e6edf3; border-bottom-color: #30363d; }
+  body.dark .trends-sub { color: #8b949e; }
+  body.dark .trends-strip { background: #161b22; border-color: #30363d; }
+  body.dark .trend { color: #9198a1; }
+  body.dark .trend-tag { background: rgba(88,176,189,0.12); color: #58b0bd; border-color: rgba(88,176,189,0.35); }
+  body.dark .trend b.trend-head { color: #e6edf3; }
+  body.dark .top-story { background: #161b22; border-color: #30363d; border-left-color: #4e9da8; }
+  body.dark .top-story h2 { color: #e6edf3; }
+  body.dark .top-story p { color: #9198a1; }
+  body.dark .radar-panel { background: #161b22; border-color: #30363d; }
+  body.dark .radar-panel .radar-head { color: #e6edf3; }
+  body.dark .radar-panel .radar-sub { color: #8b949e; }
+  body.dark .radar-legend a { color: #9198a1; }
+  body.dark .radar-legend a:hover { color: #e6edf3; background: #21262d; }
+  body.dark .radar-legend b { color: #e6edf3; }
+  body.dark .card { background: #161b22; border-color: #30363d; }
+  body.dark .card:hover { border-color: #8b949e; }
+  body.dark .card:target { border-color: #4e9da8; }
+  body.dark .card h3 { color: #e6edf3; }
+  body.dark .card p { color: #9198a1; }
+  body.dark .card-meta { color: #8b949e; }
+  body.dark .card-meta .dot { color: #30363d; }
+  body.dark .cve-badge { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .sev-critical { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .sev-high     { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .sev-medium   { color: #d29922; border-color: rgba(210,153,34,0.4); background: rgba(210,153,34,0.1); }
+  body.dark .sev-low      { color: #58a6ff; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.1); }
+  body.dark .sev-info     { color: #9198a1; border-color: rgba(145,152,161,0.4); background: rgba(145,152,161,0.1); }
+  body.dark .category { color: #8b949e; }
+  body.dark .ops-strip { border-top-color: #30363d; }
+  body.dark .ops-row { color: #9198a1; }
+  body.dark .ex-active { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .ex-active .d { background: #f85149; }
+  body.dark .ex-poc { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .ex-poc .d { background: #db6d28; }
+  body.dark .ex-none { color: #9198a1; border-color: rgba(145,152,161,0.35); background: rgba(145,152,161,0.1); }
+  body.dark .ex-none .d { background: #8b949e; }
+  body.dark .kev-on { color: #f85149; border-color: rgba(248,81,73,0.45); background: rgba(248,81,73,0.1); }
+  body.dark .kev-off { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .patch-yes { color: #3fb950; border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.1); }
+  body.dark .patch-no  { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .patch-na  { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .ops-cc { color: #9198a1; }
+  body.dark .ops-cc b { color: #e6edf3; }
+  body.dark .ops-assign { background: #21262d; border-color: #30363d; }
+  body.dark .ops-sla b { color: #e6edf3; }
+  body.dark .owner-edit { color: #e6edf3; border-bottom-color: #8b949e; }
+  body.dark .owner-edit:empty:before { color: #8b949e; }
+  body.dark .status-pill.st-open { background: #161b22; color: #9198a1; border-color: #30363d; }
+  body.dark .status-pill.st-ack { color: #58a6ff; border-color: rgba(88,166,255,0.5); background: rgba(88,166,255,0.1); }
+  body.dark .status-pill.st-mit { color: #3fb950; border-color: rgba(63,185,80,0.5); background: rgba(63,185,80,0.1); }
+  body.dark .status-pill.st-na { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .source-link { color: #58b0bd; }
+  body.dark .footer { border-top-color: #e6edf3; color: #8b949e; }
+  body.dark .footer a { color: #58b0bd; }
+  body.dark .footer strong { color: #e6edf3; }
+  body.dark .footer .byline { color: #9198a1; }
+  body.dark .footer .byline span { color: #58b0bd; }
+  body.dark .radar-svg > circle { stroke: #30363d; }
+  body.dark .radar-svg > line { stroke: #21262d; }
+
+  /* Sector theme */
+  .header {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    border-bottom: 2px solid #475569;
+    border-left: 5px solid #475569;
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 72%);
+  }
+  .header .header-title, .header .story-count { position: relative; z-index: 1; }
+  .sector-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 120px; height: 120px; opacity: 0.14; z-index: 0; pointer-events: none; }
+  .sector-badge { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
+  @media (max-width: 640px) { .sector-icon { width: 78px; opacity: 0.10; right: 10px; } }
+  body.dark .header { background: linear-gradient(135deg, rgba(71,85,105,0.20) 0%, #0d1117 72%); border-color: #30363d; border-left-color: #64748b; border-bottom-color: #64748b; }
+  body.dark .sector-icon { opacity: 0.30; }
+  body.dark .sector-badge { background: rgba(71,85,105,0.20); color: #cbd5e1; border-color: rgba(100,116,139,0.45); }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .story-count { text-align: left; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Vendor / product chips */
+  .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
+  .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+  body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
+</style>
+</head>
+<body>
+<script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
+<div class="container">
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Sector-scoped edition &mdash; Rail &amp; Transit. For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity and exploitation indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
+  </div>
+
+  <!-- NAV + PARTNERSHIP ROW -->
+  <div class="navrow">
+
+  <!-- BRAND BAR -->
+  <div class="brandbar">
+    <div class="brand-right">
+      <div class="tag">In partnership with Mike Holcomb &amp; <img class="partner-logo" alt="UtilSec" src="https://utilsec.github.io/ot-threat-dashboard/utilsec-logo.png"></div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" title="Switch between light and dark mode">&#9790; Dark mode</button>
+    </div>
+  </div>
+
+  <!-- SECTOR NAV -->
+  <div class="sector-nav">
+    <a href="https://otthreatfeed.com/" target="_top">All Sectors</a>
+    <a href="https://otthreatfeed.com/power" target="_top">Power</a>
+    <a href="https://otthreatfeed.com/water" target="_top">Water</a>
+    <a href="https://otthreatfeed.com/marine" target="_top">Marine</a>
+    <a href="https://otthreatfeed.com/rail" class="sn-active" target="_top">Rail</a>
+    <a href="https://otthreatfeed.com/manufacturing" target="_top">Manufacturing</a>
+    <a href="https://otthreatfeed.com/food" target="_top">Food &amp; Ag</a>
+    <a href="https://itthreatfeed.com/" target="_top">IT Threat Feed</a>
+  </div>
+  </div><!-- /navrow -->
+
+  <!-- HEADER -->
+  <div class="header">
+    <svg class="sector-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#475569" d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zM11 10H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+    <div class="header-title">
+      <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
+      <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
+      <div class="header-meta">
+        <span>Generated Monday, 20 Jul 2026, 6:55 AM ET</span>
+        <span class="dot">&bull;</span>
+        <span class="sector-badge">Sector: Rail &amp; Transit</span>
+      </div>
+    </div>
+    <div class="story-count">
+      <strong>9</strong> stories across
+      <strong>4</strong> categories
+    </div>
+  </div>
+
+  <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run — see CLAUDE.md) -->
+  <style>
+  .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+  .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
+  .tl-num{font-size:34px;font-weight:800;color:var(--tl-c,#dc2626);letter-spacing:-.5px;}
+  .tl-den{font-size:15px;font-weight:600;color:#64748b;}
+  .tl-main{flex:1 1 320px;min-width:260px;}
+  .tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .tl-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+  .tl-band{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--tl-c,#dc2626);padding:2px 10px;border-radius:999px;}
+  .tl-meter{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,#16a34a 0%,#16a34a 40%,#eab308 40%,#eab308 70%,#f97316 70%,#f97316 90%,#dc2626 90%,#dc2626 100%);}
+  .tl-marker{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tl-c,#dc2626);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .tl-why{flex:1 1 100%;font-size:12.5px;color:#475569;margin-top:2px;}
+  .tl-why b{color:#334155;}
+  body.dark .threat-level{background:var(--tl-bgd,rgba(220,38,38,.10));border-color:rgba(255,255,255,.12);}
+  body.dark .tl-den,body.dark .tl-label{color:#94a3b8;}
+  body.dark .tl-why{color:#cbd5e1;}
+  body.dark .tl-why b{color:#e2e8f0;}
+  body.dark .tl-marker{background:#0f172a;}
+  </style>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level, weighted to rail &amp; transit operators. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium here; High and Critical are reserved for confirmed OT/signalling impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unresolved safety exposure and IT/edge attacks stay in Medium.">
+    <div class="tl-score"><span class="tl-num">5.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-main">
+      <div class="tl-top">
+        <span class="tl-label">Overall Threat Level</span>
+        <span class="tl-band">Medium</span>
+      </div>
+      <div class="tl-meter"><span class="tl-marker" style="left:55%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Elevated, but no confirmed OT or signalling compromise this cycle. The EoT/HoT brake-link flaw (CVE-2025-1727) is a documented, safety-relevant exposure with no fielded fix before 2027, and railways remain a favoured target for state-linked and hacktivist actors &mdash; yet the Ukrzaliznytsia and Deutsche Bahn attacks both landed on IT and ticketing only, with train movement untouched, and the actively-exploited Lantronix serial flaw is a cross-sector IT/edge on-ramp rather than a confirmed foothold in rail OT. Broad, persistent exposure &mdash; Medium &mdash; not an active rail-OT crisis.</div>
+    </div>
+  </div>
+  <!-- /THREAT LEVEL -->
+
+  <!-- HERO: TOP STORY + RADAR -->
+  <div class="hero">
+
+    <!-- TOP STORY -->
+    <div class="top-story" id="story-eot">
+      <span class="top-story-pill">Top Story</span>
+      <h2>A radio flaw in the brake link of US freight trains still has no fielded fix</h2>
+      <p>CISA advisory ICSA-25-191-10 (first published 10&nbsp;July&nbsp;2025, last revised as &ldquo;Update&nbsp;C&rdquo; on 18&nbsp;September&nbsp;2025) documents CVE-2025-1727, a weak-authentication flaw (CWE-1390) in the End-of-Train / Head-of-Train remote linking protocol that has carried US freight braking telemetry for decades. The protocol authenticates packets with only a BCH checksum and no cryptography, so an attacker with a cheap software-defined radio &mdash; researchers put the cost under&nbsp;$500 &mdash; can forge the RF packets that pass brake commands between the head-of-train unit and the end-of-train device, potentially triggering an unintended brake application and a sudden stop. CVSS&nbsp;v3.1 is 8.1 and CVSS&nbsp;v4 is 7.2. Affected gear spans Wabtec TrainLink NG/NG3/NG4/NG5, Siemens Trainguard EOT/HOT and DPS&nbsp;Electronics ETD/HTD units. The AAR is moving the fleet to a new IEEE&nbsp;802.16t-based secure protocol, but replacement is not expected to be fielded before 2027 &mdash; so today the mitigation is RF/network isolation and monitoring, not a patch. No public exploitation has been reported.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; but a documented, low-cost RF attack on a safety function</span>
+          <span class="ops-tag kev-off">CVE-2025-1727 &mdash; not in CISA KEV; CISA ICSA-25-191-10 (Update C)</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-no">No fix &mdash; replacement protocol not fielded before 2027</span>
+          <span class="ops-cc"><b>Action:</b> Treat the EoT/HoT RF link as an untrusted channel. Engage the AAR/vendor program on the 802.16t migration timeline for your fleet, and in the interim prioritise RF-spectrum monitoring for anomalous EoT/HoT traffic, operational detection of unexplained brake events, and isolating EoT/HoT provisioning and management interfaces from IT and remote access.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Track vendor/AAR replacement program &amp; add RF anomaly monitoring &mdash; this planning cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-eot" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="rl-eot">Open</button>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span>CISA ICSA-25-191-10 / AAR RESC &mdash; corroborated by Industrial Cyber, SecurityWeek, Railway Age</span>
+        <span class="dot">&bull;</span>
+        <span>Advisory 10 Jul 2025, Update C 18 Sep 2025; unresolved as of this edition</span>
+      </div>
+      <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-25-191-10" class="source-link" target="_blank" rel="noopener">Read source</a>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-panel">
+      <div class="radar-head">Threat Radar</div>
+      <div class="radar-sub">Critical &amp; high items across all sections &mdash; larger blips = higher severity/priority. Click a blip to jump to the story.</div>
+      <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
+        <defs>
+          <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.10)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </radialGradient>
+          <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="40%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.25)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="180" r="160" fill="url(#rg)" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="110" fill="none" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="60" fill="none" stroke="#d0d7de"/>
+        <line x1="20" y1="180" x2="340" y2="180" stroke="#e5e8eb"/>
+        <line x1="180" y1="20" x2="180" y2="340" stroke="#e5e8eb"/>
+        <g class="radar-sweep">
+          <path d="M180 180 L340 180 A160 160 0 0 1 318.6 260 Z" fill="url(#sweep)"/>
+        </g>
+        <circle cx="180" cy="180" r="3" fill="#8b949e"/>
+        <text class="ring-label" x="180" y="127">Critical</text>
+        <text class="ring-label" x="180" y="77">High</text>
+        <a href="#story-eot"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
+        <a href="#story-lantronix"><circle class="blip crit" cx="225" cy="215" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="225" y="219.2">2</text></a>
+        <a href="#story-ukrzaliznytsia"><circle class="blip high" cx="118" cy="205" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="118" y="208.3">3</text></a>
+        <a href="#story-brakeradio"><circle class="blip high" cx="268" cy="120" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="268" y="122.9">4</text></a>
+      </svg>
+
+      <div class="radar-legend">
+        <a href="#story-eot"><span class="ld crit"></span><b>1</b> EoT/HoT brake-link RF flaw (CVE-2025-1727)</a>
+        <a href="#story-lantronix"><span class="ld crit"></span><b>2</b> Lantronix serial-to-IP flaw exploited in attacks</a>
+        <a href="#story-ukrzaliznytsia"><span class="ld high"></span><b>3</b> Ukrzaliznytsia attack &mdash; ticketing down, trains ran</a>
+        <a href="#story-brakeradio"><span class="ld high"></span><b>4</b> 20-year brake-radio research history (DEF CON)</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Safety-Critical RF</span>
+        <b class="trend-head">A braking function protected by a checksum, not a key</b>
+        <p>The EoT/HoT advisory drags rail&rsquo;s most uncomfortable exposure into the open: a braking-telemetry link authenticated by a BCH checksum with no cryptography, attackable with a sub-$500 radio, and with no fielded fix before 2027. The conversation among rail security teams has moved from &lsquo;is this real&rsquo; to &lsquo;how do we monitor an RF channel we cannot yet secure.&rsquo;</p>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-25-191-10" class="source-link" target="_blank" rel="noopener">CISA ICSA-25-191-10</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Geopolitics</span>
+        <b class="trend-head">Railways are a standing target in Europe&rsquo;s grey-zone conflict</b>
+        <p>Between the 2025 Ukrzaliznytsia attack, the February&nbsp;2026 Deutsche Bahn DDoS and repeated hacktivist harassment of transport portals, state-linked and pro-state actors keep treating railways as a soft, high-visibility target. The through-line: most of it lands on IT and passenger systems &mdash; disruptive and reputational &mdash; while the OT that moves trains stays reachable only where segmentation is weak.</p>
+        <a href="https://therecord.media/ukraine-railway-ukrzaliznytsia-cyberattack-online-ticket-system" class="source-link" target="_blank" rel="noopener">The Record</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">IT/OT</span>
+        <b class="trend-head">The fix for most rail incidents is segmentation you can prove</b>
+        <p>Ukrzaliznytsia kept trains running because ticketing and dispatch were separate; the recurring question after every rail incident is whether that separation is real and tested or just assumed on an architecture diagram. Standards like CLC/TS&nbsp;50701 and the TSA directives push the same answer: inventory the OT, define zones and conduits, and prove the boundary.</p>
+        <a href="https://knowledgehub.apta.com/resource/cylus-cybersecurity-the-impact-of-ts-50701-on-cybersecurity-in-rail-networks-a-deep-dive" class="source-link" target="_blank" rel="noopener">APTA / Cylus</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Regulation</span>
+        <b class="trend-head">Rail cyber rules are converging on risk-management programmes</b>
+        <p>TSA&rsquo;s proposed &lsquo;Enhancing Surface Cyber Risk Management&rsquo; rule in the US, CLC/TS&nbsp;50701 and the incoming IEC&nbsp;63452 in Europe, and exercises like Cyber&nbsp;Europe&nbsp;2026 all point the same way: from prescriptive checklists toward demonstrable, risk-based cyber programmes for rail. Operators are weighing scope and evidence expectations now.</p>
+        <a href="https://www.federalregister.gov/documents/2024/11/07/2024-24704/enhancing-surface-cyber-risk-management" class="source-link" target="_blank" rel="noopener">Federal Register</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SECTION: Incidents &amp; Attacks -->
+  <div class="section">
+    <div class="section-title">Incidents &amp; Attacks</div>
+    <div class="card-grid">
+      <div class="card" id="story-ukrzaliznytsia">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Nation-State (context)</span>
+        </div>
+        <h3>Ukraine&rsquo;s state railway kept trains moving through a major cyberattack &mdash; but its ticketing went dark</h3>
+        <p>On 24&nbsp;March&nbsp;2025 Ukrzaliznytsia, Ukraine&rsquo;s state railway, was hit by what it called a large-scale, targeted cyberattack that knocked out online ticket sales, the mobile app and other customer-facing IT, forcing long queues at station windows. Crucially, the operator stressed that train movement, dispatching and signalling were unaffected &mdash; services ran on manual and backup processes throughout. Ukrainian officials pointed to Russia and called it an act of terrorism; no group publicly claimed it. It is a clean illustration of the pattern rail keeps seeing: attackers reach the enterprise and booking layer, disrupt the passenger experience and generate headlines, while the safety-critical OT that actually moves trains stays walled off &mdash; provided that segmentation actually holds.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed disruptive attack &mdash; IT/ticketing only; train movement &amp; signalling unaffected</span>
+            <span class="ops-tag kev-off">No CVE &mdash; enterprise IT intrusion; initial vector not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">IR complete &mdash; no patch applicable</span>
+            <span class="ops-cc"><b>Action:</b> Use it as a segmentation test: confirm a ransomware or wiper event in booking, CRM or scheduling IT cannot cross into dispatching, interlocking or signalling, and that you can run degraded (manual dispatch, offline timetables) without the passenger-facing stack. Rehearse the public-communications side too &mdash; passengers judge you on the ticket line.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Validate IT/OT segmentation &amp; degraded-ops runbook &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-ukrzaliznytsia" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-ukrzaliznytsia">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Ukrzaliznytsia / CERT-UA &mdash; via The Record, BleepingComputer, Kyiv Independent</span>
+          <span class="dot">&bull;</span>
+          <span>24 Mar 2025 (foundational context)</span>
+        </div>
+        <a href="https://therecord.media/ukraine-railway-ukrzaliznytsia-cyberattack-online-ticket-system" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-deutschebahn">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; DDoS</span>
+        </div>
+        <h3>Deutsche Bahn&rsquo;s booking systems knocked offline by a DDoS &mdash; trains ran on</h3>
+        <p>On 17&ndash;18&nbsp;February&nbsp;2026 a distributed denial-of-service attack disrupted Deutsche Bahn&rsquo;s customer-facing systems, taking bahn.de and the DB&nbsp;Navigator app offline and degrading passenger information and online booking. Train control and signalling were not affected, and systems were largely stable again by that evening. No group claimed responsibility, though pro-Russian hacktivist crews such as NoName057(16) and Killnet have repeatedly hit European transport portals with the same low-sophistication technique. DDoS against a rail portal is disruptive and reputational rather than safety-impacting &mdash; but it ties up responders, erodes public trust, and is cheap enough to be used as harassment or as cover for something else.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed DDoS &mdash; customer IT (bahn.de, DB Navigator); no OT/signalling impact</span>
+            <span class="ops-tag kev-off">No CVE &mdash; volumetric denial-of-service</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Mitigated same-day &mdash; no patch applicable</span>
+            <span class="ops-cc"><b>Action:</b> Confirm your public web, journey-planner and ticketing endpoints sit behind DDoS protection / CDN scrubbing, and that failover to station-based and offline processes is rehearsed. Pre-agree holding statements so passenger comms do not depend on the same portal that is under attack.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review DDoS protection &amp; passenger-comms failover &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-deutschebahn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-deutschebahn">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Deutsche Bahn &mdash; via Security Affairs &amp; Table.Briefings</span>
+          <span class="dot">&bull;</span>
+          <span>17&ndash;18 Feb 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/188254/breaking-news/germanys-national-rail-operator-deutsche-bahn-hit-by-a-ddos-attack.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Threat Intelligence &amp; Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+      <div class="card" id="story-brakeradio">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Intel &mdash; Research</span>
+        </div>
+        <h3>The train-brake radio flaw took 20 years and a DEF CON talk to be taken seriously</h3>
+        <p>The EoT/HoT weakness did not arrive with CISA&rsquo;s 2025 advisory &mdash; it arrived with the flaw finally being acted on. Independent researchers flagged the unauthenticated brake-link protocol as far back as 2012, and Eric&nbsp;Reuter demonstrated the software-defined-radio attack publicly at DEF&nbsp;CON in 2018; for years the response was that the affected devices were end-of-life and the risk theoretical. SecurityWeek frames the episode as a case study in how OT-safety disclosures stall when the fix means re-equipping an entire national fleet. For rail security teams the lesson is procedural as much as technical: a documented, low-cost RF attack on a safety function sat unmitigated for a decade because ownership of the fix was diffuse.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Research / disclosure history &mdash; underpins the Critical top-story advisory</span>
+            <span class="ops-tag kev-off">Context for CVE-2025-1727</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; governance &amp; disclosure-handling lesson</span>
+            <span class="ops-cc"><b>Action:</b> Make sure your organisation has a route for safety-relevant cyber findings that does not dead-end at &lsquo;the vendor says it is end-of-life.&rsquo; Track long-lived, unpatched RF and legacy-protocol exposures on a risk register with named owners, even when the near-term fix is only monitoring and isolation.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Add legacy-protocol / RF exposures to the risk register &mdash; next planning cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-brakeradio" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-brakeradio">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek / DEF CON (Reuter, 2018)</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 2012 &amp; 2018; escalated 2025 (context)</span>
+        </div>
+        <a href="https://www.securityweek.com/train-hack-gets-proper-attention-after-20-years-researcher/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-otvisibility">
+        <div class="card-header">
+          <span class="severity sev-medium">Landscape</span>
+          <span class="category">Threat Intel &mdash; Landscape</span>
+        </div>
+        <h3>Rail&rsquo;s core problem is still knowing what OT it has &mdash; and TS&nbsp;50701 makes that explicit</h3>
+        <p>Vendor and standards analysis this year keeps returning to the same foundation: rail operators often cannot fully inventory the signalling, interlocking, on-board and trackside OT they run, much of it decades old and bolted onto IP over time. CENELEC&rsquo;s CLC/TS&nbsp;50701 railway-cybersecurity specification &mdash; and the incoming IEC&nbsp;63452 international standard built on the same lines &mdash; put asset identification and a risk-based zones-and-conduits model (aligned with IEC&nbsp;62443) at the centre of rail cyber programmes, precisely because you cannot protect or segment what you cannot see. It is landscape rather than incident, but it is the groundwork the EoT saga, the segmentation lessons from Ukrzaliznytsia, and the TSA/EU regulatory push all depend on.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Landscape / standards &mdash; not an incident</span>
+            <span class="ops-tag kev-off">No CVE &mdash; asset-visibility &amp; standards theme</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; programme maturity</span>
+            <span class="ops-cc"><b>Action:</b> Prioritise an OT asset inventory across signalling, interlocking, rolling-stock and trackside networks, then map zones and conduits per TS&nbsp;50701 / IEC&nbsp;62443. Use it to find the internet- and IT-reachable OT and the legacy serial/RF links first.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Stand up / refresh rail OT asset inventory &mdash; next planning cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-otvisibility" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-otvisibility">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CENELEC CLC/TS 50701 / Cylus analysis &mdash; via APTA Knowledge Hub</span>
+          <span class="dot">&bull;</span>
+          <span>Standards in force; landscape context</span>
+        </div>
+        <a href="https://knowledgehub.apta.com/resource/cylus-cybersecurity-the-impact-of-ts-50701-on-cybersecurity-in-rail-networks-a-deep-dive" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Critical Advisories -->
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+      <div class="card" id="story-lantronix">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; Active Exploitation</span>
+        </div>
+        <h3>Serial-to-IP converter flaw under active attack &mdash; the exact legacy bridge rail runs everywhere</h3>
+        <p>Attackers are exploiting CVE-2025-67038 in Lantronix serial-to-IP converters, disclosed in April via the BRIDGE:BREAK research into serial device servers and now confirmed in in-the-wild attacks. These converters &mdash; and comparable Digi and Moxa terminal servers &mdash; are the fixture that bolts legacy serial field equipment onto IP networks, and rail is full of them: interlocking, level-crossing, SCADA-telemetry and trackside links that were never designed for IP exposure. They typically sit at the OT edge with little monitoring, so an exploited converter is a quiet foothold ahead of any signalling controller. Not a rail-specific advisory, but a precise fit for rail&rsquo;s legacy-serial estate.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation</span>
+            <span class="ops-tag kev-off">CVE-2025-67038 &mdash; BRIDGE:BREAK disclosure; verify KEV status against CISA</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor guidance / firmware available</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Lantronix, Digi and Moxa serial-to-IP converters and terminal servers across signalling, telemetry and trackside sites; apply vendor fixes and pull them off any internet-reachable path. Where they must stay reachable, front them with an access-controlled jump host and add logging &mdash; these boxes rarely have either.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory &amp; patch/isolate serial-to-IP gear &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-lantronix" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-lantronix">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2025-67038</span>
+          <span>CISA / Lantronix &mdash; via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation confirmed 25 Jun 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-patchtues">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Cross-Vendor</span>
+        </div>
+        <h3>July ICS Patch Tuesday: nothing rail-specific, but check the Siemens, Rockwell and Schneider gear in your estate</h3>
+        <p>The July&nbsp;2026 ICS Patch Tuesday from Siemens, Rockwell Automation and Schneider Electric was heavy &mdash; Siemens alone shipped nine advisories, six critical, led by a CVSS&nbsp;10 authentication-bypass in Opencenter&nbsp;X, plus critical SIMATIC&nbsp;S7-1500 and Desigo&nbsp;CC fixes; Rockwell and Schneider added their own. None targets rail signalling directly, but rail operators run this automation across depots, stations, HVAC/BMS, power and yard systems, and Siemens Mobility gear is widespread in signalling and rolling stock. The point for rail asset owners is inventory-driven triage: the same PLCs, HMIs and building-automation controllers that halt a factory line also run your facilities.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; vendor-coordinated July Patch Tuesday</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available from Siemens, Rockwell &amp; Schneider</span>
+            <span class="ops-cc"><b>Action:</b> Cross-check the July Siemens ProductCERT, Rockwell and Schneider bulletins against your facilities and OT inventory, prioritising anything network-reachable or authentication-related. Do not scope &lsquo;rail cyber&rsquo; so tightly that station, depot and building-automation controllers fall outside the patch programme.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Triage July ICS advisories against the estate &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-patchtues" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-patchtues">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Siemens ProductCERT / Rockwell / Schneider PSIRT &mdash; via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>14 Jul 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Regulation &amp; Policy -->
+  <div class="section">
+    <div class="section-title">Regulation &amp; Policy</div>
+    <div class="card-grid">
+      <div class="card" id="story-tsa">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation &mdash; TSA</span>
+        </div>
+        <h3>US rail cyber still runs on TSA security directives &mdash; with a permanent rule proposed but not final</h3>
+        <p>US freight and higher-risk passenger/transit railroads remain bound by TSA&rsquo;s security directives (the 1580/1582 series), which require reporting cyber incidents to CISA, naming a cybersecurity coordinator, performing an annual vulnerability assessment, and implementing a TSA-approved cybersecurity plan built on IT/OT network segmentation, access control, continuous monitoring and timely patching. These directives are renewed and updated roughly annually. In November&nbsp;2024 TSA published a proposed rule, &ldquo;Enhancing Surface Cyber Risk Management,&rdquo; to make cyber risk-management programmes permanent and mandatory for higher-risk pipeline, freight rail, passenger rail and bus operators; as of this edition that rule is still at the proposed stage, so the directives remain the binding requirement.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Regulatory &mdash; directives in force; permanent rule proposed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; TSA surface-transportation cyber policy</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Compliance item &mdash; no patch applicable</span>
+            <span class="ops-cc"><b>Action:</b> Confirm your TSA directive obligations are current &mdash; incident reporting to CISA, a named cybersecurity coordinator, the annual assessment and the approved implementation plan &mdash; and watch the &lsquo;Enhancing Surface Cyber Risk Management&rsquo; rulemaking, which would raise the bar to a formal cyber risk-management programme. Non-US operators can use the directive requirements as a practical baseline.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm TSA directive compliance &amp; track the proposed rule &mdash; current cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-tsa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-tsa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>TSA / Federal Register (2024-24704) &mdash; via The Record &amp; Hunton</span>
+          <span class="dot">&bull;</span>
+          <span>Directives in force; NPRM published 7 Nov 2024</span>
+        </div>
+        <a href="https://www.federalregister.gov/documents/2024/11/07/2024-24704/enhancing-surface-cyber-risk-management" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-cybereurope">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation &mdash; Preparedness</span>
+        </div>
+        <h3>Cyber Europe 2026 war-gamed a cross-border rail-and-port cyber crisis</h3>
+        <p>On 10&ndash;11&nbsp;June&nbsp;2026, ENISA ran Cyber&nbsp;Europe&nbsp;2026, its large-scale exercise, around a scenario in which coordinated attacks hit both rail and maritime infrastructure &mdash; compromising port logistics and navigation while interference to railway networks stopped cross-border train services and delayed thousands of passenger and freight movements, with ransomware against transport authorities and ticketing and stolen data weaponised for disinformation. More than 5,000 participants across national agencies, EU institutions and industry coordinated the response. It is an exercise, not an incident, but the scenario is a fair reading of where rail risk is heading &mdash; cross-border, multi-modal, and blending OT disruption with information operations &mdash; and a prompt to test your own cross-operator and cross-border coordination.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Preparedness exercise &mdash; not an incident</span>
+            <span class="ops-tag kev-off">No CVE &mdash; ENISA sector exercise</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; resilience &amp; coordination</span>
+            <span class="ops-cc"><b>Action:</b> Pressure-test your incident plans against a multi-modal, cross-border scenario: who you call across operators, infrastructure managers, national CSIRTs and regulators when signalling degrades and passenger systems are down at once, and how you counter disinformation riding on a stolen-data leak.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Run a cross-border / multi-modal tabletop &mdash; next exercise cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-cybereurope" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-cybereurope">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>ENISA &mdash; via eeNews Europe</span>
+          <span class="dot">&bull;</span>
+          <span>Exercise held 10&ndash;11 Jun 2026</span>
+        </div>
+        <a href="https://www.eenewseurope.com/en/cyber-europe-2026-tests-eu-resilience-against-transport-cyber-crises/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+
+<!-- FOOTER -->
+  <div class="footer">
+    <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Rail &amp; Transit.</p>
+    <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS and rail sources including CISA ICS advisory ICSA-25-191-10 (End-of-Train / Head-of-Train remote linking protocol, CVE-2025-1727) with corroborating reporting from Industrial Cyber, SecurityWeek and Railway Age; CERT-UA and reporting on the March&nbsp;2025 Ukrzaliznytsia attack (The Record, Kyiv Independent); reporting on the February&nbsp;2026 Deutsche Bahn DDoS (Security Affairs, Table.Briefings); the actively-exploited Lantronix serial-to-IP advisory (CVE-2025-67038); the July&nbsp;2026 Siemens / Rockwell / Schneider ICS Patch Tuesday; TSA surface-transportation security directives and the November&nbsp;2024 &ldquo;Enhancing Surface Cyber Risk Management&rdquo; proposed rule; ENISA&rsquo;s Cyber&nbsp;Europe&nbsp;2026 exercise; and CENELEC CLC/TS&nbsp;50701 and IEC&nbsp;63452 rail-cybersecurity standards. Default lookback 7&ndash;30 days; foundational rail items (the EoT/HoT protocol, the 2018 DEF&nbsp;CON research, the 2025 Ukrzaliznytsia attack) are labelled context with their original dates shown. Severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the Surface Transportation ISAC (ST-ISAC), and your vendors' PSIRT feeds directly.</p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var LS = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+  };
+  var STATUSES = [
+    { key: "open", label: "Open",         cls: "st-open" },
+    { key: "ack",  label: "Acknowledged", cls: "st-ack" },
+    { key: "mit",  label: "Mitigated",    cls: "st-mit" },
+    { key: "na",   label: "Not applicable", cls: "st-na" }
+  ];
+  function statusByKey(k) { for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === k) return STATUSES[i]; } return STATUSES[0]; }
+
+  // ---- Owner (editable, persisted) ----
+  var owners = document.querySelectorAll(".owner-edit");
+  owners.forEach(function (el) {
+    var key = "otdash.owner." + el.getAttribute("data-key");
+    var saved = LS.get(key);
+    if (saved) el.textContent = saved;
+    el.addEventListener("blur", function () {
+      var val = el.textContent.replace(/\s+/g, " ").trim();
+      el.textContent = val;
+      if (val) LS.set(key, val); else LS.del(key);
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); el.blur(); }
+    });
+  });
+
+  // ---- Status pill (cycle, persisted) ----
+  var pills = document.querySelectorAll(".status-pill");
+  pills.forEach(function (btn) {
+    var key = "otdash.status." + btn.getAttribute("data-key");
+    function render(stKey) {
+      var st = statusByKey(stKey);
+      btn.className = "status-pill " + st.cls;
+      btn.textContent = st.label;
+    }
+    render(LS.get(key) || "open");
+    btn.addEventListener("click", function () {
+      var cur = LS.get(key) || "open";
+      var idx = 0;
+      for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === cur) { idx = i; break; } }
+      var next = STATUSES[(idx + 1) % STATUSES.length].key;
+      LS.set(key, next);
+      render(next);
+    });
+  });
+
+  // ---- Light/dark theme toggle (persisted) ----
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    var renderTheme = function (dark) {
+      document.body.classList.toggle("dark", dark);
+      themeBtn.innerHTML = dark ? "&#9728; Light mode" : "&#9790; Dark mode";
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    };
+    renderTheme(LS.get("otdash.theme") === "dark");
+    themeBtn.addEventListener("click", function () {
+      var dark = !document.body.classList.contains("dark");
+      LS.set("otdash.theme", dark ? "dark" : "light");
+      renderTheme(dark);
+    });
+  }
+  // ---- Vendor / product chips (keyword-tagged, client-side) ----
+  (function () {
+    var MAP = [
+      ["Siemens", /siemens|simatic|sinec|ruggedcom|mendix|siprotec/i],
+      ["Rockwell", /rockwell|allen-bradley|controllogix|compactlogix|factorytalk|micro8\d0|studio 5000|rslinx/i],
+      ["Schneider", /schneider|ecostruxure|modicon|foxboro|triconex/i],
+      ["ABB", /\bABB\b/],
+      ["Honeywell", /honeywell/i],
+      ["Emerson", /emerson|\bovation\b|deltav/i],
+      ["Mitsubishi", /mitsubishi|melsec|melsoft|genesis64|iconics/i],
+      ["GE Vernova", /ge vernova/i],
+      ["Hitachi Energy", /hitachi/i],
+      ["SEL", /schweitzer|\bSEL\b/],
+      ["Yokogawa", /yokogawa/i],
+      ["Omron", /omron/i],
+      ["Beckhoff", /beckhoff/i],
+      ["FANUC", /fanuc/i],
+      ["PTC", /\bPTC\b|windchill|flexplm/i],
+      ["Fortinet", /fortinet|fortigate|fortios|fortibleed|fortimanager/i],
+      ["Ivanti", /ivanti/i],
+      ["Citrix", /citrix|netscaler|citrixbleed/i],
+      ["Cisco", /\bcisco\b/i],
+      ["Unitronics", /unitronics/i],
+      ["AVEVA", /aveva/i],
+      ["Ignition", /inductive automation|\bignition\b/i],
+      ["Delta", /delta electronics/i],
+      ["Advantech", /advantech/i],
+      ["Moxa", /moxa/i],
+      ["Sierra Wireless", /sierra wireless|airlink/i],
+      ["iDirect", /idirect/i],
+      ["Hydro-Québec", /hydro-qu|circuit électrique|circuit electrique/i],
+      ["Gardyn", /gardyn/i],
+      ["John Deere", /john deere/i],
+      ["Tetra Pak", /tetra pak/i],
+      ["Krones", /krones/i],
+      ["Kongsberg", /kongsberg/i],
+      ["Labcenter", /labcenter|proteus/i],
+      ["Modbus", /modbus/i],
+      ["Siemens S7", /s7comm|\bs7-?\d/i],
+      ["DNP3", /dnp3/i],
+      ["OPC UA", /opc ua|opc-ua/i],
+      ["OCPP", /\bocpp\b/i]
+    ];
+    document.querySelectorAll(".card, .top-story").forEach(function (card) {
+      if (card.querySelector(".vendor-chips")) return;
+      var ops = card.querySelector(".ops-strip");
+      if (!ops) return;
+      var h = card.querySelector("h2, h3"), p = card.querySelector("p");
+      var txt = ((h && h.textContent) || "") + " " + ((p && p.textContent) || "");
+      var found = [];
+      for (var i = 0; i < MAP.length && found.length < 4; i++) {
+        if (MAP[i][1].test(txt) && found.indexOf(MAP[i][0]) < 0) found.push(MAP[i][0]);
+      }
+      if (!found.length) return;
+      var row = document.createElement("div");
+      row.className = "vendor-chips";
+      row.innerHTML = found.map(function (v) { return '<span class="vchip">' + v + "</span>"; }).join("");
+      ops.parentNode.insertBefore(row, ops);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
