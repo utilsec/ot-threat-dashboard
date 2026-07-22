@@ -629,7 +629,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wed, 22 Jul 2026, 8:39 AM ET</span>
+        <span>Generated Wed, 22 Jul 2026, 12:17 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -668,7 +668,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55%;"></span></div>
-      <div class="tl-why"><b>Why:</b> No confirmed OT compromise this cycle. The Fairlife/Coca-Cola ransomware halted US dairy production but is a single-sector, IT/scheduling-layer event with the process floor untouched; the FSB Center 16 router campaign is multi-sector but reconnaissance, not disruption; and the actively-exploited items in CISA KEV (SonicWall SMA 1000, PTC Windchill, Lantronix) are IT/edge remote-access on-ramps, not confirmed footholds in OT. With an otherwise heavy but unexploited ICS Patch Tuesday (Siemens CVSS 10, Rockwell 9.2), this is broad elevated exposure &mdash; Medium &mdash; not an active cross-sector OT crisis.</div>
+      <div class="tl-why"><b>Why:</b> No confirmed OT compromise this cycle. The Fairlife/Coca-Cola ransomware halted US dairy production but is a single-sector, IT/scheduling-layer event with the process floor untouched; the FSB Center 16 router campaign is multi-sector but reconnaissance, not disruption; and the actively-exploited items in CISA KEV (SonicWall SMA 1000, PTC Windchill, Lantronix) are IT/edge remote-access on-ramps, not confirmed footholds in OT. Against a heavy but unexploited advisory backdrop &mdash; July ICS Patch Tuesday (Siemens CVSS 10, Rockwell 9.2) plus CISA&rsquo;s 21 July batch (a login-bypass power monitor, Universal Robots cobots) &mdash; this is broad elevated exposure, Medium, not an active cross-sector OT crisis.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1258,34 +1258,35 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-06" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-daktronics">
+      <div class="card" id="story-july21batch">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory / Transportation</span>
+          <span class="category">Advisory / ICS Batch</span>
         </div>
-        <h3>Daktronics controller flaws expose highway signs and billboards to remote hacking</h3>
-        <p>CISA published an advisory covering three vulnerabilities a researcher found in Daktronics controllers &mdash; the systems behind digital highway message signs and large billboards. While a hacked sign is more public nuisance than safety catastrophe, roadway message boards are transportation infrastructure, and tampering can mislead drivers or be used for disinformation; the same controller families show up in stadiums and public venues. The advisory is a reminder that &ldquo;OT&rdquo; extends well past plants and substations into the widely distributed, lightly monitored display and signage systems that rarely make it onto an asset inventory.</p>
+        <h3>CISA&rsquo;s 21 July batch: a Tycon power monitor with a login-bypass and &ldquo;physical safety risk,&rdquo; plus Siemens CADRA and a cobot flaw</h3>
+        <p>CISA&rsquo;s newest set of ICS advisories (the ICSA-26-202 series, 21 July) is worth a scan even though nothing here is known to be exploited. The standout is Tycon Systems TPDIN-Monitor-WEB2 (ICSA-26-202-01), a networked power monitor whose web interface performs no server-side credential validation at login; CISA warns successful exploitation could expose credentials, disrupt connected infrastructure or manipulate physical equipment &mdash; an explicit physical-safety risk. The batch also covers Siemens CADRA and SIDIS Secured SmartPlug, while a separate advisory flags CVE-2026-8153, an OS-command-injection bug in Universal Robots&rsquo; PolyScope 5 controller software used on widely deployed collaborative robot arms. Together they span power, manufacturing and robotics &mdash; the kind of small, internet-adjacent OT devices that rarely make the asset inventory.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; coordinated advisory (13 Jul 2026)</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; coordinated advisories (21 Jul 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Refer to Daktronics/CISA advisory for mitigations</span>
-            <span class="ops-cc"><b>Action:</b> For operators of Daktronics or similar signage controllers, apply vendor mitigations and remove these devices from direct internet exposure &mdash; put them behind VPN or access-controlled management. For everyone else, use this as a prompt to make sure distributed display, signage and building-system controllers are actually in your OT asset inventory.</span>
+            <span class="ops-tag patch-yes">Refer to CISA ICSA-26-202 series &amp; vendor advisories for mitigations</span>
+            <span class="ops-cc"><b>Action:</b> Cross-check the 21 July advisories against your inventory &mdash; prioritise the Tycon power monitor given its login-bypass and safety framing, and Universal Robots PolyScope 5 on any collaborative-robot cells. Pull these devices off direct internet exposure, front management with an access-controlled jump host, and apply vendor fixes as they ship.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Secure/segment signage controllers &mdash; 45 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="daktronics" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="daktronics">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Triage 21 Jul advisories against inventory &mdash; 45 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="july21batch" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="july21batch">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / Daktronics &mdash; via SecurityWeek</span>
+          <span class="cve-badge">CVE-2026-8153</span>
+          <span>CISA ICSA-26-202-01 / -06 / Universal Robots &mdash; via CISA</span>
           <span class="dot">&bull;</span>
-          <span>13 Jul 2026</span>
+          <span>21 Jul 2026</span>
         </div>
-        <a href="https://www.securityweek.com/new-controller-flaws-expose-highway-signs-and-billboards-to-remote-hacking/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -1332,7 +1333,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (the ICSA-26-197 series and the 7 and 9 July batches), the CISA KEV catalog and the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16, Siemens ProductCERT, Rockwell Automation and Schneider Electric security notifications, Hitachi Energy PSIRT, PTC, Lantronix and SonicWall advisories, Palo Alto Networks Unit&nbsp;42 research, Rapid7 MDR research, NERC CIP standards documentation, Dragos research, a Coca-Cola SEC Form 8-K and a Reliance Group statement to Reuters &mdash; corroborated through coverage from SecurityWeek, BleepingComputer, The Register, Cybernews, The Hacker News, Cybersecurity Dive, Industrial Cyber, Nextgov/FCW, Forbes, Business Standard, Al Jazeera and CSIS. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (the ICSA-26-197 and ICSA-26-202 series and the 7 and 9 July batches), the CISA KEV catalog and the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16, Siemens ProductCERT, Rockwell Automation and Schneider Electric security notifications, Hitachi Energy PSIRT, PTC, Lantronix and SonicWall advisories, Palo Alto Networks Unit&nbsp;42 research, Rapid7 MDR research, NERC CIP standards documentation, Dragos research, a Coca-Cola SEC Form 8-K and a Reliance Group statement to Reuters &mdash; corroborated through coverage from SecurityWeek, BleepingComputer, The Register, Cybernews, The Hacker News, Cybersecurity Dive, Industrial Cyber, Nextgov/FCW, Forbes, Business Standard, Al Jazeera and CSIS. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
