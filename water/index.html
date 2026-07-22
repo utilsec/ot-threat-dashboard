@@ -638,14 +638,14 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 21 Jul 2026, 5:55 AM ET</span>
+        <span>Generated Wednesday, 22 Jul 2026, 8:44 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>8</strong> stories across
-      <strong>3</strong> categories
+      <strong>7</strong> stories across
+      <strong>4</strong> categories
     </div>
   </div>
 
@@ -670,14 +670,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level, weighted to water &amp; wastewater operators. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium here; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure stay in Medium.">
-    <div class="tl-score"><span class="tl-num">4.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.0</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:45%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Heightened threat, no confirmed incident. WaterISAC reissued its elevated-threat advisory amid US&ndash;Iran tensions and the exploited-in-the-wild Lantronix flaw reaches OT-edge serial gear, but there is no fresh confirmed OT-disruptive event this cycle (the prior operational disruption in AA26-097A is historical). The remaining Rockwell/Schneider criticals, OpenPLC and BeyondTrust items are unexploited advisories. Medium: geopolitical and edge exposure, not an active compromise.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:50%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Sustained nation-state focus, no fresh incident. DomainTools&rsquo; &ldquo;Boiling Point&rdquo; report confirms Iran-, Russia- and China-aligned actors treat water systems as a standing strategic target, and the FSB Center&nbsp;16 router advisory (AA26-194A) hits the exposed edge gear in front of municipal SCADA &mdash; but there is no confirmed OT-disruptive water incident this cycle, so the score is capped in mid-Medium. The Siemens SINEC criticals and OpenPLC item are unexploited advisories. Medium: pre-positioning and edge exposure, not an active compromise.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -686,31 +686,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-sonicwall">
+    <div class="top-story" id="story-water-boilingpoint">
       <span class="top-story-pill">Top Story</span>
-      <h2>Remote-access appliances under active attack: SonicWall SMA 1000 zero-days exploited; federal patch deadline passed 17 July</h2>
-      <p>SonicWall has confirmed active exploitation of two Secure Mobile Access 1000 flaws, which Rapid7&rsquo;s MDR team discovered being used against internet-facing appliances since at least late June. CVE-2026-15409 is a CVSS&nbsp;10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS&nbsp;7.2) lets an authenticated admin run OS commands via the Appliance Management Console, and attackers are chaining the two for full appliance takeover. CISA added both to the KEV catalog on 14&nbsp;July; the federal fix-by date of 17&nbsp;July has now passed. Water and wastewater utilities are disproportionately exposed here for structural reasons: remote access is not a convenience but the operating model. Lean teams cover distributed treatment plants and lift stations after hours, and integrators dial in for dosing, pump and SCADA support. When the appliance carrying that traffic is the thing being exploited, the compromise arrives wearing a valid session.</p>
+      <h2>State actors have turned US water systems into a standing strategic target, DomainTools &ldquo;Boiling Point&rdquo; report warns</h2>
+      <p>A new DomainTools &ldquo;Boiling Point&rdquo; analysis finds that Iran-, Russia- and China-aligned actors have deliberately elevated water and wastewater systems from opportunistic nuisance to a standing strategic target between 2024 and 2026. Russia-aligned groups are assessed as the most willing to directly manipulate water control systems, and the payoff is largely psychological and political: water sits at the intersection of public health and public trust, so even a modest disruption carries outsized pressure. The report keeps returning to the same exploited weaknesses &mdash; internet-exposed HMIs and PLCs, default or shared accounts, legacy unsupported controllers, thin monitoring and blurred IT/OT boundaries. None of that is novel, which is the uncomfortable part: for a small or mid-size utility, the exposures the world&rsquo;s most capable actors are choosing to target are the ordinary ones you already know about.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms exploitation; Rapid7 observed since late June</span>
-          <span class="ops-tag kev-on">In CISA KEV 14 Jul 2026 &mdash; FCEB due 17 Jul (passed)</span>
+          <span class="ops-tag ex-none"><span class="d"></span>Strategic targeting &amp; pre-positioning &mdash; no confirmed OT-disruptive incident this cycle</span>
+          <span class="ops-tag kev-off">DomainTools / Dark Reading (corroborated by GBHackers, EPA warnings)</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Patch available &mdash; 12.4.3-03453 / 12.5.0-02835 hotfix</span>
-          <span class="ops-cc"><b>Action:</b> Upgrade SMA 1000 to the fixed hotfix now &mdash; if you cannot, take it off the internet until you can. Then check SonicWall&rsquo;s indicators: <code>/__api__/login</code> or <code>/__api__/logout</code> requests returning HTTP&nbsp;200 in <code>extraweb_access.log</code>, <code>/wsproxy</code> requests with odd host parameters (HTTP&nbsp;101), path-traversal hotfix rollbacks in <code>ctrl-service.log</code>, and rogue routes in <code>/var/lib/unit/conf.json</code>. On any hit: re-image, rotate every user and admin password, reset TOTP tokens. If a contractor manages the appliance, get written confirmation of the build &mdash; do not assume.</span>
+          <span class="ops-tag patch-na">No single patch &mdash; reduce exposure, fix credentials, add monitoring</span>
+          <span class="ops-cc"><b>Action:</b> Treat this as confirmation that the fundamentals are the mission, not the warm-up. Enumerate every HMI, PLC and remote interface reachable from the internet and pull it behind a firewall or VPN; replace default and shared accounts with unique credentials and enforce MFA on remote paths; inventory legacy unsupported controllers and wrap them in segmentation and monitoring you can actually see. Assume you are in scope regardless of size &mdash; the report&rsquo;s point is that small utilities are the preferred target precisely because these gaps are common.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h (confirmed exploitation on the path into plant SCADA)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-sonicwall" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="wd-sonicwall">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure &amp; credential review &mdash; 72h; monitoring &amp; legacy-controller plan &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-boilingpoint" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="wd-boilingpoint">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>SonicWall PSIRT (SNWLID-2026-0008) / CISA KEV / The Hacker News</span>
+        <span>DomainTools &ldquo;Boiling Point&rdquo; report / Dark Reading (corroborated by GBHackers, EPA)</span>
         <span class="dot">&bull;</span>
-        <span>SonicWall advisory &amp; KEV addition 14 Jul 2026 &mdash; Rapid7 discovery; FCEB deadline 17 Jul now passed; exploitation ongoing</span>
+        <span>Report published Jul 2026 &mdash; assesses 2024&ndash;2026 nation-state targeting of water systems</span>
       </div>
-      <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.darkreading.com/ics-ot-security/iran-russia-china-target-water-systems-sabotage" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -740,23 +740,19 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-sonicwall"><circle class="blip crit" cx="180" cy="120" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="124.7">1</text></a>
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
-        <a href="#story-lantronix"><circle class="blip high" cx="226" cy="80" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="226" y="84.1">3</text></a>
-        <a href="#story-iran"><circle class="blip high" cx="289" cy="193" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="289" y="196.7">4</text></a>
-        <a href="#story-beyondtrust"><circle class="blip high" cx="201" cy="288" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="201" y="291.0">5</text></a>
-        <a href="#story-openplc"><circle class="blip high" cx="84" cy="233" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="84" y="236.2">6</text></a>
-        <a href="#story-julyseven"><circle class="blip high" cx="100" cy="105" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="100" y="107.7">7</text></a>
+        <a href="#story-water-boilingpoint"><circle class="blip high" cx="180" cy="112" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="116.7">1</text></a>
+        <a href="#story-siemens-sinec"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
+        <a href="#story-fsb-routers"><circle class="blip high" cx="250" cy="126" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="250" y="130.1">3</text></a>
+        <a href="#story-openplc"><circle class="blip high" cx="284" cy="206" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="284" y="209.7">4</text></a>
+        <a href="#story-lantronix"><circle class="blip high" cx="92" cy="224" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="92" y="227.0">5</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-sonicwall"><span class="ld crit"></span><b>1</b> SonicWall SMA 1000 zero-days exploited (CVSS 10.0)</a>
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>2</b> July ICS Patch Tuesday &mdash; critical Logix DoS flaws</a>
-        <a href="#story-lantronix"><span class="ld high"></span><b>3</b> Lantronix serial-to-IP flaw exploited in the wild</a>
-        <a href="#story-iran"><span class="ld high"></span><b>4</b> WaterISAC reissues Iran heightened-threat advisory</a>
-        <a href="#story-beyondtrust"><span class="ld high"></span><b>5</b> BeyondTrust RS/PRA auth bypass (CVSS 9.2)</a>
-        <a href="#story-openplc"><span class="ld high"></span><b>6</b> OpenPLC v3 advisory &mdash; flagged for water systems</a>
-        <a href="#story-julyseven"><span class="ld high"></span><b>7</b> Labcenter Proteus 9 &amp; Digi serial-server advisories</a>
+        <a href="#story-water-boilingpoint"><span class="ld high"></span><b>1</b> Boiling Point: state actors target water systems</a>
+        <a href="#story-siemens-sinec"><span class="ld crit"></span><b>2</b> Siemens SINEC INS/OS criticals (CVSS 9.8)</a>
+        <a href="#story-fsb-routers"><span class="ld high"></span><b>3</b> FSB Center 16 router advisory (AA26-194A)</a>
+        <a href="#story-openplc"><span class="ld high"></span><b>4</b> OpenPLC v3 advisory &mdash; flagged for water systems</a>
+        <a href="#story-lantronix"><span class="ld high"></span><b>5</b> Lantronix serial-to-IP flaw exploited in the wild</a>
       </div>
     </div>
 
@@ -769,28 +765,28 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
-        <span class="trend-tag">Remote Access</span>
-        <b class="trend-head">The sector&rsquo;s operating model is also its biggest exposure</b>
-        <p>SonicWall&rsquo;s SMA&nbsp;1000 zero-days are being exploited now (see top story) and BeyondTrust patched a 9.2 pre-auth bypass in privileged remote access. For water, this is not an abstract edge-device story: distributed plants, after-hours coverage by thin teams and integrator dial-in mean remote access is how the sector runs. The appliances carrying that traffic are being actively worked, and a compromise there arrives as a valid session rather than an alert.</p>
-        <a href="https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Legacy Bridges</span>
-        <b class="trend-head">Researchers have found the serial-server category &mdash; and so will attackers</b>
-        <p>A Lantronix serial-to-IP converter flaw is being exploited in the wild (see Incidents), and CISA&rsquo;s 7&nbsp;July batch added advisories for Digi PortServer TS and Digi One SP IA9. Two hits on the same unglamorous category in a fortnight is a pattern. These converters are how legacy pump, dosing and lift-station gear reached the network, and they are the assets least likely to have an owner, a patch record, or a place on the diagram.</p>
-        <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <span class="trend-tag">Access</span>
+        <b class="trend-head">Weak credentials and internet-facing PLCs remain the #1 way in</b>
+        <p>The recurring mechanism behind the water-sector targeting is not an exotic exploit &mdash; it is default or weak passwords and PLCs and HMIs left directly reachable from the internet, usually with no real IT/OT separation (see Threat Intelligence). For most utilities the highest-value hardening is also the dullest: find every control device reachable from outside, pull it behind a firewall or VPN, and give every account a unique credential with MFA on remote paths.</p>
+        <a href="https://cybersecuritynews.com/hackers-exploit-weak-credentials-and-internet-facing-plcs/" class="source-link" target="_blank" rel="noopener">CybersecurityNews</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Geopolitics</span>
-        <b class="trend-head">The Iran retaliation clock is the sector&rsquo;s live risk</b>
-        <p>With US&ndash;Iran strikes now hitting water facilities on both sides, WaterISAC reissued its heightened-threat advisory on 16&nbsp;July (see Incidents). The underlying campaign (AA26-097A) already caused confirmed operational disruption at US water sites via exposed Rockwell/Allen-Bradley PLCs. The uncomfortable part is that the exposure is structural &mdash; internet-reachable control devices at small utilities &mdash; so the defensive window is measured in the time it takes to find and pull those assets offline.</p>
-        <a href="https://www.waterisac.org/" class="source-link" target="_blank" rel="noopener">WaterISAC</a>
+        <b class="trend-head">Water is being used as a psychological and political pressure point</b>
+        <p>DomainTools&rsquo; &ldquo;Boiling Point&rdquo; report (see top story) frames the through-line: Iran-, Russia- and China-aligned actors value water access less for mass destruction than for signalling and pre-positioning, because water ties directly to public health and public trust. Russia-aligned actors are the most willing to manipulate control systems directly. The strategic value is the point &mdash; a small, visible disruption at a utility buys outsized political leverage.</p>
+        <a href="https://www.darkreading.com/ics-ot-security/iran-russia-china-target-water-systems-sabotage" class="source-link" target="_blank" rel="noopener">Dark Reading</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Resilience</span>
-        <b class="trend-head">The argument is moving from detection to measured recovery</b>
-        <p>NIST&rsquo;s OT backup quick-start guide (see Regulation &amp; Policy) lands amid a wider industry shift toward recovery readiness as the binding constraint in OT. For a utility running Logix controllers now facing critical non-recoverable-fault advisories (see Critical Advisories), the question is concrete: if a controller had to be rebuilt from backup this week, is the restore time a number you know or a number you would discover?</p>
-        <a href="https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Edge Hygiene</span>
+        <b class="trend-head">Router and SNMP hygiene now reads as a water-utility problem</b>
+        <p>The FSB Center&nbsp;16 advisory AA26-194A (see Incidents) describes Russian operators scanning for routers with default SNMP community strings and abusing Cisco Smart Install to steal device configs. It names state and local government &mdash; which is what most municipal water utilities are. The same exposed edge routers sit in front of plant SCADA, and a stolen config is a ready-made map of your network before an intruder touches a controller.</p>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">CISA</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Resource Gap</span>
+        <b class="trend-head">The small-utility staffing gap is the real constraint</b>
+        <p>The uncomfortable subtext across every item this cycle is capacity: most water and wastewater systems are run by one or two people carrying compliance, engineering and operations, with no dedicated OT security role. That is exactly why the fundamentals go undone and why the sector is a preferred target. EPA and WaterISAC baseline guidance (see Regulation &amp; Policy) exists to give those teams a short, prioritized list rather than a program to build.</p>
+        <a href="https://www.waterisac.org/" class="source-link" target="_blank" rel="noopener">WaterISAC</a>
       </div>
     </div>
   </div>
@@ -800,34 +796,34 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="story-iran">
+      <div class="card" id="story-fsb-routers">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident &mdash; Nation-State</span>
         </div>
-        <h3>WaterISAC reissues its heightened-threat advisory as US&ndash;Iran strikes hit water facilities and retaliation risk climbs</h3>
-        <p>WaterISAC updated its heightened-threat situation report on 16&nbsp;July, warning water and wastewater operators to brace for retaliatory Iranian cyber activity after kinetic escalation &mdash; reported US strikes on Iranian water pumping stations and an Iranian strike on a Kuwaiti desalination plant. It builds on the April 2026 joint advisory (AA26-097A) in which FBI, CISA, NSA and partners confirmed Iranian-affiliated actors have been exploiting internet-facing Rockwell/Allen-Bradley PLCs across water and energy since at least March, with some facilities suffering operational disruption. The campaign explicitly names the water sector and relies on exposed devices, default credentials and native engineering functionality rather than a single patchable CVE. Small utilities with internet-reachable PLCs are the softest targets and should assume they are in scope.</p>
+        <h3>FSB Center 16 router advisory (AA26-194A): the exposed edge gear sitting in front of municipal water SCADA</h3>
+        <p>A joint advisory from NSA, CISA, the FBI and partner agencies across roughly a dozen countries (AA26-194A, 13&nbsp;July) details how Russia&rsquo;s FSB Center&nbsp;16 &mdash; the actor tracked as Static Tundra, Berserk Bear, Energetic Bear and Dragonfly &mdash; scans for network devices exposing SNMP with default community strings and abuses Cisco Smart Install to copy device configurations to attacker infrastructure. State and local government is named explicitly, and that matters here because most municipal water and wastewater utilities are exactly that: small government operators. The same class of internet-facing edge router, often with SNMP left open, sits directly in front of the SCADA and remote-site networks at treatment plants and lift stations. A stolen configuration is a map &mdash; VLANs, routes, ACLs and management addresses &mdash; that tells an intruder precisely how your plant network is laid out before they ever touch a control device.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed prior OT disruption; heightened retaliation risk</span>
-            <span class="ops-tag kev-off">FBI/CISA/NSA/EPA AA26-097A / WaterISAC (reissued 16 Jul)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing FSB scanning and config theft (decade-plus campaign)</span>
+            <span class="ops-tag kev-off">NSA/CISA/FBI + ~12 nations &mdash; AA26-194A</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; remove exposure, credentials &amp; monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Get Rockwell/Allen-Bradley PLCs and other controllers off the public internet &mdash; check for EtherNet/IP (TCP&nbsp;44818) exposure on your ranges and any cellular-modem field sites. Replace default/weak credentials, enforce MFA on remote access, and turn on logging for engineering connections. Review the AA26-097A indicators and hunt for the described access patterns; treat any internet-reachable control device as presumed-targeted.</span>
+            <span class="ops-tag patch-na">No single patch &mdash; disable Smart Install, lock down SNMP</span>
+            <span class="ops-cc"><b>Action:</b> Disable Cisco Smart Install where it is not deliberately in use, and remove SNMP from any internet-facing interface. Replace default/public SNMP community strings, move to SNMPv3 with authentication, and restrict management access to a dedicated admin network. Pull edge-router configs and confirm none have been copied out; treat routers as monitored assets with owners and a patch record, not set-and-forget infrastructure in front of your SCADA.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure sweep &amp; credential hardening &mdash; 72h; monitoring &amp; IoC hunt &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iran" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-iran">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> SNMP/Smart Install hardening &amp; config review &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-fsb" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-fsb">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>WaterISAC situation report / CISA AA26-097A / Security Magazine</span>
+          <span>NSA/CISA/FBI joint advisory AA26-194A</span>
           <span class="dot">&bull;</span>
-          <span>Situation report reissued 16 Jul 2026; underlying advisory 7 Apr 2026 (ongoing campaign)</span>
+          <span>Published 13 Jul 2026 &mdash; long-running campaign, ongoing</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="story-lantronix">
         <div class="card-header">
@@ -863,17 +859,84 @@
   </div>
 
 
+  <!-- SECTION: Threat Intelligence &amp; Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+      <div class="card" id="story-water-plcexposure">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Threat Landscape</span>
+        </div>
+        <h3>How the intrusions actually happen: weak credentials and internet-facing PLCs at water utilities</h3>
+        <p>Underneath the geopolitics is a consistent, dull mechanism. Reporting on the same wave of water-sector targeting describes attackers reaching operational technology through default or weak passwords and through PLCs and HMIs left directly reachable from the internet, frequently with no meaningful separation between the IT and OT networks. There is rarely an exotic exploit involved &mdash; the control device answers because it is exposed and the credential is guessable or shared. For water operators the practical read is that the highest-value hardening is also the least glamorous: find every control device that can be reached from outside, pull it behind a firewall or VPN, and replace default and shared accounts with unique credentials and MFA on any remote path. This is the concrete pattern the DomainTools report abstracts into strategy.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Landscape &mdash; mechanism behind current water-sector targeting</span>
+            <span class="ops-tag kev-off">CybersecurityNews / corroborating sector reporting</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; exposure reduction, credentials &amp; segmentation</span>
+            <span class="ops-cc"><b>Action:</b> Run an external-exposure scan of your public IP ranges and any cellular/field sites for control protocols and device web interfaces, and remove anything that answers. Kill default and shared accounts, enforce MFA on every remote path, and put a monitored boundary between IT and OT. These are the exact gaps the reporting says attackers walk through &mdash; closing them removes most of the sector&rsquo;s realistic attack surface.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure scan &amp; credential cleanup &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-plcexposure" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-plcexposure">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CybersecurityNews / sector reporting</span>
+          <span class="dot">&bull;</span>
+          <span>Jul 2026 &mdash; landscape reporting on water-utility intrusions</span>
+        </div>
+        <a href="https://cybersecuritynews.com/hackers-exploit-weak-credentials-and-internet-facing-plcs/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+
   <!-- SECTION: Critical Advisories -->
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="story-siemens-sinec">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Vendor Advisory</span>
+        </div>
+        <h3>Siemens July Patch Tuesday: critical CVSS 9.8 flaws in SINEC INS and RUGGEDCOM SINEC OS</h3>
+        <p>Siemens&rsquo; July 2026 ICS Patch Tuesday includes two CVSS&nbsp;9.8 issues that sit in the network-management layer of industrial environments. CVE-2026-38421 is a command-injection flaw in SINEC&nbsp;INS (Infrastructure Network Services), and a second 9.8 vulnerability affects SINEC&nbsp;OS running on RUGGEDCOM switches (Siemens ProductCERT SSA-253495; CISA republished 7&nbsp;July). These are not obscure endpoints. SINEC&nbsp;INS provides core network services &mdash; RADIUS, syslog, DHCP and certificate handling &mdash; while RUGGEDCOM switches are hardened workhorses widely deployed in water and wastewater SCADA networks and at remote sites. A command-injection foothold in the device that authenticates and routes your plant traffic is a strong position for an attacker, even though no exploitation has been reported. Patches are available; prioritize any RUGGEDCOM or SINEC&nbsp;INS instance carrying SCADA or remote-site traffic.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">Siemens ProductCERT SSA-253495 / CISA (republished 7 Jul)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available &mdash; see Siemens ProductCERT advisory</span>
+            <span class="ops-cc"><b>Action:</b> Inventory SINEC INS servers and RUGGEDCOM switches running SINEC OS, and patch to the fixed versions in SSA-253495 &mdash; start with any that carry SCADA or remote-site traffic. Where an update window is hard to schedule, restrict management access to a dedicated admin network and block the affected services from general reachability, then document the interim risk.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory &amp; patch &mdash; 7 days for internet-adjacent, 30 days otherwise</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-siemens" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-siemens">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-38421</span>
+          <span>Siemens ProductCERT SSA-253495 / CISA / SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Patch Tuesday 14 Jul 2026; CISA republished 7 Jul 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-openplc">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Critical Advisory</span>
         </div>
-        <h3>CISA flags OpenPLC v3 for water and wastewater, alongside two Schneider energy advisories</h3>
-        <p>CISA&rsquo;s 9&nbsp;July batch of three ICS advisories includes OpenPLC&nbsp;v3, explicitly flagged as used in Water and Wastewater Systems as well as Energy. The other two cover Schneider Electric Easergy MiCOM Px40 protection relays and PowerChute Serial Shutdown. OpenPLC deserves a moment of honesty from the sector: it is open-source soft-PLC software that turns up in small-utility deployments, pilot projects, training rigs and integrator proof-of-concepts &mdash; and, not infrequently, in things that quietly became production. Because it has no vendor account team to send you a notice, advisories against it tend to go unread by the people running it. Check the advisory for affected versions and confirm whether OpenPLC exists anywhere in your estate, including on hardware someone stood up temporarily.</p>
+        <h3>CISA flags OpenPLC v3 for water and wastewater &mdash; treat any instance as isolate-and-monitor</h3>
+        <p>CISA&rsquo;s 9&nbsp;July ICS advisory batch flagged OpenPLC&nbsp;v3, with affected sectors listed as Water and Wastewater Systems and Energy. OpenPLC is open-source soft-PLC software, and it earns a place here precisely because it flies under the radar: it turns up in small-utility deployments, pilot projects, training rigs and integrator proof-of-concepts &mdash; and, not infrequently, in setups that quietly became production. Because there is no vendor account team to send a notice, advisories against it tend to go unread by whoever is actually running it. Treat any OpenPLC instance as isolate-and-monitor: confirm whether it exists anywhere in your estate, including on hardware someone stood up temporarily, keep it off any internet-reachable path, and apply the advisory&rsquo;s mitigations.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
@@ -881,7 +944,7 @@
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">See CISA advisory for mitigations</span>
-            <span class="ops-cc"><b>Action:</b> Establish whether OpenPLC v3 runs anywhere in your environment &mdash; ask integrators and engineering staff directly, since it rarely appears in procurement records. Where found, confirm it is not internet-reachable, apply the advisory&rsquo;s mitigations, and make a decision about whether a soft-PLC without vendor support belongs in a production control path at all.</span>
+            <span class="ops-cc"><b>Action:</b> Establish whether OpenPLC v3 runs anywhere in your environment &mdash; ask integrators and engineering staff directly, since it rarely appears in procurement records. Where found, confirm it is not internet-reachable, apply the advisory&rsquo;s mitigations, and make a deliberate decision about whether a soft-PLC without vendor support belongs in a production control path at all.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Discovery &amp; exposure check &mdash; 30 days</span>
@@ -892,98 +955,9 @@
         <div class="card-meta">
           <span>CISA ICS advisories / WaterISAC</span>
           <span class="dot">&bull;</span>
-          <span>CISA advisories published 9 Jul 2026</span>
+          <span>CISA advisory published 9 Jul 2026</span>
         </div>
-        <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-july-9-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-patchtuesday">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Vendor Advisories</span>
-        </div>
-        <h3>July ICS Patch Tuesday: critical DoS flaws in Rockwell Logix controllers, plus a Schneider IGSS SCADA code-execution fix</h3>
-        <p>The July 2026 cycle carries two items with direct water-sector weight. Rockwell Automation published 12 advisories including three critical denial-of-service flaws in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can force a major non-recoverable fault &mdash; in plain terms, a controller that stops and does not come back on its own. Allen-Bradley Logix hardware runs a large share of treatment-plant and pumping control, so that is a process-availability issue, not a data one. Schneider Electric separately fixed a high-severity flaw in IGSS, its SCADA product, where crafted files can execute arbitrary code. Siemens published nine advisories, six critical, including a CVSS&nbsp;10 authentication bypass in Opencenter X and fixes for Simatic S7-1500. VDE CERT added five more covering Codesys and Wago among others. CISA formalised the Logix denial-of-service issues as ICSA-26-197-06 in its 16&nbsp;July advisory batch, and separately flagged Rockwell&rsquo;s 1715-AENTR EtherNet/IP adapter (ICSA-26-195-04) for Water and Wastewater Systems &mdash; worth checking against remote I/O on your plant networks.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
-            <span class="ops-tag kev-off">Siemens / Schneider / Rockwell / VDE CERT</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches &amp; mitigations available (all three vendors)</span>
-            <span class="ops-cc"><b>Action:</b> Match the Rockwell Logix DoS advisories against your controller inventory and identify where a non-recoverable fault would stop treatment or pumping &mdash; those sites set your patch priority. Where an outage window is hard to obtain, apply network-level compensating controls and document the accepted risk rather than letting it drift. Check IGSS installations against the Schneider advisory.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Triage &amp; scheduling &mdash; 7 days for critical, 30 days for high</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-patchtuesday">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Siemens ProductCERT / Schneider / Rockwell PSIRT / CISA ICS advisories / SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Vendor advisories 14 Jul 2026 (Patch Tuesday); CISA ICSA-26-197 batch 16 Jul 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-julyseven">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Critical Advisory</span>
-        </div>
-        <h3>Labcenter Proteus 9 and Digi serial servers among CISA&rsquo;s 7 July batch touching water systems</h3>
-        <p>CISA released seven ICS advisories on 7&nbsp;July. Labcenter Proteus&nbsp;9 is flagged for Water and Wastewater Systems as well as Energy, and Digi International PortServer&nbsp;TS and Digi One SP&nbsp;IA9 &mdash; serial device servers of the same family as the Lantronix converters currently being exploited &mdash; also feature. The rest of the batch covers Hitachi Energy PROMOD&nbsp;V and e-mesh&nbsp;EMS, Siemens Mendix Studio Pro and SINEC&nbsp;OS, and the Hydro-Qu&eacute;bec Le Circuit &Eacute;lectrique charging-station backend. The Digi entries are worth pairing with the Lantronix item in Incidents: two advisories in the same fortnight against the humble serial-server category suggest researchers are looking hard at it, which historically precedes attackers doing the same.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported for these advisories</span>
-            <span class="ops-tag kev-off">Labcenter Proteus 9 / Digi PortServer TS / Digi One SP IA9</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor updates &mdash; see individual advisories</span>
-            <span class="ops-cc"><b>Action:</b> Treat Digi and Lantronix serial servers as one problem, not two: run a single discovery pass across the whole category, confirm none are internet-facing, and bring them under a common segmentation and firmware standard. Check the Proteus 9 advisory against any engineering or design workstations in scope.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage &amp; serial-server discovery &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-julyseven" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-julyseven">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisories / WaterISAC</span>
-          <span class="dot">&bull;</span>
-          <span>CISA advisories published 7 Jul 2026</span>
-        </div>
-        <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-july-9-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-beyondtrust">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Vulnerability</span>
-        </div>
-        <h3>BeyondTrust patches critical auth-bypass flaws in the privileged remote access tooling integrators use</h3>
-        <p>BeyondTrust disclosed two authentication-bypass vulnerabilities on 7&nbsp;July in Remote Support (RS) and Privileged Remote Access (PRA). CVE-2026-40138 (CVSS&nbsp;9.2) comes from improper validation of authentication data and could let a network-positioned attacker bypass access controls to reach the appliance, including elevated accounts; CVE-2026-40139 involves improper processing of RS authentication requests. Exploitation of both depends on a specific authentication configuration being enabled, which narrows the exposed population. Neither is under active exploitation and no public proof-of-concept exists. Cloud customers were patched on 21&nbsp;April; self-hosted RS/PRA at 25.3.2 or earlier needs attention. Read this alongside the SonicWall top story: the common thread is that third-party remote access into plant networks is where the sector&rsquo;s risk actually concentrates.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation; no public PoC as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; RS/PRA 25.3.3+ or April rollup (cloud patched 21 Apr)</span>
-            <span class="ops-cc"><b>Action:</b> Determine whether you run self-hosted RS/PRA at 25.3.2 or earlier with the affected authentication configuration enabled, and patch. Separately, list every integrator and vendor with standing access into plant networks and check whether those sessions are time-bounded, individually approved and recorded &mdash; for most small utilities that list is longer and older than expected.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Version check &amp; patch &mdash; 30 days (no exploitation; high privilege if abused)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-beyondtrust" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-beyondtrust">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-40138</span>
-          <span class="cve-badge">CVE-2026-40139</span>
-          <span>BeyondTrust / The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Disclosed 7 Jul 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -993,35 +967,34 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="story-nist1339">
+      <div class="card" id="story-epa-water">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Guidance</span>
         </div>
-        <h3>NIST publishes an OT backup quick-start guide &mdash; aimed squarely at utilities with no spare capacity</h3>
-        <p>NIST released SP&nbsp;1339, an OT Backup Quick Start Guide intended to improve industrial cyber resilience and speed incident recovery. The short-format framing is deliberate, and it suits the water sector better than most guidance does: the constraint at a small or mid-size utility is rarely awareness, it is that one or two people already carry compliance, engineering and operations. What the guide gets right is treating backup as a restoration problem. In a treatment plant the artefacts that determine recovery time are PLC logic, HMI and SCADA configurations, historian baselines, dosing setpoints and the engineering-workstation image needed to push any of it back &mdash; not the file server. Those are the things most often missing, stale, or sitting on the same domain as the systems they are meant to restore.</p>
+        <h3>EPA and WaterISAC set the baseline: current cyber expectations for drinking-water and wastewater systems</h3>
+        <p>For utilities asking what &ldquo;good enough&rdquo; looks like, the baseline is already written down. EPA&rsquo;s guidance, &ldquo;Improving Cybersecurity at Drinking Water and Wastewater Systems,&rdquo; the joint CISA&ndash;EPA Water Sector Cybersecurity Toolkit, and WaterISAC&rsquo;s fundamentals together describe the expectations utilities are increasingly measured against &mdash; asset inventory, removing internet exposure, credential and access controls, monitoring, and incident-response and recovery planning. Congress continues to weigh the water sector&rsquo;s cyber authorities, so the policy backdrop is live rather than settled. None of this is new regulation to satisfy overnight, but for a small operator it is the most useful map available: the same controls that answer these expectations are the ones that close the exposures the nation-state actors in this edition are actually using.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Guidance publication &mdash; no threat activity</span>
-            <span class="ops-tag kev-off">NIST SP 1339</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Guidance &amp; policy &mdash; no threat activity</span>
+            <span class="ops-tag kev-off">EPA / CISA&ndash;EPA Toolkit / WaterISAC</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; process and resilience guidance</span>
-            <span class="ops-cc"><b>Action:</b> Use SP 1339 as a checklist rather than a project: confirm PLC logic, HMI/SCADA configuration and engineering-workstation images are backed up, held offline or otherwise isolated from the production domain, and restored in a test at least once. Record the measured restore time &mdash; that number, not the backup success rate, is what your recovery objective should be built on.</span>
+            <span class="ops-tag patch-na">No patch &mdash; governance and baseline controls</span>
+            <span class="ops-cc"><b>Action:</b> Use the EPA guidance and the CISA&ndash;EPA toolkit as your baseline self-assessment rather than a compliance project: work the short list &mdash; inventory, remove internet exposure, fix credentials and access, add monitoring, plan for response and recovery &mdash; and record where you stand on each. WaterISAC membership is the fastest route to sector-specific alerts and peer benchmarking for a lean team.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Restore test &amp; gap review &mdash; next planning cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-nist1339" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-nist1339">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Baseline self-assessment &amp; gap review &mdash; next planning cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-epa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-epa">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">NIST SP 1339</span>
-          <span>NIST / Industrial Cyber</span>
+          <span>EPA / CISA&ndash;EPA Water Sector Cybersecurity Toolkit / WaterISAC</span>
           <span class="dot">&bull;</span>
-          <span>Published 19 Jun 2026</span>
+          <span>Ongoing baseline guidance &mdash; current expectations</span>
         </div>
-        <a href="https://industrialcyber.co/nist/nist-sp-1339-releases-ot-backup-quick-start-guide-to-boost-industrial-cyber-resilience-accelerate-incident-recovery/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.waterisac.org/portal/epa-releases-guidance-improving-cybersecurity-drinking-water-and-wastewater-systems" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1031,7 +1004,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Water &amp; Wastewater.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the SonicWall PSIRT advisory SNWLID-2026-0008 and Rapid7&rsquo;s discovery of its active exploitation, the CISA KEV catalog (14 July additions), CISA ICS advisories from the 7, 9 and 16 July cycles (OpenPLC v3 and Labcenter Proteus 9, both flagged for Water and Wastewater Systems; Digi PortServer TS and Digi One SP IA9; Schneider Easergy MiCOM Px40; the ICSA-26-197 batch including the Rockwell Logix denial-of-service advisory ICSA-26-197-06; and the Rockwell 1715-AENTR EtherNet/IP adapter advisory ICSA-26-195-04, also flagged for Water and Wastewater Systems), WaterISAC&rsquo;s TLP:CLEAR advisory bulletins, Siemens ProductCERT, Schneider Electric and Rockwell Automation PSIRT July 2026 Patch Tuesday advisories, VDE CERT, BeyondTrust&rsquo;s security advisory, the Lantronix/BRIDGE:BREAK disclosure, WaterISAC&rsquo;s reissued heightened-threat situation report (16 July) and the FBI/CISA/NSA/EPA joint advisory AA26-097A on Iranian-affiliated targeting of water-sector PLCs, NIST SP 1339, and reporting from SecurityWeek, The Hacker News and Industrial Cyber. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the DomainTools &ldquo;Boiling Point&rdquo; report on Iran-, Russia- and China-aligned targeting of water systems (via Dark Reading, corroborated by GBHackers and EPA warnings), the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16 (Static Tundra) router and SNMP/Smart Install targeting, CISA ICS advisories from the 9 July cycle (OpenPLC v3, flagged for Water and Wastewater Systems and Energy), Siemens ProductCERT advisory SSA-253495 covering the CVSS 9.8 SINEC INS command-injection flaw CVE-2026-38421 and the SINEC OS / RUGGEDCOM issue from the July 2026 Patch Tuesday (via SecurityWeek; CISA republished 7 July), the Lantronix/BRIDGE:BREAK serial-to-IP exploitation reporting, sector reporting on weak-credential and internet-facing-PLC intrusions at water utilities (CybersecurityNews), and EPA guidance &ldquo;Improving Cybersecurity at Drinking Water and Wastewater Systems,&rdquo; the CISA&ndash;EPA Water Sector Cybersecurity Toolkit and WaterISAC fundamentals. Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
