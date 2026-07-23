@@ -6,79 +6,71 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Wed, 22 Jul 2026 08:42:00 -0400</lastBuildDate>
+<lastBuildDate>Thu, 23 Jul 2026 09:15:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] Russia’s FSB Center 16 is harvesting router configs across the energy sector — joint advisory names the grid</title>
+<title>[Critical] Federal alert sharpens: Iran-affiliated hackers are actively manipulating the PLCs that run US energy infrastructure</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a</link>
+<guid isPermaLink="false">otthreatfeed:power:iran-plc</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[Federal agencies sharpened their warning that Iran-affiliated hackers are actively manipulating the programmable logic controllers that run US energy infrastructure. The joint advisory AA26-097A, updated 22 July, confirms actors have reached internet-exposed Rockwell, Schneider Electric and Siemens controllers, stolen project files, and rewritten or deleted control logic — in some cases disabling the shutdown and alarm functions that keep equipment inside safe limits, without alerting operators. For grid and generation operators the concern is direct: the same brands sit in substations, plants and remote sites, and a controller that suppresses its own alarms undermines the protection logic crews rely on. The campaign has already caused operational disruption and financial loss across the energy sector. It is not sophisticated — it targets devices left reachable from the internet with weak credentials. - CISA/FBI joint advisory AA26-097A - Updated 22 Jul 2026 (originally 7 Apr 2026) — ongoing campaign]]></description>
+</item>
+<item>
+<title>[High] FSB Center 16 router campaign (AA26-194A): the exposed edge gear sitting in front of substation networks</title>
 <link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a</link>
 <guid isPermaLink="false">otthreatfeed:power:fsb-routers</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Top Story</category>
-<description><![CDATA[On 13 July, NSA, CISA, the FBI and partner agencies from a dozen countries issued joint advisory AA26-194A, attributing a long-running campaign against poorly configured routers to Russia’s FSB Center 16 (also tracked as Static Tundra, Berserk Bear and Dragonfly). The actors scan for routers exposing SNMP with default community strings and abuse Cisco Smart Install to copy device configurations off to attacker infrastructure — handing them network maps, credentials and VPN details. Energy is named among the most-targeted sectors, and CERT Polska has tied the same actor to the attempted December 2025 wiper attack on Poland’s grid. For power utilities the exposure is concrete: the edge routers linking substations, EMS and control centres are exactly the gear being harvested, and a stolen running-config is a blueprint of your OT network. - CISA AA26-194A / NSA / FBI — corroborated by Nextgov, SecurityWeek - Joint advisory published 13 Jul 2026; campaign ongoing]]></description>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Incident — Nation-State</category>
+<description><![CDATA[A joint advisory from NSA, CISA, the FBI and roughly a dozen partner nations (AA26-194A, 13 July) details how Russia’s FSB Center 16 — tracked as Static Tundra, Berserk Bear, Energetic Bear and Dragonfly — scans for network devices exposing SNMP with default community strings and abuses Cisco Smart Install to copy device configurations. Energy and state/local government are named explicitly. The same internet-facing edge routers, often with SNMP left open, sit directly in front of substation SCADA and control-center networks, and a stolen config is a ready-made map of the network before an intruder touches a relay or RTU. - NSA/CISA/FBI joint advisory AA26-194A - Published 13 Jul 2026 — long-running campaign, ongoing]]></description>
 </item>
 <item>
-<title>[High] Poland’s grid was the target of an attempted wiper last winter — now tied to the same FSB unit</title>
-<link>https://securityonline.info/fsb-center-16-router-targeting/</link>
-<guid isPermaLink="false">otthreatfeed:power:poland</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Incident — Nation-State (context)</category>
-<description><![CDATA[CERT Polska has attributed the attempted December 2025 DynoWiper attack on Poland’s power grid to Static Tundra/FSB Center 16, the actor behind this week’s router advisory (ESET and Dragos attribute the wiper itself to Sandworm with moderate confidence). The attack, which would have cut power to roughly half a million people in winter, was thwarted. It is foundational context for the top story: the same access tradecraft that harvests configs is what precedes a destructive attempt. - CERT Polska / ESET / Dragos — via SecurityOnline - Attempt Dec 2025; re-attributed in 13 Jul 2026 joint advisory]]></description>
+<title>[Critical] FortiSandbox RCE flaws added to CISA KEV — exploited edge appliances on the utility IT/OT boundary</title>
+<link>https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog</link>
+<guid isPermaLink="false">otthreatfeed:power:fortisandbox</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Active Exploitation — KEV</category><category>CVE-2026-39808</category><category>CVE-2026-25089</category>
+<description><![CDATA[CISA added two critical Fortinet vulnerabilities, CVE-2026-39808 and CVE-2026-25089 (both CVSS 9.1), to the Known Exploited Vulnerabilities catalog on 16 July after evidence of exploitation in the wild. The flaws are OS command-injection bugs in FortiSandbox, FortiSandbox Cloud and PaaS that let an unauthenticated attacker run commands via crafted HTTP requests. Fortinet appliances routinely sit on the security boundary between utility IT and OT; a compromised inspection appliance is both a foothold and a blind spot. CISA set a 19 July federal remediation deadline. - CVE-2026-39808 - Added to KEV 16 Jul 2026 — actively exploited]]></description>
 </item>
 <item>
-<title>[High] VOLTZITE keeps burrowing into US electric utilities — and it is studying what makes a plant trip</title>
-<link>https://www.dragos.com/blog/electric-grid-cybersecurity-threats</link>
-<guid isPermaLink="false">otthreatfeed:power:voltzite</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Threat Intel — Pre-Positioning</category>
-<description><![CDATA[Dragos’ electric-grid analysis describes VOLTZITE (the ICS-capable arm of Volt Typhoon) receiving footholds from access broker SYLVANITE and using them to pull configuration files and alarm data from engineering workstations — specifically probing which conditions would trigger a process shutdown. This is not espionage for its own sake; it is target development for disruption. It is foundational context for the current nation-state picture rather than a fresh incident. - Dragos electric-grid threat analysis - Dragos 2026 grid reporting; pre-positioning ongoing (context)]]></description>
+<title>[High] Solar and storage inverters flagged as a remote-sabotage path as the grid leans on DER</title>
+<link>https://www.cybersecuritydive.com/news/solar-power-gear-vulnerable-remote-sabotage/743806/</link>
+<guid isPermaLink="false">otthreatfeed:power:solar</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Research — DER/Inverters</category>
+<description><![CDATA[Renewed research and industry attention this month centers on the cyber exposure of grid-connected solar inverters and battery storage as distributed energy resources become a larger share of generation. Analysts warn that inverters and their cloud-management platforms can be remotely manipulated — plaintext control channels, predictable session handling and internet-exposed management have all surfaced in recent DER advisories — and that coordinated manipulation of enough inverter capacity could stress grid stability. For utilities integrating third-party DER, the takeaway is that inverter fleets are OT assets that need the same segmentation, monitoring and vendor-security scrutiny as any control system. - SEIA / Cybersecurity Dive / CISA - Jul 2026 — ongoing DER exposure research]]></description>
 </item>
 <item>
-<title>[Landscape] Dragos’ year-in-review: threat groups now map whole control loops, and ransomware rose 49%</title>
-<link>https://www.dragos.com/blog/dragos-2026-ot-cybersecurity-year-in-review</link>
-<guid isPermaLink="false">otthreatfeed:power:dragos-yir</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Threat Intel — Landscape</category>
-<description><![CDATA[Dragos’ 2026 Year in Review reports adversaries advancing from isolated-device targeting to mapping entire control loops — HMIs, variable-frequency drives, metering modules and cellular gateways — with KAMACITE running sustained reconnaissance of US industrial devices from March through July 2025. Industrial-ransomware victims rose 49% year-on-year. For power operators it is landscape context: the reconnaissance economy feeding grid-capable groups is maturing. - Dragos 2026 Year in Review - Published Feb 2026; landscape context]]></description>
-</item>
-<item>
-<title>[Critical] Rockwell 1715-AENTR EtherNet/IP adapter exposes an unauthenticated debug port — energy-flagged</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-04</link>
-<guid isPermaLink="false">otthreatfeed:power:rockwell1715</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Advisory — Critical</category>
-<description><![CDATA[CISA advisory ICSA-26-195-04 covers a Rockwell Automation 1715-AENTR EtherNet/IP adapter that exposes a network-accessible debug port without enforcing privilege controls, allowing unauthenticated remote access to intrusive CLI commands. CISA flags the affected sectors as Energy, Water and Wastewater, and Critical Manufacturing. On a substation or generation LAN, unauthenticated CLI to a redundancy adapter is a direct path to reading files, stopping tasks and altering I/O state. - CISA ICSA-26-195-04 / Rockwell PSIRT - Advisory published 14 Jul 2026]]></description>
-</item>
-<item>
-<title>[Critical] July ICS Patch Tuesday: a CVSS 10 Siemens auth bypass and a critical SIMATIC S7-1500 fix</title>
-<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-rockwell-schneider/</link>
-<guid isPermaLink="false">otthreatfeed:power:siemens-s7</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Advisory — Patch Tuesday</category>
-<description><![CDATA[Siemens’ July advisories include six critical-rated issues, led by a CVSS 10 token-invalidation flaw in Opencenter X that lets an attacker bypass authentication for full application access, plus critical fixes in SIMATIC S7-1500, Mendix, Sidis and Desigo CC. Rockwell and Schneider shipped concurrent advisories. Utilities running SIMATIC controllers or Siemens energy-automation software should treat this cycle as a priority patch window. - SecurityWeek — ICS Patch Tuesday (Siemens/Rockwell/Schneider) - July 2026 Patch Tuesday — 14 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] Hitachi Energy EMS and planning tools flagged in CISA’s 7 July batch</title>
-<link>https://www.cisa.gov/news-events/ics-advisories</link>
-<guid isPermaLink="false">otthreatfeed:power:hitachi</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Advisory — Grid EMS</category>
-<description><![CDATA[CISA’s 7 July advisory batch included Hitachi Energy products used in the power sector — PROMOD V (market and planning) and the e-mesh energy-management system — alongside Siemens SINEC OS, Mendix and other items. These are the higher-value grid applications rather than field devices; vulnerabilities here reach market operations and DER/storage management rather than a single relay. - CISA ICS advisories — 7 Jul 2026 release - Advisories published 7 Jul 2026]]></description>
-</item>
-<item>
-<title>[Medium] Schneider Easergy MiCOM Px40 relays expose device data via hard-coded SNMP credentials</title>
+<title>[Critical] Schneider Easergy MiCOM P40 protection relays: unauthenticated SNMP RCE could disrupt substation protection</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03</link>
-<guid isPermaLink="false">otthreatfeed:power:easergy</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
-<category>Advisory — Protection Relays</category><category>CVE-2026-4832</category>
-<description><![CDATA[CISA advisory ICSA-26-190-03 (9 July) covers CVE-2026-4832, a use-of-hard-coded-credentials flaw (CVSS 5.3) letting an attacker read sensitive information from Easergy MiCOM Px40 protection relays over SNMP. It is medium-severity and information-disclosure only, but on a substation LAN it feeds exactly the reconnaissance the FSB campaign relies on — and protection relays are core to grid safety. - CVE-2026-4832 - Advisory published 9 Jul 2026]]></description>
+<guid isPermaLink="false">otthreatfeed:power:schneider-easergy</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Critical Advisory — CVE</category><category>CVE-2026-4832</category>
+<description><![CDATA[CISA published ICSA-26-190-03 (Schneider SEVD-2026-104-03) on 9 July, warning of a critical remote-code-execution flaw, CVE-2026-4832, in Schneider Electric’s Easergy MiCOM P40 protection relays. The bug is a memory-safety error in the relay’s SNMP implementation: an unauthenticated attacker sending crafted SNMP packets to an unpatched device could disrupt operation of a relay that sits at the heart of substation protection. No public exploitation is known, but protection relays are high-consequence assets, so this is a patch-and-monitor priority rather than an emergency. - CVE-2026-4832 - Published 9 Jul 2026]]></description>
 </item>
 <item>
-<title>[Info] CIP-012-2 is now in force; CIP-003-9 tightens the low-impact and vendor-access perimeter</title>
-<link>https://ampyxcyber.com/blog/nercs-cip-roadmap-and-the-future-of-grid-cybersecurity</link>
+<title>[High] Hitachi Energy PROMOD V and e-mesh EMS advisories add to the July grid-vendor patch load</title>
+<link>https://industrialcyber.co/cisa/cisa-issues-urgent-ics-advisories-on-hardware-flaws-in-schneider-electric-hitachi-energy-philips-vue-equipment/</link>
+<guid isPermaLink="false">otthreatfeed:power:hitachi</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Critical Advisory</category>
+<description><![CDATA[On 7 July CISA published a batch of ICS advisories including flaws in Hitachi Energy PROMOD V and the e-mesh energy management system. These are planning and energy-management platforms used by utilities rather than field controllers, but they hold sensitive operational data and sit inside utility environments, so unpatched instances widen the attack surface. No exploitation is reported; the action is routine but real — track affected versions and schedule the vendor fixes. - Hitachi Energy PSIRT / CISA / Industrial Cyber - Published 7 Jul 2026]]></description>
+</item>
+<item>
+<title>[Info] FERC-approved CIP virtualization standards and INSM monitoring set the grid’s compliance runway</title>
+<link>https://industrialcyber.co/nerc-cip/ferc-approves-virtualization-standards-cip-updates-to-strengthen-bulk-power-system-security-amid-rising-cyber-threats/</link>
 <guid isPermaLink="false">otthreatfeed:power:nerccip</guid>
-<pubDate>Wed, 22 Jul 2026 08:42:00 -0400</pubDate>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
 <category>Regulation — NERC CIP</category>
-<description><![CDATA[NERC CIP-012-2 became enforceable on 1 July 2026, strengthening protection of real-time operational data exchanged between control centres. It follows CIP-003-9 (effective 1 April 2026), which expands governance for low-impact BES Cyber Systems with a focus on vendor electronic remote access and supply-chain risk. Both map directly onto this cycle’s threats: control-centre data protection and third-party remote-access control. - NERC / Ampyx Cyber CIP roadmap analysis - CIP-012-2 effective 1 Jul 2026; CIP-003-9 effective 1 Apr 2026]]></description>
+<description><![CDATA[FERC Order 919 approved an updated set of CIP standards (CIP-002-7 through CIP-013-3) covering virtualized environments, effective 26 May 2026 with mandatory compliance by 1 July 2028. Separately, CIP-015-1 (Order 907) requires Internal Network Security Monitoring for applicable control centers by 2 September 2028 and other entities by 2 September 2030. Nothing changes operationally today, but planning for INSM and virtualization compliance — visibility inside the electronic security perimeter — is work that starts now. - FERC Orders 919 & 907 / NERC / Industrial Cyber - Effective 26 May 2026; compliance 1 Jul 2028 (INSM Sep 2028)]]></description>
+</item>
+<item>
+<title>[Info] SEIA publishes cybersecurity priorities for the US solar and storage industry</title>
+<link>https://www.solarpowerworldonline.com/2026/07/seia-publishes-report-for-increasing-solar-inverter-cybersecurity/</link>
+<guid isPermaLink="false">otthreatfeed:power:seia</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Policy — DER Security</category>
+<description><![CDATA[The Solar Energy Industries Association released a report this month, “Cybersecurity Priorities for America’s Solar & Storage Industry,” setting out measures to harden inverter technology — supply-chain traceability, national inverter-cybersecurity guidance, and shared resources across the industry. It is guidance, not a mandate, but it signals where DER security expectations are heading and gives utilities and developers a reference as inverter fleets grow. - SEIA / Solar Power World - Published Jul 2026]]></description>
 </item>
 </channel>
 </rss>

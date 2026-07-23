@@ -6,71 +6,71 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-marine.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Wed, 22 Jul 2026 08:45:00 -0400</lastBuildDate>
+<lastBuildDate>Thu, 23 Jul 2026 09:15:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] CISA flags an auth-identity leak in ST Engineering iDirect satellite terminals used across the merchant fleet</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01</link>
-<guid isPermaLink="false">otthreatfeed:marine:idirect</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Top Story</category><category>CVE-2026-38059</category>
-<description><![CDATA[CISA advisory ICSA-26-183-01 (2 July) covers ST Engineering iDirect iQ-Series VSAT terminals — the satcom gear that keeps merchant vessels connected at sea. An unauthenticated attacker with network access to the terminal’s management API (CVE-2026-38059) can retrieve the Device ID (DID) and the Terminal Private Key identifier (TPK) the unit uses to authenticate to the satellite network, opening the door to terminal impersonation and network reconnaissance; a second cross-site request forgery flaw targets the reboot endpoint. Affected models are the Evolution iQ-Series, 3315-Series and 9-Series at versions 4.5.2.1 and earlier, with the fix in 4.5.2.2. For fleet and IT-OT managers the framing is uncomfortable: the box that keeps a ship online can be made to leak its own satellite-auth identity to anyone who can reach its management interface. No public exploitation is reported. - CVE-2026-38059 - Advisory published 2 Jul 2026]]></description>
+<title>[Critical] Federal alert sharpens: Iran-affiliated hackers are manipulating the PLCs that also run port and terminal OT</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a</link>
+<guid isPermaLink="false">otthreatfeed:marine:iran-plc</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[Federal agencies sharpened their warning that Iran-affiliated hackers are actively manipulating the programmable logic controllers behind US critical infrastructure — the same controllers that run cranes, fuel, power and water systems inside MTSA-regulated ports and terminals. Advisory AA26-097A, updated 22 July, confirms actors reached internet-exposed Rockwell, Schneider and Siemens gear, stole project files, and rewrote or deleted control logic, in some cases disabling shutdown and alarm functions without alerting operators. Port facilities are exactly the kind of mixed IT/OT environment the campaign favours: diverse controllers, remote maintenance access, and edge devices often reachable from the internet. The activity has already caused operational disruption and financial loss across critical-infrastructure sectors. It is opportunistic rather than sophisticated — the way in is weak credentials and controllers left exposed, not a novel exploit. - CISA/FBI joint advisory AA26-097A - Updated 22 Jul 2026 (originally 7 Apr 2026) — ongoing]]></description>
 </item>
 <item>
-<title>[High] GNSS jamming and spoofing surge blinds vessel navigation across the Red Sea and Gulf</title>
-<link>https://industrialcyber.co/transport/marlink-warns-surge-in-satellite-spoofing-is-blinding-maritime-digital-infrastructure-disrupting-vessel-navigation/</link>
-<guid isPermaLink="false">otthreatfeed:marine:gnss</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Navigation Disruption</category>
-<description><![CDATA[Maritime-security bulletins in mid-July flag elevated GNSS interference as an ongoing operational hazard, with Cydome’s 10 July bulletin framing the current period as one of sustained activity. Marlink recorded a more than 50% surge in GNSS interference across its customer fleet, concentrated in the Middle East and other high-tension corridors; affected ships have appeared on land, at impossible speeds or circling, and the MSC Antonia grounded in the Red Sea near Jeddah after spoofing placed it hundreds of miles off its true position. Spoofing can also degrade GMDSS distress signalling. This is electronic-warfare disruption of position, navigation and timing — not a confirmed cyber-OT compromise of vessel or terminal control systems — but the operational impact on the bridge is real and immediate. - Cydome bulletin / Marlink via Industrial Cyber / MarineInsight - Bulletin 10 Jul 2026 — interference ongoing]]></description>
+<title>[Medium] King Ocean Services discloses data breach at Caribbean/Latin America ocean carrier</title>
+<link>https://www.isssource.com/cyberattack-at-maritime-shipping-firm/</link>
+<guid isPermaLink="false">otthreatfeed:marine:kingocean</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Incident — Data Breach</category>
+<description><![CDATA[Miami-based ocean carrier and logistics firm King Ocean Services disclosed on 11 July a data-security incident that exposed personal information, including government ID numbers, of affected individuals. King Ocean provides ocean transportation, trucking and warehousing across the Caribbean, Central and South America. The company has not detailed the cause, timeline or whether a third party was involved. The confirmed impact is IT/data-side rather than vessel or terminal OT, but it underlines that maritime logistics operators remain squarely in attackers' sights. - King Ocean Services breach notice / ISSSource - Disclosed 11 Jul 2026]]></description>
 </item>
 <item>
-<title>[High] Lantronix serial-to-IP converter flaw exploited in the wild — the bridges between shipboard serial gear and the network</title>
-<link>https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/</link>
-<guid isPermaLink="false">otthreatfeed:marine:lantronix</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Active Exploitation</category><category>CVE-2025-67038</category>
-<description><![CDATA[Attackers are exploiting CVE-2025-67038 in Lantronix serial-to-IP converters, one of the flaws disclosed in April through the BRIDGE:BREAK research project. This category deserves particular attention at sea and on the quayside. Maritime OT is still overwhelmingly serial at the sensor and actuator layer — NMEA feeds, engine and auxiliary monitoring, alarm and monitoring panels, cargo and ballast systems, crane and gate equipment — and serial-to-IP converters are what connected all of it to shipboard or terminal Ethernet during retrofits and digitalisation projects. They are typically installed by an integrator, absent from any drawing, and never patched because the equipment behind them still works. Exploitation is confirmed and follows an explicit OT threat warning; for most operators the first task is establishing what is actually installed. - CVE-2025-67038 - Disclosed Apr 2026 — exploitation reported 25 Jun 2026; ongoing]]></description>
+<title>[High] Leaked Fortinet firewall credentials expose maritime, port and energy networks</title>
+<link>https://safety4sea.com/thousands-of-leaked-logins-put-maritime-networks-at-risk/</link>
+<guid isPermaLink="false">otthreatfeed:marine:fortibleed</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Incident — Edge Credentials</category>
+<description><![CDATA[Threat-intelligence reporting in early July flagged a “FortiBleed” exposure — large sets of leaked Fortinet firewall credentials — affecting maritime, port and energy organisations. For ports and shipping companies, Fortinet gear typically sits on the perimeter and the remote-access path used by shore-side IT and, increasingly, vessel connectivity. Valid credentials to that edge are a direct route toward the OT and logistics systems behind it, and they sidestep the need for an exploit entirely. - Cydome / Safety4Sea - Reported 6 Jul 2026]]></description>
 </item>
 <item>
-<title>[High] FSB Center 16 router-config harvesting (AA26-194A) — the same edge gear runs port and shipboard networks</title>
-<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a</link>
-<guid isPermaLink="false">otthreatfeed:marine:fsb-routers</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Nation-State Activity</category>
-<description><![CDATA[On 13 July, NSA, CISA and the FBI, joined by roughly a dozen international partners, warned that Russia’s FSB Center 16 harvests configuration data from routers that expose SNMP and Cisco Smart Install, using the collected configs to map networks and enable follow-on intrusions. The advisory is written for enterprise networks, but the reframing for maritime is direct: port terminal-operating-system networks and shipboard routers run the same exposed edge gear, often installed by integrators and rarely audited. A harvested config hands an adversary the layout of the port or vessel network — addressing, VLANs, trust relationships — before they ever touch a control system. This is confirmed nation-state collection activity, not a single incident, but it targets exactly the infrastructure marine operators tend to overlook. - NSA / CISA / FBI joint advisory AA26-194A (+ ~12 partners) - Advisory published 13 Jul 2026]]></description>
+<title>[Medium] Maritime cyber incidents surged in 2025 as OT attacks and ransomware climbed</title>
+<link>https://thedefensepost.com/2026/06/26/maritime-sector-cyber-threats-resecurity/</link>
+<guid isPermaLink="false">otthreatfeed:marine:resecurity</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Threat Intel</category>
+<description><![CDATA[Sector threat reporting (Resecurity and others) documents a sharp rise in maritime cyber activity: 828 recorded incidents in 2025, roughly double the prior year, with ransomware cases more than doubling and attacks specifically on maritime operational technology up around 150%. The trajectory reflects a sector with expanding connectivity — ship-to-shore links, port automation, third-party managers — and uneven security maturity. The trend, not any single event, is the story: OT is increasingly in scope for maritime attackers. - Resecurity / Industrial Cyber - Published 26 Jun 2026 (2025 data)]]></description>
 </item>
 <item>
-<title>[Info] USCG Cyber Command’s fifth CTIME report: reported maritime cyber incidents up 17%, phishing dominant</title>
-<link>https://industrialcyber.co/reports/new-cgcyber-report-warns-of-cybersecurity-risks-in-marine-environment-due-to-network-connected-ot-systems/</link>
-<guid isPermaLink="false">otthreatfeed:marine:ctime</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Threat Report</category>
-<description><![CDATA[Coast Guard Cyber Command (CGCYBER) released its fifth annual Cyber Trends and Insights in the Marine Environment (CTIME) report, drawing on a record 42 Cyber Protection Team missions plus industry telemetry from 2025. Reported maritime cyber incidents rose 17% year-over-year. Phishing was the initial-access vector in 43% of incidents — an 18-point jump — with syndicates such as Scattered Spider pairing phishing with voice impersonation (vishing) to defeat help desks and weak MFA; ransomware featured in 19% of attack paths, and OT was in scope for 62% of the command’s missions. CGCYBER stresses that the blurring IT/OT boundary aboard ships, machinery and port facilities raises the odds of a cyber event producing physical consequences. Notably, Cyber Protection Teams deployed alongside boarding teams in Dark Fleet interdiction operations for the first time. - USCG CGCYBER / Industrial Cyber / SAFETY4SEA - Fifth annual CTIME report — released Jul 2026 (2025 data)]]></description>
+<title>[High] GPS/GNSS spoofing remains a daily hazard for vessels and port operations</title>
+<link>https://www.afcea.org/signal-media/defense-operations/gps-spoofing-and-other-challenges-prompt-additional-coast-guard</link>
+<guid isPermaLink="false">otthreatfeed:marine:gps</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Threat Intel — GNSS</category>
+<description><![CDATA[Coast Guard leadership and international partners continue to flag GPS spoofing and jamming as a persistent maritime safety threat, with disruptions reported on the order of a thousand a day affecting tens of thousands of vessels, and multiple European states warning of indiscriminate spoofing tied to electronic-warfare activity. This is interference rather than a network intrusion, but it degrades navigation, timing and AIS integrity that bridge and port systems depend on. Crews and terminals need manual fallback for position and timing. - USCG / AFCEA - Ongoing through Jul 2026]]></description>
 </item>
 <item>
-<title>[Critical] SonicWall SMA 1000 zero-days under active attack; both added to CISA KEV</title>
-<link>https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0008</link>
-<guid isPermaLink="false">otthreatfeed:marine:sonicwall</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Active Exploitation</category><category>CVE-2026-15409</category><category>CVE-2026-15410</category>
-<description><![CDATA[SonicWall confirmed active exploitation of two Secure Mobile Access 1000 flaws after investigating multiple cases. CVE-2026-15409 is a CVSS 10.0 unauthenticated server-side request forgery in the Work Place interface; CVE-2026-15410 (CVSS 7.2) lets an authenticated administrator inject OS commands through the Appliance Management Console. CISA added both to the KEV catalog on 14 July with a 17 July federal deadline. For ports, terminals and vessel operators the placement is what matters: this class of appliance brokers the shoreside and vendor access that reaches terminal operating systems, crane and gate control, and satcom-backhauled vessel networks. A confirmed compromise is also a reportable-incident question under the USCG rule, where notification to the National Response Center is due immediately on discovery — a notification decision, not just a patch. - CVE-2026-15409 - Advisory & KEV addition 14 Jul 2026 — exploitation ongoing]]></description>
+<title>[Critical] FortiSandbox RCE flaws added to CISA KEV — the exploited edge on ports' remote-access path</title>
+<link>https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog</link>
+<guid isPermaLink="false">otthreatfeed:marine:fortisandbox</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Active Exploitation — KEV</category><category>CVE-2026-39808</category><category>CVE-2026-25089</category>
+<description><![CDATA[CISA added two critical Fortinet flaws, CVE-2026-39808 and CVE-2026-25089 (both CVSS 9.1), to the KEV catalog on 16 July after evidence of in-the-wild exploitation. They are OS command-injection bugs in FortiSandbox / Cloud / PaaS enabling unauthenticated command execution via crafted HTTP requests. Combined with the leaked FortiGate credentials hitting maritime networks, this puts the Fortinet edge — often the boundary in front of port and vessel systems — under active pressure. CISA set a 19 July federal remediation deadline. - CVE-2026-39808 - Added to KEV 16 Jul 2026 — actively exploited]]></description>
 </item>
 <item>
-<title>[Critical] July ICS Patch Tuesday: Siemens ships a CVSS 10 auth bypass fix; Rockwell patches critical controller DoS flaws</title>
-<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/</link>
-<guid isPermaLink="false">otthreatfeed:marine:patchtuesday</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Vendor Advisories</category>
-<description><![CDATA[The July 2026 cycle matters to terminals and shipyards running mainstream industrial automation. Siemens published nine advisories, six critical — headlined by a CVSS 10 token-invalidation flaw in Opencenter X allowing authentication bypass and full application access, with further critical fixes in Simatic S7-1500, Mendix, Sidis Secured SmartPlug, Cadra and Desigo CC (the last being building-management software common in terminal and port facilities). Rockwell published 12 advisories including three critical denial-of-service holes in CompactLogix, ControlLogix, Compact GuardLogix and GuardLogix controllers that can force a major non-recoverable fault, plus a critical unauthenticated CLI exposure in 1715 Redundant I/O. Schneider fixed a high-severity code-execution flaw in IGSS SCADA. VDE CERT added five advisories covering Codesys and Wago among others. - Siemens ProductCERT / Schneider / Rockwell PSIRT / SecurityWeek - Published 14 Jul 2026 (Patch Tuesday) — reporting 15 Jul]]></description>
-</item>
-<item>
-<title>[Info] The maritime cyber compliance clock: USCG MTS final rule, IMO cyber-risk expectations, and IACS UR E26/E27</title>
+<title>[Info] USCG Marine Transportation System cyber rule: reporting and Cyber Security Officer duties in force</title>
 <link>https://www.dragos.com/blog/maritime-cybersecurity-uscg-mtsa-requirements</link>
-<guid isPermaLink="false">otthreatfeed:marine:uscg-mts</guid>
-<pubDate>Wed, 22 Jul 2026 08:45:00 -0400</pubDate>
-<category>Regulation</category>
-<description><![CDATA[A forward-looking set of obligations operators must be able to evidence now, not news. The USCG’s Cyber Risk Management for the Marine Transportation System final rule applies to U.S.-flagged vessels, OCS facilities and waterfront facilities on a phased schedule — reportable incidents to the National Response Center immediately on discovery since 16 July 2025, personnel cyber training since 16 January 2026, and a designated Cybersecurity Officer, completed assessment and USCG-approved Cybersecurity Plan due 16 July 2027. Running alongside it are IMO cyber-risk-management expectations for safety-management systems and the IACS Unified Requirements UR E26 (ship cyber resilience) and UR E27 (onboard systems and equipment), which apply to ships contracted for construction on or after 1 January 2024. Together they push cyber risk management from a shoreside IT concern into classed newbuild and vessel-operation requirements. - Dragos (USCG MTSA / IMO / IACS overview) / US Coast Guard - USCG training due 16 Jan 2026; CySO/assessment/plan due 16 Jul 2027; IACS E26/E27 for ships contracted from 1 Jan 2024]]></description>
+<guid isPermaLink="false">otthreatfeed:marine:uscg</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Regulation — USCG</category>
+<description><![CDATA[The US Coast Guard's Marine Transportation System cybersecurity rule continues to phase in for US ports and MTSA-regulated facilities. Reportable cyber incidents must be reported to the National Response Center (within 12 hours for incidents affecting seaworthiness or security compliance), and facilities must designate a Cyber Security Officer alongside the traditional Facility Security Officer. For operators the near-term work is governance: named accountability, incident-reporting playbooks, and a cyber plan that maps to the rule. - USCG / Dragos - Rule in force since 16 Jul 2025 — phased compliance]]></description>
+</item>
+<item>
+<title>[Info] IACS UR E26/E27 keep raising the cyber bar for newbuild vessels</title>
+<link>https://iacs.org.uk/news/iacs-ur-e26-and-e27-press-release</link>
+<guid isPermaLink="false">otthreatfeed:marine:iacs</guid>
+<pubDate>Thu, 23 Jul 2026 09:15:00 -0400</pubDate>
+<category>Regulation — IACS</category>
+<description><![CDATA[The IACS Unified Requirements UR E26 (whole-ship cyber resilience) and UR E27 (equipment-level security) apply to vessels with construction contracts signed on or after 1 July 2024, covering identification, protection, detection, response and recovery across integrated IT/OT and third-party equipment. The requirements shift cyber resilience into ship design and supplier obligations, so owners, yards and integrators building 500 GT-plus tonnage need cyber baked into specifications, not bolted on later. - IACS - Applies to contracts on/after 1 Jul 2024]]></description>
 </item>
 </channel>
 </rss>
