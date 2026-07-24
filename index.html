@@ -629,7 +629,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thu, 23 Jul 2026, 9:21 PM ET</span>
+        <span>Generated Thu, 23 Jul 2026, 11:21 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -786,7 +786,7 @@
       <div class="trend">
         <span class="trend-tag">AI</span>
         <b class="trend-head">AI now sits on both sides of the OT fight</b>
-        <p>Dragos&rsquo; account of adversaries using Claude and GPT models to hunt for OT access at a Mexican water utility is still shaping the conversation, and this month Dragos answered with EmberAI, a defensive assistant trained on its OT dataset (see Threat Intelligence &amp; Research). The consensus so far: AI compresses the cost of hitting exposed infrastructure, but no one has shown an agent reasoning about a physical process.</p>
+        <p>Dragos&rsquo; account of adversaries using Claude and GPT models to hunt for OT access at a Mexican water utility is still shaping the conversation, and defenders are countering with OT-trained AI assistants of their own. The consensus so far: AI compresses the cost of hitting exposed infrastructure, but no one has yet shown an agent reasoning reliably about a physical process.</p>
         <a href="https://www.dragos.com/blog/ai-assisted-ics-attack-water-utility" class="source-link" target="_blank" rel="noopener">Dragos</a>
       </div>
 
@@ -1101,34 +1101,34 @@
         <a href="https://unit42.paloaltonetworks.com/siemens-rox-ii-zero-day-vulnerabilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-emberai">
+      <div class="card" id="story-iec61850">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
-          <span class="category">Research / Tooling</span>
+          <span class="category">Research / Grid Substations</span>
         </div>
-        <h3>Dragos unveils EmberAI &mdash; a defensive assistant built on its OT dataset</h3>
-        <p>Dragos introduced EmberAI, an AI capability built on the large body of operational-technology telemetry, threat intelligence and incident-response data the company has accumulated. The pitch is to help analysts move faster through OT-specific investigation and triage &mdash; the domain where general-purpose security tooling tends to be weakest &mdash; rather than to automate response. It arrives directly against the backdrop of adversaries experimenting with commercial AI to pursue OT access, and reflects where the vendor conversation is heading: applying AI to the OT visibility and analyst-shortage problems, with humans kept firmly in the loop for any action that touches a physical process.</p>
+        <h3>New study maps living-off-the-land attacks on IEC 61850 substations &mdash; no malware required</h3>
+        <p>A peer-reviewed study published 3 July walks through how an attacker who reaches a digital substation network can disrupt protection and control using nothing but the station&rsquo;s own IEC 61850 mechanisms &mdash; spoofed GOOSE and Sampled Values messages and abuse of MMS &mdash; rather than dropping any malware. Because these protocols were designed for trusted, isolated station buses and often lack authentication, crafted traffic can trip breakers, block legitimate trips or feed false measurements while looking like normal station chatter. It reinforces the wider living-off-the-land theme (see Trends): in OT the &ldquo;tooling&rdquo; adversaries need is frequently the engineering protocol itself, so detection has to be process- and protocol-aware, not signature-driven.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Vendor capability announcement &mdash; not a threat or vulnerability</span>
-            <span class="ops-tag kev-off">No CVE &mdash; product/research item</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Academic research &mdash; demonstrated technique, no in-the-wild campaign tied to it</span>
+            <span class="ops-tag kev-off">No CVE &mdash; protocol-design weakness, not a single product flaw</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Awareness item &mdash; no patch applicable</span>
-            <span class="ops-cc"><b>Action:</b> No operational action required. If you are evaluating AI-assisted detection or analyst tooling for OT, use announcements like this to press vendors on what data the model is trained on, whether it can ever initiate changes in the OT environment, and how findings are validated before an analyst acts.</span>
+            <span class="ops-tag patch-na">Research/awareness item &mdash; no single patch applicable</span>
+            <span class="ops-cc"><b>Action:</b> Treat the station bus as an attack surface, not a trusted backplane. Where equipment supports it, enable IEC 62351 security for GOOSE/SV/MMS, segment and monitor the process and station buses, and deploy protocol-aware monitoring that can flag spoofed GOOSE/SV and abnormal MMS. Confirm the substation LAN is not reachable from IT or remote-access paths.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Awareness only &mdash; revisit at 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="emberai" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="emberai">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Review substation-bus segmentation &amp; monitoring &mdash; 45 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="iec61850" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="iec61850">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dragos &mdash; via SecurityWeek</span>
+          <span>Applied Sciences (MDPI), peer-reviewed research</span>
           <span class="dot">&bull;</span>
-          <span>23 Jun 2026</span>
+          <span>03 Jul 2026</span>
         </div>
-        <a href="https://www.securityweek.com/dragos-unveils-ai-for-ot-security/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.mdpi.com/2076-3417/16/13/6693" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
