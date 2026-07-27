@@ -629,7 +629,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 26 Jul 2026, 11:19 PM ET</span>
+        <span>Generated Mon, 27 Jul 2026, 5:19 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -668,7 +668,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:70%;"></span></div>
-      <div class="tl-why"><b>Why:</b> CISA re-issued AA26-097A on 22 Jul: Iran&rsquo;s IRGC-linked CyberAv3ngers are confirmed manipulating PLC project files and HMI/SCADA data at US water &amp; wastewater, energy and government operators, causing operational disruption and financial loss &mdash; and the update expands confirmed targeting to Schneider and Siemens PLCs plus Rockwell reusable-code modules. That is confirmed, multi-sector nation-state hands-on-OT manipulation &mdash; not reconnaissance &mdash; which lifts the level into High. It compounds Russia&rsquo;s FSB Center 16 router pre-positioning and a heavy but largely unexploited advisory backdrop (July ICS Patch Tuesday with a Siemens Opcenter X CVSS 10; SonicWall SMA 1000, PTC Windchill and Check Point SmartConsole actively exploited in KEV). Held at the floor of High, not above it: the confirmed OT disruption is an ongoing campaign re-warned this week rather than a fresh, still-escalating cross-sector outage.</div>
+      <div class="tl-why"><b>Why:</b> CISA re-issued AA26-097A on 22 Jul: Iran&rsquo;s IRGC-linked CyberAv3ngers are confirmed manipulating PLC project files and HMI/SCADA data at US water &amp; wastewater, energy and government operators, causing operational disruption and financial loss &mdash; and the update expands confirmed targeting to Schneider and Siemens PLCs plus Rockwell reusable-code modules. That is confirmed, multi-sector nation-state hands-on-OT manipulation &mdash; not reconnaissance &mdash; which lifts the level into High. It compounds Russia&rsquo;s FSB Center 16 router pre-positioning, a fast-moving Cl0p data-theft campaign against internet-exposed PTC Windchill/FlexPLM, and a heavy but largely unexploited advisory backdrop (July ICS Patch Tuesday with a Siemens Opcenter X CVSS 10; SonicWall SMA 1000 and Check Point SmartConsole actively exploited in KEV). Held at the floor of High, not above it: the confirmed OT disruption is an ongoing campaign re-warned this week rather than a fresh, still-escalating cross-sector outage.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -755,7 +755,7 @@
         <a href="#story-sonicwall"><span class="ld crit"></span><b>2</b> SonicWall SMA1000 zero-days exploited (KEV)</a>
         <a href="#story-fairlife"><span class="ld crit"></span><b>3</b> Anubis ransomware halts all US Fairlife production</a>
         <a href="#story-patchtues"><span class="ld crit"></span><b>4</b> Siemens Opcenter X CVSS 10 + big-three July fixes</a>
-        <a href="#story-windchill"><span class="ld crit"></span><b>5</b> PTC Windchill RCE exploited in the wild (KEV)</a>
+        <a href="#story-windchill"><span class="ld crit"></span><b>5</b> Cl0p mass-exploits PTC Windchill/FlexPLM RCE (KEV)</a>
         <a href="#story-lantronix"><span class="ld crit"></span><b>6</b> Lantronix serial-to-IP flaw added to CISA KEV</a>
         <a href="#story-fsb"><span class="ld high"></span><b>7</b> FSB Center 16 harvests router configs (multi-nation warning)</a>
         <a href="#story-rockwellcisa"><span class="ld high"></span><b>8</b> Rockwell Logix CVSS 9.2 controller-fault DoS</a>
@@ -915,16 +915,16 @@
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active Exploitation</span>
         </div>
-        <h3>PTC Windchill RCE exploited in the wild &mdash; web shells landing on a manufacturing PLM backbone</h3>
-        <p>CISA added CVE-2026-12569, a critical (CVSS&nbsp;9.3) remote-code-execution flaw in PTC Windchill and FlexPLM, to its Known Exploited Vulnerabilities catalog after the first confirmed in-the-wild exploitation. The bug stems from deserialization of untrusted data, and attackers are chaining it to deploy JSP web shells on exposed servers; PTC has warned of continued heightened threat activity even though patches shipped days earlier. Windchill is product-lifecycle-management software that sits deep in manufacturing engineering environments &mdash; holding CAD, BOM and process data and often bridging enterprise and plant networks &mdash; so a web shell here is a foothold with a clear line toward OT-adjacent assets.</p>
+        <h3>Cl0p launches a large-scale extortion wave against PTC Windchill and FlexPLM &mdash; a manufacturing PLM backbone under active data theft</h3>
+        <p>The Cl0p ransomware crew is running a broad data-theft campaign against internet-exposed PTC Windchill and FlexPLM servers, exploiting the critical (CVSS&nbsp;9.8) unauthenticated remote-code-execution flaw CVE-2026-12569 &mdash; already in CISA&rsquo;s KEV catalog &mdash; to drop JSP web shells and exfiltrate engineering data. Researchers at BleepingComputer and The Hacker News report Cl0p began mass extortion around 20 July, emailing large internal distribution lists with a &ldquo;Windchill PDMLink module serious data leak&rdquo; subject to pressure victims, with confirmed impact in manufacturing, automotive, aerospace and apparel. Windchill sits deep in engineering environments &mdash; holding CAD, BOM and process data and often bridging enterprise and plant networks &mdash; so a web shell here is a foothold with a clear line toward OT-adjacent assets. Cl0p has a long record of turning a single PLM/file-transfer flaw into a mass campaign, and this one is now moving fast.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation; JSP web shells observed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed mass exploitation &amp; Cl0p extortion campaign; JSP web shells observed</span>
             <span class="ops-tag kev-on">CVE-2026-12569 in CISA KEV (added 25 Jun 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available from PTC</span>
-            <span class="ops-cc"><b>Action:</b> Patch Windchill/FlexPLM now if you run it, and treat any internet-exposed instance as potentially compromised &mdash; hunt for unexpected JSP files, new web-server child processes and outbound callbacks. Pull PLM off any direct internet path, and review what plant-side systems it can reach.</span>
+            <span class="ops-tag patch-yes">Patch available from PTC (fixed in release 11.0 M030)</span>
+            <span class="ops-cc"><b>Action:</b> Patch Windchill/FlexPLM now if you run it, and treat any internet-exposed instance as compromised &mdash; hunt for hex-named JSP files under /Windchill/login/, new web-server child processes and outbound callbacks. Pull PLM off any direct internet path, review what plant-side systems it can reach, and prepare a response for the mass-email extortion Cl0p is broadcasting to staff.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &amp; compromise hunt &mdash; immediate (KEV)</span>
@@ -934,11 +934,11 @@
         </div>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-12569</span>
-          <span>CISA KEV / PTC &mdash; via SecurityWeek &amp; The Hacker News</span>
+          <span>CISA KEV / PTC / Cl0p leak activity &mdash; via BleepingComputer &amp; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>26 Jun 2026</span>
+          <span>25 Jul 2026</span>
         </div>
-        <a href="https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-lantronix">
@@ -1424,7 +1424,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (the ICSA-26-197 and ICSA-26-204 series and the 7 and 9 July batches), the CISA KEV catalog, the CISA/FBI/NSA/EPA/DOE advisory AA26-097A on Iranian (CyberAv3ngers) PLC targeting (updated 22 July) and the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16, Siemens ProductCERT, Rockwell Automation and Schneider Electric security notifications, Hitachi Energy PSIRT, PTC, Lantronix, SonicWall and Check Point advisories (incl. the actively-exploited Check Point SmartConsole CVE-2026-16232 added to CISA KEV on 22 July), Palo Alto Networks Unit&nbsp;42 research, Rapid7 MDR research, NERC CIP standards documentation, an OT Cybersecurity Coalition position paper on ISA/IEC 62443, Dragos research, a Coca-Cola SEC Form 8-K and the Anubis ransomware group&rsquo;s leak-site claim against Fairlife, the Black Kite 2026 Ransomware Report, a Reliance Group statement to Reuters and a Stadler Rail statement on the Everest extortion attempt &mdash; corroborated through coverage from SecurityWeek, BleepingComputer, The Register, Cybernews, The Hacker News, Cybersecurity Dive, Help Net Security, Industrial Cyber, TechCrunch, Nextgov/FCW, Forbes, Business Standard, Al Jazeera, Railway Gazette and CSIS. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including CISA ICS Advisories (the ICSA-26-197 and ICSA-26-204 series and the 7 and 9 July batches), the CISA KEV catalog, the CISA/FBI/NSA/EPA/DOE advisory AA26-097A on Iranian (CyberAv3ngers) PLC targeting (updated 22 July) and the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16, Siemens ProductCERT, Rockwell Automation and Schneider Electric security notifications, Hitachi Energy PSIRT, PTC, Lantronix, SonicWall and Check Point advisories (incl. the Cl0p mass-exploitation and extortion campaign against PTC Windchill/FlexPLM via CVE-2026-12569, and the actively-exploited Check Point SmartConsole CVE-2026-16232 added to CISA KEV on 22 July), Palo Alto Networks Unit&nbsp;42 research, Rapid7 MDR research, NERC CIP standards documentation, an OT Cybersecurity Coalition position paper on ISA/IEC 62443, Dragos research, a Coca-Cola SEC Form 8-K and the Anubis ransomware group&rsquo;s leak-site claim against Fairlife, the Black Kite 2026 Ransomware Report, a Reliance Group statement to Reuters and a Stadler Rail statement on the Everest extortion attempt &mdash; corroborated through coverage from SecurityWeek, BleepingComputer, The Register, Cybernews, The Hacker News, Cybersecurity Dive, Help Net Security, Industrial Cyber, TechCrunch, Nextgov/FCW, Forbes, Business Standard, Al Jazeera, Railway Gazette and CSIS. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

@@ -688,7 +688,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sunday, 26 Jul 2026, 3:20 AM ET</span>
+        <span>Generated Monday, 27 Jul 2026, 3:26 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
@@ -727,7 +727,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:67%;"></span></div>
-      <div class="tl-why"><b>Why:</b> A confirmed single-sector OT-disruptive incident &mdash; the 16&nbsp;Jul Fairlife (Coca-Cola) ransomware attack that halted all US dairy production &mdash; is directly on this sector and sets upper Medium. Iran-affiliated PLC tampering that disables shutdown/alarm logic (AA26-097A) threatens food-safety interlocks at processors, and an actively-exploited FortiSandbox KEV (CVSS&nbsp;9.1) plus a CVSS-10 Siemens flaw add edge and patch pressure. One confirmed incident with no cross-sector OT spread keeps it below High.</div>
+      <div class="tl-why"><b>Why:</b> A confirmed single-sector OT-disruptive incident &mdash; the 16&nbsp;Jul Fairlife (Coca-Cola) ransomware attack that halted all US dairy production &mdash; is directly on this sector and sets upper Medium. Iran-affiliated PLC tampering that disables shutdown/alarm logic (AA26-097A) threatens food-safety interlocks at processors, and an actively-exploited FortiSandbox KEV (CVSS&nbsp;9.1) plus a CVSS-10 Gardyn ag-IoT takeover flaw add edge and device-exposure pressure. One confirmed incident with no cross-sector OT spread keeps it below High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -792,14 +792,14 @@
 
         <a href="#story-fairlife"><circle class="blip high" cx="175" cy="105" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="175" y="109.7">1</text></a>
         <a href="#story-fortisandbox"><circle class="blip crit" cx="150" cy="180" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="150" y="184.3">2</text></a>
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="210" cy="200" r="12.5"/><text class="blip-num" style="font-size:11.3px" x="210" y="204.0">3</text></a>
+        <a href="#story-gardyn"><circle class="blip crit" cx="210" cy="200" r="12.5"/><text class="blip-num" style="font-size:11.3px" x="210" y="204.0">3</text></a>
         <a href="#story-iran-plc"><circle class="blip high" cx="250" cy="130" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="250" y="133.8">4</text></a>
       </svg>
 
       <div class="radar-legend">
         <a href="#story-fairlife"><span class="ld high"></span><b>1</b> Ransomware halts Coca-Cola Fairlife US production</a>
         <a href="#story-fortisandbox"><span class="ld crit"></span><b>2</b> FortiSandbox RCE exploited &mdash; added to CISA KEV</a>
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>3</b> July ICS Patch Tuesday &mdash; Siemens CVSS-10 flaw</a>
+        <a href="#story-gardyn"><span class="ld crit"></span><b>3</b> Gardyn IoT Hub takeover flaws (CVSS 10) &mdash; ag-IoT</a>
         <a href="#story-iran-plc"><span class="ld high"></span><b>4</b> Iran-affiliated actors disabling PLC safety logic</a>
       </div>
     </div>
@@ -832,9 +832,9 @@
       </div>
       <div class="trend">
         <span class="trend-tag">Edge &amp; Patch</span>
-        <b class="trend-head">The edge and the patch load hit F&amp;B too</b>
-        <p>An actively-exploited FortiSandbox KEV and a CVSS-10 Siemens flaw in gear common to processing and cold storage mean food plants share the same edge-exposure and patch-triage pressure as heavy manufacturing.</p>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <b class="trend-head">Ag-IoT and the edge are the sector&rsquo;s soft spots</b>
+        <p>An actively-exploited FortiSandbox KEV on the plant edge and a CVSS-10 takeover flaw in Gardyn ag-IoT bookend the same problem: thinly-secured connected gear &mdash; from firewalls to grow hubs &mdash; keeps handing attackers a way in. Inventory it, patch it, segment it.</p>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">CISA</a>
       </div>
     </div>
   </div>
@@ -950,34 +950,35 @@
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-patchtuesday">
+      <div class="card" id="story-gardyn">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Critical Advisory &mdash; Patch Tuesday</span>
+          <span class="category">Critical Advisory &mdash; CVE (Precision Ag)</span>
         </div>
-        <h3>July ICS Patch Tuesday: a CVSS-10 Siemens flaw among criticals in gear used across F&amp;B lines</h3>
-        <p>July&rsquo;s ICS Patch Tuesday brought fixes from Siemens, Schneider Electric and Rockwell &mdash; Siemens alone issued nine advisories including a CVSS-10 authentication-bypass in Opencenter X and criticals in SIMATIC S7-1500, Mendix and Desigo CC. SIMATIC controllers and building/refrigeration controls like Desigo CC are common across food and beverage processing and cold storage, so affected plants should triage these against their installed base. No public exploitation is reported yet.</p>
+        <h3>Gardyn IoT Hub flaws (CVSS 10) let attackers take over connected indoor-farming devices</h3>
+        <p>CISA published ICSA-26-183-03 on 2 July for the Gardyn IoT Hub, an indoor/vertical-farming controller used in the US food and agriculture sector, assigning a maximum CVSS&nbsp;v3 base score of 10. The advisory covers hard-coded credentials, sensitive-information exposure and unsafe handling of HTTP header content in Gardyn Home and Studio firmware and the Gardyn Cloud API before v2.12.2026, which together could let an unauthenticated attacker access and control managed devices. It is consumer/small-scale precision-ag rather than a processing-plant controller, but it is a concrete example of how thinly-secured ag-IoT reaches the sector &mdash; and of the class of internet-connected grow/monitoring gear proliferating across agriculture.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation</span>
-            <span class="ops-tag kev-off">Siemens/Schneider/Rockwell PSIRTs / SecurityWeek</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; unauthenticated device takeover</span>
+            <span class="ops-tag kev-off">CISA ICSA-26-183-03</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor patches available &mdash; prioritize criticals</span>
-            <span class="ops-cc"><b>Action:</b> Map the Siemens SIMATIC S7-1500 and Desigo CC advisories to your processing and refrigeration controls and patch the criticals first; schedule the rest by exposure.</span>
+            <span class="ops-tag patch-yes">Update available &mdash; firmware/API v2.12.2026+</span>
+            <span class="ops-cc"><b>Action:</b> Update Gardyn Home/Studio firmware and confirm the Cloud API is at v2.12.2026 or later; more broadly, inventory internet-connected ag-IoT (grow hubs, sensors, controllers), change default credentials, and segment them off production and business networks.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Critical patches &mdash; 14-30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-patchtuesday">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Update &amp; ag-IoT exposure review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-gardyn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-gardyn">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens/Schneider/Rockwell PSIRTs / SecurityWeek</span>
+          <span class="cve-badge">CVSS 10.0</span>
+          <span>CISA ICSA-26-183-03</span>
           <span class="dot">&bull;</span>
-          <span>July 2026 ICS Patch Tuesday</span>
+          <span>Published 2 Jul 2026</span>
         </div>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1053,7 +1054,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Food &amp; Agriculture.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative sources including Coca-Cola&rsquo;s SEC filing on the Fairlife ransomware-driven US production suspension (with reporting from Cybersecurity Dive and BleepingComputer), the updated CISA/FBI/NSA joint advisory AA26-097A on Iran-affiliated actors tampering with internet-exposed PLC control and safety logic, CISA&rsquo;s addition of FortiSandbox flaws CVE-2026-39808 and CVE-2026-25089 to the Known Exploited Vulnerabilities catalog, the July 2026 ICS Patch Tuesday advisories from Siemens/Schneider/Rockwell PSIRTs (incl. a CVSS-10 Opencenter X flaw, SIMATIC S7-1500 and Desigo CC) via SecurityWeek, Food and Ag-ISAC and Industrial Cyber reporting on the ransomware trend against food and agriculture (Qilin, Akira, CL0P), USDA&rsquo;s National Farm Security Action Plan, and Congress.gov on the Farm and Food Cybersecurity Act and related legislation. Default lookback 7&ndash;30 days, with clearly dated older items and forward-looking policy retained only as labelled context; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative sources including Coca-Cola&rsquo;s SEC filing on the Fairlife ransomware-driven US production suspension (with reporting from Cybersecurity Dive and BleepingComputer), the updated CISA/FBI/NSA joint advisory AA26-097A on Iran-affiliated actors tampering with internet-exposed PLC control and safety logic, CISA&rsquo;s addition of FortiSandbox flaws CVE-2026-39808 and CVE-2026-25089 to the Known Exploited Vulnerabilities catalog, CISA advisory ICSA-26-183-03 on the CVSS-10 Gardyn IoT Hub takeover flaws affecting the food-and-agriculture sector, Food and Ag-ISAC and Industrial Cyber reporting on the ransomware trend against food and agriculture (Qilin, Akira, CL0P), USDA&rsquo;s National Farm Security Action Plan, and Congress.gov on the Farm and Food Cybersecurity Act and related legislation. Default lookback 7&ndash;30 days, with clearly dated older items and forward-looking policy retained only as labelled context; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
