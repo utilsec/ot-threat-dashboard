@@ -638,13 +638,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 28 Jul 2026, 3:10 PM ET</span>
+        <span>Generated Thursday, 30 Jul 2026, 7:52 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>7</strong> stories across
+      <strong>8</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -670,14 +670,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level, weighted to water &amp; wastewater operators. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium here; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure stay in Medium.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Iran-affiliated actors (AA26-097A, updated 22&nbsp;Jul) are confirmed manipulating water-sector PLC logic and disabling alarm functions on internet-exposed Unitronics and Rockwell gear &mdash; the sector&rsquo;s defining threat this cycle. Compounded by an actively-exploited FortiSandbox KEV (CVSS&nbsp;9.1), the FSB Center&nbsp;16 router/SNMP campaign (AA26-194A) on edge gear in front of plant SCADA, and a critical OpenPLC advisory. Disruptions to date hit insecurely-configured exposed devices rather than a confirmed treatment outage, so upper Medium, not High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
+      <div class="tl-why"><b>Why:</b> A coordinated cyberattack disrupted OT at 30+ Minnesota water and wastewater utilities on 26&ndash;27&nbsp;Jul &mdash; Braham&rsquo;s well and treatment plant briefly went offline and several communities fell back to manual operation. That is a confirmed single-sector OT-disruptive incident, which sits at the top of Medium. It aligns with the Iran-affiliated PLC-manipulation campaign (AA26-097A, updated 22&nbsp;Jul) and is compounded by an actively-exploited FortiSandbox KEV (CVSS&nbsp;9.1) and the FSB Center&nbsp;16 router/SNMP campaign. Disruption was brief and confined to one sector with no loss of safe water, so upper Medium, not High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -686,31 +686,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-iran-plc">
+    <div class="top-story" id="story-mn-water">
       <span class="top-story-pill">Top Story</span>
-      <h2>Federal alert sharpens: Iran-affiliated hackers are actively manipulating water-system controllers</h2>
-      <p>Federal agencies escalated their warning that Iran-affiliated actors are actively manipulating the controllers that run US water and wastewater systems. Advisory AA26-097A, updated 22 July, confirms hackers have reached internet-exposed PLCs &mdash; Unitronics, Rockwell and others &mdash; extracted project files, and rewritten or deleted control logic, in some cases disabling shutdown and alarm functions so equipment can drift into unsafe states without alerting operators. For a small or mid-size utility this is the sharpest version of a familiar problem: the devices being hit are ordinary dosing, pump and lift-station controllers left reachable from the internet with default or shared passwords. The campaign has already caused operational disruption across the sector. The fix is unglamorous &mdash; pull controllers behind a firewall, replace default credentials, and require MFA on every remote path.</p>
+      <h2>Coordinated cyberattack disrupts OT at 30+ Minnesota water utilities; one plant briefly offline</h2>
+      <p>Over 26&ndash;27 July a coordinated cyberattack struck operational technology at more than 30 Minnesota water and wastewater utilities in roughly 48 hours &mdash; the state IT agency MNIT and CISA confirmed the intrusion. In Braham (pop. ~1,700) the attack disabled computerized controls and briefly took the well and treatment plant offline before it was restored in about two hours; Plymouth, South St. Paul and Maple Plain switched to manual operation and kept water flowing. No community lost safe drinking water. Officials have not formally attributed the attack, but researchers assess the pattern &mdash; small utilities, cellular-connected controllers, timing right after CISA&rsquo;s 22 July PLC advisory &mdash; as consistent with the Iran-linked CyberAv3ngers ecosystem. It is the clearest confirmed OT-disruptive water incident of the year and a direct proof point for the exposed-controller warnings.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed hands-on-OT logic manipulation in the water sector</span>
-          <span class="ops-tag kev-off">FBI/CISA/NSA/EPA &mdash; AA26-097A</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; OT disruption at 30+ utilities; one plant briefly offline</span>
+          <span class="ops-tag kev-off">MNIT / CISA &mdash; attribution pending</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No single patch &mdash; remove PLCs from internet, fix credentials</span>
-          <span class="ops-cc"><b>Action:</b> Enumerate every PLC/HMI reachable from the internet (start with Unitronics and Rockwell) and pull it behind a firewall or VPN; change the default &lsquo;1111&rsquo; and any shared passwords; require MFA on remote OT access; back up PLC logic and hash it against known-good to detect tampering; review logs against the July 2026 IOCs.</span>
+          <span class="ops-tag patch-na">No single patch &mdash; remove controllers from internet, fix credentials</span>
+          <span class="ops-cc"><b>Action:</b> Enumerate every PLC/HMI/SCADA endpoint reachable from the internet or a cellular modem and pull it behind a firewall or VPN; change default and shared passwords and require MFA on remote OT access; validate manual-operation fallback for treatment and pumping; back up controller logic and hash against known-good; review logs against the AA26-097A July IOCs.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure &amp; credential review &mdash; 72h; logic-integrity review &mdash; 7 days</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iranplc" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="wd-iranplc">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Internet/cellular-exposure &amp; credential review &mdash; 72h; manual-ops &amp; logic-integrity check &mdash; 7 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-mnwater" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="wd-mnwater">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>CISA/FBI/EPA joint advisory AA26-097A</span>
+        <span>BleepingComputer / SecurityWeek / CBS Minnesota &mdash; MNIT &amp; CISA confirmed</span>
         <span class="dot">&bull;</span>
-        <span>Updated 22 Jul 2026 (originally 7 Apr 2026) &mdash; ongoing</span>
+        <span>Attack 26&ndash;27 Jul 2026 &mdash; reported 28&ndash;29 Jul</span>
       </div>
-      <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <!-- RADAR -->
@@ -740,17 +740,19 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
 
-        <a href="#story-iran-plc"><circle class="blip high" cx="180" cy="112" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="116.7">1</text></a>
+        <a href="#story-mn-water"><circle class="blip high" cx="180" cy="70" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180" y="74.7">1</text></a>
         <a href="#story-fortisandbox"><circle class="blip crit" cx="180" cy="240" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="180" y="244.3">2</text></a>
-        <a href="#story-openplc"><circle class="blip crit" cx="240" cy="220" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="240" y="224.1">3</text></a>
-        <a href="#story-fsb-routers"><circle class="blip high" cx="250" cy="126" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="250" y="129.7">4</text></a>
+        <a href="#story-iran-plc"><circle class="blip high" cx="243" cy="90" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="243" y="94.1">3</text></a>
+        <a href="#story-fsb-routers"><circle class="blip high" cx="117" cy="90" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="117" y="93.7">4</text></a>
+        <a href="#story-openplc"><circle class="blip high" cx="280" cy="134" r="9.5"/><text class="blip-num" style="font-size:8.8px" x="280" y="137.5">5</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-iran-plc"><span class="ld high"></span><b>1</b> Iran-affiliated actors manipulating water PLCs (AA26-097A)</a>
+        <a href="#story-mn-water"><span class="ld high"></span><b>1</b> 30+ Minnesota water utilities hit in coordinated OT attack</a>
         <a href="#story-fortisandbox"><span class="ld crit"></span><b>2</b> FortiSandbox RCE exploited &mdash; added to CISA KEV</a>
-        <a href="#story-openplc"><span class="ld crit"></span><b>3</b> OpenPLC v3 advisory &mdash; flagged for water systems</a>
+        <a href="#story-iran-plc"><span class="ld high"></span><b>3</b> Iran-affiliated actors manipulating water PLCs (AA26-097A)</a>
         <a href="#story-fsb-routers"><span class="ld high"></span><b>4</b> FSB Center 16 router/SNMP campaign (AA26-194A)</a>
+        <a href="#story-openplc"><span class="ld high"></span><b>5</b> OpenPLC v3 advisory &mdash; flagged for water systems</a>
       </div>
     </div>
 
@@ -764,8 +766,8 @@
     <div class="trends-strip">
       <div class="trend">
         <span class="trend-tag">Nation-State</span>
-        <b class="trend-head">Water attackers moved from access to hands-on control</b>
-        <p>The updated Iran advisory documents actual control-logic tampering at water systems, not just intrusion. Combined with the FSB router campaign, the message is that exposed controllers and edge gear are being touched, not just watched.</p>
+        <b class="trend-head">Water attackers moved from access to hands-on disruption</b>
+        <p>The Minnesota incident turned the warnings concrete: 30+ utilities disrupted and a plant briefly offline, not just intrusion. Combined with the updated Iran advisory documenting control-logic tampering, the message is that exposed controllers are being touched, not just watched.</p>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">CISA</a>
       </div>
       <div class="trend">
@@ -794,6 +796,35 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="story-iran-plc">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign &mdash; Nation-State</span>
+        </div>
+        <h3>Iran-affiliated actors are manipulating water-system PLC logic (AA26-097A, updated 22 Jul)</h3>
+        <p>The mechanism behind the Minnesota disruption is spelled out in advisory AA26-097A, updated 22 July. Federal agencies confirm Iran-affiliated actors are reaching internet-exposed PLCs &mdash; Unitronics, Rockwell and, newly, Schneider Modicon and Siemens S7-1200 &mdash; using the same engineering software legitimate operators use, extracting project files, and rewriting or deleting control logic. In some cases they disabled shutdown and alarm functions so equipment can drift into unsafe states without alerting staff. The update documents project-file exfiltration for the first time and adds detection guidance for tampering with reusable code modules. For a small utility the exposed devices are ordinary dosing, pump and lift-station controllers left reachable with default or shared passwords.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed hands-on-OT logic manipulation in the water sector</span>
+            <span class="ops-tag kev-off">FBI/CISA/NSA/EPA &mdash; AA26-097A</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; remove PLCs from internet, fix credentials</span>
+            <span class="ops-cc"><b>Action:</b> Enumerate every PLC/HMI reachable from the internet (start with Unitronics and Rockwell, now also Schneider and Siemens); pull them behind a firewall or VPN; replace the default &lsquo;1111&rsquo; and shared passwords; require MFA on remote OT access; back up and hash PLC logic to detect tampering; hunt against the July 2026 IOCs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure &amp; credential review &mdash; 72h; logic-integrity review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iranplc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-iranplc">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA/FBI/NSA/EPA joint advisory AA26-097A</span>
+          <span class="dot">&bull;</span>
+          <span>Updated 22 Jul 2026 (originally 7 Apr 2026) &mdash; ongoing</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-fsb-routers">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1002,7 +1033,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Water &amp; Wastewater.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including the CISA/FBI/NSA/EPA joint advisory AA26-097A on Iran-affiliated manipulation of water-sector PLC logic (updated 22 July), the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16 (Static Tundra) router and SNMP/Smart Install targeting, the CISA KEV addition of the FortiSandbox command-injection flaws CVE-2026-39808 and CVE-2026-25089 (16 July), CISA ICS advisories from the 9 July cycle (OpenPLC v3, flagged for Water and Wastewater Systems and Energy), the DomainTools &ldquo;Boiling Point&rdquo; report on Iran-, Russia- and China-aligned targeting of water systems (via Dark Reading), the EPA 2026 National Cybersecurity Drill (via Industrial Cyber), and reporting on Congress&rsquo; temporary extension of water-sector cyber authorities and new EPA guidance (Nossaman). Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative OT/ICS sources including reporting on the coordinated 26&ndash;27 July cyberattack on 30+ Minnesota water and wastewater utilities (BleepingComputer, SecurityWeek, StateScoop, CBS Minnesota and KARE11, with MNIT and CISA confirmation), the CISA/FBI/NSA/EPA joint advisory AA26-097A on Iran-affiliated manipulation of water-sector PLC logic (updated 22 July), the NSA/CISA/FBI joint advisory AA26-194A on FSB Center 16 (Static Tundra) router and SNMP/Smart Install targeting, the CISA KEV addition of the FortiSandbox command-injection flaws CVE-2026-39808 and CVE-2026-25089 (16 July), CISA ICS advisories from the 9 July cycle (OpenPLC v3, flagged for Water and Wastewater Systems and Energy), the DomainTools &ldquo;Boiling Point&rdquo; report on Iran-, Russia- and China-aligned targeting of water systems (via Dark Reading), the EPA 2026 National Cybersecurity Drill (via Industrial Cyber), and reporting on Congress&rsquo; temporary extension of water-sector cyber authorities and new EPA guidance (Nossaman). Default lookback 7&ndash;30 days; severity tiers are editorial judgments &mdash; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo;/&ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items carry vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
