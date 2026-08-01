@@ -587,6 +587,13 @@
   .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
   .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
   body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
+  /* NEW badge — client-side, auto-expires 72h after each card's data-published date */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:12px;z-index:3;display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#ff3b30,#ff9500);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:11px;box-shadow:0 2px 6px rgba(255,59,48,.45);animation:newpulse 1.6s ease-in-out infinite;pointer-events:none;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,.5);}50%{box-shadow:0 0 0 6px rgba(255,59,48,0);}}
+  @media (prefers-reduced-motion:reduce){.new-badge{animation:none;}}
+  body.dark .new-badge{box-shadow:0 2px 8px rgba(255,59,48,.6);}
 </style>
 </head>
 <body>
@@ -629,7 +636,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 01 Aug 2026, 12:16 PM ET</span>
+        <span>Generated Sat, 01 Aug 2026, 2:19 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -677,7 +684,7 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-braham">
+    <div class="top-story" id="story-braham" data-published="2026-07-31">
       <span class="top-story-pill">Top Story</span>
       <h2>FBI: coordinated water-utility attacks now span at least seven states &mdash; Minnesota hit hardest as operators fall back to manual control</h2>
       <p>The FBI confirmed on 31 July that malicious actors have targeted internet-facing PLCs at water and wastewater utilities in at least seven states this week, degrading operations at some &mdash; an escalation of the coordinated intrusion Minnesota IT Services confirmed on 28 July across 30-plus community systems hit on 26&ndash;27 July. In Minnesota, Braham took its well and treatment controls offline for about two hours and ran off its water tower; Plymouth reported cellular-communication failures at towers and lift stations. Officials say drinking water stayed safe, with no altered chemical dosing. The FBI and EPA specifically flag Rockwell/Allen-Bradley MicroLogix 1100 and 1400 PLCs; investigators are probing possible Iranian involvement, with researchers citing CyberAv3ngers hallmarks and the unpatchable, KEV-listed CVE-2021-22681 &mdash; though no formal attribution exists. It is the exposed-PLC scenario CISA keeps warning about, now realized at scale.</p>
@@ -825,7 +832,7 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-fairlife">
+      <div class="card" id="story-fairlife" data-published="2026-07-28">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Incident / Ransomware</span>
@@ -855,7 +862,7 @@
         <a href="https://www.just-food.com/news/fairlife-restarts-production-after-cyberattack-coca-cola-says/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-fsb">
+      <div class="card" id="story-fsb" data-published="2026-07-13">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Nation-State / Active Exploitation</span>
@@ -885,7 +892,7 @@
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-sonicwall">
+      <div class="card" id="story-sonicwall" data-published="2026-07-14">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active Exploitation</span>
@@ -916,7 +923,7 @@
         <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-velocloud">
+      <div class="card" id="story-velocloud" data-published="2026-07-27">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active Exploitation</span>
@@ -947,7 +954,7 @@
         <a href="https://www.cisa.gov/news-events/alerts/2026/07/27/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-ciscofmc">
+      <div class="card" id="story-ciscofmc" data-published="2026-07-29">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Active Exploitation</span>
@@ -978,7 +985,7 @@
         <a href="https://www.cisa.gov/news-events/alerts/2026/07/29/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-windchill">
+      <div class="card" id="story-windchill" data-published="2026-07-25">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active Exploitation</span>
@@ -1009,7 +1016,7 @@
         <a href="https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-lantronix">
+      <div class="card" id="story-lantronix" data-published="2026-07-14">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active Exploitation</span>
@@ -1040,7 +1047,7 @@
         <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-blackkite">
+      <div class="card" id="story-blackkite" data-published="2026-07-24">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Threat Landscape / Ransomware</span>
@@ -1070,7 +1077,7 @@
         <a href="https://www.helpnetsecurity.com/2026/07/24/ransomware-attack-trends-2026-report/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-kudankulam">
+      <div class="card" id="story-kudankulam" data-published="2026-07-15">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident / Claimed</span>
@@ -1100,7 +1107,7 @@
         <a href="https://www.aljazeera.com/news/2026/7/16/data-breach-reportedly-targets-indias-kudankulam-nuclear-power-plant" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-nidec">
+      <div class="card" id="story-nidec" data-published="2026-07-17">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident / Ransomware</span>
@@ -1130,7 +1137,7 @@
         <a href="https://www.bleepingcomputer.com/news/security/blackfield-ransomware-asks-nidec-corporation-for-2-million-ransom/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-stadler">
+      <div class="card" id="story-stadler" data-published="2026-07-21">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident / Extortion</span>
@@ -1160,7 +1167,7 @@
         <a href="https://www.bleepingcomputer.com/news/security/swiss-rail-giant-stadler-rejects-123m-ransom-demand-after-cyberattack/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-cyberavengers">
+      <div class="card" id="story-cyberavengers" data-published="2026-07-22">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Nation-State / Active Campaign</span>
@@ -1198,7 +1205,7 @@
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
 
-      <div class="card" id="story-roxii">
+      <div class="card" id="story-roxii" data-published="2026-07-16">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Research / OT Zero-Days</span>
@@ -1229,7 +1236,7 @@
         <a href="https://unit42.paloaltonetworks.com/siemens-rox-ii-zero-day-vulnerabilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-iec61850">
+      <div class="card" id="story-iec61850" data-published="2026-07-03">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Research / Grid Substations</span>
@@ -1267,7 +1274,7 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
-      <div class="card" id="story-patchtues">
+      <div class="card" id="story-patchtues" data-published="2026-07-14">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory / ICS Patch Tuesday</span>
@@ -1297,7 +1304,7 @@
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-sicam">
+      <div class="card" id="story-sicam" data-published="2026-07-16">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory / Power Grid</span>
@@ -1328,7 +1335,7 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-05" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-schneider">
+      <div class="card" id="story-schneider" data-published="2026-07-09">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory / Energy &amp; Water</span>
@@ -1358,7 +1365,7 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-hitachi">
+      <div class="card" id="story-hitachi" data-published="2026-07-07">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory / Energy</span>
@@ -1388,7 +1395,7 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-rockwellcisa">
+      <div class="card" id="story-rockwellcisa" data-published="2026-07-16">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory / Manufacturing</span>
@@ -1418,7 +1425,7 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-06" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-july23batch">
+      <div class="card" id="story-july23batch" data-published="2026-07-23">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory / ICS Batch</span>
@@ -1448,7 +1455,7 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-04" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-july28batch">
+      <div class="card" id="story-july28batch" data-published="2026-07-28">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory / ICS Batch</span>
@@ -1487,7 +1494,7 @@
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
 
-      <div class="card" id="story-cifortify">
+      <div class="card" id="story-cifortify" data-published="2026-07-28">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Guidance / OT Resilience</span>
@@ -1517,7 +1524,7 @@
         <a href="https://www.cisa.gov/resources-tools/resources/ci-fortify-advice-isolating-vital-systems" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-cip012">
+      <div class="card" id="story-cip012" data-published="2026-07-01">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Regulation / NERC CIP</span>
@@ -1547,7 +1554,7 @@
         <a href="https://scadaprotocols.com/what-is-nerc-cip/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-otcc62443">
+      <div class="card" id="story-otcc62443" data-published="2026-07-23">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy / Standards</span>
@@ -1717,6 +1724,16 @@
     });
   })();
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>

@@ -596,6 +596,13 @@
   .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
   .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
   body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
+  /* NEW badge — client-side, auto-expires 72h after each card's data-published date */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:12px;z-index:3;display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#ff3b30,#ff9500);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:11px;box-shadow:0 2px 6px rgba(255,59,48,.45);animation:newpulse 1.6s ease-in-out infinite;pointer-events:none;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,.5);}50%{box-shadow:0 0 0 6px rgba(255,59,48,0);}}
+  @media (prefers-reduced-motion:reduce){.new-badge{animation:none;}}
+  body.dark .new-badge{box-shadow:0 2px 8px rgba(255,59,48,.6);}
 </style>
 </head>
 <body>
@@ -686,7 +693,7 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-eot">
+    <div class="top-story" id="story-eot" data-published="2025-09-18">
       <span class="top-story-pill">Top Story</span>
       <h2>A radio flaw in the brake link of US freight trains still has no fielded fix</h2>
       <p>CISA advisory ICSA-25-191-10 (first published 10&nbsp;July&nbsp;2025, last revised as &ldquo;Update&nbsp;C&rdquo; on 18&nbsp;September&nbsp;2025) documents CVE-2025-1727, a weak-authentication flaw (CWE-1390) in the End-of-Train / Head-of-Train remote linking protocol that has carried US freight braking telemetry for decades. The protocol authenticates packets with only a BCH checksum and no cryptography, so an attacker with a cheap software-defined radio &mdash; researchers put the cost under&nbsp;$500 &mdash; can forge the RF packets that pass brake commands between the head-of-train unit and the end-of-train device, potentially triggering an unintended brake application and a sudden stop. CVSS&nbsp;v3.1 is 8.1 and CVSS&nbsp;v4 is 7.2. Affected gear spans Wabtec TrainLink NG/NG3/NG4/NG5, Siemens Trainguard EOT/HOT and DPS&nbsp;Electronics ETD/HTD units. The AAR is moving the fleet to a new IEEE&nbsp;802.16t-based secure protocol, but replacement is not expected to be fielded before 2027 &mdash; so today the mitigation is RF/network isolation and monitoring, not a patch. No public exploitation has been reported.</p>
@@ -793,7 +800,7 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="story-ukrzaliznytsia">
+      <div class="card" id="story-ukrzaliznytsia" data-published="2025-03-24">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident &mdash; Nation-State (context)</span>
@@ -822,7 +829,7 @@
         </div>
         <a href="https://therecord.media/ukraine-railway-ukrzaliznytsia-cyberattack-online-ticket-system" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-deutschebahn">
+      <div class="card" id="story-deutschebahn" data-published="2026-02-18">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident &mdash; DDoS</span>
@@ -923,7 +930,7 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="story-lantronix">
+      <div class="card" id="story-lantronix" data-published="2026-06-25">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory &mdash; Active Exploitation</span>
@@ -953,7 +960,7 @@
         </div>
         <a href="https://www.securityweek.com/lantronix-serial-to-ip-converter-flaw-exploited-in-attacks-after-ot-threat-warning/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-patchtues">
+      <div class="card" id="story-patchtues" data-published="2026-07-14">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory &mdash; Cross-Vendor</span>
@@ -989,7 +996,7 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="story-tsa">
+      <div class="card" id="story-tsa" data-published="2024-11-07">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Regulation &mdash; TSA</span>
@@ -1018,7 +1025,7 @@
         </div>
         <a href="https://www.federalregister.gov/documents/2024/11/07/2024-24704/enhancing-surface-cyber-risk-management" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-cybereurope">
+      <div class="card" id="story-cybereurope" data-published="2026-06-11">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Regulation &mdash; Preparedness</span>
@@ -1189,6 +1196,16 @@
     });
   })();
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>

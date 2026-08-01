@@ -596,6 +596,13 @@
   .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
   .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
   body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
+  /* NEW badge — client-side, auto-expires 72h after each card's data-published date */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:12px;z-index:3;display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#ff3b30,#ff9500);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:11px;box-shadow:0 2px 6px rgba(255,59,48,.45);animation:newpulse 1.6s ease-in-out infinite;pointer-events:none;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,.5);}50%{box-shadow:0 0 0 6px rgba(255,59,48,0);}}
+  @media (prefers-reduced-motion:reduce){.new-badge{animation:none;}}
+  body.dark .new-badge{box-shadow:0 2px 8px rgba(255,59,48,.6);}
 </style>
 </head>
 <body>
@@ -686,7 +693,7 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-plc-water">
+    <div class="top-story" id="story-plc-water" data-published="2026-07-30">
       <span class="top-story-pill">Top Story</span>
       <h2>FBI warns attackers are hijacking internet-facing PLCs &mdash; the same controllers on your plant floor</h2>
       <p>A confirmed, active campaign is remotely tampering with internet-facing programmable logic controllers, and the FBI&rsquo;s warning lands squarely on the plant floor. In a 30 July public service announcement, the FBI and EPA said that since 27 July, water and wastewater utilities in at least seven states reported attackers reaching internet-exposed Rockwell/Allen-Bradley MicroLogix 1100 and 1400 PLCs, changing their IP addresses and passwords to knock out monitoring and control &mdash; and in at least one case altering ladder logic across several sites. Reported effects included loss of pressure and flooding. The victims are water utilities, but the FBI stressed the same exposure applies to other branded PLCs &mdash; the internet-reachable Rockwell, Siemens and Schneider controllers manufacturers run every day. Any plant with a PLC or cellular modem reachable from the internet should treat this as a direct warning.</p>
@@ -796,7 +803,7 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="story-iran-plc">
+      <div class="card" id="story-iran-plc" data-published="2026-07-22">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident &mdash; Nation-State</span>
@@ -825,7 +832,7 @@
         </div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-fairlife">
+      <div class="card" id="story-fairlife" data-published="2026-07-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident &mdash; Ransomware</span>
@@ -928,7 +935,7 @@
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-cisco-fmc">
+      <div class="card" id="story-cisco-fmc" data-published="2026-07-29">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Active Exploitation &mdash; KEV</span>
@@ -958,7 +965,7 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-rockwell-clx">
+      <div class="card" id="story-rockwell-clx" data-published="2026-07-30">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Critical Advisory &mdash; ICS</span>
@@ -995,7 +1002,7 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="story-sec-disclosure">
+      <div class="card" id="story-sec-disclosure" data-published="2026-07-16">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy &mdash; Disclosure</span>
@@ -1166,6 +1173,16 @@
     });
   })();
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>

@@ -596,6 +596,13 @@
   .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
   .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
   body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
+  /* NEW badge — client-side, auto-expires 72h after each card's data-published date */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:12px;z-index:3;display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#ff3b30,#ff9500);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:11px;box-shadow:0 2px 6px rgba(255,59,48,.45);animation:newpulse 1.6s ease-in-out infinite;pointer-events:none;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,.5);}50%{box-shadow:0 0 0 6px rgba(255,59,48,0);}}
+  @media (prefers-reduced-motion:reduce){.new-badge{animation:none;}}
+  body.dark .new-badge{box-shadow:0 2px 8px rgba(255,59,48,.6);}
 </style>
 </head>
 <body>
@@ -686,7 +693,7 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-iran-plc">
+    <div class="top-story" id="story-iran-plc" data-published="2026-07-22">
       <span class="top-story-pill">Top Story</span>
       <h2>Federal alert sharpens: Iran-affiliated hackers are actively manipulating the PLCs that run US energy infrastructure</h2>
       <p>Federal agencies have sharpened their warning that Iran-affiliated hackers are actively manipulating the programmable logic controllers that run US energy infrastructure. Joint advisory AA26-097A, updated 22 July, confirms actors have reached internet-exposed Rockwell, Schneider Electric and Siemens controllers, now use the vendors&rsquo; own engineering software to steal PLC project files, and rewrite or delete control logic &mdash; in some cases disabling the shutdown and alarm functions that keep equipment inside safe limits, without alerting operators. The risk turned concrete next door: a coordinated attack disrupted OT at 30-plus Minnesota water utilities on 26&ndash;27 July, knocking a treatment plant offline. For grid and generation operators the read-across is direct &mdash; the same brands and exposed-controller pattern sit in substations, plants and remote co-op sites, and a controller that suppresses its own alarms undermines the protection logic crews rely on. It targets devices left reachable from the internet with weak or default credentials.</p>
@@ -795,7 +802,7 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="story-fsb-routers">
+      <div class="card" id="story-fsb-routers" data-published="2026-07-13">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident &mdash; Nation-State</span>
@@ -824,7 +831,7 @@
         </div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-cisco-fmc">
+      <div class="card" id="story-cisco-fmc" data-published="2026-07-29">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Active Exploitation &mdash; KEV</span>
@@ -926,7 +933,7 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="story-siemens">
+      <div class="card" id="story-siemens" data-published="2026-07-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory &mdash; ICS Patch Tuesday</span>
@@ -955,7 +962,7 @@
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-schneider-easergy">
+      <div class="card" id="story-schneider-easergy" data-published="2026-07-09">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory &mdash; CVE</span>
@@ -985,7 +992,7 @@
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-hitachi">
+      <div class="card" id="story-hitachi" data-published="2026-07-07">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Critical Advisory &mdash; CVE</span>
@@ -1022,7 +1029,7 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="story-nerccip">
+      <div class="card" id="story-nerccip" data-published="2026-05-26">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Regulation &mdash; NERC CIP</span>
@@ -1193,6 +1200,16 @@
     });
   })();
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>
