@@ -6,87 +6,79 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-manufacturing.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 14 Aug 2026 07:29:00 -0400</lastBuildDate>
+<lastBuildDate>Sat, 15 Aug 2026 10:42:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] Iran-linked hackers are rewriting plant-floor PLC logic and disabling safety functions</title>
+<title>[Critical] Manufacturing took 747 of 1,140 industrial ransomware hits last quarter — and not one attacker touched a PLC</title>
+<link>https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:dragos-q2</guid>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Top Story</category>
+<description><![CDATA[Dragos counted 1,140 ransomware incidents at industrial organizations in the second quarter, up 12% from 1,020 in Q1, and manufacturing absorbed 747 of them — 65% of the total. Construction added 176 and equipment manufacturing 114; ICS-adjacent firms including engineering companies and system integrators accounted for 117, and food and beverage 70. North America led with 514 incidents, Europe 316. The finding that should shape plant planning is a negative one: Dragos observed no case during the quarter in which a ransomware operator directly manipulated an industrial control system. Production stopped anyway. The damage ran through IT, ERP and virtualization — scheduling, material movement, order execution and the hypervisors hosting MES and historian servers. For most plants the realistic scenario is not encrypted PLCs but an ERP that cannot tell the line what to build. - Dragos Industrial Ransomware Analysis Q2 2026; Help Net Security - Published 11 Aug 2026 (covering Q2 2026)]]></description>
+</item>
+<item>
+<title>[High] Federal advisory: attackers are using TIA Portal, Studio 5000 and EcoStruxure to rewrite PLC logic</title>
 <link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a</link>
 <guid isPermaLink="false">otthreatfeed:manufacturing:iran-plc</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Top Story</category>
-<description><![CDATA[A federal advisory updated 22 July confirms the nightmare case for any plant floor: nation-state actors reaching inside programmable logic controllers and rewriting the code that runs the process. CISA, the FBI and NSA say Iran-affiliated actors are exploiting internet-exposed PLCs — Rockwell CompactLogix and Micro850, Siemens S7-1200 and Schneider Modicon M340 among them — by abusing legitimate engineering software to connect, exfiltrate project files, then modify or delete control logic, including Add-On Instructions, and manipulate HMI displays. In several cases they disabled shutdown and alarm logic, letting equipment drift into unsafe conditions with no operator warning. These are the same controllers and engineering workstations manufacturers run every day, so an exposed PLC or a compromised engineering laptop becomes a direct path to silently altered process logic and defeated safety interlocks. - CISA / FBI / NSA joint advisory AA26-097A - Updated 22 Jul 2026 — ongoing]]></description>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Campaign — Nation-State</category>
+<description><![CDATA[The 22 July update to joint advisory AA26-097A describes exactly the toolchain a controls engineer uses. Iran-affiliated actors connect to internet-exposed controllers with the vendors’ own software — Rockwell Studio 5000 Logix Designer, Schneider EcoStruxure Control Expert and Siemens TIA Portal — over ports 44818, 2222, 102, 502 and 22, from leased third-party infrastructure. They extract and exfiltrate project files, then modify and delete logic. In one US case the FBI found a downloaded project file that preserved ladder logic for downstream function while adding logic overriding the instruction sets that maintained safe operating parameters, and disabling shutdown and alarm logic so equipment could enter unsafe states silently. Named targets now include Rockwell CompactLogix and Micro850, Schneider Modicon M340 (BMX P34) and Siemens S7-1200 — the standard fleet on a discrete or process line. - CISA/FBI/NSA/EPA joint advisory AA26-097A; SecurityWeek - Updated 22 Jul 2026 (originally published 7 Apr 2026) — campaign ongoing]]></description>
 </item>
 <item>
-<title>[High] FBI/EPA: attackers are hijacking internet-facing PLCs — the same controllers on your plant floor</title>
-<link>https://www.fbi.gov/investigate/cyber/alerts/2026/malicious-cyber-actors-targeting-water-and-wastewater-sector-internet--facing-programmable-logic-controllers-causing-operational-disruptions</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:plc-water</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Incident — Active Campaign</category>
-<description><![CDATA[In a 30 July public service announcement, the FBI and EPA said that since 27 July, water and wastewater utilities in at least seven states reported attackers reaching internet-exposed Rockwell/Allen-Bradley MicroLogix 1100 and 1400 PLCs, changing IP addresses and passwords to knock out monitoring and control — and in at least one case altering ladder logic across several sites, with reported effects including loss of pressure and flooding. The victims are water utilities, but the FBI stressed the same exposure applies to other branded PLCs — the internet-reachable Rockwell, Siemens and Schneider controllers manufacturers run every day. Any plant with a PLC or cellular field modem reachable from the internet should treat this as a direct warning. - FBI / EPA Public Service Announcement - Issued 30 Jul 2026 — incidents reported since 27 Jul, ongoing; FBI has not publicly attributed]]></description>
-</item>
-<item>
-<title>[High] Coca-Cola’s Fairlife restarts US production after ransomware halt; data theft confirmed</title>
-<link>https://www.bleepingcomputer.com/news/security/coca-cola-confirms-data-theft-in-fairlife-ransomware-attack/</link>
+<title>[High] Coca-Cola halted US production at fairlife after ransomware reached production-related systems</title>
+<link>https://www.cybersecuritydive.com/news/ransomware-attack-coca-cola-suspend-production-dairy/825540/</link>
 <guid isPermaLink="false">otthreatfeed:manufacturing:fairlife</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
 <category>Incident — Ransomware</category>
-<description><![CDATA[Coca-Cola’s Fairlife subsidiary has resumed most production at its four US plants after a roughly ten-day shutdown triggered by a 16 July ransomware attack — a reminder that on the plant floor an IT compromise fast becomes an operations problem. In a 27 July update Coca-Cola said most operations were restored and confirmed attackers stole data; the Anubis group claimed the attack and listed the company on its leak site. US facilities were stopped precautionarily while Canadian operations continued. Manufacturing — and food and beverage especially, with just-in-time perishable output — offers attackers exactly the operational leverage that drives a fast payout. - The Coca-Cola Company (SEC 8-K) / BleepingComputer - Disclosed 16 Jul 2026 — updated 27 Jul: production resumed, data theft confirmed]]></description>
+<description><![CDATA[Coca-Cola disclosed on 16 July that its fairlife dairy subsidiary identified unauthorized third-party access to part of its systems, including production-related systems, in connection with a ransomware event, and that production operations at fairlife in the United States were temporarily suspended as a result. Reporting on the incident centred on the ERP layer carrying scheduling, material movement and order execution — the same dependency Dragos identifies as the main disruption path across the sector. It is the cleanest recent example of a plant losing output without an attacker ever addressing a controller, and it happened at an operator with resources far beyond a typical mid-market manufacturer. - Coca-Cola disclosure; Cybersecurity Dive, TechCrunch, Industrial Cyber - Disclosed 16 Jul 2026 — US production temporarily suspended]]></description>
 </item>
 <item>
-<title>[Medium] Dragos Q2 2026: manufacturing absorbs 65% of all industrial ransomware — and gangs disrupt output without ever touching a PLC</title>
-<link>https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:ransomware</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Threat Intel — Ransomware</category>
-<description><![CDATA[Dragos’ Q2 2026 industrial ransomware analysis counted 1,140 incidents against industrial organizations, up 12% from 1,020 in Q1, with manufacturing far and away the hardest hit at 747 incidents — 65% of the total — and the United States the most-targeted country at 431 (38%). Dragos’ key finding for plant operators is that crews rarely need control-system access to stop production: encrypting or crippling enterprise IT, ERP platforms and virtualization infrastructure is enough to idle lines, because scheduling, material flow and shipping all depend on those systems. Double-extortion remains standard — valid credentials, exposed remote access and data theft before encryption — and OT/control-system configs rarely restore from IT-style backups, so an IT-side hit can idle a line for weeks. - Dragos Industrial Ransomware Analysis Q2 2026 / Help Net Security - Published 11 Aug 2026]]></description>
+<title>[High] Six agencies publish Gunra ransomware advisory; manufacturing among the named victim sectors</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:gunra</guid>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Campaign — Ransomware</category>
+<description><![CDATA[Joint advisory AA26-222A, released 10 August by CISA, the FBI, DC3, NSA, the Secret Service and South Korea’s National Police Agency, covers Gunra ransomware. Gunra emerged in April 2025 built on leaked Conti source code and has since become a ransomware-as-a-service operation recruiting affiliates through dark-web forums. Affiliates break in through exposed edge infrastructure — VPN gateways, firewall appliances and RDP-reachable systems — and run double extortion, exfiltrating before encrypting. Manufacturing, transport, utilities and government are among the named victim sectors. The entry-point list matters more than the family name: the same appliance that lets a machine-builder dial in for support is the documented way in. - CISA/FBI/NSA joint advisory AA26-222A - Published 10 Aug 2026]]></description>
 </item>
 <item>
-<title>[Critical] Arista VeloCloud Orchestrator CVSS-10 command-injection exploited as a zero-day, now in KEV</title>
-<link>https://www.securityweek.com/critical-arista-velocloud-orchestrator-vulnerability-exploited-as-zero-day/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:arista</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Active Exploitation — KEV</category><category>CVE-2026-16812</category>
-<description><![CDATA[CISA added CVE-2026-16812 to its KEV catalog on 27 July after the flaw — an unauthenticated OS command-injection bug in on-prem Arista VeloCloud (formerly VMware) SD-WAN Orchestrator, rated a maximum CVSS 10.0 — was exploited as a zero-day. A remote attacker with no credentials can run arbitrary commands on the appliance and take over the management plane. VeloCloud SD-WAN commonly stitches together multi-plant sites and carries remote-engineering and vendor access, so a compromised orchestrator hands an attacker a trusted path between corporate, plant IT and engineering networks. A patch is available; treat it as an emergency. - CVE-2026-16812 - Added to KEV 27 Jul 2026 — actively exploited]]></description>
+<title>[High] Claroty finds 23 flaws in Copeland XWEB Pro controllers that chain to root — and a hidden login in Danfoss AK-SM 800A</title>
+<link>https://claroty.com/team82/research/chilling-discoveries-unpacking-vulnerabilities-in-copeland-xweb-pro-controllers</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:refrigeration</guid>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Research — Plant Utilities</category>
+<description><![CDATA[Claroty’s Team82 disclosed 23 vulnerabilities in Copeland XWEB Pro supervisory refrigeration controllers, 21 of them high severity, which can be chained — authentication flaws plus predictable administrator credentials plus command injection — to bypass security controls and achieve root-level remote code execution. In a separate disclosure the team found three flaws in Danfoss AK-SM 800A controllers, including a hidden ‘code-of-the-day’ authentication mechanism that can be abused to bypass normal login and reach code execution. In a demonstration, a compromised controller remotely manipulated cooling fans and compressors while concealing the resulting temperature rise from operators. Copeland shipped firmware 1.13 and Danfoss R4.3.1. For process manufacturers the lesson generalises beyond refrigeration: facilities-purchased supervisory controllers on chillers, compressors and air handling sit on plant networks with web management enabled and no controls-engineering oversight. - Claroty Team82 research; SecurityWeek - Published week of 10–14 Aug 2026; vendor fixes released]]></description>
 </item>
 <item>
-<title>[High] N-able N-central auth bypass exploited to hijack servers and reach managed endpoints — first patch failed</title>
-<link>https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:nable</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Active Exploitation — KEV</category><category>CVE-2026-18577</category><category>CVE-2026-8037</category><category>CVE-2026-20349</category>
-<description><![CDATA[Attackers have been exploiting an authentication-bypass flaw (CVE-2026-18577, CVSS 8.2) in N-able’s widely-used N-central remote-monitoring-and-management platform since 1 August to take over on-prem servers, then use the built-in Take Control feature to reach every managed endpoint and register Cloudflare tunnels for persistent, firewall-transparent access. It is a bypass of an earlier fix (CVE-2026-18556), and N-able’s first hotfix proved incomplete — a second hotfix (build 2026.3.1.7, hardened 6 Aug) is required even if the first was applied. CISA added it to KEV on 3 August with a three-day federal deadline. For manufacturers this is the classic managed-services blast radius: an RMM that reaches plant IT and engineering workstations becomes an attacker’s route onto the floor. CISA’s early-August KEV run has since added more exploited edge flaws — a Progress Kemp LoadMaster flaw (CVE-2026-8037, 7 Aug) and a Cisco Secure Firewall ASA/FTD flaw (CVE-2026-20349, 11 Aug) — the perimeter gear that fronts plant remote access. - CVE-2026-18577 - Exploited since 1 Aug 2026 — KEV 3 Aug; edge run extended 7–11 Aug]]></description>
+<title>[Medium] 4,407 controllers found answering EtherNet/IP on the public internet</title>
+<link>https://thehackernews.com/2026/08/over-4400-rockwell-plcs-exposed-online.html</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:exposed-plcs</guid>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Research — Exposure</category>
+<description><![CDATA[A Shodan query run on 3 August returned 4,407 devices exposing port 44818, with roughly 65% in the United States, 12% in Canada and 3% in Spain. The research was prompted by the water-sector attacks, and of 22 controllers located in affected cities, 19 were on firmware susceptible to CVE-2017-16740 — a Modbus TCP buffer overflow in Rockwell MicroLogix 1400 Series B and C on firmware 21.002 and earlier, fixed in 21.003. Manufacturers rarely believe this applies to them, and the exposure usually is not the main plant: it is a machine builder’s remote-support router at a satellite line, a leased packaging skid with its own SIM, or a controller a contractor put on a DMZ during commissioning and nobody removed. - Forescout Vedere Labs analysis; The Hacker News - Shodan scan data 3 Aug 2026 — reported week of 3–7 Aug 2026]]></description>
 </item>
 <item>
-<title>[Critical] August ICS Patch Tuesday: Siemens, Schneider, Aveva and Phoenix Contact ship a new round of fixes</title>
-<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-aveva-phoenix-contact/</link>
+<title>[Critical] CVSS 10 unauthenticated root command injection in Haiwell IoT Cloud HMI Gateway — critical manufacturing named</title>
+<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-02</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:haiwell</guid>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Advisory — CVSS 10</category>
+<description><![CDATA[CISA released 14 ICS advisories on 13 August, led by CVE-2026-19188 in the Haiwell IoT Cloud HMI Gateway at CVSS 10.0. The device’s ‘Net Check’ feature passes user-supplied input from the cmdPing Socket.io event to the operating system without sanitizing it, letting an unauthenticated remote attacker execute arbitrary OS commands as root with no user interaction. Version 3.40.1.12 is affected, and CISA names critical manufacturing alongside energy and water among the deployment sectors. These combined HMI/gateway/DTU units are the low-cost remote-monitoring boxes that arrive attached to OEM machinery, leased equipment and small packaging or ancillary lines — the tier of asset that is bought on a capex line rather than through controls engineering and rarely appears in a patch cycle. - CISA ICS advisory ICSA-26-225-02 - Published 13 Aug 2026]]></description>
+</item>
+<item>
+<title>[High] August ICS Patch Tuesday: maximum-severity authentication bypass in Siemens SIMATIC IoT2050, plus CAD and simulation fixes</title>
+<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/</link>
 <guid isPermaLink="false">otthreatfeed:manufacturing:patchtuesday</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Critical Advisory</category>
-<description><![CDATA[This week’s ICS Patch Tuesday saw Siemens, Schneider Electric, Aveva and Phoenix Contact publish fresh advisories across their product lines. Siemens led with roughly ten advisories, including a maximum-severity missing-authentication flaw that lets a remote, unauthenticated attacker run code on affected industrial-edge/IoT gear, a critical code-execution bug in its Siveillance video-management servers, and high-severity issues in Solid Edge, Simcenter, the Siemens License Server and Logo! Soft Comfort. Schneider, Aveva and Phoenix Contact addressed additional flaws in engineering and SCADA software. No public exploitation is reported yet, but the unauthenticated code-execution criticals warrant prompt triage on any exposed deployment — engineering workstations and edge devices bridging the plant floor first. - Siemens/Schneider/Aveva/Phoenix Contact PSIRTs / SecurityWeek - August 2026 ICS Patch Tuesday (12 Aug)]]></description>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>Advisory — ICS Patch Tuesday</category>
+<description><![CDATA[Siemens published 10 advisories on 11 August. The headline is a maximum-severity missing-authentication flaw in SIMATIC IoT2050 Advanced devices (SSA-834709) that lets a remote, unauthenticated attacker execute arbitrary code on the underlying server with elevated privileges. A critical code-execution flaw was fixed in Siveillance Video Management Servers, and high-severity issues in Solid Edge, Simcenter Nastran, the Siemens License Server, Simcenter Femap, Parasolid and Logo! Soft Comfort — the CAD, CAE and licensing stack sitting on engineering desktops, exploitable to crash applications, execute code, elevate privileges or read arbitrary files. Medium-severity fixes landed in Ruggedcom devices and Desigo controllers. Schneider Electric covered NetBotz 5 and PowerChute Serial Shutdown; Phoenix Contact addressed multiple PLCnext firmware flaws exploitable without authentication; Honeywell issued several building-management advisories. - Siemens ProductCERT, Schneider Electric, Phoenix Contact and Honeywell PSIRT via SecurityWeek - Advisories published 11 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Rockwell FactoryTalk Services Platform auth-bypass lets a low-priv user impersonate anyone</title>
-<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:rockwell-ftsp</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Critical Advisory — ICS</category><category>CVE-2026-10714</category>
-<description><![CDATA[CISA advisory ICSA-26-202-07 (21 July) describes a JWT signature-validation bypass in Rockwell Automation’s FactoryTalk Services Platform during Okta-based web authentication: because the token is accepted with “alg: none”, a low-privileged authenticated user can forge a token and impersonate any authorized user, including administrators. It is rated CVSS v3 7.8 / v4 8.8 and used primarily in critical manufacturing worldwide. FactoryTalk Services Platform underpins identity and access across the Rockwell OT stack, so a privilege-escalation-to-admin flaw there is a foothold into the software layer that governs engineering and operations. No public exploitation is reported; apply Rockwell’s fix. - CVE-2026-10714 - ICSA-26-202-07 — 21 Jul 2026]]></description>
-</item>
-<item>
-<title>[High] New CISA advisory covers ABB Ability zenon SCADA/HMI — check your version exposure</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:abb-zenon</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Critical Advisory — ICS</category>
-<description><![CDATA[CISA published ICSA-26-218-01 on 6 August covering vulnerabilities in ABB’s Ability zenon SCADA/HMI platform, widely used to visualize and supervise manufacturing lines and utilities. zenon sits at the operator layer that runs and monitors the process, so a weakness there can affect visibility and control of production. Affected versions, CVSS scoring and specific mitigations are detailed in the CISA advisory — consult it directly and map it to your deployed zenon runtime and engineering installations before acting. No public exploitation is reported at publication. - CISA / ABB PSIRT - ICSA-26-218-01 — 6 Aug 2026]]></description>
-</item>
-<item>
-<title>[Info] Fairlife’s 8-K puts SEC cyber-incident disclosure back on the plant manager’s radar</title>
-<link>https://compliancehub.wiki/coca-cola-fairlife-ransomware-production-halt-2026/</link>
-<guid isPermaLink="false">otthreatfeed:manufacturing:sec-disclosure</guid>
-<pubDate>Fri, 14 Aug 2026 07:29:00 -0400</pubDate>
-<category>Policy — Disclosure</category>
-<description><![CDATA[Coca-Cola’s prompt SEC filing over the Fairlife ransomware attack is a live example of how material cyber incidents at manufacturers now trigger securities-disclosure obligations, not just IR and recovery. For publicly-traded manufacturers and their suppliers, an OT-impacting incident that halts production can be material, so legal, finance and security need a pre-agreed process to assess materiality and disclose on a tight timeline — before the incident forces the question. - SEC filings / ComplianceHub - Prompted by 16 Jul 2026 Fairlife 8-K]]></description>
+<title>[High] Cisco Secure Firewall ASA/FTD zero-day added to CISA KEV after denial-of-service exploitation</title>
+<link>https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog</link>
+<guid isPermaLink="false">otthreatfeed:manufacturing:cisco-kev</guid>
+<pubDate>Sat, 15 Aug 2026 10:42:00 -0400</pubDate>
+<category>KEV — Actively Exploited</category>
+<description><![CDATA[CISA added three vulnerabilities to the Known Exploited Vulnerabilities catalog on 11 August, including CVE-2026-20349, a heap-inspection flaw in Cisco Secure Firewall Adaptive Security Appliance and Firewall Threat Defense that Cisco patched after it was exploited as a zero-day for denial-of-service attacks. The others are a use-after-free in the Windows Ancillary Function Driver for WinSock (CVE-2026-68820) and SQL injection in Metabase (CVE-2026-72898). Earlier in the month CISA added Progress LoadMaster CVE-2026-8037 and Langflow, Apache Tomcat and N-able N-central flaws. ASA and FTD appliances commonly form the boundary between enterprise and plant networks and terminate the VPNs machine builders use; the Gunra advisory names exactly this class of device as an entry point, which makes patching it a plant-availability issue rather than an IT chore. - CISA KEV catalog additions, 5, 7 and 11 Aug 2026 - Cisco ASA/FTD added to KEV 11 Aug 2026]]></description>
 </item>
 </channel>
 </rss>
