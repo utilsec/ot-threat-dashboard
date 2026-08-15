@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon (served from the GitHub Pages root; absolute URLs so sector subpages resolve them) -->
+<link rel="icon" href="https://utilsec.github.io/ot-threat-dashboard/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://utilsec.github.io/ot-threat-dashboard/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="https://utilsec.github.io/ot-threat-dashboard/apple-touch-icon.png">
+<title>OT/ICS Cybersecurity Threat Intelligence Dashboard &mdash; Aviation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #ffffff;
+    color: #1f2328;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 11.5px;
+    color: #57606a;
+    line-height: 1.5;
+  }
+  .disclaimer strong { color: #1f2328; font-weight: 700; }
+
+  /* Brand bar */
+  .brandbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .brandbar .brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2328;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .brandbar .brand span { color: #2c7480; }
+  .brandbar .tag {
+    font-size: 11px;
+    color: #6e7781;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .partner-logo { height: 20px; width: auto; display: inline-block; }
+  body.dark .partner-logo { background: #ffffff; border-radius: 4px; padding: 2px 6px; height: 24px; }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid #1f2328;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: #1f2328;
+  }
+  .header-sub {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #57606a;
+    margin-bottom: 6px;
+  }
+  .header-meta {
+    color: #6e7781;
+    font-size: 13px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .header-meta .dot { color: #d0d7de; }
+  .sector-badge {
+    background: #e6f1f2;
+    color: #2c7480;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #bfe0e3;
+  }
+  .story-count {
+    color: #6e7781;
+    font-size: 13px;
+    text-align: right;
+  }
+  .story-count strong { color: #1f2328; font-weight: 700; }
+
+  /* Hero: top story + radar side by side */
+  .hero {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  /* Trends strip */
+  .trends-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin: -8px 0 12px;
+  }
+  .trends-strip {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px 20px;
+  }
+  .trend { display: flex; flex-direction: column; font-size: 12px; color: #57606a; line-height: 1.5; }
+  .trend-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background: #e6f1f2;
+    color: #2c7480;
+    border: 1px solid #bfe0e3;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 7px;
+  }
+  .trend b.trend-head { color: #1f2328; font-weight: 700; font-size: 12.5px; margin-bottom: 4px; }
+  .trend p { margin-bottom: 8px; flex-grow: 1; }
+  .trend .source-link { font-size: 11px; }
+
+  /* Top story */
+  .top-story {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-left: 3px solid #4e9da8;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 440px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(31,35,40,0.06);
+  }
+  .top-story-pill {
+    display: inline-block;
+    background: #4e9da8;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .top-story h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #1f2328;
+  }
+  .top-story p {
+    color: #424a53;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* Radar panel */
+  .radar-panel {
+    flex: 1 1 320px;
+    min-width: 300px;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .radar-panel .radar-head {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 4px;
+  }
+  .radar-panel .radar-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin-bottom: 10px;
+  }
+  .radar-svg {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .radar-sweep { animation: radar-rot 8s linear infinite; transform-origin: 180px 180px; }
+  @keyframes radar-rot { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .radar-sweep { animation: none; } }
+  .ring-label {
+    fill: #8b949e;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+  .blip { cursor: pointer; transition: stroke-width 0.15s ease; }
+  .blip.crit { fill: #cf222e; stroke: rgba(207,34,46,0.25); stroke-width: 5; }
+  .blip.high { fill: #e0701a; stroke: rgba(224,112,26,0.25); stroke-width: 5; }
+  .radar-svg a:hover .blip.crit { stroke: rgba(207,34,46,0.45); stroke-width: 9; }
+  .radar-svg a:hover .blip.high { stroke: rgba(224,112,26,0.45); stroke-width: 9; }
+  .blip-num { fill: #ffffff; font-size: 9px; font-weight: 800; text-anchor: middle; pointer-events: none; }
+
+  /* Radar legend */
+  .radar-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; margin-top: 2px; }
+  .radar-legend a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #57606a;
+    text-decoration: none;
+    padding: 3px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .radar-legend a:hover { color: #1f2328; background: #eaeef2; }
+  .radar-legend b { color: #1f2328; font-weight: 700; min-width: 12px; text-align: center; }
+  .radar-legend .ld { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .radar-legend .ld.crit { background: #cf222e; }
+  .radar-legend .ld.high { background: #e0701a; }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(31,35,40,0.04);
+  }
+  .card:hover { border-color: #afb8c1; box-shadow: 0 2px 6px rgba(31,35,40,0.08); }
+  /* Anchor highlight when a radar blip targets a card */
+  .card, .top-story { scroll-margin-top: 16px; }
+  .card:target { border-color: #4e9da8; box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .top-story:target { box-shadow: 0 0 0 2px rgba(78,157,168,0.40); }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #1f2328;
+  }
+  .card p {
+    color: #57606a;
+    font-size: 13px;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+  .card-meta {
+    color: #6e7781;
+    font-size: 11px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-meta .dot { color: #d0d7de; }
+  .cve-badge {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-size: 10px;
+    background: #f6f8fa;
+    color: #57606a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #d0d7de;
+    margin-right: 4px;
+  }
+
+  /* Severity pills */
+  .severity {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sev-critical { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .sev-high     { background: rgba(188,76,0,0.08);  color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .sev-medium   { background: rgba(154,103,0,0.1);  color: #9a6700; border: 1px solid rgba(154,103,0,0.3); }
+  .sev-low      { background: rgba(9,105,218,0.08); color: #0969da; border: 1px solid rgba(9,105,218,0.3); }
+  .sev-info     { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+
+  /* Category tag */
+  .category {
+    color: #8b949e;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Ops strip (exploitation + action) */
+  .ops-strip {
+    border-top: 1px dashed #d0d7de;
+    margin-top: 4px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ops-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11px; color: #57606a; }
+  .ops-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 2px 8px; border-radius: 10px; text-transform: uppercase;
+  }
+  .ops-tag .d { width: 6px; height: 6px; border-radius: 50%; }
+  .ex-active { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .ex-active .d { background: #cf222e; }
+  .ex-poc    { background: rgba(188,76,0,0.08); color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .ex-poc .d { background: #bc4c00; }
+  .ex-none   { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+  .ex-none .d { background: #8b949e; }
+  .kev-on  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.35); }
+  .kev-off { background: #f6f8fa; color: #6e7781; border: 1px solid #d0d7de; }
+  .patch-yes { background: rgba(26,127,55,0.08); color: #1a7f37; border: 1px solid rgba(26,127,55,0.3); }
+  .patch-no  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .patch-na  { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+  .ops-cc { font-size: 11px; color: #57606a; line-height: 1.45; }
+  .ops-cc b { color: #1f2328; font-weight: 700; }
+  .ops-assign {
+    justify-content: space-between;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    padding: 7px 9px;
+    margin-top: 1px;
+  }
+  .ops-sla b { color: #1f2328; font-weight: 700; }
+  .ops-owner { display: inline-flex; align-items: center; gap: 4px; }
+  .owner-edit {
+    color: #1f2328;
+    border-bottom: 1px dashed #afb8c1;
+    min-width: 64px;
+    display: inline-block;
+    outline: none;
+    padding: 0 2px;
+  }
+  .owner-edit:focus { border-bottom-color: #4e9da8; }
+  .owner-edit:empty:before { content: attr(data-placeholder); color: #8b949e; }
+  .status-pill {
+    font: inherit; font-size: 10px; font-weight: 700; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 10px; border: 1px solid;
+    transition: all 0.12s ease;
+  }
+  .status-pill.st-open { background: #ffffff; color: #57606a; border-color: #d0d7de; }
+  .status-pill.st-ack  { background: rgba(9,105,218,0.08); color: #0969da; border-color: rgba(9,105,218,0.4); }
+  .status-pill.st-mit  { background: rgba(26,127,55,0.08); color: #1a7f37; border-color: rgba(26,127,55,0.4); }
+  .status-pill.st-na   { background: #f6f8fa; color: #8b949e; border-color: #d0d7de; }
+
+  /* Link */
+  .source-link {
+    color: #2c7480;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+  .source-link::after { content: " \2192"; }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1f2328;
+    color: #6e7781;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .footer p { margin-bottom: 8px; }
+  .footer a { color: #2c7480; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer strong { color: #1f2328; }
+  .footer .byline { color: #424a53; }
+  .footer .byline span { color: #2c7480; font-weight: 700; }
+
+  /* Theme toggle button (upper right, in brand bar) */
+  .brand-right { display: flex; align-items: center; gap: 12px; }
+  .theme-toggle {
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: #57606a;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: #1f2328; border-color: #afb8c1; }
+
+  /* Sector navigation */
+  .sector-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .sector-nav a {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #57606a;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 14px;
+    background: #f6f8fa;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sector-nav a:hover { color: #1f2328; border-color: #afb8c1; }
+  .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
+
+  /* Nav row: sector nav on the left, partnership line on the right */
+  .navrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 18px; }
+  .navrow .sector-nav { order: 1; margin-bottom: 0; }
+  .navrow .brandbar { order: 2; margin-bottom: 0; margin-left: auto; }
+
+  /* Dark mode — every override keys off body.dark; keep in sync with the light palette above */
+  body.dark { background: #0d1117; color: #e6edf3; }
+  body.dark .disclaimer { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .disclaimer strong { color: #e6edf3; }
+  body.dark .brandbar .brand { color: #e6edf3; }
+  body.dark .brandbar .brand span { color: #58b0bd; }
+  body.dark .brandbar .tag { color: #8b949e; }
+  body.dark .theme-toggle { color: #8b949e; background: #161b22; border-color: #30363d; }
+  body.dark .theme-toggle:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .sector-nav a:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a.sn-active { background: #2c7480; border-color: #2c7480; color: #ffffff; }
+  body.dark .header { border-bottom-color: #e6edf3; }
+  body.dark .header-title h1 { color: #e6edf3; }
+  body.dark .header-sub { color: #9198a1; }
+  body.dark .header-meta { color: #8b949e; }
+  body.dark .header-meta .dot { color: #30363d; }
+  body.dark .sector-badge { background: rgba(88,176,189,0.12); color: #58b0bd; border-color: rgba(88,176,189,0.35); }
+  body.dark .story-count { color: #8b949e; }
+  body.dark .story-count strong { color: #e6edf3; }
+  body.dark .section-title { color: #e6edf3; border-bottom-color: #30363d; }
+  body.dark .trends-sub { color: #8b949e; }
+  body.dark .trends-strip { background: #161b22; border-color: #30363d; }
+  body.dark .trend { color: #9198a1; }
+  body.dark .trend-tag { background: rgba(88,176,189,0.12); color: #58b0bd; border-color: rgba(88,176,189,0.35); }
+  body.dark .trend b.trend-head { color: #e6edf3; }
+  body.dark .top-story { background: #161b22; border-color: #30363d; border-left-color: #4e9da8; }
+  body.dark .top-story h2 { color: #e6edf3; }
+  body.dark .top-story p { color: #9198a1; }
+  body.dark .radar-panel { background: #161b22; border-color: #30363d; }
+  body.dark .radar-panel .radar-head { color: #e6edf3; }
+  body.dark .radar-panel .radar-sub { color: #8b949e; }
+  body.dark .radar-legend a { color: #9198a1; }
+  body.dark .radar-legend a:hover { color: #e6edf3; background: #21262d; }
+  body.dark .radar-legend b { color: #e6edf3; }
+  body.dark .card { background: #161b22; border-color: #30363d; }
+  body.dark .card:hover { border-color: #8b949e; }
+  body.dark .card:target { border-color: #4e9da8; }
+  body.dark .card h3 { color: #e6edf3; }
+  body.dark .card p { color: #9198a1; }
+  body.dark .card-meta { color: #8b949e; }
+  body.dark .card-meta .dot { color: #30363d; }
+  body.dark .cve-badge { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .sev-critical { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .sev-high     { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .sev-medium   { color: #d29922; border-color: rgba(210,153,34,0.4); background: rgba(210,153,34,0.1); }
+  body.dark .sev-low      { color: #58a6ff; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.1); }
+  body.dark .sev-info     { color: #9198a1; border-color: rgba(145,152,161,0.4); background: rgba(145,152,161,0.1); }
+  body.dark .category { color: #8b949e; }
+  body.dark .ops-strip { border-top-color: #30363d; }
+  body.dark .ops-row { color: #9198a1; }
+  body.dark .ex-active { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .ex-active .d { background: #f85149; }
+  body.dark .ex-poc { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .ex-poc .d { background: #db6d28; }
+  body.dark .ex-none { color: #9198a1; border-color: rgba(145,152,161,0.35); background: rgba(145,152,161,0.1); }
+  body.dark .ex-none .d { background: #8b949e; }
+  body.dark .kev-on { color: #f85149; border-color: rgba(248,81,73,0.45); background: rgba(248,81,73,0.1); }
+  body.dark .kev-off { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .patch-yes { color: #3fb950; border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.1); }
+  body.dark .patch-no  { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .patch-na  { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .ops-cc { color: #9198a1; }
+  body.dark .ops-cc b { color: #e6edf3; }
+  body.dark .ops-assign { background: #21262d; border-color: #30363d; }
+  body.dark .ops-sla b { color: #e6edf3; }
+  body.dark .owner-edit { color: #e6edf3; border-bottom-color: #8b949e; }
+  body.dark .owner-edit:empty:before { color: #8b949e; }
+  body.dark .status-pill.st-open { background: #161b22; color: #9198a1; border-color: #30363d; }
+  body.dark .status-pill.st-ack { color: #58a6ff; border-color: rgba(88,166,255,0.5); background: rgba(88,166,255,0.1); }
+  body.dark .status-pill.st-mit { color: #3fb950; border-color: rgba(63,185,80,0.5); background: rgba(63,185,80,0.1); }
+  body.dark .status-pill.st-na { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .source-link { color: #58b0bd; }
+  body.dark .footer { border-top-color: #e6edf3; color: #8b949e; }
+  body.dark .footer a { color: #58b0bd; }
+  body.dark .footer strong { color: #e6edf3; }
+  body.dark .footer .byline { color: #9198a1; }
+  body.dark .footer .byline span { color: #58b0bd; }
+  body.dark .radar-svg > circle { stroke: #30363d; }
+  body.dark .radar-svg > line { stroke: #21262d; }
+
+  /* Sector theme */
+  .header {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #fed7aa;
+    border-bottom: 2px solid #c2410c;
+    border-left: 5px solid #c2410c;
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+    background: linear-gradient(135deg, #ffedd5 0%, #ffffff 72%);
+  }
+  .header .header-title, .header .story-count { position: relative; z-index: 1; }
+  .sector-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 120px; height: 120px; opacity: 0.14; z-index: 0; pointer-events: none; }
+  .sector-badge { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
+  @media (max-width: 640px) { .sector-icon { width: 78px; opacity: 0.10; right: 10px; } }
+  body.dark .header { background: linear-gradient(135deg, rgba(194,65,12,0.20) 0%, #0d1117 72%); border-color: #30363d; border-left-color: #fb923c; border-bottom-color: #fb923c; }
+  body.dark .sector-icon { opacity: 0.30; }
+  body.dark .sector-badge { background: rgba(71,85,105,0.20); color: #cbd5e1; border-color: rgba(100,116,139,0.45); }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .story-count { text-align: left; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Vendor / product chips */
+  .vendor-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 12px; }
+  .vchip { font-size: 10px; font-weight: 600; color: #40525a; background: #eef3f4; border: 1px solid #d3e1e4; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+  body.dark .vchip { color: #9fd0d8; background: rgba(88,176,189,0.10); border-color: rgba(88,176,189,0.30); }
+  /* NEW badge — client-side, auto-expires 72h after each card's data-published date */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:12px;z-index:3;display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#ff3b30,#ff9500);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:11px;box-shadow:0 2px 6px rgba(255,59,48,.45);animation:newpulse 1.6s ease-in-out infinite;pointer-events:none;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,.5);}50%{box-shadow:0 0 0 6px rgba(255,59,48,0);}}
+  @media (prefers-reduced-motion:reduce){.new-badge{animation:none;}}
+  body.dark .new-badge{box-shadow:0 2px 8px rgba(255,59,48,.6);}
+</style>
+</head>
+<body>
+<script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
+<div class="container">
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Sector-scoped edition &mdash; Aviation. For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity and exploitation indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
+  </div>
+
+  <!-- NAV + PARTNERSHIP ROW -->
+  <div class="navrow">
+
+  <!-- BRAND BAR -->
+  <div class="brandbar">
+    <div class="brand-right">
+      <div class="tag">In partnership with Mike Holcomb &amp; <img class="partner-logo" alt="UtilSec" src="https://utilsec.github.io/ot-threat-dashboard/utilsec-logo.png"></div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" title="Switch between light and dark mode">&#9790; Dark mode</button>
+    </div>
+  </div>
+
+  <!-- SECTOR NAV -->
+  <div class="sector-nav">
+    <a href="https://otthreatfeed.com/" target="_top">All Sectors</a>
+    <a href="https://otthreatfeed.com/power" target="_top">Power</a>
+    <a href="https://otthreatfeed.com/water" target="_top">Water</a>
+    <a href="https://otthreatfeed.com/marine" target="_top">Marine</a>
+    <a href="https://otthreatfeed.com/manufacturing" target="_top">Manufacturing</a>
+    <a href="https://otthreatfeed.com/rail" target="_top">Rail</a>
+    <a href="https://otthreatfeed.com/aviation" class="sn-active" target="_top">Aviation</a>
+    <a href="https://otthreatfeed.com/food" target="_top">Food &amp; Ag</a>
+    <a href="https://itthreatfeed.com/" target="_top">IT Threat Feed</a>
+  </div>
+  </div><!-- /navrow -->
+
+  <!-- HEADER -->
+  <div class="header">
+    <svg class="sector-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#c2410c" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16z"/></svg>
+    <div class="header-title">
+      <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
+      <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
+      <div class="header-meta">
+        <span>Generated Saturday, 15 Aug 2026, 1:45 PM ET</span>
+        <span class="dot">&bull;</span>
+        <span class="sector-badge">Sector: Aviation</span>
+      </div>
+    </div>
+    <div class="story-count">
+      <strong>14</strong> stories across
+      <strong>4</strong> categories
+    </div>
+  </div>
+
+  <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run — see CLAUDE.md) -->
+  <style>
+  .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+  .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
+  .tl-num{font-size:34px;font-weight:800;color:var(--tl-c,#dc2626);letter-spacing:-.5px;}
+  .tl-den{font-size:15px;font-weight:600;color:#64748b;}
+  .tl-main{flex:1 1 320px;min-width:260px;}
+  .tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .tl-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+  .tl-band{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--tl-c,#dc2626);padding:2px 10px;border-radius:999px;}
+  .tl-meter{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,#16a34a 0%,#16a34a 40%,#eab308 40%,#eab308 70%,#f97316 70%,#f97316 90%,#dc2626 90%,#dc2626 100%);}
+  .tl-marker{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tl-c,#dc2626);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .tl-why{flex:1 1 100%;font-size:12.5px;color:#475569;margin-top:2px;}
+  .tl-why b{color:#334155;}
+  body.dark .threat-level{background:var(--tl-bgd,rgba(220,38,38,.10));border-color:rgba(255,255,255,.12);}
+  body.dark .tl-den,body.dark .tl-label{color:#94a3b8;}
+  body.dark .tl-why{color:#cbd5e1;}
+  body.dark .tl-why b{color:#e2e8f0;}
+  body.dark .tl-marker{background:#0f172a;}
+  </style>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to airport, airline and ground-handling operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
+    <div class="tl-score"><span class="tl-num">4.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-main">
+      <div class="tl-top">
+        <span class="tl-label">Overall Threat Level</span>
+        <span class="tl-band">Medium</span>
+      </div>
+      <div class="tl-meter"><span class="tl-marker" style="left:46%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, new page &mdash; confirmed operational disruption at airports this cycle, but from physical and hybrid threats rather than a cyber compromise of aviation systems. Three airports lost runway or airspace capacity in a week: an explosive-carrying drone was found beside the south runway at Leipzig/Halle on 5&ndash;6&nbsp;August with the detonator separated, a drone closed Hannover for over two hours where police counter-drone systems reportedly failed to detect it at all, and 22 flights were grounded or diverted at Ho&nbsp;Chi&nbsp;Minh&nbsp;City. Under this scale, disruption that is not a cyber-OT compromise sits in Medium regardless of how visible it is. Supporting the band rather than lifting it: the NTSB is investigating a fatal medevac crash that followed GPS loss during a military jamming exercise, with no probable cause determined and no causal link established; the FAA records a 65% year-on-year rise in GPS signal loss per 1,000 flights; and GAO found TSA has not clearly defined aviation cybersecurity roles and is still working from a 2018 roadmap. Active KEV exploitation of Cisco ASA/FTD, N-able N-central and Kemp LoadMaster is the realistic route into ground systems, where every documented aviation cyber loss of the last two years has actually landed. A confirmed compromise of passenger processing, ground handling or airfield OT would move this into upper Medium or High.</div>
+    </div>
+  </div>
+  <!-- /THREAT LEVEL -->
+
+  <!-- HERO: TOP STORY + RADAR -->
+  <div class="hero">
+
+    <!-- TOP STORY -->
+    <div class="top-story" id="story-drones" data-published="2026-08-12">
+      <span class="top-story-pill">Top Story</span>
+      <h2>Three airports lost runway capacity to drones in a week &mdash; and one of the drones was carrying explosives</h2>
+      <p>On the night of 5&ndash;6&nbsp;August&nbsp;2026 an airport worker at Leipzig/Halle found a drone carrying an explosive device near the south runway; the detonator had separated, preventing detonation, and an EOD robot removed it. Both runways closed temporarily and flights diverted. German Interior Minister Alexander&nbsp;Dobrindt described it as a new quality of danger and a possible hybrid-attack scenario. On 11&nbsp;August a drone closed Hannover-Langenhagen&rsquo;s airspace for over two hours; Der&nbsp;Spiegel reported that police counter-drone detection systems failed to register it, suggesting a non-commercial airframe. On 11&ndash;12&nbsp;August a departing Boeing&nbsp;777 spotted a drone at 1,800&nbsp;ft near Ho&nbsp;Chi&nbsp;Minh&nbsp;City&rsquo;s Tan&nbsp;Son&nbsp;Nhat, and a second sighting closed Vietnam&rsquo;s busiest airport for over two hours, grounding or diverting at least 22 flights. These are physical and hybrid incidents rather than cyber compromises of airport systems &mdash; but they hit the same target that a cyber attack on airfield systems would, and the Hannover detection failure is a control gap, not a policy one.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed operational disruption at three airports &mdash; physical/hybrid, not a cyber compromise</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable &mdash; counter-UAS detection and response capability</span>
+          <span class="ops-cc"><b>Action:</b> Ask your counter-UAS provider the Hannover question directly: what classes of airframe does the deployed system not detect, and how would you know it missed one. Then confirm that drone detection alerts actually reach the people who can close a runway, within the seconds that matter, and rehearse that handoff.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Counter-UAS detection coverage and alert-to-decision review &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-drones" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-drones">Open</button>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span>Leipzig/Halle and Hannover authorities, Vietnamese aviation authorities &mdash; via NPR, Der Spiegel</span>
+        <span class="dot">&bull;</span>
+        <span>Incidents 5&ndash;12 Aug 2026</span>
+      </div>
+      <a href="https://www.npr.org/2026/08/06/g-s1-137571/germany-drone-explosives-airport" class="source-link" target="_blank" rel="noopener">Read source</a>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-panel">
+      <div class="radar-head">Threat Radar</div>
+      <div class="radar-sub">Critical &amp; high items across all sections &mdash; larger blips = higher severity/priority. Click a blip to jump to the story.</div>
+      <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
+        <defs>
+          <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.10)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </radialGradient>
+          <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="40%">
+            <stop offset="0%" stop-color="rgba(78,157,168,0.25)"/>
+            <stop offset="100%" stop-color="rgba(78,157,168,0)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="180" r="160" fill="url(#rg)" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="110" fill="none" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="60" fill="none" stroke="#d0d7de"/>
+        <line x1="20" y1="180" x2="340" y2="180" stroke="#e5e8eb"/>
+        <line x1="180" y1="20" x2="180" y2="340" stroke="#e5e8eb"/>
+        <g class="radar-sweep">
+          <path d="M180 180 L340 180 A160 160 0 0 1 318.6 260 Z" fill="url(#sweep)"/>
+        </g>
+        <circle cx="180" cy="180" r="3" fill="#8b949e"/>
+        <text class="ring-label" x="180" y="127">Critical</text>
+        <text class="ring-label" x="180" y="77">High</text>
+        <a href="#story-drones"><circle class="blip crit" cx="235" cy="160" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="235" y="164.7">1</text></a>
+        <a href="#story-gpsjam"><circle class="blip crit" cx="125" cy="200" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="125" y="204.3">2</text></a>
+        <a href="#story-gaoaviation"><circle class="blip high" cx="244" cy="88" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="244" y="92.0">3</text></a>
+        <a href="#story-ciscokev"><circle class="blip high" cx="287" cy="213" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="287" y="216.7">4</text></a>
+        <a href="#story-ncentral"><circle class="blip high" cx="182" cy="292" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="182" y="295.4">5</text></a>
+        <a href="#story-avransom"><circle class="blip high" cx="74" cy="216" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="74" y="219.1">6</text></a>
+        <a href="#story-partis"><circle class="blip high" cx="113" cy="91" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="113" y="93.8">7</text></a>
+      </svg>
+
+      <div class="radar-legend">
+        <a href="#story-drones"><span class="ld crit"></span><b>1</b> Explosive drone at Leipzig/Halle</a>
+        <a href="#story-gpsjam"><span class="ld crit"></span><b>2</b> NTSB: crash after GPS jamming</a>
+        <a href="#story-gaoaviation"><span class="ld high"></span><b>3</b> GAO: TSA aviation cyber gaps</a>
+        <a href="#story-ciscokev"><span class="ld high"></span><b>4</b> Cisco ASA/FTD +3 in CISA KEV</a>
+        <a href="#story-ncentral"><span class="ld high"></span><b>5</b> N-able N-central exploited</a>
+        <a href="#story-avransom"><span class="ld high"></span><b>6</b> Qilin / Scattered Spider aviation</a>
+        <a href="#story-partis"><span class="ld high"></span><b>7</b> EASA Part-IS now in force</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Counter-UAS</span>
+        <b class="trend-head">Drones closed three airports in a week, and detection missed one</b>
+        <p>An explosive-carrying drone at Leipzig/Halle, an airspace closure at Hannover where police counter-drone systems reportedly failed to register the aircraft at all, and 22 flights grounded at Ho&nbsp;Chi&nbsp;Minh&nbsp;City. These are physical and hybrid incidents rather than cyber compromises, but they hit the same target &mdash; runway availability &mdash; and the Hannover detection failure is a capability gap operators can actually test for.</p>
+        <a href="https://www.npr.org/2026/08/06/g-s1-137571/germany-drone-explosives-airport" class="source-link" target="_blank" rel="noopener">NPR</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Aviation</span>
+        <b class="trend-head">The aviation losses keep landing on the ground</b>
+        <p>Reservations, ground handling, MRO IT, crew scheduling, passenger processing &mdash; every publicly documented aviation disruption of the last two years originated in a ground system or a third party running one, not in an aircraft. A peer-reviewed study reaches the same conclusion, and GAO says TSA has not clearly defined who owns aviation cybersecurity. Meanwhile the in-flight risk conversation still gets most of the airtime.</p>
+        <a href="https://www.helpnetsecurity.com/2026/07/31/eliran-almong-cyviation-aviation-cyber-risk/" class="source-link" target="_blank" rel="noopener">Help Net Security</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">RF &amp; GNSS</span>
+        <b class="trend-head">Radio is turning into everyone&rsquo;s unauthenticated control channel</b>
+        <p>Aviation is logging a 65% year-on-year rise in GPS signal loss per 1,000 flights and an NTSB investigation into a fatal crash after GPS loss during a jamming exercise; mariners are going dark on AIS in conflict waters; rail&rsquo;s clearest OT compromise to date was a forged train-radio alarm from a hobby SDR. Different sectors, one pattern &mdash; safety-critical RF channels with weak or absent authentication, and monitoring tools that cannot see the spectrum at all.</p>
+        <a href="https://www.stripes.com/theaters/us/2026-08-05/ntsb-medevac-crash-gps-jamming-22466131.html" class="source-link" target="_blank" rel="noopener">FAA / NTSB</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">IT/OT</span>
+        <b class="trend-head">The KEV list keeps filling up with your perimeter</b>
+        <p>Cisco ASA and Firepower, N-able N-central, Kemp LoadMaster, a Windows kernel driver &mdash; August&rsquo;s KEV additions are not ICS products, and that is precisely the point. They are the firewalls, RMM platforms and load balancers sitting between the internet and the plant, and they are being exploited now rather than theoretically. Dragos&rsquo;s finding that no Q2 ransomware case reached stage&nbsp;2 of the ICS kill chain fits: attackers do not need to reach the controller to stop production.</p>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Incidents &amp; Attacks -->
+  <div class="section">
+    <div class="section-title">Incidents &amp; Attacks</div>
+    <div class="card-grid">
+      <div class="card" id="story-gpsjam" data-published="2026-08-05">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; GNSS</span>
+        </div>
+        <h3>NTSB is investigating a fatal medevac crash that followed GPS loss during a military jamming exercise</h3>
+        <p>The NTSB is investigating the crash of a Beechcraft King&nbsp;Air&nbsp;C90 medevac aircraft into New&nbsp;Mexico&rsquo;s Capitan Mountains on 14&nbsp;May&nbsp;2026, which killed two pilots and two nurses. The aircraft lost GPS signal during an active military GPS-jamming exercise at White&nbsp;Sands; three other aircraft reported GPS loss the same night. Be precise about what is established: the NTSB confirms the jamming exercise took place and that GPS was lost, but has not determined probable cause or contributing factors, so any causal link remains unproven. The context is a documented global rise in GNSS interference &mdash; the FAA&rsquo;s updated GPS/GNSS Interference Resource Guide (v1.1, April&nbsp;2026) cites a 65% year-on-year increase in GPS signal loss per 1,000 flights and eight persistent jamming and spoofing hotspots worldwide.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-poc">Confirmed GPS loss during a confirmed jamming exercise; causal link to the crash NOT established</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable &mdash; navigation resilience, deconfliction and reporting</span>
+          <span class="ops-cc"><b>Action:</b> Confirm your operation reports suspected GNSS interference to the FAA &mdash; the hotspot picture is only as good as the reports feeding it, and most interference goes unreported. Check that crews retain and practise non-GNSS navigation procedures, and that your dispatch is aware of scheduled military jamming activity along planned routes.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> GNSS interference reporting and crew procedure review &mdash; 60 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-gpsjam" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-gpsjam">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>NTSB investigation &mdash; via Stars and Stripes; FAA GPS/GNSS Interference Resource Guide v1.1</span>
+          <span class="dot">&bull;</span>
+          <span>Crash 14 May 2026; NTSB reporting 5 Aug 2026</span>
+        </div>
+        <a href="https://www.stripes.com/theaters/us/2026-08-05/ntsb-medevac-crash-gps-jamming-22466131.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-waterot" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; OT disruption</span>
+        </div>
+        <h3>Attackers took hands-on control of water-utility PLCs across a dozen states &mdash; locking out operators and knocking a treatment plant offline</h3>
+        <p>Between 26&ndash;27&nbsp;July&nbsp;2026 a coordinated campaign disrupted automated controls at more than 30 Minnesota community water systems, and confirmed intrusions have since been reported across roughly a dozen states including Georgia, Michigan, South Dakota, Alabama and New Jersey. This is hands-on manipulation of control equipment, not a data breach: CISA says the actors changed PLC passwords and altered device IP addresses to lock operators out of their own equipment. In Braham,&nbsp;Minnesota a pump failure forced a treatment facility offline and prompted a resident conservation notice; Clayton County,&nbsp;Georgia issued a precautionary boil-water advisory after a pump-station disruption, later lifted. Dragos&rsquo;s Rob&nbsp;Lee told NPR he could not recall &ldquo;this many targets at once with operational impact.&rdquo; Every affected utility reported that drinking water stayed safe, with staff falling back to manual operation. Federal officials have pointed to Iran-linked activity &mdash; a TLP:AMBER WaterISAC assessment reportedly found the evidence aligned with campaigns previously attributed to Iran &mdash; but no formal public attribution has been made, so treat the actor as suspected rather than confirmed.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed OT-disruptive incident &mdash; operator lockout, pump failure, plant offline across multiple utilities</span>
+          <span class="ops-tag kev-off">No single CVE &mdash; abuse of internet-exposed PLCs, default/absent credentials and weak remote access</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">No patch &mdash; architectural: remove OT from the internet, credential and remote-access hygiene</span>
+          <span class="ops-cc"><b>Action:</b> Today, not this quarter: find every controller, HMI and cellular router of yours reachable from the internet and take it off. Then change every default and shared PLC password, put remote access behind MFA and a broker, back up and hash your PLC project files and logic so you can prove and restore known-good state, and rehearse running the plant manually with the SCADA layer assumed hostile.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure sweep and credential reset &mdash; immediate (7 days)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-waterot" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-waterot">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>CISA / FBI / EPA, MNIT and affected city statements &mdash; via NPR, The Record, Dark Reading, BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Incidents from 26 Jul 2026; scope reporting through 12 Aug 2026</span>
+        </div>
+        <a href="https://www.npr.org/2026/08/12/nx-s1-5927437/cyberattack-water-iran-war" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Critical Advisories -->
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+      <div class="card" id="story-ciscokev" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; CISA KEV</span>
+        </div>
+        <h3>Cisco ASA and Firepower join KEV under active exploitation &mdash; the OT perimeter is the target again</h3>
+        <p>CISA added CVE-2026-20349, a heap-inspection vulnerability in Cisco Secure Firewall ASA and Firepower Threat Defense software, to the Known Exploited Vulnerabilities catalogue on 11&nbsp;August&nbsp;2026, citing evidence of active exploitation. The same batch added CVE-2026-68820, a use-after-free in the Windows <code>afd.sys</code> driver enabling local privilege escalation &mdash; relevant because Windows engineering workstations and HMI servers are exactly where that gets chained after initial access &mdash; and CVE-2026-72898, a SQL injection in Metabase exposing stored credentials. Earlier in the month CISA added CVE-2026-8037, an unauthenticated command injection in Progress Kemp LoadMaster carrying CVSS&nbsp;9.6, after sustained exploitation attempts, with a federal patch deadline of 10&nbsp;August under BOD&nbsp;26-04. None of these are ICS products. All of them sit in front of, or inside, the path into OT.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; all four added to KEV on evidence of exploitation</span>
+          <span class="ops-tag kev-on">CVE-2026-20349, CVE-2026-68820, CVE-2026-72898, CVE-2026-8037 &mdash; all in CISA KEV</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-yes">Available &mdash; vendor fixes released</span>
+          <span class="ops-cc"><b>Action:</b> Patch the perimeter and remote-access tier on the KEV clock, not your OT change-control clock &mdash; these devices are IT-managed but they are the front door to your plant network. Then verify what a compromise of that firewall would actually reach: if the answer is &ldquo;the control network,&rdquo; the segmentation work matters more than the patch.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Perimeter / remote-access patching &mdash; 7 days (Critical)</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-ciscokev" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-ciscokev">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>CISA KEV catalogue &mdash; via The Hacker News, CyberExperts</span>
+          <span class="dot">&bull;</span>
+          <span>KEV additions 3, 4, 7 and 11 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-ncentral" data-published="2026-08-04">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Remote access</span>
+        </div>
+        <h3>An N-able N-central auth bypass was exploited, patched incompletely, then exploited again</h3>
+        <p>CISA added two N-able N-central authentication-bypass flaws to KEV within two days: CVE-2026-18556 and CVE-2026-18577, both CVSS&nbsp;8.2, the second being an incomplete-fix follow-on to the first. N-able confirmed a limited number of customer breaches. Attackers who exploit it take over administrator accounts and can pivot to managed endpoints through the platform&rsquo;s Take&nbsp;Control remote-session feature. Huntress reported that 55.6% of reachable cloud servers were still unpatched at the time of its analysis. The fix is 2026.3.1.7 / 2026.3&nbsp;HF1. RMM platforms matter disproportionately in OT because they are how integrators, machine builders and managed-service providers reach plant equipment &mdash; often through a path that was never security-reviewed and does not appear on the network diagram.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; N-able confirmed customer breaches; both CVEs in KEV</span>
+          <span class="ops-tag kev-on">CVE-2026-18556 and CVE-2026-18577 &mdash; both in CISA KEV</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-yes">Available &mdash; 2026.3.1.7 / 2026.3 HF1</span>
+          <span class="ops-cc"><b>Action:</b> Patch immediately if you run N-central. More importantly, ask which RMM and remote-support tools your integrators and OEMs use to reach your equipment, whether those sessions are brokered and logged on your side, and whether you can revoke that access unilaterally today. Most sites cannot answer the third question.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; immediate; third-party remote-access review &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-ncentral" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-ncentral">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>CISA KEV; N-able advisory &mdash; via The Hacker News, Help Net Security</span>
+          <span class="dot">&bull;</span>
+          <span>KEV additions 3&ndash;4 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-patchtuesday" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; ICS Patch Tuesday</span>
+        </div>
+        <h3>August ICS Patch Tuesday: a maximum-severity missing-authentication flaw in Siemens Simatic IoT2050, plus Schneider and Phoenix Contact fixes</h3>
+        <p>Siemens published ten advisories in the August cycle. The headline item is a maximum-severity missing-authentication vulnerability in Simatic&nbsp;IoT2050&nbsp;Advanced edge devices that a remote, unauthenticated attacker could use to execute code with elevated privileges. Also in the batch: an OS command injection in Siemens Siveillance&nbsp;Video / Milestone XProtect management servers (CVE-2026-3014, CVSS&nbsp;v3.1 9.1, v4.0 6.4) exploitable by users holding edit permissions, and two Siemens License Server flaws &mdash; CVE-2026-69108 (CVSS&nbsp;6.0, local privilege escalation via an insecure sudoers policy) and CVE-2026-69109 (CVSS&nbsp;7.5, path traversal), fixed in v5.1+ and v5.3+ respectively. Schneider&nbsp;Electric addressed two code/command execution issues in NetBotz&nbsp;5 and an authentication-attempt flaw in PowerChute Serial Shutdown. Phoenix&nbsp;Contact published a PLCnext firmware advisory covering unauthenticated denial-of-service and malicious SQL query execution.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">No exploitation reported for these items at publication</span>
+          <span class="ops-tag kev-off">None of these CVEs in CISA KEV as of this edition</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-yes">Available &mdash; vendor updates released across the August cycle</span>
+          <span class="ops-cc"><b>Action:</b> The IoT2050 item deserves priority attention over the rest of the batch: edge devices sit at the IT/OT boundary by design, and unauthenticated code execution there is a boundary bypass. For the License Server flaws, remember it is installed far more widely than the engineering stations people think of &mdash; check licence infrastructure, not just controllers.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Edge-device items &mdash; 30 days; remainder to normal patch cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-patchtuesday">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>Siemens ProductCERT, Schneider Electric, Phoenix Contact &mdash; via SecurityWeek and CISA ICSA-26-225-07 / -09</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor release 11 Aug 2026; reported 12&ndash;13 Aug 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-jci" data-published="2026-08-06">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Building systems</span>
+        </div>
+        <h3>Johnson Controls patched hardcoded credentials in the TL280 communicator and cross-site scripting in Metasys UI</h3>
+        <p>Two Johnson&nbsp;Controls advisories landed in the August cycle. ICSA-26-218-02 covers CVE-2026-27871, hardcoded credentials in the TL280 internet security alarm communicator on firmware below 5.63, which could expose sensitive device data; CISA scores it CVSS&nbsp;v3.1 4.1 / v4.0 2.1 and notes high attack complexity. ICSA-26-225-14 covers a cross-site scripting weakness in the Metasys&nbsp;UI building-automation front end. CISA also issued Update&nbsp;A to its earlier advisory for C-CURE&nbsp;9000 and victor application servers. Neither individual flaw is dramatic. The reason they belong on an OT page is placement: building automation, access control and alarm communications routinely share network segments with industrial systems while sitting outside the OT patching programme and often outside the OT asset register entirely.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">No exploitation reported</span>
+          <span class="ops-tag kev-off">CVE-2026-27871 &mdash; not in CISA KEV</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-yes">Available &mdash; TL280 firmware 5.63; vendor updates for Metasys and C-CURE 9000</span>
+          <span class="ops-cc"><b>Action:</b> Use this as the prompt to settle an ownership question rather than a patching one: decide who is accountable for building-automation and physical-security systems on your industrial sites, get them into the same asset register as the OT, and confirm they are not sharing a flat segment with process control.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Facilities/OT ownership and segmentation review &mdash; this planning cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-jci" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-jci">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>CISA ICSA-26-218-02, ICSA-26-225-14, ICSA-26-204-01 Update A</span>
+          <span class="dot">&bull;</span>
+          <span>Published 6 and 13 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Threat Intelligence &amp; Research -->
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+      <div class="card" id="story-groundrisk" data-published="2026-07-31">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Threat Intel &mdash; Sector analysis</span>
+        </div>
+        <h3>Aviation&rsquo;s expensive cyber losses happen on the ground, not in the air</h3>
+        <p>Cyviation chief executive Eliran&nbsp;Almog argues that material aviation cyber losses come from ground systems &mdash; reservations, ground handling, MRO IT, crew scheduling &mdash; rather than in-flight compromise, while aircraft remain exposed as data endpoints consuming navigation databases and loadable software with limited integrity checking. He flags GNSS jamming and spoofing as effectively invisible to standard SIEM and SOC tooling, which are built around IT telemetry and have no view of the RF environment. His recommendation for smaller carriers is to prioritise multi-factor authentication on ground operations and basic aircraft-visibility tooling over building an in-house security team. It is a vendor perspective and should be read as one, but the ground-systems point matches where every publicly documented aviation disruption of the last two years has actually landed.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Not applicable &mdash; sector analysis; vendor perspective</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable</span>
+          <span class="ops-cc"><b>Action:</b> Rank your aviation cyber spend against where disruption has actually originated: ground handling, passenger processing, crew and MRO systems, and the third parties running them. If your programme is weighted toward aircraft systems and light on ground-system MFA and supplier assurance, the balance is wrong.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Ground-systems control review &mdash; this planning cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-groundrisk" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-groundrisk">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>Eliran Almog, Cyviation &mdash; via Help Net Security</span>
+          <span class="dot">&bull;</span>
+          <span>Published 31 Jul 2026</span>
+        </div>
+        <a href="https://www.helpnetsecurity.com/2026/07/31/eliran-almong-cyviation-aviation-cyber-risk/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-avransom" data-published="2026-05-06">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Threat Intel &mdash; Targeting</span>
+        </div>
+        <h3>Ransomware crews and espionage actors both treat aviation as a priority sector</h3>
+        <p>Threat-landscape reporting from CybersecurityNews and PolySwarm describes aviation and aerospace as among the most actively targeted sectors through 2025 and 2026, naming Qilin, LockBit and Cl0p on the extortion side, Scattered&nbsp;Spider for identity-based intrusion and help-desk social engineering, and espionage-focused groups including Refined&nbsp;Kitten, Wicked&nbsp;Panda and Fancy&nbsp;Bear against aerospace and defence-adjacent targets. The incidents most often cited &mdash; the Collins&nbsp;Aerospace MUSE passenger-processing compromise in September&nbsp;2025 and the Qilin attack on Tulsa&nbsp;International&nbsp;Airport in January&nbsp;2026 &mdash; predate this reporting window and are referenced as actor context, not fresh events. The Scattered&nbsp;Spider element deserves attention because the initial access is a phone call to a service desk, and no amount of OT segmentation addresses that.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Landscape assessment &mdash; individual incidents cited carry their own status and predate this window</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable</span>
+          <span class="ops-cc"><b>Action:</b> Test your service desk against a help-desk social-engineering scenario &mdash; a caller claiming to be a stranded crew member or contractor needing an urgent credential reset. Then check whether your ground-handling and passenger-processing vendors have done the same, because their service desk is also your attack surface.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Service-desk social-engineering test &mdash; 90 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-avransom" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-avransom">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>CybersecurityNews; PolySwarm threat analysis</span>
+          <span class="dot">&bull;</span>
+          <span>Published May 2026 &mdash; standing actor context</span>
+        </div>
+        <a href="https://cybersecuritynews.com/ransomware-groups-intensify-targeting-of-aviation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-airportstudy" data-published="2026-03-19">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research &mdash; Academic</span>
+        </div>
+        <h3>Peer-reviewed analysis puts airports&rsquo; central vulnerability in their third-party digital dependencies</h3>
+        <p>A study in the Journal of Transportation Security analysing 2024 and 2025 incidents concludes that airports&rsquo; heavy dependence on third-party digital services &mdash; check-in, baggage handling, public Wi-Fi and airline portals &mdash; is the sector&rsquo;s central vulnerability, citing ransomware against passenger-processing systems and drone intrusions at Copenhagen and Oslo as illustrative cases. The recommendation is coordinated international threat management and shared resilience initiatives. It is included as background rather than news. The value for an operator is the framing: an airport is an integrator of other organisations&rsquo; systems on a shared physical site, and its security posture is largely determined by contracts and interfaces rather than by anything inside its own firewall.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Not applicable &mdash; academic analysis</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable</span>
+          <span class="ops-cc"><b>Action:</b> Draw the map the study implies: every third-party system on your site, who operates it, what it connects to, and which of them can stop passenger flow. Most airports discover the list is longer than expected and that several entries have no named internal owner.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Third-party system dependency map &mdash; 90 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-airportstudy" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-airportstudy">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>Journal of Transportation Security (Springer)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 19 Mar 2026 &mdash; background</span>
+        </div>
+        <a href="https://link.springer.com/article/10.1007/s12198-026-00337-y" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-dragosq2" data-published="2026-08-10">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Intel &mdash; Ransomware</span>
+        </div>
+        <h3>Dragos counted 1,140 industrial ransomware incidents in Q2 &mdash; and not one reached stage&nbsp;2 of the ICS kill chain</h3>
+        <p>Dragos&rsquo;s Q2&nbsp;2026 industrial ransomware analysis recorded 1,140 incidents against industrial organisations, up 12% on Q1. Manufacturing absorbed 747 of them (65%), led by construction at 176 and equipment manufacturing at 114; food and beverage accounted for 70. The finding worth carrying into your own risk conversations is the negative one: Dragos found no case in Q2 where a ransomware operator reached stage&nbsp;2 of the ICS Cyber Kill Chain. Production stopped because enterprise IT and ERP systems stopped &mdash; order entry, scheduling, shipping, labelling &mdash; not because anyone touched a controller. Named Q2 cases include West&nbsp;Pharmaceutical&nbsp;Services and Foxconn, the latter with a roughly two-week outage at Wisconsin and Texas sites. That pattern should shape where you spend: the loss is real, but the control is IT/OT dependency mapping and recovery, not deeper controller hardening.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Not applicable &mdash; incident-tracking analysis</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable</span>
+          <span class="ops-cc"><b>Action:</b> Map which enterprise systems your plant genuinely cannot run without for more than a shift &mdash; MES, historian, ERP order flow, label printing, shipping manifests &mdash; and test running without each one. That list, not a controller inventory, is what determines how long a ransomware event stops your production.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> IT/OT dependency mapping and manual-operation test &mdash; this planning cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-dragosq2" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-dragosq2">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>Dragos Q2 2026 Industrial Ransomware Analysis &mdash; via Help Net Security</span>
+          <span class="dot">&bull;</span>
+          <span>Published 10&ndash;11 Aug 2026</span>
+        </div>
+        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Regulation &amp; Policy -->
+  <div class="section">
+    <div class="section-title">Regulation &amp; Policy</div>
+    <div class="card-grid">
+      <div class="card" id="story-gaoaviation" data-published="2026-07-16">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Regulation &mdash; Oversight</span>
+        </div>
+        <h3>GAO found TSA has not defined who owns aviation cybersecurity &mdash; and is still working from a 2018 roadmap</h3>
+        <p>GAO report 26-107693 examined how the FAA and TSA manage aviation cybersecurity. The FAA has defined cybersecurity roles across seven entities but under-reported cybersecurity costs to OMB for fiscal years 2024 to 2026, and has fully implemented three of seven Zero Trust strategic objectives. The finding against TSA is more serious: GAO says TSA has not clearly defined cybersecurity roles and responsibilities and is still operating from a 2018 Cybersecurity Roadmap that is misaligned with current DHS strategy. GAO issued five recommendations, four to the FAA and one to TSA. For airport and airline operators the practical read is that the agency setting your cyber requirements is itself working from an outdated internal framework &mdash; expect requirements to change, and build programmes that can absorb that rather than compliance artefacts tuned to today&rsquo;s directive text.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Not applicable &mdash; oversight and governance findings</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable</span>
+          <span class="ops-cc"><b>Action:</b> Build your aviation cyber programme against a durable framework you control &mdash; asset inventory, segmentation, access control, tested recovery &mdash; and map it to the current TSA directive rather than building directly to the directive. When the requirements are re-cut, mapping is a document change instead of a programme rebuild.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Framework-to-directive mapping review &mdash; this planning cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-gaoaviation" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-gaoaviation">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>US Government Accountability Office, GAO-26-107693</span>
+          <span class="dot">&bull;</span>
+          <span>Published 16 Jul 2026</span>
+        </div>
+        <a href="https://www.gao.gov/products/gao-26-107693" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-partis" data-published="2026-02-22">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Regulation &mdash; EASA Part-IS</span>
+        </div>
+        <h3>EASA Part-IS now binds air operators, ANSPs and maintenance organisations &mdash; full compliance is due August 2027</h3>
+        <p>EASA&rsquo;s Part-IS regime &mdash; Delegated Regulation (EU) 2022/1645 and Implementing Regulation (EU) 2023/203 &mdash; requires an information security management system covering risk assessment, incident detection and response, mandatory incident reporting and supply-chain risk evaluation. Air operators, air navigation service providers, maintenance and training organisations and competent authorities came into scope on 22&nbsp;February&nbsp;2026, following aerodrome operators and design and production organisations on 16&nbsp;October&nbsp;2025. Full compliance across the sector is required by 22&nbsp;August&nbsp;2027. The supply-chain evaluation requirement is the one most organisations underestimate: it reaches the ground handlers, MRO providers and IT suppliers whose compromise has caused most real aviation disruption, and it demands documented assessment rather than a signed questionnaire.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Not applicable &mdash; regulatory requirement</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable</span>
+          <span class="ops-cc"><b>Action:</b> With roughly a year to full compliance, start with the supply-chain element because it has the longest lead time &mdash; identify every provider whose failure would stop your operation, and build documented, evidence-based assessments rather than questionnaire responses. The ISMS paperwork can be written faster than supplier relationships can be renegotiated.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Part-IS supply-chain assessment programme &mdash; start this quarter</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-partis" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-partis">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>EASA Part-IS &mdash; Regulations (EU) 2022/1645 and 2023/203; analysis via Jones Day</span>
+          <span class="dot">&bull;</span>
+          <span>In force from 22 Feb 2026; full compliance 22 Aug 2027</span>
+        </div>
+        <a href="https://www.jonesday.com/en/insights/2026/02/civil-aviation-cybersecurity-easa-partis-sets-new-information-security-obligations" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-radalt" data-published="2026-07-31">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Regulation &mdash; Avionics</span>
+        </div>
+        <h3>The FAA finalised a rule requiring interference-tolerant radio altimeters</h3>
+        <p>The FAA published a final rule on 31&nbsp;July&nbsp;2026 requiring all US aircraft to be fitted with radio altimeters meeting a new interference tolerance mask standard, so they withstand adjacent-band C-band wireless signals. The stated concern is that RF interference could produce erroneous altitude data feeding navigation and safety systems. Compliance deadlines are 30&nbsp;December&nbsp;2030 for major and foreign air carriers and 31&nbsp;October&nbsp;2034 for other operators. It is a safety and spectrum rule rather than a cyber advisory, and it is included here for a specific reason: it is a rare case of a regulator mandating hardware-level resilience to RF interference in a safety-critical sensor path, which is the same class of problem as the GNSS interference and unauthenticated RF signalling issues showing up across aviation, rail and maritime.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-none">Not applicable &mdash; RF interference resilience rule</span>
+          <span class="ops-tag kev-off">No CVE</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">Not applicable &mdash; equipment fitment programme with 2030/2034 deadlines</span>
+          <span class="ops-cc"><b>Action:</b> Fold the altimeter fitment programme into your existing fleet-modification planning now rather than treating it as a 2030 problem &mdash; retrofit slots and supplier capacity are the constraint, not the deadline. Meanwhile treat any safety-critical sensor whose input can be influenced from outside the airframe as part of your threat model.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Fleet retrofit planning &mdash; this planning cycle</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-radalt" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="av-radalt">Open</button>
+        </div>
+      </div>
+        <div class="card-meta">
+          <span>FAA final rule &mdash; Federal Register</span>
+          <span class="dot">&bull;</span>
+          <span>Published 31 Jul 2026</span>
+        </div>
+        <a href="https://www.govinfo.gov/content/pkg/FR-2026-07-31/html/2026-15585.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Aviation.</p>
+    <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand on 15&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and the Known Exploited Vulnerabilities catalogue, CISA/FBI/EPA/NSA joint advisory AA26-097A, vendor PSIRTs (Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Phoenix Contact, Johnson Controls, AVEVA), Claroty Team82 and Dragos research, WaterISAC, USCG and MARAD, and reporting from BleepingComputer, The Record, SecurityWeek, Dark Reading, Cybersecurity Dive, The Hacker News, TechCrunch, Nextgov/FCW, NPR and Industrial Cyber. This inaugural aviation edition draws additionally on GAO report 26-107693, the FAA&rsquo;s GPS/GNSS Interference Resource Guide and Federal Register rulemaking, EASA Part-IS (Regulations (EU) 2022/1645 and 2023/203), NTSB investigation reporting via Stars and Stripes, NPR and Der Spiegel on the August airport drone incidents, and analysis from Help Net Security and the Journal of Transportation Security. Aviation scope covers airport facility and ground OT, airline operations and MRO systems, and air traffic and navigation topics where there is operational or safety-system impact. Every item links to its primary or best-available source; claims made by threat actors are labelled as claimed rather than confirmed. Not a replacement for ICS-CERT subscriptions or vendor PSIRT feeds &mdash; for time-critical advisories, subscribe directly.</p>
+    <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the Surface Transportation ISAC (ST-ISAC), and your vendors' PSIRT feeds directly.</p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var LS = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+  };
+  var STATUSES = [
+    { key: "open", label: "Open",         cls: "st-open" },
+    { key: "ack",  label: "Acknowledged", cls: "st-ack" },
+    { key: "mit",  label: "Mitigated",    cls: "st-mit" },
+    { key: "na",   label: "Not applicable", cls: "st-na" }
+  ];
+  function statusByKey(k) { for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === k) return STATUSES[i]; } return STATUSES[0]; }
+
+  // ---- Owner (editable, persisted) ----
+  var owners = document.querySelectorAll(".owner-edit");
+  owners.forEach(function (el) {
+    var key = "otdash.owner." + el.getAttribute("data-key");
+    var saved = LS.get(key);
+    if (saved) el.textContent = saved;
+    el.addEventListener("blur", function () {
+      var val = el.textContent.replace(/\s+/g, " ").trim();
+      el.textContent = val;
+      if (val) LS.set(key, val); else LS.del(key);
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); el.blur(); }
+    });
+  });
+
+  // ---- Status pill (cycle, persisted) ----
+  var pills = document.querySelectorAll(".status-pill");
+  pills.forEach(function (btn) {
+    var key = "otdash.status." + btn.getAttribute("data-key");
+    function render(stKey) {
+      var st = statusByKey(stKey);
+      btn.className = "status-pill " + st.cls;
+      btn.textContent = st.label;
+    }
+    render(LS.get(key) || "open");
+    btn.addEventListener("click", function () {
+      var cur = LS.get(key) || "open";
+      var idx = 0;
+      for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === cur) { idx = i; break; } }
+      var next = STATUSES[(idx + 1) % STATUSES.length].key;
+      LS.set(key, next);
+      render(next);
+    });
+  });
+
+  // ---- Light/dark theme toggle (persisted) ----
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    var renderTheme = function (dark) {
+      document.body.classList.toggle("dark", dark);
+      themeBtn.innerHTML = dark ? "&#9728; Light mode" : "&#9790; Dark mode";
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    };
+    renderTheme(LS.get("otdash.theme") === "dark");
+    themeBtn.addEventListener("click", function () {
+      var dark = !document.body.classList.contains("dark");
+      LS.set("otdash.theme", dark ? "dark" : "light");
+      renderTheme(dark);
+    });
+  }
+  // ---- Vendor / product chips (keyword-tagged, client-side) ----
+  (function () {
+    var MAP = [
+      ["Siemens", /siemens|simatic|sinec|ruggedcom|mendix|siprotec/i],
+      ["Rockwell", /rockwell|allen-bradley|controllogix|compactlogix|factorytalk|micro8\d0|studio 5000|rslinx/i],
+      ["Schneider", /schneider|ecostruxure|modicon|foxboro|triconex/i],
+      ["ABB", /\bABB\b/],
+      ["Honeywell", /honeywell/i],
+      ["Emerson", /emerson|\bovation\b|deltav/i],
+      ["Mitsubishi", /mitsubishi|melsec|melsoft|genesis64|iconics/i],
+      ["GE Vernova", /ge vernova/i],
+      ["Hitachi Energy", /hitachi/i],
+      ["SEL", /schweitzer|\bSEL\b/],
+      ["Yokogawa", /yokogawa/i],
+      ["Omron", /omron/i],
+      ["Beckhoff", /beckhoff/i],
+      ["FANUC", /fanuc/i],
+      ["PTC", /\bPTC\b|windchill|flexplm/i],
+      ["Fortinet", /fortinet|fortigate|fortios|fortibleed|fortimanager/i],
+      ["Ivanti", /ivanti/i],
+      ["Citrix", /citrix|netscaler|citrixbleed/i],
+      ["Cisco", /\bcisco\b/i],
+      ["Unitronics", /unitronics/i],
+      ["AVEVA", /aveva/i],
+      ["Ignition", /inductive automation|\bignition\b/i],
+      ["Delta", /delta electronics/i],
+      ["Advantech", /advantech/i],
+      ["Moxa", /moxa/i],
+      ["Sierra Wireless", /sierra wireless|airlink/i],
+      ["iDirect", /idirect/i],
+      ["Hydro-Québec", /hydro-qu|circuit électrique|circuit electrique/i],
+      ["Gardyn", /gardyn/i],
+      ["John Deere", /john deere/i],
+      ["Tetra Pak", /tetra pak/i],
+      ["Krones", /krones/i],
+      ["Kongsberg", /kongsberg/i],
+      ["Labcenter", /labcenter|proteus/i],
+      ["Modbus", /modbus/i],
+      ["Siemens S7", /s7comm|\bs7-?\d/i],
+      ["DNP3", /dnp3/i],
+      ["OPC UA", /opc ua|opc-ua/i],
+      ["OCPP", /\bocpp\b/i]
+    ];
+    document.querySelectorAll(".card, .top-story").forEach(function (card) {
+      if (card.querySelector(".vendor-chips")) return;
+      var ops = card.querySelector(".ops-strip");
+      if (!ops) return;
+      var h = card.querySelector("h2, h3"), p = card.querySelector("p");
+      var txt = ((h && h.textContent) || "") + " " + ((p && p.textContent) || "");
+      var found = [];
+      for (var i = 0; i < MAP.length && found.length < 4; i++) {
+        if (MAP[i][1].test(txt) && found.indexOf(MAP[i][0]) < 0) found.push(MAP[i][0]);
+      }
+      if (!found.length) return;
+      var row = document.createElement("div");
+      row.className = "vendor-chips";
+      row.innerHTML = found.map(function (v) { return '<span class="vchip">' + v + "</span>"; }).join("");
+      ops.parentNode.insertBefore(row, ops);
+    });
+  })();
+})();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
+</script>
+</body>
+</html>
