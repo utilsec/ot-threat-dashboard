@@ -646,7 +646,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 17 Aug 2026, 8:37 PM ET</span>
+        <span>Generated Tuesday, 18 Aug 2026, 4:32 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to discrete and process manufacturers. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.2</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:54%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, held near the middle of the band rather than at its ceiling. No manufacturing operator has confirmed an OT-disruptive incident this window &mdash; the top driver is instead Siemens&rsquo; SSA-834709: an unauthenticated, maximum-severity code-execution flaw (CVE-2026-58115, CVSS 10.0) in the widely deployed SIMATIC IoT2050 edge gateway. It carries weight because Siemens is a dominant vendor and the device sits on production networks by design, but there is no reported exploitation. Behind it, the live water-utility campaign and advisory AA26-097A are hitting Rockwell MicroLogix 1100/1400 controllers &mdash; the same family manufacturing runs on packaging lines and OEM skids &mdash; and Forescout counted thousands of exposed Rockwell controllers worldwide, a shared-exposure problem, not a manufacturing-specific compromise. Dragos&rsquo;s Q2 figures complete the picture: manufacturing absorbed 747 of 1,140 industrial ransomware incidents (65%), more than every other industrial vertical combined, but these cascaded into OT disruption through IT-layer encryption, with no Stage 2 ICS Kill Chain activity &mdash; no hands-on manipulation of controllers. A dense CISA advisory day (15 in one day, 13 Aug) adds volume across Siemens, Johnson Controls, ANDRITZ and others, including two more CVSS 9+ items (Haiwell, C-CURE 9000), but the no-advisory-stacking rule caps the score below 5.9 regardless of how many critical advisories accumulate in one week. Confirmed exploitation of IoT2050, or a confirmed hands-on-OT manufacturing incident, would move this into High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:62%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, upper band. Manufacturing is absorbing confirmed, production-affecting incidents: Dragos counted <b>747 of 1,140</b> industrial ransomware incidents in Q2 landing on manufacturers, and this window added Clop naming 43 victims &mdash; Shell, GE and Philips among them &mdash; in its PTC Windchill and FlexPLM campaign, exploiting a KEV-listed flaw to take engineering data. Ceva Logistics lost eight European warehouses to an intrusion that rippled into customers. That is real operational and intellectual-property loss, so the score sits above mid-Medium. It does not reach High because the disruption is consistently IT-side: Dragos observed no ransomware operator directly manipulating a control system in the quarter, and the Clop campaign is data theft, not process manipulation. Supporting exposure &mdash; an actively exploited Cisco ASA/FTD flaw added to KEV on 11 August, Gunra affiliates using known Fortinet bugs, and mass exploitation of a patched vCenter flaw beneath the virtualisation layer MES and historians run on &mdash; is edge and IT risk that does not aggregate upward. Unexploited criticals (SIMATIC IoT2050, Haiwell CVSS 10, Copeland) are patch-and-monitor work. It moves into High on confirmed OT manipulation or coordinated production stoppages across multiple operators.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -694,32 +694,32 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-iot2050" data-published="2026-08-11">
-      <span class="top-story-pill">Top Story</span>
-      <h2>Siemens ships a maximum-severity, unauthenticated code-execution flaw in its SIMATIC IoT2050 edge gateway &mdash; the strongest single advisory of the window</h2>
-      <p>Siemens ProductCERT advisory SSA-834709 discloses CVE-2026-58115, a missing-authentication vulnerability (CWE-306) rated CVSS 10.0, in the Node-RED component bundled with SIMATIC IoT2050 Advanced units (6ES7647-0BA00-1YA2) running Industrial OS. Node-RED&rsquo;s HTTP interface enforces no authentication at all on the affected configuration, so a remote attacker who can reach the device needs no credentials to create new flows and execute arbitrary code with the device&rsquo;s highest privilege level. Siemens has fixed the issue in firmware V4.3.4.1; until that update is applied, the interim options are removing Node-RED from the device entirely or hardening it according to the Node-RED project&rsquo;s own security guidance. No exploitation had been reported as of publication, and the flaw is not yet listed in the CISA Known Exploited Vulnerabilities catalogue. It matters to manufacturers specifically because IoT2050 is an edge-computing gateway sold into exactly the use case that keeps expanding on plant floors: pulling machine and line data for OEE dashboards, condition monitoring and digital-twin projects, which means it is routinely installed with one interface on the production network and another reaching somewhere far less trusted. Those installs are frequently commissioned by an analytics or engineering initiative rather than through OT procurement, so the device can sit outside the plant&rsquo;s asset register even though it has a network foot on both sides. This is the single most severe item in this window&rsquo;s advisory volume &mdash; a CVSS 10 from a dominant automation vendor in a widely deployed product class &mdash; and it is why a CVE, rather than an incident, leads this page: no manufacturing operator has confirmed an OT-disruptive compromise in this window, so the top driver of the threat level is a critical but unexploited flaw. That distinction also caps how far the level can move; see the Why line for the calibration rule that applies.</p>
-      <div class="ops-strip">
-        <div class="ops-row">
-          <span class="ops-tag ex-none">No confirmed exploitation reported at publication</span>
-          <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+    <div class="top-story" id="story-clop-windchill" data-published="2026-08-15">
+        <span class="top-story-pill">Top Story</span>
+        <h2>Clop&rsquo;s PLM extortion campaign has named 43 victims including Shell, GE and Philips &mdash; the stolen material is engineering data</h2>
+        <p>Clop has begun naming victims of its campaign against internet-exposed PTC Windchill and FlexPLM instances, with reporting on 15 August putting the count at 43 and including Shell, GE and Philips. The entry point is CVE-2026-12569, an improper input-validation flaw allowing unauthenticated remote code execution, which Clop affiliates exploited as a zero-day in early June before PTC patched on 18 June. CISA added it to the KEV catalogue on 25 June &mdash; the first PTC product to be listed. Attackers drop JSP web shells for persistence, then stage and exfiltrate. What makes this a manufacturing story rather than a data-breach story is the content: Windchill and FlexPLM hold product designs, CAD files, bills of materials and supplier data for aerospace, automotive, heavy machinery and medtech firms.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; zero-day use from June, ongoing extortion and victim naming</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-12569, added 25 Jun 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available &mdash; PTC fix released 18 Jun 2026</span>
+            <span class="ops-cc"><b>Action:</b> Confirm no Windchill or FlexPLM instance is reachable from the internet and that every instance is on a patched release. Then hunt rather than assume: look for JSP web shells in web application directories, unexpected outbound transfers of large archives, and new service accounts created since early June.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch verification and web-shell hunt on all PLM instances &mdash; 7 days (Critical)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="clop-windchill" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="clop-windchill">Open</button>
+          </div>
         </div>
-        <div class="ops-row">
-          <span class="ops-tag patch-yes">Available &mdash; fixed in Siemens firmware V4.3.4.1 (SSA-834709)</span>
-          <span class="ops-cc"><b>Action:</b> Search by product name across every data-collection, OEE, condition-monitoring and digital-twin project in your plants &mdash; IoT2050 units are commonly installed outside normal OT procurement and asset registers. Patch to V4.3.4.1 where you find one, and until then confirm what the device&rsquo;s second interface can actually reach, and remove or lock down Node-RED per Siemens&rsquo; guidance.</span>
+        <div class="card-meta">
+          <span>Reporting on Clop victim disclosures &mdash; corroborated by SecurityWeek and BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Victim naming reported 15 Aug 2026; KEV listing 25 Jun 2026</span>
         </div>
-        <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 7 days (Critical)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="iot2050" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="iot2050">Open</button>
-        </div>
+        <a href="https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card-meta">
-        <span>Siemens ProductCERT SSA-834709 &mdash; via SecurityWeek ICS Patch Tuesday coverage</span>
-        <span class="dot">&bull;</span>
-        <span>Advisory published 11 Aug 2026</span>
-      </div>
-      <a href="https://cert-portal.siemens.com/productcert/html/ssa-834709.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-    </div>
 
     <!-- RADAR -->
     <div class="radar-panel">
@@ -747,29 +747,25 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-iot2050"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
-        <a href="#story-haiwell"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
-        <a href="#story-jci-ccure"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#story-patchtuesday"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
-        <a href="#story-dragosq2"><circle class="blip high" cx="155.7" cy="317.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="155.7" y="320.8">5</text></a>
-        <a href="#story-waterplc-mfg"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
-        <a href="#story-rockwell-sd1790"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
-        <a href="#story-cisco-kev"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
-        <a href="#story-forescout"><circle class="blip high" cx="227.9" cy="48.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="227.9" y="50.4">9</text></a>
-        <a href="#story-gunra"><circle class="blip high" cx="233.6" cy="309.3" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="233.6" y="311.3">10</text></a>
+        <a href="#story-clop-windchill"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
+        <a href="#story-ics-patch-tuesday"><circle class="blip crit" cx="253.6" cy="222.5" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="253.6" y="226.8">2</text></a>
+        <a href="#story-haiwell-hmi"><circle class="blip crit" cx="106.4" cy="222.5" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="106.4" y="226.3">3</text></a>
+        <a href="#story-cisco-asa-kev"><circle class="blip high" cx="260.3" cy="65.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="260.3" y="68.7">4</text></a>
+        <a href="#story-vcenter-china"><circle class="blip high" cx="313.9" cy="220.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="313.9" y="223.8">5</text></a>
+        <a href="#story-gunra-aa26222a"><circle class="blip high" cx="182.4" cy="320.0" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="182.4" y="322.4">6</text></a>
+        <a href="#story-dragos-q2-2026"><circle class="blip high" cx="47.6" cy="225.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="47.6" y="227.5">7</text></a>
+        <a href="#story-copeland-xweb"><circle class="blip high" cx="95.7" cy="68.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="95.7" y="70.1">8</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-iot2050"><span class="ld crit"></span><b>1</b> Siemens IoT2050 unauthenticated RCE, CVSS 10</a>
-        <a href="#story-haiwell"><span class="ld crit"></span><b>2</b> Haiwell HMI gateway unauthenticated root RCE</a>
-        <a href="#story-jci-ccure"><span class="ld crit"></span><b>3</b> Johnson Controls C-CURE 9000 takeover flaws</a>
-        <a href="#story-patchtuesday"><span class="ld crit"></span><b>4</b> 15 ICS advisories in one CISA day</a>
-        <a href="#story-dragosq2"><span class="ld high"></span><b>5</b> Manufacturing takes 65% of industrial ransomware</a>
-        <a href="#story-waterplc-mfg"><span class="ld high"></span><b>6</b> Water-utility PLC campaign shares controller family</a>
-        <a href="#story-rockwell-sd1790"><span class="ld high"></span><b>7</b> Rockwell hardens MicroLogix advisory</a>
-        <a href="#story-cisco-kev"><span class="ld high"></span><b>8</b> Cisco ASA/FTD exploited, added to KEV</a>
-        <a href="#story-forescout"><span class="ld high"></span><b>9</b> 4,407 exposed Rockwell controllers found</a>
-        <a href="#story-gunra"><span class="ld high"></span><b>10</b> CISA details Gunra ransomware tradecraft</a>
+        <a href="#story-clop-windchill"><span class="ld crit"></span><b>1</b> Clop names 43 PLM victims incl. Shell, GE</a>
+        <a href="#story-ics-patch-tuesday"><span class="ld crit"></span><b>2</b> SIMATIC IoT2050 max-severity RCE</a>
+        <a href="#story-haiwell-hmi"><span class="ld crit"></span><b>3</b> Haiwell HMI gateway root RCE, CVSS 10</a>
+        <a href="#story-cisco-asa-kev"><span class="ld high"></span><b>4</b> Cisco ASA/FTD added to CISA KEV</a>
+        <a href="#story-vcenter-china"><span class="ld high"></span><b>5</b> vCenter mass exploitation, China-nexus</a>
+        <a href="#story-gunra-aa26222a"><span class="ld high"></span><b>6</b> Gunra ransomware names manufacturing</a>
+        <a href="#story-dragos-q2-2026"><span class="ld high"></span><b>7</b> 747 of 1,140 Q2 ransomware hits manufacturing</a>
+        <a href="#story-copeland-xweb"><span class="ld high"></span><b>8</b> 23 flaws in Copeland refrigeration controllers</a>
       </div>
     </div>
 
@@ -783,386 +779,383 @@
     <div class="trends-strip">
 <div class="trend">
         <span class="trend-tag">Attack Path</span>
-        <b class="trend-head">Ransomware keeps stopping production without anyone touching a controller</b>
-        <p>Dragos&rsquo;s Q2 count &mdash; 747 of 1,140 industrial ransomware incidents landing on manufacturing, with no Stage 2 ICS Kill Chain activity observed &mdash; is the clearest statement yet that the OT security programme can be working exactly as designed and the line stops anyway, because what actually stopped it was the ERP instance releasing work orders or the hypervisor the historian lives on. The community conversation has shifted accordingly, from control-system hardening toward IT-dependency mapping at the line level.</p>
-        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026" class="source-link" target="_blank" rel="noopener">Dragos</a>
+        <b class="trend-head">Engineering data has become the target, not just the network</b>
+        <p>Clop&rsquo;s PLM campaign follows the same playbook it used against Oracle E-Business Suite: pick a widely deployed enterprise platform holding high-value data, exploit it across every exposed instance, exfiltrate, extort. The difference for manufacturers is what Windchill and FlexPLM contain &mdash; designs, bills of materials, supplier terms. The conversation this week has been about whether PLM is being defended as an IT application or as the crown jewels it actually holds.</p>
+        <a href="https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Exposure</span>
-        <b class="trend-head">A water-sector controller crisis is really a shared-exposure crisis</b>
-        <p>Forescout&rsquo;s 4,407-controller count and Rockwell&rsquo;s updated SD1790 hardening guidance both make the same point from different angles: MicroLogix 1100/1400 is not water-specific hardware, it is a decades-old general-purpose small-PLC family that manufacturers run on packaging lines and OEM skids just as often as utilities run it on pump stations. The discussion this week has been less about attribution and more about how many manufacturing sites have never checked whether an integrator-commissioned unit is internet-reachable.</p>
-        <a href="https://thehackernews.com/2026/08/over-4400-rockwell-plcs-exposed-online.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+        <span class="trend-tag">Ransomware</span>
+        <b class="trend-head">Two-thirds of industrial ransomware lands on manufacturing &mdash; and none of it touched a PLC</b>
+        <p>Dragos counted 747 manufacturing incidents out of 1,140 in Q2 and observed zero direct control-system manipulation. Production stopped through encrypted IT and precautionary shutdowns. That has renewed a familiar argument: plants invest in controller security while the realistic loss scenario runs through the domain controller, the licence server and the hypervisor.</p>
+        <a href="https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" class="source-link" target="_blank" rel="noopener">Help Net Security</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Regulation</span>
-        <b class="trend-head">Water&rsquo;s post-incident funding model is a preview, not a mandate &mdash; yet</b>
-        <p>The Water Cyber Shield Act, New York&rsquo;s SECURE grants and the new Water Watch Center all pair mandatory assessment with money and dedicated support for smaller operators. Manufacturing has no equivalent today, and the sector conversation has started asking aloud why a vertical absorbing 65% of industrial ransomware incidents has less structured federal attention than one with a live, contained campaign.</p>
-        <a href="https://www.klobuchar.senate.gov/public/index.cfm/2026/8/sens-klobuchar-schiff-introduce-comprehensive-cybersecurity-bill-in-wake-of-recent-cyberattacks-on-water-infrastructure" class="source-link" target="_blank" rel="noopener">Sen. Klobuchar press release</a>
+        <span class="trend-tag">Edge Exposure</span>
+        <b class="trend-head">Two advisories, one week, same lesson about perimeter appliances</b>
+        <p>The Gunra advisory names known Fortinet authentication-bypass flaws as initial access, and CISA added an actively exploited Cisco ASA/FTD vulnerability to KEV two days earlier. Neither requires OT knowledge. The recurring complaint from plant security teams is that these devices are owned by corporate IT and patched on corporate IT&rsquo;s timetable, while the consequence of a breach lands on the line.</p>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">CISA AA26-222A</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Research</span>
+        <b class="trend-head">A controller that lies to you is worse than one that stops</b>
+        <p>Claroty&rsquo;s Copeland work demonstrated turning cooling off while the temperature display stayed normal. The wider point being drawn from it is about instrumentation trust: if the same compromised device supplies both the control action and the reading you use to verify it, your monitoring confirms nothing. Independent measurement is cheap compared with the failure it catches.</p>
+        <a href="https://industrialcyber.co/critical-infrastructure/claroty-team82-exposes-copeland-xweb-pro-vulnerabilities-that-could-disrupt-commercial-refrigeration-systems/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
     </div>
   </div>
 
   <!-- SECTION: Incidents &amp; Attacks -->
-  
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="story-waterplc-mfg" data-published="2026-08-14">
+<div class="card" id="story-vcenter-china" data-published="2026-08-17">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Nation-state</span>
+          <span class="category">Incident &mdash; Mass exploitation</span>
         </div>
-        <h3>The Iran-linked campaign against water utilities is exploiting the same Rockwell controller family common on manufacturing lines</h3>
-        <p>Since 26&ndash;27 Jul 2026, actors have reached internet-exposed Rockwell Automation / Allen-Bradley MicroLogix 1100 and 1400 controllers at water and wastewater utilities in at least 12 states, changing device IP addresses and setting unauthorised passwords to lock operators out of monitoring and control; New Jersey and Alabama were the most recent states to confirm impact, as of mid-August reporting. Joint federal advisory AA26-097A assesses the activity to a group of Iranian-affiliated APT actors, naming CyberAv3ngers (also known as the Shahid Kaveh Group, affiliated with the IRGC Cyber Electronic Command) &mdash; officials use the word &ldquo;assess,&rdquo; not proof, and the newest individual state incidents have not each been separately attributed. No CVE was exploited: the method is exposure plus default, weak or shared credentials, using the manufacturers&rsquo; own PLC programming software once inside. Officials say drinking-water safety itself was not compromised. This is a water-sector incident, not a manufacturing one, but manufacturers should not file it under water and move on: MicroLogix 1100/1400 is a general-purpose controller family that shows up on packaging lines, conveyors and OEM-supplied skids across discrete and process plants, frequently commissioned with a routable address by a machine builder for remote support and never revisited by the plant&rsquo;s own network team.</p>
+        <h3>A suspected China-nexus actor mass-exploited a patched vCenter flaw and deployed Babuk-derived ransomware</h3>
+        <p>Exploitation of CVE-2026-59310, a directory-traversal flaw in Broadcom VMware vCenter rated CVSS 9.8 and patched on 29 July, has been attributed to a suspected China-nexus actor. German incident-response firm QUIRSO tracked roughly 361 victim IP addresses across 47 countries, with 343 appearing between 3 and 5 August, and assesses with moderate confidence that a Chinese-speaking operator is behind it. The chain persists through cron, systemd and reverse_ssh, drops a Linux backdoor and in some cases deploys Babuk-derived ransomware. For manufacturers the exposure is concentrated: MES, historians, engineering workstations, licence servers and OT DMZ services are routinely consolidated onto one VMware cluster, and Dragos&rsquo; Q2 data shows precautionary hypervisor shutdowns are already a leading cause of production disruption.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed OT disruption at water operators, using a controller family common in manufacturing</span>
-            <span class="ops-tag kev-off">No CVE exploited &mdash; internet exposure plus default/weak credentials on Rockwell MicroLogix 1100/1400</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited at scale &mdash; ~361 victim IPs across 47 countries, ransomware deployed</span>
+            <span class="ops-tag kev-off">Not listed in CISA KEV at generation time</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; exposure removal and credential hygiene per Rockwell SD1790</span>
-            <span class="ops-cc"><b>Action:</b> Run your own exposure sweep for controller protocols across every external address range you own, then ask every machine builder and integrator that supports your equipment how their remote-access connections work, and whether any of it touches a controller with a routable address. Skids and OEM-supported units are where exposed PLCs live in manufacturing, because someone else commissioned the connection.</span>
+            <span class="ops-tag patch-yes">Patch available &mdash; Broadcom fix released 29 Jul 2026</span>
+            <span class="ops-cc"><b>Action:</b> Patch vCenter now; if an instance was reachable and unpatched after 3 August, hunt for unexpected cron and systemd units, reverse_ssh binaries and unfamiliar SSH keys before declaring it clean. Then document which production-critical virtual machines share a cluster with enterprise workloads, because that list is your shutdown blast radius.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External exposure sweep including OEM/skid-supported equipment &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="waterplc-mfg" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="waterplc-mfg">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> vCenter patch and compromise assessment &mdash; 7 days (Critical)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="vcenter-china" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="vcenter-china">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA/FBI/NSA joint advisory AA26-097A; state disclosures &mdash; via SecurityWeek, NPR and TechCrunch</span>
+          <span>The Hacker News, reporting QUIRSO research</span>
           <span class="dot">&bull;</span>
-          <span>Campaign active since 26&ndash;27 Jul 2026; latest state confirmations 12&ndash;14 Aug 2026</span>
+          <span>Reported 17 Aug 2026 (patch 29 Jul 2026)</span>
         </div>
-        <a href="https://www.securityweek.com/water-sector-cyberattacks-reportedly-hit-at-least-12-states/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-gunra" data-published="2026-08-10">
+      <div class="card" id="story-ceva-logistics" data-published="2026-08-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Ransomware</span>
-        </div>
-        <h3>CISA details Gunra ransomware tradecraft the same week Dragos confirms manufacturing is the most-hit industrial sector</h3>
-        <p>CISA, the FBI and international partners published a joint #StopRansomware advisory (AA26-222A) on 10 Aug covering Gunra, a Conti-derived ransomware-as-a-service operation running double-extortion campaigns against government and critical-infrastructure victims. Initial access typically comes through unpatched internet-facing VPN gateways and exposed RDP; the advisory cites Fortinet flaws CVE-2024-55591 and CVE-2025-24472 as observed entry points, and notes Gunra affiliates give victims a five-to-seven-day payment deadline before publishing stolen data. No manufacturing victim is named in the advisory itself, but it lands in the same window as Dragos&rsquo;s Q2 finding that manufacturing absorbed 747 of 1,140 industrial ransomware incidents &mdash; the fuller data is in the dedicated Threat Intelligence card below. The access pattern the advisory documents &mdash; internet-facing remote services and stolen credentials for entry, then encryption of servers carrying business and, indirectly, production systems &mdash; matches how Dragos describes most of this quarter&rsquo;s manufacturing incidents reaching the plant floor: through IT, not through direct control-system manipulation.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; named ransomware-as-a-service operation with an ongoing federal advisory</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; Fortinet CVE-2024-55591 / CVE-2025-24472 cited among multiple initial-access paths</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Mitigations only &mdash; VPN/RDP exposure reduction, credential and backup controls</span>
-            <span class="ops-cc"><b>Action:</b> Deploy the advisory&rsquo;s indicators and confirm they actually fire in your environment rather than assuming they will. Then answer the production question underneath it: if the server hosting your MES, historian or engineering file shares were encrypted this afternoon, which lines can still run, for how long, and on what &mdash; local recipes, printed work instructions, cached data? Most plants find the honest answer is measured in hours.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Detection content deployed &mdash; 14 days; line-level IT-dependency map &mdash; 45 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="gunra" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="gunra">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA/FBI joint advisory AA26-222A &mdash; via CISA.gov</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory published 10 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-ceva" data-published="2026-08-10">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
           <span class="category">Incident &mdash; Supply chain</span>
         </div>
-        <h3>A single contract-logistics breach at CEVA Logistics shows how inbound materials and outbound dispatch can stall without any OT ever being touched</h3>
-        <p>CEVA Logistics disclosed an intrusion dated 29 Jul 2026 that disrupted European contract-logistics operations and stopped outbound shipments from eight warehouses; customers were notified 1 Aug, and the scale became public the week of 10 Aug. Air, ocean, ground and rail transport were unaffected, and CEVA says payment and credential data were not compromised, but personal data &mdash; names, addresses, phone numbers, emails and order details &mdash; was. Downstream customers named in reporting include Bol, De Bijenkorf, Ace&nbsp;&amp;&nbsp;Tate, Pok&eacute;mon Center (UK and Germany, with some orders cancelled), Valve/Steam, Ajax and ING; the Dutch data protection authority is investigating, and no group has claimed responsibility. Nothing here is an OT compromise, and CEVA is not itself a manufacturer, but the operational shape is directly relevant to manufacturing: a single third-party logistics provider going IT-dark for days can stall inbound raw-material receipt or outbound finished-goods dispatch on a just-in-time schedule just as effectively as a plant-floor incident would, without anyone ever reaching a controller.</p>
+        <h3>A breach at Ceva Logistics halted shipments from eight European warehouses and rippled into customers</h3>
+        <p>A cyber intrusion disrupted part of Ceva Logistics&rsquo; European contract-logistics operation from 29 July, halting shipments at eight warehouses and delaying deliveries for customers whose inventory sat there. Customers were notified on 1 August. Personal data including names, addresses, phone numbers, emails and order details was exposed; Ceva says payment and credential data was not. Dutch retailers Bol and De Bijenkorf, ING, Ace &amp; Tate, Ajax and Valve have been reported as affected downstream. The Dutch Data Protection Authority is investigating and no group has claimed responsibility. The manufacturing lesson is upstream: a contract logistics provider is a single point of failure for inbound components as much as outbound finished goods, and you will usually learn about their incident from a customer, not from them.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No intrusion method disclosed; no group has claimed responsibility</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; warehouse operations halted, customer data exposed</span>
             <span class="ops-tag kev-off">No CVE identified in public reporting</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; third-party logistics dependency, not a patchable flaw</span>
-            <span class="ops-cc"><b>Action:</b> Identify which contract-logistics or 3PL providers sit on your critical inbound-materials or outbound-dispatch path, and ask each one directly what your production schedule looks like if they are IT-dark for five to seven days. Most manufacturing risk registers do not name a single logistics vendor by criticality &mdash; this is the prompt to start.</span>
+            <span class="ops-tag patch-na">No patch &mdash; third-party resilience and supplier incident planning</span>
+            <span class="ops-cc"><b>Action:</b> Identify the logistics and 3PL providers whose outage would stop your line within a week, and ask each for their incident notification commitment in writing. Add a supplier-outage branch to your continuity plan that assumes you find out late and have to source manually.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Logistics-provider dependency review &mdash; 45 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ceva" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="ceva">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Logistics dependency mapping and supplier notification review &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ceva-logistics" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ceva-logistics">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Company notification; downstream customer disclosures &mdash; via The Record</span>
+          <span>The Record and SecurityWeek, citing Ceva customer notifications</span>
           <span class="dot">&bull;</span>
-          <span>Intrusion 29 Jul 2026; scale of impact publicly reported week of 10 Aug 2026</span>
+          <span>Incident from 29 Jul 2026; reported 10&ndash;11 Aug 2026</span>
         </div>
         <a href="https://therecord.media/ceva-logistics-cyberattack-bol-steam-debijenkorf-ace-tate" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
 
+  <!-- SECTION: Threat Intelligence &amp; Research -->
   <div class="section">
-    <div class="section-title">Critical Advisories</div>
+    <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-<div class="card" id="story-haiwell" data-published="2026-08-14">
+<div class="card" id="story-dragos-q2-2026" data-published="2026-08-11">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Haiwell</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Research &mdash; Ransomware</span>
         </div>
-        <h3>Haiwell&rsquo;s IoT Cloud HMI gateway has an unauthenticated, root-level command-injection flaw rated CVSS 10</h3>
-        <p>CVE-2026-19188, published 14 Aug 2026 and confirmed at CVSS 10.0 under both v3.1 and v4.0, is an OS command-injection flaw (CWE-78) in the Net Check feature&rsquo;s cmdPing Socket.io event, reachable via the gateway&rsquo;s /setting endpoint. It requires no authentication and grants root-level remote code execution. Version 3.40.1.12 is confirmed vulnerable; Haiwell has fixed it in 3.50.1.19 or later. Public reporting could not independently confirm a formal ICSA advisory number for this one, so none is cited here &mdash; the CVE record on NVD is the source. Haiwell&rsquo;s cloud-connected HMI gateways are documented as deployed mainly in energy and water/wastewater environments, but the same product class &mdash; a cloud-linked HMI gateway sitting between plant-floor devices and remote monitoring &mdash; is common in manufacturing visualization and remote-support setups, so the exposure is worth checking even where Haiwell is not a named vendor on your asset list.</p>
+        <h3>Manufacturing took 747 of 1,140 industrial ransomware incidents in Q2 &mdash; 65 percent of the total</h3>
+        <p>Dragos recorded 1,140 ransomware incidents at industrial organisations in the second quarter of 2026, up 12 percent from 1,020 in Q1. Manufacturing absorbed 747 of them, 65 percent of the total; organisations that support ICS environments took 117 and transportation and logistics 95. North America accounted for 514. Qilin remained the most active brand, a position it has held since March 2025. The finding worth internalising is that Dragos observed no ransomware operator directly manipulating a control system during the quarter: production stopped because enterprise IT was encrypted, or because operators pre-emptively shut down virtualisation and shared infrastructure. Your line-down risk is therefore mostly a question of IT dependency and shutdown policy rather than PLC security.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No confirmed exploitation reported at publication</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-none">Research finding &mdash; no direct ICS manipulation observed in the quarter</span>
+            <span class="ops-tag kev-off">Not applicable</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Available &mdash; upgrade to firmware 3.50.1.19 or later</span>
-            <span class="ops-cc"><b>Action:</b> Inventory any Haiwell IoT Cloud HMI gateways on your network, and more broadly any cloud-linked HMI or gateway product that bridges plant-floor visualization to remote access &mdash; that architecture pattern is what this flaw exploits, regardless of vendor. Upgrade past 3.40.1.12 immediately where found, and take the /setting management interface off any internet-reachable path in the meantime.</span>
+            <span class="ops-tag patch-na">No patch &mdash; segmentation, dependency mapping, shutdown decision criteria</span>
+            <span class="ops-cc"><b>Action:</b> Write down, in advance, who decides to stop production during an IT incident and on what evidence &mdash; most precautionary shutdowns happen because nobody could confirm the plant was unaffected. Then map which OT services depend on IT-side domain controllers, file shares, licence servers and hypervisors, and fix the cheapest dependencies first.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 7 days (Critical)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="haiwell" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="haiwell">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> IT/OT dependency map and shutdown decision criteria &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="dragos-q2-2026" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="dragos-q2-2026">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>NVD CVE-2026-19188</span>
+          <span>Dragos Industrial Ransomware Analysis, Q2 2026</span>
           <span class="dot">&bull;</span>
-          <span>Published 14 Aug 2026</span>
+          <span>Published 11 Aug 2026</span>
         </div>
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19188" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-jci-ccure" data-published="2026-08-11">
+      <div class="card" id="story-gunra-aa26222a" data-published="2026-08-10">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Johnson Controls</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Intelligence &mdash; Ransomware</span>
         </div>
-        <h3>Johnson Controls patches two unauthenticated deserialization flaws that could hand over a facility&rsquo;s physical access control</h3>
-        <p>Johnson Controls updated its C-CURE 9000 / victor advisory (Update A, 11 Aug) covering CVE-2026-21655 and CVE-2026-21653 &mdash; two critical, unauthenticated deserialization vulnerabilities &mdash; alongside CVE-2026-34496, a high-severity issue, with CVSS scores reaching 9.6. A network-adjacent attacker exploiting the deserialization flaws could execute arbitrary code and take over the access-control system outright, no credentials required. C-CURE 9000 and victor are widely deployed physical access-control and video-management platforms, including at manufacturing sites, where they run badge readers, gates and building-access logging. A takeover is not a production-line compromise, but it is a physical-security and safety issue: an attacker could unlock restricted areas, disable access logging, or otherwise defeat the controls a plant relies on to keep people out of hazardous or high-value areas.</p>
+        <h3>Gunra ransomware is walking in through unpatched VPNs and firewalls, with manufacturing named in scope</h3>
+        <p>The FBI, CISA, DoD Cyber Crime Center, NSA, US Secret Service and the Republic of Korea&rsquo;s National Police Agency issued #StopRansomware advisory AA26-222A on Gunra, a Conti-derived double-extortion operation that moved to a structured affiliate model in early 2026. Manufacturing sits at the top of its named victim base alongside healthcare, finance, transport, government and utilities. Initial access comes from exposed edge infrastructure &mdash; VPN gateways, firewall appliances and RDP &mdash; including the Fortinet FortiOS and FortiProxy authentication-bypass flaws CVE-2024-55591 and CVE-2025-24472. Nothing about the tradecraft is advanced. Read next to the Dragos numbers, it describes the most probable path to a stopped line this quarter: a known-vulnerable appliance, then enterprise encryption, then a precautionary shutdown.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No confirmed exploitation reported at publication</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; known Fortinet flaws used for initial access</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2024-55591 and CVE-2025-24472</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Available &mdash; apply Johnson Controls Update A per ICSA-26-204-01</span>
-            <span class="ops-cc"><b>Action:</b> Confirm which of your facilities run C-CURE 9000 or victor for badge access, gates or video, and patch on the same urgency as any other unauthenticated, network-reachable critical flaw &mdash; physical access control is not a lower-priority system just because it is not the production line. Verify the update actually reached every server, not just the primary.</span>
+            <span class="ops-tag patch-yes">Patches available &mdash; Fortinet fixes released; rotate credentials after patching</span>
+            <span class="ops-cc"><b>Action:</b> Patch every internet-facing VPN gateway, firewall and RDP entry point to current firmware and require MFA on admin accounts with no local fallback. Include appliances at contract manufacturers and remote plants that report into a different IT organisation &mdash; those are the ones that miss the cycle.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 7 days (Critical)</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Edge-appliance patch and admin-MFA verification &mdash; 7 days (Critical)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="gunra-aa26222a" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="gunra-aa26222a">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA #StopRansomware advisory AA26-222A</span>
+          <span class="dot">&bull;</span>
+          <span>Published 10 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-copeland-xweb" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research &mdash; Process refrigeration</span>
+        </div>
+        <h3>Claroty found 23 flaws in Copeland refrigeration controllers &mdash; and showed the display can lie while cooling stops</h3>
+        <p>Claroty&rsquo;s Team82 disclosed 23 vulnerabilities in the Copeland XWEB Pro supervisory controller platform, 21 of them rated high, affecting the XWEB300D PRO and XWEB500D PRO families. Chained together, authentication bypass, predictable administrator credentials and command injection give an unauthenticated attacker root-level remote code execution. CVE-2026-21718 covers a deterministic password generator that derives administrator SSH and web credentials from the date, the unit&rsquo;s MAC address and hard-coded firmware material. In a proof of concept the researchers turned off cooling while continuing to display the legitimate temperature. Copeland has released firmware 1.13; Claroty also reported issues to Danfoss, which shipped R4.3.1. Any plant with process cooling, chilled storage or environmental control should treat this as in scope.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported at generation time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available &mdash; Copeland firmware 1.13, Danfoss AK-SM 800A R4.3.1</span>
+            <span class="ops-cc"><b>Action:</b> Locate XWEB Pro and Danfoss AK-SM units across process cooling, chilled storage and utilities, and update firmware. Because the attack demonstrated is a silent one, add an independent temperature check &mdash; a separate sensor or a manual round &mdash; that does not read from the same controller as the display.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Refrigeration controller firmware update and independent verification &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="copeland-xweb" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="copeland-xweb">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Claroty Team82 &mdash; via Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 11 Aug 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/critical-infrastructure/claroty-team82-exposes-copeland-xweb-pro-vulnerabilities-that-could-disrupt-commercial-refrigeration-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Critical Advisories -->
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+<div class="card" id="story-ics-patch-tuesday" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; Siemens</span>
+        </div>
+        <h3>August ICS Patch Tuesday: a maximum-severity SIMATIC IoT2050 flaw leads ten Siemens advisories</h3>
+        <p>Siemens, Schneider Electric and Phoenix Contact published their August ICS Patch Tuesday bundles. Siemens issued ten advisories, the most serious a maximum-severity missing-authentication vulnerability in SIMATIC IoT2050 Advanced devices allowing a remote, unauthenticated attacker to execute arbitrary code with elevated privileges on the underlying server. IoT2050 gateways are the standard Siemens answer for getting line data out of a cell and into MES or a cloud analytics platform, which places them exactly on the boundary you care about. No exploitation has been reported. This is normal patch-and-monitor work, but an unauthenticated remote code execution path on a device that bridges the plant network to everything else deserves an early slot in the maintenance queue.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported at generation time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available &mdash; Siemens, Schneider Electric and Phoenix Contact August 2026 bundles</span>
+            <span class="ops-cc"><b>Action:</b> Inventory SIMATIC IoT2050 Advanced units, including ones installed by machine builders as part of an OEM package, and confirm none are reachable from an untrusted network while updates are scheduled. Work the whole ten-advisory bundle against your asset register rather than only the headline item.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Critical advisory triage and patch scheduling &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ics-patch-tuesday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ics-patch-tuesday">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek, summarising Siemens ProductCERT, Schneider Electric and Phoenix Contact advisories</span>
+          <span class="dot">&bull;</span>
+          <span>Published 11&ndash;12 Aug 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-haiwell-hmi" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; HMI gateway</span>
+        </div>
+        <h3>Haiwell IoT Cloud HMI Gateway has an unauthenticated root command-injection flaw rated CVSS 10.0</h3>
+        <p>CISA advisory ICSA-26-225-02 covers CVE-2026-19188, an operating-system command-injection vulnerability in the Haiwell IoT Cloud HMI Gateway rated CVSS 10.0. The Net Check feature reachable through the /setting endpoint passes unsanitised input to the cmdPing Socket.io event, allowing arbitrary commands to run as root. CISA names Critical Manufacturing first among the affected sectors, alongside Energy and Water and Wastewater, and Haiwell has released fixed firmware. Gateways in this class arrive with machines rather than through procurement: an OEM or system integrator fits one so the machine can be supported remotely, and it never enters the plant asset register. No public exploitation has been reported to CISA.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known public exploitation reported to CISA at generation time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available &mdash; Haiwell Scada-v3.50.1.19</span>
+            <span class="ops-cc"><b>Action:</b> Ask your machine builders and integrators directly whether Haiwell gateways are installed on any line, because they will not show up in your own records. Remove internet reachability today and apply the vendor firmware, then take the opportunity to inventory every OEM-supplied remote-support device on the floor.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Discovery, exposure removal and firmware update &mdash; 7 days (Critical)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="haiwell-hmi" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="haiwell-hmi">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-225-02</span>
+          <span class="dot">&bull;</span>
+          <span>Published 13 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-cisco-asa-kev" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; KEV addition</span>
+        </div>
+        <h3>An actively exploited Cisco ASA and FTD flaw joins the KEV catalogue</h3>
+        <p>CISA added three vulnerabilities to the Known Exploited Vulnerabilities catalogue on 11 August: CVE-2026-20349, a heap inspection vulnerability in Cisco Secure Firewall ASA and Firepower Threat Defense; CVE-2026-68820 in the Windows Ancillary Function Driver for WinSock; and CVE-2026-72898, a SQL injection flaw in Metabase. The Cisco item is the one most likely to sit in your plant architecture, either as the corporate VPN concentrator or as the firewall between the enterprise network and the manufacturing zone. KEV listing means exploitation is confirmed in the wild. Alongside the Fortinet flaws in the Gunra advisory, it makes the same point twice in one week: perimeter appliances are where this quarter&rsquo;s intrusions begin.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; basis for KEV listing</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 11 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available &mdash; Cisco fixed software releases</span>
+            <span class="ops-cc"><b>Action:</b> Locate every ASA or FTD appliance, including those at remote plants and contract manufacturers, and move them to a fixed release. While in the rule base, remove standing any-any rules and legacy machine-builder access into the manufacturing zone.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> KEV remediation &mdash; 7 days (Critical), aligned to BOD 22-01 timelines</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisco-asa-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="cisco-asa-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV catalogue update</span>
+          <span class="dot">&bull;</span>
+          <span>Added 11 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-cisa-batch-15" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; CISA batch</span>
+        </div>
+        <h3>Fifteen ICS advisories in one day, covering Mitsubishi CPU modules, Delta engineering tools and more</h3>
+        <p>CISA published 15 industrial control system advisories on 13 August, following three on 11 August and two on 4 August. Recent batches in this cycle cover Mitsubishi Electric CPU modules and Iconics Digital Solutions, Delta Electronics COMMGR and EIP Builder &mdash; the latter an XML external entity flaw in the tool used to build and manage EtherNet/IP configurations &mdash; Honeywell OneWireless Wireless Device Manager and Experion PKS, Schneider Electric Saitel remote terminal units, Johnson Controls Airwall and Hitachi Energy APM Edge. Engineering tools deserve particular attention here: a flaw in the software your engineers run on their workstation is a flaw with direct access to controller logic, and those workstations are rarely patched on the same cadence as servers.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported at generation time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor updates and mitigations available &mdash; see each advisory</span>
+            <span class="ops-cc"><b>Action:</b> Filter the batch against your asset register and treat engineering-workstation software &mdash; EIP Builder, COMMGR, TIA Portal, MELSOFT and equivalents &mdash; as a first-class patching target with a named owner. Confirm those workstations cannot browse the internet or read arbitrary project files from email.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Advisory triage and engineering-workstation patch review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisa-batch-15" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="cisa-batch-15">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisories, August 2026 batches &mdash; via Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Published 13 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-jci-ccure" data-published="2026-07-23">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Physical security</span>
+        </div>
+        <h3>A critical deserialisation flaw in Johnson Controls C&bull;CURE 9000 could hand over plant access control</h3>
+        <p>CISA advisory ICSA-26-204-01, since revised as Update A, covers CVE-2026-21655, a deserialisation vulnerability in the Johnson Controls C&bull;CURE 9000 and victor application servers rated CVSS v3 8.8 and v4 8.7. An unauthenticated attacker on an adjacent network can achieve arbitrary code execution on the application server and on connected clients, including the workstations used by security staff, which would put physical access controls at risk. The flaw sits in a deserialisation path on TCP port 8999. Johnson Controls has published version 3.20. Manufacturers should note that badge systems commonly share network segments with plant systems and are administered by facilities teams outside the OT patching process, and that access control is what keeps people out of hazardous areas.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported at generation time</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available &mdash; upgrade to C&bull;CURE 9000 / victor 3.20 or later</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade C&bull;CURE 9000 and victor application servers to 3.20 or later, and restrict inbound access to TCP 8999 with both network and Windows firewalls so only required hosts can reach it. Add physical access control and video systems to your OT asset register if they are not already there.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade and port restriction &mdash; 30 days (High)</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="jci-ccure" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="jci-ccure">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-204-01, Johnson Controls Update A</span>
+          <span>CISA ICS advisory ICSA-26-204-01 (Update A)</span>
           <span class="dot">&bull;</span>
-          <span>Advisory updated 11 Aug 2026</span>
+          <span>Published 23 Jul 2026, subsequently updated</span>
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-rockwell-sd1790" data-published="2026-08-10">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Rockwell</span>
-        </div>
-        <h3>Rockwell updates its MicroLogix hardening guidance and warns that changing the password alone will not stop the campaign</h3>
-        <p>Rockwell Automation updated advisory SD1790 on 10 Aug with recovery and hardening steps for MicroLogix 1400 and 1100 controllers, after actors were found remotely changing device IP addresses and setting unauthorised passwords on internet-exposed units during the ongoing water-sector campaign. Rockwell explicitly warns that resetting the password by itself is not sufficient mitigation &mdash; the guidance calls for removing the controller from the internet, reviewing all remote-access paths, and validating logic and configuration against a known-good backup. MicroLogix 1400/1100 is not water-specific hardware: it is one of the most widely deployed small-PLC families in industrial history, and manufacturing plants run it on packaging equipment, conveyors, and OEM-built skids as often as water utilities run it on pump stations. Forescout&rsquo;s exposure count (see the Threat Intelligence section) makes the same point from a different angle &mdash; this is a shared exposure problem across sectors, not one confined to water.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; guidance issued in direct response to ongoing exploitation of exposed units</span>
-            <span class="ops-tag kev-off">No CVE &mdash; exposure and credential weakness, not a code flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; follow SD1790&rsquo;s recovery and hardening steps</span>
-            <span class="ops-cc"><b>Action:</b> Do not treat a password reset on an exposed MicroLogix as remediation. Follow SD1790 in full: remove the controller from any internet-reachable path, audit who and what can remotely reach it, and compare current logic against your last known-good backup before returning it to service.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> MicroLogix exposure remediation per SD1790 &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rockwell-sd1790" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rockwell-sd1790">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Rockwell Automation security advisory SD1790</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory updated 10 Aug 2026</span>
-        </div>
-        <a href="https://www.rockwellautomation.com/en-us/trust-center/security-advisories.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-cisco-kev" data-published="2026-08-11">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; CISA KEV</span>
-        </div>
-        <h3>A Cisco ASA/FTD flaw exploited to crash firewalls enters CISA KEV with a three-day federal deadline</h3>
-        <p>Cisco disclosed and patched CVE-2026-20349 (CVSS 8.6), a heap-inspection denial-of-service flaw in Secure Firewall ASA and Firepower Threat Defense software, reachable by a remote, unauthenticated attacker sending a crafted HTTP request to the Remote Access SSL VPN service. Cisco confirmed active exploitation in the wild, and CISA added the CVE to the Known Exploited Vulnerabilities catalogue on 11 Aug with a federal remediation deadline of 14 Aug. Hotfixes are available across all affected 9.x, 7.x and 10.x branches; there is no workaround short of patching. ASA and FTD appliances are commonly deployed as the IT/OT boundary device in manufacturing environments, or to carry OEM remote-support VPN tunnels into the plant &mdash; a forced reload does not expose data by itself, but it interrupts the segmentation and monitoring the device is there to enforce, and creates a visibility gap while it recovers.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited in the wild to crash appliances; added to CISA KEV</span>
-            <span class="ops-tag kev-on">CISA KEV, added 11 Aug 2026, federal deadline 14 Aug 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Available &mdash; hotfixes for all affected 9.x/7.x/10.x branches; no workaround</span>
-            <span class="ops-cc"><b>Action:</b> Patch on the KEV clock rather than waiting for a planned outage window &mdash; a reload of this appliance is disruptive, but so is an exploited crash during production hours. If this box carries your IT/OT boundary or an OEM remote-support tunnel, confirm what monitoring gap a reload creates and who is watching for it.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Perimeter and remote-access patching &mdash; 3 days (federal deadline already passed; treat as overdue)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisco-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="cisco-kev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Cisco security advisory; CISA KEV catalogue &mdash; via BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Patched and KEV-listed 11 Aug 2026; federal deadline 14 Aug 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-patchtuesday" data-published="2026-08-13">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; CISA</span>
-        </div>
-        <h3>CISA&rsquo;s 15-advisory day covers Siemens video management, license servers and CAD tools alongside four other manufacturing-relevant vendors</h3>
-        <p>CISA published 15 ICS advisories in a single day on 13 Aug, spanning Siemens, AVEVA, Hitachi Energy, ANDRITZ, Schneider Electric and Phoenix Contact. The most severe is Siemens Siveillance Video (CVE-2026-3014, CVSS 9.1), an OS command-injection flaw in the video-management server that lets a user with edit permissions run arbitrary code in the VMS service; a patch is available. Siemens also fixed two License Server issues &mdash; CVE-2026-69109, an insecure sudoers policy enabling local privilege escalation, and CVE-2026-69108, a path-traversal bug allowing remote arbitrary file reads, both around CVSS 7.5 &mdash; and CVE-2026-64629 (CVSS 7.8), an out-of-bounds read in Parasolid, Simcenter Femap and Solid Edge triggered by a malicious X_T CAD file, fixed in Parasolid V38.0.235/V38.1.230 and later. ANDRITZ HIPASE-250 and 250 SCALA carry four vulnerabilities, including a fixed VNC password baked into the provisioning script and an unauthenticated, permissively configured API exposing live process data; a patch is available but no CVSS could be verified. Phoenix Contact PLCnext (advisory VDE-2025-056) has multiple input-validation flaws that an unauthenticated attacker could use to cause denial of service, unexpected controller behaviour or malicious SQL execution; patched, no verified CVE/CVSS. Schneider Electric shipped fixes for NetBotz 5 (750/755) &mdash; command injection and SQL injection in versions 5.5.2 and earlier &mdash; and for PowerChute Serial Shutdown&rsquo;s authentication-attempt handling; both are environmental/power-monitoring appliances with patches available and no verified CVSS.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No confirmed exploitation reported for any item at publication</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Available for all items above; see individual advisories for versions</span>
-            <span class="ops-cc"><b>Action:</b> Split this by risk to your operation, not by vendor. Siveillance Video and the License Server sit on servers and engineering workstations &mdash; qualified, in daily use, and the ones that will slip unless a named owner and date are set now. ANDRITZ, PLCnext and NetBotz fixes should go into the next planned line stoppage or maintenance window rather than waiting for an unplanned one.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Video management and license-server patching &mdash; 14 days; engineering-workstation CAD tools &mdash; 30 days; controller and monitoring-appliance firmware &mdash; next planned stoppage</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="patchtuesday" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="patchtuesday">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisories, 13 Aug 2026 &mdash; via WaterISAC and vendor advisories</span>
-          <span class="dot">&bull;</span>
-          <span>15 advisories published 13 Aug 2026</span>
-        </div>
-        <a href="https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-august-13-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-title">Threat Intelligence &amp; Research</div>
-    <div class="card-grid">
-<div class="card" id="story-dragosq2" data-published="2026-08-10">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; Ransomware</span>
-        </div>
-        <h3>Dragos: manufacturing absorbed nearly two-thirds of all industrial ransomware incidents in Q2, and none involved direct control-system manipulation</h3>
-        <p>Dragos&rsquo;s Q2 2026 Industrial Ransomware Analysis, published 10 Aug, counted 1,140 ransomware incidents against industrial organisations, up 12% on Q1. Manufacturing took 747 of those 1,140 incidents &mdash; 65% of the total, more than every other industrial vertical combined &mdash; with food &amp; beverage a distant second at 70, and transportation &amp; logistics at 95 overall (maritime 8, aviation 6, rail 3). Qilin, Akira, The Gentlemen, DragonForce and LockBit 5.0 were the most active groups. The analytically critical finding is what did not happen: Dragos found that most intrusions cascaded into OT disruption through IT-layer encryption, not through direct manipulation of control systems, and observed no Stage 2 ICS Kill Chain activity in the quarter&rsquo;s manufacturing cases. Dragos names West Pharmaceutical Services and Foxconn as examples &mdash; both from May 2026, outside this reporting window, cited here as illustrative prior incidents rather than new activity. The operational reading for a plant is that a production line can stop completely without an attacker ever touching a controller: the report&rsquo;s pattern is that ransomware hits the ERP instance releasing work orders, the historian&rsquo;s hypervisor, or the MES database, and the line stops because it depends on one of those, not because anyone reached the PLC.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 747 confirmed manufacturing ransomware incidents in Q2 2026 alone</span>
-            <span class="ops-tag kev-off">Not a single-CVE finding &mdash; aggregate ransomware-incident analysis</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; the finding is about IT/OT dependency, not a patchable flaw</span>
-            <span class="ops-cc"><b>Action:</b> Take one production line and map exactly what it needs from outside the cell to run a shift &mdash; work orders, recipes, label and barcode data, quality release, dispatch paperwork, licence checks. For each, note the offline fallback and how long it holds, then actually test it: disconnect that line from the plant network for one shift with the fallback in place, rather than running it as a tabletop exercise.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Line-level degraded-operations test &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="dragosq2" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="dragosq2">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Dragos Q2 2026 Industrial Ransomware Analysis</span>
-          <span class="dot">&bull;</span>
-          <span>Published 10 Aug 2026</span>
-        </div>
-        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-forescout" data-published="2026-08-13">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; Exposure</span>
-        </div>
-        <h3>Forescout counts thousands of exposed Rockwell controllers worldwide, including the legacy models used in the water attacks</h3>
-        <p>Forescout&rsquo;s Vedere Labs found 4,407 internet-exposed Rockwell Automation / Allen-Bradley controllers worldwide, 2,844 of them in the US, dominated by discontinued legacy MicroLogix 1400 and 1100 units &mdash; the exact controller family targeted in the ongoing water-sector campaign, with 22 of the exposed devices sitting in cities already confirmed hit. Forescout&rsquo;s researchers note that the intruders reconfigured devices directly rather than exploiting any new software flaw, reinforcing that this is an exposure and credential problem, not a patch problem. MicroLogix has been sold into manufacturing for decades as a general-purpose small-PLC platform, well beyond water and wastewater applications, which means a meaningful share of this exposed population is very likely sitting on manufacturing equipment that has never been assessed for internet reachability, commissioned by an OEM or system integrator years ago and left unreviewed since.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exposure &mdash; thousands of internet-reachable controllers, subset already targeted</span>
-            <span class="ops-tag kev-off">No CVE &mdash; exposure-scanning research, not a vulnerability disclosure</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; remove exposure, do not wait on a vendor patch</span>
-            <span class="ops-cc"><b>Action:</b> Do not assume this is a water-sector statistic. Pull your own external-facing address ranges and scan for controller protocols (EtherNet/IP, Modbus TCP), and separately ask every OEM and integrator who commissioned a MicroLogix-based skid or packaged unit whether it was ever given a routable address for remote support.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External controller-exposure sweep &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="forescout" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="forescout">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Forescout Vedere Labs research &mdash; via The Hacker News and CyberScoop</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 12&ndash;13 Aug 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/08/over-4400-rockwell-plcs-exposed-online.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-    </div>
-  </div>
-
+  <!-- SECTION: Regulation &amp; Policy -->
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-<div class="card" id="story-water-policy" data-published="2026-08-13">
+<div class="card" id="story-eu-cra-reporting" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; Water &amp; wastewater</span>
+          <span class="category">Regulation &mdash; EU</span>
         </div>
-        <h3>The legislative and funding response to the water attacks is a preview of what regulators could reach for in manufacturing next</h3>
-        <p>In direct response to the water-utility campaign, Sens. Klobuchar and Schiff introduced the Water Cyber Shield Act on 13 Aug, which would give EPA authority to require mandatory cybersecurity assessments, fund $300 million a year through state revolving funds, and add a cyber-risk requirement to resilience planning for large water systems. Separately, New York awarded up to $9 million in SECURE grants to 153 drinking-water and wastewater systems &mdash; up to $50,000 per system for assessments and $100,000 for improvements &mdash; following the attack wave and the state&rsquo;s March cybersecurity mandates, and a new Water Watch Center has launched to help small, resource-constrained utilities detect and respond to intrusions. None of this creates a direct obligation for manufacturers. But the shape of the response &mdash; mandatory assessments tied to federal or state funding, and a dedicated sector support centre for organisations too small to run their own security programme &mdash; is the template regulators have reached for after other critical-infrastructure sectors had a bad enough incident, and manufacturing currently has no equivalent despite carrying the largest ransomware share of any industrial vertical this quarter.</p>
+        <h3>EU Cyber Resilience Act reporting duties start in September 2026 &mdash; and manufacturers are on both sides of it</h3>
+        <p>From September 2026, manufacturers covered by the EU Cyber Resilience Act must report actively exploited vulnerabilities and serious security incidents in their products. Industrial firms sit on both sides of this: as buyers you should get faster, more consistent disclosure from equipment and software vendors, and as makers of connected products you may be in scope yourself. It layers on NIS2, under which manufacturing of certain products is an important entity, and the NIS2 Cooperation Group adopted common incident-reporting templates on 26 May 2026. The practical question for most plants is whether anyone has determined which of the company&rsquo;s own products carry digital elements that bring them into CRA scope &mdash; that assessment is usually nobody&rsquo;s explicit job.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; legislative and funding response, not a vulnerability</span>
+            <span class="ops-tag ex-none">Not applicable &mdash; regulatory milestone</span>
             <span class="ops-tag kev-off">Not applicable</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; policy and funding item</span>
-            <span class="ops-cc"><b>Action:</b> Track the Water Cyber Shield Act&rsquo;s committee progress as a leading indicator, not because it applies to manufacturing today, but because mandatory-assessment-plus-funding is the mechanism regulators reach for once a sector has a headline incident, and manufacturing&rsquo;s ransomware exposure is already larger than water&rsquo;s in raw incident count.</span>
+            <span class="ops-tag patch-na">No patch &mdash; product-compliance and procurement work</span>
+            <span class="ops-cc"><b>Action:</b> Assign an owner to determine whether any product you place on the EU market has digital elements in CRA scope, and start the vulnerability-handling process now rather than at the deadline. On the buying side, add a contract clause requiring vendors to notify you of actively exploited vulnerabilities on the CRA timeline.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Monitor for policy developments &mdash; ongoing</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="water-policy" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="water-policy">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> CRA scope determination and vendor clause review &mdash; before September 2026</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="eu-cra-reporting" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="eu-cra-reporting">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Sens. Klobuchar and Schiff; New York State; WaterISAC &mdash; via official releases and Nextgov</span>
+          <span>Reed Smith EU cybersecurity regulatory update</span>
           <span class="dot">&bull;</span>
-          <span>Bill introduced 13 Aug 2026; NY grants and Water Watch Center announced same window</span>
+          <span>CRA reporting obligations effective September 2026</span>
         </div>
-        <a href="https://www.klobuchar.senate.gov/public/index.cfm/2026/8/sens-klobuchar-schiff-introduce-comprehensive-cybersecurity-bill-in-wake-of-recent-cyberattacks-on-water-infrastructure" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.reedsmith.com/our-insights/blogs/viewpoints/102mnj2/eu-cybersecurity-regulatory-update-for-2026-and-beyond/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
-
-  
-
-  <!-- SECTION: Critical Advisories -->
-  
-
-  <!-- SECTION: Threat Intelligence &amp; Research -->
-  
-
-  <!-- SECTION: Regulation &amp; Policy -->
-  
 
   <!-- FOOTER -->
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand on 17&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and the Known Exploited Vulnerabilities catalogue, CISA/FBI joint advisory AA26-097A and #StopRansomware advisory AA26-222A, CERT.PL&rsquo;s energy-sector incident follow-up report, vendor PSIRTs (Siemens ProductCERT, Schneider Electric, Phoenix Contact, Honeywell, Cisco, Copeland, Danfoss), and Claroty Team82 and Dragos research. Reporting drawn from SecurityWeek, The Record, Cybersecurity Dive, Help Net Security, Industrial Cyber, BleepingComputer, Dark Reading, TechCrunch and CyberScoop. This manufacturing edition draws additionally on Claroty Team82&rsquo;s refrigeration-controller research and National Motor Freight Traffic Association vehicle-controller research. Every item links to its primary or best-available source; claims made by threat actors are labelled as claimed rather than confirmed. Not a replacement for ICS-CERT subscriptions or vendor PSIRT feeds &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand on 18&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and the Known Exploited Vulnerabilities catalogue, #StopRansomware advisory AA26-222A, vendor PSIRTs (Siemens ProductCERT, Schneider Electric, Phoenix Contact, Mitsubishi Electric, Delta Electronics, Honeywell, Johnson Controls, PTC, Cisco, Broadcom/VMware, Copeland, Danfoss, Haiwell) and research from Claroty Team82 and Dragos. Reporting drawn from SecurityWeek, BleepingComputer, The Record, Help Net Security, The Hacker News and Industrial Cyber. Regulatory detail references EU Cyber Resilience Act and NIS2 timelines. Wired was not used for this edition. Every item links to its primary or best-available accessible source; claims made by threat actors, including Clop victim lists, are labelled as claimed rather than confirmed where the victim has not acknowledged them. Not a replacement for ICS-CERT subscriptions or vendor PSIRT feeds &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 
