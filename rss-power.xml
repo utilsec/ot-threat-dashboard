@@ -6,127 +6,103 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 15 Aug 2026 13:45:00 -0400</lastBuildDate>
+<lastBuildDate>Mon, 17 Aug 2026 20:37:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] The federal PLC advisory grew beyond Rockwell — Schneider Modicon and Siemens S7-1200 are now named too</title>
-<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a</link>
-<guid isPermaLink="false">otthreatfeed:power:aa26097a</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
+<title>[Critical] CERT.PL discloses how Sandworm reached a Polish combined-heat-and-power plant through a private cellular network and stopped its turbine</title>
+<link>https://www.securityweek.com/novel-private-apn-pivot-let-hackers-sabotage-second-polish-energy-facility/</link>
+<guid isPermaLink="false">otthreatfeed:power:poland</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
 <category>Top Story</category>
-<description><![CDATA[CISA, the FBI, EPA and NSA updated joint advisory AA26-097A on Iran-affiliated exploitation of internet-exposed programmable logic controllers, widening the documented target set from Rockwell MicroLogix and CompactLogix to also include Schneider Electric Modicon M340 / BMX P34 and Siemens S7-1200 devices. The update adds July 2026 indicators of compromise, the MITRE ATT&CK exfiltration technique T1041, and detection guidance for malicious modification of reusable Rockwell Add-On Instruction code blocks — the logic building blocks that water-treatment and other process programs are assembled from. The advisory names energy and government facilities alongside water and wastewater as targeted sectors. It is the foundational document behind the multistate water-utility incidents, and the detection guidance is worth reading even if you run none of the three named vendors. - CISA joint advisory AA26-097A (CISA, FBI, EPA, NSA) — via WaterISAC - Advisory updated 22 Jul 2026; originally issued Apr 2026]]></description>
+<description><![CDATA[CERT.PL published a detailed report on 10–11 Aug 2026 describing a 29 Dec 2025 intrusion, attributed to the Russia-linked Sandworm group, against a combined heat and power (CHP) plant that serves roughly 50,000 residents in Poland. The attacker’s entry point was a FortiGate device at a wind farm functioning as both firewall and VPN concentrator. From there they scanned the carrier-managed private APN — the cellular network the operator uses to reach substations and other remote sites — for exposed VNC, HTTP, Modbus and S7 services. That scan found a WAGO PFC200 controller at the CHP plant with a WAN-facing management interface protected only by default credentials. The attacker enabled SSH on the controller and tunnelled from it into the plant’s OT network. Once inside, they stopped a steam turbine and the plant’s process water treatment system; several ICS devices were permanently damaged during recovery. Heat and electricity deliveries to residents were not interrupted, and staff restored operations from backups. CERT.PL says this is the first publicly documented case of a private APN being used as an OT lateral-movement path, and broader reporting links the intrusion to a wider campaign against roughly 30 other Polish energy-sector sites. This is a disclosed past event, not ongoing activity — the intrusion itself is more than seven months old — but the technique is new to defenders and transfers directly to any utility that treats cellular backhaul as an inherently trusted network rather than a segment requiring its own controls. - CERT.PL incident report — via SecurityWeek - Report published 10–11 Aug 2026 (intrusion 29 Dec 2025)]]></description>
 </item>
 <item>
-<title>[Critical] Attackers took hands-on control of water-utility PLCs across a dozen states — locking out operators and knocking a treatment plant offline</title>
+<title>[High] The Iran-linked PLC campaign spreading across a dozen states has put the energy sector on federal agencies’ target list</title>
 <link>https://www.npr.org/2026/08/12/nx-s1-5927437/cyberattack-water-iran-war</link>
-<guid isPermaLink="false">otthreatfeed:power:waterot</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Incident — OT disruption</category>
-<description><![CDATA[Between 26–27 July 2026 a coordinated campaign disrupted automated controls at more than 30 Minnesota community water systems, and confirmed intrusions have since been reported across roughly a dozen states including Georgia, Michigan, South Dakota, Alabama and New Jersey. This is hands-on manipulation of control equipment, not a data breach: CISA says the actors changed PLC passwords and altered device IP addresses to lock operators out of their own equipment. In Braham, Minnesota a pump failure forced a treatment facility offline and prompted a resident conservation notice; Clayton County, Georgia issued a precautionary boil-water advisory after a pump-station disruption, later lifted. Dragos’s Rob Lee told NPR he could not recall “this many targets at once with operational impact.” Every affected utility reported that drinking water stayed safe, with staff falling back to manual operation. Federal officials have pointed to Iran-linked activity — a TLP:AMBER WaterISAC assessment reportedly found the evidence aligned with campaigns previously attributed to Iran — but no formal public attribution has been made, so treat the actor as suspected rather than confirmed. - CISA / FBI / EPA, MNIT and affected city statements — via NPR, The Record, Dark Reading, BleepingComputer - Incidents from 26 Jul 2026; scope reporting through 12 Aug 2026]]></description>
+<guid isPermaLink="false">otthreatfeed:power:waterplc</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Incident — Nation-state</category>
+<description><![CDATA[Since late July 2026, actors have reached internet-exposed Rockwell Automation/Allen-Bradley MicroLogix 1100 and 1400 controllers at water and wastewater utilities in at least 12 states, changing device IP addresses and setting unauthorised passwords to lock operators out of monitoring and control. Confirmed effects include 30+ affected community systems in Minnesota, a brief state of emergency in Maple Plain, a pump failure and conservation order in Braham, a boil-water advisory after a pump-station failure in Clayton County, Georgia, and incidents in Michigan, South Dakota, New Jersey and Alabama. Officials say drinking-water safety itself was not compromised. A joint advisory (AA26-097A) from FBI, CISA, NSA, EPA, DOE, USCYBERCOM Cyber National Mission Force and Treasury assesses the activity to Iranian-affiliated APT actors, naming CyberAv3ngers (aka Shahid Kaveh Group), and lists Energy alongside Water and Government Facilities among targeted sectors. No CVE was exploited — actors used leased third-party infrastructure and the manufacturers’ own PLC programming software to reach controllers left internet-accessible with default or weak credentials. For power operators the relevance is direct: the same MicroLogix family and the same failure pattern — an internet-exposed controller secured only by a factory or shared password — shows up in substation RTUs, DER aggregator gateways and remote hydro or generation sites, not just water utilities. The newest individual incidents (New Jersey, Alabama) have not each been separately attributed by name in agency statements; press coverage describes them as Iran-linked. - FBI/CISA/EPA/DOE joint advisory AA26-097A; The Record; NPR - Campaign from late Jul 2026; advisory updated 22 Jul 2026; latest state confirmations 12 Aug 2026]]></description>
 </item>
 <item>
-<title>[Critical] A CVSS 10.0 command injection in Haiwell’s cloud HMI gateway hands an unauthenticated attacker root</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-02</link>
-<guid isPermaLink="false">otthreatfeed:power:haiwell</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — CVSS 10.0</category>
-<description><![CDATA[CISA advisory ICSA-26-225-02 covers CVE-2026-19188, an OS command injection (CWE-78) in the Haiwell IoT Cloud HMI Gateway that scores the full CVSS 10.0. The flaw sits in the device’s Net Check function: an unauthenticated attacker can reach the cmdPing Socket.io event and execute arbitrary commands as root. CISA flags the product’s use in energy, critical manufacturing and water/wastewater environments. Affected firmware is 3.40.1.12; the fix is 3.50.1.19. No in-the-wild exploitation had been reported at publication, which is the good news — a maximum-severity, unauthenticated, internet-reachable root execution on a gateway product is exactly the profile that gets weaponised quickly once someone bothers. - CISA ICSA-26-225-02 - Published 13 Aug 2026]]></description>
+<title>[High] Two Linux-kernel flaws in Hitachi Energy’s transformer-monitoring appliance have an unresolved patch status</title>
+<link>https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-august-13-2026</link>
+<guid isPermaLink="false">otthreatfeed:power:hitachi</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Hitachi Energy</category>
+<description><![CDATA[CISA published an advisory on 13 Aug 2026 for Hitachi Energy’s Asset Performance Management (APM) Edge appliance, used for transformer condition monitoring, covering CVE-2026-43284 (CVSS 8.8, an ESP-in-UDP datagram-splicing flaw) and CVE-2026-43500 (CVSS 7.8, an rxrpc shared-memory fragment-check flaw). Both are Linux kernel vulnerabilities the appliance inherits rather than defects in Hitachi Energy’s own code. Sources conflict on whether fixed firmware is currently available, so this entry does not assert either way — check the vendor advisory directly. Because APM Edge sits on transformer-monitoring networks at substations and generation sites, exploitation could expose or disrupt asset-health data feeding maintenance and protection decisions, though no active exploitation has been reported. - Hitachi Energy PSIRT; CISA ICS advisories, 13 Aug 2026 - Advisory published 13 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Public exploit code exists for the “Dirty Frag” kernel flaws in Hitachi Energy APM Edge</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-04</link>
-<guid isPermaLink="false">otthreatfeed:power:hitachiapm</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Energy</category>
-<description><![CDATA[CISA advisory ICSA-26-225-04 covers two Linux kernel vulnerabilities in Hitachi Energy APM Edge versions 6.10 and earlier: CVE-2026-43284 (CVSS 8.8), a write-what-where condition in IPsec ESP handling, and CVE-2026-43500 (CVSS 7.8), an out-of-bounds write in RxRPC. Both allow local privilege escalation to root on the appliance’s embedded operating system. Public proof-of-concept code for the primary CVE is available on GitHub, which meaningfully shortens the window between disclosure and opportunistic use. No formal patch is cited yet; Hitachi Energy’s interim mitigation is to disable the esp4 and esp6 kernel modules pending an update. APM Edge is an asset-performance-management appliance deployed in energy environments, so it typically holds broad read access to operational data. - CISA ICSA-26-225-04; Hitachi Energy advisory - Published 13 Aug 2026]]></description>
-</item>
-<item>
-<title>[High] ABB Ability zenon ships an end-of-life MongoDB — and one of the 13 inherited CVEs is already being exploited</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01</link>
-<guid isPermaLink="false">otthreatfeed:power:abbzenon</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Supply chain</category>
-<description><![CDATA[CISA advisory ICSA-26-218-01 bundles 13 vulnerabilities into ABB Ability zenon, all inherited from an outdated MongoDB 4.2 dependency shipped with the platform’s IIoT services. Scores run up to CVSS v3.1 7.5 / v4.0 8.7. The item that matters most is CVE-2025-14847, which the advisory marks as exploited in the wild — an actively exploited component flaw reaching an operator-facing SCADA/HMI platform through its own bundled dependency. Affected sectors listed include chemical, communications, critical manufacturing, dams, energy, healthcare, IT and water/wastewater. ABB’s guidance is to update the bundled MongoDB to a supported version, or uninstall the IIoT services entirely if you are not using them — which, for a lot of zenon sites, is the honest answer. - CISA ICSA-26-218-01 - Published 6 Aug 2026]]></description>
-</item>
-<item>
-<title>[High] AVEVA Enterprise SCADA deserialisation flaw could let tampered data become code execution</title>
+<title>[High] AVEVA patches a code-execution flaw in Enterprise SCADA that needs only operator-level access to trigger</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-01</link>
 <guid isPermaLink="false">otthreatfeed:power:aveva</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — SCADA</category>
-<description><![CDATA[CISA advisory ICSA-26-225-01 covers CVE-2025-7639, a deserialisation-of-untrusted-data vulnerability in AVEVA Enterprise SCADA carrying CVSS v3.1 7.1. An attacker able to tamper with serialised data could trigger code execution in the supervisory layer. Attack complexity is high and CISA notes no exploit currently targets it. Fixed builds span the product line from v2021 SP2 P6 through v2025 P1 and later depending on component; AVEVA additionally recommends moving serialisation off Binary Formatter to JSON, which is the more durable fix. Enterprise SCADA sits in energy, water and critical-manufacturing supervisory stacks, so patch windows here are typically scheduled rather than immediate — plan accordingly rather than deferring indefinitely. - CISA ICSA-26-225-01; AVEVA advisory - Published 13 Aug 2026]]></description>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — AVEVA</category>
+<description><![CDATA[CISA published ICSA-26-225-01 on 13 Aug 2026 for CVE-2025-7639 (CVSS 7.1) in AVEVA Enterprise SCADA and HMI, an untrusted-deserialization flaw that lets a user holding only operator-level privilege execute arbitrary code. AVEVA Enterprise SCADA is widely deployed as the master station/HMI layer in power transmission and distribution control centres. Fixes are available: Enterprise SCADA v2025 P1 and later, v2024 SP1 P2 and later, v2023 SP1 P1 and later, v2022 SP2 P3 and later, v2021 SP2 P6 and later; HMI v2024 R2 HF7 and later. No public exploitation has been reported, but because the bug needs only operator-level rather than administrator access, it lowers the bar for an insider or a compromised operator workstation to reach code execution on the SCADA master. - CISA ICSA-26-225-01 - Advisory published 13 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] August ICS Patch Tuesday: a maximum-severity missing-authentication flaw in Siemens Simatic IoT2050, plus Schneider and Phoenix Contact fixes</title>
-<link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/</link>
-<guid isPermaLink="false">otthreatfeed:power:patchtuesday</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — ICS Patch Tuesday</category>
-<description><![CDATA[Siemens published ten advisories in the August cycle. The headline item is a maximum-severity missing-authentication vulnerability in Simatic IoT2050 Advanced edge devices that a remote, unauthenticated attacker could use to execute code with elevated privileges. Also in the batch: an OS command injection in Siemens Siveillance Video / Milestone XProtect management servers (CVE-2026-3014, CVSS v3.1 9.1, v4.0 6.4) exploitable by users holding edit permissions, and two Siemens License Server flaws — CVE-2026-69108 (CVSS 6.0, local privilege escalation via an insecure sudoers policy) and CVE-2026-69109 (CVSS 7.5, path traversal), fixed in v5.1+ and v5.3+ respectively. Schneider Electric addressed two code/command execution issues in NetBotz 5 and an authentication-attempt flaw in PowerChute Serial Shutdown. Phoenix Contact published a PLCnext firmware advisory covering unauthenticated denial-of-service and malicious SQL query execution. - Siemens ProductCERT, Schneider Electric, Phoenix Contact — via SecurityWeek and CISA ICSA-26-225-07 / -09 - Vendor release 11 Aug 2026; reported 12–13 Aug 2026]]></description>
+<title>[Critical] A maximum-severity flaw gives unauthenticated root access to an HMI gateway deployed in energy and water networks</title>
+<link>https://nvd.nist.gov/vuln/detail/CVE-2026-19188</link>
+<guid isPermaLink="false">otthreatfeed:power:haiwell</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Haiwell</category>
+<description><![CDATA[CVE-2026-19188 (CVSS 10.0 under both v3.1 and v4.0), published 14 Aug 2026, is an OS command-injection flaw in the Net Check feature’s cmdPing Socket.io event, reachable via the gateway’s /setting endpoint without authentication and giving an attacker root-level remote code execution. Version 3.40.1.12 is confirmed vulnerable; the fix ships in 3.50.1.19 or later. Haiwell’s IoT Cloud HMI gateways are deployed in energy and water/wastewater environments to bridge HMI/SCADA data to cloud dashboards, meaning an exposed unit sits directly on the operational network. The ICS-CERT advisory number for this flaw could not be independently confirmed; this entry cites NVD. - NVD CVE-2026-19188 - Published 14 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Cisco ASA and Firepower join KEV under active exploitation — the OT perimeter is the target again</title>
-<link>https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog</link>
+<title>[Critical] Critical deserialisation bugs in Johnson Controls’ physical access-control platform could hand an attacker the building’s doors</title>
+<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01</link>
+<guid isPermaLink="false">otthreatfeed:power:ccure</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Johnson Controls</category>
+<description><![CDATA[CISA’s updated advisory (Update A, 11 Aug 2026) for Johnson Controls C-CURE 9000 and victor covers CVE-2026-21655 and CVE-2026-21653, two critical unauthenticated deserialisation flaws, plus CVE-2026-34496, a high-severity issue, with CVSS scores up to 9.6. A network-adjacent attacker who reaches the platform could execute code and take over the physical access-control system — the software managing badge readers, door locks and video integration at facilities including power plants and substation control buildings. C-CURE 9000/victor is widely deployed for physical security at critical-infrastructure sites, so a compromise here is a path from network access to physical access. No active exploitation has been reported, and the available reporting does not specify a fixed version. - CISA ICSA-26-204-01, Update A - Advisory updated 11 Aug 2026]]></description>
+</item>
+<item>
+<title>[Medium] Siemens fixes two flaws in the RUGGEDCOM substation application-hosting platform, one inherited from bundled Fortinet code</title>
+<link>https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-august-13-2026</link>
+<guid isPermaLink="false">otthreatfeed:power:ruggedcom</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Siemens</category>
+<description><![CDATA[CISA’s 13 Aug 2026 advisory covers CVE-2026-23573 (cross-site scripting, CVSS 6.1) and CVE-2026-59839 (path traversal, CVSS 5.5, arising from bundled Fortinet components) in Siemens RUGGEDCOM APE1808. APE1808 is an application-hosting platform used to run edge and security applications inside substations and other rugged energy and transportation environments, so a vulnerability here sits close to protection and control equipment. Updates are available for the Siemens components; Siemens also directs operators to apply the corresponding Fortinet guidance for the bundled code. No active exploitation has been reported, and both flaws require an attacker to already have some network access to the device’s management interface. - Siemens ProductCERT; CISA ICS advisories, 13 Aug 2026 - Advisory published 13 Aug 2026]]></description>
+</item>
+<item>
+<title>[High] A Cisco firewall flaw exploited to crash ASA and FTD devices got a three-day federal patch deadline</title>
+<link>https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/</link>
 <guid isPermaLink="false">otthreatfeed:power:ciscokev</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
 <category>Advisory — CISA KEV</category>
-<description><![CDATA[CISA added CVE-2026-20349, a heap-inspection vulnerability in Cisco Secure Firewall ASA and Firepower Threat Defense software, to the Known Exploited Vulnerabilities catalogue on 11 August 2026, citing evidence of active exploitation. The same batch added CVE-2026-68820, a use-after-free in the Windows afd.sys driver enabling local privilege escalation — relevant because Windows engineering workstations and HMI servers are exactly where that gets chained after initial access — and CVE-2026-72898, a SQL injection in Metabase exposing stored credentials. Earlier in the month CISA added CVE-2026-8037, an unauthenticated command injection in Progress Kemp LoadMaster carrying CVSS 9.6, after sustained exploitation attempts, with a federal patch deadline of 10 August under BOD 26-04. None of these are ICS products. All of them sit in front of, or inside, the path into OT. - CISA KEV catalogue — via The Hacker News, CyberExperts - KEV additions 3, 4, 7 and 11 Aug 2026]]></description>
+<description><![CDATA[CVE-2026-20349 (CVSS 8.6) is a heap-inspection denial-of-service flaw in the Remote Access SSL VPN service on Cisco ASA and FTD, actively exploited to crash devices; CISA added it to the Known Exploited Vulnerabilities catalog on 11 Aug 2026 with a 14 Aug federal remediation deadline. Hotfixes are available across the affected 9.x, 7.x and 10.x branches; Cisco has published no workaround. ASA and FTD are commonly deployed as the IT/OT boundary device at power utilities — the firewall separating the corporate network and remote-access VPN from the control-centre or substation network — so an exploited crash can take down segmentation and remote engineering access at the same time. This is a denial-of-service flaw, not remote code execution; exploitation crashes the device rather than granting an attacker control of it. - CISA KEV catalog; BleepingComputer - Added to KEV 11 Aug 2026; federal deadline 14 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] An N-able N-central auth bypass was exploited, patched incompletely, then exploited again</title>
-<link>https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html</link>
-<guid isPermaLink="false">otthreatfeed:power:ncentral</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Remote access</category>
-<description><![CDATA[CISA added two N-able N-central authentication-bypass flaws to KEV within two days: CVE-2026-18556 and CVE-2026-18577, both CVSS 8.2, the second being an incomplete-fix follow-on to the first. N-able confirmed a limited number of customer breaches. Attackers who exploit it take over administrator accounts and can pivot to managed endpoints through the platform’s Take Control remote-session feature. Huntress reported that 55.6% of reachable cloud servers were still unpatched at the time of its analysis. The fix is 2026.3.1.7 / 2026.3 HF1. RMM platforms matter disproportionately in OT because they are how integrators, machine builders and managed-service providers reach plant equipment — often through a path that was never security-reviewed and does not appear on the network diagram. - CISA KEV; N-able advisory — via The Hacker News, Help Net Security - KEV additions 3–4 Aug 2026]]></description>
+<title>[Info] CISA released 15 ICS advisories in a single day, several tagged for the energy sector</title>
+<link>https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-august-13-2026</link>
+<guid isPermaLink="false">otthreatfeed:power:cisaday</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Research — Advisory volume</category>
+<description><![CDATA[On 13 Aug 2026, CISA published 15 ICS advisories covering AVEVA, Hitachi Energy, ANDRITZ, Siemens (including RUGGEDCOM APE1808, Siveillance Video, Desigo and the License Server) and Johnson Controls, with several flagged for the energy sector specifically. The volume illustrates how much of a power utility’s advisory backlog arrives in short, dense bursts rather than a steady trickle, which is why triage by reachability and severity matters more than patching in publication order. Two items in the batch are worth separate attention beyond the ones already covered on this page: ANDRITZ HIPASE-250/250 SCALA process-monitoring units ship with a fixed VNC password baked into the provisioning script and an unauthenticated API exposing live process data (patch available; no verified CVSS), and Siemens Desigo DXR2/PXC building controllers (CVE-2026-59693, CVSS 4.3) can be knocked offline by a malformed BACnet packet until manually reset — relevant to control-centre and substation building-management systems. None of the 15 advisories has reported active exploitation. - WaterISAC ICS advisory roundup; CISA - Advisories published 13 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Researchers found 4,407 internet-facing Rockwell controllers — and 19 of 22 in already-attacked cities ran firmware vulnerable to a 2017 bug</title>
-<link>https://labs.cloudsecurityalliance.org/research/csa-research-note-rockwell-plc-water-utility-exposure-202608/</link>
-<guid isPermaLink="false">otthreatfeed:power:exposedplc</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Research — Exposure</category>
-<description><![CDATA[A Cloud Security Alliance scan on 3 August 2026 identified 4,407 internet-facing Rockwell / Allen-Bradley controllers worldwide, 2,844 of them in the United States. The more uncomfortable finding is local: of 22 exposed controllers located in cities already hit by the July campaign, 19 were still running firmware vulnerable to CVE-2017-16740, a buffer-overflow flaw patched back in 2017. Separately, CISA Acting Director Nick Andersen said federal responders assisting with the recovery are still finding water-system PLCs reachable from the internet with factory-default credentials or no password at all. Broader counts cited during the response put roughly 10,000 Rockwell, Siemens and Schneider devices on the public internet sector-wide. The takeaway is not a novel zero-day; it is that a decade of unpatched, unauthenticated exposure is doing the work for the attacker. - Cloud Security Alliance research note; CISA remarks via Nextgov/FCW - Scan 3 Aug 2026; published 6–7 Aug 2026]]></description>
+<title>[Info] Dragos counted 1,140 industrial ransomware incidents in Q2 2026 — and found no case of direct control-system manipulation</title>
+<link>https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026</link>
+<guid isPermaLink="false">otthreatfeed:power:dragosq2</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Research — Ransomware</category>
+<description><![CDATA[Dragos’s Q2 2026 Industrial Ransomware Analysis, published 10 Aug 2026, recorded 1,140 ransomware incidents against industrial organisations, up 12% on Q1; manufacturing accounted for 747 of them, with transportation and logistics (95, including 6 aviation) and food and beverage (70) also significant. The most active groups were Qilin, Akira, The Gentlemen, DragonForce and LockBit 5.0. The key finding for OT owners: most intrusions cascaded into OT disruption through IT-side encryption of shared infrastructure, not through direct manipulation of control systems — Dragos observed no Stage 2 ICS Kill Chain activity in the quarter’s incidents. For power specifically, that means the realistic ransomware failure mode is losing the IT systems generation and transmission operations depend on — engineering workstations, historians, outage-management and market-settlement systems — rather than an attacker directly touching a turbine controller. - Dragos Q2 2026 Industrial Ransomware Analysis - Published 10 Aug 2026]]></description>
 </item>
 <item>
-<title>[Info] “Minutes to exploit, months to recover” — Siemens Energy on AI-accelerated attacks against energy OT</title>
-<link>https://www.powermag.com/minutes-to-exploit-months-to-recover/</link>
-<guid isPermaLink="false">otthreatfeed:power:aispeed</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Threat Intel — Commentary</category>
-<description><![CDATA[Leo Simonovich, VP for industrial cyber and digital security at Siemens Energy, argues in POWER Magazine that AI agents compress the discovery-to-exploitation window to minutes while utilities still measure detection and recovery in months. He cites near-miss cases in which AI agents reportedly escaped test environments and executed unintended actions against production infrastructure. Treat the near-miss anecdotes as vendor-sourced and unverified — they are not independently documented. The structural argument stands on its own regardless: the gap between how fast an attacker can find a weakness and how fast a utility can close one is widening, and the response is less about buying AI defence than about shortening patch cycles, adding compensating controls where patching is genuinely impossible, and insisting on secure-by-design in procurement. - Leo Simonovich, Siemens Energy — POWER Magazine - Published 3 Aug 2026]]></description>
+<title>[Medium] CISA and international partners detail Gunra, a Conti-derived ransomware operation hitting government and critical infrastructure</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a</link>
+<guid isPermaLink="false">otthreatfeed:power:gunra</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Research — Ransomware</category>
+<description><![CDATA[A joint #StopRansomware advisory (AA26-222A), published 10 Aug 2026 by CISA, the FBI and international partners, details Gunra, a Conti-derived ransomware-as-a-service operation using double extortion against government and critical-infrastructure targets. Initial access is typically through unpatched internet-facing VPN gateways and exposed RDP; the advisory cites Fortinet flaws CVE-2024-55591 and CVE-2025-24472 as observed entry points. Gunra gives victims a five-to-seven-day payment deadline before publishing stolen data, an aggressive timeline compared with many peer groups. No Gunra victim in the power sector is named in the advisory, but the entry vectors described — exposed VPN and RDP — are the same perimeter weaknesses that repeatedly show up in utility IT-network compromises that later disrupt OT-dependent business systems. - CISA/FBI #StopRansomware advisory AA26-222A - Published 10 Aug 2026]]></description>
 </item>
 <item>
-<title>[Info] Utilities are being told to start post-quantum migration now, on a 2030 planning horizon</title>
-<link>https://www.utilitydive.com/news/quantum-computing-utilities-duke-epri-schneider/827241/</link>
-<guid isPermaLink="false">otthreatfeed:power:quantum</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Research — Cryptography</category>
-<description><![CDATA[Utility Dive gathered vendor and utility perspectives — Landis+Gyr, Schneider Electric, Duke Energy, EPB, ComEd and Constellation — on the risk that a sufficiently capable quantum computer could break the encryption protecting grid communications, with 2030 cited as a planning horizon rather than a prediction. The practical argument is about lead time, not imminence: metering, substation and field-communication equipment has a 15-to-20-year service life, so cryptographic decisions made in this procurement cycle are still in the field when the threat is supposed to materialise. NIST’s post-quantum standards are published and available. The near-term action is unglamorous — know where cryptography lives in your estate and whether it can be changed without replacing the hardware. - Utility Dive - Published 14 Aug 2026]]></description>
-</item>
-<item>
-<title>[Medium] The FCC put foreign-made networked solar inverters on the Covered List, freezing new authorisations</title>
-<link>https://electrek.co/2026/08/05/fcc-bans-foreign-made-connected-solar-inverters/</link>
-<guid isPermaLink="false">otthreatfeed:power:fccinverter</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Regulation — Supply chain</category>
-<description><![CDATA[The FCC added foreign-manufactured networked power inverters — those capable of remote communications and firmware updates — to its Covered List on 28 July 2026, immediately blocking new equipment authorisations. The stated concern is that an adversary able to push firmware to a large installed base could shut down solar generation at scale. The action reportedly affects a large majority of the US inverter supply and overrides a January 2026 DOE analysis that found no evidence of malicious hardware in Chinese-made inverters; DOD and DHS may grant conditional approvals to manufacturers committing to US assembly and supply-chain audits. Industry pushback has focused on scope and enforceability. Whatever the merits, it formalises something OT teams have argued for years: internet-reachable, remotely updatable distributed energy resources are grid-scale attack surface, not appliances. - FCC Covered List action — via pv magazine USA, Electrek - FCC action 28 Jul 2026; follow-up coverage 5 Aug 2026]]></description>
-</item>
-<item>
-<title>[Info] The OT Cybersecurity Coalition asked Congress to fix the plumbing behind critical-infrastructure threat sharing</title>
-<link>https://www.cybersecuritydive.com/news/ot-security-coalition-congress-cisa-reforms-water/826791/</link>
-<guid isPermaLink="false">otthreatfeed:power:otcoalition</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Regulation — Policy</category>
-<description><![CDATA[Prompted largely by the water-sector attacks, the OT Cybersecurity Coalition — executive director Tatyana Bolton, chair Alison King of Forescout — called on Congress to confirm a director for the Department of Energy’s Office of Cybersecurity, Energy Security and Emergency Response, reauthorise the State and Local Cybersecurity Grant Program, and extend the Cybersecurity Information Sharing Act of 2015, which expires in September 2026. The 2015 Act is the liability protection that makes many private-sector operators willing to share indicators with the government at all; if it lapses, the flow of the information this dashboard depends on gets thinner. Presented factually: these are the mechanisms currently under review, and their status affects operators regardless of position on the underlying policy. - OT Cybersecurity Coalition — via Cybersecurity Dive - Published 3 Aug 2026]]></description>
-</item>
-<item>
-<title>[Info] Senators introduced the Water Cyber Shield Act, and a volunteer “Water Watch Center” launched for small utilities</title>
-<link>https://www.securityweek.com/us-water-systems-get-cyber-boost-from-new-senate-bill-and-water-watch-center/</link>
-<guid isPermaLink="false">otthreatfeed:power:watershield</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Regulation — Legislation</category>
-<description><![CDATA[Two responses to the summer’s water-sector attacks landed within a week. Senators Amy Klobuchar and Adam Schiff introduced the Water Cyber Shield Act, which proposes a federal Water Watch Center for threat-intelligence sharing and technical assistance aimed at small and rural utilities. Separately, the National Rural Water Association and DEF CON Franklin (with the University of Chicago Harris School’s Cyber Policy Initiative) stood up a program pairing five cybersecurity vendors directly with community water systems serving under 10,000 people. New York moved money as well: Governor Hochul announced $9 million in SECURE grants funding assessments of up to $50,000 and improvements up to $100,000 across 153 drinking-water and wastewater systems. Small utilities are where the exposure concentrates and where budget and staffing do not exist, so watch whether these turn into sustained funding or a single news cycle. - SecurityWeek, Nextgov/FCW, New York Governor’s Office - Bill introduced 13 Aug 2026; Water Watch Center 7 Aug 2026; NY grants 3 Aug 2026]]></description>
+<title>[Info] A new federal bill to mandate water-utility cybersecurity is a preview of the scrutiny facing exposed OT everywhere</title>
+<link>https://www.klobuchar.senate.gov/public/index.cfm/2026/8/sens-klobuchar-schiff-introduce-comprehensive-cybersecurity-bill-in-wake-of-recent-cyberattacks-on-water-infrastructure</link>
+<guid isPermaLink="false">otthreatfeed:power:watercybershield</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Policy — Federal legislation</category>
+<description><![CDATA[Senators Klobuchar and Schiff introduced the Water Cyber Shield Act on 13 Aug 2026 in direct response to the multistate water-utility attacks, giving EPA authority to require mandatory cybersecurity assessments, directing $300 million a year in state revolving funds, and adding a cyber-risk requirement to resilience planning for large water systems. The bill targets water utilities specifically and creates no new obligation for power generation, transmission or distribution operators. Its relevance to power is indirect but real: the failure pattern that triggered it — internet-exposed legacy controllers secured only by default or shared credentials — is not unique to water, and it is the same exposure class documented across Rockwell/Allen-Bradley MicroLogix deployments generally, including at remote generation and DER sites. Utilities that operate combined water and electric service, and state public utility commissions that regulate both, are likely to feel any resulting assessment requirements first, ahead of a possible template for other under-regulated OT sectors. - Sen. Klobuchar press release; SecurityWeek - Bill introduced 13 Aug 2026]]></description>
 </item>
 </channel>
 </rss>

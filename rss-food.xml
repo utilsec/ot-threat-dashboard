@@ -6,143 +6,103 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-food.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 15 Aug 2026 13:45:00 -0400</lastBuildDate>
+<lastBuildDate>Mon, 17 Aug 2026 20:37:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] Claroty found 23 flaws in Copeland refrigeration controllers — including one that lets an attacker switch off cooling while faking normal temperatures</title>
-<link>https://claroty.com/team82/research/chilling-discoveries-unpacking-vulnerabilities-in-copeland-xweb-pro-controllers</link>
-<guid isPermaLink="false">otthreatfeed:food:copeland</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
+<title>[Critical] The water-utility PLC campaign is the clearest preview yet of what food and agriculture’s own exposed controllers could face</title>
+<link>https://www.securityweek.com/water-sector-cyberattacks-reportedly-hit-at-least-12-states/</link>
+<guid isPermaLink="false">otthreatfeed:food:watertransfer</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
 <category>Top Story</category>
-<description><![CDATA[Claroty’s Team82 disclosed 23 vulnerabilities, 21 of them high severity, in Copeland XWEB Pro cold-chain controllers (models 300D, 500D and 500B on firmware 1.12.1 and earlier). The most serious is CVE-2026-21718, a CVSS 10.0 authentication bypass exploiting predictable password derivation; CVE-2026-24663 (CVSS 9.0) is an unauthenticated OS command injection, and CVE-2026-25085 (CVSS 8.6) a logic flaw. The demonstrated attack is the part worth reading twice: researchers showed an attacker could silently disable cooling while spoofing normal temperature readings back to operators. That is a food-safety and spoilage attack with a built-in detection bypass, targeting supermarket, cold-storage and pharmaceutical refrigeration. Copeland has released firmware 1.13. No in-the-wild exploitation has been reported. - Claroty Team82 — corroborated by SecurityWeek - Published 9 Aug 2026]]></description>
+<description><![CDATA[Since around 26–27 July 2026, actors have reached internet-exposed Rockwell Automation and Allen-Bradley MicroLogix 1100 and 1400 controllers at water and wastewater utilities in at least 12 states, changing device IP addresses and setting unauthorised passwords to lock operators out of monitoring and control. More than 30 Minnesota community systems were affected, including a brief state of emergency in Maple Plain and a pump failure and conservation order in Braham; Clayton County, Georgia issued a boil-water advisory after a pump-station failure; Michigan (nine systems), Rapid City, South Dakota, and, most recently, New Jersey (Cape May, Woodbine) and Alabama (Childersburg water, sewer and gas) have also been hit. Officials say drinking-water safety has not been compromised at any affected utility. Joint Cybersecurity Advisory AA26-097A — FBI, CISA, NSA, EPA, DOE, USCYBERCOM’s Cyber National Mission Force and Treasury, updated 22 July — assesses that Iranian-affiliated CyberAv3ngers, also known as the Shahid Kaveh Group and affiliated with the IRGC’s Cyber Electronic Command, is conducting the activity; that is an official assessment, not proven attribution, and it does not individually cover the newest New Jersey and Alabama cases. No CVE was exploited — the method is exposure plus default, weak or absent credentials on internet-reachable controllers, using the vendor’s own PLC programming software. - AA26-097A (FBI/CISA/NSA/EPA/DOE/USCYBERCOM/Treasury) — via SecurityWeek, NPR, TechCrunch - Campaign ongoing since late Jul 2026; advisory updated 22 Jul 2026; latest reporting 12–14 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Coca-Cola’s Fairlife suspended all US dairy production after a ransomware attack</title>
-<link>https://www.cybersecuritydive.com/news/ransomware-attack-coca-cola-suspend-production-dairy/825540/</link>
-<guid isPermaLink="false">otthreatfeed:food:fairlife</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Incident — Production halt</category>
-<description><![CDATA[Coca-Cola’s Fairlife dairy subsidiary suspended all US production on 16 July 2026 following a ransomware attack on production-related systems, disclosed via SEC filing. The company said product safety and quality were unaffected and engaged law enforcement and outside forensics. Whether attackers reached plant-floor control systems or only business IT was not confirmed at disclosure, and that distinction has not been publicly resolved. The Anubis ransomware group later claimed on its leak site to have locked Fairlife servers and stolen around 1 TB of data, with stolen VPN credentials cited as the suspected initial access; Coca-Cola has not confirmed the actor or the data theft, so treat the claim as unverified. Included as standing context — it is the reference case behind this month’s sector reporting. - Coca-Cola SEC filing — via Cybersecurity Dive - Production halted 16 Jul 2026 — standing context]]></description>
+<title>[Medium] A logistics-provider breach at CEVA shows how one distribution partner can stall shipments across food and retail supply chains</title>
+<link>https://therecord.media/ceva-logistics-cyberattack-bol-steam-debijenkorf-ace-tate</link>
+<guid isPermaLink="false">otthreatfeed:food:ceva</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Incident — Data breach</category>
+<description><![CDATA[CEVA Logistics disclosed an intrusion, dated 29 July 2026, that disrupted European contract logistics and stopped outbound shipments from eight warehouses; customers were notified 1 August and the full scale became public the week of 10 August. Air, ocean, ground and rail transport were unaffected, and CEVA says personal data — names, addresses, phone numbers, email and order details — was compromised, but payment and credential data were not. Downstream retailers named include Bol, De Bijenkorf, Ace & Tate, Pokémon Center (UK/Germany, some orders cancelled), Valve/Steam, Ajax and ING; the Dutch data protection authority is investigating and no group has claimed the intrusion. CEVA and comparable contract-logistics and 3PL providers also run cold-chain and food distribution warehousing across Europe, so an eight-warehouse outbound stoppage at one provider is a direct illustration of how a single logistics partner can halt shipments for food and beverage brands that outsource cold storage and distribution. Reporting describes IT systems and shipment processing being affected; no OT or warehouse-automation compromise has been confirmed, but it has not been explicitly ruled out either. - CEVA customer notifications — via The Record - Intrusion 29 Jul 2026; scale public week of 10 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Ransomware at Nichirei disrupted a 7,000-vehicle refrigerated logistics network</title>
-<link>https://www.darkreading.com/cyberattacks-data-breaches/ransomware-attack-japanese-frozen-food-chain</link>
-<guid isPermaLink="false">otthreatfeed:food:nichirei</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Incident — Cold chain</category>
-<description><![CDATA[A ransomware attack attributed to RansomHouse disrupted logistics and shipping systems at Japanese frozen-food group Nichirei in mid-July 2026. The company operates roughly 7,000 refrigerated vehicles across 141 sites, and the disruption caused supply shortages affecting around 5,000 clients including Japanese KFC franchises. Nichirei confirmed the breach and theft of personal data while coordinating with authorities; the RansomHouse attribution is the group’s claim rather than a confirmed finding. Cold-chain logistics is a concentration risk that rarely appears on anyone’s risk register: the physical assets are distributed across the country, but the dispatch and routing systems that make them useful are centralised, so one IT outage idles the whole fleet. - Nichirei statements — via Dark Reading - Incident mid-Jul 2026; reported 23 Jul 2026]]></description>
+<title>[Critical] A maximum-severity flaw in Siemens’ SIMATIC IoT2050 edge gateway allows unauthenticated code execution at full privilege</title>
+<link>https://cert-portal.siemens.com/productcert/html/ssa-834709.html</link>
+<guid isPermaLink="false">otthreatfeed:food:iot2050</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Siemens</category>
+<description><![CDATA[CVE-2026-58115, CVSS 10.0, Siemens ProductCERT advisory SSA-834709: missing authentication (CWE-306) in the Node-RED interface on SIMATIC IoT2050 Advanced (6ES7647-0BA00-1YA2) running Industrial OS. The Node-RED HTTP interface enforces no authentication at all, so an unauthenticated remote attacker can create flows and execute code at maximum privilege. Siemens has fixed it in V4.3.4.1; interim options are removing Node-RED or hardening it per Node-RED’s own user guide. IoT2050 is marketed as an edge-computing gateway for bridging PLC and plant-floor data to enterprise systems — exactly the role it would play on a packaging or filling line, grain-handling telemetry, or a dairy or meat plant’s data-collection network. No exploitation has been confirmed as of this window, and it is not yet listed in CISA KEV. - Siemens ProductCERT SSA-834709 - Published as part of August 2026 ICS Patch Tuesday, 11–13 Aug]]></description>
 </item>
 <item>
-<title>[Medium] Ransomware stopped two of three mills at Australia’s second-largest sugar producer</title>
-<link>https://www.securityweek.com/ransomware-attack-shuts-down-mills-of-australias-second-largest-sugar-producer/</link>
-<guid isPermaLink="false">otthreatfeed:food:mackay</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Incident — Processing halt</category>
-<description><![CDATA[Two of Mackay Sugar’s three Queensland cane-processing mills were halted after a ransomware attack on 10 June 2026. The company restored the systems supporting cane supply, harvesting and mill operations within days; the group known as The Gentlemen, tracked by Microsoft as Storm-2697, claimed the incident but had not leaked data at the time of reporting. It is included here because Dragos cites it in the Q2 2026 analysis published this month as an illustrative food-sector case: the mills stopped because the enterprise systems scheduling cane supply and harvesting stopped, not because anything reached mill control systems. Agricultural processing has a hard seasonal window, which makes even a short outage disproportionately costly. - Mackay Sugar — via SecurityWeek; cited in Dragos Q2 2026 - Incident 10 Jun 2026 — cited in this month’s Dragos analysis]]></description>
-</item>
-<item>
-<title>[Critical] Attackers took hands-on control of water-utility PLCs across a dozen states — locking out operators and knocking a treatment plant offline</title>
-<link>https://www.npr.org/2026/08/12/nx-s1-5927437/cyberattack-water-iran-war</link>
-<guid isPermaLink="false">otthreatfeed:food:waterot</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Incident — OT disruption</category>
-<description><![CDATA[Between 26–27 July 2026 a coordinated campaign disrupted automated controls at more than 30 Minnesota community water systems, and confirmed intrusions have since been reported across roughly a dozen states including Georgia, Michigan, South Dakota, Alabama and New Jersey. This is hands-on manipulation of control equipment, not a data breach: CISA says the actors changed PLC passwords and altered device IP addresses to lock operators out of their own equipment. In Braham, Minnesota a pump failure forced a treatment facility offline and prompted a resident conservation notice; Clayton County, Georgia issued a precautionary boil-water advisory after a pump-station disruption, later lifted. Dragos’s Rob Lee told NPR he could not recall “this many targets at once with operational impact.” Every affected utility reported that drinking water stayed safe, with staff falling back to manual operation. Federal officials have pointed to Iran-linked activity — a TLP:AMBER WaterISAC assessment reportedly found the evidence aligned with campaigns previously attributed to Iran — but no formal public attribution has been made, so treat the actor as suspected rather than confirmed. - CISA / FBI / EPA, MNIT and affected city statements — via NPR, The Record, Dark Reading, BleepingComputer - Incidents from 26 Jul 2026; scope reporting through 12 Aug 2026]]></description>
-</item>
-<item>
-<title>[High] Danfoss refrigeration controllers had an auth bypass too — and 2,765 of them are on the public internet</title>
-<link>https://claroty.com/team82/research/freeze-the-controller-defrost-the-food-uncovering-vulnerabilities-in-danfoss-refrigeration-controllers</link>
-<guid isPermaLink="false">otthreatfeed:food:danfoss</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Research — Cold chain</category>
-<description><![CDATA[In companion research published the same day, Claroty’s Team82 disclosed three vulnerabilities in Danfoss AK-SM 800A refrigeration controllers used in supermarkets, cold-storage facilities and warehouses: CVE-2025-41450 (CVSS 8.2), an authentication bypass; CVE-2025-41451 (CVSS 7.6), an alarm-to-mail OS command injection enabling post-authentication remote code execution; and CVE-2025-41452 (CVSS 5.4), a denial-of-service flaw. Using public scanning platforms the researchers identified roughly 2,765 internet-exposed devices. Danfoss has released firmware R4.3.1. Two vendors, one week, the same finding — the refrigeration control layer sitting between food safety and the internet has had far less security attention than the process control layer above it, and the exposure counts show it. - Claroty Team82 - Published 9 Aug 2026]]></description>
-</item>
-<item>
-<title>[High] ABB Ability zenon ships an end-of-life MongoDB — and one of the 13 inherited CVEs is already being exploited</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01</link>
-<guid isPermaLink="false">otthreatfeed:food:abbzenon</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Supply chain</category>
-<description><![CDATA[CISA advisory ICSA-26-218-01 bundles 13 vulnerabilities into ABB Ability zenon, all inherited from an outdated MongoDB 4.2 dependency shipped with the platform’s IIoT services. Scores run up to CVSS v3.1 7.5 / v4.0 8.7. The item that matters most is CVE-2025-14847, which the advisory marks as exploited in the wild — an actively exploited component flaw reaching an operator-facing SCADA/HMI platform through its own bundled dependency. Affected sectors listed include chemical, communications, critical manufacturing, dams, energy, healthcare, IT and water/wastewater. ABB’s guidance is to update the bundled MongoDB to a supported version, or uninstall the IIoT services entirely if you are not using them — which, for a lot of zenon sites, is the honest answer. - CISA ICSA-26-218-01 - Published 6 Aug 2026]]></description>
-</item>
-<item>
-<title>[Critical] A CVSS 10.0 command injection in Haiwell’s cloud HMI gateway hands an unauthenticated attacker root</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-02</link>
+<title>[Critical] An unauthenticated command-injection flaw gives root access to Haiwell’s cloud HMI gateway</title>
+<link>https://nvd.nist.gov/vuln/detail/CVE-2026-19188</link>
 <guid isPermaLink="false">otthreatfeed:food:haiwell</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — CVSS 10.0</category>
-<description><![CDATA[CISA advisory ICSA-26-225-02 covers CVE-2026-19188, an OS command injection (CWE-78) in the Haiwell IoT Cloud HMI Gateway that scores the full CVSS 10.0. The flaw sits in the device’s Net Check function: an unauthenticated attacker can reach the cmdPing Socket.io event and execute arbitrary commands as root. CISA flags the product’s use in energy, critical manufacturing and water/wastewater environments. Affected firmware is 3.40.1.12; the fix is 3.50.1.19. No in-the-wild exploitation had been reported at publication, which is the good news — a maximum-severity, unauthenticated, internet-reachable root execution on a gateway product is exactly the profile that gets weaponised quickly once someone bothers. - CISA ICSA-26-225-02 - Published 13 Aug 2026]]></description>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Haiwell</category>
+<description><![CDATA[CVE-2026-19188, CVSS 10.0 (v3.1 and v4.0): OS command injection (CWE-78) in the Net Check feature’s cmdPing Socket.io event, reachable via the /setting endpoint, giving an unauthenticated attacker root-level remote code execution. Published 14 August 2026. Version 3.40.1.12 is vulnerable; fixed in 3.50.1.19 or later. NVD is the citable source — no ICSA advisory number could be independently confirmed for this one. Gateways like this sit directly between operators and process equipment, and grain elevators, feed mills and mid-size dairy or beverage lines that lean on low-cost, cloud-connected HMI/gateway products for remote monitoring are exactly the kind of internet-facing device this flaw targets — a compromised unit hands an attacker root, not just a view of the process. - NVD (CVE-2026-19188) - Published 14 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Cisco ASA and Firepower join KEV under active exploitation — the OT perimeter is the target again</title>
-<link>https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog</link>
+<title>[High] Rockwell updated its MicroLogix hardening advisory after actors were caught reconfiguring exposed controllers</title>
+<link>https://www.rockwellautomation.com/en-us/trust-center/security-advisories.html</link>
+<guid isPermaLink="false">otthreatfeed:food:sd1790</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Rockwell</category>
+<description><![CDATA[Rockwell Automation advisory SD1790 was updated 10 August 2026 with recovery and hardening steps for MicroLogix 1400/1100 after actors were found remotely changing IP addresses and setting unauthorised passwords on internet-exposed units — the same technique behind the ongoing water-utility campaign. Rockwell explicitly warns that a password change alone is not sufficient mitigation. These are the same discontinued legacy controller families that run grain elevators, feed mills and processing lines across food and agriculture, not just water utilities; Forescout counted thousands of exposed units of this family online worldwide. No food or agriculture-sector victim has been confirmed — this is a hardening advisory prompted by exploitation elsewhere, not a report of an incident in this sector. - Rockwell Automation security advisories - Advisory SD1790 updated 10 Aug 2026]]></description>
+</item>
+<item>
+<title>[Critical] CISA’s 15-advisory day included critical flaws in the building-automation and access-control systems that guard plants and cold storage</title>
+<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01</link>
+<guid isPermaLink="false">otthreatfeed:food:buildingauto</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Johnson Controls &amp; Siemens</category>
+<description><![CDATA[CISA released 15 ICS advisories in a single day, 13 August 2026, spanning AVEVA, Hitachi Energy, ANDRITZ, Siemens and Johnson Controls. Two are directly relevant to food and agriculture facilities’ physical plant. Johnson Controls C-CURE 9000 and victor access-control software carry two critical unauthenticated deserialization bugs (CVE-2026-21655, CVE-2026-21653) plus a high-severity issue (CVE-2026-34496), CVSS up to 9.6 — a network-adjacent attacker could execute code and take over the system controlling badge readers and doors; the advisory was updated 11 August. Siemens Desigo DXR2 and PXC3/4/5/7 building controllers (CVE-2026-59693, CVSS 4.3) can be knocked unresponsive by a malformed BACnet packet until manually reset; firmware updates are available for both product lines. Desigo-class controllers also run HVAC and, at some plants, refrigeration zones — a stalled controller during a cold-chain-critical period is an operational problem, not just a security one. - CISA ICS advisories — via WaterISAC roundup - CISA released 15 advisories 13 Aug 2026; JC advisory updated 11 Aug 2026]]></description>
+</item>
+<item>
+<title>[High] Command-injection and SQL-injection flaws in Schneider’s NetBotz 5 hit the appliance that watches cold-storage temperature and humidity</title>
+<link>https://www.se.com/ww/en/work/support/cybersecurity/security-notifications.jsp</link>
+<guid isPermaLink="false">otthreatfeed:food:netbotz</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Advisory — Schneider Electric</category>
+<description><![CDATA[CVE-2026-13336 (OS command injection) and CVE-2026-13337 (SQL injection) affect Schneider Electric NetBotz 5 (750/755) environmental-monitoring appliances, versions 5.5.2 and earlier, under advisory SEVD-2026-223-02. No CVSS score could be verified for either flaw — that is an absence of confirmed data, not a signal the risk is low. A patch is available. NetBotz appliances are widely deployed specifically to monitor temperature, humidity, and door and water-leak sensors in server rooms and cold-storage or refrigerated-warehouse environments — exactly the kind of environmental-integrity monitoring a dairy, meat or produce cold-chain operation depends on for both product quality and compliance recordkeeping. - Schneider Electric advisory SEVD-2026-223-02 - Published as part of August 2026 ICS Patch Tuesday, 11–13 Aug]]></description>
+</item>
+<item>
+<title>[High] An actively exploited Cisco ASA/FTD flaw crashing VPN firewalls sits on the perimeter of many food and beverage plant networks</title>
+<link>https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/</link>
 <guid isPermaLink="false">otthreatfeed:food:ciscokev</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
 <category>Advisory — CISA KEV</category>
-<description><![CDATA[CISA added CVE-2026-20349, a heap-inspection vulnerability in Cisco Secure Firewall ASA and Firepower Threat Defense software, to the Known Exploited Vulnerabilities catalogue on 11 August 2026, citing evidence of active exploitation. The same batch added CVE-2026-68820, a use-after-free in the Windows afd.sys driver enabling local privilege escalation — relevant because Windows engineering workstations and HMI servers are exactly where that gets chained after initial access — and CVE-2026-72898, a SQL injection in Metabase exposing stored credentials. Earlier in the month CISA added CVE-2026-8037, an unauthenticated command injection in Progress Kemp LoadMaster carrying CVSS 9.6, after sustained exploitation attempts, with a federal patch deadline of 10 August under BOD 26-04. None of these are ICS products. All of them sit in front of, or inside, the path into OT. - CISA KEV catalogue — via The Hacker News, CyberExperts - KEV additions 3, 4, 7 and 11 Aug 2026]]></description>
+<description><![CDATA[CVE-2026-20349, CVSS 8.6: a heap-inspection denial-of-service flaw in the Remote Access SSL VPN service, actively exploited to crash firewalls, added to CISA KEV on 11 August 2026 with a 14 August federal remediation deadline. Hotfixes are available for all affected 9.x/7.x/10.x branches; there is no workaround. Cisco ASA/FTD is commonly deployed as the IT/OT boundary device and remote-access VPN concentrator at food and beverage plants, including the link refrigeration contractors and automation vendors use for remote support — a crashed firewall at that boundary can cut off both an attacker and the legitimate remote access someone needs to diagnose a chiller or line fault. - Cisco security advisory — via BleepingComputer - Added to CISA KEV 11 Aug 2026; deadline 14 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] An N-able N-central auth bypass was exploited, patched incompletely, then exploited again</title>
-<link>https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html</link>
-<guid isPermaLink="false">otthreatfeed:food:ncentral</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Remote access</category>
-<description><![CDATA[CISA added two N-able N-central authentication-bypass flaws to KEV within two days: CVE-2026-18556 and CVE-2026-18577, both CVSS 8.2, the second being an incomplete-fix follow-on to the first. N-able confirmed a limited number of customer breaches. Attackers who exploit it take over administrator accounts and can pivot to managed endpoints through the platform’s Take Control remote-session feature. Huntress reported that 55.6% of reachable cloud servers were still unpatched at the time of its analysis. The fix is 2026.3.1.7 / 2026.3 HF1. RMM platforms matter disproportionately in OT because they are how integrators, machine builders and managed-service providers reach plant equipment — often through a path that was never security-reviewed and does not appear on the network diagram. - CISA KEV; N-able advisory — via The Hacker News, Help Net Security - KEV additions 3–4 Aug 2026]]></description>
-</item>
-<item>
-<title>[Medium] Johnson Controls patched hardcoded credentials in the TL280 communicator and cross-site scripting in Metasys UI</title>
-<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-02</link>
-<guid isPermaLink="false">otthreatfeed:food:jci</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Building systems</category>
-<description><![CDATA[Two Johnson Controls advisories landed in the August cycle. ICSA-26-218-02 covers CVE-2026-27871, hardcoded credentials in the TL280 internet security alarm communicator on firmware below 5.63, which could expose sensitive device data; CISA scores it CVSS v3.1 4.1 / v4.0 2.1 and notes high attack complexity. ICSA-26-225-14 covers a cross-site scripting weakness in the Metasys UI building-automation front end. CISA also issued Update A to its earlier advisory for C-CURE 9000 and victor application servers. Neither individual flaw is dramatic. The reason they belong on an OT page is placement: building automation, access control and alarm communications routinely share network segments with industrial systems while sitting outside the OT patching programme and often outside the OT asset register entirely. - CISA ICSA-26-218-02, ICSA-26-225-14, ICSA-26-204-01 Update A - Published 6 and 13 Aug 2026]]></description>
-</item>
-<item>
-<title>[High] 220 ransomware attacks on food and beverage so far this year, from 46 different groups</title>
-<link>https://www.foodnavigator.com/Article/2026/08/03/cybercrime-escalates-across-the-food-and-beverage-industry/</link>
-<guid isPermaLink="false">otthreatfeed:food:foodransom</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Threat Intel — Ransomware</category>
-<description><![CDATA[FoodNavigator reports 220 ransomware attacks tracked against the food and beverage sector during 2026, carried out by 46 distinct groups, citing recent incidents affecting Heineken, Campbell Soup, Dole, Krispy Kreme, UNFI, Marks & Spencer and Co-op, Chick-fil-A and Coca-Cola’s Fairlife unit. Food and Ag-ISAC’s Jonathan Braley and Huntress’s Dray Agha are quoted on the sector’s just-in-time supply-chain fragility. The structural point is that food production runs on thin inventory buffers and perishable inputs, so an outage that a discrete manufacturer would absorb over a weekend destroys product here. Dragos separately logged 70 food and beverage ransomware incidents in Q2 2026 alone, and found none of them reached the control-system layer — the damage came through enterprise IT. - FoodNavigator, citing Food and Ag-ISAC and Huntress; Dragos Q2 2026 - Published 3 Aug 2026]]></description>
-</item>
-<item>
-<title>[High] Dragos counted 1,140 industrial ransomware incidents in Q2 — and not one reached stage 2 of the ICS kill chain</title>
-<link>https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026/</link>
+<title>[Medium] Dragos counted 70 food and beverage ransomware incidents in a record quarter for industrial ransomware</title>
+<link>https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026</link>
 <guid isPermaLink="false">otthreatfeed:food:dragosq2</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Threat Intel — Ransomware</category>
-<description><![CDATA[Dragos’s Q2 2026 industrial ransomware analysis recorded 1,140 incidents against industrial organisations, up 12% on Q1. Manufacturing absorbed 747 of them (65%), led by construction at 176 and equipment manufacturing at 114; food and beverage accounted for 70. The finding worth carrying into your own risk conversations is the negative one: Dragos found no case in Q2 where a ransomware operator reached stage 2 of the ICS Cyber Kill Chain. Production stopped because enterprise IT and ERP systems stopped — order entry, scheduling, shipping, labelling — not because anyone touched a controller. Named Q2 cases include West Pharmaceutical Services and Foxconn, the latter with a roughly two-week outage at Wisconsin and Texas sites. That pattern should shape where you spend: the loss is real, but the control is IT/OT dependency mapping and recovery, not deeper controller hardening. - Dragos Q2 2026 Industrial Ransomware Analysis — via Help Net Security - Published 10–11 Aug 2026]]></description>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Research — Ransomware</category>
+<description><![CDATA[Dragos’ Q2 2026 Industrial Ransomware Analysis, published 10 August, logged 1,140 ransomware incidents against industrial organisations, up 12% on Q1; manufacturing accounted for 747 of the 1,140 (65%), food and beverage for 70. The most active groups were Qilin, Akira, The Gentlemen, DragonForce and LockBit 5.0. Dragos’ key finding: most intrusions cascaded into OT or production disruption through IT-side encryption, not direct control-system manipulation — no Stage 2 ICS Kill Chain activity was observed in the quarter. As a labelled example of that pattern, Dragos cited Mackay Sugar’s shutdown of two Queensland mills in June 2026 — outside this reporting window — where enterprise-IT ransomware halted production without the intrusion ever reaching the ICS layer. The same shape describes Coca-Cola’s fairlife dairy ransomware disruption, which halted US production in mid-July 2026: also outside this window, not itself one of Dragos’ cited examples, but the sector’s most visible recent instance of the pattern the report describes. - Dragos Q2 2026 Industrial Ransomware Analysis - Published 10 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Researchers found 4,407 internet-facing Rockwell controllers — and 19 of 22 in already-attacked cities ran firmware vulnerable to a 2017 bug</title>
-<link>https://labs.cloudsecurityalliance.org/research/csa-research-note-rockwell-plc-water-utility-exposure-202608/</link>
-<guid isPermaLink="false">otthreatfeed:food:exposedplc</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
+<title>[High] Forescout counted 4,407 exposed Rockwell/Allen-Bradley controllers worldwide — the same legacy family the water campaign is exploiting</title>
+<link>https://thehackernews.com/2026/08/over-4400-rockwell-plcs-exposed-online.html</link>
+<guid isPermaLink="false">otthreatfeed:food:forescout</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
 <category>Research — Exposure</category>
-<description><![CDATA[A Cloud Security Alliance scan on 3 August 2026 identified 4,407 internet-facing Rockwell / Allen-Bradley controllers worldwide, 2,844 of them in the United States. The more uncomfortable finding is local: of 22 exposed controllers located in cities already hit by the July campaign, 19 were still running firmware vulnerable to CVE-2017-16740, a buffer-overflow flaw patched back in 2017. Separately, CISA Acting Director Nick Andersen said federal responders assisting with the recovery are still finding water-system PLCs reachable from the internet with factory-default credentials or no password at all. Broader counts cited during the response put roughly 10,000 Rockwell, Siemens and Schneider devices on the public internet sector-wide. The takeaway is not a novel zero-day; it is that a decade of unpatched, unauthenticated exposure is doing the work for the attacker. - Cloud Security Alliance research note; CISA remarks via Nextgov/FCW - Scan 3 Aug 2026; published 6–7 Aug 2026]]></description>
+<description><![CDATA[Forescout Vedere Labs found 4,407 internet-exposed Rockwell/Allen-Bradley controllers worldwide, 2,844 of them in the US, dominated by discontinued legacy MicroLogix 1400/1100 units — including 22 in cities that were hit by the water-sector attacks. Intruders in that campaign reconfigured devices directly rather than exploiting a new flaw, which means an exposure count like this maps closely to actual risk rather than theoretical risk. This is the same controller family food and agriculture operators rely on in grain elevators, feed mills and older processing lines, and the count is a floor, not a ceiling — it reflects only what internet-wide scanning found, not what a plant’s own network audit would turn up. - Forescout Vedere Labs — via The Hacker News, CyberScoop - Reported 13 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] The federal PLC advisory grew beyond Rockwell — Schneider Modicon and Siemens S7-1200 are now named too</title>
-<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a</link>
-<guid isPermaLink="false">otthreatfeed:food:aa26097a</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Advisory — Nation-state</category>
-<description><![CDATA[CISA, the FBI, EPA and NSA updated joint advisory AA26-097A on Iran-affiliated exploitation of internet-exposed programmable logic controllers, widening the documented target set from Rockwell MicroLogix and CompactLogix to also include Schneider Electric Modicon M340 / BMX P34 and Siemens S7-1200 devices. The update adds July 2026 indicators of compromise, the MITRE ATT&CK exfiltration technique T1041, and detection guidance for malicious modification of reusable Rockwell Add-On Instruction code blocks — the logic building blocks that water-treatment and other process programs are assembled from. The advisory names energy and government facilities alongside water and wastewater as targeted sectors. It is the foundational document behind the multistate water-utility incidents, and the detection guidance is worth reading even if you run none of the three named vendors. - CISA joint advisory AA26-097A (CISA, FBI, EPA, NSA) — via WaterISAC - Advisory updated 22 Jul 2026; originally issued Apr 2026]]></description>
+<title>[Medium] A joint advisory details Gunra, a Conti-derived ransomware operation that leans on unpatched VPN gateways</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a</link>
+<guid isPermaLink="false">otthreatfeed:food:gunra</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Intel — Ransomware-as-a-Service</category>
+<description><![CDATA[CISA, the FBI and international partners issued a #StopRansomware advisory on Gunra (AA26-222A, 10 August) — a Conti-derived ransomware-as-a-service operation running double extortion against government and critical infrastructure targets. Initial access is typically via unpatched internet-facing VPN gateways and exposed RDP; the advisory cites Fortinet flaws CVE-2024-55591 and CVE-2025-24472 as examples. Reported victims face a five-to-seven-day payment deadline. No food or agriculture victim is named in the advisory; it is included here because VPN gateways and remote-access appliances are exactly what food and ag operators use for OEM and refrigeration-contractor remote support, and Gunra’s initial-access pattern is generic enough to reach any exposed instance. - CISA/FBI #StopRansomware advisory AA26-222A - Published 10 Aug 2026]]></description>
 </item>
 <item>
-<title>[Info] The OT Cybersecurity Coalition asked Congress to fix the plumbing behind critical-infrastructure threat sharing</title>
-<link>https://www.cybersecuritydive.com/news/ot-security-coalition-congress-cisa-reforms-water/826791/</link>
-<guid isPermaLink="false">otthreatfeed:food:otcoalition</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Regulation — Policy</category>
-<description><![CDATA[Prompted largely by the water-sector attacks, the OT Cybersecurity Coalition — executive director Tatyana Bolton, chair Alison King of Forescout — called on Congress to confirm a director for the Department of Energy’s Office of Cybersecurity, Energy Security and Emergency Response, reauthorise the State and Local Cybersecurity Grant Program, and extend the Cybersecurity Information Sharing Act of 2015, which expires in September 2026. The 2015 Act is the liability protection that makes many private-sector operators willing to share indicators with the government at all; if it lapses, the flow of the information this dashboard depends on gets thinner. Presented factually: these are the mechanisms currently under review, and their status affects operators regardless of position on the underlying policy. - OT Cybersecurity Coalition — via Cybersecurity Dive - Published 3 Aug 2026]]></description>
-</item>
-<item>
-<title>[Info] Senators introduced the Water Cyber Shield Act, and a volunteer “Water Watch Center” launched for small utilities</title>
-<link>https://www.securityweek.com/us-water-systems-get-cyber-boost-from-new-senate-bill-and-water-watch-center/</link>
-<guid isPermaLink="false">otthreatfeed:food:watershield</guid>
-<pubDate>Sat, 15 Aug 2026 13:45:00 -0400</pubDate>
-<category>Regulation — Legislation</category>
-<description><![CDATA[Two responses to the summer’s water-sector attacks landed within a week. Senators Amy Klobuchar and Adam Schiff introduced the Water Cyber Shield Act, which proposes a federal Water Watch Center for threat-intelligence sharing and technical assistance aimed at small and rural utilities. Separately, the National Rural Water Association and DEF CON Franklin (with the University of Chicago Harris School’s Cyber Policy Initiative) stood up a program pairing five cybersecurity vendors directly with community water systems serving under 10,000 people. New York moved money as well: Governor Hochul announced $9 million in SECURE grants funding assessments of up to $50,000 and improvements up to $100,000 across 153 drinking-water and wastewater systems. Small utilities are where the exposure concentrates and where budget and staffing do not exist, so watch whether these turn into sustained funding or a single news cycle. - SecurityWeek, Nextgov/FCW, New York Governor’s Office - Bill introduced 13 Aug 2026; Water Watch Center 7 Aug 2026; NY grants 3 Aug 2026]]></description>
+<title>[Info] A new federal water-cybersecurity bill would not directly cover food plants — but it signals where mandatory-assessment obligations may be headed</title>
+<link>https://www.klobuchar.senate.gov/public/index.cfm/2026/8/sens-klobuchar-schiff-introduce-comprehensive-cybersecurity-bill-in-wake-of-recent-cyberattacks-on-water-infrastructure</link>
+<guid isPermaLink="false">otthreatfeed:food:waterbill</guid>
+<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<category>Policy — Water &amp; wastewater</category>
+<description><![CDATA[Senators Klobuchar and Schiff introduced the Water Cyber Shield Act on 13 August 2026 in direct response to the utility attacks: it would give EPA authority for mandatory cybersecurity assessments, provide $300 million a year in state revolving-fund support, and add a cyber-risk requirement to resilience planning for large water systems. The bill targets public water utilities, not food or beverage processors. But many large dairy, meat, beverage and grain-processing plants operate their own permitted water intake and wastewater or CIP-discharge systems, sometimes co-located with or drawing from the same municipal infrastructure this bill targets — and, per Rockwell’s SD1790 advisory and Forescout’s exposure count, the controller families and exposure patterns are identical. If EPA’s assessment authority and funding model take hold for water utilities, self-supplied industrial water systems are a plausible next target for similar obligations, though nothing currently pending applies to them directly. - Sen. Klobuchar press release - Introduced 13 Aug 2026]]></description>
 </item>
 </channel>
 </rss>
