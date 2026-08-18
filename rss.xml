@@ -6,29 +6,45 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 17 Aug 2026 20:37:00 -0400</lastBuildDate>
+<lastBuildDate>Tue, 18 Aug 2026 00:22:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
-<title>[Critical] The Iran-linked water-utility PLC campaign is now formally attributed — and internet-exposed controllers are still the way in</title>
+<title>[Critical] Iran-linked water-utility PLC campaign holds at 12 states — and internet-exposed controllers are still the way in</title>
 <link>https://www.ic3.gov/CSA/2026/260722.pdf</link>
 <guid isPermaLink="false">otthreatfeed:all:waterot</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Top Story</category>
-<description><![CDATA[Since 26–27 July, actors have reached internet-exposed Rockwell Automation / Allen-Bradley MicroLogix 1100 and 1400 controllers at water and wastewater utilities in at least 12 states, changing device IP addresses and setting unauthorised passwords to lock operators out of monitoring and control. More than 30 Minnesota community systems were affected, including a brief state of emergency in Maple Plain and a pump failure with a conservation order in Braham. Clayton County, Georgia issued a boil-water advisory after a pump-station failure; Michigan reported nine affected systems; South Dakota reported a wastewater lift station in Rapid City; and the campaign's newest confirmed incidents, in Cape May and Woodbine, New Jersey and Childersburg, Alabama, hit water, sewer and gas utilities. Officials maintain drinking-water safety itself was not compromised. The joint advisory AA26-097A — FBI, CISA, NSA, EPA, DOE, the USCYBERCOM Cyber National Mission Force and Treasury, originally published 7 April and updated 22 July — is the correction that matters this week: the agencies have formally assessed this activity to a group of Iranian-affiliated APT actors, naming CyberAv3ngers (also known as the Shahid Kaveh Group), affiliated with the IRGC Cyber Electronic Command. That is a federal attribution, hedged with “assess” rather than proven, not an absence of one. The individual August incidents in New Jersey and Alabama have not each been separately attributed in agency statements, though press reporting describes them as Iran-linked. No CVE was exploited: AA26-097A describes actors using leased third-party infrastructure and the manufacturers' own PLC programming software to reach controllers that were internet-accessible and lacked adequate access control — exposure plus default, weak or absent credentials, not a software flaw. - FBI / CISA / NSA / EPA / DOE joint advisory AA26-097A — via IC3, SecurityWeek, NPR, TechCrunch - Advisory published 7 Apr 2026, updated 22 Jul 2026; campaign activity and 12-state total reported through 14 Aug 2026]]></description>
+<description><![CDATA[Since 26–27 July, actors have reached internet-exposed Rockwell Automation Allen-Bradley MicroLogix 1100 and 1400 controllers at water and wastewater utilities in at least 12 states, changing device IP addresses and setting unauthorised passwords that lock operators out of monitoring and control. More than 30 Minnesota community systems were affected; Clayton County, Georgia issued a boil-water advisory after a pressure loss; later confirmed incidents hit Cape May and Woodbine, New Jersey and Childersburg, Alabama. Joint advisory AA26-097A — FBI, CISA, NSA, EPA, DOE, CNMF and Treasury — attributes the activity to Iranian-affiliated CyberAv3ngers actors tied to the IRGC, and agencies assessed the campaign still active as of 12 August. No CVE was exploited: the actors used the vendors’ own programming software against exposed controllers with weak or absent credentials. Several utilities ran manually for days. Officials maintain drinking-water safety was not compromised. - FBI / CISA / NSA / EPA / DOE joint advisory AA26-097A — via IC3, SecurityWeek, Industrial Cyber - Advisory published 7 Apr 2026, updated 22 Jul 2026; campaign assessed active as of 12 Aug 2026, 12-state total reported through 14 Aug 2026]]></description>
+</item>
+<item>
+<title>[Critical] Clop’s PLM extortion campaign now names Shell, GE and Philips — the stolen material is plant drawings and blueprints</title>
+<link>https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/</link>
+<guid isPermaLink="false">otthreatfeed:all:clop</guid>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
+<category>Incident — Engineering data theft</category>
+<description><![CDATA[Clop has listed 43 new victims tied to its exploitation of internet-exposed PTC Windchill and FlexPLM, the product lifecycle management platforms used across aerospace, defence, automotive, heavy machinery, medtech and retail. On 13 August Shell confirmed it is investigating a “potential incident” after the gang claimed 89 GB of data; on 17 August GE said it is assessing the claim and Philips confirmed a contained compromise of one enterprise server with no customer impact. The gang advertises backups, project plans, facility photographs, drawings, diagrams and blueprints. The entry point is CVE-2026-12569, an unsafe-deserialisation flaw in Windchill and FlexPLM rated CVSS 9.3 by ReliaQuest, exploited for unauthenticated remote code execution and JSP web-shell deployment. PTC began patching on 17 June and warned of heightened threat activity on 26 June; CISA added the flaw to KEV on 25 June with a three-day federal remediation deadline, and Germany’s BSI phoned customers overnight to push patching. No OT or control-system impact has been reported at any victim — this is confidentiality loss, not disruption. The OT relevance is what was taken: PLM holds the as-designed record of plants, machines and safety systems, and it is rarely inventoried as an OT-adjacent asset or covered by an OT threat model. - BleepingComputer, Reuters, ReliaQuest, Ransom-ISAC, PTC advisory, CISA KEV - Campaign reported 24 Jul 2026; Shell 13 Aug 2026; GE and Philips 17 Aug 2026]]></description>
 </item>
 <item>
 <title>[Critical] A confirmed nation-state actor pivoted through a shared private APN to stop a Polish CHP plant’s steam turbine</title>
 <link>https://www.securityweek.com/novel-private-apn-pivot-let-hackers-sabotage-second-polish-energy-facility/</link>
 <guid isPermaLink="false">otthreatfeed:all:poland</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Incident — Nation-state</category>
 <description><![CDATA[CERT Polska’s follow-up report on a 29 December 2025 intrusion describes an OT lateral-movement path most defenders have not modelled. The attacker started from a FortiGate appliance at a wind farm, used there as both firewall and VPN concentrator, and scanned the carrier-managed private APN for VNC, HTTP, Modbus and Siemens S7 services. That scan surfaced a WAGO PFC200 controller at an unrelated combined heat and power plant with a WAN-facing management interface and default credentials. The attacker enabled SSH, tunnelled into the plant’s OT network, and stopped the steam turbine and the process water treatment system; several ICS devices were permanently bricked during cleanup. The plant serves roughly 50,000 residents; heat and electricity deliveries were not interrupted. Polish reporting links the wider campaign, which reportedly targeted some 30 other energy sites, to Russia-linked activity. Researchers describe it as the first publicly documented use of a private APN as an OT lateral-movement path. - CERT Polska follow-up report — via SecurityWeek - Intrusion 29 Dec 2025; report and reporting 10–11 Aug 2026]]></description>
+</item>
+<item>
+<title>[Critical] A suspected China-nexus actor is mass-exploiting a patched vCenter flaw — the layer most OT DMZs now run on</title>
+<link>https://www.securityweek.com/critical-vmware-vcenter-vulnerability-in-attackers-crosshairs/</link>
+<guid isPermaLink="false">otthreatfeed:all:vmware</guid>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
+<category>Exploitation — Virtualisation under OT</category>
+<description><![CDATA[CVE-2026-59310 is a directory-traversal flaw in the VMware vCenter Syslog server, CVSS 9.8, that lets a remote attacker with network access to vCenter execute arbitrary code. Broadcom patched it on 29 July; exploitation began on 3 August, five days later. German incident-response firm Quirso counted 361 victim IP addresses across 47 countries, with roughly half in Germany, the US, Turkey, Iran and France, and 343 of them already connected to attacker infrastructure by 5 August. Quirso assesses with moderate confidence a Chinese-speaking operator working in UTC+08:00. After compromise the actors drop the open-source reverse_ssh framework to hold an outbound channel that inbound filtering does not see; reporting describes at least one case ending in Babuk-derived ransomware. Victim IPs include hosting and cloud ranges, so the organisation count is unknown and no OT operator has been named. The OT relevance is structural rather than confirmed: at most modern plants vCenter hosts the historian, the HMI servers, the engineering jump host and the OT DMZ itself, so losing it stops production without an attacker ever touching a controller — the same pattern behind Dragos’s Q2 ransomware numbers. - Broadcom advisory; Quirso research — via SecurityWeek, The Hacker News - Patched 29 Jul 2026; exploitation from 3 Aug 2026; reported 13 Aug 2026]]></description>
 </item>
 <item>
 <title>[High] A cyberattack forced all three North Carolina Ports facilities into manual operation — OT compromise not confirmed, but not ruled out either</title>
 <link>https://therecord.media/cyberattack-north-carolina-ports</link>
 <guid isPermaLink="false">otthreatfeed:all:ncports</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Incident — Transportation</category>
 <description><![CDATA[An intrusion on 5 August, publicly reported the next day, disrupted operations at all three North Carolina State Ports Authority facilities: Wilmington, Morehead City, and the Charlotte inland terminal. A spokesperson confirmed an outside actor breached the IT system and that processing moved to manual procedures; the operator declined to say whether ransomware was involved. The breach is described as contained, with normal operating schedules resuming 6–7 August and some processing still manual. No compromise of crane systems or terminal-operating technology has been confirmed — but neither has it been explicitly ruled out, and the operator has not detailed the boundary between the breached IT environment and any OT. - Port operator statement — via The Record - Intrusion 5 Aug 2026; publicly reported 6 Aug 2026]]></description>
 </item>
@@ -36,7 +52,7 @@
 <title>[High] A breach at logistics giant Ceva halted shipments from eight European warehouses and rippled into retail and gaming customers</title>
 <link>https://therecord.media/ceva-logistics-cyberattack-bol-steam-debijenkorf-ace-tate</link>
 <guid isPermaLink="false">otthreatfeed:all:ceva</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Incident — Transportation &amp; logistics</category>
 <description><![CDATA[Ceva Logistics, one of the largest global contract-logistics providers, suffered an intrusion on 29 July that disrupted part of its European contract-logistics business and stopped outbound shipments from eight warehouses. Customers were notified 1 August; the scale became public the week of 10 August. Ceva says air, ocean, ground and rail transport were unaffected and no other systems were touched. Personal data — names, addresses, phone numbers, emails and order details — was compromised; the company says payment and credential data were not. Downstream customers named include Bol, De Bijenkorf, Ace & Tate, Pok&eacute;mon Center (UK and Germany, with some orders cancelled), Valve/Steam, Ajax and ING. The Dutch data-protection authority is investigating; no group has claimed the attack. - Ceva Logistics and customer disclosures — via The Record - Intrusion 29 Jul 2026; scale reported 10 Aug 2026]]></description>
 </item>
@@ -44,7 +60,7 @@
 <title>[High] US and South Korean agencies warn Gunra ransomware is walking in through unpatched edge appliances, not novel exploits</title>
 <link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a</link>
 <guid isPermaLink="false">otthreatfeed:all:gunra</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Incident — Ransomware</category>
 <description><![CDATA[CISA, the FBI and South Korean counterparts published a joint #StopRansomware advisory, AA26-222A, on the Gunra operation, a Conti-derived ransomware-as-a-service group running double extortion against government and critical-infrastructure victims. Initial access is typically through unpatched internet-facing VPN gateways and exposed RDP rather than novel exploitation; the advisory cites Fortinet flaws CVE-2024-55591 and CVE-2025-24472 as vectors that remain unremediated at some victims. Gunra pressures victims with a five-to-seven-day payment deadline. The pattern matches what Dragos separately reported across industrial victims in Q2: entry through edge devices and remote-management tooling, valid-account abuse, and EDR-killer techniques once inside — not direct control-system manipulation. - CISA, FBI and South Korean agencies — joint advisory AA26-222A - Published 10 Aug 2026]]></description>
 </item>
@@ -52,15 +68,15 @@
 <title>[High] Forescout counted 4,407 internet-exposed Rockwell controllers worldwide — 22 of them in cities hit by the water campaign</title>
 <link>https://thehackernews.com/2026/08/over-4400-rockwell-plcs-exposed-online.html</link>
 <guid isPermaLink="false">otthreatfeed:all:forescout</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Research — Exposure</category>
 <description><![CDATA[Forescout’s Vedere Labs found 4,407 internet-exposed Rockwell Automation and Allen-Bradley controllers worldwide, 2,844 of them in the United States, with the exposed population dominated by discontinued legacy MicroLogix 1400 and 1100 units — the same product lines targeted in the water-utility campaign. Cross-referencing against municipalities affected by that campaign turned up 22 devices still reachable from the open internet. Researchers concluded the intruders reconfigured devices directly rather than exploiting a new flaw, consistent with AA26-097A’s account of exposure and credential abuse rather than a CVE. - Forescout Vedere Labs — via The Hacker News, CyberScoop - Published 6 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] Dragos logged 1,140 industrial ransomware incidents in Q2 — and not one reached the control system</title>
+<title>[Medium] Dragos logged 1,140 industrial ransomware incidents in Q2 — and not one reached the control system</title>
 <link>https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026</link>
 <guid isPermaLink="false">otthreatfeed:all:dragosq2</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Research — Industrial ransomware</category>
 <description><![CDATA[Dragos’ Q2 2026 Industrial Ransomware Analysis recorded 1,140 incidents against industrial organisations, up 12% on Q1. Manufacturing absorbed 747 of them, about 65%; food and beverage saw 70; transportation and logistics totalled 95, split across maritime (8), aviation (6) and rail (3). The most active groups were Qilin, Akira, The Gentlemen, DragonForce and LockBit 5.0. The operationally important finding is negative: most intrusions cascaded into OT disruption through IT-side encryption, not direct control-system manipulation, and Dragos observed no Stage 2 ICS Cyber Kill Chain activity in the quarter. - Dragos Q2 2026 Industrial Ransomware Analysis - Published 10 Aug 2026]]></description>
 </item>
@@ -68,7 +84,7 @@
 <title>[Medium] Dragos: a decade of water-sector warnings, and “the same gaps still open”</title>
 <link>https://www.dragos.com/blog/water-utility-attacks-decade-of-gaps</link>
 <guid isPermaLink="false">otthreatfeed:all:waterdecade</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Research — Water &amp; wastewater</category>
 <description><![CDATA[Dragos published “Water Under Attack: A Decade of Warnings, and the Same Gaps Still Open,” framing the current multistate PLC campaign as the latest instance of a recurring pattern rather than a novel event. The piece, by Michael Rothschild, argues that the structural weaknesses now visible — internet-exposed field controllers, default or unmanaged credentials, and limited monitoring capacity at small utilities — are the same categories of gap the sector has been warned about repeatedly over the past decade. It is analysis and commentary rather than a new incident disclosure, but it lands the same operational point as this week’s exposure research: the fix is structural, not a single patch. - Dragos — Michael Rothschild - Published 13 Aug 2026]]></description>
 </item>
@@ -76,7 +92,7 @@
 <title>[Critical] August ICS Patch Tuesday: a maximum-severity unauthenticated code-execution flaw in Siemens SIMATIC IoT2050 leads a ten-advisory batch</title>
 <link>https://cert-portal.siemens.com/productcert/html/ssa-834709.html</link>
 <guid isPermaLink="false">otthreatfeed:all:patchtuesday</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Advisory — Siemens, Schneider, Phoenix Contact</category>
 <description><![CDATA[Siemens’ headline fix is CVE-2026-58115, CVSS 10.0 (SSA-834709): missing authentication in Node-RED on SIMATIC IoT2050 Advanced devices running Industrial OS lets a remote, unauthenticated attacker create flows and execute code at maximum privilege, with no credentials or user interaction required. It is fixed in firmware V4.3.4.1; interim options are removing Node-RED or hardening it per the Node-RED user guide. The same cycle fixed Siemens Siveillance Video (CVE-2026-3014, CVSS 9.1, OS command injection for a user with edit permissions), Siemens License Server (CVE-2026-69109 and CVE-2026-69108, CVSS ~7.5, an insecure sudoers policy and a path-traversal file-read issue), Schneider Electric NetBotz 5 (CVE-2026-13336, CVE-2026-13337, OS command and SQL injection, no verified CVSS) and PowerChute Serial Shutdown (CVE-2026-13348, an authentication-attempt-limit failure), and Phoenix Contact PLCnext (advisory VDE-2025-056, input-validation flaws enabling denial of service or malicious SQL execution; no CVE or CVSS verified). No confirmed exploitation has been reported for any of these as of this edition. - Siemens ProductCERT, Schneider Electric, Phoenix Contact - Published 11–13 Aug 2026]]></description>
 </item>
@@ -84,7 +100,7 @@
 <title>[Critical] Haiwell’s IoT Cloud HMI gateway has an unauthenticated root-level remote code execution flaw, CVSS 10.0</title>
 <link>https://nvd.nist.gov/vuln/detail/CVE-2026-19188</link>
 <guid isPermaLink="false">otthreatfeed:all:haiwell</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Advisory — Haiwell</category>
 <description><![CDATA[CVE-2026-19188, confirmed CVSS 10.0 under both v3.1 and v4.0, is an OS command injection (CWE-78) in the Net Check feature’s cmdPing Socket.io event, reachable via the /setting endpoint on Haiwell IoT Cloud HMI Gateway devices. It grants an unauthenticated attacker root-level remote code execution. Version 3.40.1.12 is confirmed vulnerable; the fix ships in 3.50.1.19 or later. The gateway is deployed in energy and water/wastewater environments. An ICSA advisory number circulating for this flaw could not be independently confirmed — NVD is the citable source here. - NVD (ICSA advisory number not independently confirmed) - Published 14 Aug 2026]]></description>
 </item>
@@ -92,15 +108,15 @@
 <title>[Critical] Two critical deserialization flaws in Johnson Controls C-CURE 9000 and victor could hand attackers physical access-control systems</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01</link>
 <guid isPermaLink="false">otthreatfeed:all:jcicure</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Advisory — Johnson Controls</category>
 <description><![CDATA[Johnson Controls’ C-CURE 9000 and victor security-management platforms carry two critical unauthenticated deserialization flaws, CVE-2026-21655 and CVE-2026-21653, plus a high-severity issue, CVE-2026-34496, with CVSS scores up to 9.6. A network-adjacent attacker could exploit the deserialization bugs to execute code and take over the physical access-control system they run — doors, badges and access logs. CISA’s advisory (ICSA-26-204-01) was updated (Update A) on 11 August. No exploitation has been confirmed. - CISA — Johnson Controls advisory ICSA-26-204-01 - Updated 11 Aug 2026]]></description>
 </item>
 <item>
-<title>[High] CISA published 15 ICS advisories in a single day, spanning AVEVA, Hitachi Energy, ANDRITZ and more</title>
+<title>[Medium] CISA published 15 ICS advisories in a single day, spanning AVEVA, Hitachi Energy, ANDRITZ and more</title>
 <link>https://www.cisa.gov/news-events/ics-advisories</link>
 <guid isPermaLink="false">otthreatfeed:all:cisa15batch</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Advisory — CISA ICS batch</category>
 <description><![CDATA[CISA released 15 industrial control system advisories on 13 August. AVEVA Enterprise SCADA and HMI carry CVE-2025-7639 (CVSS 7.1), untrusted deserialisation letting an authenticated operator-privilege user execute code; fixes exist across every supported release line. Hitachi Energy’s APM Edge transformer-monitoring appliance carries two Linux-kernel-inherited flaws, CVE-2026-43284 and CVE-2026-43500 (NVD CVSS 8.8 and 7.8) — sources conflict on whether firmware is available, so patch status should be confirmed directly with the vendor advisory. ANDRITZ HIPASE-250 and 250 SCALA protection devices ship with a fixed VNC password baked into the provisioning script and an unauthenticated, permissively configured API exposing live process data; no CVSS could be verified for these. Siemens RUGGEDCOM APE1808, used to host applications at substations, carries an XSS and a path-traversal flaw (CVSS 6.1/5.5) from bundled Fortinet components. Johnson Controls updated Airwall, an OT secure-remote-access product, for a hardcoded cryptographic key and a path-traversal file-read issue (CVSS 6.8/6.4), fixed in 4.1.0. None of the 15 is currently reported as exploited. - CISA ICS advisories — corroborated by WaterISAC TLP:CLEAR bulletin - Published 13 Aug 2026]]></description>
 </item>
@@ -108,25 +124,33 @@
 <title>[High] Cisco ASA and FTD join CISA’s KEV catalogue for an actively exploited flaw that crashes firewalls on demand</title>
 <link>https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/</link>
 <guid isPermaLink="false">otthreatfeed:all:ciscokev</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Advisory — CISA KEV</category>
 <description><![CDATA[CVE-2026-20349, CVSS 8.6, is a heap-inspection denial-of-service flaw in the Remote Access SSL VPN service of Cisco Secure Firewall ASA and FTD software. It is actively exploited in the wild to crash devices and was added to CISA’s Known Exploited Vulnerabilities catalogue on 11 August with a 14 August federal remediation deadline, which has now passed. Hotfixes are available across all affected 9.x, 7.x and 10.x branches; there is no workaround. ASA and FTD are commonly deployed as the IT/OT boundary device carrying vendor and engineering remote access into plant networks. - CISA KEV catalogue and Cisco advisory — via BleepingComputer - Added to KEV 11 Aug 2026]]></description>
+</item>
+<item>
+<title>[High] A CVSS 10.0 SAP Commerce Cloud flaw is being probed within days of the patch — and industrial operators run SAP everywhere</title>
+<link>https://thehackernews.com/2026/08/sap-commerce-cloud-cve-2026-58231.html</link>
+<guid isPermaLink="false">otthreatfeed:all:sapcommerce</guid>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
+<category>Advisory — Enterprise platform at industrials</category>
+<description><![CDATA[CVE-2026-58231 is an improper-authorisation flaw in the Data Hub Adapter for SAP Commerce Cloud, rated CVSS 10.0, that lets an unauthenticated attacker with network access abuse a default authentication client and submit crafted input to functions that do not validate it — ending in arbitrary code execution and compromise of internal components. SAP shipped the fix in its 11 August Security Patch Day alongside 27 other notes. Threat-intelligence firm Defused Cyber saw exploitation attempts hit its honeypots three days later, on 14 August, while noting the flaw has no public proof-of-concept and is not known to have been successfully exploited. SAP security firm Onapsis says an IP Filter Set restricting access to the vulnerable endpoint works as a temporary workaround. This is an enterprise-side flaw with no direct control-system reach, and it is here because SAP is the system of record sitting immediately upstream of production scheduling, spares, maintenance and shipping at most industrial operators — the same enterprise layer whose loss stopped plants in Dragos’s Q2 figures without an attacker ever reaching a controller. - SAP Security Patch Day; Defused Cyber and Onapsis — via The Hacker News - Patched 11 Aug 2026; exploitation attempts observed 14 Aug 2026; reported 15 Aug 2026]]></description>
 </item>
 <item>
 <title>[Info] The Water Cyber Shield Act would give EPA mandatory-assessment authority and $300M a year for utility cybersecurity</title>
 <link>https://www.klobuchar.senate.gov/public/index.cfm/2026/8/sens-klobuchar-schiff-introduce-comprehensive-cybersecurity-bill-in-wake-of-recent-cyberattacks-on-water-infrastructure</link>
 <guid isPermaLink="false">otthreatfeed:all:watercybershield</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
 <category>Policy — Water &amp; wastewater</category>
 <description><![CDATA[Senators Klobuchar and Schiff introduced the Water Cyber Shield Act on 13 August, three weeks into the multistate PLC campaign. The bill would give EPA authority to require mandatory cybersecurity assessments of water and wastewater systems, direct $300 million a year through state revolving funds for security improvements, and require large water systems to build cyber risk into their resilience planning. It has not been enacted. - Sens. Klobuchar and Schiff - Introduced 13 Aug 2026]]></description>
 </item>
 <item>
-<title>[Info] New York puts $9M behind 153 water systems, and a new Water Watch Center targets small, under-resourced utilities</title>
-<link>https://www.securityweek.com/new-york-awards-9-million-to-strengthen-cybersecurity-at-153-water-systems/</link>
-<guid isPermaLink="false">otthreatfeed:all:waterresponse</guid>
-<pubDate>Mon, 17 Aug 2026 20:37:00 -0400</pubDate>
-<category>Policy — Water &amp; wastewater</category>
-<description><![CDATA[New York State awarded up to $9 million across 153 drinking water and wastewater systems — up to $50,000 per system for security assessments and $100,000 for improvements — following the attack wave and the state’s March cybersecurity mandates. Separately, a new Water Watch Center launched to help small, resource-constrained utilities detect and respond to intrusions, the population that has been hit hardest in this campaign. Analysts covering the sector attribute the exposure wave to expedient internet-connectivity decisions made years ago and a persistent shortage of cybersecurity expertise at small utilities. - New York State; Water Watch Center — via SecurityWeek, Nextgov - Reported Aug 2026]]></description>
+<title>[Info] The UK NCSC published a water-sector worked example for its OT secure connectivity principles — written by practitioners, useful in any sector</title>
+<link>https://www.ncsc.gov.uk/blogs/water-sector-example-added-to-the-ncscs-secure-connectivity-principles</link>
+<guid isPermaLink="false">otthreatfeed:all:ncsc</guid>
+<pubDate>Tue, 18 Aug 2026 00:22:00 -0400</pubDate>
+<category>Guidance — Cross-sector</category>
+<description><![CDATA[The NCSC released a fictional worked example showing how a regional water utility would apply its eight Secure Connectivity Principles for Operational Technology: balance the risks and opportunities, limit the exposure of your connectivity, centralise and standardise network connections, use standardised and secure protocols, harden your OT boundary, limit the impact of compromise, log and monitor all connectivity, and establish an isolation plan. The example, built around a fictional utility, deliberately avoids prescribing an architecture and instead walks the design decisions — reducing exposure, centralising connections, handling legacy protocols, preparing for incidents — that each principle drives. It is the first content the ICS Community of Interest’s Boundary Expert Group has authored directly for the NCSC site, and the group is made up of practitioners who run OT boundaries in critical national infrastructure. The timing is not subtle: this is a free, technically grounded reference for exactly the failure at the centre of the water campaign leading this edition — controllers reachable from outside and no owned boundary. - UK NCSC blog and Operational Technology collection — ICS-COI Boundary Expert Group - Published 11 Aug 2026]]></description>
 </item>
 </channel>
 </rss>
