@@ -696,13 +696,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wednesday, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Friday, 21 Aug 2026, 8:00 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>13</strong> stories across
+      <strong>11</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -727,15 +727,15 @@
   body.dark .tl-why b{color:#e2e8f0;}
   body.dark .tl-marker{background:#0f172a;}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to food, beverage and agriculture operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">4.6</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to food and beverage processors, packaging and cold chain operators, and agricultural producers. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
+    <div class="tl-score"><span class="tl-num">5.6</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:46%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Low-to-mid Medium, deliberately. No food processor, beverage, meat, dairy, grain co-operative or precision-agriculture operator has confirmed an OT-disruptive incident in the 5&ndash;19 August window, and nothing new has landed since yesterday. The sector&rsquo;s strongest item is research rather than an attack: Claroty Team82&rsquo;s work on Copeland XWEB Pro and Danfoss AK-SM 800A refrigeration controllers, where several of the 26 flaws give unauthenticated root and the demonstration disables cooling while the temperature display keeps reading normally. That is coordinated disclosure, with fixes available and no reported exploitation. Dragos counted 70 industrial ransomware incidents in food and beverage last quarter but zero cases in which anyone reached Stage&nbsp;2 of the ICS Cyber Kill Chain; its worked example, two stopped Mackay Sugar mills, showed no evidence attackers reached ICS. Fairlife&rsquo;s US dairy halt is a July event and resolved. What holds the score up rather than down: two actively exploited flaws in CISA KEV that sit on plant and cold-chain remote access and virtualisation (Windows IKE/IKEEXT and VMware vCenter, both listed 18 August), and the Iranian-affiliated PLC campaign, which is cooling and has produced no confirmed food or agriculture victim. Unexploited advisories do not aggregate upward; a confirmed OT-disruptive intrusion at a named processor would lift this into upper Medium.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:56%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium. Food and agriculture is explicitly named among the six most-targeted sectors in the 19 August joint advisory from the NSA, CISA, FBI, DOE and EPA, which describes threat actors using AI-generated scripts built on the open-source snap7 library to read Siemens S7 controller memory, configuration and ladder logic on internet-exposed devices. The agencies call it an active threat and assess it as reconnaissance positioning for later write operations &mdash; pre-positioning against processing plants rather than disruption of them. The sector&rsquo;s confirmed OT-disruptive event this summer remains the July ransomware attack that suspended all US production at Coca-Cola&rsquo;s Fairlife dairy subsidiary; that is now more than 30 days old and does not carry live risk, but it anchors the pattern trade press has been tracking, with roughly 220 ransomware attacks against food and beverage recorded so far in 2026 by 46 different groups. Dragos counted 70 food and beverage ransomware incidents in the second quarter alone and made the point that encrypting the IT systems around a plant halts production without any attacker reaching a controller. Everything else this cycle is advisory or exposure: a maximum-severity SIMATIC IoT2050 flaw, an actively exploited Cisco ASA/FTD VPN flaw in KEV, and four further KEV additions on 18 August. The no-advisory-stacking rule caps this at 5.9.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -743,32 +743,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <!-- TOP STORY -->
-    <div class="top-story" id="story-copeland-danfoss" data-published="2026-08-12">
+    <div class="top-story" id="story-s7-ai-advisory" data-published="2026-08-19">
         <span class="top-story-pill">Top Story</span>
-        <h2>Researchers took root on the refrigeration controllers behind cold stores and supermarkets &mdash; then turned the cooling off while the display kept reading normal</h2>
-        <p>Claroty&rsquo;s Team82 published research on 11&ndash;12 August covering two of the most widely deployed refrigeration supervisory platforms in food retail, cold storage and warehousing: the Copeland XWEB Pro family and the Danfoss AK-SM 800A. They reported 23 CVEs in Copeland XWEB Pro, 21 of them rated high severity, plus three in the Danfoss controller; CVE-2026-24452 and CVE-2026-25109 are among the identifiers. Several of the issues allow unauthenticated, root-level remote code execution on the controller. The finding that makes this a food-safety story rather than an IT one is the demonstrated scenario: an attacker disables refrigeration while the temperature display continues to show normal readings, so the supervisory system that would normally raise the alarm is the same system telling you everything is fine. This is coordinated disclosure &mdash; both vendors have shipped fixes and no exploitation has been reported.</p>
+        <h2>Five federal agencies name food and agriculture in a warning about AI-scripted access to Siemens S7 controllers</h2>
+        <p>The NSA, CISA, FBI, Department of Energy and EPA issued a joint advisory on 19 August warning that threat actors are combining the open-source snap7 and python-snap7 automation libraries with AI-assisted scripting to build custom tools that mimic legitimate OT monitoring software. Those tools give read and write access to Siemens S7 controller memory, configuration data and ladder logic over the S7comm protocol. Food and agriculture is named among the six most-targeted sectors. Actors locate exposed or poorly segmented devices using internet scanning services, then get in through default or weakly configured credentials rather than exploiting a vulnerability. Affected lines span the S7-200, S7-300, S7-400, S7-1200 and S7-1500 including F-series safety controllers. The agencies assess current activity as reconnaissance and capability development, with read access used to prepare for later disruptive write operations.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; coordinated disclosure</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active threat &mdash; agencies describe observed read access and preparation for write operations</span>
+            <span class="ops-tag kev-off">No CVE &mdash; internet exposure plus default or weak controller credentials</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available &mdash; Copeland firmware 1.13; Danfoss AK-SM 800A R4.3.1</span>
-            <span class="ops-cc"><b>Action:</b> Refrigeration is usually owned by engineering or a service contractor rather than by controls, so settle who patches it before arguing about when. Get XWEB Pro to firmware 1.13 and AK-SM 800A to R4.3.1, confirm neither answers from a public or cellular address, and make sure at least one temperature record used for food-safety release comes from an independent probe or datalogger rather than from the same supervisory system an attacker would be sitting on.</span>
+            <span class="ops-tag patch-na">No patch &mdash; remove exposure, harden credentials, restrict S7comm</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every S7 CPU across processing, packaging, refrigeration and utilities, including controllers inside supplied machines such as fillers, palletisers and CIP skids, and check each against your external attack surface. Block port 102 at the perimeter. The advisory notes owners often do not know their PLCs are reachable because an integrator or OEM arranged the connectivity &mdash; ask each of yours that question in writing, including your refrigeration service contractor.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Refrigeration firmware update, exposure check and independent temperature verification &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-copeland-danfoss" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-copeland-danfoss">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Plant-wide S7 inventory and exposure check &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-s7-ai-advisory" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-s7-ai-advisory">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Claroty Team82 research &mdash; via Industrial Cyber</span>
+          <span>Joint advisory AA26-231A (NSA, CISA, FBI, DOE, EPA) &mdash; corroborated by SecurityWeek and Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>Published 11&ndash;12 Aug 2026; vendor fixes released</span>
+          <span>Issued 19 Aug 2026; reported 20 Aug 2026</span>
         </div>
-        <a href="https://industrialcyber.co/critical-infrastructure/claroty-team82-exposes-copeland-xweb-pro-vulnerabilities-that-could-disrupt-commercial-refrigeration-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -797,25 +796,25 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-copeland-danfoss"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
-        <a href="#story-haiwell-hmi"><circle class="blip crit" cx="253.6" cy="222.5" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="253.6" y="226.8">2</text></a>
+        <a href="#story-s7-ai-advisory"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
+        <a href="#story-cisco-asa-kev"><circle class="blip crit" cx="253.6" cy="222.5" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="253.6" y="226.8">2</text></a>
         <a href="#story-siemens-iot2050"><circle class="blip crit" cx="106.4" cy="222.5" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="106.4" y="226.3">3</text></a>
-        <a href="#story-ikeext-kev"><circle class="blip high" cx="260.3" cy="65.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="260.3" y="68.7">4</text></a>
-        <a href="#story-vcenter-kev"><circle class="blip high" cx="313.9" cy="220.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="313.9" y="223.8">5</text></a>
-        <a href="#story-iran-plc-foodag"><circle class="blip high" cx="182.4" cy="320.0" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="182.4" y="322.4">6</text></a>
-        <a href="#story-medusa-500"><circle class="blip high" cx="47.6" cy="225.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="47.6" y="227.5">7</text></a>
-        <a href="#story-dragos-q2"><circle class="blip high" cx="95.7" cy="68.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="95.7" y="70.1">8</text></a>
+        <a href="#story-fb-ransomware-surge"><circle class="blip high" cx="262.3" cy="66.7" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="262.3" y="70.1">4</text></a>
+        <a href="#story-dragos-q2"><circle class="blip high" cx="313.1" cy="223.3" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="313.1" y="226.1">5</text></a>
+        <a href="#story-kev-0818"><circle class="blip high" cx="180.0" cy="320.0" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="180.0" y="322.4">6</text></a>
+        <a href="#story-ceva-logistics"><circle class="blip high" cx="46.9" cy="223.3" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="46.9" y="225.2">7</text></a>
+        <a href="#story-cisa-malcolm"><circle class="blip high" cx="97.7" cy="66.7" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="97.7" y="68.7">8</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-copeland-danfoss"><span class="ld crit"></span><b>1</b> 26 flaws in Copeland/Danfoss refrigeration</a>
-        <a href="#story-haiwell-hmi"><span class="ld crit"></span><b>2</b> Haiwell HMI gateway root RCE, CVSS 10</a>
+        <a href="#story-s7-ai-advisory"><span class="ld crit"></span><b>1</b> AI-scripted attacks on Siemens S7 PLCs</a>
+        <a href="#story-cisco-asa-kev"><span class="ld crit"></span><b>2</b> Cisco ASA/FTD VPN zero-day in KEV</a>
         <a href="#story-siemens-iot2050"><span class="ld crit"></span><b>3</b> SIMATIC IoT2050 max-severity RCE</a>
-        <a href="#story-ikeext-kev"><span class="ld high"></span><b>4</b> Windows IKE/IKEEXT RCE added to KEV</a>
-        <a href="#story-vcenter-kev"><span class="ld high"></span><b>5</b> vCenter flaw exploited, in KEV</a>
-        <a href="#story-iran-plc-foodag"><span class="ld high"></span><b>6</b> Iranian PLC campaign cooling, no food victim</a>
-        <a href="#story-medusa-500"><span class="ld high"></span><b>7</b> Medusa passes 500 critical-infra victims</a>
-        <a href="#story-dragos-q2"><span class="ld high"></span><b>8</b> Food &amp; beverage: 70 ransomware cases in Q2</a>
+        <a href="#story-fb-ransomware-surge"><span class="ld high"></span><b>4</b> 220 food &amp; beverage ransomware attacks in 2026</a>
+        <a href="#story-dragos-q2"><span class="ld high"></span><b>5</b> 70 food &amp; beverage cases in Q2 alone</a>
+        <a href="#story-kev-0818"><span class="ld high"></span><b>6</b> Four more KEV additions, 18 August</a>
+        <a href="#story-ceva-logistics"><span class="ld high"></span><b>7</b> CEVA Logistics breach hits cold-chain partners</a>
+        <a href="#story-cisa-malcolm"><span class="ld high"></span><b>8</b> Flaws in CISA&rsquo;s own Malcolm OT sensor</a>
       </div>
     </div>
 
@@ -828,28 +827,28 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
 <div class="trend">
-        <span class="trend-tag">Cold Chain</span>
-        <b class="trend-head">The instrument lies while the process drifts</b>
-        <p>Claroty&rsquo;s refrigeration research did not stop at root access &mdash; the researchers disabled cooling while the temperature display kept reading normally. That has landed hard in food circles, because most cold-chain assurance rests on the same supervisory system that would be compromised, and an independent temperature record is suddenly a much easier control to justify.</p>
-        <a href="https://industrialcyber.co/critical-infrastructure/claroty-team82-exposes-copeland-xweb-pro-vulnerabilities-that-could-disrupt-commercial-refrigeration-systems/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Ownership</span>
-        <b class="trend-head">Nobody in the room owns the refrigeration rack</b>
-        <p>Between the Copeland and Danfoss findings and this month&rsquo;s building-automation advisories for Siemens Desigo and Johnson Controls Metasys, the same question keeps surfacing: who patches the systems that keep the plant cold, lit and locked? In most food sites they belong to facilities or a service contractor, sit on the same infrastructure as production, and appear in no controls patch schedule.</p>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-14" class="source-link" target="_blank" rel="noopener">CISA ICSA-26-225-14</a>
-      </div>
-      <div class="trend">
         <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Production stops without anyone reaching a controller</b>
-        <p>Dragos logged 70 industrial ransomware incidents in food and beverage last quarter and, across all 1,140 cases, not one where an operator reached Stage&nbsp;2 of the ICS Cyber Kill Chain. Its worked example is two Mackay Sugar mills stopped in June with no evidence attackers touched ICS. The clock in these events is set by scheduling, quality release and labelling systems, not by the equipment on the line.</p>
-        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026" class="source-link" target="_blank" rel="noopener">Dragos</a>
+        <b class="trend-head">Food and beverage is on pace to exceed last year&rsquo;s attack volume</b>
+        <p>Trade reporting tracks roughly 220 ransomware attacks against the food and beverage sector so far in 2026 by 46 different groups, against 265 incidents across the whole of 2025. Dragos recorded 70 food and beverage cases in the second quarter alone. The sector&rsquo;s just-in-time delivery model and dense supplier network mean an attack on one processor propagates outward faster than in most industries, and perishability removes the option of waiting out a recovery.</p>
+        <a href="https://www.beveragedaily.com/Article/2026/08/03/cybercrime-escalates-across-the-food-and-beverage-industry/" class="source-link" target="_blank" rel="noopener">BeverageDaily</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Patch Velocity</span>
-        <b class="trend-head">Exploitation is outrunning the maintenance window</b>
-        <p>The refreshed federal advisory on Medusa records the group weaponising newly disclosed vulnerabilities within about 24 hours, and occasionally using an exploit a week before the flaw is public. Food plants schedule downtime in weeks. The practical response is not faster patching everywhere but knowing which internet-facing devices carry access into a plant, and being able to take those out of service on a day&rsquo;s notice.</p>
-        <a href="https://www.ic3.gov/CSA/2026/260818.pdf" class="source-link" target="_blank" rel="noopener">CISA/FBI advisory</a>
+        <span class="trend-tag">Attack Path</span>
+        <b class="trend-head">AI cut the cost of writing an ICS protocol tool, not of breaking in</b>
+        <p>The notable detail in this week&rsquo;s federal advisory is not a new exploit but that adversaries used AI to turn a documented open-source S7 library into custom tooling resembling legitimate monitoring traffic. The agencies note this sharply reduces the expertise needed to produce working ICS scripts. For a processor, that means the technical bar for someone who has found your exposed filler-line PLC has dropped considerably.</p>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">CISA AA26-231A</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Cold Chain</span>
+        <b class="trend-head">Third-party logistics breaches are now a food-sector exposure</b>
+        <p>The CEVA Logistics compromise between 29 July and 1 August affected at least eight European warehouses and pushed customer data into public view through the retailers that rely on it for fulfilment. Food and beverage supply chains depend on the same concentrated 3PL model for cold-chain storage and distribution, where an outage is not just a data problem but a product-integrity and shelf-life problem.</p>
+        <a href="https://techcrunch.com/2026/08/10/a-data-breach-at-shipping-giant-ceva-logistics-is-rippling-across-banks-retailers-steam-gamers-and-beyond/" class="source-link" target="_blank" rel="noopener">TechCrunch</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Social Engineering</span>
+        <b class="trend-head">Voice and video cloning is being used against food-sector help desks</b>
+        <p>Sector reporting describes hyper-realistic voice and video clones of chief executives and IT directors being used to bypass multi-factor authentication through urgent phone calls. Food and agriculture organisations often run lean IT teams across many sites with high seasonal staff turnover, which is precisely the environment where an urgent call from a plant manager gets an exception rather than a verification step.</p>
+        <a href="https://industrialcyber.co/reports/food-and-ag-isac-reports-82-surge-in-ransomware-attacks-as-qilin-akira-and-cl0p-lead-campaigns-against-sector/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
     </div>
   </div>
@@ -858,63 +857,63 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="story-fairlife" data-published="2026-07-28">
+<div class="card" id="story-fb-ransomware-surge" data-published="2026-08-03">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident &mdash; Food &amp; beverage (July, resolved)</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Sector ransomware trend</span>
         </div>
-        <h3>July recap: Coca-Cola&rsquo;s fairlife suspended US dairy production for a ransomware incident, and had most capacity back inside two weeks</h3>
-        <p>Carried here as context, not as news &mdash; this is a July event and nothing has changed on it since 27 July. Coca-Cola confirmed that its fairlife dairy business suspended production across four US sites after a ransomware intrusion detected in mid-July; Canadian operations were unaffected. The Anubis group claimed it had encrypted servers and taken roughly a terabyte of data. Coca-Cola reported most capacity restored by the end of the month and said it did not expect a material financial impact. The reason it stays on the page is the shape of the outage rather than its scale: what had to be rebuilt was the IT that plans, schedules, documents and releases production, not the control systems on the lines themselves. That is the same pattern Dragos describes across the whole quarter.</p>
+        <h3>Food and beverage ransomware volume is climbing, with production stoppages the recurring outcome</h3>
+        <p>Trade reporting on the sector counts roughly 220 ransomware attacks against food and beverage organisations so far in 2026, carried out by 46 different groups, compared with 265 incidents across the whole of 2025. The most consequential recent case in the sector was the July attack on Fairlife, Coca-Cola&rsquo;s dairy subsidiary, which suspended all US production after ransomware compromised critical production systems and forced manufacturing facilities offline while containment work proceeded. Separately, federal agencies have reported that since at least March an Iranian-affiliated group has disrupted the function of programmable logic controllers across multiple US critical infrastructure sectors including food processing facilities, causing operational disruption and financial loss. The pattern across both threads is the same: the sector&rsquo;s just-in-time model and perishable product mean recovery time translates directly into scrapped inventory and missed delivery windows.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; July 2026, production restored; claimed data theft by Anubis</span>
-            <span class="ops-tag kev-off">No CVE disclosed &mdash; entry vector not made public</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; multiple production stoppages reported at named food and beverage processors in 2026</span>
+            <span class="ops-tag kev-off">No single CVE &mdash; ransomware and PLC configuration tampering</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; recovery capability, backups and IT/OT dependency reduction</span>
-            <span class="ops-cc"><b>Action:</b> Write down how long it would take to restore MES, quality release, coding and labelling, and warehouse management from backup, then actually test one this quarter. Identify which of those a line legally cannot run without &mdash; for most food plants that is the quality release and traceability record, and it sets your true recovery clock.</span>
+            <span class="ops-tag patch-na">No patch &mdash; segmentation, recovery capability and manual operability</span>
+            <span class="ops-cc"><b>Action:</b> Work out, per plant, how many hours of unplanned downtime it takes before product in process must be scrapped and before delivery commitments are missed. That number, not a generic recovery time objective, is the requirement your response plan has to meet. Then confirm which lines can be run locally with HMI-only control if the plant network is unavailable.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Recovery-time test for one production-critical IT system &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fairlife" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-fairlife">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Per-plant downtime tolerance and manual operability assessment &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fb-ransomware-surge" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-fb-ransomware-surge">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Coca-Cola statements and fairlife notices &mdash; via Cybersecurity Dive and BleepingComputer</span>
+          <span>BeverageDaily sector analysis, with Fairlife production stoppage reported by Food Processing and Dairy Herd</span>
           <span class="dot">&bull;</span>
-          <span>Incident detected 17 Jul 2026; most capacity restored 27 Jul 2026 &mdash; no update since</span>
+          <span>Sector analysis published 3 Aug 2026; Fairlife incident 16 Jul 2026</span>
         </div>
-        <a href="https://www.cybersecuritydive.com/news/ransomware-attack-coca-cola-suspend-production-dairy/825540/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.beveragedaily.com/Article/2026/08/03/cybercrime-escalates-across-the-food-and-beverage-industry/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-ceva-logistics" data-published="2026-08-11">
+      <div class="card" id="story-ceva-logistics" data-published="2026-08-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Distribution</span>
+          <span class="category">Incident &mdash; Logistics / Cold chain</span>
         </div>
-        <h3>Eight Ceva Logistics warehouses stopped fulfilling for a week, and the delays reached retailers downstream</h3>
-        <p>A cyberattack on Ceva Logistics between 29 July and 1 August disrupted contract logistics at eight European warehouses, delaying fulfilment for retail and e-commerce customers including Bol, De Bijenkorf and Ace &amp; Tate; operations were still not fully restored by 6 August. Stolen data covers customer names, home addresses, email addresses, phone numbers and order details, with no payment data or credentials taken according to Ceva, and the Dutch data protection authority is investigating. No food business is named, but the pattern is the one that matters to this sector: third-party warehousing and transport is where most food companies&rsquo; finished goods sit, and a week of unavailable fulfilment against short-dated stock is spoilage, not just delay.</p>
+        <h3>CEVA Logistics breach affects European warehouses and spills customer data through its clients</h3>
+        <p>CEVA Logistics, one of the world&rsquo;s largest shipping and logistics operators, was attacked between 29 July and 1 August, with the intrusion affecting at least eight warehouses across Europe. The France-headquartered company runs more than a thousand warehouses worldwide and reported 18.3 billion dollars in revenue last year. The consequences surfaced indirectly: several companies relying on CEVA for fulfilment disclosed that their customers&rsquo; personal information had been taken, including Dutch e-commerce group Bol, department store De Bijenkorf, eyewear company Ace &amp; Tate and football club Ajax. Food and beverage supply chains run on the same concentrated third-party logistics model for warehousing and distribution, and cold chain adds a dimension the retail victims did not face: a warehouse management outage that delays put-away or pick is a temperature-excursion and product-integrity question, not only a service-level one.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; multi-site operational disruption and data theft</span>
-            <span class="ops-tag kev-off">No CVE disclosed &mdash; entry vector not made public</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach &mdash; customer data confirmed stolen by multiple downstream clients</span>
+            <span class="ops-tag kev-off">No CVE disclosed &mdash; entry vector not publicly stated</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; third-party resilience and contractual expectations</span>
-            <span class="ops-cc"><b>Action:</b> List the third-party cold-store and distribution partners holding your short-dated stock, and establish for each what happens if their systems are down for a week: can product be located, released and moved on paper, and who authorises disposition. Put a notification expectation in the contract if there is not one already.</span>
+            <span class="ops-tag patch-na">No patch &mdash; third-party risk and contingency planning</span>
+            <span class="ops-cc"><b>Action:</b> List the third-party cold storage and distribution providers your product passes through and establish what each is contractually required to tell you, and how fast, during an outage. Then ask a harder question: if their warehouse management system is down for a week, who is recording temperature excursions and lot traceability, and would you be able to defend a recall investigation with what they can produce?</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Third-party logistics degraded-mode plan for short-dated stock &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Cold-chain 3PL continuity and traceability review &mdash; 60 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-ceva-logistics" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="fd-ceva-logistics">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Ceva Logistics customer notifications &mdash; via The Record, TechCrunch and SecurityWeek</span>
+          <span>TechCrunch, corroborated by The Record and The Register</span>
           <span class="dot">&bull;</span>
-          <span>Attack 29 Jul&ndash;1 Aug 2026; data-theft detail reported 10&ndash;11 Aug 2026</span>
+          <span>Attack 29 Jul&ndash;1 Aug 2026; reported 10&ndash;11 Aug 2026</span>
         </div>
-        <a href="https://therecord.media/ceva-logistics-cyberattack-bol-steam-debijenkorf-ace-tate" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://techcrunch.com/2026/08/10/a-data-breach-at-shipping-giant-ceva-logistics-is-rippling-across-banks-retailers-steam-gamers-and-beyond/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -923,92 +922,63 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-<div class="card" id="story-dragos-q2" data-published="2026-08-10">
+<div class="card" id="story-dragos-q2" data-published="2026-08-11">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
+          <span class="severity sev-high">High</span>
           <span class="category">Research &mdash; Ransomware trends</span>
         </div>
-        <h3>Food and beverage took 70 industrial ransomware incidents last quarter &mdash; and not one attacker reached a control system</h3>
-        <p>Dragos recorded 1,140 ransomware incidents against industrial organisations in the second quarter of 2026, up 12 percent on the 1,020 it counted in the first. Food and beverage accounted for 70 of them, within a total dominated by manufacturing at 747. The number worth carrying into a management conversation is a zero: Dragos found no case in the quarter where a ransomware operator reached Stage&nbsp;2 of the ICS Cyber Kill Chain or directly manipulated a control system. Its food-sector worked example is Mackay Sugar in Australia, where two mills stopped in June with no evidence that attackers reached ICS. Production halts in this data set cascade from virtualisation and ERP compromise, which is precisely why the vCenter and remote-access items further down this page matter more to a plant than their CVSS scores suggest.</p>
+        <h3>Dragos counts 70 food and beverage ransomware incidents in a single quarter</h3>
+        <p>Dragos recorded 1,140 ransomware incidents involving industrial organisations in the second quarter of 2026, up 12 percent from 1,020 in the first, with manufacturing accounting for 747, construction 176, equipment manufacturing 114 and food and beverage 70. The analytical finding matters more than the count: ransomware operators do not need control system access to disrupt industrial production, because encrypting the IT systems that support the plant is regularly enough to stop the line. Extortion also continued shifting away from file encryption toward data theft. For a food processor the supporting systems are specific and unforgiving &mdash; warehouse and inventory management, label and date-code printing, lot traceability, quality and food safety records, and the systems that release product for shipment. Several of those are regulatory prerequisites for shipping at all, so an outage stops product moving even when every filler and palletiser is running normally.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; trend analysis of confirmed incidents</span>
+            <span class="ops-tag ex-none">Not applicable &mdash; quarterly research</span>
             <span class="ops-tag kev-off">Not applicable</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; resilience planning and IT/OT dependency mapping</span>
-            <span class="ops-cc"><b>Action:</b> Map which of your lines physically stops if MES, recipe management, coding and labelling or quality release is unavailable &mdash; and how long you could run on paper before traceability obligations force a halt. That answer, not a maturity score, is the resilience metric worth reporting upward. Then check whether those systems share a virtualisation cluster with the business estate.</span>
+            <span class="ops-tag patch-na">Not applicable &mdash; response planning and segmentation</span>
+            <span class="ops-cc"><b>Action:</b> Run a tabletop where every controller is healthy but the warehouse system, label printing and the quality records system are encrypted. Establish whether you can legally ship product without electronic lot traceability, and what your documented manual alternative is. Most processors discover date-code printing is the binding constraint, because product cannot leave without it.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Line-level IT dependency map and paper-mode traceability check &mdash; 60 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Supporting-systems outage tabletop &mdash; next exercise cycle</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-dragos-q2" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="fd-dragos-q2">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dragos Industrial Ransomware Analysis, Q2 2026</span>
+          <span>Dragos Q2 2026 industrial ransomware analysis &mdash; via Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>Published 10 Aug 2026; covers Apr&ndash;Jun 2026</span>
+          <span>Published 11 Aug 2026</span>
         </div>
-        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-medusa-500" data-published="2026-08-18">
+      <div class="card" id="story-claroty-datacenter" data-published="2026-07-29">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat Intel &mdash; Ransomware</span>
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research &mdash; Facility CPS exposure</span>
         </div>
-        <h3>Medusa has passed 500 critical-infrastructure victims, and it is weaponising new vulnerabilities within a day</h3>
-        <p>CISA and the FBI refreshed their #StopRansomware advisory on Medusa on 18 August. The cumulative victim count across critical infrastructure passed 500 as of April 2026, up from roughly 300 in the March 2025 version &mdash; about 200 new victims in a year. Named target sectors include critical manufacturing, healthcare, the defense industrial base, government facilities, IT and financial services; the impact described is enterprise-IT encryption plus data theft, with no control-system involvement alleged. The operationally useful finding is speed: the group weaponises newly disclosed vulnerabilities within roughly 24 hours, and has been observed using exploits up to a week before public disclosure, because it buys them rather than developing them. Any exposure window measured in weeks of change control is therefore a real one.</p>
+        <h3>Claroty finds one in five facility cyber-physical assets a single hop from internet-exposed systems</h3>
+        <p>Team82 analysed more than 750,000 cyber-physical assets across large facilities and found nearly one in five sitting one hop from a system making outbound internet connections. Close to 90 percent of the building management systems examined communicated over insecure protocols and 40 percent ran outdated firmware, with around a third of HVAC and cooling systems one hop from an internet-exposed system. The study covers data centres, but the asset classes translate directly to a food plant: power distribution, building management, physical access control, fire protection and refrigeration. Refrigeration is the one that deserves separate attention here, because it is usually procured and maintained under a service contract with remote monitoring enabled by the contractor, sits outside the controls engineering asset register, and has a direct line to product safety rather than merely to uptime.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed active campaign &mdash; federal advisory, 500+ critical-infrastructure victims</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; rapid weaponisation of newly disclosed flaws</span>
+            <span class="ops-tag ex-none">No known exploitation &mdash; exposure research</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; patch velocity, exposure reduction and detection content</span>
-            <span class="ops-cc"><b>Action:</b> List the internet-facing devices that carry access into any plant &mdash; VPN concentrators, remote-support gateways, jump hosts, OEM appliances &mdash; and agree in advance who can take one out of service within 24 hours of an advisory without waiting for a maintenance window. Then run the advisory&rsquo;s indicators across the estate.</span>
+            <span class="ops-tag patch-na">Not applicable &mdash; segmentation and protocol hardening</span>
+            <span class="ops-cc"><b>Action:</b> Run the one-hop test on refrigeration specifically: from any internet-facing system, how many hops to the controllers running cold storage, blast chill and ammonia plant? Ask your refrigeration service contractor exactly how their remote monitoring reaches those controllers and whether that path passes through your firewall or around it.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Emergency-disconnect authority for OT-facing edge devices &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-medusa-500" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-medusa-500">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Refrigeration and plant utilities exposure review &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-claroty-datacenter" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-claroty-datacenter">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA/FBI #StopRansomware advisory (update to AA25-071A)</span>
+          <span>Claroty Team82, State of CPS Security: Data Center Exposures &mdash; reported by SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Updated 18 Aug 2026</span>
+          <span>Published 29 Jul 2026</span>
         </div>
-        <a href="https://www.ic3.gov/CSA/2026/260818.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-iran-plc-foodag" data-published="2026-08-14">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat Intel &mdash; Nation-state</span>
-        </div>
-        <h3>The Iranian-affiliated PLC campaign is cooling, and no food or agriculture operator has been confirmed as a victim</h3>
-        <p>Joint advisory AA26-097A, issued 7 April by the FBI, CISA, NSA, EPA, DOE, US Cyber Command&rsquo;s Cyber National Mission Force and Treasury and expanded on 22 July, describes Iranian-affiliated actors reaching internet-exposed programmable logic controllers across US critical infrastructure. Confirmed victims remain water systems &mdash; at least 12 states, with more than 30 in Minnesota &mdash; and there has been no new confirmed victim since 14 August, no new named utility and no escalation. No food processor, grain co-operative or agricultural operator has been confirmed compromised. It stays on this page for one reason: no vulnerability is being exploited. The way in is a controller answering from the internet with a default, shared or absent password, and remote food and agriculture assets &mdash; outlying elevators, irrigation controls, cellular-connected pump and dryer skids &mdash; are exactly where that configuration survives.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed active campaign, cooling &mdash; no new confirmed victim since 14 Aug; none in food or agriculture</span>
-            <span class="ops-tag kev-off">No CVE exploited &mdash; internet-exposed controllers with weak or default credentials</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; exposure removal, credential hygiene and logic-integrity verification</span>
-            <span class="ops-cc"><b>Action:</b> Scan every public address and cellular range your business owns &mdash; including outlying elevators, pump stations, irrigation controls and leased storage &mdash; for controllers and HMIs that answer. Then diff the logic on anything implementing a safety shutdown, high-level alarm or dosing interlock against your last known-good baseline.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External exposure sweep and safety-logic baseline comparison &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-iran-plc-foodag" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-iran-plc-foodag">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA/FBI joint advisory AA26-097A and subsequent agency statements</span>
-          <span class="dot">&bull;</span>
-          <span>Issued 7 Apr 2026, expanded 22 Jul 2026; last confirmed victim activity 14 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/1-in-5-data-center-assets-are-within-easy-reach-of-attackers/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1017,175 +987,117 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-haiwell-hmi" data-published="2026-08-13">
+<div class="card" id="story-siemens-iot2050" data-published="2026-08-12">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; HMI gateway</span>
+          <span class="category">Advisory &mdash; ICS Patch Tuesday</span>
         </div>
-        <h3>A CVSS 10.0 command injection gives unauthenticated root on Haiwell&rsquo;s IoT Cloud HMI gateway</h3>
-        <p>CISA advisory ICSA-26-225-02 covers CVE-2026-19188, an OS command injection in the Haiwell IoT Cloud HMI Gateway rated 10.0. The Net Check feature reached through the /setting endpoint passes user input from the cmdPing Socket.io event straight to the operating system, letting an unauthenticated remote attacker run commands as root. Version 3.40.1.12 is affected; Haiwell has published Scada-v3.50.1.19. Gateways of this class reach food sites inside packaged equipment &mdash; a filler, a depalletiser, a blast chiller, a grain dryer, an irrigation controller &mdash; specified by the machine builder rather than by a controls standard, connected for remote support, and rarely present in any asset register.</p>
+        <h3>August ICS Patch Tuesday: maximum-severity missing authentication in SIMATIC IoT2050 Advanced</h3>
+        <p>Siemens published ten advisories in the August cycle. The most serious, SSA-834709, covers a maximum-severity missing authentication flaw in SIMATIC IoT2050 Advanced devices allowing a remote, unauthenticated attacker to execute arbitrary code on the underlying server with elevated privileges. Siemens also fixed a critical code execution vulnerability in Siveillance Video Management Servers, and high-severity flaws in Solid Edge, Simcenter Nastran, Siemens License Server, Simcenter Femap, Parasolid and Logo! Soft Comfort. Medium-severity issues were resolved in Ruggedcom devices and Desigo controllers. Schneider Electric published advisories for NetBotz 5 and PowerChute Serial Shutdown, and Phoenix Contact issued one covering multiple PLCnext firmware flaws exploitable for denial of service or malicious SQL queries. In food plants the IoT2050 and PLCnext devices commonly appear in OEE, line-monitoring and energy-metering roles retrofitted onto existing lines &mdash; installed under a continuous improvement project rather than a controls upgrade, and rarely in the patch inventory.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition</span>
+            <span class="ops-tag ex-none">No known exploitation reported at publication</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; Haiwell Scada-v3.50.1.19</span>
-            <span class="ops-cc"><b>Action:</b> Scan for Haiwell devices rather than trusting the asset list, since these arrive inside packaged machinery. Update to Scada-v3.50.1.19 and, whatever the version, confirm nothing answers from a public or cellular-carrier address &mdash; the same check that protects you against the campaign in the top story.</span>
+            <span class="ops-tag patch-yes">Patches available &mdash; Siemens, Schneider Electric and Phoenix Contact updates released</span>
+            <span class="ops-cc"><b>Action:</b> Ask your continuous improvement and engineering teams what edge devices were added to lines for OEE, downtime tracking or energy monitoring in the last three years, and check for SIMATIC IoT2050 and PLCnext among them. Those boxes are usually connected outward to a dashboard, which is precisely the exposure this advisory addresses. Add NetBotz and PowerChute in the plant electrical room to the same window.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Discovery scan, exposure check and firmware update &mdash; 7 days (Critical)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-haiwell-hmi" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-haiwell-hmi">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-225-02</span>
-          <span class="dot">&bull;</span>
-          <span>Published 13 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-02" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-siemens-iot2050" data-published="2026-08-11">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Siemens</span>
-        </div>
-        <h3>SIMATIC IoT2050 Advanced exposes Node-RED with no authentication &mdash; maximum-severity remote code execution</h3>
-        <p>Siemens ProductCERT advisory SSA-834709, published 11 August, covers SIMATIC IoT2050 Advanced devices running Industrial OS with Node-RED installed. CVE-2026-58115 is rated CVSS 10.0 under both v3.1 and v4.0: the Node-RED HTTP interface enforces no authentication at all, so a remote unauthenticated attacker can create flows using programming nodes that execute system commands, giving arbitrary code execution at maximum privilege on the gateway. Every version before V4.3.4.1 is affected; the alternatives to updating are uninstalling Node-RED or hardening it per Node-RED&rsquo;s own guidance. Worth noting that this one has no corresponding CISA ICSA advisory, so a team that tracks only ICS-CERT will not see it. In food and beverage these gateways typically arrive as part of an OEE, downtime-tracking or digitalisation project, bridging line equipment to a reporting platform &mdash; trusted by the control network, installed by an integrator, and almost never included in a patch schedule afterwards.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; SIMATIC IoT2050 Advanced V4.3.4.1</span>
-            <span class="ops-cc"><b>Action:</b> Identify every IoT2050 on site, check whether Node-RED is installed, and restrict its HTTP interface to a dedicated management host. Update to V4.3.4.1; if a production window is needed, block the interface at the network layer today. Ask whoever delivered your OEE project which gateways they left behind.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory, network restriction and firmware update &mdash; 7 days (Critical)</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> SIMATIC IoT2050 and PLCnext patch or isolation &mdash; 14 days; remainder &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-siemens-iot2050" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="fd-siemens-iot2050">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT SSA-834709 &mdash; via SecurityWeek</span>
+          <span>Siemens ProductCERT SSA-834709, Schneider Electric and Phoenix Contact advisories &mdash; summarised by SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Published 11 Aug 2026 &mdash; no corresponding CISA ICSA advisory</span>
+          <span>Published 12 Aug 2026</span>
         </div>
-        <a href="https://cert-portal.siemens.com/productcert/html/ssa-834709.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-vcenter-kev" data-published="2026-08-18">
+      <div class="card" id="story-cisco-asa-kev" data-published="2026-08-13">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Virtualisation</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; Exploited edge / KEV</span>
         </div>
-        <h3>CISA added the exploited vCenter flaw to KEV yesterday &mdash; 361 hosts compromised across 47 countries</h3>
-        <p>CISA added CVE-2026-59310, a path-traversal flaw in VMware vCenter Server, to the Known Exploited Vulnerabilities catalogue on 18 August. Broadcom patched it on 29 July and exploitation began about five days later. German incident-response firm QUIRSO assesses with moderate confidence that a Chinese-speaking actor operates the campaign, counting around 361 affected addresses across 47 countries. The actor gains root on the vCenter appliance, plants a backdoor through cron and a reverse SSH binary, and in at least one case deployed Babuk-derived ransomware. Most food plants now run the historian, MES, SCADA nodes and label-print servers as virtual machines on one cluster, which makes the management plane a single point of failure for production and for traceability records at the same time.</p>
+        <h3>Cisco ASA and FTD VPN zero-day exploited to reload firewalls, added to CISA KEV</h3>
+        <p>Cisco has patched CVE-2026-20349, a flaw in the remote-access SSL VPN service of Secure Firewall ASA and Secure Firewall Threat Defense software that attackers are exploiting to force appliances offline. A specially crafted HTTP request to the vulnerable service causes an unexpected reload and a denial-of-service condition, requiring no authentication and no user interaction. Cisco&rsquo;s PSIRT confirmed active exploitation in August, and CISA added the flaw to the Known Exploited Vulnerabilities catalogue with a federal remediation deadline of 14 August. Hot fixes cover ASA 9.16, 9.18, 9.20, 9.22, 9.23 and 9.24 and FTD 7.0, 7.2, 7.4, 7.6, 7.7 and 10.0. For a processor the practical risk is losing remote support during a line stoppage: these appliances typically terminate OEM and integrator access to fillers, packaging machinery and refrigeration, and a night-shift breakdown with the machine builder unable to connect is an expensive extension of an ordinary fault.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed active exploitation &mdash; suspected China-nexus actor, ransomware in at least one case</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-59310 added 18 Aug 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; Cisco PSIRT confirmed in-the-wild attacks in August 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-20349, federal remediation deadline 14 Aug 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; Broadcom fix released 29 Jul 2026</span>
-            <span class="ops-cc"><b>Action:</b> Patch any vCenter hosting historian, MES, quality or labelling virtual machines and check the appliance for unexpected cron entries and a &ldquo;linuxFile&rdquo; binary. If plant and business virtual machines share one cluster, raise that as a finding independent of this CVE &mdash; it is the reason a single compromise stops a site.</span>
+            <span class="ops-tag patch-yes">Patch available &mdash; Cisco hot fixes for ASA 9.16&ndash;9.24 and FTD 7.0&ndash;10.0</span>
+            <span class="ops-cc"><b>Action:</b> Identify every ASA or FTD appliance carrying OEM, integrator or corporate access into plant networks and confirm it is on a fixed release. Where the maintenance window is weeks away, restrict the SSL VPN service to known source ranges now, and confirm your filler, packaging and refrigeration suppliers each have a documented alternative support route.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> vCenter patch, compromise check and management-plane isolation &mdash; 7 days (Critical)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-vcenter-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-vcenter-kev">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or restrict exposed ASA/FTD VPN services &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-cisco-asa-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-cisco-asa-kev">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV catalogue and QUIRSO research &mdash; via The Hacker News</span>
+          <span>Cisco security advisory and CISA KEV catalogue &mdash; reported by Help Net Security and SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Patched 29 Jul 2026; exploitation from early Aug; added to KEV 18 Aug 2026</span>
+          <span>Exploitation confirmed and KEV listed Aug 2026; reported 13 Aug 2026</span>
+        </div>
+        <a href="https://www.helpnetsecurity.com/2026/08/13/cve-2026-20349-cisco-firewalls-dos/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-kev-0818" data-published="2026-08-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; CISA KEV additions</span>
+        </div>
+        <h3>Four more exploited flaws added to KEV on 18 August, including Windows IKE and VMware vCenter</h3>
+        <p>CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalogue on 18 August: CVE-2026-33824 in Microsoft Internet Key Exchange, CVE-2026-55040 in Microsoft SharePoint, CVE-2026-59310 in Broadcom VMware vCenter and CVE-2026-65400 in Apple macOS. Two further additions followed on 20 August, both in TrueConf Server. For food and agriculture, vCenter is the one that changes the risk model: multi-site processors commonly run historians, MES, quality systems and virtualised HMI servers on a shared cluster, so a compromise at the hypervisor affects every plant workload at once rather than one application. IKE terminates the site-to-site tunnels linking plants, distribution centres and corporate. SharePoint is worth a second look because food safety plans, HACCP documentation and standard operating procedures are commonly stored there and treated as ordinary business content.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; all four added on evidence of exploitation in the wild</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-33824, CVE-2026-55040, CVE-2026-59310 and CVE-2026-65400 added 18 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available &mdash; Microsoft, Broadcom and Apple updates released</span>
+            <span class="ops-cc"><b>Action:</b> Find out whether any vCenter instance manages hosts running historian, MES or quality workloads for more than one plant, and whether it is reachable from the corporate network without a jump host. A shared cluster across sites is the finding to escalate, not the patch itself. Check plant-to-plant and distribution-centre tunnels terminating on affected Windows hosts.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> KEV triage against OT-adjacent infrastructure &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-kev-0818" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-kev-0818">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV catalogue additions</span>
+          <span class="dot">&bull;</span>
+          <span>Added 18 Aug 2026; two further additions 20 Aug 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-ikeext-kev" data-published="2026-08-18">
+      <div class="card" id="story-cisa-malcolm" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Remote access</span>
+          <span class="category">Advisory &mdash; CISA ICS</span>
         </div>
-        <h3>A Windows IKE flaw went into CISA&rsquo;s KEV catalogue with a three-day federal deadline &mdash; it sits on the tunnels into your plants</h3>
-        <p>CISA added CVE-2026-33824, a double-free in the Microsoft Windows IKE service extensions (IKEEXT), to the Known Exploited Vulnerabilities catalogue on 18 August with a federal remediation deadline of 21 August. A deadline that short signals confirmed exploitation at scale. IKE is the key-exchange half of IPsec, and IPsec is what terminates most site-to-site links and vendor remote access into food plants, distribution centres and cold stores &mdash; the tunnels used by machine builders, refrigeration service contractors and corporate IT. Remote code execution on the endpoint terminating those tunnels produces access that reads as ordinary maintenance in the logs, along the exact route that reaches line controls and utility systems. Three other flaws were added the same day, including a VMware vCenter path traversal and a SharePoint authentication bypass.</p>
+        <h3>CISA publishes an advisory for flaws in Malcolm, its own free OT monitoring suite</h3>
+        <p>Advisory ICSA-26-230-01 covers vulnerabilities in Malcolm, the network traffic analysis suite CISA distributes free for OT and ICS environments, which could allow an attacker to cause a denial-of-service condition or execute arbitrary code. Affected versions are below 26.06.1, below 26.07.0 and up to and including 26.07.1. The same day CISA published ICSA-26-230-02, covering a stack overflow in Siemens Simcenter Nastran that can lead to remote code execution if a user is tricked into running the affected binary with a malicious string; Siemens has released fixed versions. Malcolm matters disproportionately in this sector because food and agriculture is dominated by mid-size processors and cooperatives without a commercial OT monitoring budget &mdash; exactly the profile that deploys a free CISA tool, usually on a span port with visibility into the entire plant network, and almost never inside a patch process.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed active exploitation &mdash; basis for the KEV listing</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-33824 added 18 Aug 2026, federal deadline 21 Aug</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; apply the Microsoft update</span>
-            <span class="ops-cc"><b>Action:</b> Find every Windows host running the IKE extensions that terminates an IPsec tunnel to a site, a co-packer, a cold store or an OEM, and treat it as an emergency change this week. Patch, then rotate the credentials and pre-shared keys on those tunnels and review authentication logs for sessions outside an approved maintenance window.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch and credential rotation on IPsec endpoints reaching OT &mdash; 7 days (Critical)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-ikeext-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-ikeext-kev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalogue</span>
-          <span class="dot">&bull;</span>
-          <span>Added to KEV 18 Aug 2026; remediation deadline 21 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-bms-plant" data-published="2026-08-13">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory &mdash; Building automation</span>
-        </div>
-        <h3>Two building-automation advisories land on the systems that share infrastructure with plant refrigeration</h3>
-        <p>Two of CISA&rsquo;s 13 August advisories cover controls that in food plants and cold stores often sit on the same network and the same service contract as refrigeration. ICSA-26-225-08 covers Siemens Desigo DXR2 and PXC3, PXC4, PXC5 and PXC7 controllers: CVE-2026-59693, CVSS 4.3, lets malformed BACnet packets from an adjacent network crash the controller until it is reset or rebooted &mdash; a low score with an availability consequence in a facility where a controller reboot means an unmonitored space. Patched firmware is available for every affected model. ICSA-26-225-14 covers Johnson Controls Metasys, where CVE-2026-34491 (CVSS 8.0) is a persistent cross-site scripting flaw letting a low-privilege user plant a payload that runs in an administrator&rsquo;s browser. Metasys 15 is patched at 15.0.1 and 16.0 ships fixed; versions 12 and 13 are end-of-support and can only be resolved by upgrading.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition</span>
+            <span class="ops-tag ex-none">No known exploitation reported</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available &mdash; Desigo firmware updates; Metasys 14.1.5 / 15.0.1, upgrade from 12 and 13</span>
-            <span class="ops-cc"><b>Action:</b> Establish whether your BMS shares a network segment, a jump host or a service contractor with refrigeration and process utilities &mdash; in most food sites it does at least one of the three. Get any Metasys 12 or 13 onto a supported release plan, and keep BACnet traffic off any segment reachable from a general-purpose workstation.</span>
+            <span class="ops-tag patch-yes">Patch available &mdash; upgrade Malcolm past the affected versions; Siemens has released fixed Simcenter Nastran versions</span>
+            <span class="ops-cc"><b>Action:</b> Ask whether anyone at your plants, or a consultant working for you, stood up Malcolm for OT visibility. Find it, upgrade it, and confirm the management interface is unreachable from the corporate network. A sensor with full plant-network visibility is a high-value target and should be treated as a critical asset in its own right.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> BMS version audit and segmentation review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-bms-plant" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-bms-plant">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Malcolm inventory and upgrade &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-cisa-malcolm" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-cisa-malcolm">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisories ICSA-26-225-08 (Siemens Desigo) and ICSA-26-225-14 (Johnson Controls Metasys)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 13 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-14" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-malcolm" data-published="2026-08-18">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; OT monitoring</span>
-        </div>
-        <h3>Six flaws in Malcolm &mdash; CISA&rsquo;s own OT traffic-analysis suite, and it usually sits inside the plant network</h3>
-        <p>CISA published ICSA-26-230-01 on 18 August against Malcolm, its own open-source network-traffic-analysis suite for OT. Six flaws are listed, led by CVE-2026-55676 at CVSS 8.8, an unrestricted PHP file upload leading to arbitrary code execution; the rest cover path traversal on archive extraction (CVE-2026-63177, 7.1), two authorisation bypasses via unnormalised URI paths and percent-encoding, and resource-exhaustion denial of service. Versions below 26.06.1 and 26.07.0 and up to 26.07.1 are affected, with fixes in 26.07.0 and 26.08.0 depending on the CVE. There is no reported exploitation. It earns a place here because of where the software lives: food producers running a low-cost OT monitoring capability typically deploy Malcolm inside the plant network with a SPAN or TAP feed, which means broad visibility and a trusted position.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; Malcolm 26.07.0 and 26.08.0 depending on the CVE</span>
-            <span class="ops-cc"><b>Action:</b> If anyone in your organisation stood up Malcolm for OT visibility &mdash; often a plant engineer rather than IT &mdash; update it and restrict its web interface to a named management host. A monitoring appliance with a SPAN feed sees everything on the segment, so treat its own exposure with the same seriousness as an HMI.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Update and access restriction on OT monitoring hosts &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-malcolm" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-malcolm">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-230-01</span>
+          <span>CISA ICS advisories ICSA-26-230-01 and ICSA-26-230-02</span>
           <span class="dot">&bull;</span>
           <span>Published 18 Aug 2026</span>
         </div>
@@ -1198,34 +1110,63 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-<div class="card" id="story-nssts" data-published="2026-08-19">
+<div class="card" id="story-eu-cra-reporting" data-published="2026-08-13">
         <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Policy &mdash; National strategy</span>
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Regulation &mdash; EU Cyber Resilience Act</span>
         </div>
-        <h3>The new National Security Science and Technology Strategy names OT and ICS resilience as an explicit priority</h3>
-        <p>The National Security Science and Technology Strategy was released on 19 August. Across its four pillars it names operational technology and industrial control system resilience, and technology supply chains, as explicit national priorities rather than leaving them inside a general cybersecurity heading. There is no regulatory requirement in it and nothing for an operator to comply with; it is a statement of research and investment direction. For food and agriculture the relevance is indirect but real &mdash; sector-specific OT security funding, research programmes and grant criteria tend to follow the language in documents like this one, and a strategy that separates OT resilience from IT security is easier to point at when arguing for a control-system budget line.</p>
+        <h3>From 11 September 2026 exploited vulnerabilities in digital products must be reported within 24 hours</h3>
+        <p>The EU Cyber Resilience Act&rsquo;s reporting obligations take effect on 11 September 2026. From that date, manufacturers of products with digital elements placed on the EU market must report actively exploited vulnerabilities and severe incidents affecting those products: an early warning within 24 hours of becoming aware, a full notification within 72 hours, and a final report within 14 days of a corrective measure being available, or within a month for a severe incident. Reporting flows through a single reporting platform to the relevant national CSIRT with simultaneous availability to ENISA, and the obligations cover products already on the EU market rather than only new releases. For food and beverage the effect is mostly on the supply side. Processing, filling and packaging equipment makers selling into the EU acquire a disclosure duty, so processors buying from European OEMs should expect faster and more formal vulnerability notification from September &mdash; and should have somewhere for it to land.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; policy</span>
+            <span class="ops-tag ex-none">Not applicable &mdash; regulatory</span>
             <span class="ops-tag kev-off">Not applicable</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; no operator action required</span>
-            <span class="ops-cc"><b>Action:</b> No operational action. If you are preparing a capital case for OT visibility, segmentation or refrigeration-control lifecycle work, it is worth citing the strategy&rsquo;s explicit treatment of OT and ICS resilience and supply chains, and watching for the funding and research programmes that follow it.</span>
+            <span class="ops-tag patch-na">Not applicable &mdash; supplier disclosure expectations and intake process</span>
+            <span class="ops-cc"><b>Action:</b> Ask your European equipment suppliers how they will notify you once CRA reporting starts, and make sure notifications land somewhere monitored rather than in a procurement mailbox or an individual engineer&rsquo;s inbox. If your own business places digital products on the EU market, confirm before 11 September that you can produce a 24-hour early warning.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Awareness &mdash; no action required</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-nssts" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-nssts">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Supplier disclosure intake process &mdash; before 11 Sep 2026</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-eu-cra-reporting" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-eu-cra-reporting">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>National Security Science &amp; Technology Strategy &mdash; via Industrial Cyber</span>
+          <span>European Commission, Cyber Resilience Act reporting obligations</span>
           <span class="dot">&bull;</span>
-          <span>Released 19 Aug 2026</span>
+          <span>Obligations apply from 11 Sep 2026</span>
         </div>
-        <a href="https://www.whitehouse.gov/wp-content/uploads/2026/08/NSSTS-082026.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-ot-isolation-guidance" data-published="2026-07-29">
+        <div class="card-header">
+          <span class="severity sev-low">Low</span>
+          <span class="category">Policy &mdash; Joint guidance</span>
+        </div>
+        <h3>US and Australian agencies publish guidance on isolating OT and running that way for an extended period</h3>
+        <p>A joint publication from US and Australian agencies sets out how critical infrastructure operators should prepare to isolate vital operational technology and supporting systems from external connectivity, and to keep operating in that isolated state for an extended period rather than the few hours most continuity plans assume. It is guidance and creates no obligation. For a food processor its value is that it converts a confident claim &mdash; that the plant can keep running if corporate is compromised &mdash; into a dependency checklist. The items that break first are seldom drawn as control-system dependencies: time synchronisation, Active Directory authentication for HMI logins, licence servers for HMI and historian software, MES order release, and label and date-code printing. Given that product cannot legally ship without date coding and lot traceability, printing is frequently the binding constraint rather than anything mechanical.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Not applicable &mdash; guidance</span>
+            <span class="ops-tag kev-off">Not applicable</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Not applicable &mdash; continuity planning</span>
+            <span class="ops-cc"><b>Action:</b> Take one production line and walk the isolation dependency list against it. Identify what fails after 24 hours with no corporate connectivity, then after a week, and pay specific attention to label and date-code printing and to lot traceability, since those determine whether finished product can leave the site at all.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Extended-isolation dependency review for one line &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-ot-isolation-guidance" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-ot-isolation-guidance">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Joint US&ndash;Australian OT isolation guidance &mdash; reported by SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Published 29 Jul 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/us-australia-release-ot-isolation-guidance-for-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1234,10 +1175,9 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Food &amp; Agriculture.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand on 19&nbsp;August&nbsp;2026 by searching authoritative OT/ICS and sector sources including CISA ICS advisories (ICSA-26-230-01 and the 13 August batch, notably ICSA-26-225-02, ICSA-26-225-08 and ICSA-26-225-14) and the Known Exploited Vulnerabilities catalogue, the CISA/FBI #StopRansomware update on Medusa, joint advisory AA26-097A, Food and Ag-ISAC reporting, and vendor PSIRTs (Siemens ProductCERT SSA-834709, Copeland, Danfoss, Johnson Controls, Broadcom/VMware, Haiwell). Research from Claroty Team82 and Dragos. Reporting drawn from Cybersecurity Dive, BleepingComputer, The Record, TechCrunch, SecurityWeek, The Hacker News and Industrial Cyber, with statements from Coca-Cola and fairlife. Wired was not used for this edition. <strong>A quiet fortnight for this sector:</strong> no confirmed food processor, beverage, meat, poultry, dairy, grain co-operative or precision-agriculture operator incident was identified between 5 and 19&nbsp;August&nbsp;2026, and the Coca-Cola/fairlife item is carried as July context rather than as new activity. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or Food and Ag-ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 21&nbsp;August&nbsp;2026 by searching authoritative food, agriculture and OT/ICS sources including the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A naming food and agriculture among its target sectors, CISA ICS advisories ICSA-26-230-01 and ICSA-26-230-02, the Known Exploited Vulnerabilities catalogue additions of 11, 18 and 20&nbsp;August, the European Commission&rsquo;s Cyber Resilience Act reporting guidance, joint US&ndash;Australian OT isolation guidance, and vendor PSIRTs (Siemens ProductCERT SSA-834709, Schneider Electric, Phoenix Contact, Cisco). Sector threat data from Dragos and from Food and Ag-ISAC reporting summarised by Industrial Cyber. Incident reporting on food and beverage ransomware from BeverageDaily, with the Fairlife production stoppage covered by Food Processing and Dairy Herd, and on CEVA Logistics from TechCrunch, The Record and The Register. Research from Claroty Team82. Reporting drawn from SecurityWeek, Help Net Security, Cybersecurity Dive, The Record and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; incidents are distinguished as confirmed, claimed or assessed. Not a replacement for ICS-CERT subscriptions or Food and Ag-ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
-
 </div>
 
 <script>
