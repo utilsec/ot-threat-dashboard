@@ -6,13 +6,13 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 21 Aug 2026 08:00:00 -0400</lastBuildDate>
+<lastBuildDate>Sat, 22 Aug 2026 04:24:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
 <title>[Critical] Five federal agencies warn AI-written scripts are reading Siemens S7 controllers across the energy sector</title>
 <link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a</link>
 <guid isPermaLink="false">otthreatfeed:power:s7-ai-advisory</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Top Story</category>
 <description><![CDATA[The NSA, CISA, FBI, Department of Energy and EPA issued a joint advisory on 19 August warning that threat actors are combining the open-source snap7 and python-snap7 automation libraries with AI-assisted scripting to build tools that mimic legitimate OT monitoring software. Those tools give read and write access to Siemens S7 controller memory, configuration data and ladder logic over S7comm. Energy is named among the most-targeted sectors, alongside critical manufacturing, water, chemical, food and agriculture, and commercial facilities. The agencies say actors locate exposed devices with internet scanning services and get in through default or weak credentials rather than any vulnerability. Affected lines run from the legacy S7-200 and S7-300 through the S7-1200 and S7-1500, including F-series safety controllers. The agencies assess the activity as positioning for later disruptive write operations. - Joint advisory AA26-231A (NSA, CISA, FBI, DOE, EPA) — corroborated by SecurityWeek and Help Net Security - Issued 19 Aug 2026; reported 20 Aug 2026]]></description>
 </item>
@@ -20,7 +20,7 @@
 <title>[High] Attackers crossed from a wind farm into an unrelated Polish CHP plant over a shared private cellular APN</title>
 <link>https://www.helpnetsecurity.com/2026/08/11/poland-energy-sector-cyberattack-heating-plant-private-apn/</link>
 <guid isPermaLink="false">otthreatfeed:power:poland-apn-chp</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Incident — Nation-state / OT pivot</category>
 <description><![CDATA[CERT Polska disclosed on 9 August, at DEF CON, that attackers reached the industrial control network of a Polish combined heat and power plant serving roughly 50,000 residents by pivoting through a private cellular data network. The intrusion began somewhere else entirely: an internet-exposed Fortinet VPN and firewall device at a wind farm on the same carrier APN. Because the APN was misconfigured to let arbitrary devices address one another, the attacker crossed from one generator’s network into another operator’s controllers. CERT Polska describes this as the first observed real-world use of a private APN as a route into an OT network. The incident occurred on 29 December 2025, the same day as coordinated attacks on 30 Polish renewable facilities and another CHP plant; ESET attributes that operation to the Russia-aligned Sandworm group with medium confidence. Analysis of the smaller plant took more than three months, which is why it was omitted from the original report. - CERT Polska disclosure — reported by SecurityWeek, Help Net Security and BleepingComputer - Incident 29 Dec 2025; disclosed 9 Aug 2026, analysis published 10–11 Aug 2026]]></description>
 </item>
@@ -28,15 +28,23 @@
 <title>[High] Clop has named more than 40 victims of a PTC Windchill campaign, and what it took is engineering data</title>
 <link>https://www.securityweek.com/cl0p-ransomware-group-names-over-40-victims-of-ptc-windchill-campaign/</link>
 <guid isPermaLink="false">otthreatfeed:power:clop-windchill</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Incident — Extortion / Engineering data</category>
 <description><![CDATA[The Clop extortion group has listed over 40 organisations on its leak site following a mass data-theft campaign against internet-exposed PTC Windchill and FlexPLM product lifecycle management instances, exploiting CVE-2026-12569, an improper input validation flaw allowing arbitrary code execution. Named organisations include Shell, Philips, Fiserv, Zebra, Mindray and Largan Precision. Researchers report the affiliates deployed JSP web shells to exfiltrate data, with activity going back to early June, and confirmed victims spanning manufacturing, automotive, aerospace and retail. For a generation or transmission operator the exposure is rarely the plant floor — it is the design record. Single-line diagrams, protection settings, factory acceptance test reports and vendor configuration files held in a PLM or engineering document system are exactly the material that makes a later, targeted intrusion cheaper for someone else. - Clop leak-site listings — reported by SecurityWeek and BleepingComputer - Listings reported 15 Aug 2026; campaign since early Jun 2026]]></description>
+</item>
+<item>
+<title>[High] Six agencies warn the Gunra ransomware crew is walking into critical infrastructure through two 2025 Fortinet bugs</title>
+<link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a</link>
+<guid isPermaLink="false">otthreatfeed:power:gunra-fortinet</guid>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
+<category>Threat intel — Ransomware / edge exploitation</category>
+<description><![CDATA[CISA, the FBI, the Defense Cyber Crime Center, the NSA, the Secret Service and the Korean National Police Agency published joint advisory AA26-222A on 10 August on Gunra, a ransomware operation that has hit organisations across critical infrastructure sectors since April 2025. The advisory’s operational point is unglamorous: Gunra’s initial access is overwhelmingly through internet-facing edge devices, and specifically two Fortinet flaws — CVE-2024-21762 and CVE-2024-55591 — both patched in 2025 and both still reachable on unpatched appliances. Once inside, the group steals data before encrypting, and runs a double-extortion leak site. The agencies published detection guidance, indicators and a set of mitigations centred on patching edge appliances, enforcing phishing-resistant multi-factor authentication and segmenting recovery infrastructure. For power operators the relevance is the access path rather than the ransomware. Fortinet appliances sit in front of a great many substation aggregation links, generation site DMZs and third-party maintenance connections, and the two CVEs Gunra relies on were fixed more than a year ago — meaning any operator still exposed is exposed to a documented, agency-confirmed campaign rather than a theoretical one. - CISA / FBI / DC3 / NSA / USSS / ROK National Police joint advisory AA26-222A — reported by The Record and Infosecurity Magazine - Published 10 Aug 2026]]></description>
 </item>
 <item>
 <title>[Info] Industrial ransomware rose 12 percent in Q2 and did not need control-system access to stop output</title>
 <link>https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/</link>
 <guid isPermaLink="false">otthreatfeed:power:dragos-q2</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Research — Ransomware trends</category>
 <description><![CDATA[Dragos recorded 1,140 ransomware incidents involving industrial organisations in the second quarter of 2026, up from 1,020 in the first. Manufacturing absorbed 747 of them, roughly 65 percent, with construction at 176, equipment manufacturing at 114 and food and beverage at 70. The headline finding for operators is about mechanism rather than volume: disrupting the IT systems that support an industrial environment is frequently enough to interrupt production even when the operators never reach the control system. Extortion also continued shifting away from file encryption toward data theft, which changes what a tabletop exercise needs to rehearse. For utilities the parallel systems are outage and work management, GIS, metering and settlement — all of which can halt field work and customer operations without a single relay being touched. - Dragos Q2 2026 industrial ransomware analysis — via Help Net Security - Published 11 Aug 2026]]></description>
 </item>
@@ -44,7 +52,7 @@
 <title>[Medium] Claroty finds one in five data centre cyber-physical assets a single hop from internet-exposed systems</title>
 <link>https://www.securityweek.com/1-in-5-data-center-assets-are-within-easy-reach-of-attackers/</link>
 <guid isPermaLink="false">otthreatfeed:power:claroty-datacenter</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Research — Data centre CPS exposure</category>
 <description><![CDATA[Team82 analysed more than 750,000 cyber-physical assets across some of the largest data centre facilities in the world and found nearly one in five sitting one hop away from a system making outbound internet connections. Close to 90 percent of the building management systems examined communicated over insecure protocols and 40 percent ran outdated firmware. Around a third of HVAC and cooling systems — which account for close to half of a data centre’s electricity consumption — were one hop from an internet-exposed system, and the power distribution layer is reachable by the same path. The relevance for transmission and generation planners is load behaviour: an attacker able to cycle power or abruptly shut racks in a very large, tightly clustered interconnection changes the demand profile the operator is serving, which is a reliability question rather than a tenant IT question. - Claroty Team82, State of CPS Security: Data Center Exposures — reported by SecurityWeek - Published 29 Jul 2026]]></description>
 </item>
@@ -52,15 +60,31 @@
 <title>[Low] Justice Department charges 17 people over an IRGC-linked intellectual property theft campaign</title>
 <link>https://www.justice.gov/opa/pr/17-iranians-charged-conducting-massive-cyber-theft-campaign-behalf-islamic-revolutionary</link>
 <guid isPermaLink="false">otthreatfeed:power:doj-iran-17</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Threat intel — Law enforcement</category>
 <description><![CDATA[Federal prosecutors announced charges on 18 August against 17 people alleged to be members and affiliates of the Iran-based Mabna Institute, over a long-running data-theft operation said to have been run for the Islamic Revolutionary Guard Corps and other Iranian government and university clients. The 14-count superseding indictment adds eight defendants to a case first brought against nine others in 2018. Prosecutors allege intrusions at 144 US universities, 42 private companies and at least five federal and state agencies since 2013, with roughly 31.5 terabytes of academic and intellectual property material taken. The activity is espionage and theft rather than control-system manipulation, and it is separate from the PLC targeting federal agencies have warned about. It is included here as context for the attribution language now attached to Iranian-affiliated activity against US critical infrastructure. - US Department of Justice press release — corroborated by Cybersecurity Dive and Nextgov/FCW - Indictment unsealed 18 Aug 2026]]></description>
+</item>
+<item>
+<title>[Critical] Citrix is telling admins to patch NetScaler now — an unauthenticated bypass on the appliance that fronts most OT remote access</title>
+<link>https://www.bleepingcomputer.com/news/security/citrix-urges-admins-to-patch-new-netscaler-flaws-as-soon-as-possible/</link>
+<guid isPermaLink="false">otthreatfeed:power:citrix-netscaler</guid>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
+<category>Advisory — Remote access edge</category>
+<description><![CDATA[Citrix published bulletin CTX696939 on 20 August covering two NetScaler ADC and NetScaler Gateway flaws. The serious one, CVE-2026-19490, is an authentication bypass carrying a CVSS score of 9.3: on Gateway and AAA virtual-server configurations an unauthenticated attacker can skip the login step entirely. The second, CVE-2026-19489, is a memory overflow that can produce unpredictable behaviour or a denial of service, and only applies where SIP ALG is enabled on a Large Scale NAT group. Fixed builds are 14.1-73.32 and 13.1-63.21 or later. Citrix, Rapid7 and Finland’s national cyber authority all said they were not aware of in-the-wild exploitation at publication, while urging immediate patching — NetScaler has a long record of exploited edge flaws. For a utility this is the appliance that fronts vendor and engineering access into EMS, SCADA and substation networks, and increasingly the one carrying operator access into DER and storage fleets. An authentication bypass there is not an IT problem — it is a door into the control-centre perimeter that does not need a stolen credential. - Citrix security bulletin CTX696939 — reported by BleepingComputer and The Hacker News - Bulletin published 20 Aug 2026; reported 20 Aug 2026]]></description>
+</item>
+<item>
+<title>[Medium] Fire-alarm management software stores its credentials in cleartext in memory, CISA warns</title>
+<link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-232-01</link>
+<guid isPermaLink="false">otthreatfeed:power:jci-simplex</guid>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
+<category>Advisory — Life safety / facility systems</category>
+<description><![CDATA[CISA published ICSA-26-232-01 on 20 August covering Johnson Controls Simplex Incident Manager, the software operators use to monitor and manage Simplex fire alarm panels across a property portfolio. Versions up to and including V2.01 keep user passwords and authentication tokens unencrypted in system memory while the application runs, tracked as CVE-2026-27875 and classified as CWE-316. A local attacker who already holds low-privileged access to the workstation can read those credentials out of memory and reuse them against the application and the systems it connects to. CISA lists critical manufacturing, commercial facilities, government facilities, transportation systems and energy among the affected sectors, with deployment worldwide. Johnson Controls has published remediation guidance in JCI-PSA-2026-28. Generating stations, control centres and large substations run Simplex fire detection under exactly this kind of portfolio management software, and the workstation is usually treated as a facilities asset rather than a control system — often outside CIP scope, often shared, often locally administered. That is the access level this flaw needs. - CISA ICS advisory ICSA-26-232-01; Johnson Controls product security advisory JCI-PSA-2026-28 - Published 20 Aug 2026]]></description>
 </item>
 <item>
 <title>[Critical] August ICS Patch Tuesday: maximum-severity missing authentication in SIMATIC IoT2050 Advanced</title>
 <link>https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/</link>
 <guid isPermaLink="false">otthreatfeed:power:siemens-iot2050</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Advisory — Siemens ProductCERT</category>
 <description><![CDATA[Siemens published ten advisories in the August cycle. The most serious, SSA-834709, covers a maximum-severity missing authentication flaw in SIMATIC IoT2050 Advanced devices that lets a remote, unauthenticated attacker execute arbitrary code on the underlying server with elevated privileges. Siemens also fixed a critical code execution vulnerability in Siveillance Video Management Servers, and high-severity issues in Solid Edge, Simcenter Nastran, Siemens License Server, Simcenter Femap, Parasolid and Logo! Soft Comfort that can crash applications, execute code, elevate privileges or read arbitrary files. Medium-severity issues were resolved in Ruggedcom devices and Desigo controllers. Schneider Electric published two advisories covering NetBotz 5 and PowerChute Serial Shutdown, and Phoenix Contact issued one for multiple PLCnext firmware flaws. Honeywell released several advisories for its building management products. - Siemens ProductCERT SSA-834709, Schneider Electric, Phoenix Contact and Honeywell advisories — summarised by SecurityWeek - Published 12 Aug 2026]]></description>
 </item>
@@ -68,7 +92,7 @@
 <title>[Critical] Cisco ASA and FTD VPN zero-day exploited to reload firewalls, added to CISA KEV</title>
 <link>https://www.helpnetsecurity.com/2026/08/13/cve-2026-20349-cisco-firewalls-dos/</link>
 <guid isPermaLink="false">otthreatfeed:power:cisco-asa-kev</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Advisory — Exploited edge / KEV</category>
 <description><![CDATA[Cisco has patched CVE-2026-20349, a flaw in the remote-access SSL VPN service of Secure Firewall ASA and Secure Firewall Threat Defense software that attackers have been exploiting to knock appliances offline. A specially crafted HTTP request to the vulnerable service causes an unexpected reload and a denial-of-service condition; no authentication and no user interaction are required. Cisco’s PSIRT confirmed active exploitation in August, and CISA added the flaw to the Known Exploited Vulnerabilities catalogue with a federal remediation deadline of 14 August. Hot fixes cover ASA 9.16, 9.18, 9.20, 9.22, 9.23 and 9.24 and FTD 7.0, 7.2, 7.4, 7.6, 7.7 and 10.0. For utilities the concern is availability rather than data: these appliances commonly terminate vendor and engineer access into substation and control-centre networks, so an unexpected reload takes remote support with it. - Cisco security advisory and CISA KEV catalogue — reported by Help Net Security and SecurityWeek - Exploitation confirmed and KEV listed Aug 2026; reported 13 Aug 2026]]></description>
 </item>
@@ -76,7 +100,7 @@
 <title>[High] Hitachi Energy APM Edge and Johnson Controls Airwall in CISA’s mid-August energy-sector batch</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-04</link>
 <guid isPermaLink="false">otthreatfeed:power:hitachi-apm-edge</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Advisory — CISA ICS / Energy</category>
 <description><![CDATA[CISA’s advisories published in the 11 to 13 August window included three products flagged for use in the energy sector. Hitachi Energy APM Edge, advisory ICSA-26-225-04, carries CVE-2026-43284 and CVE-2026-43500 affecting versions up to and including 6.10; the flaws let a local unprivileged user escalate to root through the way the kernel handles memory pages when processing ESP-encrypted network packets, with injected code running as root. Johnson Controls Airwall, ICSA-26-225-03, has an arbitrary file read vulnerability, with Johnson Controls recommending version 4.1.0 or later across all Airwall deployments. The batch also covered ANDRITZ HIPASE-250 and 250 SCALA, protection and control platforms used in hydro and industrial generation, and Siemens RUGGEDCOM APE1808. None is reported as exploited, but APM Edge and Airwall both sit in asset-performance and secure-connectivity roles where local access is often assumed benign. - CISA ICS advisories ICSA-26-225-03 and ICSA-26-225-04 — roundup via WaterISAC - Published 11–13 Aug 2026]]></description>
 </item>
@@ -84,7 +108,7 @@
 <title>[High] Four more exploited flaws added to KEV on 18 August, including Windows IKE and VMware vCenter</title>
 <link>https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog</link>
 <guid isPermaLink="false">otthreatfeed:power:kev-0818</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Advisory — CISA KEV additions</category>
 <description><![CDATA[CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalogue on 18 August: CVE-2026-33824 in Microsoft Internet Key Exchange, CVE-2026-55040 in Microsoft SharePoint, CVE-2026-59310 in Broadcom VMware vCenter and CVE-2026-65400 in Apple macOS. Two more followed on 20 August, both in TrueConf Server. The IKE and vCenter entries are the ones that matter most in a utility context. IKE is the service terminating site-to-site tunnels between control centres, substations and vendor networks, so a flaw there sits directly on the path CIP-012 asks you to protect. vCenter is frequently the management plane for the virtualised infrastructure hosting historians, HMI servers and engineering workstations — compromise there is a hypervisor-level problem, not an application one. None of these is an ICS product, which is precisely why they tend to fall outside the OT patch cycle. - CISA KEV catalogue additions - Added 18 Aug 2026; two further additions 20 Aug 2026]]></description>
 </item>
@@ -92,7 +116,7 @@
 <title>[High] CISA publishes an advisory for flaws in Malcolm, its own free OT network monitoring suite</title>
 <link>https://www.cisa.gov/news-events/ics-advisories/icsa-26-230-01</link>
 <guid isPermaLink="false">otthreatfeed:power:cisa-malcolm</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Advisory — CISA ICS</category>
 <description><![CDATA[Advisory ICSA-26-230-01 covers vulnerabilities in Malcolm, the network traffic analysis suite CISA distributes free for OT and ICS environments. The flaws could let an attacker cause a denial-of-service condition or execute arbitrary code, and affect Malcolm versions below 26.06.1, below 26.07.0 and up to and including 26.07.1. The same day CISA published ICSA-26-230-02 covering a stack overflow in Siemens Simcenter Nastran that can be triggered when the application binary reads an arbitrary string as a file argument, with remote code execution possible if a user is tricked into running it; Siemens has released updated versions. Malcolm deserves attention out of proportion to its install base because it is often deployed by smaller utilities without a commercial OT monitoring budget, sits on a span or tap with visibility into the whole control network, and is not always in anyone’s patch inventory. - CISA ICS advisories ICSA-26-230-01 and ICSA-26-230-02 - Published 18 Aug 2026]]></description>
 </item>
@@ -100,7 +124,7 @@
 <title>[Medium] The 2026 CIP picture: CIP-003-9 and CIP-012-2 in force, CIP-015 internal monitoring ahead</title>
 <link>https://www.ferc.gov/news-events/news/ferc-strengthens-reliability-standards-monitoring-electric-grid-cyber-systems</link>
 <guid isPermaLink="false">otthreatfeed:power:nerc-cip-2026</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Regulation — NERC CIP</category>
 <description><![CDATA[Two standards changed day-to-day practice this year. CIP-003-9 extends security management control expectations to low-impact BES cyber systems, with explicit attention to vendor remote access and to detecting malicious communications at low-impact assets. CIP-012-2 tightens protection of real-time operational data exchanged between control centres, including confidentiality and data handling rather than integrity and availability alone. Looking forward, CIP-015 introduces internal network security monitoring for high and medium impact BES cyber systems with external routable connectivity, and FERC has directed that its scope be extended. A further final rule approves CIP-003-11 modifications improving baseline security for low-impact systems through new password protocols for remote users and intrusion detection. The through-line is consistent: low-impact sites and vendor access are where the next audit attention lands, and internal monitoring is no longer optional at the high and medium tier. - FERC orders and NERC CIP standards — summarised by Certrec and Industrial Cyber - CIP-003-9 and CIP-012-2 effective 2026; CIP-015 scope expansion directed by FERC]]></description>
 </item>
@@ -108,7 +132,7 @@
 <title>[Low] US and Australian agencies publish guidance on isolating OT and running that way for an extended period</title>
 <link>https://www.securityweek.com/us-australia-release-ot-isolation-guidance-for-critical-infrastructure/</link>
 <guid isPermaLink="false">otthreatfeed:power:ot-isolation-guidance</guid>
-<pubDate>Fri, 21 Aug 2026 08:00:00 -0400</pubDate>
+<pubDate>Sat, 22 Aug 2026 04:24:00 -0400</pubDate>
 <category>Policy — Joint guidance</category>
 <description><![CDATA[A joint publication from US and Australian agencies sets out how critical infrastructure operators should prepare to isolate vital operational technology and supporting systems from external connectivity, and to keep operating in that isolated state for an extended period rather than for the few hours most continuity plans assume. It is guidance, not a requirement, and creates no compliance obligation. The value for a utility is that it turns an assumption most operators state confidently — that they can drop to manual or islanded operation if the corporate network is compromised — into a checklist that names the dependencies people forget: time synchronisation, licence servers, authentication, historian writes, remote vendor support and the physical availability of local operating staff. The water sector incidents this summer showed several utilities reverting to manual control successfully; the ones that struggled generally discovered a dependency nobody had documented. - Joint US–Australian OT isolation guidance — reported by SecurityWeek - Published 29 Jul 2026]]></description>
 </item>
