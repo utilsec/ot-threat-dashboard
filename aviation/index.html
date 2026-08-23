@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 22 Aug 2026, 4:24 AM ET</span>
+        <span>Generated Sunday, 23 Aug 2026, 9:35 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Aviation</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>15</strong> stories across
+      <strong>16</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:50%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Mid Medium. No confirmed cyber intrusion into airport ground OT, airline operations or an air navigation system has been reported in the past 30 days, so the score is built from demonstrated capability and adjacent impact rather than an in-sector incident. The heaviest item remains the DEF CON research showing a coin-sized implant manipulating 737 NG flight management data over ARINC 429 &mdash; a physical-access demonstration, not an exploited flaw, but one that moves avionics data-bus integrity from theory to shown. Clop&rsquo;s PTC Windchill extortion campaign has now named more than forty victims with aerospace among the confirmed sectors, and what was taken is engineering records. On the facility side, ransomware at Manitoba&rsquo;s largest hospital knocked out door access, elevators and HVAC monitoring for over a week &mdash; the clearest recent illustration of what an IT-side compromise does to the building systems an airport terminal runs on. CISA&rsquo;s 20 August advisory on Johnson Controls Simplex Incident Manager touches the same estate. The rest is edge exposure that does not aggregate upward: an exploited Cisco ASA/FTD flaw in KEV, a new CVSS 9.3 NetScaler bypass, and the maximum-severity SIMATIC IoT2050 advisory.</div>
+      <div class="tl-why"><b>Why:</b> Mid Medium. No confirmed cyber intrusion into airport ground OT, airline operations or an air navigation system has been reported in the past 30 days, so the score is built from demonstrated capability and adjacent impact rather than an in-sector incident. The heaviest item remains the DEF CON research showing a coin-sized implant manipulating 737 NG flight management data over ARINC 429 &mdash; a physical-access demonstration, not an exploited flaw, but one that moves avionics data-bus integrity from theory to shown. Clop&rsquo;s PTC Windchill extortion campaign has now named more than forty victims with aerospace among the confirmed sectors, and what was taken is engineering records. On the facility side, ransomware at Manitoba&rsquo;s largest hospital knocked out door access, elevators and HVAC monitoring for over a week &mdash; the clearest recent illustration of what an IT-side compromise does to the building systems an airport terminal runs on. CISA&rsquo;s 20 August advisory on Johnson Controls Simplex Incident Manager touches the same estate. The rest is edge exposure that does not aggregate upward: an exploited Cisco ASA/FTD flaw in KEV, a new CVSS 9.3 NetScaler bypass, and the maximum-severity SIMATIC IoT2050 advisory. Added this cycle: a stored XSS flaw in Johnson Controls Metasys, the platform behind much terminal HVAC and access control &mdash; unexploited, and it does not move the band.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1175,6 +1175,35 @@
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-230-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="story-jci-metasys-xss" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Building automation / stored XSS</span>
+        </div>
+        <h3>A low-privilege Metasys user can plant a payload that runs in an administrator&rsquo;s browser</h3>
+        <p>CISA advisory ICSA-26-225-14, published 13 August, describes a stored cross-site scripting flaw in Johnson Controls Metasys. A user with low privileges can inject a payload through a crafted URL; the payload persists across logins and then executes in the browser context of anyone who subsequently views it, administrators included. Metasys 12, 13, 14 and 15 are affected. That is a privilege-escalation path inside the building management platform rather than a remote takeover, and there is no report of exploitation. Metasys is one of the most widely deployed building management platforms in terminal buildings, cargo sheds and airport office estates, where it drives HVAC, lighting, and in many installations feeds into access control. The flaw is not dramatic on its own, but the Winnipeg hospital ransomware case earlier this month is a reminder of how quickly a building-systems compromise turns into a physical-operations problem &mdash; and a persistent payload running with administrator context inside the BMS UI is a serviceable first step.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor updates available &mdash; see the Johnson Controls advisory referenced by CISA</span>
+            <span class="ops-cc"><b>Action:</b> Ask your facilities team or BMS contractor which Metasys major version each terminal, cargo and office building runs, and get the vendor update scheduled. Meanwhile, review who holds low-privilege Metasys accounts &mdash; contractors and commissioning staff are the usual surprise &mdash; and confirm the Metasys UI is not reachable from the general airport network or the internet.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Metasys version inventory and account review &mdash; 45 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-jci-metasys-xss" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-jci-metasys-xss">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICSA-26-225-14 &mdash; Johnson Controls product security advisory</span>
+          <span class="dot">&bull;</span>
+          <span>Published 13 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-14" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
@@ -1247,7 +1276,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Aviation.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 21&nbsp;August&nbsp;2026 by searching authoritative aviation and OT/ICS sources including the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A, CISA ICS advisories ICSA-26-225-03, ICSA-26-225-04, ICSA-26-230-01 and ICSA-26-230-02, the Known Exploited Vulnerabilities catalogue additions of 11, 18 and 20&nbsp;August, the Government Accountability Office report GAO-26-107693 on aviation cybersecurity, the European Commission&rsquo;s Cyber Resilience Act reporting guidance, and vendor PSIRTs (Siemens ProductCERT SSA-834709, Schneider Electric, Phoenix Contact, Honeywell, Johnson Controls, Cisco, PTC). Avionics research presented at USENIX Security by the University of California San Diego and Oberlin College, reported by Aerospace Global News; the underlying interview material appeared in Wired, which is paywalled, so this edition links to the accessible trade coverage instead. Extortion-campaign reporting from SecurityWeek and BleepingComputer. Research from Dragos and Claroty Team82. Navigation-interference context from Foreign Policy. Reporting drawn from SecurityWeek, Help Net Security, Cybersecurity Dive and Industrial Cyber. Every item links to its primary or best-available accessible source; research demonstrations are distinguished from in-the-wild exploitation. Not a replacement for ICS-CERT subscriptions, TSA security directive notices or A-ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 23&nbsp;August&nbsp;2026 by searching authoritative aviation and OT/ICS sources including the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A, CISA ICS advisories ICSA-26-225-03, ICSA-26-225-04, ICSA-26-230-01 and ICSA-26-230-02, the Known Exploited Vulnerabilities catalogue additions of 11, 18 and 20&nbsp;August, the Government Accountability Office report GAO-26-107693 on aviation cybersecurity, the European Commission&rsquo;s Cyber Resilience Act reporting guidance, and vendor PSIRTs (Siemens ProductCERT SSA-834709, Schneider Electric, Phoenix Contact, Honeywell, Johnson Controls, Cisco, PTC). Avionics research presented at USENIX Security by the University of California San Diego and Oberlin College, reported by Aerospace Global News; the underlying interview material appeared in Wired, which is paywalled, so this edition links to the accessible trade coverage instead. Extortion-campaign reporting from SecurityWeek and BleepingComputer. Research from Dragos and Claroty Team82. Navigation-interference context from Foreign Policy. Reporting drawn from SecurityWeek, Help Net Security, Cybersecurity Dive and Industrial Cyber. This edition additionally draws on CISA advisory ICSA-26-225-14 and the corresponding Johnson Controls product security advisory. Every item links to its primary or best-available accessible source; research demonstrations are distinguished from in-the-wild exploitation. Not a replacement for ICS-CERT subscriptions, TSA security directive notices or A-ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
