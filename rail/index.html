@@ -646,7 +646,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wednesday, 26 Aug 2026, 4:29 AM ET</span>
+        <span>Generated Thursday, 27 Aug 2026, 4:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Rail &amp; Transit</span>
       </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to freight railroads, passenger rail and transit operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">4.9</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.0</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:49.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Lower-mid Medium. No confirmed cyber incident has disrupted rail or transit operations this cycle, and the score says so. What sits underneath it is structural exposure rather than active harm. NMFTA research published 7&nbsp;August showed that a 2024 brake-controller safety recall quietly remediated a wirelessly reachable code execution flaw &mdash; a genuine safety-system finding, already fixed through the recall, and disclosed rather than exploited. The North Carolina Ports intrusion of 4&nbsp;August forced manual gate processing at facilities including a rail-served inland port, which is an intermodal drag on rail customers rather than a rail control-system event. New this cycle: a newly exploited CVSS 10.0 Oracle web-tier flaw carrying a three-day federal remediation deadline, CISA advisory AA26-237A documenting undetected red-team escalation through Active Directory defaults, and Treasury&rsquo;s 24&nbsp;August designation of an Iranian espionage network &mdash; none of which name transportation, and all of which describe access paths a railroad shares. The remaining drivers are ordinary patch-and-monitor work: AI-scripted probing of internet-exposed Siemens S7 controllers, a CVSS 9.3 NetScaler bypass, Gunra ransomware entering critical infrastructure through 2025-era Fortinet flaws, and the August Siemens cycle covering Ruggedcom and Desigo. Advisory volume does not aggregate upward.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:50.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Mid-Medium. There is no confirmed cyber incident that disrupted train control, signalling or dispatch this cycle, so the High band is not in play. What sits behind the score is targeting and adjacency rather than impact. The most operationally relevant confirmed event touching rail remains the North Carolina Ports intrusion, which put the rail-served Charlotte Inland Port onto manual gate processing &mdash; disruption at an interchange partner, IT-side, contained within a day. New this cycle: the Justice Department and FBI seized the PRC-operated QScan and QTRouter platforms used to scan US critical infrastructure and relay intrusions through hijacked routers and IoT devices, which is a defensive action against confirmed nation-state reconnaissance rather than a new disruptive event. Treasury&rsquo;s designation of an Iranian intrusion network describes espionage at other sectors. The remaining drivers are exposure: Citrix NetScaler CVE-2026-8452 confirmed exploited and added to KEV on 26 August, the Gitea code-execution flaw listed a day earlier, an exploited Windows IKE flaw on VPN endpoints, and the August Siemens batch covering Ruggedcom, Desigo and a maximum-severity IoT2050 flaw. Advisory volume does not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -693,31 +693,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-bendix-ec80" data-published="2026-08-07">
+    <div class="top-story" id="story-qtfy-seizure" data-published="2026-08-26">
         <span class="top-story-pill">Top Story</span>
-        <h2>A brake controller safety recall quietly fixed a wirelessly reachable code execution flaw</h2>
-        <p>Researchers at the National Motor Freight Traffic Association found that a 2024 safety recall for the Bendix EC80 heavy-vehicle brake controller also silently fixed serious security defects, alongside the memory corruption issue Bendix publicly disclosed. The researcher identified buffer-handling flaws that could crash the electronic control unit and enable remote code execution, a hardcoded password capable of disabling traction control, and a further path to both a crash and code execution. Three vehicle makers integrating the EC80 issued recalls covering an estimated 450,000 units. The vulnerabilities could be reached through wireless signal injection onto the J2497 powerline databus or through compromised connected devices such as trailer telematics. The EC80 handles anti-lock braking, traction control and stability functions, so the affected component is a safety controller rather than an infotainment or telematics box.</p>
+        <h2>FBI seizes the Chinese state-sponsored platforms that scanned US critical infrastructure and relayed the attacks through hijacked devices</h2>
+        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of QScan and QTRouter, two linked platforms run by a PRC state-sponsored group the government calls QTFY and ties to a Nanjing contractor. QScan performed reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. Both are now inoperable because the seized domains were hard-coded into the malware for command and authentication. Named victims are federal, and the described activity runs back to at least 2018. For railroads and transit agencies the relay layer is the transferable point: a rail estate is full of small, internet-connected, unpatched devices &mdash; and the source address in your logs never proved anything.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Research demonstration &mdash; no in-the-wild exploitation reported; flaws addressed via recall</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; addressed through a safety recall rather than a security advisory</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed &mdash; remediation delivered through the OEM safety recall campaign</span>
-            <span class="ops-cc"><b>Action:</b> Ask your rolling stock and road-fleet suppliers directly whether any safety-related ECU recall in the last three years also carried a security fix, and whether they will tell you when one does. For rail specifically, apply the same question to brake control, door control and train-borne telematics: a recall notice routed to the maintenance department is not a channel your security team is monitoring.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched wayside and facility devices recruited as relays</span>
+            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and remote-support logs. Then work the recruitment problem, which is the part within your control: inventory the internet-connected devices scattered across the network that nobody patches &mdash; wayside cellular routers, crossing and signal-house monitoring gateways, station and platform cameras, passenger information displays, yard and gate controllers, HVAC and elevator controllers at stations. Give each an owner and a firmware baseline, and remove any that accept inbound connections from the internet. Delete any firewall rule that trusts traffic because it originates domestically or looks residential.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Supplier disclosure query on safety-recall security content &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-bendix-ec80" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-bendix-ec80">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep against retained logs &mdash; 7 days; wayside and facility edge-device inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-qtfy" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-qtfy">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>NMFTA research &mdash; reported by SecurityWeek and Truck News</span>
+          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
           <span class="dot">&bull;</span>
-          <span>Research published 7 Aug 2026; recalls issued late 2024</span>
+          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
         </div>
-        <a href="https://www.securityweek.com/truck-brake-controllers-safety-recall-doubled-as-hidden-security-fix/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -746,33 +746,33 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-bendix-ec80"><circle class="blip high" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
-        <a href="#story-s7-ai-advisory"><circle class="blip crit" cx="265.0" cy="180.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="265.0" y="184.5">2</text></a>
-        <a href="#story-oracle-weblogic-kev"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
-        <a href="#story-citrix-netscaler"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
-        <a href="#story-cisco-asa-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
-        <a href="#story-iran-sanctions"><circle class="blip high" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
-        <a href="#story-cisa-redteam-socs"><circle class="blip high" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.7">7</text></a>
-        <a href="#story-gunra-fortinet"><circle class="blip high" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
-        <a href="#story-nc-ports"><circle class="blip high" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
-        <a href="#story-siemens-ruggedcom"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
-        <a href="#story-kev-0818"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
-        <a href="#story-trueconf-headmare"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
+        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
+        <a href="#story-nc-ports"><circle class="blip crit" cx="265.0" cy="180.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="265.0" y="184.5">2</text></a>
+        <a href="#story-citrix-kev"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
+        <a href="#story-gitea-kev"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
+        <a href="#story-cisa-redteam"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
+        <a href="#story-s7-ai-advisory"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
+        <a href="#story-iran-sanctions"><circle class="blip high" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.7">7</text></a>
+        <a href="#story-poland-apn-chp"><circle class="blip high" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
+        <a href="#story-dragos-q2"><circle class="blip high" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
+        <a href="#story-kev-0818"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
+        <a href="#story-siemens-iot2050"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
+        <a href="#story-ebyte-gateway"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-bendix-ec80"><span class="ld high"></span><b>1</b> Brake ECU recall hid a wirelessly reachable RCE fix</a>
-        <a href="#story-s7-ai-advisory"><span class="ld crit"></span><b>2</b> AI-scripted attacks on Siemens S7 PLCs</a>
-        <a href="#story-oracle-weblogic-kev"><span class="ld crit"></span><b>3</b> Oracle web tier CVSS 10.0, exploited, 3-day deadline</a>
-        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>4</b> NetScaler auth bypass, CVSS 9.3</a>
-        <a href="#story-cisco-asa-kev"><span class="ld crit"></span><b>5</b> Cisco ASA/FTD VPN zero-day in KEV</a>
-        <a href="#story-iran-sanctions"><span class="ld high"></span><b>6</b> Treasury sanctions Iranian espionage network</a>
-        <a href="#story-cisa-redteam-socs"><span class="ld high"></span><b>7</b> CISA red team beats multi-SOC detection</a>
-        <a href="#story-gunra-fortinet"><span class="ld high"></span><b>8</b> Gunra entering CI via 2025 Fortinet bugs</a>
-        <a href="#story-nc-ports"><span class="ld high"></span><b>9</b> Ports outage hits rail-served inland port</a>
-        <a href="#story-siemens-ruggedcom"><span class="ld high"></span><b>10</b> Ruggedcom and Desigo in August cycle</a>
-        <a href="#story-kev-0818"><span class="ld high"></span><b>11</b> Four more KEV additions, 18 August</a>
-        <a href="#story-trueconf-headmare"><span class="ld high"></span><b>12</b> Trojanised TrueConf client hits engineers</a>
+        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>1</b> FBI seizes PRC scanning and relay platforms</a>
+        <a href="#story-nc-ports"><span class="ld crit"></span><b>2</b> Rail-served inland port on manual gate processing</a>
+        <a href="#story-citrix-kev"><span class="ld crit"></span><b>3</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
+        <a href="#story-gitea-kev"><span class="ld crit"></span><b>4</b> Gitea RCE exploited, engineering repositories</a>
+        <a href="#story-cisa-redteam"><span class="ld crit"></span><b>5</b> CISA red team: one caught it, one did not</a>
+        <a href="#story-s7-ai-advisory"><span class="ld crit"></span><b>6</b> AI-scripted reconnaissance of Siemens S7 PLCs</a>
+        <a href="#story-iran-sanctions"><span class="ld high"></span><b>7</b> Treasury sanctions Iranian intrusion network</a>
+        <a href="#story-poland-apn-chp"><span class="ld high"></span><b>8</b> Lateral movement via shared private APN</a>
+        <a href="#story-dragos-q2"><span class="ld high"></span><b>9</b> 1,140 industrial ransomware victims in a quarter</a>
+        <a href="#story-kev-0818"><span class="ld high"></span><b>10</b> Exploited Windows IKE flaw on VPN endpoints</a>
+        <a href="#story-siemens-iot2050"><span class="ld high"></span><b>11</b> Ruggedcom, Desigo and a max-severity IoT2050 flaw</a>
+        <a href="#story-ebyte-gateway"><span class="ld high"></span><b>12</b> Ebyte serial gateway, no patch coming</a>
       </div>
     </div>
 
@@ -785,28 +785,28 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
 <div class="trend">
-        <span class="trend-tag">Supply Chain</span>
-        <b class="trend-head">Safety recalls are becoming an undocumented security disclosure channel</b>
-        <p>The Bendix finding is uncomfortable because the fix worked &mdash; 450,000 units were remediated &mdash; while the security content stayed invisible. For rail operators, whose brake, door and traction control components come through the same tier-one supply base and whose fleet notices route to maintenance rather than security, the practical question is whether anyone in your organisation would recognise a security fix arriving as a service bulletin.</p>
-        <a href="https://nmfta.org/news/bendix-ec80-recall-safety-and-security-implications/" class="source-link" target="_blank" rel="noopener">NMFTA</a>
+        <span class="trend-tag">Attack Path</span>
+        <b class="trend-head">Relay networks made source addresses meaningless</b>
+        <p>The seizure of QTRouter confirmed that state-sponsored intrusions were being relayed through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. For rail estates the discussion has turned to the wayside: cellular routers, crossing monitors and station gateways are the same class of unmanaged internet-connected device these platforms recruited, and few of them have an owner responsible for firmware.</p>
+        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">US Department of Justice</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Shadow OT</span>
-        <b class="trend-head">Maintenance-installed cellular modems are the rail equivalent of shadow IT</b>
-        <p>Rail-specific asset discovery in 2026 increasingly focuses on unauthorised 4G and 5G modems installed by maintenance crews for convenience at wayside and depot locations. The federal S7 advisory reinforces why that matters: the agencies note asset owners often do not know their controllers are internet-reachable because a third party arranged the connectivity. A wayside cabinet with an undocumented modem is exactly that situation.</p>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">CISA AA26-231A</a>
+        <span class="trend-tag">Connectivity</span>
+        <b class="trend-head">Shared carrier networks are not segmentation</b>
+        <p>CERT Polska&rsquo;s account of an attacker crossing a shared private APN between two unrelated operators has prompted transport organisations to ask their carriers what isolation actually applies to trackside links. Cellular is the default for anything wayside, and the assumption that a private APN provides separation is turning out to be a question rather than a fact.</p>
+        <a href="https://www.helpnetsecurity.com/2026/08/11/poland-energy-sector-cyberattack-heating-plant-private-apn/" class="source-link" target="_blank" rel="noopener">Help Net Security</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Intermodal</span>
-        <b class="trend-head">Cargo disruption reaches rail through the inland port, not the mainline</b>
-        <p>The North Carolina Ports intrusion on 4 August took cargo processing systems offline across three facilities including the rail-served Charlotte Inland Port. No train control was involved. It is a reminder that intermodal throughput depends on documentation and release systems sitting in partner organisations, and that a railroad&rsquo;s exposure to a port cyber incident is commercial and operational even when its own network is untouched.</p>
-        <a href="https://cybernews.com/news/north-carolina-ports-cyberattack-disrupts-cargo-supply-chain-risk/" class="source-link" target="_blank" rel="noopener">Cybernews</a>
+        <span class="trend-tag">Interchange</span>
+        <b class="trend-head">Your service plan depends on somebody else&rsquo;s recovery time</b>
+        <p>The North Carolina Ports incident, which included the rail-served Charlotte Inland Port, has renewed a familiar conversation about intermodal dependency. When a terminal operating system goes down, railcars wait while an organisation you do not control recovers &mdash; and most interchange contingency arrangements turn out to be an informal understanding rather than an agreed procedure.</p>
+        <a href="https://www.bleepingcomputer.com/news/security/north-carolina-ports-confirms-cyberattack-disrupting-operations/" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Encrypting the back office is enough to disrupt operations</b>
-        <p>Dragos counted 1,140 ransomware incidents at industrial organisations in the second quarter, up 12 percent, and stressed that operators do not need control-system access to interrupt production. Transit agencies have already demonstrated the rail version of this: incidents that left trains running while paratransit scheduling, ticketing and real-time passenger information went down. Those systems carry statutory service obligations that signalling does not.</p>
-        <a href="https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" class="source-link" target="_blank" rel="noopener">Help Net Security</a>
+        <span class="trend-tag">Regulation</span>
+        <b class="trend-head">An active directive, a stalled rule, and a September deadline</b>
+        <p>The operative rail obligation remains TSA Security Directive 1580-21-01E, running to January 2027, while the surface cyber rulemaking has sat unfinalised since comments closed in early 2025. Meanwhile the EU Cyber Resilience Act&rsquo;s 24-hour reporting duty starts on 11&nbsp;September and lands on the suppliers of rolling stock and signalling systems, which is prompting operators to write notification expectations into contracts.</p>
+        <a href="https://www.tsa.gov/sd-and-ea" class="source-link" target="_blank" rel="noopener">TSA</a>
       </div>
     </div>
   </div>
@@ -815,92 +815,92 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="story-iran-sanctions" data-published="2026-08-24">
+<div class="card" id="story-nc-ports" data-published="2026-08-05">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Nation-state designations</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; Intermodal facility disruption</span>
         </div>
-        <h3>Treasury names an Iranian intelligence-directed hacking network operating inside US critical infrastructure</h3>
-        <p>The US Treasury designated an Iranian Ministry of Intelligence and Security&ndash;directed hacking group on 24&nbsp;August, within a wider action covering nearly 60 Iran-linked people, entities and vessels. Five alleged operators, described as tied to the Mabna Institute, were indicted by the Justice Department the preceding week. Treasury says the network has been breaching and exfiltrating data from US energy companies, defence contractors, healthcare providers, IT firms and banks since at least late&nbsp;2023. The scope is worth reading precisely: what is attributed here is espionage and data theft, not manipulation of process equipment. The State Department has posted a $10&nbsp;million reward on related activity. Transportation is not among the sectors Treasury names, and rail operators should not read this as a warning aimed at them specifically. The relevance is structural. The access paths described &mdash; stolen credentials, compromised IT service providers and remote-management footholds &mdash; are the same routes that reach a railroad or transit agency through a signalling vendor&rsquo;s support tunnel, a dispatch software supplier, or a shared state or municipal identity system. Espionage-grade access is disruption-capable access held by someone with different orders. The second consequence is regulatory and practical: TSA security directives already require covered railroad and transit owner-operators to report cybersecurity incidents to CISA, and sanctions designations change the legal calculus around any extortion payment decision.</p>
+        <h3>A cyberattack put a rail-served inland port onto manual gate processing</h3>
+        <p>North Carolina Ports confirmed a cyberattack that disrupted IT systems across the Port of Wilmington, the Port of Morehead City and the Charlotte Inland Port, the last of which is a rail-served intermodal facility. The incident was detected on 4&nbsp;August, the authority activated its cybersecurity contingency plan, and recovery began the next morning with operations moved to manual gate processing. The Coast Guard and state officials monitored the response. For railroads the relevance is the interchange: intermodal volumes depend on a terminal operating system that is not yours, and when it goes down your equipment sits while someone else recovers. No attribution or technical detail has been published.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed US government action &mdash; OFAC designations and DOJ indictments describe intrusion and data exfiltration; no control-system manipulation is alleged against this cluster</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by the port authority &mdash; systems-wide IT outage with operational impact including the rail-served Charlotte Inland Port; no attribution published</span>
+            <span class="ops-tag kev-off">No CVE &mdash; initial access route and malware have not been disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the transferable lesson is interchange dependency and manual fallback capability</span>
+            <span class="ops-cc"><b>Action:</b> List the intermodal and interchange partners whose systems your service plan depends on, and find out what each of their contingency arrangements actually is rather than assuming one exists. Agree in advance how you will exchange consist, waybill and release information if their system is unavailable for a shift &mdash; the answer is usually email and phone, which works only if someone has the numbers and the authority. Then apply the same test internally: can your own yard and terminal operations run manually for a shift, and when was that last exercised rather than described.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Interchange contingency review with intermodal partners &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-ncports" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-ncports">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>North Carolina Ports statements &mdash; reported by BleepingComputer, The Record, CyberScoop and Maritime Executive</span>
+          <span class="dot">&bull;</span>
+          <span>Attack detected 4 Aug 2026; recovery began 5 Aug 2026; operations largely restored by 7 Aug 2026; re-verified 27 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/north-carolina-ports-confirms-cyberattack-disrupting-operations/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-iran-sanctions" data-published="2026-08-25">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Nation-state targeting of US critical infrastructure</span>
+        </div>
+        <h3>Treasury sanctions an Iranian intelligence-directed hacking network operating inside US critical infrastructure</h3>
+        <p>The US Treasury designated an Iranian Ministry of Intelligence and Security-directed hacking network on 24&nbsp;August as part of a wider action covering nearly 60 Iran-linked people, entities and vessels, with a related State Department reward notice. Treasury states the network has breached and exfiltrated data from US energy companies, defence contractors, healthcare providers, IT firms and banks since at least late&nbsp;2023. Rail is not named, but the tradecraft described &mdash; harvesting credentials, vendor footholds and network documentation &mdash; is sector-agnostic, and earlier federal reporting has flagged Iranian-affiliated interest in internet-connected control devices used across transportation. Treat this as a targeting signal rather than an incident notification.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed US government action &mdash; OFAC designations and related DOJ indictments describe intrusion and exfiltration; no rail control-system manipulation is alleged</span>
             <span class="ops-tag kev-off">No CVE &mdash; the designations describe intrusion activity, not a product flaw</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-na">No patch applies &mdash; the exposure is credential reuse, vendor accounts and remote-management footholds</span>
-            <span class="ops-cc"><b>Action:</b> Review every third-party account with a route toward dispatch, CAD/AVL, signalling maintenance or the PTC back office, and require MFA through a brokered, logged jump host rather than a standing vendor VPN. Confirm your cybersecurity coordinator and reporting contacts under the TSA directives are current, and that your team knows the CISA reporting timeline without looking it up. Then close the payment question in advance: have counsel and finance re-read the sanctions list and record who may authorise a payment and on what basis, because paying a designated party carries strict-liability exposure regardless of intent.</span>
+            <span class="ops-cc"><b>Action:</b> Review every third-party account with a path into dispatch, signalling support, fare collection or maintenance systems, and confirm each is named, time-bound and protected with phishing-resistant MFA rather than a shared login held by a supplier. Rotate credentials on anything a former contractor could still use. Where network documentation, track charts or signalling design records sit in a system a vendor can reach, verify who holds that access and why. Record the designation in the risk register with a review date rather than closing it out.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External and vendor account review with MFA enforcement &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-iran-sanctions" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-iran-sanctions">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor and third-party account review with credential rotation &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-iransanc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-iransanc">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Treasury press release and OFAC designations; Department of Justice indictment; State Department Rewards for Justice notice &mdash; via The Hacker News, CyberScoop and Nextgov/FCW</span>
+          <span>US Treasury press release and OFAC designations; State Department Rewards for Justice notice; reported via The Record, Nextgov/FCW and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Designations announced 24 Aug 2026; DOJ indictments the preceding week; trade-press analysis 25 Aug 2026</span>
+          <span>Designations announced 24 Aug 2026; press analysis 25 Aug 2026; re-verified 27 Aug 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/08/us-sanctions-iran-linked-hackers-behind.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/iran-cyberattacks-us-uk" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-s7-ai-advisory" data-published="2026-08-19">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Incident &mdash; Nation-state / PLCs</span>
-        </div>
-        <h3>Five federal agencies warn AI-written scripts are reading Siemens S7 controllers on exposed networks</h3>
-        <p>The NSA, CISA, FBI, Department of Energy and EPA issued a joint advisory on 19 August warning that threat actors are combining the open-source snap7 and python-snap7 automation libraries with AI-assisted scripting to build custom tools that mimic legitimate OT monitoring software. Those tools give read and write access to Siemens S7 controller memory, configuration data and ladder logic over the S7comm protocol. Critical manufacturing, energy, water, chemical, food and agriculture, and commercial facilities are named as the most-targeted sectors. Actors locate exposed or poorly segmented devices with internet scanning services and get in through default or weakly configured credentials rather than exploiting a vulnerability. Affected lines run from the S7-200 and S7-300 through the S7-1200 and S7-1500, including F-series safety controllers. Rail is not named, but S7-class controllers are widespread in station and depot building services, platform screen door interfaces, escalator and lift control, tunnel ventilation, yard and washplant systems, and wayside auxiliary equipment &mdash; much of it commissioned by contractors and connected for remote support.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active threat &mdash; agencies describe observed read access and preparation for write operations</span>
-            <span class="ops-tag kev-off">No CVE &mdash; internet exposure plus default or weak controller credentials</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; remove exposure, harden credentials, restrict S7comm</span>
-            <span class="ops-cc"><b>Action:</b> Ask your stations, depots and facilities teams for a list of Siemens S7 controllers outside the signalling estate &mdash; ventilation, platform equipment, depot plant, washplant &mdash; and check each against your external attack surface. Block port 102 at the perimeter. Then ask each maintenance contractor in writing whether they installed connectivity you did not commission.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Non-signalling S7 inventory and exposure check &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-s7-ai-advisory" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-s7-ai-advisory">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Joint advisory AA26-231A (NSA, CISA, FBI, DOE, EPA) &mdash; corroborated by SecurityWeek and Help Net Security</span>
-          <span class="dot">&bull;</span>
-          <span>Issued 19 Aug 2026; reported 20 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-nc-ports" data-published="2026-08-04">
+<div class="card" id="story-poland-apn-chp" data-published="2026-08-11">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Intermodal logistics</span>
+          <span class="category">Incident &mdash; Lateral movement across a shared carrier network</span>
         </div>
-        <h3>North Carolina Ports intrusion disrupts cargo processing at a rail-served inland port</h3>
-        <p>The North Carolina State Ports Authority detected an unauthorised intrusion on 4 August that triggered a systems-wide IT outage affecting processing workflows across all three of its facilities: the Port of Wilmington, the Port of Morehead City and the rail-served Charlotte Inland Port. Truck movements, cargo processing and administrative systems were disrupted while restoration was underway, though terminal operations and vessel activity continued and some cargo processing shifted to manual handling. No control system was involved. For railroads and intermodal operators the significance is that inland port throughput is a shared dependency: a partner&rsquo;s outage constrains rail movements and dwell without any part of the railroad&rsquo;s own network being touched, and most operators have no contractual visibility into how long that partner expects recovery to take.</p>
+        <h3>An attacker crossed a shared private cellular network from one operator&rsquo;s site into another&rsquo;s plant</h3>
+        <p>CERT Polska&rsquo;s follow-up report describes an intrusion that began at a wind farm and ended at an unrelated combined heat and power plant, where a turbine was taken out of service. The bridge was a private APN both organisations bought from the same carrier. A private APN is an addressing and billing construct, not a security boundary. Railroads and transit agencies should read this closely because cellular is the default connectivity for anything trackside: crossing monitors, signal-house telemetry, defect detectors, remote switch heaters, station equipment and positive train control backhaul. If those devices sit on a shared APN and can address one another, the isolation you assumed may not exist.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed intrusion &mdash; systems-wide IT outage with operational impact on cargo processing</span>
-            <span class="ops-tag kev-off">No CVE disclosed &mdash; entry vector not publicly stated</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; CERT Polska documents intrusion and a turbine taken out of service; incident occurred 29 Dec 2025, disclosed 8 Aug 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the finding is a network design and carrier-isolation failure</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; partner dependency and continuity planning</span>
-            <span class="ops-cc"><b>Action:</b> List the ports, inland terminals and intermodal partners whose systems your service plan depends on, and establish what each is contractually required to tell you, and how quickly, during an outage. Then confirm what your own operating plan does when an inland facility can only process manually for several days &mdash; most plans assume a weather-length disruption, not a cyber-length one.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; remediation is carrier routing policy, per-site isolation and device-level firewalling</span>
+            <span class="ops-cc"><b>Action:</b> Ask your carrier in writing whether your APN is shared with other subscribers, whether devices on it can route to one another, and what isolation options exist. Until you have that answer, treat every cellular-attached wayside device as internet-exposed: place a firewall you control between the modem and anything operational, disable inbound management on the modem, and use per-site credentials rather than one password across the territory. Then confirm wayside sites cannot reach each other laterally, which is the specific failure documented here.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Intermodal partner continuity and notification review &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-nc-ports" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-nc-ports">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Carrier isolation confirmation and wayside firewall review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-polapn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-polapn">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>North Carolina State Ports Authority &mdash; reported by Cybernews and Splash247</span>
+          <span>CERT Polska incident follow-up report &mdash; via Help Net Security, BleepingComputer, SecurityWeek and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Detected 4 Aug 2026; reporting through Aug 2026</span>
+          <span>Incident 29 Dec 2025; CERT Polska disclosure 8 Aug 2026; press analysis 11 Aug 2026; re-verified 27 Aug 2026</span>
         </div>
-        <a href="https://cybernews.com/news/north-carolina-ports-cyberattack-disrupts-cargo-supply-chain-risk/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.helpnetsecurity.com/2026/08/11/poland-energy-sector-cyberattack-heating-plant-private-apn/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -909,122 +909,92 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-<div class="card" id="story-cisa-redteam-socs" data-published="2026-08-25">
+<div class="card" id="story-cisa-redteam" data-published="2026-08-25">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; Detection and response</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Threat intel &mdash; Federal red-team assessment findings</span>
         </div>
         <h3>CISA&rsquo;s red team took a domain undetected &mdash; the tooling was fine, the monitoring was not</h3>
-        <p>CISA published AA26-237A on 25&nbsp;August comparing two red-team assessments run with near-identical tradecraft: one against a government services and facilities organisation, one against a water and wastewater systems entity. Both opened with phishing and escalated through Active Directory weaknesses that are ordinary rather than exotic &mdash; a Machine Account Quota left at its default of 10, and misconfigured Active Directory Certificate Services templates. The outcomes diverged sharply. At the organisation CISA labels A, the team obtained elevated domain privileges and reached sensitive business systems and cloud resources without ever being detected, despite the organisation running multiple security operations centres and multiple EDR products. CISA&rsquo;s stated reason deserves reading twice: the SOCs did not communicate with one another, and thousands of false positives from routine business activity buried the real signal. Railroads and transit agencies should read the second finding first. The corporate Active Directory this tradecraft targets is commonly the same directory that authenticates dispatch workstations, CAD/AVL clients, maintenance-of-way systems and the back-office servers supporting positive train control &mdash; and at transit agencies it is frequently a shared municipal or state domain the agency does not itself administer. Both weaknesses named cost nothing to fix. The detection failure is the one that maps onto this sector: monitoring split between agency IT, a city SOC and a signalling integrator is exactly the uncorrelated multi-console arrangement CISA describes.</p>
+        <p>CISA advisory AA26-237A publishes paired red-team results from two critical-infrastructure organisations assessed with comparable tradecraft. One detected and responded; the other never noticed a domain compromise. The advisory is direct that the difference was not product spend &mdash; both had capable tooling, but only one reviewed the output, correlated identity events and had practised the response. Transit agencies and railroads recognise the pattern because dispatch, maintenance, fare collection and corporate systems so often share one Active Directory, and because operational networks are frequently left outside monitoring on the grounds that the alerts would be too noisy to action.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No exploitation &mdash; this is CISA&rsquo;s own assessment activity, published as defensive findings</span>
-            <span class="ops-tag kev-off">No CVE &mdash; the findings are configuration and detection failures, not product flaws</span>
+            <span class="ops-tag ex-none">No adversary exploitation &mdash; this is an authorised federal red-team assessment published as guidance</span>
+            <span class="ops-tag kev-off">No CVE &mdash; findings concern identity abuse, detection coverage and response practice</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; remediation is Active Directory hardening and SOC process</span>
-            <span class="ops-cc"><b>Action:</b> Set your domain Machine Account Quota to 0 and grant machine-join rights explicitly &mdash; if the domain belongs to a parent city or state IT department, raise it with them in writing. Audit AD Certificate Services templates for enrolment misconfigurations permitting certificate-based impersonation. Then use this as the scenario for the TSA-required incident response plan testing: an undetected domain compromise reaching dispatch is a better exercise than a generic ransomware tabletop. Finally, confirm dispatch, CAD/AVL and PTC back-office authentication does not silently inherit corporate or municipal domain trust.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; remediation is detection engineering, identity hardening and exercised response</span>
+            <span class="ops-cc"><b>Action:</b> Test three questions in your own environment: can an ordinary domain account enumerate privileged groups, does anything alert when it happens, and who reads that alert overnight when the railroad is still running. Extend monitoring to the dispatch and maintenance estate rather than leaving it as a blind spot. Separate operational identity from corporate identity where they share a forest or trust. Then run a tabletop on the advisory&rsquo;s scenario &mdash; an unnoticed domain compromise &mdash; and measure the time to a decision to isolate, not the time to an alert.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Machine Account Quota and ADCS template audit &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-cisa-redteam-socs" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-cisa-redteam-socs">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Detection-coverage review against AA26-237A findings &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-redteam" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-redteam">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA cybersecurity advisory AA26-237A &mdash; joint red-team assessment findings</span>
+          <span>CISA advisory AA26-237A &mdash; corroborated by CyberScoop and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Published 25 Aug 2026</span>
+          <span>Published 25 Aug 2026; verified against the CISA advisory 27 Aug 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-gunra-fortinet" data-published="2026-08-10">
+<div class="card" id="story-s7-ai-advisory" data-published="2026-08-19">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat intel &mdash; Ransomware / edge exploitation</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Threat intel &mdash; Joint federal advisory on ICS protocol tooling</span>
         </div>
-        <h3>Six agencies warn the Gunra ransomware crew is walking into critical infrastructure through two 2025 Fortinet bugs</h3>
-        <p>CISA, the FBI, the Defense Cyber Crime Center, the NSA, the Secret Service and the Korean National Police Agency published joint advisory AA26-222A on 10 August on Gunra, a ransomware operation that has hit organisations across critical infrastructure sectors since April 2025. The advisory&rsquo;s operational point is unglamorous: Gunra&rsquo;s initial access is overwhelmingly through internet-facing edge devices, and specifically two Fortinet flaws &mdash; CVE-2024-21762 and CVE-2024-55591 &mdash; both patched in 2025 and both still reachable on unpatched appliances. Once inside, the group steals data before encrypting, and runs a double-extortion leak site. The agencies published detection guidance, indicators and a set of mitigations centred on patching edge appliances, enforcing phishing-resistant multi-factor authentication and segmenting recovery infrastructure. Passenger and freight operators are in the critical-infrastructure set this advisory covers, and the entry point is a perimeter appliance rather than anything rail-specific. The operational risk for rail is the same one Pittsburgh Regional Transit lived through: lose the business and asset-tracking systems and you lose the ability to see where stock is, even when signalling itself is untouched.</p>
+        <h3>Five agencies warn AI-written scripts are reading Siemens S7 controllers on exposed networks</h3>
+        <p>Joint advisory AA26-231A from NSA, CISA, FBI, DOE and EPA describes actors using AI assistance to build custom tooling from a well-documented open-source S7 library, querying internet-exposed Siemens S7 controllers in traffic that resembles legitimate monitoring. The agencies assess the activity as reconnaissance and pre-positioning. Rail is not a named sector, but SIMATIC controllers are widespread in station and depot systems, platform screen doors, traction power auxiliaries, washplants and maintenance facilities. The change that matters is that protocol expertise no longer gates who can interrogate a controller &mdash; so an exposed S7 in a depot is being read by a larger population than it was a year ago.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; six agencies confirm ongoing Gunra intrusions via the two Fortinet CVEs</span>
-            <span class="ops-tag kev-on">Both Fortinet CVEs are long-standing CISA KEV entries</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active reconnaissance confirmed by five federal agencies against internet-exposed S7 controllers; no process manipulation attributed in this advisory</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the advisory describes tooling and tradecraft against exposed controllers</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches shipped in 2025 &mdash; exposure is unpatched or forgotten appliances</span>
-            <span class="ops-cc"><b>Action:</b> Sweep for FortiOS and FortiProxy appliances across corporate, depot, station and third-party connection paths, including any installed by an integrator during a resignalling or station upgrade programme, and confirm each closes CVE-2024-21762 and CVE-2024-55591. Load AA26-222A indicators into monitoring, and confirm that asset-tracking and dispatch support data can be restored without domain credentials.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; mitigation is removing controller internet exposure and enabling S7 access protection</span>
+            <span class="ops-cc"><b>Action:</b> Scan your external ranges for TCP&nbsp;102 and any SIMATIC controller answering from outside, including equipment installed by contractors at depots, stations and maintenance facilities that may never have entered your asset register. Remove the exposure now rather than scheduling it. Enable access protection with a non-default password on S7-1200 and S7-1500; firewall older S7-300 and S7-400 so only the HMI and engineering station can reach them. Then ask your station and depot systems integrators directly whether any remote-support arrangement exposes a controller.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Confirm no FortiOS/FortiProxy appliance remains unpatched for the two named CVEs &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-gunra-fortinet" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-gunra-fortinet">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> External S7 exposure scan and remediation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-s7ai" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-s7ai">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / FBI / DC3 / NSA / USSS / ROK National Police joint advisory AA26-222A &mdash; reported by The Record and Infosecurity Magazine</span>
+          <span>NSA / CISA / FBI / DOE / EPA joint advisory AA26-231A, building on AA26-097A &mdash; via CISA, BleepingComputer and Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Published 10 Aug 2026</span>
+          <span>AA26-231A published 19 Aug 2026; builds on AA26-097A from April 2026; re-verified 27 Aug 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
 <div class="card" id="story-dragos-q2" data-published="2026-08-11">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; Ransomware trends</span>
+          <span class="category">Threat intel &mdash; Quarterly industrial ransomware analysis</span>
         </div>
-        <h3>Industrial ransomware up 12 percent in Q2, disrupting operations without control-system access</h3>
-        <p>Dragos recorded 1,140 ransomware incidents involving industrial organisations in the second quarter of 2026, up from 1,020 in the first quarter, with manufacturing taking 747, construction 176, equipment manufacturing 114 and food and beverage 70. The finding that transfers to rail and transit concerns mechanism rather than sector counts: disrupting the IT systems that support an operation is frequently enough to interrupt it even when attackers never reach the control system, and extortion continued shifting from encryption toward data theft. For a passenger operator the equivalent systems are ticketing, real-time passenger information, crew rostering and paratransit scheduling &mdash; several of which carry statutory service obligations. For a freight railroad they are waybill, yard management, crew calling and customer portals, none of which stops a train but all of which stop a business.</p>
+        <h3>1,140 industrial ransomware victims in a quarter, and none of them needed the control system touched</h3>
+        <p>Dragos counted 1,140 ransomware incidents at industrial organisations in the second quarter of 2026, up around 12 percent on the first, and drew out the point that attackers do not need control-system access to disrupt operations. The rail translation is straightforward: nobody needs to reach a signalling system to degrade a railroad. Encrypting crew calling, work order and maintenance management, car and consist tracking, fare collection or customer information produces delays, cancellations and manual working on its own. Those systems rarely receive the segmentation, backup validation or restoration testing applied to safety-critical signalling.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; quarterly research</span>
-            <span class="ops-tag kev-off">Not applicable</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; incident counts drawn from observed ransomware activity at industrial organisations during Q2 2026</span>
+            <span class="ops-tag kev-off">No single CVE &mdash; the report aggregates incidents across many initial-access routes</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; response planning and segmentation</span>
-            <span class="ops-cc"><b>Action:</b> Run a tabletop where signalling and train control are entirely healthy but crew calling, rostering and passenger information are encrypted. Measure how long you can run a service and who has authority to move to a degraded timetable. For transit operators, check specifically whether paratransit booking has a manual fallback &mdash; that is where the accessibility and legal exposure concentrates.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the lesson is dependency mapping, segmentation and tested restoration for operations-adjacent IT</span>
+            <span class="ops-cc"><b>Action:</b> List the business systems that would degrade service if they were encrypted: crew calling and rostering, work and asset management, consist and car tracking, fare collection and revenue, passenger information, dispatch support tools. For each, record the manual fallback and when it was last exercised. Confirm backups restore rather than merely exist and that restoration does not depend on the domain the ransomware would encrypt. Then check whether safety-critical systems can run with the business estate dark &mdash; the answer is what separates a bad week from a stoppage.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Back-office outage tabletop &mdash; next exercise cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-dragos-q2" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-dragos-q2">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Operations-adjacent IT dependency and restoration review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-dragosq2" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-dragosq2">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dragos Q2 2026 industrial ransomware analysis &mdash; via Help Net Security</span>
+          <span>Dragos Industrial Ransomware Analysis, Q2 2026 &mdash; via Dragos and Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>Published 11 Aug 2026</span>
+          <span>Report covers Q2 2026; published and reported 11 Aug 2026; re-verified 27 Aug 2026</span>
         </div>
         <a href="https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-trueconf-headmare" data-published="2026-08-12">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat intel &mdash; Supply chain / engineering workstations</span>
-        </div>
-        <h3>A conferencing server was made to hand out a backdoored client to the engineers who joined the call</h3>
-        <p>Kaspersky ICS-CERT reported on 12 August that the Head Mare group chained two flaws in unpatched TrueConf Server installations &mdash; tracked by Kaspersky as KLCERT-26-057 and KLCERT-26-058 &mdash; to run code and escalate privileges on the server, then swapped the legitimate client installer for a trojanised build carrying the PhantomCore and PhantomGraph backdoors. Anyone who subsequently updated their conferencing client from that server was infected. The victims named span instrumentation, electronics, transportation, energy, IT and software development. TrueConf shipped fixes on 18 June 2026 for versions 5.3.x before 5.3.9, 5.4.x before 5.4.9 and 5.5.x before 5.5.5; the exploited servers were simply never updated. Transportation is one of the sectors Kaspersky names. Railways run a large conferencing estate across operations control centres, maintenance depots, signalling contractors and rolling-stock suppliers, and the people on those calls are frequently the same ones holding signalling engineering tools and remote-access credentials into wayside and depot systems. A backdoored client distributed as a normal update crosses straight into that population.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; Kaspersky documents live intrusions and trojanised installers in the wild</span>
-            <span class="ops-tag kev-off">Vendor-tracked identifiers (KLCERT-26-057/058) &mdash; no CISA KEV entry</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched 18 Jun 2026 &mdash; exposure is unpatched servers and already-distributed clients</span>
-            <span class="ops-cc"><b>Action:</b> Identify every TrueConf Server used by operations, depots and signalling contractors and confirm it is patched to 5.3.9 / 5.4.9 / 5.5.5 or later. Treat any engineering or dispatch workstation that updated its client from an unpatched server since mid-June as suspect, and rebuild rather than scan &mdash; the backdoor arrives inside a signed-looking installer.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> TrueConf Server patch verification and client-integrity check &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-trueconf-headmare" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-trueconf-headmare">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Kaspersky ICS-CERT &mdash; corroborated by The Hacker News and SC Media</span>
-          <span class="dot">&bull;</span>
-          <span>Published 12 Aug 2026; patches released 18 Jun 2026</span>
-        </div>
-        <a href="https://ics-cert.kaspersky.com/publications/reports/2026/08/12/head-mare-exploits-vulnerabilities-in-trueconf-server-to-deliver-phantomcore-malware/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1033,245 +1003,273 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-oracle-weblogic-kev" data-published="2026-08-24">
+<div class="card" id="story-citrix-kev" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Exploited web tier, CVSS 10.0</span>
+          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, remote access</span>
         </div>
-        <h3>CISA sets a three-day federal deadline on a CVSS 10.0 Oracle web-tier flaw now under active attack</h3>
-        <p>CISA added CVE-2026-21962 to the Known Exploited Vulnerabilities catalogue on 24&nbsp;August with a remediation date of 27&nbsp;August &mdash; the tightest window Binding Operational Directive 26-04 permits. The flaw is an improper access control issue in Oracle HTTP Server and in the Oracle WebLogic Server Proxy Plug-in for Apache HTTP Server and Microsoft IIS, scored CVSS 10.0. It is reachable over HTTP by an unauthenticated attacker with no user interaction and no existing privileges, and successful exploitation allows access to the instance or modification of the data it fronts. Oracle shipped the fix in its January&nbsp;2026 critical patch update; reporting on 25&nbsp;August describes broad exploitation against WebLogic servers. A three-day federal deadline is the signal worth reading &mdash; CISA reserves that window for exploitation it judges both live and consequential. This is not an ICS product and it will not be trackside, but Oracle&rsquo;s web tier is a common reverse proxy in front of the systems a railroad or transit agency runs on: ticketing and fare portals, customer information feeds, asset and maintenance management, crew scheduling, and the reporting layers that pull operational data out of dispatch and PTC back-office systems. Ukrzaliznytsia&rsquo;s ticketing outage is a reminder that passenger operations degrade visibly long before anything trackside is touched.</p>
+        <h3>The NetScaler flaw is now confirmed exploited and in KEV &mdash; federal deadline 29 August</h3>
+        <p>CISA added CVE-2026-8452 to the Known Exploited Vulnerabilities catalogue on 26&nbsp;August, moving the Citrix NetScaler ADC and Gateway issue from a patching recommendation to confirmed exploitation in the wild. It is a heap overflow in SAML single sign-on parsing, rated CVSS&nbsp;8.8, needing no authentication, and reachable when the appliance is configured as a Gateway or AAA virtual server. Canada&rsquo;s Cyber Centre reported indications of exploitation from around 17&nbsp;August after a public proof of concept. In rail and transit organisations NetScaler frequently fronts the remote access used by dispatch support staff, maintenance contractors and signalling suppliers.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; added to the CISA KEV catalogue on 24 Aug 2026 with broad exploitation against WebLogic reported</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; federal remediation deadline 27 Aug 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 26 Aug 2026; CCCS reported indications of exploitation from 17 Aug following public proof-of-concept release</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-8452, federal remediation deadline 29 Aug 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fix shipped in Oracle&rsquo;s January 2026 critical patch update</span>
-            <span class="ops-cc"><b>Action:</b> Ask whoever runs your enterprise applications &mdash; often a parent agency or city IT department rather than the railroad &mdash; whether Oracle HTTP Server or the WebLogic proxy plug-in is deployed, and whether any instance is internet-reachable; ticketing and passenger information portals usually are. Apply the January 2026 critical patch update as an emergency change. Because the fix is six months old and exploitation is broad, treat an unpatched internet-facing instance as already probed and hunt backwards through web and authentication logs. Then confirm the network path from that web tier toward dispatch and maintenance systems is segmented and monitored.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available including 14.1-72.61 (FIPS), 13.1-63.18 and 13.1-37.272</span>
+            <span class="ops-cc"><b>Action:</b> Patch to a fixed build now where the appliance runs as a Gateway or AAA virtual server. Because exploitation predates the KEV listing, invalidate sessions, rotate appliance and service-account credentials, and review authentication logs back to mid-August for sessions from unexpected sources. Pay particular attention to signalling and rolling-stock supplier accounts: if one was abused, the reachable estate may include maintenance and diagnostic systems, which changes this from an appliance patch to an operational incident question.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and patch internet-facing Oracle HTTP Server / WebLogic proxy instances &mdash; immediately</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-oracle-weblogic-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-oracle-weblogic-kev">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch, session invalidation and credential rotation &mdash; 3 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-citrixkev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-citrixkev">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalogue addition; Oracle critical patch update &mdash; corroborated by SecurityWeek and The Hacker News</span>
+          <span>CISA Known Exploited Vulnerabilities catalogue addition of 26 Aug 2026 and Citrix security bulletin &mdash; corroborated by the Canadian Centre for Cyber Security and watchTowr Labs analysis</span>
           <span class="dot">&bull;</span>
-          <span>Added to KEV 24 Aug 2026; federal remediation deadline 27 Aug 2026; Oracle fix issued Jan 2026; broad exploitation reported 25 Aug 2026</span>
+          <span>Vendor patches released August 2026; exploitation indications from 17 Aug; added to KEV 26 Aug 2026; federal deadline 29 Aug 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/24/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-citrix-netscaler" data-published="2026-08-20">
+<div class="card" id="story-gitea-kev" data-published="2026-08-25">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Remote access edge</span>
+          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, engineering toolchain</span>
         </div>
-        <h3>Citrix is telling admins to patch NetScaler now &mdash; an unauthenticated bypass on the appliance that fronts most OT remote access</h3>
-        <p>Citrix published bulletin CTX696939 on 20 August covering two NetScaler ADC and NetScaler Gateway flaws. The serious one, CVE-2026-19490, is an authentication bypass carrying a CVSS score of 9.3: on Gateway and AAA virtual-server configurations an unauthenticated attacker can skip the login step entirely. The second, CVE-2026-19489, is a memory overflow that can produce unpredictable behaviour or a denial of service, and only applies where SIP ALG is enabled on a Large Scale NAT group. Fixed builds are 14.1-73.32 and 13.1-63.21 or later. Citrix, Rapid7 and Finland&rsquo;s national cyber authority all said they were not aware of in-the-wild exploitation at publication, while urging immediate patching &mdash; NetScaler has a long record of exploited edge flaws. On a rail estate NetScaler typically fronts supplier access into signalling maintenance networks, depot systems and station equipment, and connects remote control centres. An unauthenticated bypass there matters more than the CVSS number suggests, because that appliance is often the only boundary between a contractor&rsquo;s laptop and a maintenance VLAN that reaches trackside.</p>
+        <h3>A Git server exploit in KEV &mdash; and it is where signalling and station configuration often lives</h3>
+        <p>CISA added CVE-2026-60004 to the KEV catalogue on 25&nbsp;August after reports of active exploitation. Rated CVSS&nbsp;9.8, the flaw lets anyone with ordinary repository write access plant an executable Git hook and run shell commands as the Gitea service account. Gitea 1.27.1 fixed it on 27&nbsp;July, so exploitation followed within a month. Self-hosted Gitea turns up in rail engineering groups because it is easy to stand up for station and depot PLC projects, SCADA screens, passenger information configuration and integration scripts. A modest contractor account then becomes code execution on the machine holding operational configuration. Federal remediation was due 28&nbsp;August.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported at publication &mdash; Citrix, Rapid7 and Finland&rsquo;s NCSC all state none observed</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as at 22 Aug 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 25 Aug 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-60004, CVSS 9.8, federal remediation deadline 28 Aug 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; NetScaler ADC / Gateway 14.1-73.32 and 13.1-63.21 or later</span>
-            <span class="ops-cc"><b>Action:</b> Identify every NetScaler Gateway or AAA virtual server carrying signalling, depot, station or rolling-stock supplier access and confirm the build number. Patch to 14.1-73.32 or 13.1-63.21 within the week. Where a change needs a possession or a maintenance window, restrict the Gateway virtual server to known source ranges immediately and confirm each supplier has an alternative documented support route.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Gitea 1.27.1 released 27 Jul 2026, with the security advisory published 28 Jul</span>
+            <span class="ops-cc"><b>Action:</b> Ask engineering and systems teams whether a self-hosted Git server exists; it will not be in the corporate application inventory because IT did not deploy it. Upgrade to 1.27.1 or later, audit repository write permissions, and remove contractor and former-staff accounts. Review logs for hook creation since late July. Then confirm the authoritative copies of station, depot and passenger-information configuration exist somewhere other than that server &mdash; if the repository is the only copy, that dependency is the more serious finding.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or restrict internet-facing NetScaler Gateway/AAA virtual servers &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-citrix-netscaler" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-citrix-netscaler">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade, permission audit and backup verification &mdash; 3 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-gitea" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-gitea">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Citrix security bulletin CTX696939 &mdash; reported by BleepingComputer and The Hacker News</span>
+          <span>CISA KEV catalogue addition &mdash; corroborated by Help Net Security, SecurityWeek and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Bulletin published 20 Aug 2026; reported 20 Aug 2026</span>
+          <span>Gitea 1.27.1 released 27 Jul 2026; added to KEV 25 Aug 2026; verified 27 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/citrix-urges-admins-to-patch-new-netscaler-flaws-as-soon-as-possible/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-jci-simplex" data-published="2026-08-20">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory &mdash; Life safety / facility systems</span>
-        </div>
-        <h3>Fire-alarm management software stores its credentials in cleartext in memory, CISA warns</h3>
-        <p>CISA published ICSA-26-232-01 on 20 August covering Johnson Controls Simplex Incident Manager, the software operators use to monitor and manage Simplex fire alarm panels across a property portfolio. Versions up to and including V2.01 keep user passwords and authentication tokens unencrypted in system memory while the application runs, tracked as CVE-2026-27875 and classified as CWE-316. A local attacker who already holds low-privileged access to the workstation can read those credentials out of memory and reuse them against the application and the systems it connects to. CISA lists critical manufacturing, commercial facilities, government facilities, transportation systems and energy among the affected sectors, with deployment worldwide. Johnson Controls has published remediation guidance in JCI-PSA-2026-28. Stations, depots and control centres run Simplex fire detection, and on a rail estate the fire-alarm management workstation is almost always a facilities asset &mdash; shared account, in a back office, administered by a building services contractor rather than the signalling or IT team. That is precisely the local low-privileged access this flaw needs to yield working panel credentials.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known public exploitation &mdash; requires existing local low-privileged access</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor guidance available &mdash; Johnson Controls advisory JCI-PSA-2026-28</span>
-            <span class="ops-cc"><b>Action:</b> Ask your station and depot facilities managers whether Simplex Incident Manager is in use and at what version, then apply the Johnson Controls guidance in JCI-PSA-2026-28. Until it is patched, remove shared logins from the host, restrict interactive access to named staff and confirm the credentials it stores are not reused for access control or BMS. Life-safety systems belong in the asset inventory even when facilities owns them.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory Simplex Incident Manager hosts and apply vendor guidance &mdash; 45 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-jci-simplex" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-jci-simplex">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-232-01; Johnson Controls product security advisory JCI-PSA-2026-28</span>
-          <span class="dot">&bull;</span>
-          <span>Published 20 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-232-01" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-<div class="card" id="story-cisco-asa-kev" data-published="2026-08-13">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Exploited edge / KEV</span>
-        </div>
-        <h3>Cisco ASA and FTD VPN zero-day exploited to reload firewalls, added to CISA KEV</h3>
-        <p>Cisco has patched CVE-2026-20349, a flaw in the remote-access SSL VPN service of Secure Firewall ASA and Secure Firewall Threat Defense software that attackers are exploiting to force appliances offline. A specially crafted HTTP request to the vulnerable service causes an unexpected reload and a denial-of-service condition, requiring no authentication and no user interaction. Cisco&rsquo;s PSIRT confirmed active exploitation in August, and CISA added the flaw to the Known Exploited Vulnerabilities catalogue with a federal remediation deadline of 14 August. Hot fixes cover ASA 9.16, 9.18, 9.20, 9.22, 9.23 and 9.24 and FTD 7.0, 7.2, 7.4, 7.6, 7.7 and 10.0. In rail these appliances typically terminate supplier access into signalling maintenance networks, depot systems and station equipment, and connect remote control centres &mdash; so exploitation removes the remote diagnostic path exactly when a fault needs a specialist who is not on site.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; Cisco PSIRT confirmed in-the-wild attacks in August 2026</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-20349, federal remediation deadline 14 Aug 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available &mdash; Cisco hot fixes for ASA 9.16&ndash;9.24 and FTD 7.0&ndash;10.0</span>
-            <span class="ops-cc"><b>Action:</b> Identify every ASA or FTD appliance carrying supplier or engineering access into signalling maintenance, depot or station networks and confirm it is on a fixed release. Where a change window is weeks out, restrict the SSL VPN service to known source ranges now. Confirm each signalling and rolling stock supplier has a documented alternative support route.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or restrict exposed ASA/FTD VPN services &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-cisco-asa-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-cisco-asa-kev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Cisco security advisory and CISA KEV catalogue &mdash; reported by Help Net Security and SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation confirmed and KEV listed Aug 2026; reported 13 Aug 2026</span>
-        </div>
-        <a href="https://www.helpnetsecurity.com/2026/08/13/cve-2026-20349-cisco-firewalls-dos/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-siemens-ruggedcom" data-published="2026-08-12">
+<div class="card" id="story-siemens-iot2050" data-published="2026-08-12">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; ICS Patch Tuesday</span>
+          <span class="category">Advisory &mdash; August ICS Patch Tuesday, Siemens estate</span>
         </div>
         <h3>August ICS Patch Tuesday: Ruggedcom and Desigo alongside a maximum-severity IoT2050 flaw</h3>
-        <p>Siemens published ten advisories in the August cycle. The most severe, SSA-834709, is a maximum-severity missing authentication flaw in SIMATIC IoT2050 Advanced devices that lets a remote, unauthenticated attacker execute arbitrary code with elevated privileges. Siemens also fixed a critical code execution vulnerability in Siveillance Video Management Servers and high-severity flaws across Solid Edge, Simcenter Nastran, Siemens License Server, Simcenter Femap, Parasolid and Logo! Soft Comfort, with medium-severity issues resolved in Ruggedcom devices and Desigo controllers. Schneider Electric published advisories for NetBotz 5 and PowerChute Serial Shutdown, and Phoenix Contact one covering multiple PLCnext firmware flaws. Three of these are common in rail estates specifically: Ruggedcom switches in trackside, tunnel and substation cabinets, Desigo in station and depot building services, and Siveillance as a station and platform video management platform.</p>
+        <p>Siemens published ten advisories in its August set, alongside Schneider Electric and Phoenix Contact, with CISA issuing companion ICS advisories the same week. The headline item is a maximum-severity missing-authentication flaw in SIMATIC IoT2050 Advanced devices allowing unauthenticated remote code execution with elevated privileges. Rail estates are exposed to more of this batch than most sectors, because Siemens equipment spans the environment: Ruggedcom networking in signal houses and substations, Desigo building automation at stations and depots, Siveillance video management, and SIMATIC controllers in auxiliary and depot systems. Review the whole set rather than only the maximum-severity entry.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported at publication</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the IoT2050 flaw is unauthenticated and requires only network reachability</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available &mdash; Siemens, Schneider Electric and Phoenix Contact updates released</span>
-            <span class="ops-cc"><b>Action:</b> Ruggedcom is the item to plan around: trackside and tunnel cabinets need possession or engineering hours, so a medium-severity fix needs to enter the works programme now rather than after it becomes urgent. Sweep Desigo controllers in stations and depots in the same window, and treat Siveillance as security-plan-relevant rather than routine IT patching.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Siemens has published fixed firmware across the affected products; interim mitigation is restricting management network access</span>
+            <span class="ops-cc"><b>Action:</b> Work the batch against an inventory rather than against a severity list: pull the affected Siemens product families and check them off against what you actually operate at signal houses, stations, depots and substations. Prioritise anything dual-homed &mdash; edge gateways and building automation controllers that bridge an operational network to the corporate side deserve the first window. Where a maintenance window is not available immediately, restrict management interfaces to a named engineering subnet at the firewall today and record the exception with a review date.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Ruggedcom and Desigo into works programme &mdash; 30 days; Siveillance &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-siemens-ruggedcom" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-siemens-ruggedcom">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or restrict management access across the affected Siemens estate &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-iot2050" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-iot2050">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT SSA-834709 and related advisories &mdash; summarised by SecurityWeek</span>
+          <span>Siemens ProductCERT August 2026 advisories and the CISA ICS advisory batch &mdash; reported by SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Published 12 Aug 2026</span>
+          <span>Published 12 Aug 2026; re-verified 27 Aug 2026</span>
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-kev-0818" data-published="2026-08-18">
+<div class="card" id="story-ebyte-gateway" data-published="2026-08-25">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; CISA KEV additions</span>
+          <span class="category">Advisory &mdash; Serial-to-Ethernet gateway, no vendor patch</span>
         </div>
-        <h3>Four more exploited flaws added to KEV on 18 August, including Windows IKE and VMware vCenter</h3>
-        <p>CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalogue on 18 August: CVE-2026-33824 in Microsoft Internet Key Exchange, CVE-2026-55040 in Microsoft SharePoint, CVE-2026-59310 in Broadcom VMware vCenter and CVE-2026-65400 in Apple macOS. Two further additions followed on 20 August, both in TrueConf Server. For rail and transit the IKE and vCenter entries carry the most weight. IKE terminates the site-to-site tunnels linking control centres, depots, stations and supplier networks. vCenter often manages the virtual infrastructure hosting SCADA, passenger information and back-office systems, where compromise is a hypervisor-level problem rather than an application one. SharePoint is worth a second look in this sector because signalling design documentation, safety cases and maintenance procedures are so often stored there and classified as ordinary business content.</p>
+        <h3>No login required and no patch coming &mdash; the Ebyte gateway advisory is a replacement decision</h3>
+        <p>CISA advisory ICSA-26-237-06 covers the Ebyte NE2-D11 serial-to-Ethernet gateway, whose web management interface does not consistently enforce authentication before granting administrative functionality. An unauthenticated remote attacker can read configuration, change settings, hijack sessions or disrupt operation. CISA notes the vendor acknowledged the reports, said a patch was in development, then stopped responding. Low-cost serial converters of this class are common across rail estates, sitting behind older equipment at crossings, in signal houses, at fuelling points and in depot test rigs &mdash; installed because something legacy needed a network connection, and rarely recorded anywhere afterwards.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; all four added on evidence of exploitation in the wild</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-33824, CVE-2026-55040, CVE-2026-59310 and CVE-2026-65400 added 18 Aug 2026</span>
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the flaws are unauthenticated and remotely reachable</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available &mdash; Microsoft, Broadcom and Apple updates released</span>
-            <span class="ops-cc"><b>Action:</b> Check whether tunnels between control centres, depots and suppliers terminate on affected Windows hosts and prioritise those. Confirm whether any vCenter instance hosts SCADA or passenger information workloads and whether it is reachable from the corporate network without a jump host. If signalling design records live in SharePoint, treat that instance as sensitive.</span>
+            <span class="ops-tag patch-na">No patch available &mdash; vendor acknowledged the reports but has not confirmed a fix; CISA advises network protections and replacement planning</span>
+            <span class="ops-cc"><b>Action:</b> Hunt for small serial-to-Ethernet converters as a class rather than for this specific model; a physical walkdown of signal houses, equipment cases and depot panels finds more of them than a network scan. For each, confirm no internet reachability, restrict it behind a firewall rule permitting only the one host and port that needs it, and disable the web interface where the device allows. Where a converter serves a safety-relevant function and no fix is coming, raise it into the capital renewal plan rather than carrying it as an accepted risk.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> KEV triage against OT-adjacent infrastructure &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-kev-0818" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-kev-0818">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Serial gateway inventory, isolation and replacement plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-ebyte" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-ebyte">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV catalogue additions</span>
+          <span>CISA ICS advisory ICSA-26-237-06, reported by researcher Jithin Nambiar &mdash; via CISA</span>
           <span class="dot">&bull;</span>
-          <span>Added 18 Aug 2026; two further additions 20 Aug 2026</span>
+          <span>Published 25 Aug 2026; re-verified 27 Aug 2026 &mdash; no vendor patch announced</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-06" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-kev-0818" data-published="2026-08-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Exploited Windows IKE flaw in KEV</span>
+        </div>
+        <h3>An exploited Windows IKE flaw &mdash; pre-authentication SYSTEM on the box terminating your site-to-site VPN</h3>
+        <p>CISA added four exploited vulnerabilities to KEV on 18&nbsp;August, including a Windows Internet Key Exchange flaw permitting pre-authentication code execution as SYSTEM. Microsoft shipped the fix in April, so the gap is deployment rather than availability. Placement makes it relevant to a railroad: IKE runs on the hosts terminating site-to-site tunnels, and those tunnels are how a control centre reaches a remote territory, how a depot reaches head office, and how a signalling or rolling-stock supplier reaches diagnostic equipment. Pre-authentication compromise of that endpoint puts an attacker at the junction of both networks.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 18 Aug 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 18 Aug 2026 alongside three other exploited flaws</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Microsoft issued the fix in April 2026; the gap is deployment, not availability</span>
+            <span class="ops-cc"><b>Action:</b> List the Windows hosts terminating IPsec or IKE tunnels, including anything at a depot or territory edge, and verify the April update is genuinely installed rather than assumed &mdash; operational hosts are routinely excluded from patch windows. Where one cannot be taken down now, restrict IKE to the specific peer addresses that require it. Then examine what the tunnel endpoint can reach on the operational side; it is usually considerably more than the tunnel itself needs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch verification on VPN and IKE endpoints &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-kev0818" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-kev0818">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA Known Exploited Vulnerabilities catalogue and Microsoft security updates &mdash; via CISA and The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Added to CISA KEV 18 Aug 2026; vendor patch issued April 2026; re-verified 27 Aug 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-</div>
+<div class="card" id="story-jci-airwall" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Hard-coded key in a segmentation product</span>
+        </div>
+        <h3>A hard-coded key in Johnson Controls Airwall &mdash; the product many sites use to protect everything else</h3>
+        <p>CISA advisory ICSA-26-225-03 republishes a Johnson Controls advisory covering a hard-coded cryptographic key in Airwall, alongside an arbitrary file read issue. Airwall is a micro-segmentation and secure-remote-access product, deployed to isolate operational networks and broker vendor access. A weakness in a compensating control deserves more attention than the same weakness in an ordinary application, because the architecture assumes the device holds. In rail and transit environments Airwall and comparable products frequently sit between corporate IT and station, depot or building systems, which makes this more than a routine patch item.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Johnson Controls has published fixed versions; upgrade guidance is in the vendor advisory</span>
+            <span class="ops-cc"><b>Action:</b> Establish where Airwall sits in your architecture and what would be reachable if it failed open &mdash; that determines urgency, not the CVSS score. Apply the vendor update, then rotate credentials, certificates and pre-shared material associated with the deployment, since a hard-coded key issue is not fully closed by patching alone. Where Airwall brokers supplier remote access into station or depot systems, review session logs since the advisory date and confirm each connection maps to a scheduled work order.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and key rotation on segmentation appliances &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-airwall" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-airwall">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-225-03, republishing the Johnson Controls advisory &mdash; via CISA</span>
+          <span class="dot">&bull;</span>
+          <span>Published 13 Aug 2026 in CISA&rsquo;s mid-August advisory batch; re-verified 27 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
   </div>
 
   <!-- SECTION: Regulation &amp; Policy -->
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-<div class="card" id="story-tsa-sd-1580">
+<div class="card" id="story-tsa-rail" data-published="2026-08-01">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Regulation &mdash; TSA security directives</span>
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy &mdash; TSA rail security directive and pending rulemaking</span>
         </div>
-        <h3>TSA rail security directive runs to 15 January 2027 while the surface cyber rule remains proposed</h3>
-        <p>Security Directive 1580-21-01E, Enhancing Rail Cybersecurity, took effect on 16 January 2026 and runs through 15 January 2027, applying to designated freight railroad carriers and requiring performance-based cybersecurity measures including incident reporting to CISA. Behind it sits the broader rulemaking, Enhancing Surface Cyber Risk Management, which would require higher-risk pipeline, freight railroad, passenger railroad and rail transit owners and operators to establish and maintain a comprehensive cyber risk management programme and report incidents to CISA. That rule remains proposed rather than final, so the directives continue to carry the obligation. The practical planning point is the annual reissue cycle: directives are renewed rather than permanent, and each renewal has historically tightened expectations, so an operator building only to the current text tends to be behind at the next issue.</p>
+        <h3>The TSA rail directive runs to 15 January 2027 while the surface cyber rule remains proposed</h3>
+        <p>Security Directive 1580-21-01E, the current TSA cybersecurity directive for designated freight and passenger railroads, is effective from 16&nbsp;January&nbsp;2026 through 15&nbsp;January&nbsp;2027. Its performance-based requirements &mdash; network segmentation between IT and OT, access control, continuous monitoring and timely patching, together with a cybersecurity implementation plan and assessment programme &mdash; remain the operative obligation. The broader &ldquo;Enhancing Surface Cyber Risk Management&rdquo; rulemaking, published for comment in November&nbsp;2024 and closed to comment in February&nbsp;2025, would convert the directives into permanent regulation including 24-hour incident reporting to CISA, but no final rule has been issued.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; regulatory</span>
-            <span class="ops-tag kev-off">Not applicable</span>
+            <span class="ops-tag ex-none">Not applicable &mdash; regulatory compliance item; the rulemaking remains proposed and is not enforceable</span>
+            <span class="ops-tag kev-off">No CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; compliance and evidence work</span>
-            <span class="ops-cc"><b>Action:</b> Check your incident reporting path to CISA actually works before you need it: who makes the call, what the 24-hour content requirement is, and whether the on-call control centre supervisor knows. Then look at where your programme sits relative to the proposed surface rule rather than only the current directive, since the direction of travel is clear even if the timing is not.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; these are compliance obligations under an active security directive</span>
+            <span class="ops-cc"><b>Action:</b> Do not let the pending rule distract from the directive that is already in force. Confirm your cybersecurity implementation plan reflects the network as it is today rather than as it was at approval, particularly where new wayside connectivity, cloud services or supplier remote access have been added since. Verify the annual assessment schedule is being met and that findings have owners. Where the proposed rule would add 24-hour CISA reporting, test whether you could actually meet that clock today &mdash; the decision path, not the form, is the constraint.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Reporting path test and gap review against proposed rule &mdash; this compliance cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-tsa-sd-1580" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-tsa-sd-1580">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Implementation plan and assessment currency review &mdash; current compliance cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-tsasd" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-tsasd">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>TSA Security Directive 1580-21-01E and the Enhancing Surface Cyber Risk Management proposed rule</span>
+          <span>TSA Security Directive 1580-21-01E and the &ldquo;Enhancing Surface Cyber Risk Management&rdquo; notice of proposed rulemaking &mdash; via TSA and the Federal Register</span>
           <span class="dot">&bull;</span>
-          <span>SD 1580-21-01E effective 16 Jan 2026, expires 15 Jan 2027</span>
+          <span>SD 1580-21-01E effective 16 Jan 2026 through 15 Jan 2027; NPRM published 7 Nov 2024, comments closed 5 Feb 2025; no final rule as of 27 Aug 2026</span>
         </div>
-        <a href="https://www.tsa.gov/sites/default/files/signed_security-directive-1580-21-01e-and-transmittal-memo_508c.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.tsa.gov/sd-and-ea" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-eu-cra-reporting">
+<div class="card" id="story-cra-reporting" data-published="2026-08-01">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Regulation &mdash; EU Cyber Resilience Act</span>
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy &mdash; EU Cyber Resilience Act reporting obligation</span>
         </div>
         <h3>From 11 September 2026 exploited vulnerabilities in digital products must be reported within 24 hours</h3>
-        <p>The EU Cyber Resilience Act&rsquo;s reporting obligations take effect on 11 September 2026. From that date, manufacturers of products with digital elements placed on the EU market must report actively exploited vulnerabilities and severe incidents affecting those products: an early warning within 24 hours of becoming aware, a full notification within 72 hours, and a final report within 14 days of a corrective measure being available, or within a month for a severe incident. Reporting flows through a single reporting platform to the relevant national CSIRT with simultaneous availability to ENISA. The obligations cover products already on the EU market, not only new releases. For rail this cuts two ways. Operators buying signalling, rolling stock systems and station equipment from EU-facing suppliers should expect faster and more formal vulnerability disclosure from September. Operators who themselves place digital products on the EU market are manufacturers under the Act.</p>
+        <p>The EU Cyber Resilience Act&rsquo;s reporting obligations begin on 11&nbsp;September&nbsp;2026. Manufacturers of products with digital elements placed on the EU market must notify an actively exploited vulnerability in their product, or a severe incident affecting its security, within 24&nbsp;hours of becoming aware, with fuller reporting to follow. Railways sit on both sides of this. Operators buying rolling stock, signalling and station systems from European suppliers gain a defined notification obligation to write into contracts; operators or subsidiaries that themselves place connected products on the EU market acquire the obligation directly.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; regulatory</span>
-            <span class="ops-tag kev-off">Not applicable</span>
+            <span class="ops-tag ex-none">Not applicable &mdash; regulatory obligation with a forward-looking effective date</span>
+            <span class="ops-tag kev-off">No CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; supplier disclosure expectations and intake process</span>
-            <span class="ops-cc"><b>Action:</b> Ask your signalling and rolling stock suppliers how they will notify you once CRA reporting starts, and make sure you have somewhere for those notifications to land other than a procurement inbox. Given the Bendix finding, ask the same suppliers whether security fixes delivered through service bulletins will be flagged as such.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; this is a product-compliance obligation under EU Regulation 2024/2847</span>
+            <span class="ops-cc"><b>Action:</b> As a buyer, add the CRA notification obligation into supplier contracts and support agreements explicitly rather than assuming it will reach you &mdash; a regulator being notified is not the same as your maintenance team being told. Ask each supplier who their security contact is and how they will inform you. If any part of your organisation places connected products on the EU market, decide now who receives a report out of hours, who judges active exploitation, and who can authorise notification within 24&nbsp;hours.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Supplier disclosure intake process &mdash; before 11 Sep 2026</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-eu-cra-reporting" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-eu-cra-reporting">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Supplier contract review and CRA readiness &mdash; ahead of 11 September 2026</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-cra" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-cra">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>European Commission, Cyber Resilience Act reporting obligations</span>
+          <span>EU Regulation 2024/2847 (Cyber Resilience Act) and European Commission implementation guidance</span>
           <span class="dot">&bull;</span>
-          <span>Obligations apply from 11 Sep 2026</span>
+          <span>Regulation entered into force 10 Dec 2024; reporting obligations apply from 11 Sep 2026; full application 11 Dec 2027; status verified 27 Aug 2026</span>
         </div>
-        <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-isasecure-nsa" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy &mdash; Procurement-driven security certification</span>
+        </div>
+        <h3>The NSA is putting an ISA/IEC&nbsp;62443 certificate in front of the controllers it buys</h3>
+        <p>ISASecure announced a partnership with the National Security Agency to develop a High Criticality Component Security Assurance certification scheme, derived from its Component Security Assurance programme and grounded in ISA/IEC&nbsp;62443-4-2. Once accepted, the NSA intends to use it when adding OT components to the National Security Systems product compliant list. Rail is not the target market, but the mechanism is what matters: a large buyer making certification a purchase condition changes what vendors build, and the language migrates into other specifications. For an agency writing a station systems or depot automation tender, that is a citable standard rather than an invented requirement.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Not applicable &mdash; this is a certification scheme announcement, not a vulnerability</span>
+            <span class="ops-tag kev-off">No CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the item is procurement policy and component assurance</span>
+            <span class="ops-cc"><b>Action:</b> Add ISA/IEC&nbsp;62443-4-2 component security levels and ISASecure certification as an evaluated criterion in the next station systems, depot automation or building controls tender rather than waiting for a mandate. Ask incumbent suppliers which of their products already hold certification and at what security level; the answers vary widely within one catalogue and are useful leverage at renewal or at the next major renewal programme.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Procurement language review &mdash; next tender cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-isasec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-isasec">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>ISA / ISASecure press release &mdash; corroborated by Automation World and ISSSource</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 20 Aug 2026; verified 27 Aug 2026</span>
+        </div>
+        <a href="https://www.isa.org/news-press-releases/2026/august/isasecure-to-develop-certification-scheme-for-comm" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1280,7 +1278,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Rail &amp; Transit.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 26&nbsp;August&nbsp;2026 by searching authoritative rail, transit and OT/ICS sources including TSA security directives 1580-21-01E and the 1582-21-01 series, CISA ICS advisories including ICSA-26-225-03 and ICSA-26-232-01, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 targeting, CISA advisory AA26-237A on red-team assessment findings, Known Exploited Vulnerabilities catalogue additions of 11, 18, 20 and 24&nbsp;August, and vendor PSIRTs (Siemens ProductCERT, Bendix, Cisco, Citrix, Oracle, Johnson Controls). Research from the National Motor Freight Traffic Association, Dragos and Kaspersky ICS-CERT. Statements from the North Carolina State Ports Authority. Sanctions and law-enforcement material from the US Department of the Treasury and the Department of Justice, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source. Not a replacement for ICS-CERT subscriptions or TSA and Surface Transportation ISAC feeds &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 27&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A, CISA advisory AA26-237A on red-team assessment findings, CISA ICS advisories ICSA-26-225-03 and ICSA-26-237-06, Known Exploited Vulnerabilities catalogue additions of 18, 25 and 26&nbsp;August, TSA Security Directive 1580-21-01E and the &ldquo;Enhancing Surface Cyber Risk Management&rdquo; rulemaking docket, the EU Cyber Resilience Act (Regulation 2024/2847), and vendor PSIRTs (Siemens ProductCERT, Schneider Electric, Phoenix Contact, Johnson Controls, Citrix, Microsoft, Gitea). Research from Dragos; disclosure by CERT Polska; certification material from ISA/ISASecure. Law-enforcement and sanctions material from the US Department of Justice, the Department of the Treasury and the State Department, reported factually and without partisan framing. Reporting drawn from BleepingComputer, The Record, CyberScoop, SecurityWeek, Help Net Security, TechCrunch, Maritime Executive, The Hacker News and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source. Not a replacement for ICS-CERT subscriptions or TSA notifications &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

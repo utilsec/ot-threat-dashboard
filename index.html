@@ -637,7 +637,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thu, 27 Aug 2026, 12:19 AM ET</span>
+        <span>Generated Thu, 27 Aug 2026, 6:22 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -676,7 +676,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:72%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Held at 7.2, the floor of the High band. Confirmed OT&#8209;disruptive activity spans two sectors and three countries, which is what keeps this out of Medium. The anchor is the US water campaign, and CISA put a number on it for the first time on 26&nbsp;August: malicious activity against more than 100 internet&#8209;exposed water and wastewater systems in July, commonly PLCs wired straight to a cellular modem, across at least a dozen states. Earlier reporting has actors reaching Rockwell MicroLogix controllers, changing addresses and passwords and altering project logic &mdash; loss of view, loss of pressure, forced manual operation &mdash; though CISA records no significant disruption to water service. Second is the UK generating site DESNZ confirms was hit, now prompting an acknowledged rewrite of sector rules; the four&#8209;day outage and Iran attribution remain press&#8209;sourced. Third is CERT&nbsp;Polska&rsquo;s turbine, stopped at a district&#8209;heating plant reached over a shared private APN. Above these sits AA26&#8209;231A, in which five US agencies name Siemens S7 PLCs an active target across six sectors &mdash; assessed as reconnaissance, not manipulation, so it does not push toward Critical. This edition&rsquo;s lead, the Boston Scientific global disruption, is confirmed but reaches order processing and shipping rather than any control system, so it does not lift the score, and advisory volume does not aggregate upward.</div>
+      <div class="tl-why"><b>Why:</b> Held at 7.2, the floor of the High band. Confirmed OT&#8209;disruptive activity spans two sectors and two countries, which is what keeps this out of Medium. The anchor now has an official scale: CISA said on 26&nbsp;August that it observed malicious activity against more than 100 internet&#8209;exposed water and wastewater systems in July, commonly PLCs wired straight to a cellular modem, across at least a dozen states. Earlier reporting has actors reaching Rockwell MicroLogix controllers, changing addresses and passwords and altering project logic &mdash; loss of view, loss of pressure, forced manual operation &mdash; though CISA records no significant disruption to water service. Second is the UK generating site DESNZ confirms was hit, now prompting an acknowledged rewrite of sector rules; the four&#8209;day outage and Iran attribution remain press&#8209;sourced. Above these sits AA26&#8209;231A, in which five US agencies name Siemens S7 PLCs an active target across six sectors &mdash; assessed as reconnaissance, not manipulation, so it does not push toward Critical. Boston Scientific&rsquo;s confirmed global disruption reaches order processing and shipping rather than any control system, so it does not lift the score, and neither does advisory volume: in&#8209;the&#8209;wild exploitation of a NetScaler pre&#8209;auth RCE is edge&#8209;access exposure, not OT impact. Re&#8209;checked at 6:22&nbsp;AM: nothing since the overnight run moves the level in either direction.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -685,31 +685,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-bsx" data-published="2026-08-26">
+    <div class="top-story" id="story-cisaexp" data-published="2026-08-26">
         <span class="top-story-pill">Top Story</span>
-        <h2>Boston Scientific says a cyberattack is causing a global disruption &mdash; orders and shipments are the casualty</h2>
-        <p>One of the world&rsquo;s largest medical device manufacturers confirmed on 26&nbsp;August that an attack detected the previous day is disrupting operations worldwide, specifically its ability to process and ship customer orders. Boston Scientific runs 13 manufacturing sites, employs about 59,000 people and sells into 127 countries, so the blast radius reaches hospitals waiting on implants and catheters. The company has not named an attacker, an entry route, or said whether data was taken, and it has given no restoration date. Nothing has been confirmed about plant-floor control systems. That distinction is the lesson rather than a reassurance: order management, warehouse and shipping systems sit outside most OT programmes, yet losing them stops product moving just as effectively as stopping a line. Ask what your own plant does when ERP goes dark.</p>
+        <h2>CISA puts a number on the water campaign &mdash; more than 100 internet-exposed systems targeted in July</h2>
+        <p>Publishing exposure-reduction guidance on 26&nbsp;August, CISA said for the first time how large July&rsquo;s water-sector wave actually was: malicious activity against more than 100 internet-exposed systems in the Water and Wastewater Systems sector, commonly programmable logic controllers wired straight into a cellular modem. At least a dozen states were touched, and CISA records no significant disruption to water service. The government links the activity to Iranian actors and says it was aimed at operational technology rather than data. What makes this the week&rsquo;s most useful item for OT defenders is not the number but the admission behind it: the exposure that enabled it was never in anybody&rsquo;s asset register. The guidance is written for every sector &mdash; identify what is internet-accessible using external scanning as well as internal inventories, then remove what operations do not require.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by the company &mdash; incident identified 25 Aug 2026, disclosed 26 Aug 2026, described as a global disruption to operations including order processing and shipping. Attacker, initial access and any OT impact are all unconfirmed</span>
-            <span class="ops-tag kev-off">No CVE identified &mdash; no vulnerability has been named publicly and no exploitation vector has been disclosed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by CISA &mdash; the agency states it observed malicious activity in July 2026 against more than 100 internet-exposed systems in the water and wastewater sector, commonly PLCs connected directly to a cellular modem. The Iran linkage is the US government&rsquo;s assessment; CISA has still not formally attributed the PLC manipulation</span>
+            <span class="ops-tag kev-off">No CVE &mdash; internet-reachable controllers and default credentials, not a product flaw</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; this is a response-and-recovery problem, not a patching one</span>
-            <span class="ops-cc"><b>Action:</b> Run the question this incident asks of every manufacturer: if order management, the warehouse system and shipping went offline this afternoon, how long could the plant keep producing and dispatching? Most sites discover the answer is hours, because pick lists, labels, lot genealogy and carrier manifests all live upstream. Write down the manual fallback for each of those four functions, name who executes it, and check the last time it was rehearsed &mdash; not the last time it was documented. Then confirm the boundary that decides whether an IT-side incident becomes a production one: whether plant historians, MES and the ERP interface can be cleanly severed without stopping control, and whether anyone has actually tried it.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; this is attack-surface reduction, and CISA has now published the method it wants you to use</span>
+            <span class="ops-cc"><b>Action:</b> Do the half of this that most OT programmes skip: scan yourself from the outside. Internal inventories systematically miss the field sites, because the cellular router at a pump station was provisioned by an integrator and billed to operations. Pull your public IP ranges and your carrier&rsquo;s SIM list, run an external scan against both, and compare the result to your asset register &mdash; the gap is your real attack surface. For every ICS device that answers, the decision is binary and belongs to an engineer, not to IT: does an operational function actually require this to be reachable? If not, remove the exposure this month. If yes, put it behind a brokered gateway with MFA and an allow-list, change the default password, and set a calendar reminder to re-run the scan quarterly, because exposure comes back every time a contractor commissions a new site.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> ERP/MES loss-of-availability tabletop and manual-dispatch rehearsal &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="bsx" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="bsx">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> External attack-surface scan of OT and remote field assets &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisaexp" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="cisaexp">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Boston Scientific statement &mdash; reported by BleepingComputer, Cybersecurity Dive, TechCrunch and CBS News</span>
+          <span>CISA Exposure Reduction guidance &mdash; corroborated by SecurityWeek, TechCrunch and The Register</span>
           <span class="dot">&bull;</span>
-          <span>Detected 25 Aug 2026; disclosed and verified 26 Aug 2026</span>
+          <span>Guidance published and reported 26 Aug 2026; observed activity July 2026; re-verified 27 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/boston-scientific-says-cyberattack-disrupted-operations-globally/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/resources-tools/resources/exposure-reduction" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -738,41 +738,37 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-bsx"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.7">1</text></a>
-        <a href="#story-waterot"><circle class="blip crit" cx="234.6" cy="114.9" r="14.4"/><text class="blip-num" style="font-size:13.0px" x="234.6" y="119.4">2</text></a>
-        <a href="#story-ukgen"><circle class="blip crit" cx="263.7" cy="165.2" r="13.8"/><text class="blip-num" style="font-size:12.5px" x="263.7" y="169.5">3</text></a>
-        <a href="#story-poland"><circle class="blip crit" cx="253.6" cy="222.5" r="13.3"/><text class="blip-num" style="font-size:11.9px" x="253.6" y="226.6">4</text></a>
-        <a href="#story-doj"><circle class="blip crit" cx="209.1" cy="259.9" r="12.7"/><text class="blip-num" style="font-size:11.4px" x="209.1" y="263.8">5</text></a>
-        <a href="#story-irancampaign"><circle class="blip crit" cx="150.9" cy="259.9" r="12.1"/><text class="blip-num" style="font-size:10.9px" x="150.9" y="263.6">6</text></a>
-        <a href="#story-iot2050"><circle class="blip crit" cx="106.4" cy="222.5" r="11.6"/><text class="blip-num" style="font-size:10.4px" x="106.4" y="226.1">7</text></a>
-        <a href="#story-ebyte"><circle class="blip crit" cx="96.3" cy="165.2" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="96.3" y="168.6">8</text></a>
-        <a href="#story-ikekev"><circle class="blip crit" cx="125.4" cy="114.9" r="10.4"/><text class="blip-num" style="font-size:9.4px" x="125.4" y="118.1">9</text></a>
-        <a href="#story-cisaexp"><circle class="blip high" cx="180.0" cy="45.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="180.0" y="47.8">10</text></a>
-        <a href="#story-dataio"><circle class="blip high" cx="285.5" cy="95.8" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="285.5" y="98.5">11</text></a>
-        <a href="#story-forescoutwater"><circle class="blip high" cx="311.6" cy="210.0" r="8.3"/><text class="blip-num" style="font-size:7.5px" x="311.6" y="212.6">12</text></a>
-        <a href="#story-twosocs"><circle class="blip high" cx="238.6" cy="301.6" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="238.6" y="304.1">13</text></a>
-        <a href="#story-dragosq2"><circle class="blip high" cx="121.4" cy="301.6" r="7.7"/><text class="blip-num" style="font-size:6.9px" x="121.4" y="304.0">14</text></a>
-        <a href="#story-gitea"><circle class="blip high" cx="48.4" cy="210.0" r="7.3"/><text class="blip-num" style="font-size:6.6px" x="48.4" y="212.3">15</text></a>
-        <a href="#story-airwall"><circle class="blip high" cx="74.5" cy="95.8" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="74.5" y="98.0">16</text></a>
+        <a href="#story-cisaexp"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.7">1</text></a>
+        <a href="#story-waterot"><circle class="blip crit" cx="230.0" cy="111.2" r="14.5"/><text class="blip-num" style="font-size:13.1px" x="230.0" y="115.7">2</text></a>
+        <a href="#story-ukgen"><circle class="blip crit" cx="260.8" cy="153.7" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="260.8" y="158.0">3</text></a>
+        <a href="#story-bsx"><circle class="blip crit" cx="260.8" cy="206.3" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="260.8" y="210.5">4</text></a>
+        <a href="#story-doj"><circle class="blip crit" cx="230.0" cy="248.8" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="230.0" y="252.8">5</text></a>
+        <a href="#story-irancampaign"><circle class="blip crit" cx="180.0" cy="265.0" r="12.5"/><text class="blip-num" style="font-size:11.3px" x="180.0" y="268.9">6</text></a>
+        <a href="#story-citrix"><circle class="blip crit" cx="130.0" cy="248.8" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="130.0" y="252.5">7</text></a>
+        <a href="#story-iot2050"><circle class="blip crit" cx="99.2" cy="206.3" r="11.5"/><text class="blip-num" style="font-size:10.4px" x="99.2" y="209.9">8</text></a>
+        <a href="#story-ebyte"><circle class="blip crit" cx="99.2" cy="153.7" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="99.2" y="157.1">9</text></a>
+        <a href="#story-ikekev"><circle class="blip crit" cx="130.0" cy="111.2" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="130.0" y="114.5">10</text></a>
+        <a href="#story-forescoutwater"><circle class="blip high" cx="180.0" cy="45.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="180.0" y="47.7">11</text></a>
+        <a href="#story-twosocs"><circle class="blip high" cx="315.0" cy="180.0" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="315.0" y="182.6">12</text></a>
+        <a href="#story-dragosq2"><circle class="blip high" cx="180.0" cy="315.0" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="180.0" y="317.4">13</text></a>
+        <a href="#story-airwall"><circle class="blip high" cx="45.0" cy="180.0" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="45.0" y="182.3">14</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-bsx"><span class="ld crit"></span><b>1</b> Boston Scientific global disruption</a>
+        <a href="#story-cisaexp"><span class="ld crit"></span><b>1</b> CISA: 100+ exposed water systems hit</a>
         <a href="#story-waterot"><span class="ld crit"></span><b>2</b> S7 PLCs declared an active target</a>
         <a href="#story-ukgen"><span class="ld crit"></span><b>3</b> DESNZ confirms attack on UK generator</a>
-        <a href="#story-poland"><span class="ld crit"></span><b>4</b> Private-APN pivot stopped a turbine</a>
+        <a href="#story-bsx"><span class="ld crit"></span><b>4</b> Boston Scientific global disruption</a>
         <a href="#story-doj"><span class="ld crit"></span><b>5</b> DOJ seizes PRC IoT relay network</a>
         <a href="#story-irancampaign"><span class="ld crit"></span><b>6</b> Iran network sanctioned over US infrastructure</a>
-        <a href="#story-iot2050"><span class="ld crit"></span><b>7</b> CVSS 10.0 Siemens edge gateway, no auth</a>
-        <a href="#story-ebyte"><span class="ld crit"></span><b>8</b> Serial gateway admin with no login, no patch</a>
-        <a href="#story-ikekev"><span class="ld crit"></span><b>9</b> Windows IKE VPN pre-auth RCE in KEV</a>
-        <a href="#story-cisaexp"><span class="ld high"></span><b>10</b> CISA: 100+ exposed water systems hit</a>
-        <a href="#story-dataio"><span class="ld high"></span><b>11</b> Ransomware halts chip-programming maker</a>
-        <a href="#story-forescoutwater"><span class="ld high"></span><b>12</b> 4,407 controllers answering from the internet</a>
-        <a href="#story-twosocs"><span class="ld high"></span><b>13</b> CISA red team: one SOC caught it, one did not</a>
-        <a href="#story-dragosq2"><span class="ld high"></span><b>14</b> 1,140 industrial ransomware victims in Q2</a>
-        <a href="#story-gitea"><span class="ld high"></span><b>15</b> Gitea RCE in KEV &mdash; engineering source control</a>
-        <a href="#story-airwall"><span class="ld high"></span><b>16</b> Hard-coded key in an OT remote-access product</a>
+        <a href="#story-citrix"><span class="ld crit"></span><b>7</b> NetScaler pre-auth RCE exploited in the wild</a>
+        <a href="#story-iot2050"><span class="ld crit"></span><b>8</b> CVSS 10.0 Siemens edge gateway, no auth</a>
+        <a href="#story-ebyte"><span class="ld crit"></span><b>9</b> Serial gateway admin with no login, no patch</a>
+        <a href="#story-ikekev"><span class="ld crit"></span><b>10</b> Windows IKE VPN pre-auth RCE in KEV</a>
+        <a href="#story-forescoutwater"><span class="ld high"></span><b>11</b> 4,407 controllers answering from the internet</a>
+        <a href="#story-twosocs"><span class="ld high"></span><b>12</b> CISA red team: one SOC caught it, one did not</a>
+        <a href="#story-dragosq2"><span class="ld high"></span><b>13</b> 1,140 industrial ransomware victims in Q2</a>
+        <a href="#story-airwall"><span class="ld high"></span><b>14</b> Hard-coded key in an OT remote-access product</a>
       </div>
     </div>
 
@@ -784,34 +780,34 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
-        <span class="trend-tag">AI Threats</span>
-        <b class="trend-head">The AI-exploit argument has moved from &ldquo;is it real&rdquo; to &ldquo;what does it actually change&rdquo;</b>
-        <p>A week on from AA26-231A, the practitioner reaction to AI-generated snap7 tooling aimed at Siemens S7 PLCs remains unimpressed by the novelty: the scripts automate work an experienced ICS engineer could already do, so what shifts is the number of people who can do it, not the ceiling of what is possible. The counter being pressed &mdash; and reinforced by the scan-then-generate workflow the agencies described, with Censys and ZoomEye target lists feeding script generation &mdash; is that a lower skill floor plus ready-made target lists is precisely how opportunistic actors find the controllers nobody knew were exposed. Forescout&rsquo;s scan data lands on the same side of the argument: the water-sector attacks it examined were opportunistic exploitation at scale against a nine-year-old unpatched flaw, not craftsmanship. The defensive half of the conversation is moving far more slowly, and the honest summary for most operators is that AI has not yet changed what an attacker can do to a PLC &mdash; it has changed how many of them will try.</p>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">CISA AA26-231A</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Detection</span>
-        <b class="trend-head">CISA just published the reason intrusions go unnoticed, and it is not the tooling</b>
-        <p>AA26-237A landed on 25&nbsp;August with an unusually blunt comparison: two red-team assessments, similar tradecraft, one water utility that spotted and quarantined the intrusion and one government organisation that missed a full domain compromise. What is being passed around is the diagnosis rather than the scoreboard &mdash; alert queues stuffed with high-severity false positives from ordinary business activity, two monitoring teams with no shared view, analysts without the authority to isolate anything, and a real alert dismissed because nobody could identify who owned the server. Every one of those is familiar in OT, where the engineering workstation with no named owner is a genre.</p>
-        <a href="https://cyberscoop.com/cisa-red-team-report-government-water-cybersecurity/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
-      </div>
-      <div class="trend">
         <span class="trend-tag">Remote Access</span>
         <b class="trend-head">The exposure argument now has an official number attached to it</b>
-        <p>CISA&rsquo;s exposure-reduction guidance on 26&nbsp;August did something the sector had been asking for since July: it said how big the water campaign actually was &mdash; more than 100 internet-exposed systems targeted, commonly PLCs connected directly to a cellular modem. That lands on top of Forescout&rsquo;s count of 4,407 controllers answering on EtherNet/IP from the public internet, roughly 70% of the US ones reaching it through mobile-carrier networks. The conversation has shifted accordingly, from whether the exposure is real to who owns it: the connectivity at unstaffed pump stations, lift stations and remote substations was provisioned by an integrator, billed to operations and inventoried by nobody. CERT&nbsp;Polska&rsquo;s private-APN case sharpened the same point from the carrier side. The practical advice being repeated this week is unglamorous and specific &mdash; scan yourself from the outside, because your internal inventory will not show you the sites that matter.</p>
+        <p>CISA&rsquo;s exposure-reduction guidance on 26&nbsp;August did the thing the sector had been asking for since July: it said how big the water campaign actually was &mdash; more than 100 internet-exposed systems targeted, commonly PLCs connected directly to a cellular modem. That lands on top of Forescout&rsquo;s count of 4,407 controllers answering on EtherNet/IP from the public internet, roughly 70% of the US ones reaching it through mobile-carrier networks. The conversation has shifted accordingly, from whether the exposure is real to who owns it: the connectivity at unstaffed pump stations, lift stations and remote substations was provisioned by an integrator, billed to operations and inventoried by nobody. The practical advice being repeated this week is unglamorous and specific &mdash; scan yourself from the outside, because your internal inventory will not show you the sites that matter.</p>
         <a href="https://www.cisa.gov/resources-tools/resources/exposure-reduction" class="source-link" target="_blank" rel="noopener">CISA exposure-reduction guidance</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Tradecraft</span>
-        <b class="trend-head">Ransomware and IT-side outages still stop production without going near the control system</b>
-        <p>Boston Scientific&rsquo;s disclosure this week &mdash; a global disruption to order processing and shipping at a manufacturer with 13 plants and no confirmed control-system impact &mdash; landed on top of an argument that had already hardened. Dragos&rsquo; Q2 count of 1,140 industrial ransomware victims, up 12% on Q1 with manufacturing 65% of them and no confirmed case of hands-on control manipulation, points the same way: disruption arrives through the layers around the process. Data I/O&rsquo;s SEC filing this month put it in concrete supplier terms, with shipping, manufacturing and production down and no restoration timeline. The read being passed around is that ERP, MES and virtualisation recovery drills, timed and actually run, buy more availability than another round of PLC hardening.</p>
-        <a href="https://www.cybersecuritydive.com/news/boston-scientific-cyberattack-disrupted-order-processing-shipping/828816/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive</a>
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">The AI-exploit argument has moved from &ldquo;is it real&rdquo; to &ldquo;what does it actually change&rdquo;</b>
+        <p>A week on from AA26-231A, the practitioner reaction to AI-generated snap7 tooling aimed at Siemens S7 PLCs remains unimpressed by the novelty: the scripts automate work an experienced ICS engineer could already do, so what shifts is the number of people who can do it, not the ceiling of what is possible. The counter being pressed &mdash; and reinforced by the scan-then-generate workflow the agencies described, with Censys and ZoomEye target lists feeding script generation &mdash; is that a lower skill floor plus ready-made target lists is precisely how opportunistic actors find the controllers nobody knew were exposed. The defensive half of the conversation is moving far more slowly, and the honest summary for most operators is that AI has not yet changed what an attacker can do to a PLC &mdash; it has changed how many of them will try.</p>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" class="source-link" target="_blank" rel="noopener">CISA AA26-231A</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Market</span>
+        <b class="trend-head">The independent OT security vendor is becoming an endangered species</b>
+        <p>Accenture&rsquo;s roughly $4.2&nbsp;billion move &mdash; a majority stake in Dragos plus outright purchases of runZero and NetRise, together carrying about $208&nbsp;million in annual recurring revenue &mdash; is expected to close across August and September, and the sector is still arguing about what it means. It follows Mitsubishi Electric taking full ownership of Nozomi Networks in January, which leaves two of the three names most operators shortlist now sitting inside a much larger parent. The optimistic read is scale. The worry being voiced by practitioners is vendor neutrality, since an OT monitoring platform earns trust precisely by being indifferent to whose PLCs it watches, and by consulting arms not steering findings toward their own remediation services. The practical advice circulating is unromantic: if you are mid-procurement or mid-renewal, get the neutrality and roadmap commitments written into the contract now.</p>
+        <a href="https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk" class="source-link" target="_blank" rel="noopener">Accenture</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Detection</span>
+        <b class="trend-head">&ldquo;A Tale of Two SOCs&rdquo; has become the week&rsquo;s most-shared argument about alert fatigue</b>
+        <p>CISA&rsquo;s 25&nbsp;August advisory ran comparable red-team tradecraft against a government body and a water utility and published both outcomes. The water sector&rsquo;s SOC triaged and quarantined affected workstations in two, ten and twenty minutes. The government organisation detected none of a full domain compromise and subsequent movement into cloud resources &mdash; not because the alerts were absent, but because thousands of higher-severity false positives from routine business activity buried them, and analysts had neither escalation procedures nor the authority to act. The reading being passed around OT circles is that tuning and delegated authority, not another sensor, are what separated the two, and that the smaller, less-funded operator won on process. It is a rare piece of published evidence that defensible detection is affordable.</p>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a" class="source-link" target="_blank" rel="noopener">CISA AA26-237A</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Regulation</span>
-        <b class="trend-head">Incidents are writing the rules, and the reporting clocks keep getting shorter</b>
-        <p>Three threads are being discussed together. The multi-state water campaign produced draft US legislation within a fortnight &mdash; tiered EPA standards, corrective-action authority and $300&nbsp;million a year in State Revolving Fund cyber money &mdash; while the UK generator taken offline for four days has DESNZ rewriting energy-sector rules for assets that sat below the reporting threshold. In Europe the Dutch NIS2 law took effect on 15&nbsp;August with no transition period, and the UK&rsquo;s Cyber Security and Resilience Bill is in its final stages carrying a 24-hour initial notification duty. The common thread defenders keep flagging is not the standards themselves but the clocks: OT incident processes built around days are being asked to produce a defensible filing in hours.</p>
-        <a href="https://www.wwdmag.com/utility-management/news/55397503/water-cyber-shield-act-targets-cybersecurity-gaps-in-water-sector" class="source-link" target="_blank" rel="noopener">Wastewater Digest</a>
+        <b class="trend-head">Incidents are writing the rules, and the asks are getting more specific</b>
+        <p>Three threads are being discussed together. The multi-state water campaign produced draft US legislation within a fortnight, and the OT Cyber Coalition has followed it with concrete asks &mdash; a Binding Operational Directive covering the control systems federal agencies already own, reauthorisation of the State and Local Cybersecurity Grant Program, and extension of the Cybersecurity Information Sharing Act. Separately, the Quantum-GUARD Act introduced on 18&nbsp;August would pull post-quantum migration of grid IT and OT onto FERC&rsquo;s agenda. In the UK, the generator taken offline for four days has DESNZ rewriting energy-sector rules for assets that sat below the reporting threshold. The common thread defenders keep flagging is not the standards themselves but the clocks: OT incident processes built around days are being asked to produce a defensible filing in hours.</p>
+        <a href="https://www.cybersecuritydive.com/news/ot-security-coalition-congress-cisa-reforms-water/826791/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive</a>
       </div>
     </div>
   </div>
@@ -823,36 +819,35 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="story-doj" data-published="2026-08-26">
+      <div class="card" id="story-bsx" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Enforcement &mdash; PRC intrusion infrastructure</span>
+          <span class="category">Confirmed incident &mdash; Medical device manufacturing</span>
         </div>
-        <h3>US seizes the Chinese state-sponsored scanning and relay network built out of other people&rsquo;s IoT devices</h3>
-        <p>The Justice Department and FBI announced on 26&nbsp;August that they had seized the domains behind QScan and QTRouter, two linked platforms operated by a PRC state-sponsored group DOJ tracks as QTFY and ties to a Nanjing technology company. QScan automatically scans for and infects internet-facing IoT devices worldwide; QTRouter then enrols those devices, alongside commercial proxy services and leased virtual private servers, into a network that hides the Chinese origin of intrusions. DOJ says the service was sold on to customers including China&rsquo;s Ministry of State Security and the People&rsquo;s Liberation Army. Named victims include NASA, the Federal Reserve, the Department of Energy, HHS and the US Senate, with power companies, hospitals, telecoms and defence contractors among private targets. Because the seized domains were hard-coded into both malware families, the takedown rendered them inoperable. For OT operators the uncomfortable part is the raw material rather than the target list: the cameras, cellular gateways and routers sitting unmanaged at remote sites are exactly what this infrastructure is built from.</p>
+        <h3>Boston Scientific says a cyberattack is causing a global disruption &mdash; orders and shipments are the casualty</h3>
+        <p>One of the world&rsquo;s largest medical device manufacturers confirmed on 26&nbsp;August, in a statement and an SEC filing, that an attack detected the previous day is disrupting operations worldwide &mdash; specifically a network outage affecting access to certain operating systems and business applications, including its ability to process and ship customer orders. Boston Scientific runs 13 manufacturing sites, employs roughly 59,000 people and sells into 127 countries, so the blast radius reaches hospitals waiting on pacemakers, defibrillators and catheters. The company has activated incident response and engaged outside investigators, but has not named an attacker or entry route, said whether data was taken, or given a restoration date. Nothing has been confirmed about plant-floor control systems. That distinction is the lesson rather than a reassurance: order management, warehouse and shipping systems sit outside most OT programmes, yet losing them stops product moving just as effectively as stopping a line.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; court-authorised domain seizures announced by the Justice Department and FBI on 26 Aug 2026, with named federal victims. The activity is intrusion and obfuscation infrastructure; no OT process disruption is attributed to these platforms</span>
-            <span class="ops-tag kev-off">No CVE &mdash; the platforms exploit weak and default-configured internet-facing IoT at scale rather than one product flaw</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by the company &mdash; incident identified 25 Aug 2026, disclosed 26 Aug 2026 in a statement and an SEC filing, described as a global disruption to operations including order processing and shipping. Attacker, initial access and any OT impact are all unconfirmed</span>
+            <span class="ops-tag kev-off">No CVE identified &mdash; no vulnerability has been named publicly and no exploitation vector has been disclosed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; a takedown removes infrastructure, not your exposure; the scanning behaviour will reappear elsewhere</span>
-            <span class="ops-cc"><b>Action:</b> The device this campaign wants is one you have and do not think about: the camera at the gate, the cellular gateway at a remote pump station, the router in a substation cabinet, the environmental sensor a contractor installed. Pull a list of every internet-reachable device at your unstaffed sites &mdash; from your carrier&rsquo;s SIM inventory and your public IP ranges, not just your CMDB &mdash; and for each one confirm the default credentials are gone, the management interface is not exposed, and the firmware is supported. Then add the detection that matters more than the takedown: alert on unexpected outbound connections from field devices. A substation router that starts relaying traffic to strangers is the tell, and it looks like nothing in a firewall log nobody reads.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; this is a response-and-recovery problem, not a patching one</span>
+            <span class="ops-cc"><b>Action:</b> Run the question this incident asks of every manufacturer: if order management, the warehouse system and shipping went offline this afternoon, how long could the plant keep producing and dispatching? Most sites discover the answer is hours, because pick lists, labels, lot genealogy and carrier manifests all live upstream. Write down the manual fallback for each of those four functions, name who executes it, and check the last time it was rehearsed &mdash; not the last time it was documented. Then confirm the boundary that decides whether an IT-side incident becomes a production one: whether plant historians, MES and the ERP interface can be cleanly severed without stopping control, and whether anyone has actually tried it.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing field-device inventory and credential sweep &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="doj" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="doj">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> ERP/MES loss-of-availability tabletop and manual-dispatch rehearsal &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="bsx" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="bsx">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Department of Justice press release and court documents &mdash; corroborated by CNBC and ITPro</span>
+          <span>Boston Scientific statement and SEC filing &mdash; reported by BleepingComputer, Cybersecurity Dive, TechCrunch, The Register and CBS News</span>
           <span class="dot">&bull;</span>
-          <span>Announced 26 Aug 2026; verified against the DOJ release the same day</span>
+          <span>Detected 25 Aug 2026; disclosed 26 Aug 2026; re-verified 27 Aug 2026</span>
         </div>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/boston-scientific-says-cyberattack-disrupted-operations-globally/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
 
       <div class="card" id="story-waterot" data-published="2026-08-19">
         <div class="card-header">
@@ -914,34 +909,34 @@
         <a href="https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-poland" data-published="2026-08-11">
+      <div class="card" id="story-doj" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Incident &mdash; Confirmed OT disruption</span>
+          <span class="category">Enforcement &mdash; PRC intrusion infrastructure</span>
         </div>
-        <h3>CERT Polska: an attacker crossed a shared private cellular network from a wind farm into a heating plant and stopped its turbine</h3>
-        <p>After an investigation running more than three months, CERT&nbsp;Polska disclosed on 8&nbsp;August what it assesses to be the first real-world case of an attacker reaching an OT network through a private APN. The intrusion began at a wind farm&rsquo;s edge, moved onto a cellular router, and crossed a distribution system operator&rsquo;s private access point name &mdash; a dedicated mobile network the DSO had provisioned with a carrier &mdash; into a controller at an entirely unrelated combined heat and power plant. The APN was configured to let arbitrary devices on it talk to one another, so what everyone involved treated as a segmentation boundary behaved as a flat shared LAN. At the CHP plant the attacker stopped a steam turbine and the water treatment system that produces process water, interrupting cogeneration at a facility supplying heat to roughly 50,000&nbsp;residents. The incident itself occurred on 29&nbsp;December&nbsp;2025; the disclosure and the technical detail are new this month, and the design pattern it breaks is one agencies have actively recommended.</p>
+        <h3>US seizes the Chinese state-sponsored scanning and relay network built out of other people&rsquo;s IoT devices</h3>
+        <p>The Justice Department and FBI announced on 26&nbsp;August that they had seized the domains behind QScan and QTRouter, two linked platforms operated by a PRC state-sponsored group DOJ tracks as QTFY and ties to a Nanjing technology company. QScan automatically scans for and infects internet-facing IoT devices worldwide; QTRouter then enrols those devices, alongside commercial proxy services and leased virtual private servers, into a network that hides the Chinese origin of intrusions. DOJ says the service was sold on to customers including China&rsquo;s Ministry of State Security and the People&rsquo;s Liberation Army. Named victims include NASA, the Federal Reserve, the Department of Energy, HHS and the US Senate, with power companies, hospitals, telecoms and defence contractors among private targets. Because the seized domains were hard-coded into both malware families, the takedown rendered them inoperable. For OT operators the uncomfortable part is the raw material rather than the target list: the cameras, cellular gateways and routers sitting unmanaged at remote sites are exactly what this infrastructure is built from.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed OT disruption by the national CERT &mdash; steam turbine and water treatment stopped, cogeneration interrupted. Incident occurred 29 Dec 2025; disclosed 8 Aug 2026 after a three-month investigation. Attribution not published</span>
-            <span class="ops-tag kev-off">No CVE &mdash; the vector is a carrier network configuration, not a product flaw</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; court-authorised domain seizures announced by the Justice Department and FBI on 26 Aug 2026, with named federal victims. The activity is intrusion and obfuscation infrastructure; no OT process disruption is attributed to these platforms</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the platforms exploit weak and default-configured internet-facing IoT at scale rather than one product flaw</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; ask your mobile carrier whether device-to-device traffic on your APN is isolated</span>
-            <span class="ops-cc"><b>Action:</b> If you use a private APN, a carrier VPN or a shared M2M plan to reach remote assets &mdash; wind, solar, hydro, pump stations, lift stations, district energy, remote substations &mdash; put one question to your carrier in writing this week: is device-to-device communication on our APN blocked by default, and can you evidence it? Then treat the APN as untrusted regardless of the answer: terminate it on a firewall you control, apply an explicit allow-list from each remote site to only the SCADA endpoints it needs, and log what crosses. Where a DSO or third party provisioned the APN on your behalf, get the isolation setting confirmed by the party that owns the contract, not the party that installed the router.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; a takedown removes infrastructure, not your exposure; the scanning behaviour will reappear elsewhere</span>
+            <span class="ops-cc"><b>Action:</b> The device this campaign wants is one you have and do not think about: the camera at the gate, the cellular gateway at a remote pump station, the router in a substation cabinet, the environmental sensor a contractor installed. Pull a list of every internet-reachable device at your unstaffed sites &mdash; from your carrier&rsquo;s SIM inventory and your public IP ranges, not just your CMDB &mdash; and for each one confirm the default credentials are gone, the management interface is not exposed, and the firmware is supported. Then add the detection that matters more than the takedown: alert on unexpected outbound connections from field devices. A substation router that starts relaying traffic to strangers is the tell, and it looks like nothing in a firewall log nobody reads.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Carrier APN isolation confirmation &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="poland" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="poland">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing field-device inventory and credential sweep &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="doj" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="doj">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CERT Polska incident follow-up report &mdash; via Help Net Security, BleepingComputer, SecurityWeek and The Hacker News</span>
+          <span>US Department of Justice press release and court documents &mdash; corroborated by CNBC and ITPro</span>
           <span class="dot">&bull;</span>
-          <span>Incident 29 Dec 2025; CERT Polska disclosure 8 Aug 2026; press analysis 11 Aug 2026; re-verified 26 Aug 2026</span>
+          <span>Announced 26 Aug 2026; verified against the DOJ release the same day</span>
         </div>
-        <a href="https://www.helpnetsecurity.com/2026/08/11/poland-energy-sector-cyberattack-heating-plant-private-apn/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-irancampaign" data-published="2026-08-25">
@@ -974,75 +969,15 @@
         <a href="https://therecord.media/iran-cyberattacks-us-uk" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-dataio" data-published="2026-08-21">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Manufacturing supply chain</span>
-        </div>
-        <h3>Ransomware stops shipping and production at Data I/O &mdash; the firm that programmes the chips going into your equipment</h3>
-        <p>Data I/O, a Washington-state maker of device-programming systems used to load firmware onto integrated circuits, flash memory and microcontrollers, detected ransomware on its IT systems on 16&nbsp;August and disclosed the incident in an SEC 8-K filing on 21&nbsp;August. The company reported outages across shipping, manufacturing, production and support, brought in external incident responders, and said it could not give a timeline for full restoration or rule out data exfiltration; remediation costs are described as reasonably likely to be material. Its customer list runs through the automotive and industrial electronics supply chain, and more than 65% of recent revenue came from automotive electronics production. No ransomware group has publicly claimed the attack, and there is no indication that any customer&rsquo;s control systems were touched. The OT lesson is second-order and familiar: a vendor deep in your parts pipeline going dark stops your line just as effectively as malware on your own network, and the firmware images and device configurations that vendor holds are themselves a supply-chain asset.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by the victim in an SEC 8-K filing &mdash; intrusion detected 16 Aug 2026, disclosed 21 Aug 2026. Shipping, manufacturing, production and support functions affected; possible data exfiltration; no group has claimed it</span>
-            <span class="ops-tag kev-off">No CVE &mdash; initial access vector not disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; this is third-party operational dependency risk</span>
-            <span class="ops-cc"><b>Action:</b> Spend an hour on a list you probably do not have: which suppliers, if they went dark for three weeks, would stop your production? Programming, test, calibration and provisioning vendors belong on it alongside the obvious raw-material suppliers. For each one, confirm you hold your own copies of the device images, configuration files and programming recipes they manage on your behalf, stored offline and outside their tenancy. Then put a cyber-incident notification clause and a stated recovery expectation into the next contract renewal &mdash; most OT supply agreements still say nothing at all about ransomware, and you will negotiate far better terms now than during an outage.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Critical-supplier dependency and firmware-image escrow review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="dataio" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="dataio">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Data I/O SEC Form 8-K filing &mdash; reported via SecurityWeek, The Record and Dark Reading</span>
-          <span class="dot">&bull;</span>
-          <span>Ransomware detected 16 Aug 2026; SEC 8-K filed and reported 21 Aug 2026; re-verified 26 Aug 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/chip-programming-firm-data-i-o-hit-by-ransomware/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       </div>
-  </div>
-
 
   <!-- SECTION: Threat Intelligence &amp; Research -->
 
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-
-      <div class="card" id="story-cisaexp" data-published="2026-08-26">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Agency guidance &mdash; Internet exposure</span>
-        </div>
-        <h3>CISA finally puts a number on the water campaign &mdash; more than 100 internet-exposed systems targeted in July</h3>
-        <p>Publishing new exposure-reduction guidance on 26&nbsp;August, CISA quantified the July wave against the water sector for the first time: it observed malicious activity aimed at more than 100 internet-exposed systems in the Water and Wastewater Systems sector, commonly programmable logic controllers wired straight into a cellular modem. Until now no federal agency had said publicly how many systems were touched. The activity, linked to Iranian actors and directed at OT rather than data, spans at least a dozen states &mdash; Minnesota, Michigan, South Dakota, Georgia, New Jersey and Alabama have confirmed being targeted &mdash; and CISA says it caused no significant disruption to water service. The guidance itself is written for every sector, not just water. Identify what is internet-accessible using internal inventories <em>and</em> external scanning, decide which of those exposures operations genuinely require, and remove the rest; for whatever must stay online, change default passwords, patch, route remote access through a secure gateway or jump host, enforce MFA and monitor the traffic. It calls out PLCs and other ICS reachable through cellular modems as the specific exposure that enabled the attacks, and asks operators to reassess as networks and third-party connections change.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by CISA &mdash; the agency states it observed malicious activity in July 2026 against over 100 internet-exposed systems in the water and wastewater sector, commonly PLCs connected directly to a cellular modem. The Iran linkage is the government&rsquo;s assessment; CISA has still not formally attributed the PLC manipulation</span>
-            <span class="ops-tag kev-off">No CVE &mdash; internet-reachable controllers and default credentials, not a product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; this is attack-surface reduction, and CISA has now published the method it wants you to use</span>
-            <span class="ops-cc"><b>Action:</b> Do the half of this that most OT programmes skip: scan yourself from the outside. Internal inventories systematically miss the field sites, because the cellular router at a pump station was provisioned by an integrator and billed to operations. Pull your public IP ranges and your carrier&rsquo;s SIM list, run an external scan against both, and compare the result to your asset register &mdash; the gap is your real attack surface. For every ICS device that answers, the decision is binary and belongs to an engineer, not to IT: does an operational function actually require this to be reachable? If not, remove the exposure this month. If yes, put it behind a brokered gateway with MFA and an allow-list, change the default password, and set a calendar reminder to re-run the scan quarterly, because exposure comes back every time a contractor commissions a new site.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External attack-surface scan of OT and remote field assets &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisaexp" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="cisaexp">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA Exposure Reduction guidance &mdash; reported by SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Guidance published and reported 26 Aug 2026; observed activity July 2026; verified 27 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/resources-tools/resources/exposure-reduction" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
       <div class="card" id="story-twosocs" data-published="2026-08-25">
         <div class="card-header">
@@ -1073,7 +1008,6 @@
         </div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
 
       <div class="card" id="story-forescoutwater" data-published="2026-08-06">
         <div class="card-header">
@@ -1136,8 +1070,8 @@
       </div>
 
       </div>
-  </div>
 
+      </div>
 
   <!-- SECTION: Critical Advisories -->
 
@@ -1205,6 +1139,36 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-06" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-citrix" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Remote access &mdash; Citrix NetScaler ADC / Gateway</span>
+        </div>
+        <h3>Two NetScaler flaws in a fortnight, one already exploited &mdash; the box most plants remote in through</h3>
+        <p>Citrix NetScaler has had a bad August, and it matters to OT because NetScaler Gateway is how a great many engineers, integrators and vendors reach plant networks. CVE-2026-8452 is a pre-authentication memory overflow in the handling of SAML authentication messages on Gateway and AAA virtual servers; watchTowr published proof-of-concept code demonstrating unauthenticated remote code execution on 14&nbsp;August, and the Canadian Centre for Cyber Security confirmed exploitation in the wild on 17&nbsp;August. Citrix scores it CVSS&nbsp;v4 8.8; NVD lists CVSS&nbsp;v3.1 9.8. Then on 19&nbsp;August Citrix disclosed CVE-2026-19490, a critical authentication bypass in NetScaler ADC and Gateway at CVSS&nbsp;v4 9.3, remotely reachable by an unauthenticated attacker with no user interaction. No in-the-wild exploitation of the second flaw has been confirmed yet, but the pattern this year has been days, not months, between disclosure and use.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploitation confirmed for CVE-2026-8452 &mdash; public PoC 14 Aug 2026, in-the-wild exploitation confirmed by the Canadian Centre for Cyber Security 17 Aug 2026. CVE-2026-19490 (auth bypass, CVSS v4 9.3): no confirmed exploitation reported as of this edition</span>
+            <span class="ops-tag kev-off">Not confirmed in CISA KEV as of this edition &mdash; check the catalogue for both CVEs before setting your internal deadline, and do not wait for a KEV entry given confirmed in-the-wild use</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor fixes available &mdash; Citrix has published patched builds for both issues</span>
+            <span class="ops-cc"><b>Action:</b> Treat this as an OT availability issue, not an IT patching chore. Identify every NetScaler that fronts remote access into a plant, substation or field network &mdash; including the ones a vendor or integrator uses rather than your own staff &mdash; and patch to the fixed build now; a pre-auth RCE on that appliance is a pre-auth foothold on your DMZ. Because CVE-2026-8452 has a public exploit, assume compromise until you have checked: terminate all active and persistent sessions after patching, rotate the credentials and any signing or SAML secrets that appliance held, and review authentication logs and shell history back to mid-August. Then close the design gap that makes these appliances so valuable: remote access into OT should land in a brokered jump environment with MFA, not on a route that reaches the control network directly.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch internet-facing NetScaler serving OT remote access, rotate secrets, kill sessions &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="citrix">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Citrix security bulletins and CCCS &mdash; reported by The Hacker News, Rapid7 and SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>PoC 14 Aug 2026; exploitation confirmed 17 Aug 2026; CVE-2026-19490 advisory 19 Aug 2026; verified 27 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/critical-netscaler-flaw-can-bypass.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-ikekev" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1265,41 +1229,9 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-
-
-      <div class="card" id="story-gitea" data-published="2026-08-25">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Engineering source control</span>
-        </div>
-        <h3>The Git server holding your PLC projects just went into KEV &mdash; Gitea is being exploited without a login</h3>
-        <p>CISA added CVE-2026-60004 to the Known Exploited Vulnerabilities catalog on 25&nbsp;August after confirming active exploitation of a code-injection flaw in the self-hosted Gitea platform. The bug lets an attacker abuse the <em>diffpatch</em> endpoint to plant and execute a Git hook from content they control in their own repository &mdash; and because Gitea ships with open registration enabled by default, an unauthenticated attacker can simply create an account, create a repository and take remote code execution on the server. Reported in-the-wild activity so far describes a self-hosted instance compromised and used to run crypto-mining software, which is the low end of what this access permits. Gitea has fixed it; 1.27.2 is current. Federal civilian agencies were ordered to remediate by 28&nbsp;August. This lands on an OT dashboard for one reason: self-hosted Gitea is common on engineering networks as the version-control system of record for PLC projects, HMI screens, DCS configuration and automation scripts. Code execution there is not an IT problem &mdash; it is write access to the logic your plant will load at the next changeout.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed by CISA via KEV addition on 25 Aug 2026; publicly reported in-the-wild compromise of a self-hosted instance delivering crypto-mining payload. No OT-specific victim has been named</span>
-            <span class="ops-tag kev-on">CVE-2026-60004 &mdash; code injection via the diffpatch endpoint. In CISA KEV as of 25 Aug 2026; federal remediation deadline 28 Aug 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed in Gitea 1.27.1, with 1.27.2 the current release</span>
-            <span class="ops-cc"><b>Action:</b> Find out whether you have one before you decide you do not. Self-hosted Gitea rarely appears in an OT asset inventory because it was stood up by an automation engineer or an integrator on a spare VM, so search for it: sweep the engineering and DMZ segments for HTTP services on 3000 and any host with a <code>gitea</code> service or user. For every instance, upgrade to 1.27.2, then turn off open registration &mdash; it is the reason this is unauthenticated &mdash; and audit accounts and repositories created in the last month. Assume compromise where it was internet-reachable: check for unexpected Git hooks, new SSH keys and outbound connections. Finally, settle the boundary question this raises &mdash; a server holding controller logic should not be reachable from the corporate network or the internet, and the person who owns it should have a name.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Locate and patch all Gitea instances, disable open registration &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="gitea" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="gitea">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA KEV catalog addition &mdash; corroborated by SecurityWeek, Help Net Security and The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Added to KEV 25 Aug 2026; verified 26 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       </div>
-  </div>
-
 
   <!-- SECTION: Regulation &amp; Policy -->
 
@@ -1337,44 +1269,105 @@
         <a href="https://www.wwdmag.com/utility-management/news/55397503/water-cyber-shield-act-targets-cybersecurity-gaps-in-water-sector" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-ukbill" data-published="2026-08-25">
+      <div class="card" id="story-qguard" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; United Kingdom</span>
+          <span class="category">Legislation &mdash; US bulk electric system</span>
         </div>
-        <h3>The UK&rsquo;s Cyber Security and Resilience Bill is in its final stages &mdash; and it brings a 24-hour reporting clock</h3>
-        <p>The UK Cyber Security and Resilience (Network and Information Systems) Bill has cleared the Commons and is in its final stages in the House of Lords as of late&nbsp;August. It updates the UK&rsquo;s critical-national-infrastructure cyber regime chiefly by amending the Network and Information Systems Regulations 2018. Data centres become classed as essential services and data infrastructure a NIS sector; managed service providers and data-centre operators are regulated for the first time; and a new category of &ldquo;designated critical suppliers&rdquo; captures firms that support essential services without being essential services themselves. On the energy side, entities managing the flow of electricity to smart appliances at 300&nbsp;MW or more of aggregate control are brought in as operators of essential services. The change most likely to bite OT teams is the reporting clock: an initial notification to both the regulator and the NCSC within 24&nbsp;hours, followed by a full report within 72&nbsp;hours. Read this alongside DESNZ&rsquo;s stated intent to update energy-sector rules after the generator attack.</p>
+        <h3>A Senate bill would put post-quantum migration on the grid&rsquo;s regulatory agenda</h3>
+        <p>Senators Chris Coons and Mike Rounds introduced the bipartisan Quantum-GUARD Act &mdash; the Quantum Grid Utility Assurance and Resilient Defense Act of 2026 &mdash; on 18&nbsp;August. It would direct FERC to take quantum-enabled cryptographic risk into account, stand up a Department of Energy test environment for post-quantum cryptography adoption, and commission a study of quantum-related vulnerabilities across the bulk electric power system, with explicit attention to migrating both IT and operational technology. The premise is the &ldquo;harvest now, decrypt later&rdquo; problem: NIST finalised its first post-quantum standards in 2024, and long-lived grid assets will still be in service when those standards matter. It is an introduced bill, not law, and the OT half is the hard half &mdash; protective relays, RTUs and control-centre links have replacement cycles measured in decades, and many cannot be re-keyed in the field at all.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Bill in final parliamentary stages as of 25 Aug 2026 &mdash; not yet law, and commencement dates will follow Royal Assent. Introduced 12 Nov 2025; Commons stages completed earlier in 2026</span>
-            <span class="ops-tag kev-off">No CVE &mdash; primary legislation amending the NIS Regulations 2018</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Legislative proposal &mdash; introduced in the US Senate 18 Aug 2026 by Senators Coons and Rounds. Not enacted; no compliance obligation exists today</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is cryptographic lifecycle policy, not a vulnerability</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; scope expansion and incident-reporting obligations</span>
-            <span class="ops-cc"><b>Action:</b> Run a dry test of the 24-hour clock before it becomes binding. Take a plausible OT incident &mdash; a controller behaving oddly at an unstaffed site on a Friday evening &mdash; and time how long it takes your organisation to decide it is reportable, assemble the minimum facts, get a sign-off and file. Most OT incident processes are built around days, not hours, and the delay is almost always decision authority rather than technical analysis. Separately, check whether the expanded scope catches you indirectly: if you supply, maintain or remotely manage systems for an essential service, the designated-critical-supplier category is aimed at you, and your customers will start passing obligations down through contracts.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the work here is inventory and procurement language</span>
+            <span class="ops-cc"><b>Action:</b> Do the cheap part now, because it is useful whether or not this bill passes. Build a one-page cryptographic inventory for your OT estate: where TLS, IPsec, SSH and code-signing are used across control-centre links, ICCP/inter-control-centre traffic, substation gateways, relay firmware updates and vendor remote access &mdash; and for each, note whether the algorithm is configurable in the field or baked into firmware. That second column is your actual migration problem. Then add a post-quantum readiness clause to the next procurement or refresh specification you write, since anything you buy in the next three years will still be running when this becomes a requirement. Do not spend money re-keying anything yet; standards for OT protocol profiles are not settled.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> 24-hour notification dry run &mdash; this quarter</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ukbill" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="ukbill">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Cryptographic inventory for OT plus PQC clause in next procurement spec &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="qguard" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="qguard">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>UK Parliament bill tracker and House of Commons Library research briefing</span>
+          <span>Senate sponsor release &mdash; reported by CyberScoop, Industrial Cyber and SC Media</span>
           <span class="dot">&bull;</span>
-          <span>Introduced 12 Nov 2025; Commons second reading 6 Jan 2026; committee stage Feb 2026; status verified 25&ndash;26 Aug 2026 &mdash; final Lords stages, not yet enacted</span>
+          <span>Introduced 18 Aug 2026; verified 27 Aug 2026</span>
         </div>
-        <a href="https://bills.parliament.uk/bills/4035" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cyberscoop.com/quantum-guard-act-electric-grid-cybersecurity/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-otcc" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy pressure &mdash; OT vendor coalition</span>
+        </div>
+        <h3>The OT vendor coalition is asking CISA for a binding directive on federal building and utility control systems</h3>
+        <p>The Operational Technology Cybersecurity Coalition, whose members are the OT security vendors most operators buy from, has pressed Congress and CISA for concrete action following the multi-state water campaign, and the asks are specific rather than rhetorical. First, a Binding Operational Directive requiring federal civilian agencies to mitigate risk in the control systems they already own &mdash; the heating and cooling, power, and access-management systems at thousands of federal sites, which are OT by any definition and are almost never treated as such. Second, reauthorisation and funding of the State and Local Cybersecurity Grant Program, on the grounds that small municipal utilities cannot fund this from rates. Third, extension of the Cybersecurity Information Sharing Act. Executive director Tatyana Bolton framed the water attacks as a wake-up call. Nothing has been issued; this is advocacy, and it signals where mandates are likely to land next.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Confirmed advocacy position &mdash; public statement and coverage in late July and August 2026. No Binding Operational Directive has been issued and no grant reauthorisation has passed; treat this as a signal of direction, not an obligation</span>
+            <span class="ops-tag kev-off">No CVE &mdash; policy and funding, not a product flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies</span>
+            <span class="ops-cc"><b>Action:</b> If you own or lease facilities, take the coalition&rsquo;s first ask as a free preview of your own next audit question: who owns the cybersecurity of your building automation, access control, fire and lift systems? At most organisations the honest answer is facilities engineering with no security budget, and the BMS front end has a vendor remote-access tunnel nobody in security knows about. Get those systems onto the same asset register as the plant floor, even if you do nothing else this quarter. Municipal and small-utility readers should watch the State and Local Cybersecurity Grant Program specifically &mdash; if it is reauthorised, the operators who already have a costed remediation plan are the ones who get funded, and writing that plan is work you can do before the money exists.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Assign named ownership for building and facility control systems &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="otcc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="otcc">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>OT Cyber Coalition statement &mdash; reported by Cybersecurity Dive, Nextgov/FCW and Government Technology</span>
+          <span class="dot">&bull;</span>
+          <span>Statement late Jul 2026; coverage through 20 Aug 2026; verified 27 Aug 2026</span>
+        </div>
+        <a href="https://www.cybersecuritydive.com/news/ot-security-coalition-congress-cisa-reforms-water/826791/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-hcsa" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Standards &mdash; component procurement / 62443</span>
+        </div>
+        <h3>The NSA is putting an ISA/IEC&nbsp;62443 certificate in front of the controllers it buys &mdash; and the pattern will not stay inside government</h3>
+        <p>ISA announced on 20&nbsp;August that ISASecure is working with the US National Security Agency on a new High Criticality Component Security Assurance (HCSA) certification scheme for commercial OT components bought for National Security Systems. HCSA is derived from the existing Component Security Assurance scheme, which tests conformance to ISA/IEC&nbsp;62443-4-2 component security levels, and layers on six additional technical requirements the NSA&rsquo;s Operational Technology Assurance Partnership published in its 2025 report on smart controller security. Once the scheme is accepted, an HCSA certificate becomes evidence supporting a product&rsquo;s inclusion on the NSA&rsquo;s NSS OT Product Compliant List &mdash; in practice, a gate a smart controller passes through before it can be installed. Nothing here obliges a commercial operator. The reason it matters anyway is precedent: a government buyer with real leverage has chosen an existing 62443 conformance scheme rather than writing its own, and vendors who build to HCSA will sell those same product lines everywhere else.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Confirmed by ISA press release, 20 Aug 2026 &mdash; scheme is in development, not yet issuing certificates, and NSA acceptance is still pending. No security incident or vulnerability is involved</span>
+            <span class="ops-tag kev-off">No CVE &mdash; a conformance-certification programme, not a product flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; a procurement and specification item</span>
+            <span class="ops-cc"><b>Action:</b> Use this to sharpen your own component specifications rather than waiting for a certificate to exist. Pull the ISA/IEC&nbsp;62443-4-2 component requirements and decide, per asset class, what security level you actually need &mdash; SL&nbsp;1 for a device inside a well-segmented cell, higher where a controller sits at a remote unstaffed site reachable over a carrier network. Then put the target in your next RFQ and ask bidders for evidence: an ISASecure CSA certificate today, a roadmap statement where none exists. Most procurement packages still say &ldquo;must be cyber secure&rdquo; and get exactly what that specifies. Track HCSA if you supply the US government or sell into defence supply chains, because your customers will start asking for it before the scheme is finished.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Add 62443-4-2 security-level targets to the next controller RFQ &mdash; this quarter</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="hcsa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="hcsa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>ISA / ISASecure press release &mdash; corroborated by Automation World and Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 20 Aug 2026; verified 27 Aug 2026</span>
+        </div>
+        <a href="https://www.isa.org/news-press-releases/2026/august/isasecure-to-develop-certification-scheme-for-comm" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       </div>
-  </div>
+
+      </div>
 
 
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 27&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories, the Known Exploited Vulnerabilities catalogue and CISA&rsquo;s exposure-reduction guidance, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 series PLCs, CISA advisory AA26-237A on two red-team assessments, the FBI water-sector alert on internet-facing programmable logic controllers, CISA ICS advisories ICSA-26-237-06 and ICSA-26-225-03, WaterISAC TLP:CLEAR bulletins, CERT&nbsp;Polska&rsquo;s energy-sector incident follow-up report, US Department of Justice releases and court filings, US Treasury and OFAC designation releases, a Data I/O SEC Form 8-K filing, US Senate bill text for the Water Cyber Shield Act, UK Parliament bill records and House of Commons Library briefings, and vendor advisories from Siemens ProductCERT, Schneider Electric, Microsoft, Johnson Controls and Ebyte, plus research from Dragos, Claroty Team82 and Forescout Vedere Labs, and reporting from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, Dark Reading, TechCrunch, Help Net Security, The Hacker News, CBS News, CNBC, Wastewater Digest and Industrial Cyber. <strong>What changed this edition.</strong> An overnight refresh of the 10:18&nbsp;PM board. The lead is unchanged and still current: the cyberattack Boston Scientific confirmed on 26&nbsp;August, which the company says is causing a global disruption to operations including its ability to process and ship customer orders &mdash; detected the day before, no attacker or entry route named, no restoration date, and nothing confirmed about control systems. One card is new, in Threat Intelligence &amp; Research: CISA published exposure-reduction guidance on 26&nbsp;August and, in the process, quantified the July water-sector campaign for the first time at more than 100 internet-exposed systems targeted, commonly PLCs connected directly to a cellular modem, across at least a dozen states. No federal agency had previously published a figure. The guidance is sector-agnostic and worth reading beyond water: inventory internally and by external scanning, remove exposures operations do not require, and broker what remains. Retired to make room: the Hitachi Energy APM Edge kernel advisory and the AVEVA Enterprise SCADA deserialisation advisory, both from the 13&nbsp;August batch, both patched, both requiring existing access and neither exploited &mdash; the weakest two items on a board that should carry 14&ndash;18 stories rather than creep upward. The overall threat level holds at <strong>7.2</strong>, the bottom of the High band, on the same three confirmed drivers: the multi-state US water campaign, now with an official scale attached; the UK generating site DESNZ confirms was impacted; and CERT&nbsp;Polska&rsquo;s turbine stopped through a shared private APN. That is confirmed OT disruption across multiple environments and multiple sectors, which is the High gate under this board&rsquo;s calibration. Advisory volume does not aggregate upward. The board carries 18 stories; the radar plots nine Critical and seven High items, and Info cards do not plot. <strong>Reviewed and deliberately not published:</strong> the Verizon 2026 DBIR critical-infrastructure analysis and the CrowdSec research on mass exploitation of Four-Faith industrial routers, both dated May&nbsp;2026 and well outside the 30-day freshness window despite resurfacing in search this week; the unpatched Rapid SCADA vulnerability set, which dates to January&nbsp;2024; ICSA-26-232-01 for Johnson Controls Simplex Incident Manager and ICSA-26-230-01 for CISA Malcolm, both patched with no exploitation reported; the 25&nbsp;August ICS batch entries for consumer and vending products, which carry no industrial process relevance; and actor-claimed breaches with no operator confirmation. All cards are inside the 30-day freshness window or carry a stated forward-looking date. Every item links to its primary or best-available accessible source; claims made by threat actors are labelled as claimed rather than confirmed, and attribution that has not been officially confirmed is described as reported or assessed. Wired was reviewed as a lead source but is not linked this edition &mdash; nothing it originated was needed that a primary or openly accessible source did not cover. Not a replacement for ICS-CERT subscriptions or vendor PSIRT feeds &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 27&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories, the Known Exploited Vulnerabilities catalogue and CISA&rsquo;s exposure-reduction guidance, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 series PLCs, CISA advisory AA26-237A on two red-team assessments, the FBI water-sector alert on internet-facing programmable logic controllers, CISA ICS advisories ICSA-26-237-06 and ICSA-26-225-03, WaterISAC TLP:CLEAR bulletins, US Department of Justice releases and court filings, US Treasury and OFAC designation releases, the FBI/NSA/CNMF joint advisory on the PRC-linked QTFY platforms, an ISA/ISASecure release on the NSA HCSA certification scheme, US Senate bill text and sponsor releases for the Water Cyber Shield Act and the Quantum-GUARD Act, the Operational Technology Cybersecurity Coalition&rsquo;s public statement, and vendor advisories from Siemens ProductCERT, Schneider Electric, Phoenix Contact, Microsoft, Citrix, Johnson Controls and Ebyte, plus research from Dragos, Claroty Team82, Forescout Vedere Labs, Rapid7 and the Canadian Centre for Cyber Security, and reporting from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, TechCrunch, The Register, Help Net Security, Nextgov/FCW, CBS News and Industrial Cyber. <strong>What changed this edition.</strong> A morning rebuild of the 4:17&nbsp;AM board, with a new lead. The top story is now CISA&rsquo;s 26&nbsp;August exposure-reduction guidance, which for the first time quantifies the July water campaign &mdash; malicious activity against more than 100 internet-exposed water and wastewater systems, commonly PLCs wired straight into a cellular modem, across at least a dozen states. It is promoted over the Boston Scientific incident because it carries confirmed operational-technology relevance for every sector, not only for one manufacturer; the Boston Scientific disruption, re-verified this morning against the company statement and its SEC filing, moves into Incidents &amp; Attacks and keeps its Critical rating. Three cards are new. In Critical Advisories, the Citrix NetScaler pair: CVE-2026-8452, a pre-authentication memory overflow in SAML handling on Gateway and AAA virtual servers, with a public proof-of-concept on 14&nbsp;August and in-the-wild exploitation confirmed by the Canadian Centre for Cyber Security on 17&nbsp;August, alongside CVE-2026-19490, a CVSS&nbsp;v4 9.3 authentication bypass disclosed on 19&nbsp;August with no confirmed exploitation yet. It is included because NetScaler Gateway is how a large share of engineers, integrators and vendors reach plant networks. In Regulation &amp; Policy, the bipartisan Quantum-GUARD Act introduced on 18&nbsp;August, which would put post-quantum migration of grid IT and OT on FERC&rsquo;s agenda, and the Operational Technology Cybersecurity Coalition&rsquo;s call for a Binding Operational Directive covering the building and utility control systems federal agencies already own, plus reauthorisation of the State and Local Cybersecurity Grant Program. Four cards were retired to keep the board at a readable length: the Gitea and Medusa items, whose OT relevance is indirect; the UK Cyber Security and Resilience Bill, which is unchanged in substance and is now covered in Trends; and the CERT&nbsp;Polska private-APN case, the oldest underlying incident on the board. The overall threat level was recomputed and holds at <strong>7.2</strong>, the bottom of the High band, on two confirmed drivers: the multi-state US water campaign, now with an official scale attached, and the UK generating site DESNZ confirms was impacted. That is confirmed OT disruption across multiple environments and multiple sectors, which is the High gate under this board&rsquo;s calibration. Confirmed exploitation of an edge-access appliance does not aggregate upward, and neither does advisory volume. The board carries 18 stories; the radar plots ten Critical and four High items, and Info cards do not plot. <strong>Reviewed and deliberately not published:</strong> the Waterfall / ICS STRIVE 2026 OT Cyber Threat Report, which is genuinely useful but was published in March&nbsp;2026 and is well outside the 30-day freshness window despite resurfacing in search this week; the Nozomi Networks OT/IoT trends report of February&nbsp;2026 and the Dragos Year in Review of February&nbsp;2026, for the same reason; the Jaguar Land Rover and Coca-Cola Fairlife production halts, both 2025 reporting; the Mitsubishi Electric acquisition of Nozomi Networks, which completed in January&nbsp;2026 and is referenced only as background in Trends; ICSA-26-232-01 for Johnson Controls Simplex Incident Manager, ICSA-26-230-01 for CISA Malcolm and ICSA-26-237-07 for the FURUNO FA-50 AIS transponder, all patched or mitigated with no exploitation reported; the 25&nbsp;August ICS batch entries for consumer, smart-home and vending products, which carry no industrial process relevance; and actor-claimed breaches with no operator confirmation. All cards are inside the 30-day freshness window or carry a stated forward-looking date. Every item links to its primary or best-available accessible source; claims made by threat actors are labelled as claimed rather than confirmed, and attribution that has not been officially confirmed is described as reported or assessed. Wired was reviewed as a lead source but is not linked this edition &mdash; nothing it originated was needed that a primary or openly accessible source did not cover. Not a replacement for ICS-CERT subscriptions or vendor PSIRT feeds &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
