@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 29 Aug 2026, 4:27 AM ET</span>
+        <span>Generated Sunday, 30 Aug 2026, 8:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Rail &amp; Transit</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>20</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:52.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Mid Medium, up two-tenths. There is still no confirmed cyber compromise of rail operational technology on this page, and the calibration holds the score down accordingly &mdash; signalling, traction power and wayside control remain undisrupted in the reporting. What is here is adjacent pressure. Dragos recorded 95 ransomware incidents against transportation and logistics organisations in the second quarter and observed no operator directly manipulating an industrial control system, with disruption instead following enterprise IT encryption and precautionary shutdowns; the North Carolina Ports outage and the Wabtec data leak both fit that shape. The increase this run comes from the NCSC&rsquo;s 27&nbsp;August alert, in which a national authority states it is seeing increased OT targeting across multiple sectors globally, by a range of actors, with limited real-world disruption already resulting &mdash; rail is not named, but the exposure pattern it describes is exactly what a distributed wayside estate carries. Around that sit pre-positioning items with no rail-specific effect: the S7 reconnaissance advisory, the QScan and QTRouter seizure and Iranian sanctions designations. Actively exploited edge, database and Linux-kernel flaws are work to be done, not evidence of rail impact, and do not aggregate upward.</div>
+      <div class="tl-why"><b>Why:</b> Mid Medium, held at 5.2 on recompute. There is still no confirmed cyber compromise of rail operational technology on this page, and the calibration holds the score down accordingly &mdash; signalling, traction power and wayside control remain undisrupted in the reporting. What is here is adjacent pressure. Dragos recorded 95 ransomware incidents against transportation and logistics organisations in the second quarter and observed no operator directly manipulating an industrial control system, with disruption instead following enterprise IT encryption and precautionary shutdowns; the North Carolina Ports outage and the Wabtec data leak both fit that shape. A further input is the NCSC&rsquo;s 27&nbsp;August alert, in which a national authority states it is seeing increased OT targeting across multiple sectors globally, by a range of actors, with limited real-world disruption already resulting &mdash; rail is not named, but the exposure pattern it describes is exactly what a distributed wayside estate carries. Around that sit pre-positioning items with no rail-specific effect: the S7 reconnaissance advisory, the QScan and QTRouter seizure and Iranian sanctions designations. Actively exploited edge, database and Linux-kernel flaws, and the unexploited OTTO Fleet Manager advisory added this run, are work to be done rather than evidence of rail impact, and do not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1033,7 +1033,36 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-kev-27aug" data-published="2026-08-27">
+<div class="card" id="story-otto-fleet" data-published="2026-08-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Autonomous mobile robot fleet management</span>
+        </div>
+        <h3>Rockwell fixes a weak password-hashing work factor in OTTO Fleet Manager &mdash; low drama, but it sits on the AMR control path</h3>
+        <p>Rockwell has patched CVE-2026-75112 in OTTO Fleet Manager, the console that dispatches autonomous mobile robots. CISA lists the product in both the critical manufacturing and transportation systems sectors, which is why it is worth a rail and transit reader&rsquo;s attention: these fleets increasingly move parts and materials around maintenance-of-way depots, rolling-stock overhaul shops and logistics facilities. The flaw itself is modest &mdash; an insufficient bcrypt work factor that lowers the cost of brute-forcing stolen password hashes, scored 6.8 (CVSSv3) / 6.9 (CVSSv4) and not remotely exploitable. The point is inventory rather than urgency: depot automation tends to be procured by facilities or engineering and does not always reach the OT asset register that TSA-directed programmes are built around.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; CISA states the flaw is not remotely exploitable and no public exploit targets it</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Rockwell has fixed the issue in OTTO Fleet Manager v2.36.3; versions up to and including v2.36.2 are affected</span>
+            <span class="ops-cc"><b>Action:</b> Check whether any of your depots, overhaul shops or distribution facilities run OTTO fleets, and if so upgrade to v2.36.3 at the next convenient window. The wider action is the one that pays off under TSA reporting obligations: make sure depot and facility automation &mdash; AMRs, automated storage, wash plant, shore supply &mdash; is enumerated in the same asset inventory as signalling and SCADA, with a named owner. Rotate fleet administrator credentials when you patch, and confirm that vehicle safety interlocks do not depend on the fleet manager being trustworthy.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm depot AMR inventory and upgrade any OTTO fleets &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-otto-fleet" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-otto-fleet">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-239-03 and the Rockwell Automation security advisory &mdash; corroborated by the WaterISAC weekly roundup</span>
+          <span class="dot">&bull;</span>
+          <span>Published 27 Aug 2026; verified 30 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-kev-27aug" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; Three additions to the CISA KEV catalogue</span>

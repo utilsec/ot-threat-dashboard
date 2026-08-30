@@ -696,13 +696,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 29 Aug 2026, 4:27 AM ET</span>
+        <span>Generated Sunday, 30 Aug 2026, 8:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>20</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -735,7 +735,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:59.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, up a tenth &mdash; and at the ceiling this dashboard allows without a confirmed OT-disruptive incident in the current window. Nothing on this page is a live compromise of food or agriculture control systems: the sector&rsquo;s recent production stoppages, including the Fairlife shutdown that suspended US output for ten days, sit outside the reporting window and were enterprise-IT ransomware rather than manipulation of plant control. What keeps the score at the top of the band is sustained, well-evidenced targeting. Dragos recorded 1,140 industrial ransomware incidents in the second quarter, up 12&nbsp;per&nbsp;cent, with food and beverage a consistent target and edge devices and remote management the main entry points; researchers have tracked 220 attacks on the sector so far this year. The tenth added this run is the NCSC&rsquo;s 27&nbsp;August alert, in which a national authority states it is seeing increased OT targeting across multiple sectors globally with limited real-world disruption already resulting. Above that sits advisory AA26-231A, which names food and agriculture among six sectors where AI-written scripts are reading Siemens S7 controllers &mdash; reconnaissance, not manipulation. Unexploited advisories and actively exploited IT and edge flaws are real work but do not aggregate the score upward.</div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, held at 5.9 on recompute &mdash; and at the ceiling this dashboard allows without a confirmed OT-disruptive incident in the current window. Nothing on this page is a live compromise of food or agriculture control systems: the sector&rsquo;s recent production stoppages, including the Fairlife shutdown that suspended US output for ten days, sit outside the reporting window and were enterprise-IT ransomware rather than manipulation of plant control. What keeps the score at the top of the band is sustained, well-evidenced targeting. Dragos recorded 1,140 industrial ransomware incidents in the second quarter, up 12&nbsp;per&nbsp;cent, with food and beverage a consistent target and edge devices and remote management the main entry points; researchers have tracked 220 attacks on the sector so far this year. A further input is the NCSC&rsquo;s 27&nbsp;August alert, in which a national authority states it is seeing increased OT targeting across multiple sectors globally with limited real-world disruption already resulting. Above that sits advisory AA26-231A, which names food and agriculture among six sectors where AI-written scripts are reading Siemens S7 controllers &mdash; reconnaissance, not manipulation. Unexploited advisories &mdash; including the Fuel-Boss advisory added this run &mdash; and actively exploited IT and edge flaws are real work but do not aggregate the score upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1112,7 +1112,36 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-kev-27aug" data-published="2026-08-27">
+<div class="card" id="story-fuelboss" data-published="2026-08-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Fuel management at farms, depots and processing sites</span>
+        </div>
+        <h3>Fuel-Boss ships with end-of-life web components &mdash; a reminder of what sits behind the farm and depot fuel island</h3>
+        <p>CISA&rsquo;s 27&nbsp;August batch includes All-Line Equipment Company&rsquo;s Fuel-Boss, the fuel management and dispensing control system used at agricultural co-operatives, grain and feed operations, trucking depots and processing sites to authorise and log fuel draws. The advisory documents two flaws inherited from bundled end-of-life components: an argument-injection issue in the University of Washington IMAP toolkit as reached through PHP&rsquo;s imap_open(), which allows remote command execution, and a buffer-handling flaw in PHP-FPM configurations up to and including PHP&nbsp;7.1.5 that can produce a remote code execution condition. Neither is exotic; both are the predictable result of an embedded web stack that stopped receiving updates years ago. For a food and agriculture operator the exposure is practical rather than dramatic &mdash; fuel dispatch controls harvest logistics and cold-chain haulage, and an unavailable fuel island stops trucks.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the underlying component flaws are long-known and publicly documented</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Mitigations published &mdash; CISA&rsquo;s guidance is to remove these systems from internet exposure and reach them only through a maintained VPN or gateway</span>
+            <span class="ops-cc"><b>Action:</b> Search your external footprint for fuel management systems before anything else &mdash; these devices are frequently installed by a fuel supplier or equipment dealer with a cellular router and a port forward so they can support it remotely, and they are often invisible to whoever owns the rest of the network. Anything answering from the internet comes off now. Where remote support is genuinely needed, put it behind a maintained VPN with named accounts, and ask the vendor in writing what their plan is for the embedded PHP stack. Then include the fuel island in your continuity planning: know how you authorise and record a fuel draw manually, and make sure someone on each shift has done it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> External exposure check on fuel management and dispensing systems &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fuelboss" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-fuelboss">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-239-02, published in the 27 Aug 2026 batch of seven advisories &mdash; corroborated by the WaterISAC weekly roundup</span>
+          <span class="dot">&bull;</span>
+          <span>Published 27 Aug 2026; verified 30 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-kev-27aug" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; Three additions to the CISA KEV catalogue</span>

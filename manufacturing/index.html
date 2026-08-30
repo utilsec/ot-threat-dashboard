@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 29 Aug 2026, 4:27 AM ET</span>
+        <span>Generated Sunday, 30 Aug 2026, 8:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>20</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:67.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, up a tenth. The dominant driver stays in this sector and is confirmed: Boston Scientific is now five days into an incident that has halted order processing and shipping worldwide, with manufacturing staff at its Cork sites sent home and hospitals reporting delays to cardiac device deliveries. It is a genuine production and fulfilment stoppage, but the reported impact is an enterprise IT and ERP outage with no manipulation of control systems, and Dragos observed no ransomware operator directly manipulating an ICS in the second quarter &mdash; so it adds breadth, not height. Data&nbsp;I/O&rsquo;s August ransomware outage and the CL0P campaign against PTC Windchill sit behind it with the same shape. The tenth added this run is the NCSC&rsquo;s 27&nbsp;August alert, which puts a second national authority on record describing increased OT targeting across multiple sectors globally with limited real-world disruption. Above these sits advisory AA26-231A, in which five US agencies name Siemens S7 controllers an active target across six sectors including critical manufacturing &mdash; reconnaissance and capability development, not manipulation. Actively exploited edge, database and Linux-kernel flaws are real work but do not aggregate the score upward on their own.</div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, held at 6.7 on recompute. The dominant driver stays in this sector and is confirmed: Boston Scientific is now five days into an incident that has halted order processing and shipping worldwide, with manufacturing staff at its Cork sites sent home and hospitals reporting delays to cardiac device deliveries. It is a genuine production and fulfilment stoppage, but the reported impact is an enterprise IT and ERP outage with no manipulation of control systems, and Dragos observed no ransomware operator directly manipulating an ICS in the second quarter &mdash; so it adds breadth, not height. Data&nbsp;I/O&rsquo;s August ransomware outage and the CL0P campaign against PTC Windchill sit behind it with the same shape. A further input is the NCSC&rsquo;s 27&nbsp;August alert, which puts a second national authority on record describing increased OT targeting across multiple sectors globally with limited real-world disruption. Above these sits advisory AA26-231A, in which five US agencies name Siemens S7 controllers an active target across six sectors including critical manufacturing &mdash; reconnaissance and capability development, not manipulation. Actively exploited edge, database and Linux-kernel flaws, and the unexploited OTTO Fleet Manager advisory added this run, are real work but do not aggregate the score upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1090,7 +1090,36 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-kev-27aug" data-published="2026-08-27">
+<div class="card" id="story-otto-fleet" data-published="2026-08-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Autonomous mobile robot fleet management</span>
+        </div>
+        <h3>Rockwell fixes a weak password-hashing work factor in OTTO Fleet Manager &mdash; low drama, but it sits on the AMR control path</h3>
+        <p>Rockwell has patched CVE-2026-75112 in OTTO Fleet Manager, the console that dispatches and monitors autonomous mobile robots on plant floors. The flaw is an insufficient work factor in the bcrypt implementation used to hash stored passwords &mdash; it does not hand anyone access on its own, but it makes offline brute-forcing of a stolen hash database materially cheaper. CISA scores it 6.8 (CVSSv3) / 6.9 (CVSSv4) and states it is not remotely exploitable, so this is a housekeeping item rather than an emergency. It earns a place on a manufacturing page for a different reason: fleet managers are a category of system that has quietly become operational. If someone recovers a fleet administrator credential, they are not reading reports &mdash; they are issuing movement commands to vehicles sharing floor space with people.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; CISA states the flaw is not remotely exploitable and no public exploit targets it</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Rockwell has fixed the issue in OTTO Fleet Manager v2.36.3; versions up to and including v2.36.2 are affected</span>
+            <span class="ops-cc"><b>Action:</b> Schedule the upgrade to v2.36.3 in your next maintenance window; there is no need to disrupt production for a flaw that is not remotely exploitable. Use the occasion to answer the question the advisory implies: who holds administrative accounts on your AMR fleet manager, are those accounts unique and MFA-protected, and is the server itself on the plant network with everything else or properly segmented? Rotate fleet-manager credentials as part of the upgrade &mdash; a work-factor fix does nothing for hashes an attacker already has. Confirm too that safety functions on the vehicles are enforced independently of the fleet manager, not by it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade OTTO Fleet Manager and rotate fleet admin credentials &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-otto-fleet" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-otto-fleet">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-239-03 and the Rockwell Automation security advisory &mdash; corroborated by the WaterISAC weekly roundup</span>
+          <span class="dot">&bull;</span>
+          <span>Published 27 Aug 2026; verified 30 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-kev-27aug" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; Three additions to the CISA KEV catalogue</span>

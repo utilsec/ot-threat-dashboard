@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 29 Aug 2026, 4:27 AM ET</span>
+        <span>Generated Sunday, 30 Aug 2026, 8:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>20</strong> stories across
+      <strong>21</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:66.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, up a tenth. The page still rests on confirmed OT-disruptive incidents inside this sector rather than on advisory volume: DESNZ has confirmed a cyberattack took a small UK generator offline for four days in July, and CERT Polska documented an attacker crossing a shared private APN from a wind farm into an unrelated CHP plant and putting its turbine out of service. Under this dashboard&rsquo;s calibration confirmed single-sector incidents sit in upper Medium &mdash; individual sites went down, wider supply was unaffected, and there is no evidence of hands-on OT manipulation across multiple operators. The tenth comes from the NCSC&rsquo;s 27&nbsp;August alert, which places a second national authority on the record describing increased OT targeting across multiple sectors with limited real-world disruption. It broadens the picture rather than escalating it: the disruption is characterised as limited and is unattributed. Around these sit pressure and pre-positioning &mdash; the FBI seizure of the PRC QScan and QTRouter platforms, whose named victims include the Department of Energy; Treasury sanctions on an Iranian intelligence-directed network inside US critical infrastructure; and the five-agency warning that AI-written scripts are reading Siemens S7 controllers across the energy sector. Executive Order 14420 raises the temperature around foreign-made grid equipment but is a procurement control, not a new threat. Actively exploited edge, database and now Linux-kernel flaws are real work and do not aggregate the score upward on their own.</div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, held at 6.6 on recompute. The page still rests on confirmed OT-disruptive incidents inside this sector rather than on advisory volume: DESNZ has confirmed a cyberattack took a small UK generator offline for four days in July, and CERT Polska documented an attacker crossing a shared private APN from a wind farm into an unrelated CHP plant and putting its turbine out of service. Under this dashboard&rsquo;s calibration confirmed single-sector incidents sit in upper Medium &mdash; individual sites went down, wider supply was unaffected, and there is no evidence of hands-on OT manipulation across multiple operators. A second input is the NCSC&rsquo;s 27&nbsp;August alert, which places a second national authority on the record describing increased OT targeting across multiple sectors with limited real-world disruption. It broadens the picture rather than escalating it: the disruption is characterised as limited and is unattributed. Around these sit pressure and pre-positioning &mdash; the FBI seizure of the PRC QScan and QTRouter platforms, whose named victims include the Department of Energy; Treasury sanctions on an Iranian intelligence-directed network inside US critical infrastructure; and the five-agency warning that AI-written scripts are reading Siemens S7 controllers across the energy sector. Actively exploited edge, database and Linux-kernel flaws, and the unexploited ASE2000 protocol-test-set advisory added this run, are real work but do not aggregate the score upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1062,7 +1062,36 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-kev-27aug" data-published="2026-08-27">
+<div class="card" id="story-ase2000" data-published="2026-08-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Protocol test set used on DNP3 and IEC 60870 links</span>
+        </div>
+        <h3>A protocol test set that talks directly to your field devices picks up two flaws &mdash; one of them a decade old</h3>
+        <p>CISA&rsquo;s 27&nbsp;August advisory batch includes ASE2000 V2, the communications test set engineers use to exercise DNP3, IEC&nbsp;60870-5 and Modbus links when commissioning or troubleshooting RTUs, relays and substation gateways. Two issues are documented in versions 2.25 through 2.37: a bundled Apache log4net component that does not disable XML external entities when parsing its configuration file (CVE-2018-1285), and improper certificate validation in 2.35 through 2.37 (CVE-2026-18717) that lets an attacker on the path impersonate the trusted peer, complete the TLS handshake and read or alter the protected traffic. The reason this belongs on a power page rather than in the noise is placement, not score: the test set runs on a laptop that is deliberately connected straight to protection and control equipment, often inside the substation fence, and it is exactly the kind of tool that travels between sites.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; both issues require the attacker to already reach the engineering host or sit on the path between it and the device</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; ASE/Kalkitech has published version 2.38, which fixes both issues; versions 2.25 through 2.37 are affected</span>
+            <span class="ops-cc"><b>Action:</b> Find out who owns the ASE2000 licences in your organisation &mdash; in most utilities this is protection and control or a commissioning contractor, not IT, so it will not appear in a standard software inventory. Upgrade those installations to 2.38. While you are there, treat the host itself as the bigger issue: an engineering laptop that connects to relays and RTUs should be a managed, hardened build, not a general-purpose machine, and it should not carry configuration files or certificates from other customers or sites. If contractors bring their own test sets on site, add the version requirement to your work-authorisation paperwork rather than assuming it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and upgrade ASE2000 installations to 2.38 &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-ase2000" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-ase2000">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-239-04, published in the 27 Aug 2026 batch of seven advisories &mdash; corroborated by the WaterISAC weekly roundup</span>
+          <span class="dot">&bull;</span>
+          <span>Published 27 Aug 2026; verified 30 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-04" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-kev-27aug" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; Three additions to the CISA KEV catalogue</span>

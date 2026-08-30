@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Saturday, 29 Aug 2026, 4:27 AM ET</span>
+        <span>Generated Sunday, 30 Aug 2026, 8:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>20</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:71.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> High, and the only sector page in this band. The anchor is unchanged and is a confirmed OT-disruptive campaign, not an advisory pile-up: CISA states that in July it observed malicious activity against more than 100 internet-exposed water and wastewater systems &mdash; commonly a PLC wired straight to a cellular modem &mdash; with the FBI recording incidents at utilities in at least seven states since 27&nbsp;July and reporting since extending to at least twelve. Actors reached Rockwell MicroLogix controllers, altered logic and credentials to lock operators out, and in at least one case disabled safety shutdown and alarm functions. That is multiple environments compromised inside one sector with hands-on manipulation of controllers, which is what lifts this page above the upper-Medium ceiling a single-site incident would earn. The tenth added this run comes from the NCSC&rsquo;s 27&nbsp;August alert: a second national authority now describes increased OT targeting across multiple sectors globally with limited real-world disruption, and its water-sector connectivity guidance points at the same exposed-PLC pattern. Around the anchor sit pre-positioning rather than disruption &mdash; the S7 reconnaissance advisory, the Iranian sanctions designations and the QScan/QTRouter seizure. Unexploited advisories and exploited IT and edge flaws are real work but do not aggregate upward.</div>
+      <div class="tl-why"><b>Why:</b> High, and the only sector page in this band. The anchor is unchanged and is a confirmed OT-disruptive campaign, not an advisory pile-up: CISA states that in July it observed malicious activity against more than 100 internet-exposed water and wastewater systems &mdash; commonly a PLC wired straight to a cellular modem &mdash; with the FBI recording incidents at utilities in at least seven states since 27&nbsp;July and reporting since extending to at least twelve. Actors reached Rockwell MicroLogix controllers, altered logic and credentials to lock operators out, and in at least one case disabled safety shutdown and alarm functions. That is multiple environments compromised inside one sector with hands-on manipulation of controllers, which is what lifts this page above the upper-Medium ceiling a single-site incident would earn. A further input is the NCSC&rsquo;s 27&nbsp;August alert: a second national authority now describes increased OT targeting across multiple sectors globally with limited real-world disruption, and its water-sector connectivity guidance points at the same exposed-PLC pattern. Around the anchor sit pre-positioning rather than disruption &mdash; the S7 reconnaissance advisory, the Iranian sanctions designations and the QScan/QTRouter seizure. Unexploited advisories &mdash; including the ASE2000 protocol-test-set advisory added this run &mdash; and exploited IT and edge flaws are real work but do not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1062,7 +1062,36 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-kev-27aug" data-published="2026-08-27">
+<div class="card" id="story-ase2000" data-published="2026-08-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Protocol test set used on DNP3 and IEC 60870 links</span>
+        </div>
+        <h3>A protocol test set that talks directly to your field devices picks up two flaws &mdash; one of them a decade old</h3>
+        <p>CISA&rsquo;s 27&nbsp;August advisory batch includes ASE2000 V2, flagged for use in both the water and wastewater and energy sectors. It is the communications test set integrators use to exercise DNP3, IEC&nbsp;60870-5 and Modbus links when commissioning or troubleshooting SCADA connections to remote sites &mdash; lift stations, well fields, booster pumps and outlying treatment assets. Two issues affect versions 2.25 through 2.37: a bundled Apache log4net component that does not disable XML external entities when parsing its configuration (CVE-2018-1285), and improper certificate validation in 2.35 through 2.37 (CVE-2026-18717) that allows an attacker on the path to impersonate the trusted peer and read or modify protected traffic. The severity here comes from where the tool sits, not from the CVSS: it connects directly to the controllers a small utility depends on.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; both issues require the attacker to already reach the engineering host or sit on the path between it and the device</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; ASE/Kalkitech has published version 2.38, which fixes both issues; versions 2.25 through 2.37 are affected</span>
+            <span class="ops-cc"><b>Action:</b> Ask your SCADA integrator which version of ASE2000 they bring on site, and require 2.38 in writing before the next scheduled visit &mdash; for most small utilities this software is not on your network at all until a contractor arrives with it, which is precisely why it never shows up in an asset inventory. If you run it in house, upgrade now. More broadly, apply the same rule to every laptop that plugs into a PLC or RTU: managed build, current software, no shared accounts, and no reuse of the same machine across your plant network and the contractor&rsquo;s other customers.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and upgrade ASE2000 installations to 2.38 &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-ase2000" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-ase2000">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-239-04, published in the 27 Aug 2026 batch of seven advisories &mdash; corroborated by the WaterISAC weekly roundup</span>
+          <span class="dot">&bull;</span>
+          <span>Published 27 Aug 2026; verified 30 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-04" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-kev-27aug" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; Three additions to the CISA KEV catalogue</span>
