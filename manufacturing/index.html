@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 31 Aug 2026, 4:23 AM ET</span>
+        <span>Generated Tuesday, 01 Sep 2026, 4:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>21</strong> stories across
+      <strong>24</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:67.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, held at 6.7 on recompute. The dominant driver stays in this sector and is confirmed: Boston Scientific is now five days into an incident that has halted order processing and shipping worldwide, with manufacturing staff at its Cork sites sent home and hospitals reporting delays to cardiac device deliveries. It is a genuine production and fulfilment stoppage, but the reported impact is an enterprise IT and ERP outage with no manipulation of control systems, and Dragos observed no ransomware operator directly manipulating an ICS in the second quarter &mdash; so it adds breadth, not height. Data&nbsp;I/O&rsquo;s August ransomware outage and the CL0P campaign against PTC Windchill sit behind it with the same shape. A further input is the NCSC&rsquo;s 27&nbsp;August alert, which puts a second national authority on record describing increased OT targeting across multiple sectors globally with limited real-world disruption. Above these sits advisory AA26-231A, in which five US agencies name Siemens S7 controllers an active target across six sectors including critical manufacturing &mdash; reconnaissance and capability development, not manipulation. Actively exploited edge, database and Linux-kernel flaws, and the unexploited OTTO Fleet Manager advisory added this run, are real work but do not aggregate the score upward.</div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, recomputed to 6.7. The driver is a confirmed OT-affecting incident inside this sector rather than advisory volume: Boston Scientific has disclosed that an incident identified on 25&nbsp;August disrupted its ability to manufacture products and to process and ship orders globally, with plant employees in Cork sent home. Day eight brings partial improvement but no full-recovery date. Under this dashboard&rsquo;s calibration a confirmed single-sector disruption sits in upper Medium &mdash; production stopped at one company&rsquo;s sites, there is no evidence of control-system manipulation, and the company reports the activity identified so far is confined to limited on-premises systems. Data I/O&rsquo;s earlier decision to take its own production and shipping offline, and Clop&rsquo;s continuing PTC Windchill campaign against engineering and product data, support the same reading. Added this run are Sygnia&rsquo;s Fire Ant research on a China-nexus actor compromising Cisco IOS&nbsp;XR routers and TACACS servers while suppressing their logging, and the McKesson breach reportedly reached through vished single sign-on accounts into Salesforce and Snowflake. Both are pre-positioning and identity risk, not plant-floor manipulation. Newly exploited PaperCut flaws in KEV, alongside NetScaler, SQL Server and Gitea, are scheduling work and do not aggregate the score upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -693,31 +693,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-boston-sci" data-published="2026-08-28">
+    <div class="top-story" id="story-boston-sci" data-published="2026-08-31">
         <span class="top-story-pill">Top Story</span>
-        <h2>Boston Scientific cannot process or ship orders after a cyberattack &mdash; and containment, not the plant floor, is why</h2>
-        <p>Boston Scientific detected a cyberattack on 25&nbsp;August and disclosed it the next day; five days on, order processing and shipping are still disrupted and the company has not committed to a restoration date. Manufacturing staff at its Cork, Ireland sites have been sent home because they cannot work, and hospitals are reporting delays to pacemaker and cardiac stent deliveries. Analysts at Piper Sandler said, after speaking with management on 27&nbsp;August, that the company may resume shipping across all product lines in under three weeks. Ransomware involvement, initial access and data theft remain unconfirmed. For manufacturers the lesson repeats the one Data&nbsp;I/O supplied earlier this month: an intrusion that never touches a control system still stops product leaving the building, because order management, warehouse execution and shipping ride on the enterprise stack that containment isolates first.</p>
+        <h2>Boston Scientific enters day eight with manufacturing still disrupted &mdash; an IT breach that never reached a PLC</h2>
+        <p>Boston Scientific identified a cybersecurity incident on 25&nbsp;August that has caused a global disruption to its operations, including its ability to manufacture products and to process and ship customer orders; employees at its Cork, Ireland plants were sent home because they could not work. In its latest update the company says it has found no indication of unauthorised activity in its environment since 25&nbsp;August, that cloud-based systems were unaffected, and that the activity identified so far is confined to limited on-premises systems. It is working toward partial restoration of shipping but has given no date for full recovery, and reports no impact on implantable cardiac device function. Nothing published suggests a control system was touched. Production stopped anyway, because the systems that tell a plant what to build sit on the IT side.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; company-disclosed in an 8-K and public statement; attack detected 25 Aug 2026, disclosed 26 Aug 2026. Ransomware involvement, initial access and data theft are not confirmed</span>
-            <span class="ops-tag kev-off">No CVE &mdash; the entry point has not been disclosed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; company-disclosed incident identified 25 Aug 2026, reported in an SEC Form 8-K and subsequent company updates; manufacturing, order processing and shipping disrupted globally. No actor, ransomware strain or entry vector has been confirmed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; no entry vector has been published; the company describes the activity identified so far as confined to limited on-premises systems, with cloud applications unaffected</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is the dependency of physical fulfilment on enterprise IT</span>
-            <span class="ops-cc"><b>Action:</b> Treat this as a fulfilment-continuity exercise rather than a patching one. Map which of your enterprise systems have to be running for finished goods to physically leave the site &mdash; order management, warehouse execution, label and carrier printing, quality release, and the customs or shipping documents that go with them &mdash; and mark, for each, whether a manual fallback exists and who is trained on it. Then check the containment assumption: if IT isolates the enterprise domain at 2am, does the plant keep making product, and for how long, before staging space runs out. Where you supply regulated or life-critical goods, agree in advance with your customers how allocation and communication will work, because that conversation is far harder to start on day three.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is the dependency chain between ERP, MES and order management and the plant, and the manual fallback that does not exist for it</span>
+            <span class="ops-cc"><b>Action:</b> Run the tabletop you have been deferring, with one constraint: the control system is fine and everything above it is gone. Per line, identify what actually has to be available to build and release product &mdash; the MES work order, the recipe or program download path, label and barcode generation, quality release, and the ERP transaction that lets finished goods leave the dock. For each, decide now whether a manual or offline fallback exists, who is authorised to invoke it, and how many days you can run that way. Then test the boundary in the other direction: an incident &ldquo;confined to limited on-premises systems&rdquo; is only reassuring if you can demonstrate the plant network is a separate trust domain, with brokered access, separate credentials, and its own backups you have restored from at least once this year.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fulfilment dependency map and manual-fallback review &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Line-by-line dependency and manual-fallback review &mdash; 14 days; verified restore test of plant-side systems &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-bostonsci" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="mf-bostonsci">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Boston Scientific 8-K filing and company statement &mdash; reported by Cybersecurity Dive, TechCrunch and MedTech Dive; Cork plant impact and the analyst estimate via CBS News and Piper Sandler commentary of 27 Aug</span>
+          <span>Boston Scientific press releases and SEC Form 8-K filing &mdash; corroborated by SecurityWeek, Cybersecurity Dive, MedTech Dive and HIPAA Journal</span>
           <span class="dot">&bull;</span>
-          <span>Attack detected 25 Aug 2026; disclosed 26 Aug 2026; still disrupting order processing and shipping as of 28 Aug 2026; no restoration date announced</span>
+          <span>Incident identified 25 Aug 2026; SEC filing 26 Aug 2026; company updates through 31 Aug 2026</span>
         </div>
-        <a href="https://www.cybersecuritydive.com/news/boston-scientific-cyberattack-disrupted-order-processing-shipping/828816/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://news.bostonscientific.com/update-on-recent-cybersecurity-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     <!-- RADAR -->
     <div class="radar-panel">
@@ -747,31 +747,31 @@
         <text class="ring-label" x="180" y="77">High</text>
         <a href="#story-boston-sci"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
         <a href="#story-dataio"><circle class="blip crit" cx="265.0" cy="180.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="265.0" y="184.5">2</text></a>
-        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
-        <a href="#story-dragos-q2"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
-        <a href="#story-clop-windchill"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
-        <a href="#story-s7-ai-advisory"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
-        <a href="#story-citrix-kev"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
-        <a href="#story-mssql-kev"><circle class="blip crit" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
-        <a href="#story-gitea-kev"><circle class="blip crit" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
-        <a href="#story-siemens-iot2050"><circle class="blip crit" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
-        <a href="#story-aurora-cursor"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
-        <a href="#story-cisa-redteam"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
+        <a href="#story-fireant"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
+        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
+        <a href="#story-papercut-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
+        <a href="#story-clop-windchill"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
+        <a href="#story-dragos-q2"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
+        <a href="#story-s7-ai-advisory"><circle class="blip crit" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
+        <a href="#story-citrix-kev"><circle class="blip crit" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
+        <a href="#story-mssql-kev"><circle class="blip crit" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
+        <a href="#story-mckesson"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
+        <a href="#story-aurora-cursor"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-boston-sci"><span class="ld crit"></span><b>1</b> Boston Scientific: orders and shipping disrupted</a>
+        <a href="#story-boston-sci"><span class="ld crit"></span><b>1</b> Boston Scientific: manufacturing still disrupted</a>
         <a href="#story-dataio"><span class="ld crit"></span><b>2</b> Data I/O took production and shipping offline</a>
-        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>3</b> NCSC alerts on increased OT targeting</a>
-        <a href="#story-dragos-q2"><span class="ld crit"></span><b>4</b> 747 of 1,140 industrial ransomware victims were plants</a>
-        <a href="#story-clop-windchill"><span class="ld crit"></span><b>5</b> Clop names 40+ PTC Windchill victims</a>
-        <a href="#story-s7-ai-advisory"><span class="ld crit"></span><b>6</b> AI-scripted reconnaissance of Siemens S7 PLCs</a>
-        <a href="#story-citrix-kev"><span class="ld crit"></span><b>7</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
-        <a href="#story-mssql-kev"><span class="ld crit"></span><b>8</b> SQL Server RCE confirmed exploited, added to KEV</a>
-        <a href="#story-gitea-kev"><span class="ld crit"></span><b>9</b> Gitea RCE exploited, PLC project repositories</a>
-        <a href="#story-siemens-iot2050"><span class="ld crit"></span><b>10</b> CVSS 10.0 on a Siemens edge gateway</a>
-        <a href="#story-aurora-cursor"><span class="ld high"></span><b>11</b> Aurora affiliate ran an AI agent inside 17 networks</a>
-        <a href="#story-cisa-redteam"><span class="ld high"></span><b>12</b> CISA red team held a domain undetected</a>
+        <a href="#story-fireant"><span class="ld crit"></span><b>3</b> Fire Ant hijacks routers and TACACS servers</a>
+        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>4</b> NCSC alerts on increased OT targeting</a>
+        <a href="#story-papercut-kev"><span class="ld crit"></span><b>5</b> PaperCut zero-day chain exploited, added to KEV</a>
+        <a href="#story-clop-windchill"><span class="ld crit"></span><b>6</b> Clop names 40+ PTC Windchill victims</a>
+        <a href="#story-dragos-q2"><span class="ld crit"></span><b>7</b> 747 of 1,140 industrial ransomware victims were plants</a>
+        <a href="#story-s7-ai-advisory"><span class="ld crit"></span><b>8</b> AI-scripted reconnaissance of Siemens S7 PLCs</a>
+        <a href="#story-citrix-kev"><span class="ld crit"></span><b>9</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
+        <a href="#story-mssql-kev"><span class="ld crit"></span><b>10</b> SQL Server RCE confirmed exploited, added to KEV</a>
+        <a href="#story-mckesson"><span class="ld high"></span><b>11</b> McKesson: vished SSO into Salesforce and Snowflake</a>
+        <a href="#story-aurora-cursor"><span class="ld high"></span><b>12</b> Aurora affiliate ran an AI agent inside 17 networks</a>
       </div>
     </div>
 
@@ -790,10 +790,10 @@
         <a href="https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices" class="source-link" target="_blank" rel="noopener">NCSC</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Containment, not encryption, is what stops the line</b>
-        <p>Data I/O took its own production and shipping systems offline to contain an intrusion, and a week later could not give a restoration timeline. That sequence &mdash; a defender&rsquo;s decision causing the outage &mdash; has been the most discussed detail of the month among manufacturers, because it is the scenario least often rehearsed. The question circulating is not whether to isolate, but who is authorised to stop a line at 02:00 and on what evidence.</p>
-        <a href="https://therecord.media/electronics-manufacturer-dataio-ransomware" class="source-link" target="_blank" rel="noopener">The Record</a>
+        <span class="trend-tag">Attack Path</span>
+        <b class="trend-head">Two ways in that never touch a vulnerability</b>
+        <p>The two stories manufacturers have been trading this week have nothing to patch between them. Sygnia&rsquo;s Fire Ant research shows routers and TACACS authentication servers being turned into collection points with their own logging suppressed, and McKesson&rsquo;s disclosure points to voice phishing against staff, compromised single sign-on accounts, and then SaaS tenants full of business data. One subverts the layer that proves what happened; the other subverts the process that decides who you are. Plants that have spent two years hardening the cell are finding both routes run above it.</p>
+        <a href="https://www.sygnia.co/blog/fire-ant-evolves-from-hypervisors-to-trusted-infrastructure/" class="source-link" target="_blank" rel="noopener">Sygnia</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Supply Chain</span>
@@ -814,6 +814,35 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-mckesson" data-published="2026-08-31">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Identity-based intrusion at a major distributor</span>
+        </div>
+        <h3>A phone call, not an exploit &mdash; McKesson&rsquo;s SSO accounts were talked open, then used against Salesforce and Snowflake</h3>
+        <p>McKesson disclosed on 31&nbsp;August that it had discovered a cybersecurity incident on 25&nbsp;August. The extortion group ShinyHunters claims responsibility, says it took roughly a terabyte over four days &mdash; about 284&nbsp;million records &mdash; and demanded around $55&nbsp;million; the company states it has not determined the incident to be material. The reported route in is the part worth studying: voice phishing against employees, leading to compromised Okta single sign-on accounts, and from there into the company&rsquo;s Salesforce and Snowflake tenants. No software flaw was exploited. For a manufacturer the parallel is direct &mdash; MES, historian and quality data increasingly land in the same class of cloud analytics platform, reached with the same SSO, and the help desk that resets a plant engineer&rsquo;s MFA is the same desk that was called here.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach, contested scope &mdash; McKesson has disclosed an incident discovered 25 Aug 2026; the 284&nbsp;million-record figure and the $55m extortion demand are ShinyHunters claims, not company-confirmed. McKesson states it has not determined the incident to be material</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the reported entry path is voice phishing against staff, leading to compromised Okta single sign-on accounts and then to Salesforce and Snowflake tenants. No software flaw was exploited</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the control gaps are help-desk identity verification, SSO session handling and SaaS tenant monitoring</span>
+            <span class="ops-cc"><b>Action:</b> Treat the help desk as a control and test it. Have someone outside the team call in and attempt an MFA reset or device re-enrolment using only what is available from LinkedIn and a public directory, record how far they get, and close the gap with a callback or manager-verification step rather than a policy memo. Then audit the SaaS side your OT data now flows into: enumerate which Salesforce, Snowflake, historian-cloud and analytics tenants hold plant data, confirm each is behind phishing-resistant MFA rather than push or SMS, and switch on &mdash; and actually review &mdash; tenant-level bulk download and export alerting. Finally, check whether any engineering or vendor account rides the corporate identity provider without conditional access limiting where it can be used from.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Help-desk identity verification test &mdash; 14 days; SaaS tenant MFA and bulk-export alerting review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-mckesson" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-mckesson">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>McKesson SEC filing and company statement, plus threat-actor claims reported by BleepingComputer &mdash; corroborated by Help Net Security, SC Media and HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Incident discovered 25 Aug 2026; disclosed and reported 31 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/mckesson-discloses-breach-after-shinyhunters-claims-patient-data-theft/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-dataio" data-published="2026-08-21">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -937,6 +966,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="story-fireant" data-published="2026-08-30">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Threat Intelligence &mdash; Nation-state compromise of network and authentication infrastructure</span>
+        </div>
+        <h3>Fire Ant hijacks the routers and authentication servers sitting between the plant and everything else</h3>
+        <p>Sygnia&rsquo;s 30&nbsp;August research puts the China-nexus actor it calls Fire Ant inside network infrastructure rather than on top of it: Cisco IOS&nbsp;XR routers, TACACS authentication servers and Linux management hosts across a large interconnected estate. Router implants suppressed selected syslog messages, opened outbound sessions and served interactive shells that produced no records; on TACACS the actor injected a library into the running daemon and copied administrator credentials as logins were approved. Sygnia reports scanning and connection attempts toward linked critical-infrastructure networks but does not confirm compromise there. Most plants do not run IOS&nbsp;XR. Most plants do depend on a corporate network team, an integrator or an MSP for the routers and the authentication service between the enterprise and the cell &mdash; and on those same devices&rsquo; logs to prove what happened.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Sygnia documents active compromise of Cisco IOS&nbsp;XR routers, TACACS servers and Linux management hosts; activity against connected critical-infrastructure networks is described as scanning and connection attempts, not confirmed compromise</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the actor abused legitimate administrative functions and deployed custom implants, including a TACACS credential-theft toolset Sygnia calls TacTap; no product vulnerability has been assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is the network, authentication and management tier itself, and the on-box logging that would normally reveal tampering</span>
+            <span class="ops-cc"><b>Action:</b> Ask your network owner &mdash; corporate IT, the integrator, or the MSP &mdash; to evidence three things in writing for every device between the enterprise network and the plant floor. One: that running configurations and firmware are compared against a baseline held off the device, with a date attached. Two: that device, VPN and authentication logs are forwarded to a store the network administrators cannot edit. Three: when network-administrator credentials and any TACACS or RADIUS shared secrets were last rotated. Then look at your own side. If the cell or line network authenticates engineers against the same directory and the same authentication service as the corporate estate, an administrator credential lifted at that layer reaches your engineering workstations without a single vulnerability being exploited.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Written evidence from the network owner on baselining, off-device logging and credential rotation &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-fireant" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-fireant">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Sygnia research publication and press release &mdash; corroborated by BleepingComputer, The Hacker News, Cybersecurity Dive and SC Media</span>
+          <span class="dot">&bull;</span>
+          <span>Sygnia published 30 Aug 2026; wider reporting 31 Aug 2026</span>
+        </div>
+        <a href="https://www.sygnia.co/blog/fire-ant-evolves-from-hypervisors-to-trusted-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-ncsc-ot-alert" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1090,6 +1148,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-papercut-kev" data-published="2026-08-31">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+        </div>
+        <h3>A print server chained to unauthenticated code execution &mdash; PaperCut&rsquo;s zero-day pair lands in KEV</h3>
+        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; PaperCut disclosed in-the-wild exploitation on 27 Aug 2026 and CISA added both CVEs to the KEV catalog on 31 Aug 2026</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-81578 (missing authentication for a critical function) chained with CVE-2026-82078 (unsafe reflection), added 31 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; PaperCut has shipped fixed builds for both NG and MF; upgrading is the only reliable remediation, and all supported versions were affected</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every PaperCut Application Server, including the ones on plant-adjacent networks installed years ago for shop-floor label and work-order printing, and move them to the fixed build. Until then, take them off any internet-facing path and restrict which hosts can reach them. Then treat each as a possible staging host rather than a printing issue: shop-floor print servers are routinely dual-homed or sat on the same VLAN as engineering workstations, and the service account often carries broader logon rights than anyone remembers granting. Review authentication and process-creation logs from 20&nbsp;August onward, establish where that service account can log on, and confirm no unbrokered path runs from its segment into the cell or line networks.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 48 hours (KEV-listed and actively exploited); staging-host review of the affected servers &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-papercut" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-papercut">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA Known Exploited Vulnerabilities catalog addition and the PaperCut security bulletin &mdash; corroborated by SecurityWeek, Help Net Security, Rapid7 and The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-otto-fleet" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1424,7 +1511,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 29&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories, KEV additions of 18, 25, 26 and 27&nbsp;August, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 targeting, CISA advisory AA26-237A on red-team findings, the UK NCSC alert of 27&nbsp;August on OT targeting and internet-exposed edge devices, Boston Scientific&rsquo;s 8-K and company statements, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, PTC, Citrix, Microsoft, Gitea, JFrog). Research and analysis from Dragos, Claroty Team82, Forescout Vedere Labs, VulnCheck and SentinelOne. Law-enforcement, sanctions and policy material from the US Department of Justice, the Department of the Treasury and Executive Order&nbsp;14420 of 26&nbsp;August&nbsp;2026, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, TechCrunch, Nextgov/FCW, Security Affairs, Cybernews and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 1&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and the internet-exposure reduction guidance of 26&nbsp;August, KEV additions of 25, 26, 27 and 31&nbsp;August, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 targeting, CISA advisory AA26-237A on red-team findings, the UK NCSC alert of 27&nbsp;August, ISA/IEC&nbsp;62443 and EU Cyber Resilience Act reporting obligations, and vendor PSIRTs (Rockwell Automation, Siemens ProductCERT, PTC, Schneider Electric, Citrix, Microsoft, Gitea, JFrog, PaperCut). Company disclosures were taken from Boston Scientific press releases and SEC filings, Data I/O statements and McKesson&rsquo;s SEC filing. Research and analysis from Sygnia, Dragos, Claroty Team82, Forescout Vedere Labs, Rapid7 and VulnCheck. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, MedTech Dive, The Hacker News, Dark Reading, SC Media and Industrial Cyber. Wired was not used for this edition. Claims made by extortion groups are labelled as claims rather than confirmed facts. Every item links to its primary or best-available accessible source. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 31 Aug 2026, 4:23 AM ET</span>
+        <span>Generated Tuesday, 01 Sep 2026, 4:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Marine &amp; Maritime</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>21</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to ports, terminals, vessel operators and marine logistics. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:58.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Mid-to-upper Medium, held at 5.8 on recompute. Nothing on this page is a confirmed cyber compromise of marine OT, and the calibration keeps the score below 6.0 on that basis. The strongest in-sector driver remains the North Carolina Ports incident: the authority confirmed unauthorised activity on 4&nbsp;August, isolated core systems, and fell back to manual gate and port processing across Wilmington, Morehead City and the Charlotte Inland Port. That is a real operational disruption, but it followed an IT containment decision rather than manipulation of cranes or terminal control systems, and no group has claimed it. Alongside it sits sustained GNSS interference in the Baltic, which is degrading navigation on a majority of days but is electronic warfare spillover rather than a cyber compromise. The tenth added this run is the NCSC&rsquo;s 27&nbsp;August alert, in which a national authority states it is seeing increased OT targeting across multiple sectors globally with limited real-world disruption; it broadens the threat picture without naming maritime victims. Behind these are pre-positioning and exposure items &mdash; the QScan and QTRouter seizure, Iranian sanctions designations, the Furuno AIS advisory, and actively exploited edge, database and Linux-kernel flaws. Unexploited advisories and IT exposure do not aggregate upward.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:59.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Mid-to-upper Medium, recomputed to 5.9 &mdash; the ceiling this dashboard applies when no confirmed OT-disruptive cyber incident is in evidence for the sector, and nothing in this edition changes that. The North Carolina Ports outage in early August moved three facilities to manual gate processing, but no operator or agency has confirmed an OT compromise, ransomware or a data breach, and the disruption was to IT systems. Baltic GNSS interference is real and is now assessed as a coordinated transmitter network rather than scattered jamming, but it is electronic warfare affecting navigation, not a cyber compromise of vessel or terminal control systems. What holds the score at the top of that range is pre-positioning. Sygnia&rsquo;s Fire Ant research, added this run, documents a China-nexus actor compromising Cisco IOS&nbsp;XR routers and TACACS authentication servers, suppressing their logging and scanning toward connected critical-infrastructure networks &mdash; the same trust layer ports depend on and rarely inventory. Alongside it sit the FBI seizure of the PRC QScan and QTRouter relay platforms and the NCSC&rsquo;s 27&nbsp;August alert on increased OT targeting. Actively exploited PaperCut, NetScaler, SQL Server and Gitea flaws, and the unexploited Furuno AIS and Siemens gateway advisories, are patching work; under this calibration they do not aggregate upward into High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -693,31 +693,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-qtfy-seizure" data-published="2026-08-26">
+    <div class="top-story" id="story-fireant" data-published="2026-08-30">
         <span class="top-story-pill">Top Story</span>
-        <h2>FBI seizes the Chinese scanning and relay platforms built out of other people&rsquo;s routers and IoT devices</h2>
-        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of two linked platforms, QScan and QTRouter, operated by a PRC state-sponsored group the government calls QTFY and tied to a Nanjing contractor. QScan handled reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised third-party routers and IoT devices so the traffic arrived from ordinary domestic addresses. Both platforms are now inoperable because the seized domains were hard-coded into the malware. For ports, terminals and fleet operators the relay design is the part worth absorbing: the small, unmanaged, internet-connected devices that fill a maritime estate &mdash; VSAT routers, gate cameras, crane telemetry gateways, remote-monitoring boxes &mdash; are exactly the population these platforms recruited, and source addresses proved nothing.</p>
+        <h2>Fire Ant turns routers and authentication servers into listening posts inside critical-infrastructure networks</h2>
+        <p>Sygnia published research on 30&nbsp;August showing the China-nexus group it tracks as Fire Ant has moved beyond VMware hypervisors into network infrastructure itself: Cisco IOS&nbsp;XR routers, TACACS authentication servers and Linux management hosts inside a large interconnected estate. Router implants suppressed chosen syslog messages, opened outbound sessions and offered interactive shells that logged nothing; on TACACS the actor hooked the running daemon and copied administrator credentials as logins were approved. Sygnia observed scanning and connection attempts toward linked critical-infrastructure networks, without confirming compromise there. Ports and terminals should read this as a warning about the layer they examine least. Terminal operating systems, crane and gate networks and shore-to-ship links all traverse routers a third party maintains &mdash; and the audit trail a Coast Guard incident report would rest on comes from those same devices.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Sygnia documents active compromise of Cisco IOS&nbsp;XR routers, TACACS servers and Linux management hosts; activity against connected critical-infrastructure networks is described as scanning and connection attempts, not confirmed compromise</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the actor abused legitimate administrative functions and deployed custom implants, including a TACACS credential-theft toolset Sygnia calls TacTap; no product vulnerability has been assigned</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched edge devices recruited as relays</span>
-            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and shoreside jump-host logs, and against vessel VSAT logs where your provider retains them. Then treat the recruitment problem as your own: inventory every internet-connected device in the terminal and on the vessel that nobody patches &mdash; VSAT and 4G routers, gate and yard cameras, crane and reefer telemetry gateways, remote engine-monitoring boxes, bunkering and shore-power controllers. Give each an owner and a firmware baseline, and remove any that answer inbound from the internet. Finally, delete any firewall rule that trusts traffic by country or because it looks residential; the relay layer made that reasoning worthless years ago.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is the network, authentication and management tier itself, and the on-box logging that would normally reveal tampering</span>
+            <span class="ops-cc"><b>Action:</b> Extend your Cybersecurity Plan asset inventory downward into the network tier, before the next assessment rather than after. Identify who owns the routers, firewalls and authentication servers sitting between the terminal operating system, the crane and gate networks and any shore-to-ship link &mdash; in most terminals that is a corporate IT group, a port authority or a carrier, not the facility. For each, ask whether configurations and firmware are compared against an off-device baseline, whether device and authentication logs are forwarded somewhere network administrators cannot edit, and when administrator credentials and TACACS or RADIUS shared secrets were last rotated. Record the answers in the Facility Security Assessment. If your reporting to the Coast Guard would depend on logs from a device whose integrity you cannot independently verify, that dependency is itself a finding.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep &mdash; 7 days; shoreside and shipboard edge-device inventory &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-qtfy" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mr-qtfy">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Network and authentication ownership mapped into the Cybersecurity Plan inventory &mdash; 14 days; off-device log verification &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-fireant" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-fireant">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
+          <span>Sygnia research publication and press release &mdash; corroborated by BleepingComputer, The Hacker News, Cybersecurity Dive and SC Media</span>
           <span class="dot">&bull;</span>
-          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
+          <span>Sygnia published 30 Aug 2026; wider reporting 31 Aug 2026</span>
         </div>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.sygnia.co/blog/fire-ant-evolves-from-hypervisors-to-trusted-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -746,33 +746,33 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
+        <a href="#story-fireant"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
         <a href="#story-nc-ports"><circle class="blip crit" cx="265.0" cy="180.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="265.0" y="184.5">2</text></a>
-        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
-        <a href="#story-baltic-gnss"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
-        <a href="#story-citrix-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
-        <a href="#story-mssql-kev"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
-        <a href="#story-gitea-kev"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
-        <a href="#story-furuno-ais"><circle class="blip high" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
-        <a href="#story-siemens-iot2050"><circle class="blip high" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
-        <a href="#story-cisa-redteam"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
-        <a href="#story-iran-sanctions"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
-        <a href="#story-ceva-logistics"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
+        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
+        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
+        <a href="#story-papercut-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
+        <a href="#story-baltic-gnss"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
+        <a href="#story-citrix-kev"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
+        <a href="#story-mssql-kev"><circle class="blip crit" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
+        <a href="#story-gitea-kev"><circle class="blip crit" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
+        <a href="#story-furuno-ais"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
+        <a href="#story-siemens-iot2050"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
+        <a href="#story-cisa-redteam"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>1</b> FBI seizes PRC scanning and relay platforms</a>
+        <a href="#story-fireant"><span class="ld crit"></span><b>1</b> Fire Ant hijacks routers and TACACS servers</a>
         <a href="#story-nc-ports"><span class="ld crit"></span><b>2</b> Three NC port facilities on manual gate processing</a>
-        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>3</b> NCSC alerts on increased OT targeting</a>
-        <a href="#story-baltic-gnss"><span class="ld crit"></span><b>4</b> Baltic GNSS interference: a coordinated network</a>
-        <a href="#story-citrix-kev"><span class="ld crit"></span><b>5</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
-        <a href="#story-mssql-kev"><span class="ld crit"></span><b>6</b> SQL Server RCE confirmed exploited, added to KEV</a>
-        <a href="#story-gitea-kev"><span class="ld crit"></span><b>7</b> Gitea RCE exploited, automation config repositories</a>
-        <a href="#story-furuno-ais"><span class="ld high"></span><b>8</b> Hard-coded credentials in a Class B AIS transponder</a>
-        <a href="#story-siemens-iot2050"><span class="ld high"></span><b>9</b> CVSS 10.0 on a Siemens edge gateway</a>
-        <a href="#story-cisa-redteam"><span class="ld high"></span><b>10</b> CISA red team held a domain undetected</a>
-        <a href="#story-iran-sanctions"><span class="ld high"></span><b>11</b> Iranian network sanctioned inside US infrastructure</a>
-        <a href="#story-ceva-logistics"><span class="ld high"></span><b>12</b> CEVA breach reached European warehouse operations</a>
+        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>3</b> FBI seizes PRC scanning and relay platforms</a>
+        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>4</b> NCSC alerts on increased OT targeting</a>
+        <a href="#story-papercut-kev"><span class="ld crit"></span><b>5</b> PaperCut zero-day chain exploited, added to KEV</a>
+        <a href="#story-baltic-gnss"><span class="ld crit"></span><b>6</b> Baltic GNSS interference: a coordinated network</a>
+        <a href="#story-citrix-kev"><span class="ld crit"></span><b>7</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
+        <a href="#story-mssql-kev"><span class="ld crit"></span><b>8</b> SQL Server RCE confirmed exploited, added to KEV</a>
+        <a href="#story-gitea-kev"><span class="ld crit"></span><b>9</b> Gitea RCE exploited, automation config repositories</a>
+        <a href="#story-furuno-ais"><span class="ld high"></span><b>10</b> Hard-coded credentials in a Class B AIS transponder</a>
+        <a href="#story-siemens-iot2050"><span class="ld high"></span><b>11</b> CVSS 10.0 on a Siemens edge gateway</a>
+        <a href="#story-cisa-redteam"><span class="ld high"></span><b>12</b> CISA red team held a domain undetected</a>
       </div>
     </div>
 
@@ -792,9 +792,9 @@
       </div>
       <div class="trend">
         <span class="trend-tag">Attack Path</span>
-        <b class="trend-head">Relay networks made source addresses meaningless</b>
-        <p>The seizure of QTRouter confirmed that state-sponsored intrusions were being relayed through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. For maritime organisations the discussion has turned inward: the VSAT routers, gate cameras and telemetry gateways that fill a terminal and a vessel are the same class of device these platforms recruited, and very few of them have an owner who patches them.</p>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">US Department of Justice</a>
+        <b class="trend-head">The trust layer under the terminal</b>
+        <p>Sygnia&rsquo;s Fire Ant write-up on 30&nbsp;August has shifted the port-sector conversation away from perimeter appliances and toward the devices behind them. Routers moving management traffic and TACACS servers approving administrator logins were the objective, and their logging was silenced in the process. Terminals have spent the week discovering how little of that layer they own: the network between the terminal operating system, the gate and crane systems and the shore-side link is usually a port authority&rsquo;s or a carrier&rsquo;s, and the facility inherits its integrity without ever testing it.</p>
+        <a href="https://www.sygnia.co/blog/fire-ant-evolves-from-hypervisors-to-trusted-infrastructure/" class="source-link" target="_blank" rel="noopener">Sygnia</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Navigation</span>
@@ -815,6 +815,35 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-qtfy-seizure" data-published="2026-08-26">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; State-sponsored reconnaissance infrastructure seized</span>
+        </div>
+        <h3>FBI seizes the Chinese scanning and relay platforms built out of other people&rsquo;s routers and IoT devices</h3>
+        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of two linked platforms, QScan and QTRouter, operated by a PRC state-sponsored group the government calls QTFY and tied to a Nanjing contractor. QScan handled reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised third-party routers and IoT devices so the traffic arrived from ordinary domestic addresses. Both platforms are now inoperable because the seized domains were hard-coded into the malware. For ports, terminals and fleet operators the relay design is the part worth absorbing: the small, unmanaged, internet-connected devices that fill a maritime estate &mdash; VSAT routers, gate cameras, crane telemetry gateways, remote-monitoring boxes &mdash; are exactly the population these platforms recruited, and source addresses proved nothing.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched edge devices recruited as relays</span>
+            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and shoreside jump-host logs, and against vessel VSAT logs where your provider retains them. Then treat the recruitment problem as your own: inventory every internet-connected device in the terminal and on the vessel that nobody patches &mdash; VSAT and 4G routers, gate and yard cameras, crane and reefer telemetry gateways, remote engine-monitoring boxes, bunkering and shore-power controllers. Give each an owner and a firmware baseline, and remove any that answer inbound from the internet. Finally, delete any firewall rule that trusts traffic by country or because it looks residential; the relay layer made that reasoning worthless years ago.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep &mdash; 7 days; shoreside and shipboard edge-device inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-qtfy" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-qtfy">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
+          <span class="dot">&bull;</span>
+          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
+        </div>
+        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-nc-ports" data-published="2026-08-05">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1033,6 +1062,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-papercut-kev" data-published="2026-08-31">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+        </div>
+        <h3>A print server chained to unauthenticated code execution &mdash; PaperCut&rsquo;s zero-day pair lands in KEV</h3>
+        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; PaperCut disclosed in-the-wild exploitation on 27 Aug 2026 and CISA added both CVEs to the KEV catalog on 31 Aug 2026</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-81578 (missing authentication for a critical function) chained with CVE-2026-82078 (unsafe reflection), added 31 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; PaperCut has shipped fixed builds for both NG and MF; upgrading is the only reliable remediation, and all supported versions were affected</span>
+            <span class="ops-cc"><b>Action:</b> Locate any PaperCut NG or MF Application Server on terminal, vessel-management or corporate networks and move it to the fixed build. At a port that server is often owned by an authority or a shared-services group rather than the facility, so confirm the patch in writing rather than assuming it. Until then, take it off any internet-facing path and restrict which hosts can reach it. Then treat it as a staging point: review its authentication and process-creation logs from 20&nbsp;August, establish what its service account can log on to, and confirm there is no unbrokered route from that segment to the terminal operating system, the gate and crane networks or the OT jump hosts. Print servers rarely appear in a Cybersecurity Plan inventory &mdash; this is the week to add yours.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 48 hours (KEV-listed and actively exploited); review of what the print server can reach &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-papercut" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-papercut">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA Known Exploited Vulnerabilities catalog addition and the PaperCut security bulletin &mdash; corroborated by SecurityWeek, Help Net Security, Rapid7 and The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-kev-27aug" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1367,7 +1425,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Marine &amp; Maritime.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 29&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories, KEV additions of 18, 25, 26 and 27&nbsp;August, CISA advisory AA26-237A on red-team findings, the UK NCSC alert of 27&nbsp;August on OT targeting and internet-exposed edge devices, USCG and IMO material, IACS UR&nbsp;E26/E27, and vendor PSIRTs (Furuno, Siemens ProductCERT, Citrix, Microsoft, Gitea, JFrog). Research and analysis from Dragos, Claroty Team82, Forescout Vedere Labs, VulnCheck and SentinelOne. Law-enforcement, sanctions and policy material from the US Department of Justice, the Department of the Treasury and Executive Order&nbsp;14420 of 26&nbsp;August&nbsp;2026, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, TechCrunch, Nextgov/FCW, Security Affairs, Cybernews and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 1&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and the internet-exposure reduction guidance of 26&nbsp;August, KEV additions of 25, 26, 27 and 31&nbsp;August, the US Coast Guard MTS cybersecurity final rule and associated compliance dates, IMO and IACS UR&nbsp;E26/E27 material, CISA advisory AA26-237A on red-team findings, the UK NCSC alert of 27&nbsp;August, and vendor PSIRTs (Furuno, Siemens ProductCERT, Citrix, Microsoft, Gitea, JFrog, PaperCut). Research and analysis from Sygnia, Dragos, Claroty Team82, Nozomi Networks, Rapid7 and VulnCheck, plus open GNSS interference monitoring. Law-enforcement and sanctions material from the US Department of Justice and the Department of the Treasury, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, SC Media, Security Affairs and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions, USCG bulletins or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

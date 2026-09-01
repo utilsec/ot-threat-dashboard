@@ -696,13 +696,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 31 Aug 2026, 4:23 AM ET</span>
+        <span>Generated Tuesday, 01 Sep 2026, 4:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>21</strong> stories across
+      <strong>24</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -735,7 +735,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:59.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, held at 5.9 on recompute &mdash; and at the ceiling this dashboard allows without a confirmed OT-disruptive incident in the current window. Nothing on this page is a live compromise of food or agriculture control systems: the sector&rsquo;s recent production stoppages, including the Fairlife shutdown that suspended US output for ten days, sit outside the reporting window and were enterprise-IT ransomware rather than manipulation of plant control. What keeps the score at the top of the band is sustained, well-evidenced targeting. Dragos recorded 1,140 industrial ransomware incidents in the second quarter, up 12&nbsp;per&nbsp;cent, with food and beverage a consistent target and edge devices and remote management the main entry points; researchers have tracked 220 attacks on the sector so far this year. A further input is the NCSC&rsquo;s 27&nbsp;August alert, in which a national authority states it is seeing increased OT targeting across multiple sectors globally with limited real-world disruption already resulting. Above that sits advisory AA26-231A, which names food and agriculture among six sectors where AI-written scripts are reading Siemens S7 controllers &mdash; reconnaissance, not manipulation. Unexploited advisories &mdash; including the Fuel-Boss advisory added this run &mdash; and actively exploited IT and edge flaws are real work but do not aggregate the score upward.</div>
+      <div class="tl-why"><b>Why:</b> Mid-to-upper Medium, recomputed to 5.9 &mdash; the ceiling this dashboard applies when no confirmed OT-disruptive cyber incident is in evidence for the sector in the current window. Food and beverage ransomware volume keeps climbing and Dragos counted 70 incidents in the sector in a single quarter, but that is a pattern of business-system encryption and consequent production stoppage rather than a confirmed case of an attacker manipulating a controller, and no fresh in-sector OT disruption has been confirmed for this edition. What holds the score at the top of the Medium range is pre-positioning and identity risk. Sygnia&rsquo;s Fire Ant research, added this run, documents a China-nexus actor compromising Cisco IOS&nbsp;XR routers and TACACS authentication servers, suppressing their logging and scanning toward connected critical-infrastructure networks &mdash; the shared corporate layer that joins most plants, cold stores and distribution centres. The McKesson disclosure, also added, shows a large distributor reportedly reached through vished single sign-on accounts into Salesforce and Snowflake with no software flaw involved. Alongside them sit the FBI seizure of the PRC QScan and QTRouter platforms and the NCSC&rsquo;s 27&nbsp;August OT-targeting alert. Newly exploited PaperCut flaws in KEV, plus NetScaler, SQL Server and Gitea, and the unexploited refrigeration and fire-alarm advisories, are patching work rather than escalation.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -743,31 +743,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-qtfy-seizure" data-published="2026-08-26">
+    <div class="top-story" id="story-fireant" data-published="2026-08-30">
         <span class="top-story-pill">Top Story</span>
-        <h2>FBI seizes the Chinese state-sponsored platforms that scanned critical infrastructure and relayed attacks through hijacked devices</h2>
-        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of QScan and QTRouter, two linked platforms run by a PRC state-sponsored group the government calls QTFY and tied to a Nanjing contractor. QScan performed reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. Both platforms are now inoperable because the seized domains were hard-coded into the malware. Named victims are federal, and the activity runs back to at least 2018. For food and agriculture the relay design is the transferable point: processing plants, cold stores and farms are full of cheap connected devices nobody patches, and that is the population these platforms recruited.</p>
+        <h2>Fire Ant compromises the routers and login servers that sit between plants, cold stores and head office</h2>
+        <p>Sygnia published research on 30&nbsp;August showing the China-nexus group it tracks as Fire Ant has moved out of VMware hypervisors and into the network layer: Cisco IOS&nbsp;XR routers, TACACS authentication servers and Linux management hosts inside a large interconnected estate. Router implants suppressed selected syslog messages and served interactive shells that logged nothing; on TACACS the actor injected a library into the running daemon and copied administrator credentials as logins were approved. Sygnia observed scanning and connection attempts toward linked critical-infrastructure networks without confirming compromise there. Food and beverage sites rarely own that layer. The routers joining a processing plant, a distribution centre and head office are usually run by corporate IT or a provider &mdash; and the logs that would show tampering come from those same devices, which is precisely what this actor set out to make unreliable.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Sygnia documents active compromise of Cisco IOS&nbsp;XR routers, TACACS servers and Linux management hosts; activity against connected critical-infrastructure networks is described as scanning and connection attempts, not confirmed compromise</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the actor abused legitimate administrative functions and deployed custom implants, including a TACACS credential-theft toolset Sygnia calls TacTap; no product vulnerability has been assigned</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched plant and farm devices recruited as relays</span>
-            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and remote-support logs. Then handle the recruitment side, which is the part you control: inventory the internet-connected devices across processing, storage and field operations that nobody patches &mdash; refrigeration and cold-store gateways, grain bin and dryer monitors, irrigation and pivot controllers, ag-IoT sensor hubs, plant cameras, and the cellular routers behind remote sites. Give each an owner and a firmware baseline, and remove any that accept inbound connections from the internet. Drop firewall rules that trust traffic by geography or because the source looks residential.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is the network, authentication and management tier itself, and the on-box logging that would normally reveal tampering</span>
+            <span class="ops-cc"><b>Action:</b> Establish who actually owns the network between your plants, distribution centres and cold stores &mdash; for most food and beverage groups that is corporate IT or a managed provider rather than the site &mdash; and ask for three pieces of evidence in writing. One: that router and firewall configurations and firmware are compared against a baseline held off the device, with a date. Two: that device, VPN and authentication logs are forwarded to a store the network administrators cannot edit. Three: when network-administrator credentials and any TACACS or RADIUS shared secrets were last rotated. Then check your own dependency. If line controllers, refrigeration and building systems at a site are reachable across that shared corporate network without a brokered, logged crossing point, the integrity of someone else&rsquo;s routers is currently part of your food-safety story.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep against retained logs &mdash; 7 days; plant and field edge-device inventory &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-qtfy" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-qtfy">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Written evidence from the network owner on baselining, off-device logging and credential rotation &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fireant" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-fireant">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
+          <span>Sygnia research publication and press release &mdash; corroborated by BleepingComputer, The Hacker News, Cybersecurity Dive and SC Media</span>
           <span class="dot">&bull;</span>
-          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
+          <span>Sygnia published 30 Aug 2026; wider reporting 31 Aug 2026</span>
         </div>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.sygnia.co/blog/fire-ant-evolves-from-hypervisors-to-trusted-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -796,33 +796,33 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
+        <a href="#story-fireant"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
         <a href="#story-fb-ransomware"><circle class="blip crit" cx="265.0" cy="180.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="265.0" y="184.5">2</text></a>
-        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
-        <a href="#story-refrigeration"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
-        <a href="#story-citrix-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
-        <a href="#story-mssql-kev"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
-        <a href="#story-gitea-kev"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
-        <a href="#story-aurora-cursor"><circle class="blip high" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
-        <a href="#story-dragos-q2"><circle class="blip high" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
-        <a href="#story-siemens-iot2050"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
-        <a href="#story-iran-sanctions"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
-        <a href="#story-jci-firealarm"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
+        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
+        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
+        <a href="#story-papercut-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
+        <a href="#story-refrigeration"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
+        <a href="#story-citrix-kev"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
+        <a href="#story-mssql-kev"><circle class="blip crit" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
+        <a href="#story-gitea-kev"><circle class="blip crit" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
+        <a href="#story-mckesson"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
+        <a href="#story-aurora-cursor"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
+        <a href="#story-dragos-q2"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>1</b> FBI seizes PRC scanning and relay platforms</a>
+        <a href="#story-fireant"><span class="ld crit"></span><b>1</b> Fire Ant hijacks routers and TACACS servers</a>
         <a href="#story-fb-ransomware"><span class="ld crit"></span><b>2</b> Food and beverage ransomware volume still climbing</a>
-        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>3</b> NCSC alerts on increased OT targeting</a>
-        <a href="#story-refrigeration"><span class="ld crit"></span><b>4</b> Refrigeration control off while the display reads normal</a>
-        <a href="#story-citrix-kev"><span class="ld crit"></span><b>5</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
-        <a href="#story-mssql-kev"><span class="ld crit"></span><b>6</b> SQL Server RCE confirmed exploited, added to KEV</a>
-        <a href="#story-gitea-kev"><span class="ld crit"></span><b>7</b> Gitea RCE exploited, recipe and line config repositories</a>
-        <a href="#story-aurora-cursor"><span class="ld high"></span><b>8</b> Aurora affiliate ran an AI agent inside 17 networks</a>
-        <a href="#story-dragos-q2"><span class="ld high"></span><b>9</b> 70 food and beverage ransomware incidents in a quarter</a>
-        <a href="#story-siemens-iot2050"><span class="ld high"></span><b>10</b> CVSS 10.0 on a Siemens edge gateway</a>
-        <a href="#story-iran-sanctions"><span class="ld high"></span><b>11</b> Iranian network sanctioned inside US infrastructure</a>
-        <a href="#story-jci-firealarm"><span class="ld high"></span><b>12</b> Fire-alarm software stores credentials in cleartext</a>
+        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>3</b> FBI seizes PRC scanning and relay platforms</a>
+        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>4</b> NCSC alerts on increased OT targeting</a>
+        <a href="#story-papercut-kev"><span class="ld crit"></span><b>5</b> PaperCut zero-day chain exploited, added to KEV</a>
+        <a href="#story-refrigeration"><span class="ld crit"></span><b>6</b> Refrigeration control off while the display reads normal</a>
+        <a href="#story-citrix-kev"><span class="ld crit"></span><b>7</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
+        <a href="#story-mssql-kev"><span class="ld crit"></span><b>8</b> SQL Server RCE confirmed exploited, added to KEV</a>
+        <a href="#story-gitea-kev"><span class="ld crit"></span><b>9</b> Gitea RCE exploited, recipe and line config repositories</a>
+        <a href="#story-mckesson"><span class="ld high"></span><b>10</b> McKesson: vished SSO into Salesforce and Snowflake</a>
+        <a href="#story-aurora-cursor"><span class="ld high"></span><b>11</b> Aurora affiliate ran an AI agent inside 17 networks</a>
+        <a href="#story-dragos-q2"><span class="ld high"></span><b>12</b> 70 food and beverage ransomware incidents in a quarter</a>
       </div>
     </div>
 
@@ -841,10 +841,10 @@
         <a href="https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices" class="source-link" target="_blank" rel="noopener">NCSC</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Food Safety</span>
-        <b class="trend-head">When the reading lies, HACCP monitoring stops working</b>
-        <p>Team82&rsquo;s refrigeration controller research has landed harder in food and beverage than a typical vulnerability disclosure, because the failure mode is silent: cooling disabled while the display continues to show a normal temperature. Quality and food-safety teams have started asking a question security teams rarely hear &mdash; what independent evidence do we have that the temperature record is true?</p>
-        <a href="https://www.securityweek.com/in-other-news-rapid7-layoffs-hacking-a-boeing-737-refrigeration-system-vulnerabilities/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <span class="trend-tag">Attack Path</span>
+        <b class="trend-head">Two routes in that never touch a vulnerability</b>
+        <p>The week&rsquo;s two most-discussed stories have nothing to patch between them. Sygnia&rsquo;s Fire Ant research shows routers and TACACS authentication servers turned into collection points with their own logging suppressed, and McKesson&rsquo;s disclosure points to voice phishing against staff, compromised single sign-on accounts, and then SaaS tenants full of operational data. One subverts the layer that proves what happened; the other subverts the process that decides who you are. For food groups that have spent two years segmenting the plant floor, both routes run comfortably above it &mdash; through the shared corporate network and the shared identity provider.</p>
+        <a href="https://www.sygnia.co/blog/fire-ant-evolves-from-hypervisors-to-trusted-infrastructure/" class="source-link" target="_blank" rel="noopener">Sygnia</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Ransomware</span>
@@ -865,6 +865,64 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-qtfy-seizure" data-published="2026-08-26">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; State-sponsored reconnaissance infrastructure seized</span>
+        </div>
+        <h3>FBI seizes the Chinese state-sponsored platforms that scanned critical infrastructure and relayed attacks through hijacked devices</h3>
+        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of QScan and QTRouter, two linked platforms run by a PRC state-sponsored group the government calls QTFY and tied to a Nanjing contractor. QScan performed reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. Both platforms are now inoperable because the seized domains were hard-coded into the malware. Named victims are federal, and the activity runs back to at least 2018. For food and agriculture the relay design is the transferable point: processing plants, cold stores and farms are full of cheap connected devices nobody patches, and that is the population these platforms recruited.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched plant and farm devices recruited as relays</span>
+            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and remote-support logs. Then handle the recruitment side, which is the part you control: inventory the internet-connected devices across processing, storage and field operations that nobody patches &mdash; refrigeration and cold-store gateways, grain bin and dryer monitors, irrigation and pivot controllers, ag-IoT sensor hubs, plant cameras, and the cellular routers behind remote sites. Give each an owner and a firmware baseline, and remove any that accept inbound connections from the internet. Drop firewall rules that trust traffic by geography or because the source looks residential.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep against retained logs &mdash; 7 days; plant and field edge-device inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-qtfy" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-qtfy">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
+          <span class="dot">&bull;</span>
+          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
+        </div>
+        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-mckesson" data-published="2026-08-31">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Identity-based intrusion at a major distributor</span>
+        </div>
+        <h3>A phone call, not an exploit &mdash; a distributor&rsquo;s SSO accounts were talked open, then used against Salesforce and Snowflake</h3>
+        <p>McKesson disclosed on 31&nbsp;August that it had discovered a cybersecurity incident on 25&nbsp;August. ShinyHunters claims responsibility and says it took roughly a terabyte over four days &mdash; about 284&nbsp;million records &mdash; with a demand near $55&nbsp;million; the company states it has not determined the incident to be material. What matters outside healthcare is the route in: voice phishing against employees, leading to compromised Okta single sign-on accounts, and from there into the company&rsquo;s Salesforce and Snowflake tenants. No software flaw was involved. Food and agriculture runs on the same shape of estate &mdash; a distribution business joined to growers, co-packers and retailers by SaaS, with order, forecast and traceability data pooled in cloud analytics platforms behind one identity provider and one help desk.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach, contested scope &mdash; McKesson has disclosed an incident discovered 25 Aug 2026; the 284&nbsp;million-record figure and the $55m extortion demand are ShinyHunters claims, not company-confirmed. McKesson states it has not determined the incident to be material</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the reported entry path is voice phishing against staff, leading to compromised Okta single sign-on accounts and then to Salesforce and Snowflake tenants. No software flaw was exploited</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the control gaps are help-desk identity verification, SSO session handling and SaaS tenant monitoring</span>
+            <span class="ops-cc"><b>Action:</b> Test the help desk rather than trusting it: have someone outside the team call in and attempt an MFA reset or device re-enrolment using only what a public directory and LinkedIn would give them, then close whatever that exposes with a callback or manager-verification step. Next, list the SaaS tenants holding operational data &mdash; order management, demand forecasting, traceability and recall records, supplier portals, warehouse and cold-chain telemetry &mdash; and confirm each sits behind phishing-resistant MFA with bulk download and export alerting switched on and actually reviewed. Then extend the question outward: your co-packers, 3PLs and growers authenticate into some of those tenants too, and a recall you cannot evidence because the traceability platform was emptied is a food-safety problem before it is a security one.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Help-desk identity verification test &mdash; 14 days; SaaS tenant MFA and bulk-export alerting review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-mckesson" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-mckesson">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>McKesson SEC filing and company statement, plus threat-actor claims reported by BleepingComputer &mdash; corroborated by Help Net Security, SC Media and HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Incident discovered 25 Aug 2026; disclosed and reported 31 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/mckesson-discloses-breach-after-shinyhunters-claims-patient-data-theft/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-fb-ransomware" data-published="2026-08-03">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1112,6 +1170,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-papercut-kev" data-published="2026-08-31">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+        </div>
+        <h3>A print server chained to unauthenticated code execution &mdash; PaperCut&rsquo;s zero-day pair lands in KEV</h3>
+        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; PaperCut disclosed in-the-wild exploitation on 27 Aug 2026 and CISA added both CVEs to the KEV catalog on 31 Aug 2026</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-81578 (missing authentication for a critical function) chained with CVE-2026-82078 (unsafe reflection), added 31 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; PaperCut has shipped fixed builds for both NG and MF; upgrading is the only reliable remediation, and all supported versions were affected</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every PaperCut Application Server, including those installed at plants and distribution centres for label, pallet-tag and shipping-document printing, and move them to the fixed build. Until then, take them off any internet-facing path and restrict which hosts can reach them. Then treat each as a possible staging host rather than a printing issue: site print servers are frequently dual-homed onto the same VLAN as line HMIs or warehouse systems, and the service account usually carries broader logon rights than intended. Review authentication and process-creation logs from 20&nbsp;August onward, establish where that account can log on, and confirm no unbrokered route runs from its segment to line control or refrigeration systems. On a food site, losing label and coding printing stops shipping on its own.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 48 hours (KEV-listed and actively exploited); staging-host review of the affected servers &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-papercut" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-papercut">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA Known Exploited Vulnerabilities catalog addition and the PaperCut security bulletin &mdash; corroborated by SecurityWeek, Help Net Security, Rapid7 and The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-fuelboss" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1475,7 +1562,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Food &amp; Agriculture.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 29&nbsp;August&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories, KEV additions of 18, 25, 26 and 27&nbsp;August, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 targeting, CISA advisory AA26-237A on red-team findings, the UK NCSC alert of 27&nbsp;August on OT targeting and internet-exposed edge devices, Food and Ag-ISAC reporting, and vendor PSIRTs (Rockwell Automation, Siemens ProductCERT, Johnson Controls, Citrix, Microsoft, Gitea, JFrog). Research and analysis from Dragos, Claroty Team82, Forescout Vedere Labs, VulnCheck and SentinelOne. Law-enforcement, sanctions and policy material from the US Department of Justice, the Department of the Treasury and Executive Order&nbsp;14420 of 26&nbsp;August&nbsp;2026, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, TechCrunch, Nextgov/FCW, Security Affairs, Cybernews and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 1&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and the internet-exposure reduction guidance of 26&nbsp;August, KEV additions of 25, 26, 27 and 31&nbsp;August, Food and Ag-ISAC ransomware reporting, the UK NCSC alert of 27&nbsp;August, CISA advisory AA26-237A on red-team findings, EU Cyber Resilience Act reporting obligations, and vendor PSIRTs (Rockwell Automation, Siemens ProductCERT, Johnson Controls, Citrix, Microsoft, Gitea, JFrog, PaperCut). Company and actor-claim material was taken from McKesson&rsquo;s SEC filing and company statement, with extortion-group claims labelled as claims rather than confirmed facts. Research and analysis from Sygnia, Dragos, Claroty Team82, Forescout Vedere Labs, Rapid7 and VulnCheck. Law-enforcement and sanctions material from the US Department of Justice and the Department of the Treasury, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, SC Media and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source. Not a replacement for ICS-CERT subscriptions or Food and Ag-ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
