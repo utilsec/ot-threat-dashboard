@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 03 Sep 2026, 4:45 AM ET</span>
+        <span>Generated Friday, 04 Sep 2026, 4:35 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>29</strong> stories across
+      <strong>30</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:70.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> High at 7.0, and the driver is unchanged: a confirmed OT-disruptive campaign that reached multiple utility environments rather than one. CISA has put more than 100 internet-exposed water systems in the targeted set, utilities in at least twelve states were affected, more than 30 Minnesota systems were hit, and confirmed impacts included plants run by hand, altered controller logic, disabled alarms and pressure loss. That is multi-environment operational disruption, which sits in the High band under this dashboard&rsquo;s calibration. It has not eased further this run because a new in-sector supply-chain item landed: Micro-Comm, which builds PLCs and the SCADAview&nbsp;CSX platform for water utilities, has confirmed a ransomware breach, and researchers count roughly 200 of its SCADA systems answering from the public internet. No customer control system compromise has been confirmed. Working against the score are the concrete federal responses &mdash; Project Watershed 250 and specific CISA, EPA and FBI exposure guidance. New KEV activity around SonicWall&rsquo;s SMA1000 and the 1&nbsp;September Rockwell advisories is treated as background and does not lift the level.</div>
+      <div class="tl-why"><b>Why:</b> High, unchanged. Water is the one sector currently meeting the High bar on its own facts: the FBI and EPA have confirmed that malicious actors reached internet-facing Allen-Bradley PLCs at utilities in a dozen states, changed IP addresses and passwords to lock operators out, altered project logic and HMI/SCADA displays, and disabled shutdown and alarm logic &mdash; with a Georgia pump station shut down and a precautionary boil-water advisory issued. That is confirmed OT-disruptive activity across multiple environments, not a single operator, which is what separates High from upper Medium here. The UK NCSC&rsquo;s 1 September report describing a July wave against more than a hundred water and wastewater systems reinforces rather than raises it. New this run is guidance and advisory material only &mdash; CISA&rsquo;s 3 September batch touching the IXON VPN client, Rockwell ControlFLASH and Ignition, and the six-agency outage-communication guidance &mdash; none of it exploited, and none of it moving the score.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -939,6 +939,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="story-ci-fortify-6step" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research &mdash; Isolation readiness, practitioner guidance</span>
+        </div>
+        <h3>Six steps to being able to disconnect &mdash; and an assumption you may run isolated for three months</h3>
+        <p>Nozomi Networks published a practitioner summary on 2&nbsp;September of the Five Eyes &ldquo;CI Fortify&rdquo; guidance released in late July, reducing it to six steps: identify vital systems and their dependencies; establish trust levels and connection maps; pre-build the separation points; create and test graduated isolation plans; retain visibility while isolated; and run post-isolation checks before reconnecting. Two points matter for water. The first is graduated isolation &mdash; the realistic response to a compromise is rarely a single switch, it is cutting remote access while keeping plant SCADA, then cutting SCADA while keeping local control. The second is the planning horizon: Nozomi suggests assuming isolated operation could last up to three months, which for a utility means asking whether you have the staff to run lift stations and dosing manually for that long, not merely whether you can pull the cable.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Confirmed &mdash; Nozomi Networks analysis published 2 Sep 2026, summarising the Five Eyes CI Fortify guidance released 28 Jul 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is preparedness guidance, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the work is dependency mapping, pre-built separation points and tested isolation plans</span>
+            <span class="ops-cc"><b>Action:</b> Do the first two steps and the rest become tractable. Write down, per system, what plant SCADA and your remote-site telemetry depend on that lives outside the control network &mdash; directory services, DNS, NTP, licence servers, cellular APNs, the integrator&rsquo;s remote-access path. That list is the isolation plan. Then pre-build the separation point so cutting external connectivity is a documented action rather than an improvised firewall change at 2am. Test the cheapest graduated tier first: disconnect vendor remote access for an hour during a low-demand period and confirm the plant still runs and you still have visibility. If you cannot do that without an outage, that is the finding.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Dependency map for plant SCADA and remote-site telemetry &mdash; 60 days; test vendor-access isolation &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-ci-fortify-6" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-ci-fortify-6">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Nozomi Networks Labs analysis of the CISA / ASD ACSC / NCSC-UK / CCCS &ldquo;CI Fortify&rdquo; guidance</span>
+          <span class="dot">&bull;</span>
+          <span>Analysis published 2 Sep 2026; underlying guidance published 28 Jul 2026</span>
+        </div>
+        <a href="https://www.nozominetworks.com/blog/ci-fortify-you-cant-prevent-the-storm-but-you-can-ride-it-out-" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-gcloud-water" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1179,6 +1208,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-cisa-sep3" data-published="2026-09-03">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Critical Advisory &mdash; Remote-access client, firmware tool and SCADA platform</span>
+        </div>
+        <h3>CISA&rsquo;s 3 September batch hits the three things a small utility actually runs &mdash; a VPN client, a firmware updater and Ignition</h3>
+        <p>CISA published a further set of ICS advisories on 3&nbsp;September, and three of them sit squarely on the tooling a small water utility depends on. ICSA-26-246-02 covers the IXON VPN Client: CVE-2026-75925 allows remote code execution with elevated privileges on the machine running the client in versions before 1.4.7. For utilities that reach lift stations and remote sites through an integrator&rsquo;s managed VPN, that machine is the bridge. ICSA-26-246-03 covers Rockwell Automation ControlFLASH at V15.07 and earlier, where CVE-2026-12663 permits commands or code to run at the logged-in user&rsquo;s permission level &mdash; ControlFLASH is how firmware reaches Allen-Bradley controllers, including the MicroLogix families named in the summer campaign. ICSA-26-246-06 covers Inductive Automation Ignition, where any authenticated user can create projects; Ignition is common as the HMI/SCADA layer at plants that outgrew a vendor package. None is reported as exploited.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation &mdash; CISA lists no reported public exploitation for CVE-2026-75925, CVE-2026-12663 or the Ignition issue as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of the three advisories carries a KEV listing at generation time</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed versions available &mdash; IXON VPN Client 1.4.7 or later; Rockwell ControlFLASH beyond V15.07; see each advisory for Ignition guidance</span>
+            <span class="ops-cc"><b>Action:</b> Start with the VPN client, because it is the item that converts a support tool into an entry point: identify every machine running the IXON VPN Client &mdash; including any owned by your integrator rather than by you &mdash; confirm the version, and move anything below 1.4.7 up. Ask your integrator in writing which version they are on before their next remote session. For ControlFLASH, upgrade past V15.07 where you can; until then, do not run firmware pushes from an account that also administers the business network. For Ignition, list every authenticated user and remove project-creation rights from operator-level accounts. None of this is urgent in the exploited sense &mdash; it is the routine patch-and-verify that keeps the summer PLC campaign from having an easy second act.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IXON VPN Client inventory and upgrade to 1.4.7+, including integrator machines &mdash; 14 days; ControlFLASH and Ignition reviews &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-cisa-sep3" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-cisa-sep3">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisories ICSA-26-246-02 (IXON VPN Client), ICSA-26-246-03 (Rockwell Automation ControlFLASH) and ICSA-26-246-06 (Inductive Automation Ignition)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 3 Sep 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-sonicwall-sma1000" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1472,35 +1530,6 @@
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-ebyte-gateway" data-published="2026-08-25">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Serial-to-Ethernet gateway, no vendor patch</span>
-        </div>
-        <h3>No login required and no patch coming &mdash; the Ebyte gateway advisory is a replacement decision</h3>
-        <p>CISA advisory ICSA-26-237-06 covers the Ebyte NE2-D11 serial-to-Ethernet gateway, whose web management interface does not consistently enforce authentication before granting administrative functions. An unauthenticated remote attacker can read configuration, change settings, hijack sessions or disrupt operation. CISA notes the vendor acknowledged the reports, said a patch was in development, then stopped responding, so there is no fix status. Inexpensive serial gateways of this class are common in water systems: they are what someone reached for when an older flow meter, chlorine analyser or lift-station RTU needed to talk to a network, and they very rarely appear in a patch programme.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the flaws are unauthenticated and remotely reachable</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch available &mdash; vendor acknowledged the reports but has not confirmed a fix; CISA advises network protections and replacement planning</span>
-            <span class="ops-cc"><b>Action:</b> Walk the plant and the remote sites looking for small serial-to-Ethernet converters generally, not just this model &mdash; they are physically easy to miss and rarely documented. For each, confirm it is not reachable from the internet, then restrict it behind a firewall rule permitting only the one host and port that needs it, and disable the web interface if the device allows. Where the gateway serves a chemical feed, pump or analyser and no patch is coming, put replacement into the next capital cycle rather than carrying the risk indefinitely.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Serial gateway inventory, isolation and replacement plan &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-ebyte" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-ebyte">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-237-06, reported by researcher Jithin Nambiar &mdash; via CISA</span>
-          <span class="dot">&bull;</span>
-          <span>Published 25 Aug 2026; re-verified 27 Aug 2026 &mdash; no vendor patch announced</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-06" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 <div class="card" id="story-siemens-iot2050" data-published="2026-08-12">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1537,6 +1566,35 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+<div class="card" id="story-outage-comms" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy &mdash; Joint international guidance, incident communications</span>
+        </div>
+        <h3>Six agencies publish outage-communication guidance &mdash; written for service providers, and a water utility is one</h3>
+        <p>On 2&nbsp;September the Canadian Centre for Cyber Security joined CISA, Australia&rsquo;s ASD ACSC, NCSC-NZ, NCSC-UK and the FBI to publish joint guidance on communicating during IT and OT service outages, titled &ldquo;Communicating Under Pressure: Best Practices for Service Providers.&rdquo; The guidance asks for a written incident communications plan with defined trigger thresholds and named audiences, plain-language updates rather than legal boilerplate, root-cause and technical detail that end users can act on, and messaging aligned with legal and regulatory obligations. For a water utility this is unusually concrete. The summer PLC campaign produced exactly the situation the document describes &mdash; loss of monitoring and control, an unexplained pressure event, and in at least one Georgia case a precautionary boil-water advisory &mdash; where what the public heard, and when, mattered as much operationally as the restoration itself.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Confirmed &mdash; joint guidance published 2 Sep 2026 by CISA, the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is guidance on incident communications, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the action required is a documented, tested incident communications plan</span>
+            <span class="ops-cc"><b>Action:</b> Test your plan against the guidance rather than filing it. For a small utility three checks are enough this month: written thresholds that say when an outage triggers notification to the state primacy agency, the public and your customers, so the decision is not being made under pressure; a named communications owner who is not the person restoring the system; and a pre-agreed line you can issue when you know service is affected but not yet why &mdash; that gap is where trust is lost. Then apply it outward and ask your SCADA integrator and any managed-service provider what their own outage-communication commitment is, in hours, and get it in writing at renewal.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Gap-check the incident communications plan and confirm notification thresholds &mdash; 30 days; raise with integrator at next renewal</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-outage-comms" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-outage-comms">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Canadian Centre for Cyber Security and CISA &mdash; joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo;</span>
+          <span class="dot">&bull;</span>
+          <span>Published 2 Sep 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/resources-tools/resources/communicating-under-pressure-best-practices-service-providers" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-crs-water" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1624,35 +1682,6 @@
         </div>
         <a href="https://www.wwdmag.com/utility-management/news/55397503/water-cyber-shield-act-targets-cybersecurity-gaps-in-water-sector" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-isasecure-nsa" data-published="2026-08-20">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; Procurement-driven security certification</span>
-        </div>
-        <h3>The NSA is putting an ISA/IEC&nbsp;62443 certificate in front of the controllers it buys</h3>
-        <p>ISASecure announced a partnership with the National Security Agency to develop a High Criticality Component Security Assurance certification scheme, derived from its Component Security Assurance programme and grounded in ISA/IEC&nbsp;62443-4-2. Once accepted, the NSA intends to use it when adding OT components to the National Security Systems product compliant list. Water utilities are not the buyer here, but they are downstream of the effect: when a large customer makes certification a purchase condition, vendors build to it and the requirement language migrates into everyone else&rsquo;s specifications. That gives a utility drafting a SCADA or instrumentation tender a defensible standard to cite rather than inventing security requirements from scratch.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; this is a certification scheme announcement, not a vulnerability</span>
-            <span class="ops-tag kev-off">No CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the item is procurement policy and component assurance</span>
-            <span class="ops-cc"><b>Action:</b> Add ISA/IEC&nbsp;62443-4-2 component security levels and ISASecure certification as an evaluated criterion in your next SCADA, RTU or instrumentation tender rather than waiting for a mandate. Ask your current vendors and integrator which products already hold certification and at what level; the answer varies within a single catalogue and is useful at renewal. For small utilities this is one of the few security improvements that costs nothing to specify and shifts the burden onto the supplier.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Procurement language review &mdash; next tender cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-isasec" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-isasec">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>ISA / ISASecure press release &mdash; corroborated by Automation World and ISSSource</span>
-          <span class="dot">&bull;</span>
-          <span>Announced 20 Aug 2026; verified 27 Aug 2026</span>
-        </div>
-        <a href="https://www.isa.org/news-press-releases/2026/august/isasecure-to-develop-certification-scheme-for-comm" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -1660,7 +1689,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Water &amp; Wastewater.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 3&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories and its statement on internet-exposed water systems, KEV additions of 25, 26, 27 and 31&nbsp;August, the FBI/EPA/CISA guidance on internet-facing PLCs in the water and wastewater sector, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 targeting, the UK NCSC alert of 27&nbsp;August, WaterISAC and EPA material, Congressional Research Service Insight IF13298, and vendor PSIRTs (SonicWall, Rockwell Automation, Siemens ProductCERT, Schneider Electric, Citrix, Microsoft, Gitea, JFrog, PaperCut, WAGO). Research and analysis from Sygnia, Dragos, Forescout Vedere Labs, Claroty Team82, Google Cloud and Mandiant. Policy material from the Office of the National Cyber Director, EPA, CISA and the Texas Governor&rsquo;s office, reported factually and without partisan framing. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, SC Media, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 4&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August and 2&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

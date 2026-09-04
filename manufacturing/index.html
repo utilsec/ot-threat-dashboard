@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 03 Sep 2026, 4:45 AM ET</span>
+        <span>Generated Friday, 04 Sep 2026, 4:35 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>27</strong> stories across
+      <strong>28</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:65.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium at 6.5. The driver is a confirmed single-sector incident with continuing operational effect: nine days after detecting an intrusion, Boston Scientific still reports disrupted manufacturing, order processing and shipping, with no full restoration date. Under this dashboard&rsquo;s calibration that is upper Medium &mdash; the impact is real and sustained, but it reached business and on-premise systems rather than controllers, and it has not spread across multiple operators or sectors. Supporting it: the McKesson social-engineering compromise of SSO accounts, Data I/O pulling its own production and shipping offline to contain ransomware, Clop&rsquo;s PTC Windchill campaign taking engineering documentation, and Dragos counting 747 manufacturing ransomware victims in a single quarter. New this run, SonicWall&rsquo;s SMA1000 pair is confirmed exploited and KEV-listed with a CVSS&nbsp;10 pre-authentication flaw, and CISA&rsquo;s 1&nbsp;September batch reaches RSLinx Classic and the Logix controller families. Neither has been used against OT, and unexploited advisories do not aggregate upward.</div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, unchanged. The driver is confirmed production impact at a single operator: Boston Scientific detected an intrusion on 25 August and the resulting network outage disrupted manufacturing, customer order processing and shipping, with recovery still under way at the end of the month. Under this dashboard&rsquo;s calibration that is upper Medium, not High &mdash; High would need confirmed OT disruption across multiple operators or sectors. Dragos counted 1,140 ransomware incidents at industrial organisations in the second quarter, with manufacturing taking 747 of them, and made the point that matters most here: attackers did not need control-system access to stop production. Around that, exposure rather than impact &mdash; the S7 reconnaissance advisory, the NCSC warning, and this run&rsquo;s new material, CISA&rsquo;s 3 September batch aimed squarely at the engineering workstation and the six-agency outage-communication guidance, neither exploited.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -966,6 +966,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="story-ci-fortify-6step" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research &mdash; Isolation readiness, practitioner guidance</span>
+        </div>
+        <h3>Six steps to being able to disconnect the plant &mdash; and a planning horizon of three months</h3>
+        <p>Nozomi Networks published a practitioner summary on 2&nbsp;September of the Five Eyes &ldquo;CI Fortify&rdquo; guidance released in late July, reducing it to six steps: identify vital systems and their dependencies; establish trust levels and connection maps; pre-build the separation points; create and test graduated isolation plans; retain visibility while isolated; and run post-isolation checks before reconnecting. Manufacturing is where the dependency map usually surprises people: MES scheduling, licence servers, recipe management, quality systems and label printing all sit on the enterprise side, so &ldquo;cut IT and keep making product&rdquo; frequently fails within a shift. That is the argument for pre-building separation points and testing them. Nozomi&rsquo;s planning horizon of up to three months of isolated operation is deliberately uncomfortable and worth using as a tabletop scenario rather than a target.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Confirmed &mdash; Nozomi Networks analysis published 2 Sep 2026, summarising the Five Eyes CI Fortify guidance released 28 Jul 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is preparedness guidance, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the work is dependency mapping, pre-built separation points and tested isolation plans</span>
+            <span class="ops-cc"><b>Action:</b> Start with the dependency map, per line rather than per site: for each production cell, record what it needs from outside the OT network &mdash; MES scheduling, recipe and parameter downloads, licence servers, directory services, NTP, label printing, quality release, vendor remote access. That list is your isolation plan, and the entries you cannot live without for a week are your real projects. Then pre-build the separation points so cutting IT is a documented action rather than a decision made in the first hour of a ransomware call. Test the achievable tier during a planned changeover: drop external connectivity to one cell, confirm it keeps producing and that you still have visibility, and record what broke first.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Per-cell dependency map &mdash; 60 days; test isolation of one cell during a planned changeover &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-ci-fortify-6" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-ci-fortify-6">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Nozomi Networks Labs analysis of the CISA / ASD ACSC / NCSC-UK / CCCS &ldquo;CI Fortify&rdquo; guidance</span>
+          <span class="dot">&bull;</span>
+          <span>Analysis published 2 Sep 2026; underlying guidance published 28 Jul 2026</span>
+        </div>
+        <a href="https://www.nozominetworks.com/blog/ci-fortify-you-cant-prevent-the-storm-but-you-can-ride-it-out-" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-ai-plc-port" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1177,6 +1206,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-cisa-sep3" data-published="2026-09-03">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Critical Advisory &mdash; Remote-access client, firmware tool and SCADA platform</span>
+        </div>
+        <h3>CISA&rsquo;s 3 September batch is aimed at the engineering workstation &mdash; IXON VPN client, Rockwell ControlFLASH, Ignition</h3>
+        <p>CISA published a further set of ICS advisories on 3&nbsp;September, and the theme is the engineering workstation rather than the controller. ICSA-26-246-02 covers the IXON VPN Client: CVE-2026-75925 allows remote code execution with elevated privileges on the machine running the client in versions before 1.4.7 &mdash; and that machine is usually the same laptop holding project files, licences and cell credentials. ICSA-26-246-03 covers Rockwell Automation ControlFLASH at V15.07 and earlier, where CVE-2026-12663 lets commands or code run at the logged-in user&rsquo;s permission level; ControlFLASH pushes firmware to Logix controllers and communication modules, so it habitually runs as an account with broad reach into the cell. ICSA-26-246-06 covers Inductive Automation Ignition, where any authenticated user can create projects. None is reported as exploited.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation &mdash; CISA lists no reported public exploitation for CVE-2026-75925, CVE-2026-12663 or the Ignition issue as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of the three advisories carries a KEV listing at generation time</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed versions available &mdash; IXON VPN Client 1.4.7 or later; Rockwell ControlFLASH beyond V15.07; see each advisory for Ignition guidance</span>
+            <span class="ops-cc"><b>Action:</b> Go after the VPN client first: inventory every engineering workstation and jump host running the IXON VPN Client, confirm the version and move anything below 1.4.7 up. Include laptops belonging to machine builders and integrators &mdash; on most sites those are the machines with the broadest reach into the cell and the least oversight. For ControlFLASH, upgrade past V15.07 where the maintenance calendar allows; in the meantime, run firmware pushes from a dedicated account rather than from an engineer&rsquo;s everyday privileged session, so a compromise of the workstation does not automatically mean a compromise of controller firmware. For Ignition, audit authenticated users and remove project-creation rights from anyone who does not build projects.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IXON VPN Client inventory and upgrade to 1.4.7+ &mdash; 14 days; ControlFLASH upgrade and firmware-account separation &mdash; 30 days; Ignition account review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-cisa-sep3" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-cisa-sep3">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisories ICSA-26-246-02 (IXON VPN Client), ICSA-26-246-03 (Rockwell Automation ControlFLASH) and ICSA-26-246-06 (Inductive Automation Ignition)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 3 Sep 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-sonicwall-sma1000" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1470,35 +1528,6 @@
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-ebyte-gateway" data-published="2026-08-25">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Serial-to-Ethernet gateway, no vendor patch</span>
-        </div>
-        <h3>No login required and no patch coming &mdash; the Ebyte gateway advisory is a replacement decision</h3>
-        <p>CISA advisory ICSA-26-237-06 covers the Ebyte NE2-D11 serial-to-Ethernet gateway, whose web management interface does not consistently enforce authentication before granting administrative functionality. An unauthenticated remote attacker can read configuration, change settings, hijack sessions or disrupt device operation. CISA notes the vendor acknowledged the reports and said a patch was in development, then stopped responding, so no fix status exists. Cheap serial converters like this are endemic in manufacturing: they are what got a legacy press, oven, torque controller, scale or test rig onto the network, and they are almost never in a patch programme or an asset register.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the flaws are unauthenticated and remotely reachable</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch available &mdash; vendor acknowledged the reports but has not confirmed a fix; CISA advises network protections and replacement planning</span>
-            <span class="ops-cc"><b>Action:</b> Hunt for small serial-to-Ethernet converters as a class rather than for this model &mdash; a physical walkdown finds more of them than a network scan does, because many sit in a panel with no label. For each, confirm no internet reachability, restrict it behind a firewall rule permitting only the one host and port that needs it, and disable the web interface where possible. Where a converter serves a safety-relevant or quality-critical measurement and no patch is coming, put replacement into the next maintenance shutdown rather than accepting the risk indefinitely.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Serial gateway inventory, isolation and replacement plan &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-ebyte" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-ebyte">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-237-06, reported by researcher Jithin Nambiar &mdash; via CISA</span>
-          <span class="dot">&bull;</span>
-          <span>Published 25 Aug 2026; re-verified 27 Aug 2026 &mdash; no vendor patch announced</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-06" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -1506,6 +1535,35 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+<div class="card" id="story-outage-comms" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy &mdash; Joint international guidance, incident communications</span>
+        </div>
+        <h3>Six agencies publish outage-communication guidance for IT and OT service providers &mdash; and your customers will hold you to it</h3>
+        <p>On 2&nbsp;September the Canadian Centre for Cyber Security joined CISA, Australia&rsquo;s ASD ACSC, NCSC-NZ, NCSC-UK and the FBI to publish joint guidance on communicating during IT and OT service outages, titled &ldquo;Communicating Under Pressure: Best Practices for Service Providers.&rdquo; It asks for a written incident communications plan with defined trigger thresholds and named audiences, plain-language updates rather than legal boilerplate, root-cause and technical detail end users can act on, and messaging aligned with legal and regulatory duties. Manufacturers read this as a supplier, not as a victim: when an outage stops shipments, your customers&rsquo; production planning depends on how quickly and how honestly you can say what is affected and for how long. Boston Scientific&rsquo;s late-August outage &mdash; which disrupted manufacturing, order processing and shipping &mdash; is the shape of the problem.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Confirmed &mdash; joint guidance published 2 Sep 2026 by CISA, the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is guidance on incident communications, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the action required is a documented, tested incident communications plan</span>
+            <span class="ops-cc"><b>Action:</b> Test your plan against the guidance from the supplier side. Define written thresholds for when an outage triggers customer notification, and at what level of detail, so a commercial instinct to say nothing does not override an operational need to give customers time to re-plan; name a communications owner separate from the incident commander; and prepare a first-hour message for the case where you know shipments are affected but not yet why. Then apply the same standard upward to your MES, ERP, PLM and remote-support vendors by adding outage-notification timeframes to the next renewal. Where you hold safety-relevant or regulated product, check the plan against your existing regulatory notification duties so the two do not conflict.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Gap-check the incident communications plan against the guidance &mdash; 30 days; reconcile with regulatory notification duties</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-outage-comms" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-outage-comms">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Canadian Centre for Cyber Security and CISA &mdash; joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo;</span>
+          <span class="dot">&bull;</span>
+          <span>Published 2 Sep 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/resources-tools/resources/communicating-under-pressure-best-practices-service-providers" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-cisa-exposure-guidance" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1535,7 +1593,7 @@
         </div>
         <a href="https://www.cisa.gov/resources-tools/resources/exposure-reduction" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-cra-reporting" data-published="2026-08-01">
+<div class="card" id="story-cra-reporting" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy &mdash; EU Cyber Resilience Act reporting obligation</span>
@@ -1560,38 +1618,9 @@
         <div class="card-meta">
           <span>EU Regulation 2024/2847 (Cyber Resilience Act) and European Commission implementation guidance</span>
           <span class="dot">&bull;</span>
-          <span>Regulation entered into force 10 Dec 2024; reporting obligations apply from 11 Sep 2026; full application 11 Dec 2027; status verified 27 Aug 2026</span>
+          <span>Obligations apply from 11 Sep 2026; phase-start reporting reviewed 1 Sep 2026; re-verified 4 Sep 2026</span>
         </div>
         <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-isasecure-nsa" data-published="2026-08-20">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; Procurement-driven security certification</span>
-        </div>
-        <h3>The NSA is putting an ISA/IEC&nbsp;62443 certificate in front of the controllers it buys</h3>
-        <p>ISASecure announced a partnership with the National Security Agency to develop a High Criticality Component Security Assurance certification scheme, derived from its Component Security Assurance programme and grounded in ISA/IEC&nbsp;62443-4-2. Once accepted, the NSA intends to use it when adding OT components to the National Security Systems product compliant list. For manufacturers this cuts both ways, which is what makes it worth watching. As a buyer, it gives you a citable standard for the next machine or controller specification. As a builder of connected equipment, it is an early signal of what large customers will start demanding in their own tenders.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; this is a certification scheme announcement, not a vulnerability</span>
-            <span class="ops-tag kev-off">No CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the item is procurement policy and component assurance</span>
-            <span class="ops-cc"><b>Action:</b> On the buying side, add ISA/IEC&nbsp;62443-4-2 component security levels and ISASecure certification as an evaluated criterion in your next machine, controller or instrumentation tender, and ask incumbent suppliers which products already hold certification and at what level. On the building side, if you sell connected equipment, find out what certification would take for your flagship product now &mdash; alongside the CRA reporting obligation, this is the direction procurement language is heading over the next two cycles.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Procurement and product-roadmap review &mdash; next tender cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-isasec" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-isasec">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>ISA / ISASecure press release &mdash; corroborated by Automation World and ISSSource</span>
-          <span class="dot">&bull;</span>
-          <span>Announced 20 Aug 2026; verified 27 Aug 2026</span>
-        </div>
-        <a href="https://www.isa.org/news-press-releases/2026/august/isasecure-to-develop-certification-scheme-for-comm" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1600,7 +1629,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 3&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including CISA ICS advisories, KEV additions of 25, 26, 27 and 31&nbsp;August, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on Siemens S7 targeting, CISA advisory AA26-237A on red-team findings, the UK NCSC alert of 27&nbsp;August, the EU Cyber Resilience Act reporting obligations effective 11&nbsp;September&nbsp;2026, ISA/IEC&nbsp;62443 material, and vendor PSIRTs (SonicWall, Rockwell Automation, Siemens ProductCERT, PTC, Schneider Electric, Citrix, Microsoft, Gitea, JFrog, PaperCut, WAGO). Research and analysis from Sygnia, Dragos, Claroty Team82, Forescout Vedere Labs and CERT Polska. Company disclosures from Boston Scientific, McKesson and Data I/O. Reporting drawn from SecurityWeek, Help Net Security, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, SC Media, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 4&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August and 2&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
