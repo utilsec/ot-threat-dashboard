@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sunday, 06 Sep 2026, 4:40 AM ET</span>
+        <span>Generated Monday, 07 Sep 2026, 4:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Marine &amp; Maritime</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>28</strong> stories across
+      <strong>29</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to ports, terminals, vessel operators and marine logistics. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.9</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.2</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:59.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, held at 5.9 &mdash; the ceiling for a sector with no confirmed OT-disruptive incident of its own, and nothing this run changes that. The maritime-specific items remain exposure and interference rather than compromise: coordinated GNSS interference across the Baltic, hard-coded credentials in an unsupported Class&nbsp;B AIS transponder, and the CEVA Logistics breach, which reached warehouse operations and the customers downstream but not vessel or terminal control systems. The cross-sector drivers are real but generic &mdash; Fire Ant&rsquo;s confirmed compromise of Cisco IOS&nbsp;XR routers and TACACS servers, SonicWall&rsquo;s exploited SMA1000 zero-days now in KEV, and the NCSC alert on increased OT targeting. New this run is research and policy only: Booz Allen&rsquo;s 4&nbsp;September index measuring how much of an intrusion frontier AI models can complete unaided, and a joint CISA/G7 call the same day to begin the post-quantum cryptography transition, which matters to maritime for asset-lifetime reasons rather than as a threat. Advisory volume is heavy and unexploited, and under the no-advisory-stacking rule that cannot push the score past mid-Medium. It stays at 5.9.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:52.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, lowered from 5.9 to 5.2. The step down is a freshness correction, not an all-clear. The North Carolina Ports intrusion, which pushed three facilities to manual gate processing, has passed out of the 30-day window, and the CEVA Logistics breach is close behind &mdash; which leaves this sector with no confirmed OT-disruptive incident of its own inside the window. What remains maritime-specific is interference and exposure rather than compromise: coordinated GNSS jamming and spoofing across the Baltic, Black Sea and Eastern Mediterranean, hard-coded credentials in an unsupported Class&nbsp;B AIS transponder, against a Coast Guard cyber regime that has just centralised policy ownership and is moving toward inspection.The live pressure is cross-sector and sits on the remote-access layer that shoreside staff and OEMs use to reach vessel and terminal systems: PaperCut now with confirmed post-exploitation account creation, NetScaler under continued attack as of 5&nbsp;September, SonicWall&rsquo;s SMA1000 pair in KEV, and Fire Ant inside Cisco routers and TACACS servers. Advisory volume is heavy and unexploited, and under the no-advisory-stacking rule that cannot lift the score. Mid-Medium is the honest read for a sector being probed through shared infrastructure rather than attacked directly.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -873,6 +873,35 @@
           <span>Disclosed and reported 10 Aug 2026; re-verified 27 Aug 2026</span>
         </div>
         <a href="https://therecord.media/ceva-logistics-cyberattack-warehouses" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-berlin-rhysida" data-published="2026-09-04">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Public-authority breach publishes infrastructure risk documentation</span>
+        </div>
+        <h3>A state administration refused to pay and its infrastructure vulnerability analyses were published</h3>
+        <p>Rhysida released data taken from Berlin&rsquo;s state administration on 4&nbsp;September after the city declined a demand reported at 30&nbsp;bitcoin. The claimed set is around 5.79&nbsp;TB across roughly 1.44&nbsp;million files and, alongside personnel and payroll records, is reported to include vulnerability analyses of the city&rsquo;s water supply and plaintext credentials for municipal systems including a building atlas, a payments database and administrator accounts. Berlin&rsquo;s account has data leaving from 7&nbsp;August through around 12&nbsp;August, with affected departments not physically disconnected until 14&nbsp;August. Most US port authorities are public bodies subject to the same dynamics: the facility security assessment, the new MTSA cyber assessment, terminal drawings and crane and gate system documentation frequently sit on a state or municipal network run by someone other than the port&rsquo;s own security team.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach and confirmed publication; the file inventory is as claimed by the actor and summarised by researchers, not independently enumerated by the city</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the initial access vector has not been publicly confirmed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the controls are custody of sensitive assessments and the speed of segment isolation</span>
+            <span class="ops-cc"><b>Action:</b> Work out where your Facility Security Assessment, MTSA cybersecurity assessment and terminal network diagrams actually live, and who else holds copies &mdash; state IT, a port authority parent, a naval architect, a crane OEM. Those documents are Sensitive Security Information and should not sit unencrypted on a general-purpose government file share. Rotate any vendor or remote-access credential stored alongside them. Then rehearse the containment decision this case turned on: how long would it take you to physically disconnect an affected department, and who is authorised to make that call at 2am on a Saturday?</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Locate and secure externally-held facility and cyber assessments; rotate co-located credentials &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mr-berlin" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mr-berlin">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Berlin state administration statements &mdash; reported by Help Net Security and Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Breach and refusal to pay reported 1 Sep 2026; data published by the actor 4 Sep 2026; verified 7 Sep 2026</span>
+        </div>
+        <a href="https://www.helpnetsecurity.com/2026/09/01/berlin-data-breach-rhysida-ransomware/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="story-iran-sanctions" data-published="2026-08-25">
         <div class="card-header">
@@ -1180,13 +1209,13 @@
         <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-papercut-kev" data-published="2026-08-31">
+      <div class="card" id="story-papercut-kev" data-published="2026-09-06">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
         </div>
         <h3>A print server chained to unauthenticated code execution &mdash; PaperCut&rsquo;s zero-day pair lands in KEV</h3>
-        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right.</p>
+        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right. Arctic Wolf reported on 6&nbsp;September that it is seeing the chain used in practice: after gaining execution, operators run reconnaissance, create privileged accounts and harvest credentials and PaperCut configuration secrets &mdash; behaviour consistent with establishing a durable foothold rather than a smash-and-grab.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; PaperCut disclosed in-the-wild exploitation on 27 Aug 2026 and CISA added both CVEs to the KEV catalog on 31 Aug 2026</span>
@@ -1205,7 +1234,7 @@
         <div class="card-meta">
           <span>CISA Known Exploited Vulnerabilities catalog addition and the PaperCut security bulletin &mdash; corroborated by SecurityWeek, Help Net Security, Rapid7 and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026</span>
+          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026; post-exploitation activity reported by Arctic Wolf 6 Sep 2026; verified 7 Sep 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1297,13 +1326,13 @@
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-07" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-citrix-kev" data-published="2026-08-26">
+<div class="card" id="story-citrix-kev" data-published="2026-09-05">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory &mdash; Actively exploited, CISA KEV, remote access</span>
         </div>
         <h3>The NetScaler flaw is now confirmed exploited and in KEV &mdash; federal deadline 29 August</h3>
-        <p>CISA added CVE-2026-8452 to the Known Exploited Vulnerabilities catalogue on 26&nbsp;August, moving the Citrix NetScaler ADC and Gateway issue to confirmed exploitation in the wild. It is a heap overflow in SAML single sign-on parsing, rated CVSS&nbsp;8.8, needing no authentication, and reachable when the appliance is configured as a Gateway or AAA virtual server. Canada&rsquo;s Cyber Centre reported indications of exploitation from around 17&nbsp;August after a public proof of concept. In maritime organisations NetScaler commonly fronts the remote access used by shoreside staff, crewing and technical departments, and by the OEMs who support engine, cargo and automation systems on vessels.</p>
+        <p>CISA added CVE-2026-8452 to the Known Exploited Vulnerabilities catalogue on 26&nbsp;August, moving the Citrix NetScaler ADC and Gateway issue to confirmed exploitation in the wild. It is a heap overflow in SAML single sign-on parsing, rated CVSS&nbsp;8.8, needing no authentication, and reachable when the appliance is configured as a Gateway or AAA virtual server. Canada&rsquo;s Cyber Centre reported indications of exploitation from around 17&nbsp;August after a public proof of concept. In maritime organisations NetScaler commonly fronts the remote access used by shoreside staff, crewing and technical departments, and by the OEMs who support engine, cargo and automation systems on vessels. Exploitation has not tailed off: reporting on 5&nbsp;September describes continued attempts against the authentication bypass from multiple geolocations, so an appliance patched late should be treated as possibly already touched rather than simply late.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 26 Aug 2026; CCCS reported indications of exploitation from 17 Aug following public proof-of-concept release</span>
@@ -1322,7 +1351,7 @@
         <div class="card-meta">
           <span>CISA Known Exploited Vulnerabilities catalogue addition of 26 Aug 2026 and Citrix security bulletin &mdash; corroborated by the Canadian Centre for Cyber Security and watchTowr Labs analysis</span>
           <span class="dot">&bull;</span>
-          <span>Vendor patches released August 2026; exploitation indications from 17 Aug; added to KEV 26 Aug 2026; federal deadline 29 Aug 2026</span>
+          <span>Vendor patches released August 2026; exploitation indications from 17 Aug; added to KEV 26 Aug 2026; federal deadline 29 Aug 2026; continued exploitation reported 5 Sep 2026; verified 7 Sep 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1631,7 +1660,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Marine &amp; Maritime.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 6&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the US Coast Guard&rsquo;s announcement of the Office of Maritime Cybersecurity Policy (1&nbsp;September), the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August, 2&nbsp;September and 4&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Added this edition: Booz&nbsp;Allen&rsquo;s Cyber Weapon Index and &ldquo;The Offensive Frontier: AI as the Attacker&rdquo;, and the joint CISA/G7 Cyber Security Working Group statement of 4&nbsp;September on beginning the post-quantum cryptography transition, both via Industrial&nbsp;Cyber. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 7&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the US Coast Guard&rsquo;s announcement of the Office of Maritime Cybersecurity Policy (1&nbsp;September), the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August, 2&nbsp;September and 4&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Added this edition: Booz&nbsp;Allen&rsquo;s Cyber Weapon Index and &ldquo;The Offensive Frontier: AI as the Attacker&rdquo;, and the joint CISA/G7 Cyber Security Working Group statement of 4&nbsp;September on beginning the post-quantum cryptography transition, both via Industrial&nbsp;Cyber. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly. This run additionally drew on Help Net Security and Security Affairs for the Berlin state-administration breach and data publication, Arctic Wolf&rsquo;s 6&nbsp;September reporting on post-exploitation activity following the PaperCut chain, and 5&nbsp;September reporting on continued targeting of internet-exposed control systems and continued NetScaler exploitation.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

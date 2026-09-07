@@ -696,13 +696,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sunday, 06 Sep 2026, 4:40 AM ET</span>
+        <span>Generated Monday, 07 Sep 2026, 4:45 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>33</strong> stories across
+      <strong>34</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -728,14 +728,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to food and beverage processors, packaging and cold chain operators, and agricultural producers. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">6.2</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:62.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, held at 6.2. No confirmed OT-disruptive incident at a food or agriculture operator has been reported this run, and the score reflects an elevated but stable baseline rather than an active event. The standing drivers are unchanged: Food and Ag-ISAC and Dragos both count food and beverage ransomware in volume, with production stoppages the recurring outcome; the McKesson intrusion showed the distribution tier opened by a phone call rather than an exploit; and the refrigeration-controller research remains the sector&rsquo;s sharpest reminder that a silent control failure can still read normal on the panel. New this run is research and policy only &mdash; Booz Allen&rsquo;s 4&nbsp;September index on autonomous attack capability in frontier models, F6&rsquo;s 4&nbsp;September telemetry naming contractor compromise and trusted remote access as the leading entry paths into industrial plants, and the reported withdrawal of six free CISA assessments, which removes the external review mid-market processors most used. Advisory load is heavy and unexploited: the 3&nbsp;September IXON, ControlFLASH and Ignition batch, and the 1&nbsp;September Rockwell set. The exploited items in KEV are IT and edge gear, not line control. Advisory volume does not aggregate upward, so 6.2 holds.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:58.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, eased from 6.2 to 5.8. No confirmed OT-disruptive incident at a food or agriculture operator inside the 30-day window, and the July processing-plant shutdowns that shaped this page&rsquo;s baseline have now aged out of it. The standing drivers are unchanged: Food and Ag-ISAC and Dragos both count food and beverage ransomware in volume with production stoppage the recurring outcome; the McKesson intrusion showed the distribution tier opened by a phone call rather than an exploit; and the refrigeration-controller research remains the sharpest reminder that a silent control failure can still read normal on the panel. New this run is research and exploitation detail, not a sector incident. F6 names contractor compromise and trusted remote access as the leading entry paths into industrial plants &mdash; which is exactly the layer that moved this week: PaperCut is now confirmed to be used for privileged account creation and credential harvesting after exploitation, and NetScaler remained under active attack as of 5&nbsp;September. Both routinely front the OEM and out-of-hours access into fillers, packaging lines and refrigeration. Advisory load is heavy and unexploited and does not aggregate upward, so the score sits at mid-to-upper Medium.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -866,6 +866,35 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-berlin-rhysida" data-published="2026-09-04">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Refusal to pay, then publication of infrastructure documentation</span>
+        </div>
+        <h3>The dump after a refused ransom included infrastructure vulnerability analyses and plaintext credentials</h3>
+        <p>Rhysida published the data it took from Berlin&rsquo;s state administration on 4&nbsp;September after the city declined a demand reported at 30&nbsp;bitcoin. The claimed set runs to about 5.79&nbsp;TB across roughly 1.44&nbsp;million files and, beyond personnel and payroll records, is reported to include critical-infrastructure vulnerability analyses &mdash; among them assessments of the city&rsquo;s water supply &mdash; along with plaintext credentials for administrator accounts and connected systems. Berlin detected data leaving on 7&nbsp;August, outflow continued to around 12&nbsp;August, and the affected departments were not physically disconnected until 14&nbsp;August. Food and beverage operators sit in an unusually documented supply chain: audit files, HACCP and food-defence plans, line layouts, refrigeration and utility drawings, and OEM remote-access credentials are routinely shared with co-packers, certification bodies, equipment vendors and retail customers. A breach at any one of them publishes your plant without anyone touching it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach and confirmed publication; the file inventory is as claimed by the actor and summarised by researchers, not independently enumerated</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the initial access vector has not been publicly confirmed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the controls are third-party custody of plant and food-defence documentation and the speed of containment</span>
+            <span class="ops-cc"><b>Action:</b> List who holds your sensitive plant documentation outside your walls: food-defence and vulnerability assessments with certification bodies and customers, line and utility drawings with equipment vendors, and PLC or HMI project archives with the integrators who commissioned your fillers, ovens and refrigeration. Ask each what they store and whether any of it contains live credentials, then rotate every OEM remote-access account you cannot account for. Food-defence assessments deserve particular care &mdash; they are a written description of how to cause harm to product, and they should not be sitting unencrypted on a shared drive at a third party.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of externally-held food-defence and plant documentation; rotate co-located OEM credentials &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-berlin" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-berlin">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Berlin state administration statements &mdash; reported by Help Net Security and Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Breach and refusal to pay reported 1 Sep 2026; data published by the actor 4 Sep 2026; verified 7 Sep 2026</span>
+        </div>
+        <a href="https://www.helpnetsecurity.com/2026/09/01/berlin-data-breach-rhysida-ransomware/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-qtfy-seizure" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1405,13 +1434,13 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-papercut-kev" data-published="2026-08-31">
+      <div class="card" id="story-papercut-kev" data-published="2026-09-06">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
         </div>
         <h3>A print server chained to unauthenticated code execution &mdash; PaperCut&rsquo;s zero-day pair lands in KEV</h3>
-        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right.</p>
+        <p>PaperCut confirmed on 27&nbsp;August that it was investigating active exploitation of its NG and MF print-management products, and assigned CVE-2026-81578 and CVE-2026-82078 the following day. The first lets an unauthenticated attacker reach the Application Server and change its configuration; the second turns that change into arbitrary code execution through unsafe reflection. Chained, they give a network-adjacent attacker code execution with no credentials at all, and CISA added both to the Known Exploited Vulnerabilities catalog on 31&nbsp;August. Print management almost never appears on an OT asset register. The server usually does hold a domain service account, does sit on the same segment as engineering workstations, and is reachable from nearly every host in the estate &mdash; which makes it a convenient staging point rather than a target in its own right. Arctic Wolf reported on 6&nbsp;September that it is seeing the chain used in practice: after gaining execution, operators run reconnaissance, create privileged accounts and harvest credentials and PaperCut configuration secrets &mdash; behaviour consistent with establishing a durable foothold rather than a smash-and-grab.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; PaperCut disclosed in-the-wild exploitation on 27 Aug 2026 and CISA added both CVEs to the KEV catalog on 31 Aug 2026</span>
@@ -1430,7 +1459,7 @@
         <div class="card-meta">
           <span>CISA Known Exploited Vulnerabilities catalog addition and the PaperCut security bulletin &mdash; corroborated by SecurityWeek, Help Net Security, Rapid7 and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026</span>
+          <span>Vendor disclosed active exploitation 27 Aug 2026; CVEs assigned 28 Aug 2026; added to KEV 31 Aug 2026; post-exploitation activity reported by Arctic Wolf 6 Sep 2026; verified 7 Sep 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1522,13 +1551,13 @@
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-citrix-kev" data-published="2026-08-26">
+<div class="card" id="story-citrix-kev" data-published="2026-09-05">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory &mdash; Actively exploited, CISA KEV, remote access</span>
         </div>
         <h3>The NetScaler flaw is now confirmed exploited and in KEV &mdash; federal deadline 29 August</h3>
-        <p>CISA added CVE-2026-8452 to the Known Exploited Vulnerabilities catalogue on 26&nbsp;August, moving the Citrix NetScaler ADC and Gateway issue from a patching recommendation to confirmed exploitation in the wild. It is a heap overflow in SAML single sign-on parsing, rated CVSS&nbsp;8.8, requiring no authentication, and reachable when the appliance is configured as a Gateway or AAA virtual server. Canada&rsquo;s Cyber Centre reported indications of exploitation from around 17&nbsp;August after a public proof of concept. In food manufacturing NetScaler commonly fronts the remote access used by plant engineers, out-of-hours support and the OEMs who dial in to fillers, packaging lines and refrigeration.</p>
+        <p>CISA added CVE-2026-8452 to the Known Exploited Vulnerabilities catalogue on 26&nbsp;August, moving the Citrix NetScaler ADC and Gateway issue from a patching recommendation to confirmed exploitation in the wild. It is a heap overflow in SAML single sign-on parsing, rated CVSS&nbsp;8.8, requiring no authentication, and reachable when the appliance is configured as a Gateway or AAA virtual server. Canada&rsquo;s Cyber Centre reported indications of exploitation from around 17&nbsp;August after a public proof of concept. In food manufacturing NetScaler commonly fronts the remote access used by plant engineers, out-of-hours support and the OEMs who dial in to fillers, packaging lines and refrigeration. Exploitation has not tailed off: reporting on 5&nbsp;September describes continued attempts against the authentication bypass from multiple geolocations, so an appliance patched late should be treated as possibly already touched rather than simply late.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 26 Aug 2026; CCCS reported indications of exploitation from 17 Aug following public proof-of-concept release</span>
@@ -1547,7 +1576,7 @@
         <div class="card-meta">
           <span>CISA Known Exploited Vulnerabilities catalogue addition of 26 Aug 2026 and Citrix security bulletin CTX696939 &mdash; corroborated by the Canadian Centre for Cyber Security and watchTowr Labs analysis</span>
           <span class="dot">&bull;</span>
-          <span>Vendor bulletin published 20 Aug 2026; exploitation indications from 17 Aug; added to KEV 26 Aug 2026; federal deadline 29 Aug 2026</span>
+          <span>Vendor bulletin published 20 Aug 2026; exploitation indications from 17 Aug; added to KEV 26 Aug 2026; federal deadline 29 Aug 2026; continued exploitation reported 5 Sep 2026; verified 7 Sep 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1826,7 +1855,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Food &amp; Agriculture.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 6&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the Food and Ag-ISAC &ldquo;State of the Threat: Food and Agriculture Sector Cyber Trends&rdquo; report published with the IT-ISAC on 3&nbsp;September, the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August, 2&nbsp;September and 4&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Added this edition: Booz&nbsp;Allen&rsquo;s Cyber Weapon Index and &ldquo;The Offensive Frontier: AI as the Attacker&rdquo; and F6 industrial telemetry on attack volume and entry paths, both via Industrial&nbsp;Cyber and treated as vendor-published research; and Cybersecurity&nbsp;Dive reporting on the reported withdrawal of six free CISA assessment services. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 7&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the Food and Ag-ISAC &ldquo;State of the Threat: Food and Agriculture Sector Cyber Trends&rdquo; report published with the IT-ISAC on 3&nbsp;September, the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August, 2&nbsp;September and 4&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Added this edition: Booz&nbsp;Allen&rsquo;s Cyber Weapon Index and &ldquo;The Offensive Frontier: AI as the Attacker&rdquo; and F6 industrial telemetry on attack volume and entry paths, both via Industrial&nbsp;Cyber and treated as vendor-published research; and Cybersecurity&nbsp;Dive reporting on the reported withdrawal of six free CISA assessment services. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly. This run additionally drew on Help Net Security and Security Affairs for the Berlin state-administration breach and data publication, Arctic Wolf&rsquo;s 6&nbsp;September reporting on post-exploitation activity following the PaperCut chain, and 5&nbsp;September reporting on continued targeting of internet-exposed control systems and continued NetScaler exploitation.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
