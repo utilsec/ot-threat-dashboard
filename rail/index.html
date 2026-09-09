@@ -646,7 +646,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sunday, 06 Sep 2026, 4:40 AM ET</span>
+        <span>Generated Wednesday, 09 Sep 2026, 9:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Rail &amp; Transit</span>
       </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to freight railroads, passenger rail and transit operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.1</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">4.6</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:51.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, eased to 5.1 from 5.3. The change is not new threat but the retirement of an old one: the North Carolina Ports incident that put a rail-served inland port onto manual gate processing has passed the 30-day freshness line and leaves the board, and nothing in this sector has replaced it. There is no confirmed OT-disruptive cyber incident at a railroad or transit operator on this run, which caps the score in mid-Medium regardless of advisory volume. What remains is cross-sector: the FBI&rsquo;s seizure of the Chinese state-sponsored scanning and relay platforms whose target list reached critical-infrastructure operators, the NCSC alert on increased OT targeting, and the CERT Polska finding that an attacker crossed a shared private cellular APN between two operators &mdash; directly relevant to the carrier links carrying wayside and fleet telemetry. New this run is research and policy: Booz Allen&rsquo;s 4&nbsp;September index on autonomous attack capability, and the reported withdrawal of six free CISA assessments, which lands hardest on short lines and municipal transit. The advisory backlog &mdash; SonicWall SMA1000 in KEV, the 3&nbsp;September IXON batch, the Bendix brake-controller advisory &mdash; is either unexploited or IT and edge gear, and does not aggregate upward.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:46.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, eased from 5.1 to 4.6. No confirmed OT-disruptive cyber incident hit a railroad or transit operator in this window &mdash; no signalling manipulated, no dispatch centre down, no service suspended for cyber reasons. The drivers are cross-sector and sit on the remote-access and edge layer that rail back-office and dispatch-adjacent estates depend on. CISA added N-able N-central to its KEV catalogue on 8&nbsp;September: pre-authentication remote code execution at CVSS&nbsp;10.0, confirmed exploited, federal deadline 11&nbsp;September. It matters here because short lines, commuter authorities and municipal transit agencies routinely outsource IT to managed providers running exactly that platform. Alongside it sit SonicWall&rsquo;s SMA1000 pair, PaperCut, NetScaler and two Windows zero-days patched the same day. The second driver is volume rather than compromise: a heavy 8&nbsp;September ICS Patch Tuesday reaching Schneider&rsquo;s Modicon M580 and M580 Safety controllers at CVSS&nbsp;9.2, the PowerLogic T300 RTU, and fourteen CVEs in Siemens Reyrolle 7SR5 protection relays of the kind used in traction-power substations. None of it is reported as exploited, and unexploited advisories do not aggregate upward however many land in one week. Regulatory pressure is steady rather than sharp: TSA&rsquo;s revised information collection is open for comment until 1&nbsp;October, and the underlying security directives remain the operative obligation.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -693,31 +693,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-qtfy-seizure" data-published="2026-08-26">
+    <div class="top-story" id="story-kev-8sep" data-published="2026-09-08">
         <span class="top-story-pill">Top Story</span>
-        <h2>FBI seizes the Chinese state-sponsored platforms that scanned US critical infrastructure and relayed the attacks through hijacked devices</h2>
-        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of QScan and QTRouter, two linked platforms run by a PRC state-sponsored group the government calls QTFY and ties to a Nanjing contractor. QScan performed reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. Both are now inoperable because the seized domains were hard-coded into the malware for command and authentication. Named victims are federal, and the described activity runs back to at least 2018. For railroads and transit agencies the relay layer is the transferable point: a rail estate is full of small, internet-connected, unpatched devices &mdash; and the source address in your logs never proved anything.</p>
+        <h2>N-able N-central lands in KEV at CVSS 10 &mdash; the console many transit and short-line IT providers run</h2>
+        <p>CISA added four actively exploited vulnerabilities to the Known Exploited Vulnerabilities catalog on 8&nbsp;September. The lead item is CVE-2026-86218 in N-able N-central, a static code injection flaw scored CVSS&nbsp;10.0 that yields pre-authentication remote code execution. N-able confirmed exploitation in the wild, Huntress observed attacks against N-central&rsquo;s API and appliance logs from 4&nbsp;September, and N-able shipped 2026.3 Hotfix&nbsp;4 on 5&nbsp;September &mdash; its fourth hotfix in five weeks. The federal remediation deadline is 11&nbsp;September. N-central is a remote monitoring and management platform: an agent with system-level rights on every managed endpoint, operated by a third party. Short lines, commuter authorities and municipal transit agencies commonly outsource back-office IT to providers running exactly this console. Also added were two Windows zero-days granting SYSTEM and an Adobe Commerce injection flaw.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; N-able confirmed in-the-wild exploitation of CVE-2026-86218 and Huntress observed attacks from 4 Sep 2026; CVE-2026-81963 and CVE-2026-85880 are confirmed Windows zero-days exploited before patching</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-86218 (N-able N-central, CVSS 10.0), CVE-2026-81963 and CVE-2026-85880 (Windows, CVSS 7.8, SYSTEM) and CVE-2026-75650 (Adobe Commerce, CVSS 10.0), added 8 Sep 2026; federal due date 11 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched wayside and facility devices recruited as relays</span>
-            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and remote-support logs. Then work the recruitment problem, which is the part within your control: inventory the internet-connected devices scattered across the network that nobody patches &mdash; wayside cellular routers, crossing and signal-house monitoring gateways, station and platform cameras, passenger information displays, yard and gate controllers, HVAC and elevator controllers at stations. Give each an owner and a firmware baseline, and remove any that accept inbound connections from the internet. Delete any firewall rule that trusts traffic because it originates domestically or looks residential.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; N-able 2026.3 Hotfix 4, released 5 Sep 2026; Microsoft&rsquo;s 8 September updates; Adobe&rsquo;s out-of-band Commerce fix</span>
+            <span class="ops-cc"><b>Action:</b> If a managed service provider runs any part of your estate &mdash; and for most short lines, terminal railroads and mid-sized transit authorities one does &mdash; ask today, in writing, whether they operate N-central, which build they are on, and whether they have reviewed API and appliance logs back to 1&nbsp;September. Your TSA cybersecurity implementation plan already commits you to controlling third-party access, so this is a plan obligation, not a favour. Then establish what the RMM agent is actually installed on. If it reaches dispatch workstations, crew-management or maintenance-of-way systems, PTC back-office servers, fare-collection or SCADA-adjacent hosts, that agent is an unmonitored administrative path across your IT/OT boundary and needs to be removed or firewalled. Patch the two Windows zero-days on engineering workstations and jump hosts on your Critical track.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep against retained logs &mdash; 7 days; wayside and facility edge-device inventory &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-qtfy" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-qtfy">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Written MSP confirmation of N-central build and log review &mdash; 72 hours; RMM agent reach mapped and removed from OT-adjacent hosts &mdash; 14 days; Windows zero-day patching &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-kev-8sep" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-kev-8sep">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
+          <span>CISA Known Exploited Vulnerabilities catalog addition of 8 Sep 2026, with N-able and Huntress reporting &mdash; corroborated by BleepingComputer and SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
+          <span>Added to KEV 8 Sep 2026; vendor hotfix released 5 Sep 2026; federal remediation deadline 11 Sep 2026</span>
         </div>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -746,33 +746,33 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
-        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="265.0" cy="180.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="265.0" y="184.5">2</text></a>
-        <a href="#story-cisa-redteam"><circle class="blip crit" cx="180.0" cy="265.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="180.0" y="269.2">3</text></a>
-        <a href="#story-s7-ai-advisory"><circle class="blip crit" cx="95.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="95.0" y="183.9">4</text></a>
-        <a href="#story-citrix-kev"><circle class="blip crit" cx="233.6" cy="50.7" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="233.6" y="54.3">5</text></a>
-        <a href="#story-mssql-kev"><circle class="blip crit" cx="309.3" cy="126.4" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="309.3" y="129.8">6</text></a>
-        <a href="#story-sonicwall-sma1000"><circle class="blip crit" cx="309.3" cy="233.6" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="309.3" y="236.6">7</text></a>
-        <a href="#story-bendix-ec80"><circle class="blip high" cx="233.6" cy="309.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="233.6" y="312.1">8</text></a>
-        <a href="#story-siemens-iot2050"><circle class="blip high" cx="126.4" cy="309.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="126.4" y="311.8">9</text></a>
-        <a href="#story-iran-sanctions"><circle class="blip high" cx="50.7" cy="233.6" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="50.7" y="235.8">10</text></a>
-        <a href="#story-ai-plc-port"><circle class="blip high" cx="50.7" cy="126.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="50.7" y="128.3">11</text></a>
-        <a href="#story-booz-ai"><circle class="blip high" cx="126.4" cy="50.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="126.4" y="52.3">12</text></a>
+        <a href="#story-kev-8sep"><circle class="blip crit" cx="240.0" cy="180.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="240.0" y="184.8">1</text></a>
+        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="210.0" cy="232.0" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="210.0" y="236.5">2</text></a>
+        <a href="#story-sonicwall-sma1000"><circle class="blip crit" cx="150.0" cy="232.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="150.0" y="236.2">3</text></a>
+        <a href="#story-qtfy-seizure"><circle class="blip crit" cx="120.0" cy="180.0" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="120.0" y="183.9">4</text></a>
+        <a href="#story-citrix-kev"><circle class="blip crit" cx="150.0" cy="128.0" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="150.0" y="131.6">5</text></a>
+        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="210.0" cy="128.0" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="210.0" y="131.4">6</text></a>
+        <a href="#story-cisa-sep3"><circle class="blip high" cx="290.0" cy="180.0" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="290.0" y="183.0">7</text></a>
+        <a href="#story-gtig-agents"><circle class="blip high" cx="235.0" cy="275.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="235.0" y="278.1">8</text></a>
+        <a href="#story-rockwell-sep1"><circle class="blip high" cx="125.0" cy="275.3" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="125.0" y="277.8">9</text></a>
+        <a href="#story-bendix-ec80"><circle class="blip high" cx="70.0" cy="180.0" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="70.0" y="182.2">10</text></a>
+        <a href="#story-siemens-iot2050"><circle class="blip high" cx="125.0" cy="84.7" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="125.0" y="86.6">11</text></a>
+        <a href="#story-ai-plc-port"><circle class="blip high" cx="235.0" cy="84.7" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="235.0" y="86.3">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>1</b> FBI seizes PRC scanning and relay platforms</a>
-        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>2</b> NCSC alerts on increased OT targeting</a>
-        <a href="#story-cisa-redteam"><span class="ld crit"></span><b>3</b> CISA red team held a domain undetected</a>
-        <a href="#story-s7-ai-advisory"><span class="ld crit"></span><b>4</b> AI-scripted reconnaissance of Siemens S7 PLCs</a>
+        <a href="#story-kev-8sep"><span class="ld crit"></span><b>1</b> N-able N-central CVSS 10 pre-auth RCE exploited, in KEV</a>
+        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>2</b> ICS Patch Tuesday: Modicon M580, Reyrolle 7SR5 relays</a>
+        <a href="#story-sonicwall-sma1000"><span class="ld crit"></span><b>3</b> SonicWall SMA1000 CVSS 10 zero-days exploited, in KEV</a>
+        <a href="#story-qtfy-seizure"><span class="ld crit"></span><b>4</b> FBI seizes PRC scanning and relay platforms</a>
         <a href="#story-citrix-kev"><span class="ld crit"></span><b>5</b> NetScaler CVE-2026-8452 exploited, in KEV</a>
-        <a href="#story-mssql-kev"><span class="ld crit"></span><b>6</b> SQL Server RCE confirmed exploited, added to KEV</a>
-        <a href="#story-sonicwall-sma1000"><span class="ld crit"></span><b>7</b> SonicWall SMA1000 CVSS 10 zero-days exploited, in KEV</a>
-        <a href="#story-bendix-ec80"><span class="ld high"></span><b>8</b> Bendix EC80 brake ECU: ABS and traction control</a>
-        <a href="#story-siemens-iot2050"><span class="ld high"></span><b>9</b> August ICS Patch Tuesday: Ruggedcom, Desigo, IoT2050</a>
-        <a href="#story-iran-sanctions"><span class="ld high"></span><b>10</b> Iranian network sanctioned inside US infrastructure</a>
-        <a href="#story-ai-plc-port"><span class="ld high"></span><b>11</b> AI-assisted porting of a working PLC exploit</a>
-        <a href="#story-booz-ai"><span class="ld high"></span><b>12</b> Frontier AI models complete attack stages unaided</a>
+        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>6</b> NCSC alerts on increased OT targeting</a>
+        <a href="#story-cisa-sep3"><span class="ld high"></span><b>7</b> IXON VPN client RCE in CISA&rsquo;s 3 September batch</a>
+        <a href="#story-gtig-agents"><span class="ld high"></span><b>8</b> Autonomous AI agents run a campaign in under six hours</a>
+        <a href="#story-rockwell-sep1"><span class="ld high"></span><b>9</b> Rockwell Logix CIP fault and multi-product batch</a>
+        <a href="#story-bendix-ec80"><span class="ld high"></span><b>10</b> Bendix EC80 brake ECU: ABS and traction control</a>
+        <a href="#story-siemens-iot2050"><span class="ld high"></span><b>11</b> August ICS Patch Tuesday: Ruggedcom, Desigo, IoT2050</a>
+        <a href="#story-ai-plc-port"><span class="ld high"></span><b>12</b> AI-assisted porting of a working PLC exploit</a>
       </div>
     </div>
 
@@ -785,10 +785,10 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
 <div class="trend">
-        <span class="trend-tag">AI &amp; Autonomy</span>
-        <b class="trend-head">The overnight gap is the rail-sector variable</b>
-        <p>Booz Allen published an index on 4&nbsp;September grading eighteen frontier AI models on how much of an intrusion they can complete without a human driving; the strongest finished the whole sequence against a representative enterprise network. Nothing in it was a new technique, and that is the point being discussed among railroads and transit agencies. Signalling, dispatch and traction-power networks sit behind corporate environments that are monitored on a business-hours rhythm, and degraded-mode operation is a decision somebody has to be awake to take. The practical question raised this week is how long an intrusion that begins at 2&nbsp;am on the corporate side runs before anyone in the operations control centre knows about it.</p>
-        <a href="https://industrialcyber.co/reports/booz-allen-ai-models-approaching-autonomous-cyberattack-capability-as-critical-infrastructure-response-windows-narrow/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Third-Party Access</span>
+        <b class="trend-head">The managed-services question nobody in rail has been asking out loud</b>
+        <p>N-able&rsquo;s N-central joined CISA&rsquo;s KEV catalogue on 8&nbsp;September &mdash; pre-authentication remote code execution at CVSS&nbsp;10.0, confirmed exploited, a fourth hotfix inside five weeks. What has held attention among railroads and transit agencies is not the CVE but the shape of the exposure: a remote monitoring and management agent holds system-level rights on everything it touches, and it is installed and operated by someone outside the organisation. Short lines, terminal railroads and mid-sized authorities outsource back-office IT precisely because they cannot staff it, and the week&rsquo;s recurring question has been whether anyone has ever checked which machines that agent runs on.</p>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Exposure</span>
@@ -797,10 +797,10 @@
         <a href="https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices" class="source-link" target="_blank" rel="noopener">NCSC</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Attack Path</span>
-        <b class="trend-head">Relay networks made source addresses meaningless</b>
-        <p>The seizure of QTRouter confirmed that state-sponsored intrusions were being relayed through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. For rail estates the discussion has turned to the wayside: cellular routers, crossing monitors and station gateways are the same class of unmanaged internet-connected device these platforms recruited, and few of them have an owner responsible for firmware.</p>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">US Department of Justice</a>
+        <span class="trend-tag">Patch Management</span>
+        <b class="trend-head">Protection relays are the awkward item on September&rsquo;s patch list</b>
+        <p>The 8&nbsp;September vendor round brought fourteen CVEs in Siemens Reyrolle 7SR5 protection and control relays, led by a session-identifier leak that allows authentication bypass, alongside a CVSS&nbsp;9.2 authentication flaw in Schneider&rsquo;s Modicon M580 and M580 Safety controllers. None of it is being exploited, which is why the discussion among traction-power and signalling engineers has been about sequencing rather than urgency: relays come out of service on a possession, not on a patch cycle, and Siemens&rsquo; own note about verifying redundant secondary protection has been read as the interim control it is.</p>
+        <a href="https://cert-portal.siemens.com/productcert/html/ssa-142885.html" class="source-link" target="_blank" rel="noopener">Siemens ProductCERT</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Connectivity</span>
@@ -816,6 +816,35 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-qtfy-seizure" data-published="2026-08-26">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; State-sponsored reconnaissance infrastructure seized</span>
+        </div>
+        <h3>FBI seizes the Chinese state-sponsored platforms that scanned US critical infrastructure and relayed the attacks through hijacked devices</h3>
+        <p>The Justice Department and FBI announced court-authorised seizures on 26&nbsp;August of QScan and QTRouter, two linked platforms run by a PRC state-sponsored group the government calls QTFY and ties to a Nanjing contractor. QScan performed reconnaissance against US critical infrastructure; QTRouter relayed the resulting intrusions through compromised routers and IoT devices so traffic arrived from ordinary domestic addresses. Both are now inoperable because the seized domains were hard-coded into the malware for command and authentication. Named victims are federal, and the described activity runs back to at least 2018. For railroads and transit agencies the relay layer is the transferable point: a rail estate is full of small, internet-connected, unpatched devices &mdash; and the source address in your logs never proved anything.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; DOJ and FBI describe active intrusions at named federal victims; seizure executed 26 Aug 2026 and both platforms are now inoperable</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is actor infrastructure, not a product flaw; the FBI and NSA published indicators of compromise alongside the seizure</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is trusted-looking source addresses and unpatched wayside and facility devices recruited as relays</span>
+            <span class="ops-cc"><b>Action:</b> Run the published FBI/NSA indicators against retained perimeter, VPN and remote-support logs. Then work the recruitment problem, which is the part within your control: inventory the internet-connected devices scattered across the network that nobody patches &mdash; wayside cellular routers, crossing and signal-house monitoring gateways, station and platform cameras, passenger information displays, yard and gate controllers, HVAC and elevator controllers at stations. Give each an owner and a firmware baseline, and remove any that accept inbound connections from the internet. Delete any firewall rule that trusts traffic because it originates domestically or looks residential.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IOC sweep against retained logs &mdash; 7 days; wayside and facility edge-device inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-qtfy" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-qtfy">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>US Department of Justice press release and unsealed court documents &mdash; corroborated by TechCrunch and UPI</span>
+          <span class="dot">&bull;</span>
+          <span>Seizures announced and confirmed 26 Aug 2026; described activity dates from at least 2018 to 2026</span>
+        </div>
+        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-iran-sanctions" data-published="2026-08-25">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -881,6 +910,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="story-gtig-agents" data-published="2026-09-08">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Intel &mdash; Autonomous multi-agent intrusion tooling</span>
+        </div>
+        <h3>An entire credential campaign, start to finish, in under six hours &mdash; Google documents autonomous agents doing the work</h3>
+        <p>Google&rsquo;s Threat Intelligence Group reported on 8&nbsp;September that a financially motivated group completed a large-scale credential-harvesting campaign in less than six hours using an autonomous multi-agent framework, with the agents rather than human operators carrying it through. GTIG separately observed actors stealing AI API credentials and running unauthorised workloads inside victims&rsquo; own cloud tenants across healthcare, government and media. Its guidance is to assume every actor is now using AI to some degree. The rail consequence is arithmetic, not novelty. Credential phishing against dispatchers, crew callers, maintenance planners and contractor accounts is the standard opening move, and a campaign that completes inside six hours finishes well before a Monday-morning review &mdash; and comfortably inside the overnight window when the operations control centre is staffed but the security team is not.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed activity &mdash; GTIG documents a real campaign run with an autonomous multi-agent framework, plus separate theft of AI API credentials and abuse of victim cloud environments; no rail or transit victim is named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this concerns adversary tooling and tradecraft, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the counters are phishing-resistant authentication, session-token controls and time-to-detect</span>
+            <span class="ops-cc"><b>Action:</b> Measure your own clock against a six-hour campaign. Move dispatch, crew-management, maintenance-of-way and contractor accounts onto phishing-resistant MFA rather than push approval or SMS, and shorten session lifetimes on anything reachable from the internet. Confirm in writing who, on the overnight shift, is authorised to disable an account or cut a remote-access session without waiting for a daytime approver &mdash; and that the operations control centre knows who that is. Then inventory AI service API keys held in your cloud tenants, apply spend and rate limits, and alert on unexpected inference workloads: GTIG saw victims&rsquo; own environments used to run them. Fold the result into the annual assessment your TSA implementation plan already requires.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Phishing-resistant MFA on internet-reachable operations and contractor accounts &mdash; 30 days; documented overnight containment authority &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-gtig-agents" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-gtig-agents">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Google Threat Intelligence Group reporting &mdash; via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Published 8 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-booz-ai" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1092,6 +1150,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-ics-patch-sep" data-published="2026-09-08">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; September ICS Patch Tuesday, controllers and protection relays</span>
+        </div>
+        <h3>September&rsquo;s ICS patch round lands on Modicon controllers, RTUs and the protection relays behind traction power</h3>
+        <p>Schneider Electric published four advisories on 8&nbsp;September, the most severe a critical authentication vulnerability in the Modicon M580 and Modicon M580 Safety controllers, CVE-2026-3869 at CVSS&nbsp;9.2. Also fixed: high-severity flaws in the PowerLogic T300 RTU &mdash; formerly the Easergy T300, a distribution-automation RTU that turns up in traction-power and substation retrofits &mdash; and in EcoStruxure IT Data Center Expert, plus a medium-severity SCADAPack x70 defect. Siemens issued nine advisories, seven on 8&nbsp;September, headlined by ProductCERT SSA-142885: fourteen CVEs in Reyrolle 7SR5 protection and control relays for all versions before V2.70, led by CVE-2026-62645 (CVSS&nbsp;v3.1 9.8), where the web interface leaks enough data to calculate current and past session identifiers and bypass authentication. Siemens also patched Industrial Edge Management and Open Interface Services, and Aveva fixed four flaws in Pipeline Integrity Monitor&rsquo;s PIMBoards component including a hardcoded encryption key. No exploitation is reported for any of it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation &mdash; neither Schneider Electric, Siemens nor Aveva reports in-the-wild exploitation of the 8 September advisories, and CISA lists none as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVE-2026-3869, the Reyrolle 7SR5 set (incl. CVE-2026-62645, CVE-2026-62646, CVE-2026-62650) and the Aveva PIMBoards flaws carry no KEV listing at generation time</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixes available &mdash; Schneider has published remediation and interim mitigations for Modicon M580, M580 Safety, PowerLogic T300 and EcoStruxure IT Data Center Expert; Siemens fixes Reyrolle 7SR5 in V2.70</span>
+            <span class="ops-cc"><b>Action:</b> Take the protection relays first, and take them seriously as an availability problem rather than a data one. Reyrolle 7SR5 relays sit in traction-power substations and station distribution; an authentication bypass on a protection device is a route to nuisance tripping and de-energised sections, not to information theft. Confirm which relays are below V2.70, take the engineering access path off any routable network in the meantime, and &mdash; as Siemens advises &mdash; verify that redundant secondary protection is in place and tested before you schedule the upgrade. For Modicon M580 and M580 Safety, identify where they run station mechanical and electrical plant, yard and depot systems or level-crossing ancillaries, and check whether the engineering network is reachable from the corporate side or from a supplier remote-access path. Close that path now; the firmware can wait for a possession.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Reyrolle 7SR5 and Modicon M580 exposure assessment plus remote-access path review &mdash; 14 days; firmware upgrades scheduled against possessions or planned outages &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-ics-patch-sep" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-ics-patch-sep">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Siemens ProductCERT SSA-142885 and the September Schneider Electric and Aveva security advisories &mdash; round-up via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor advisories published 8 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-cisa-sep3" data-published="2026-09-03">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1240,35 +1327,6 @@
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-<div class="card" id="story-mssql-kev" data-published="2026-08-26">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, historian and MES databases</span>
-        </div>
-        <h3>A seven-year-old SQL Server flaw is now confirmed exploited &mdash; and it is the database under your historian</h3>
-        <p>CISA added six vulnerabilities to the Known Exploited Vulnerabilities catalogue on 26&nbsp;August, and the one that matters most on the plant floor is CVE-2019-1068, a remote code execution flaw in Microsoft SQL Server patched in July&nbsp;2019 and only now confirmed as exploited in the wild. Successful exploitation runs code under the SQL Server Database Engine service account; where that account is over-privileged &mdash; which is common on systems installed by an integrator years ago &mdash; the attacker moves off the database and onto the Windows host. For a railroad or transit agency this is the database tier under asset management, the SCADA and signalling historian, the fare-collection back office and the maintenance records &mdash; commonly SQL Server instances that a systems integrator stood up during a capital project and that nobody has patched since the project closed out. No public write-up of the in-the-wild technique has appeared, so detection guidance is thin; the federal remediation deadline is 29&nbsp;August. Citrix NetScaler CVE-2026-8452 was added in the same batch.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 26 Aug 2026 under BOD 26-04, remediation deadline 29 Aug 2026</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2019-1068, alongside CVE-2026-8452 and four older Linux, Red Hat and Ajax.NET flaws</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Microsoft fixed this in July 2019; the exposure is unpatched or end-of-support SQL Server instances still running in OT</span>
-            <span class="ops-cc"><b>Action:</b> Inventory SQL Server by the operational function it supports: the SCADA or traction-power historian, the asset and maintenance management database, the fare system back office, the CCTV and access-control management servers, and any vendor package that installed SQL Express during a capital project. Check builds against the July 2019 fix and patch what is behind. Where a supplier will not certify a newer build, restrict the instance to its own application hosts and strip any path from the corporate network. Then check the Database Engine service account: if it holds domain administrator rights, fix that first, because it converts a database flaw into a foothold on a host that may sit alongside operational systems.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory OT SQL Server instances and patch or isolate &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-mssqlkev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-mssqlkev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalogue addition of 26 Aug 2026 &mdash; corroborated by The Hacker News and Infosecurity Magazine</span>
-          <span class="dot">&bull;</span>
-          <span>Added to KEV 26 Aug 2026; original Microsoft patch July 2019; federal remediation deadline 29 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 <div class="card" id="story-citrix-kev" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1297,64 +1355,6 @@
           <span>Vendor patches released August 2026; exploitation indications from 17 Aug; added to KEV 26 Aug 2026; federal deadline 29 Aug 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-veeam-one" data-published="2026-08-25">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Backup and monitoring infrastructure, unauthenticated</span>
-        </div>
-        <h3>Two unauthenticated flaws in Veeam ONE 13 &mdash; the monitoring layer that watches the backups you would restore from</h3>
-        <p>Veeam disclosed vulnerabilities in Veeam ONE&nbsp;13 in knowledge-base articles published on 25&nbsp;August. CVE-2026-64633 is rated CVSS&nbsp;v4.0 10.0 and allows remote, unauthenticated code execution on the Veeam ONE agent host; CVE-2026-65641 is rated 9.3 and lets a remote unauthenticated attacker coerce SMB authentication out of the Veeam ONE service account, which is the first step in relaying that account somewhere more useful. Veeam ONE 13.x is affected and the 12.x line is not. For rail and transit, Veeam ONE is often the console watching backups of the SCADA, signalling-adjacent and asset-management servers &mdash; the recovery capability behind any incident that would otherwise mean running on manual authorities and paper procedures. There is no report of exploitation yet, but backup and monitoring servers are a standing target precisely because compromising them removes the recovery option before the ransomware runs.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No confirmed exploitation reported &mdash; vendor-disclosed, and not currently listed in CISA KEV</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVE-2026-64633 (CVSS v4.0 10.0) and CVE-2026-65641 (9.3), vendor-rated</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Veeam ONE 13.1 Patch 0 build 13.1.0.7233, or 13.0.2 Patch 1 build 13.0.2.7159</span>
-            <span class="ops-cc"><b>Action:</b> Establish whether Veeam ONE 13.x is deployed anywhere in the operational estate, including instances an integrator maintains for you; 12.x is unaffected. Patch to 13.1 Patch 0 or 13.0.2 Patch 1. Confirm the Veeam ONE server has no route to or from the operational network and that its service account is not a domain administrator, since the SMB coercion flaw only pays off when the identity it coerces is privileged. Then verify an offline or immutable restore copy exists for the configuration of the systems you would need first after an outage, and that restoring one has actually been rehearsed rather than assumed.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate Veeam ONE 13.x &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-veeam" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-veeam">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Veeam knowledge-base articles KB4905 and KB4892 &mdash; corroborated by CyberScoop and Cybersecurity News</span>
-          <span class="dot">&bull;</span>
-          <span>Vendor advisory published 25 Aug 2026; patched builds available the same day</span>
-        </div>
-        <a href="https://www.veeam.com/kb4905" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-gitea-kev" data-published="2026-08-25">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, engineering toolchain</span>
-        </div>
-        <h3>A Git server exploit in KEV &mdash; and it is where signalling and station configuration often lives</h3>
-        <p>CISA added CVE-2026-60004 to the KEV catalogue on 25&nbsp;August after reports of active exploitation. Rated CVSS&nbsp;9.8, the flaw lets anyone with ordinary repository write access plant an executable Git hook and run shell commands as the Gitea service account. Gitea 1.27.1 fixed it on 27&nbsp;July, so exploitation followed within a month. Self-hosted Gitea turns up in rail engineering groups because it is easy to stand up for station and depot PLC projects, SCADA screens, passenger information configuration and integration scripts. A modest contractor account then becomes code execution on the machine holding operational configuration. Federal remediation was due 28&nbsp;August.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation in the wild &mdash; added to CISA KEV 25 Aug 2026</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-60004, CVSS 9.8, federal remediation deadline 28 Aug 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Gitea 1.27.1 released 27 Jul 2026, with the security advisory published 28 Jul</span>
-            <span class="ops-cc"><b>Action:</b> Ask engineering and systems teams whether a self-hosted Git server exists; it will not be in the corporate application inventory because IT did not deploy it. Upgrade to 1.27.1 or later, audit repository write permissions, and remove contractor and former-staff accounts. Review logs for hook creation since late July. Then confirm the authoritative copies of station, depot and passenger-information configuration exist somewhere other than that server &mdash; if the repository is the only copy, that dependency is the more serious finding.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade, permission audit and backup verification &mdash; 3 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-gitea" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-gitea">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA KEV catalogue addition &mdash; corroborated by Help Net Security, SecurityWeek and The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Gitea 1.27.1 released 27 Jul 2026; added to KEV 25 Aug 2026; verified 27 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="story-siemens-iot2050" data-published="2026-08-12">
         <div class="card-header">
@@ -1421,6 +1421,64 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+<div class="card" id="story-tsa-collection" data-published="2026-09-01">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation &amp; Policy &mdash; TSA surface transportation, comments due 1 Oct 2026</span>
+        </div>
+        <h3>TSA reopens its surface-transportation cyber information collection &mdash; and the vetting rule for coordinators has changed</h3>
+        <p>TSA published a Federal Register notice on 1&nbsp;September covering the revised information collection for higher-risk freight rail, mass transit and passenger rail, and over-the-road bus owners and operators, with comments due 1&nbsp;October&nbsp;2026. The collection carries forward the substance of the security directives rather than replacing it: designated primary and alternate cybersecurity coordinators, 72-hour incident reporting to CISA, a Cybersecurity Incident Response Plan, and Cybersecurity Implementation and Assessment Plans with annual assessment reports. One change is worth flagging to HR and legal now &mdash; introduced in the 15&nbsp;January&nbsp;2026 revision of SD 1580-21-01 and SD 1582-21-01, a cybersecurity coordinator who is not a US citizen must hold NEXUS, Global Entry or equivalent TSA-approved vetting. TSA also re-estimated the burden at 67 respondents and 22,167 hours, down from 846 and 210,684.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Not applicable &mdash; regulatory information-collection notice, not a vulnerability or an incident</span>
+            <span class="ops-tag kev-off">No CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; these are compliance obligations under active TSA security directives, with the collection out for comment</span>
+            <span class="ops-cc"><b>Action:</b> Two separate pieces of work. First, compliance: confirm your named primary and alternate cybersecurity coordinators are current, and check the citizenship and vetting position for each &mdash; if either is a non-US citizen, start the NEXUS or Global Entry application now, because the lead time is longer than the notice period. Verify your Cybersecurity Incident Response Plan names who declares an incident and who files with CISA inside 72 hours, and test whether that path actually works out of hours. Second, comment: the burden re-estimate is a material drop, and if your own hours for implementation-plan maintenance and annual assessment reporting differ from TSA&rsquo;s figures, the 1&nbsp;October window is where that evidence belongs. Route it through your association if you would rather not file individually.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Coordinator designation and vetting status confirmed &mdash; 14 days; comment position decided &mdash; ahead of 1 Oct 2026</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-tsa-collection" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-tsa-collection">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>TSA notice, &ldquo;Revision of Agency Information Collection Activity Under OMB Review: Cybersecurity Measures for Surface Modes&rdquo; &mdash; via the Federal Register</span>
+          <span class="dot">&bull;</span>
+          <span>Published 1 Sep 2026; comments due 1 Oct 2026; underlying SD 1580-21-01 and SD 1582-21-01 revised 15 Jan 2026</span>
+        </div>
+        <a href="https://www.federalregister.gov/documents/2026/09/01/2026-17894/revision-of-agency-information-collection-activity-under-omb-review-cybersecurity-measures-for" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-reporting-fragmentation" data-published="2026-09-08">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation &amp; Policy &mdash; Incident reporting burden</span>
+        </div>
+        <h3>117 federal incident-reporting rules across 27 agencies &mdash; and a transit agency can sit inside several clocks at once</h3>
+        <p>The McCrary Institute and the US Chamber of Commerce published analysis on 8&nbsp;September, citing GAO work, counting 117 federal cyber incident reporting regulations across 27 agencies, 48 of which reach private industry. The argument is operational rather than political: filings with different thresholds, formats and deadlines pull the same small group of people away from containment during the hours that matter most. Rail sits in an unusually crowded corner of that map. A single event at a transit authority can trigger the 72-hour report to CISA required under the TSA security directives, an FTA or state safety oversight notification, a local emergency-management report, a breach notification if rider or payment data is involved, and &mdash; once CIRCIA rules are finalised, expected this autumn &mdash; a further CISA filing on its own clock.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Not applicable &mdash; policy analysis, not a vulnerability or an incident</span>
+            <span class="ops-tag kev-off">No CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the practical mitigation is a pre-built reporting matrix with a named owner</span>
+            <span class="ops-cc"><b>Action:</b> Build the matrix before you need it. For each operating entity, list every reporting obligation a cyber incident could trigger &mdash; TSA/CISA 72-hour reporting, FTA and state safety oversight, FRA where a safety system is implicated, local emergency management, state breach law for rider and payment data, insurer and, once final, CIRCIA &mdash; and record for each the trigger threshold, the clock, the channel and the required content. Name one filer and a deputy, and keep contact details offline. Then rehearse it inside the tabletop your Cybersecurity Incident Response Plan already calls for: the test is whether the first notification goes out on the shortest applicable clock while the technical team is still working containment.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Reporting-obligation matrix drafted and owner named &mdash; 30 days; exercised in the next required tabletop</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-reporting-frag" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-reporting-frag">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>McCrary Institute and US Chamber of Commerce analysis citing GAO findings &mdash; via Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Published 8 Sep 2026; CIRCIA final rule expected autumn 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/critical-infrastructure/mccrary-institute-warns-fragmented-federal-cyber-incident-reporting-diverting-resources-from-incident-response/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-cisa-assess-cut" data-published="2026-09-03">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1509,64 +1567,6 @@
         <a href="https://www.securityweek.com/uk-moves-to-block-high-risk-tech-suppliers-from-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-cisa-exposure-guidance" data-published="2026-08-26">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Guidance &mdash; Internet exposure reduction for IT, OT and ICS</span>
-        </div>
-        <h3>CISA publishes internet exposure reduction guidance &mdash; and the target list for this sector is wayside cabinets on cellular backhaul, station building-management and CCTV networks, depot engineering access and yard-automation systems</h3>
-        <p>CISA released guidance on 26&nbsp;August directing organisations to identify which of their systems are reachable from the internet, remove remote access that is not required, and harden whatever must stay externally accessible. It is deliberately unglamorous: an inventory step, a removal step and a hardening step, published in the same week the UK NCSC warned that internet-exposed OT and edge devices are being targeted with real-world disruption already caused. Rail and transit estates are geographically strung out and frequently connected by third-party carrier links, which is exactly the exposure class the guidance describes. Wayside and station equipment is often commissioned by an integrator and inherited by an operator who never received the connectivity diagram. The guidance carries no deadline and applies to no one by force, which is precisely why it tends to be filed rather than executed.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Confirmed &mdash; guidance published by CISA 26 Aug 2026; no exploitation claim attaches to the document itself, though it was issued in direct response to observed targeting of internet-exposed systems</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is exposure-management guidance, not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the work is discovery, removal and brokered access</span>
-            <span class="ops-cc"><b>Action:</b> Start where you have least visibility: wayside and station assets on carrier links. Ask the carrier for the routing and addressing policy on every APN or private circuit you use, and verify whether devices on it can reach one another or the public internet &mdash; do not assume a private APN is a segmented network. Then enumerate externally reachable services across depots, control centres and station systems, including integrator and OEM support paths into signalling-adjacent, SCADA and building systems. Retire what is not needed, broker what is, and use the output as evidence against TSA Security Directive 1580/1582 network-segmentation and access-control requirements.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External exposure discovery across OT and OT-adjacent assets &mdash; 30 days; removal or brokering of unnecessary access &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-exposure-guidance" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-exposure-guidance">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA Internet Exposure Reduction guidance &mdash; corroborated by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Guidance published 26 Aug 2026; reported 27 Aug 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/resources-tools/resources/exposure-reduction" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-tsa-rail" data-published="2026-08-01">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; TSA rail security directive and pending rulemaking</span>
-        </div>
-        <h3>The TSA rail directive runs to 15 January 2027 while the surface cyber rule remains proposed</h3>
-        <p>Security Directive 1580-21-01E, the current TSA cybersecurity directive for designated freight and passenger railroads, is effective from 16&nbsp;January&nbsp;2026 through 15&nbsp;January&nbsp;2027. Its performance-based requirements &mdash; network segmentation between IT and OT, access control, continuous monitoring and timely patching, together with a cybersecurity implementation plan and assessment programme &mdash; remain the operative obligation. The broader &ldquo;Enhancing Surface Cyber Risk Management&rdquo; rulemaking, published for comment in November&nbsp;2024 and closed to comment in February&nbsp;2025, would convert the directives into permanent regulation including 24-hour incident reporting to CISA, but no final rule has been issued.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; regulatory compliance item; the rulemaking remains proposed and is not enforceable</span>
-            <span class="ops-tag kev-off">No CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; these are compliance obligations under an active security directive</span>
-            <span class="ops-cc"><b>Action:</b> Do not let the pending rule distract from the directive that is already in force. Confirm your cybersecurity implementation plan reflects the network as it is today rather than as it was at approval, particularly where new wayside connectivity, cloud services or supplier remote access have been added since. Verify the annual assessment schedule is being met and that findings have owners. Where the proposed rule would add 24-hour CISA reporting, test whether you could actually meet that clock today &mdash; the decision path, not the form, is the constraint.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Implementation plan and assessment currency review &mdash; current compliance cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-tsasd" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-tsasd">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>TSA Security Directive 1580-21-01E and the &ldquo;Enhancing Surface Cyber Risk Management&rdquo; notice of proposed rulemaking &mdash; via TSA and the Federal Register</span>
-          <span class="dot">&bull;</span>
-          <span>SD 1580-21-01E effective 16 Jan 2026 through 15 Jan 2027; NPRM published 7 Nov 2024, comments closed 5 Feb 2025; no final rule as of 27 Aug 2026</span>
-        </div>
-        <a href="https://www.tsa.gov/sd-and-ea" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 <div class="card" id="story-cra-reporting" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1603,7 +1603,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Rail &amp; Transit.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 6&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the CISA ICS advisory batches of 1 and 3&nbsp;September&nbsp;2026 (ICSA-26-244 and ICSA-26-246 series), CISA KEV additions of 31&nbsp;August and 2&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo; published 2&nbsp;September by CISA with the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI, the Five Eyes CI&nbsp;Fortify isolation guidance, the UK NCSC alert on internet-exposed OT, the FBI/EPA public service announcement on water-sector PLC targeting, and vendor PSIRTs (Siemens ProductCERT, Rockwell Automation, Schneider Electric, Hitachi Energy, Inductive Automation, IXON, SonicWall, Citrix, Microsoft, PaperCut, JFrog, WAGO). Research and analysis from Dragos, Claroty Team82, Nozomi Networks, Netresec, CERT Polska, Forescout Vedere Labs and Rapid7. Reporting drawn from SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, The Hacker News, Dark Reading, Help Net Security, TechCrunch, Security Affairs, Nextgov/FCW, StateScoop and Industrial Cyber, with policy and regulatory material reported factually and without partisan framing. Wired was not used for this edition. Added this edition: Booz&nbsp;Allen&rsquo;s Cyber Weapon Index and &ldquo;The Offensive Frontier: AI as the Attacker&rdquo; via Industrial&nbsp;Cyber, and Cybersecurity&nbsp;Dive reporting on the reported withdrawal of six free CISA assessment services. The North Carolina Ports item has been retired from this edition under the 30-day freshness rule. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled on 9&nbsp;September&nbsp;2026 from authoritative OT/ICS and surface-transportation sources: CISA and ICS-CERT advisories (the ICSA-26-244 and ICSA-26-246 batches of 1 and 3&nbsp;September, and ICSA-26-251-01 of 8&nbsp;September) together with the Known Exploited Vulnerabilities catalog additions of 31&nbsp;August, 2, 4 and 8&nbsp;September; TSA and Federal Register material, including the 1&nbsp;September revised information collection for surface modes and the underlying Security Directives 1580-21-01 and 1582-21-01; and vendor security advisories from Siemens ProductCERT (including SSA-142885 on Reyrolle 7SR5), Schneider Electric, Aveva, Rockwell Automation, Inductive Automation, IXON, SonicWall, Citrix, N-able, Microsoft and Bendix. Research and analysis from Dragos, Forescout Vedere Labs, CERT Polska, Huntress and Google&rsquo;s Threat Intelligence Group. Reporting drawn from SecurityWeek, Industrial Cyber, The Record, BleepingComputer, CyberScoop, Cybersecurity Dive and The Hacker News, with policy and regulatory material reported factually and without partisan framing. Added this edition: the 8&nbsp;September KEV batch led by N-able N-central, the 8&nbsp;September ICS Patch Tuesday round, Google GTIG&rsquo;s autonomous multi-agent campaign reporting, the TSA surface-transportation information-collection notice, and the McCrary Institute and US Chamber of Commerce analysis of federal incident-reporting fragmentation. Every item links to its primary or best-available accessible source; federal and vendor attribution is presented as an official or vendor assessment rather than proven attribution, and confirmed activity is distinguished from claimed. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
