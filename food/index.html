@@ -696,13 +696,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wednesday, 09 Sep 2026, 9:15 AM ET</span>
+        <span>Generated Thursday, 10 Sep 2026, 12:15 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>35</strong> stories across
+      <strong>36</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -728,14 +728,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to food and beverage processors, packaging and cold chain operators, and agricultural producers. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">4.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.2</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:48.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, eased from 5.8 to 4.8. No confirmed OT-disruptive cyber incident hit a food processor, distributor or agricultural operator in this window, and there is no confirmed hands-on-OT nation-state activity anywhere this run, so the level rests on exposure rather than impact. Two drivers hold it mid-Medium. First, cross-sector remote-access and edge gear that is genuinely being exploited: N-able N-central (CVE-2026-86218, CVSS 10, pre-authentication remote code execution) went into CISA KEV on 8&nbsp;September, SonicWall&rsquo;s SMA1000 zero-days remain KEV-listed and exploited, and two Windows zero-days were confirmed exploited the same day. That is the RMM and VPN layer through which line builders, refrigeration contractors and MES vendors reach food plants. Second, a heavy but unexploited ICS Patch Tuesday in gear that is common in processing: Schneider&rsquo;s Modicon M580 and M580 Safety authentication flaw (CVE-2026-3869, CVSS 9.2), seven Siemens advisories, and the 3&nbsp;September Ignition flaw in the HMI and SCADA layer. None of it is reported exploited. Unexploited advisories do not aggregate upward however many stack up in one week, and IT and edge exposure does not either. The 8&nbsp;September analysis on food incidents escalating into food-safety events is a warning about consequence, not evidence of one; the score moves only on a confirmed OT-disruptive incident at an operator.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:52.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, raised from 4.8 to 5.2. No confirmed OT-disruptive cyber incident hit a food processor, distributor or agricultural operator in this window and there is no confirmed hands-on-OT nation-state activity this run, so the level still rests on exposure rather than impact. What moved it is the plant-boundary management plane. On 9&ndash;10&nbsp;September Cisco and CISA confirmed active exploitation of CVE-2026-20079, a critical authentication bypass giving a remote unauthenticated attacker root on Secure Firewall Management Center; it entered KEV with a 12&nbsp;September federal deadline, and Cisco Talos ties the activity to three clusters, including the Russian state actor Sandworm delivering Cyclops Blink and a group linked to Qilin ransomware enumerating endpoints to encrypt. That last cluster is the pattern behind production-halting attacks on food and beverage plants, and FMC is where the boundary protecting MES, batching and refrigeration control is configured. Alongside it sit still-exploited N-able N-central (CVSS&nbsp;10) and SonicWall SMA1000, and a heavy but unexploited September ICS Patch Tuesday including Schneider Modicon&nbsp;M580 and the Ignition HMI/SCADA fix. Unexploited advisories do not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1403,6 +1403,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-cisco-fmc-kev" data-published="2026-09-10">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+        </div>
+        <h3>A Qilin affiliate is picking encryption targets from inside Cisco firewall management &mdash; that is how a plant stops</h3>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is being exploited in the wild. The flaw is a critical authentication bypass caused by an improper system process created at boot; a remote, unauthenticated attacker sends crafted HTTP requests and gains root on the underlying operating system. Cisco patched it in early March and published indicators of compromise in late July, then disclosed on 9&nbsp;September that it had observed exploitation from August. CISA added the CVE to KEV with a 12&nbsp;September federal deadline. Cisco Talos reports three clusters exploiting this flaw and the earlier CVE-2026-20316: one deploying a web shell and malicious JAR to harvest credentials, one attributed to the Russian state actor Sandworm delivering Cyclops Blink, and one tied to Qilin ransomware performing reconnaissance and compiling endpoint lists for encryption. Food and beverage operators should read the Qilin detail literally. The sector&rsquo;s production stoppages this year have followed that shape &mdash; enterprise intrusion, target enumeration, then encryption reaching the systems batching, packaging and refrigeration depend on. FMC is where the boundary meant to prevent that is configured.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Cisco Talos published cluster attribution the same day</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026. Third Secure FMC flaw added to KEV in 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries the version matrix and IoCs</span>
+            <span class="ops-cc"><b>Action:</b> Inventory on-premises FMC across every plant, cold store and distribution centre, including sites where a co-packer or an acquired business runs its own network, and confirm each build against Cisco&rsquo;s advisory. Take the management interface off any internet-reachable path today &mdash; Cisco names internet exposure as the dominant risk factor and the change costs no run time. Because exploitation ran through August, pair the patch with a hunt: check Cisco&rsquo;s IoCs, look for unexpected web shells and JAR files on the appliance, review administrative logins and policy-change history since late July, and rotate device, API and directory credentials the console holds. Then diff the running policy against your documented plant-boundary baseline and confirm that MES, batching, refrigeration monitoring and their backups are still unreachable from the enterprise network. Where a line builder or refrigeration contractor manages the firewalls, ask for the same evidence in writing.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; plant-boundary policy diff and OT backup reachability check &mdash; 7 days; contractor attestation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-cisco-fmc-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-kev-8sep" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>

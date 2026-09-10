@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wednesday, 09 Sep 2026, 9:15 AM ET</span>
+        <span>Generated Thursday, 10 Sep 2026, 12:15 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>34</strong> stories across
+      <strong>35</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to discrete and process manufacturers. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.0</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:50.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, eased to 5.0. Nothing this run is a confirmed OT-disruptive cyber incident. Boston Scientific&rsquo;s August intrusion is now in recovery, with shipping restored at its major distribution centres, and Data&nbsp;I/O&rsquo;s containment shutdown is likewise past; both remain confirmed production impact on the IT side, with no OT-network compromise made public, and neither is new. That moves the page from upper Medium to mid-Medium. Two drivers hold it there. First, actively exploited cross-sector remote-access and edge software now in KEV: N-able N-central CVE-2026-86218 at CVSS&nbsp;10 with confirmed pre-auth remote code execution, SonicWall&rsquo;s SMA1000 zero-days, PaperCut, and the two Windows zero-days added on 8&nbsp;September &mdash; the layer contractors, integrators and MSPs use to reach engineering workstations. Second, a heavy but unexploited September ICS Patch Tuesday in gear plants actually run: Siemens Reyrolle&nbsp;7SR5, Industrial Edge Management and Open Interface Services, Schneider&rsquo;s Modicon M580 and M580 Safety, and Aveva Pipeline Integrity Monitor, on top of last week&rsquo;s Rockwell Logix and RSLinx set and the OPC UA discovery-server fix. Volume is not exploitation: unexploited advisories do not aggregate upward, however many land in one week. Deepfake-enabled supplier fraud and autonomous agent tooling raise the tempo of intrusion attempts, not their operational reach.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:54.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, raised from 5.0 to 5.4. Nothing this run is a confirmed OT-disruptive cyber incident &mdash; the Boston Scientific and Data&nbsp;I/O intrusions remain IT-side production impact in recovery &mdash; so the ceiling rule keeps this below&nbsp;6. What moved it is the plant-boundary management plane. On 9&ndash;10&nbsp;September Cisco and CISA confirmed active exploitation of CVE-2026-20079, a critical authentication bypass giving a remote unauthenticated attacker root on Secure Firewall Management Center; it entered KEV with a 12&nbsp;September federal deadline, and Cisco Talos ties the activity to three clusters, including the Russian state actor Sandworm delivering Cyclops Blink and a group linked to Qilin ransomware enumerating endpoints for encryption. Qilin matters here: it is the actor set whose intrusions end in encrypted MES and halted lines, and FMC is where the Purdue-level boundary is actually configured. Alongside it sit still-exploited N-able N-central (CVSS&nbsp;10), SonicWall SMA1000 and PaperCut, and a heavy but unexploited September ICS Patch Tuesday across Siemens, Schneider and Rockwell. Unexploited advisories do not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1323,6 +1323,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-cisco-fmc-kev" data-published="2026-09-10">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+        </div>
+        <h3>Qilin and Sandworm are exploiting Cisco firewall management &mdash; root on the box that defines your plant boundary</h3>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is under active exploitation. It is a critical authentication bypass caused by an improper system process created at boot; a remote, unauthenticated attacker sends crafted HTTP requests and obtains root on the appliance operating system. Cisco patched it in early March and published indicators of compromise in late July, then updated the advisory on 9&nbsp;September to confirm it had seen exploitation in August. CISA added the CVE to KEV with a 12&nbsp;September federal deadline. Cisco Talos attributes three clusters to this flaw and the earlier CVE-2026-20316: one dropping a web shell and a malicious JAR to steal credentials, one tied to the Russian state actor Sandworm deploying Cyclops Blink, and one linked to Qilin ransomware performing reconnaissance and building lists of endpoints to encrypt. The Qilin cluster is the one to brief your plant managers on. Enumerating encryption targets from the firewall management console is precisely how an IT intrusion becomes a stopped line, because FMC defines the boundary that is supposed to keep MES, historians and engineering workstations out of reach.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Cisco Talos published cluster attribution the same day</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026. Third Secure FMC flaw added to KEV in 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries the version matrix and IoCs</span>
+            <span class="ops-cc"><b>Action:</b> Inventory on-premises FMC across every site, including plants that joined through acquisition and run their own network stack, and confirm each build against Cisco&rsquo;s advisory. Remove the management interface from any internet-reachable path today &mdash; Cisco is explicit that internet exposure is the dominant risk factor, and it costs no production time. Patching alone is not enough given exploitation ran through August: hunt Cisco&rsquo;s IoCs, look for unexpected web shells and JAR files on the appliance, review administrative logins and policy-change history from late July, and rotate device, API and directory credentials FMC holds. Then diff the running policy against your IEC&nbsp;62443 zone-and-conduit baseline. A rule quietly widened between the enterprise zone and cell or line control is exactly what the Qilin cluster&rsquo;s reconnaissance is for, and it will not trip an alarm on its own. Verify that OT backups and the historian remain unreachable from the enterprise zone.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; zone-and-conduit policy diff &mdash; 7 days; site and integrator attestation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-cisco-fmc-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-kev-8sep" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>

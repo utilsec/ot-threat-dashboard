@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wednesday, 09 Sep 2026, 9:15 AM ET</span>
+        <span>Generated Thursday, 10 Sep 2026, 12:15 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Rail &amp; Transit</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>27</strong> stories across
+      <strong>28</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to freight railroads, passenger rail and transit operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">4.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.0</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:46.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, eased from 5.1 to 4.6. No confirmed OT-disruptive cyber incident hit a railroad or transit operator in this window &mdash; no signalling manipulated, no dispatch centre down, no service suspended for cyber reasons. The drivers are cross-sector and sit on the remote-access and edge layer that rail back-office and dispatch-adjacent estates depend on. CISA added N-able N-central to its KEV catalogue on 8&nbsp;September: pre-authentication remote code execution at CVSS&nbsp;10.0, confirmed exploited, federal deadline 11&nbsp;September. It matters here because short lines, commuter authorities and municipal transit agencies routinely outsource IT to managed providers running exactly that platform. Alongside it sit SonicWall&rsquo;s SMA1000 pair, PaperCut, NetScaler and two Windows zero-days patched the same day. The second driver is volume rather than compromise: a heavy 8&nbsp;September ICS Patch Tuesday reaching Schneider&rsquo;s Modicon M580 and M580 Safety controllers at CVSS&nbsp;9.2, the PowerLogic T300 RTU, and fourteen CVEs in Siemens Reyrolle 7SR5 protection relays of the kind used in traction-power substations. None of it is reported as exploited, and unexploited advisories do not aggregate upward however many land in one week. Regulatory pressure is steady rather than sharp: TSA&rsquo;s revised information collection is open for comment until 1&nbsp;October, and the underlying security directives remain the operative obligation.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:50.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, raised from 4.6 to 5.0. No confirmed OT-disruptive cyber incident hit a railroad or transit operator in this window &mdash; no signalling manipulated, no dispatch centre down, no service suspended for cyber reasons &mdash; so the ceiling rule holds this below&nbsp;6. What moved it is the segmentation management plane. On 9&ndash;10&nbsp;September Cisco and CISA confirmed active exploitation of CVE-2026-20079, a critical authentication bypass giving unauthenticated root on Secure Firewall Management Center; it entered KEV with a 12&nbsp;September federal deadline, and Cisco Talos ties the activity to three clusters, including the Russian state actor Sandworm delivering Cyclops Blink and a Qilin-linked group building endpoint target lists. FMC configures the firewalls separating corporate rail IT from dispatch, SCADA, traction power and station systems &mdash; the boundary TSA security directives require operators to define and defend. Alongside it sit still-exploited N-able N-central (CVSS&nbsp;10) and SonicWall SMA1000, and a heavy but unexploited September ICS Patch Tuesday reaching Schneider Modicon&nbsp;M580, PowerLogic&nbsp;T300 and Siemens Reyrolle&nbsp;7SR5 relays used in traction-power substations. Unexploited advisories do not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1150,6 +1150,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-cisco-fmc-kev" data-published="2026-09-10">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+        </div>
+        <h3>Cisco firewall management is being exploited by Sandworm and a Qilin affiliate &mdash; that is the IT/OT boundary TSA asks you to prove</h3>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is under active exploitation. The flaw is a critical authentication bypass caused by an improper system process created at boot; a remote, unauthenticated attacker sends crafted HTTP requests and gains root on the appliance operating system. Cisco fixed it in early March and published indicators of compromise in late July, then disclosed on 9&nbsp;September that it had observed exploitation from August. CISA added the CVE to KEV with a 12&nbsp;September federal deadline. Cisco Talos attributes three clusters to this flaw and the earlier CVE-2026-20316: one dropping a web shell and malicious JAR to steal credentials, one tied to the Russian state actor Sandworm deploying Cyclops Blink, and one linked to Qilin ransomware enumerating endpoints to encrypt. For railroads and transit agencies the consequence is specific. TSA security directives require a documented, tested separation between IT and critical cyber systems &mdash; dispatch, signalling support, traction-power SCADA, fare and station systems. FMC is where that separation is enforced, and root there lets an attacker edit it silently.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Cisco Talos published cluster attribution the same day</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026. Third Secure FMC flaw added to KEV in 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries the version matrix and IoCs</span>
+            <span class="ops-cc"><b>Action:</b> Locate every on-premises FMC, including instances a managed provider runs for a commuter authority, short line or municipal transit agency, and check each build against Cisco&rsquo;s advisory. Remove the management interface from any internet-reachable path immediately &mdash; Cisco says internet exposure is the dominant risk factor and this needs no service window. Exploitation predates most patching, so also hunt the published IoCs, look for unexpected web shells and JAR files on the appliance, review administrative logins and policy-change history from late July onward, and rotate device, API and directory credentials FMC holds. Finally, diff the running firewall policy against the segmentation baseline you documented for your TSA cybersecurity assessment plan; if the two disagree, treat that as a potential intrusion artefact rather than configuration drift, and remember the 24-hour CISA reporting obligation for a confirmed cybersecurity incident.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; segmentation policy diff against TSA assessment baseline &mdash; 7 days; managed-provider attestation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-cisco-fmc-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-ics-patch-sep" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
