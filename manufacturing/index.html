@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 10 Sep 2026, 12:15 PM ET</span>
+        <span>Generated Friday, 11 Sep 2026, 8:00 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>35</strong> stories across
+      <strong>36</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to discrete and process manufacturers. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.1</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:54.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, raised from 5.0 to 5.4. Nothing this run is a confirmed OT-disruptive cyber incident &mdash; the Boston Scientific and Data&nbsp;I/O intrusions remain IT-side production impact in recovery &mdash; so the ceiling rule keeps this below&nbsp;6. What moved it is the plant-boundary management plane. On 9&ndash;10&nbsp;September Cisco and CISA confirmed active exploitation of CVE-2026-20079, a critical authentication bypass giving a remote unauthenticated attacker root on Secure Firewall Management Center; it entered KEV with a 12&nbsp;September federal deadline, and Cisco Talos ties the activity to three clusters, including the Russian state actor Sandworm delivering Cyclops Blink and a group linked to Qilin ransomware enumerating endpoints for encryption. Qilin matters here: it is the actor set whose intrusions end in encrypted MES and halted lines, and FMC is where the Purdue-level boundary is actually configured. Alongside it sit still-exploited N-able N-central (CVSS&nbsp;10), SonicWall SMA1000 and PaperCut, and a heavy but unexploited September ICS Patch Tuesday across Siemens, Schneider and Rockwell. Unexploited advisories do not aggregate upward.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:51.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, eased from 5.4 to 5.1. The one confirmed production disruption on this board has closed: Boston Scientific said on 9&nbsp;September that manufacturing, order fulfilment and shipping are fully restored, and CrowdStrike found no evidence that manufacturing or product-development systems were compromised at all. Nothing published in the 9&ndash;11&nbsp;September window replaces it. There is no confirmed OT-disruptive cyber incident, and the one new manufacturing claim &mdash; Panzer&rsquo;s listing of Doimo Cucine &mdash; is attacker-sourced, unconfirmed by the victim and carries no confirmed production halt. The ceiling rule holds this below&nbsp;6. What keeps it at five rather than lower is the plant-boundary management plane: CVE-2026-20079 in Cisco Secure Firewall Management Center is confirmed exploited and in KEV with a 12&nbsp;September federal deadline &mdash; tomorrow &mdash; and Talos ties three clusters to it, including Sandworm delivering Cyclops Blink and a Qilin-linked group enumerating endpoints to encrypt. That is nation-state pre-positioning on boundary infrastructure plus ransomware reconnaissance, not hands-on manipulation of OT, so under the rubric it sits near&nbsp;5 and does not reach High by itself. Alongside it sit still-exploited N-able N-central, SonicWall SMA1000 and PaperCut, and a heavy but unexploited September ICS Patch Tuesday across Siemens, Schneider and Aveva. Unexploited advisories do not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -693,31 +693,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-ics-patch-sep" data-published="2026-09-08">
+    <div class="top-story" id="story-cisco-fmc-kev" data-published="2026-09-10">
         <span class="top-story-pill">Top Story</span>
-        <h2>September ICS Patch Tuesday hits the plant patch window &mdash; Siemens, Schneider and Aveva criticals, and one flaw already exploited</h2>
-        <p>Siemens published seven advisories on 8&nbsp;September, including critical fixes in Industrial Edge Management and Open Interface Services and a fourteen-CVE set for Reyrolle&nbsp;7SR5 protection relays led by an authentication bypass at CVSS&nbsp;9.8. Schneider Electric issued four the same day, headed by a critical authentication flaw in Modicon M580 and M580 Safety controllers, CVE-2026-3869 at CVSS&nbsp;9.2, with PowerLogic T300 and EcoStruxure IT Data Center Expert also patched. Aveva fixed four flaws in Pipeline Integrity Monitor, including a hardcoded encryption key. None of that is exploited. What is exploited is CVE-2026-86218 in N-able N-central, a CVSS&nbsp;10 pre-authentication remote code execution flaw added to KEV the same day &mdash; the remote-monitoring platform many MSP-managed plants inherit. Stacked on last week&rsquo;s Rockwell batch, that is a lot of controller and engineering-workstation work chasing very few outage windows.</p>
+        <h2>Qilin and Sandworm are exploiting Cisco firewall management &mdash; root on the box that defines your plant boundary, and the federal deadline is tomorrow</h2>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is under active exploitation. It is a critical authentication bypass caused by an improper system process created at boot; a remote, unauthenticated attacker sends crafted HTTP requests and obtains root on the appliance operating system. Cisco patched it in early March and published indicators of compromise in late July, then updated the advisory on 9&nbsp;September to confirm it had seen exploitation in August. CISA added the CVE to KEV with a 12&nbsp;September federal deadline. Cisco Talos attributes three clusters to this flaw and the earlier CVE-2026-20316: one dropping a web shell and a malicious JAR to steal credentials, one tied to the Russian state actor Sandworm deploying Cyclops Blink, and one linked to Qilin ransomware performing reconnaissance and building lists of endpoints to encrypt. The Qilin cluster is the one to brief your plant managers on. Enumerating encryption targets from the firewall management console is precisely how an IT intrusion becomes a stopped line, because FMC defines the boundary that is supposed to keep MES, historians and engineering workstations out of reach.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Mixed &mdash; the ICS advisories themselves report no known exploitation, but N-able has confirmed exploitation of N-central in the wild, with Huntress dating attacks against its API to 4 Sep 2026</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; N-able N-central CVE-2026-86218, added 8 Sep 2026. The Siemens, Schneider and Aveva items are not in KEV</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Cisco Talos published cluster attribution the same day</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026. Third Secure FMC flaw added to KEV in 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available &mdash; Siemens Reyrolle 7SR5 V2.70 and fixes across Industrial Edge Management, Open Interface Services and SIMOVE Fleetmanager; Schneider firmware for Modicon M580 and M580 Safety, PowerLogic T300 and EcoStruxure IT Data Center Expert; Aveva PIMBoards updates; N-able 2026.3 Hotfix 4</span>
-            <span class="ops-cc"><b>Action:</b> Sequence this rather than trying to absorb it. Patch N-central today, or get written confirmation from the MSP or integrator that runs it on your behalf that Hotfix&nbsp;4 is applied &mdash; it is the only item here with confirmed exploitation, and it sits above your engineering workstations. Next, run reachability checks: no Modicon M580, Reyrolle relay, Industrial Edge node or Aveva PIM server should answer from the business network or a vendor tunnel, and where one does, fix the path before the firmware. Then build the outage-window plan. Match each affected controller and relay to a scheduled shutdown, confirm with Siemens&rsquo; own guidance that redundant secondary protection stays in service while relays are updated, and take a verified configuration backup of every controller before you touch it. Finally, check what your engineering workstations are running &mdash; TIA Portal, EcoStruxure Control Expert and the Rockwell toolchain all sit in the same blast radius as this month&rsquo;s Windows privilege-escalation zero-days.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries the version matrix and IoCs</span>
+            <span class="ops-cc"><b>Action:</b> Inventory on-premises FMC across every site, including plants that joined through acquisition and run their own network stack, and confirm each build against Cisco&rsquo;s advisory. Remove the management interface from any internet-reachable path today &mdash; Cisco is explicit that internet exposure is the dominant risk factor, and it costs no production time. Patching alone is not enough given exploitation ran through August: hunt Cisco&rsquo;s IoCs, look for unexpected web shells and JAR files on the appliance, review administrative logins and policy-change history from late July, and rotate device, API and directory credentials FMC holds. Then diff the running policy against your IEC&nbsp;62443 zone-and-conduit baseline. A rule quietly widened between the enterprise zone and cell or line control is exactly what the Qilin cluster&rsquo;s reconnaissance is for, and it will not trip an alarm on its own. Verify that OT backups and the historian remain unreachable from the enterprise zone.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> N-central patch or supplier attestation &mdash; 3 days; reachability review of affected ICS assets &mdash; 7 days; affected-asset inventory &mdash; 14 days; controller and relay firmware &mdash; next planned outage, within 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-icspt-sep" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-icspt-sep">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; zone-and-conduit policy diff &mdash; 7 days; site and integrator attestation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-cisco-fmc-kev">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT advisory SSA-142885 and Schneider Electric security notifications of 8 Sep 2026, summarised by SecurityWeek; N-central exploitation status from the CISA KEV catalog and N-able</span>
+          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Advisories published 8 Sep 2026; N-able hotfix released 5 Sep 2026</span>
+          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026</span>
         </div>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     <!-- RADAR -->
     <div class="radar-panel">
@@ -745,8 +745,8 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="124.8">1</text></a>
-        <a href="#story-boston-sci"><circle class="blip crit" cx="222.4" cy="137.6" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="222.4" y="142.1">2</text></a>
+        <a href="#story-cisco-fmc-kev"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="124.8">1</text></a>
+        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="222.4" cy="137.6" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="222.4" y="142.1">2</text></a>
         <a href="#story-kev-8sep"><circle class="blip crit" cx="240.0" cy="180.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="240.0" y="184.2">3</text></a>
         <a href="#story-papercut-kev"><circle class="blip crit" cx="222.4" cy="222.4" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="222.4" y="226.3">4</text></a>
         <a href="#story-sonicwall-sma1000"><circle class="blip crit" cx="180.0" cy="240.0" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="180.0" y="243.7">5</text></a>
@@ -760,8 +760,8 @@
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>1</b> September ICS Patch Tuesday: Siemens, Schneider, Aveva</a>
-        <a href="#story-boston-sci"><span class="ld crit"></span><b>2</b> Boston Scientific restarts shipping, no recovery date</a>
+        <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>1</b> Cisco Secure FMC exploited by Sandworm and Qilin, KEV deadline 12 Sep</a>
+        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>2</b> September ICS Patch Tuesday: Siemens, Schneider, Aveva</a>
         <a href="#story-kev-8sep"><span class="ld crit"></span><b>3</b> N-able N-central CVSS 10 pre-auth RCE exploited, in KEV</a>
         <a href="#story-papercut-kev"><span class="ld crit"></span><b>4</b> PaperCut zero-day chain exploited, added to KEV</a>
         <a href="#story-sonicwall-sma1000"><span class="ld crit"></span><b>5</b> SonicWall SMA1000 CVSS 10 zero-days exploited, in KEV</a>
@@ -815,21 +815,50 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="story-boston-sci" data-published="2026-09-03">
+<div class="card" id="story-panzer-doimo" data-published="2026-09-10">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Incident &mdash; IT compromise that halted manufacturing and shipping</span>
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; Ransomware claim against a manufacturer, unconfirmed by the victim</span>
         </div>
-        <h3>Boston Scientific restarts shipping at its main distribution centres &mdash; nine days after an IT breach stopped production</h3>
-        <p>Boston Scientific said on 3&nbsp;September that it has begun restoring shipping for the majority of its products at its major distribution centres worldwide, nine days after a 25&nbsp;August intrusion knocked out internal IT systems and stopped it manufacturing, processing orders and shipping devices. Working with CrowdStrike, the company says it now has growing confidence the unauthorised access was confined to select internal-facing on-premises infrastructure, that cloud systems were unaffected, and that it has seen no further unauthorised activity since 25&nbsp;August. It has still not named an actor, confirmed ransomware, or set a date for full recovery. For plant managers the lesson is unchanged and uncomfortable: nothing published suggests a controller or DCS was reached, yet production stopped anyway, because the systems that tell a factory what to build and where to ship it sit on the IT side.</p>
+        <h3>Panzer claims an Italian kitchen manufacturer &mdash; the detail worth your attention is the ESXi build, not the claim</h3>
+        <p>Fresh analysis published on 10&nbsp;September fills out the Panzer ransomware-as-a-service operation that emerged in August&nbsp;2026 and has claimed victims in 11 countries in its first month. Two of the listed victims are Italian: kitchen manufacturer Doimo Cucine, posted on 17&nbsp;August with roughly 30&nbsp;GB of data claimed exfiltrated, and NTE Italia, a telecom engineering firm rather than a manufacturer, posted on 21&nbsp;August with roughly 16&nbsp;GB claimed. Neither company has confirmed an incident, researchers explicitly describe the listings as attacker claims rather than forensic proof, and no production halt has been confirmed at either. Treat the victim claims accordingly. What is worth acting on is the capability description: alongside Windows and Linux, Panzer ships builds for VMware ESXi and FreeBSD, and double extortion is standard. Hypervisor-level encryption is the part that lengthens industrial recovery, because in most plants the MES, historian, SCADA servers, batch and recipe management and the engineering-workstation images are virtual machines on a small number of ESXi hosts. Encrypt the hosts and every one of those goes at once, regardless of how well segmented the guests were from each other.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; company-disclosed incident identified 25 Aug 2026, reported in an SEC Form 8-K and subsequent company updates; manufacturing, order processing and shipping disrupted globally. No actor, ransomware strain or entry vector has been confirmed</span>
-            <span class="ops-tag kev-off">No CVE &mdash; no entry vector has been published; the company describes the activity identified so far as confined to limited on-premises systems, with cloud applications unaffected</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Claimed only &mdash; both Italian victims are attacker-published leak-site listings; neither Doimo Cucine nor NTE Italia has confirmed an incident, and no operational or production impact has been confirmed by anyone. The RaaS operation itself and its multi-platform builds are documented by researchers</span>
+            <span class="ops-tag kev-off">No CVE &mdash; no initial-access vulnerability has been attributed to this operation in available reporting</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is the dependency chain between ERP, MES and order management and the plant, and the manual fallback that does not exist for it</span>
-            <span class="ops-cc"><b>Action:</b> Run the tabletop you have been deferring, with one constraint: the control system is fine and everything above it is gone. Per line, identify what actually has to be available to build and release product &mdash; the MES work order, the recipe or program download path, label and barcode generation, quality release, and the ERP transaction that lets finished goods leave the dock. For each, decide now whether a manual or offline fallback exists, who is authorised to invoke it, and how many days you can run that way. Then test the boundary in the other direction: an incident &ldquo;confined to limited on-premises systems&rdquo; is only reassuring if you can demonstrate the plant network is a separate trust domain, with brokered access, separate credentials, and its own backups you have restored from at least once this year.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is hypervisor administration and the single-fault-domain design of most plant virtualisation estates</span>
+            <span class="ops-cc"><b>Action:</b> Work the hypervisor, not the headline. Inventory which OT-supporting virtual machines &mdash; MES, historian, SCADA and HMI servers, batch and recipe management, engineering-workstation images, the OT domain controller, backup servers &mdash; share ESXi hosts, and note where &ldquo;segmented&rdquo; guests sit on the same cluster. Then close the management plane: vCenter and ESXi hosts off the enterprise network and off the internet, no shared administrative credentials between IT and OT virtualisation, MFA on all hypervisor administration, lockdown mode and SSH disabled on hosts, and ESXi patched to current. Confirm at least one restore path that does not depend on the same hypervisor &mdash; immutable or offline copies, and a documented way to run the critical line for a shift without MES. Finally, ask your machine builders and integrators the same questions about the VMs they run on your behalf.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Hypervisor management-plane exposure check &mdash; 7 days; OT virtual-machine and cluster dependency map &mdash; 14 days; verified out-of-hypervisor restore test &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-panzer-doimo" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-panzer-doimo">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Industrial Cyber analysis of the Panzer RaaS operation, drawing on researcher tracking of its leak site &mdash; victim claims are attacker-sourced and are reported here as unverified</span>
+          <span class="dot">&bull;</span>
+          <span>Victims listed 17 and 21 Aug 2026; analysis published 10 Sep 2026; no victim confirmation as of this edition</span>
+        </div>
+        <a href="https://industrialcyber.co/manufacturing/panzer-ransomware-targets-italian-manufacturer-as-esxi-capability-raises-industrial-security-concerns/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-boston-sci" data-published="2026-09-09">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; Resolved: IT compromise that had halted manufacturing and shipping</span>
+        </div>
+        <h3>Resolved: Boston Scientific says manufacturing, order fulfilment and shipping are fully restored &mdash; and no manufacturing system was compromised</h3>
+        <p>Boston Scientific announced on 9&nbsp;September that manufacturing, order fulfilment and shipping are &ldquo;fully restored&rdquo; and running at or above normal levels, closing out the cybersecurity incident it first identified on 25&nbsp;August. Independent assessment by CrowdStrike and other third-party experts found no evidence of ongoing threat activity and no evidence that product development, manufacturing systems or cloud platforms were compromised; unauthorised access is assessed as having been limited to internal-facing IT infrastructure. Remote cardiac-device monitoring, which had also been disrupted, is likewise restored. The company has still not named an actor, confirmed ransomware, or disclosed root cause. This page previously carried the incident as an ongoing disruption with no recovery date; that framing is now superseded. The operational lesson survives the resolution intact, and it is the reason to keep the card on the board rather than the reason to panic: production stopped for roughly two weeks without anything published suggesting a controller, DCS or plant network was touched, because the systems that tell a factory what to build and where to ship it live on the IT side of the boundary.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Resolved &mdash; confirmed by Boston Scientific company statement of 9 Sep 2026; CrowdStrike and other third-party experts found no evidence of ongoing threat activity, and no compromise of product-development, manufacturing or cloud systems was identified. No actor, ransomware strain or entry vector has been disclosed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; no entry vector was ever published, and none is expected now that the company has declared the incident closed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure was the dependency chain between ERP, MES and order management and the plant, and the manual fallback that does not exist for it</span>
+            <span class="ops-cc"><b>Action:</b> Treat this as the post-mortem you get for free. Run the tabletop with one constraint: the control system is fine and everything above it is gone. Per line, identify what actually has to be available to build and release product &mdash; the MES work order, the recipe or program download path, label and barcode generation, quality release, and the ERP transaction that lets finished goods leave the dock. For each, decide now whether a manual or offline fallback exists, who is authorised to invoke it, and how many days you can run that way; two weeks is the benchmark this case just set. Then test the boundary in the other direction: an intrusion &ldquo;limited to internal-facing IT infrastructure&rdquo; is only reassuring if you can demonstrate the plant network is a separate trust domain, with brokered access, separate credentials, and its own backups you have restored from at least once this year.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Line-by-line dependency and manual-fallback review &mdash; 14 days; verified restore test of plant-side systems &mdash; 30 days</span>
@@ -838,9 +867,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Boston Scientific press releases and SEC Form 8-K filing &mdash; corroborated by SecurityWeek, Cybersecurity Dive, MedTech Dive and HIPAA Journal</span>
+          <span>Boston Scientific corporate statement &ldquo;Update on recent cybersecurity incident&rdquo; of 9 Sep 2026, with the independent assessment attributed by the company to CrowdStrike &mdash; earlier phases corroborated by the company&rsquo;s SEC Form 8-K, SecurityWeek, Cybersecurity Dive and MedTech Dive</span>
           <span class="dot">&bull;</span>
-          <span>Incident identified 25 Aug 2026; SEC Form 8-K 26 Aug 2026; latest company update 3 Sep 2026 restoring shipping at major distribution centres, no full-restoration date given</span>
+          <span>Incident identified 25 Aug 2026; SEC Form 8-K 26 Aug 2026; shipping restart 3 Sep 2026; full restoration declared 9 Sep 2026</span>
         </div>
         <a href="https://news.bostonscientific.com/update-on-recent-cybersecurity-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1258,35 +1287,6 @@
         </div>
         <a href="https://www.cloudsek.com/blog/aurora-ransomware-affiliate-ai-attack-planning-crypto-payments" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-dragos-q2" data-published="2026-08-11">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Threat intel &mdash; Manufacturing share of industrial ransomware</span>
-        </div>
-        <h3>Manufacturing took 747 of the 1,140 industrial ransomware incidents in the second quarter</h3>
-        <p>Dragos counted 1,140 ransomware incidents at industrial organisations in Q2&nbsp;2026, up around 12 percent on Q1, with manufacturing absorbing the clear majority. The analysis is blunt about mechanism: attackers did not need control-system access to stop production. Encrypting ERP, MES, quality systems, label printing, shipping and scheduling halts a line just as effectively as touching a PLC, and it is far easier. The Data I/O disclosure this month is the same story from the inside &mdash; production stopped as a containment decision on IT systems, not because a controller was manipulated. Manufacturers who scope OT security around the control network alone are defending the part attackers are not aiming at.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; incident counts drawn from observed ransomware activity at industrial organisations during Q2 2026, with manufacturing the largest share</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; the report aggregates incidents across many initial-access routes</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the lesson is dependency mapping, segmentation and tested restoration for production-adjacent IT</span>
-            <span class="ops-cc"><b>Action:</b> Walk one product line and list every IT system it cannot run without: ERP work orders, MES routing, recipe or parameter servers, quality and inspection records, label and barcode printing, shipping manifests, tooling libraries. For each, state the manual fallback and when it was last used. Confirm backups restore rather than exist, and that restoration does not depend on the domain the ransomware would encrypt. Then check whether the line can run for a shift with the business network isolated &mdash; if the answer is no, that dependency is your real exposure.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Line-level IT dependency and restoration review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-dragosq2" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-dragosq2">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Dragos Industrial Ransomware Analysis, Q2 2026 &mdash; via Dragos and Help Net Security</span>
-          <span class="dot">&bull;</span>
-          <span>Report covers Q2 2026; published and reported 11 Aug 2026; re-verified 27 Aug 2026</span>
-        </div>
-        <a href="https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 <div class="card" id="story-s7-ai-advisory" data-published="2026-08-19">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1323,34 +1323,34 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-cisco-fmc-kev" data-published="2026-09-10">
+<div class="card" id="story-ics-patch-sep" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+          <span class="category">Critical Advisory &mdash; Vendor patch batch, one chained item exploited</span>
         </div>
-        <h3>Qilin and Sandworm are exploiting Cisco firewall management &mdash; root on the box that defines your plant boundary</h3>
-        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is under active exploitation. It is a critical authentication bypass caused by an improper system process created at boot; a remote, unauthenticated attacker sends crafted HTTP requests and obtains root on the appliance operating system. Cisco patched it in early March and published indicators of compromise in late July, then updated the advisory on 9&nbsp;September to confirm it had seen exploitation in August. CISA added the CVE to KEV with a 12&nbsp;September federal deadline. Cisco Talos attributes three clusters to this flaw and the earlier CVE-2026-20316: one dropping a web shell and a malicious JAR to steal credentials, one tied to the Russian state actor Sandworm deploying Cyclops Blink, and one linked to Qilin ransomware performing reconnaissance and building lists of endpoints to encrypt. The Qilin cluster is the one to brief your plant managers on. Enumerating encryption targets from the firewall management console is precisely how an IT intrusion becomes a stopped line, because FMC defines the boundary that is supposed to keep MES, historians and engineering workstations out of reach.</p>
+        <h3>September ICS Patch Tuesday hits the plant patch window &mdash; Siemens, Schneider and Aveva criticals, and one flaw already exploited</h3>
+        <p>Siemens published seven advisories on 8&nbsp;September, including critical fixes in Industrial Edge Management and Open Interface Services and a fourteen-CVE set for Reyrolle&nbsp;7SR5 protection relays led by an authentication bypass at CVSS&nbsp;9.8. Schneider Electric issued four the same day, headed by a critical authentication flaw in Modicon M580 and M580 Safety controllers, CVE-2026-3869 at CVSS&nbsp;9.2, with PowerLogic T300 and EcoStruxure IT Data Center Expert also patched. Aveva fixed four flaws in Pipeline Integrity Monitor, including a hardcoded encryption key. None of that is exploited. What is exploited is CVE-2026-86218 in N-able N-central, a CVSS&nbsp;10 pre-authentication remote code execution flaw added to KEV the same day &mdash; the remote-monitoring platform many MSP-managed plants inherit. Stacked on last week&rsquo;s Rockwell batch, that is a lot of controller and engineering-workstation work chasing very few outage windows.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Cisco Talos published cluster attribution the same day</span>
-            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026. Third Secure FMC flaw added to KEV in 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Mixed &mdash; the ICS advisories themselves report no known exploitation, but N-able has confirmed exploitation of N-central in the wild, with Huntress dating attacks against its API to 4 Sep 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; N-able N-central CVE-2026-86218, added 8 Sep 2026. The Siemens, Schneider and Aveva items are not in KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries the version matrix and IoCs</span>
-            <span class="ops-cc"><b>Action:</b> Inventory on-premises FMC across every site, including plants that joined through acquisition and run their own network stack, and confirm each build against Cisco&rsquo;s advisory. Remove the management interface from any internet-reachable path today &mdash; Cisco is explicit that internet exposure is the dominant risk factor, and it costs no production time. Patching alone is not enough given exploitation ran through August: hunt Cisco&rsquo;s IoCs, look for unexpected web shells and JAR files on the appliance, review administrative logins and policy-change history from late July, and rotate device, API and directory credentials FMC holds. Then diff the running policy against your IEC&nbsp;62443 zone-and-conduit baseline. A rule quietly widened between the enterprise zone and cell or line control is exactly what the Qilin cluster&rsquo;s reconnaissance is for, and it will not trip an alarm on its own. Verify that OT backups and the historian remain unreachable from the enterprise zone.</span>
+            <span class="ops-tag patch-yes">Patches available &mdash; Siemens Reyrolle 7SR5 V2.70 and fixes across Industrial Edge Management, Open Interface Services and SIMOVE Fleetmanager; Schneider firmware for Modicon M580 and M580 Safety, PowerLogic T300 and EcoStruxure IT Data Center Expert; Aveva PIMBoards updates; N-able 2026.3 Hotfix 4</span>
+            <span class="ops-cc"><b>Action:</b> Sequence this rather than trying to absorb it. Patch N-central today, or get written confirmation from the MSP or integrator that runs it on your behalf that Hotfix&nbsp;4 is applied &mdash; it is the only item here with confirmed exploitation, and it sits above your engineering workstations. Next, run reachability checks: no Modicon M580, Reyrolle relay, Industrial Edge node or Aveva PIM server should answer from the business network or a vendor tunnel, and where one does, fix the path before the firmware. Then build the outage-window plan. Match each affected controller and relay to a scheduled shutdown, confirm with Siemens&rsquo; own guidance that redundant secondary protection stays in service while relays are updated, and take a verified configuration backup of every controller before you touch it. Finally, check what your engineering workstations are running &mdash; TIA Portal, EcoStruxure Control Expert and the Rockwell toolchain all sit in the same blast radius as this month&rsquo;s Windows privilege-escalation zero-days.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; zone-and-conduit policy diff &mdash; 7 days; site and integrator attestation &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-cisco-fmc-kev">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> N-central patch or supplier attestation &mdash; 3 days; reachability review of affected ICS assets &mdash; 7 days; affected-asset inventory &mdash; 14 days; controller and relay firmware &mdash; next planned outage, within 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-icspt-sep" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-icspt-sep">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek</span>
+          <span>Siemens ProductCERT advisory SSA-142885 and Schneider Electric security notifications of 8 Sep 2026, summarised by SecurityWeek; N-central exploitation status from the CISA KEV catalog and N-able</span>
           <span class="dot">&bull;</span>
-          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026</span>
+          <span>Advisories published 8 Sep 2026; N-able hotfix released 5 Sep 2026; CISA formalised the Aveva Pipeline Integrity Monitor fixes as ICSA-26-253-01 on 10 Sep 2026, reporting no known exploitation</span>
         </div>
-        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="story-kev-8sep" data-published="2026-09-08">
         <div class="card-header">
@@ -1651,6 +1651,35 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+<div class="card" id="story-nist-ir8536" data-published="2026-09-10">
+        <div class="card-header">
+          <span class="severity sev-info">Guidance</span>
+          <span class="category">Guidance &mdash; NIST supply-chain traceability framework for manufacturers</span>
+        </div>
+        <h3>NIST finalises IR 8536 &mdash; a way to answer &ldquo;where did this component actually come from?&rdquo; without one central database</h3>
+        <p>NIST has published the finalised version of IR&nbsp;8536, a technology-neutral meta-framework for organising, linking and querying supply-chain traceability data across different systems and stakeholders without requiring a centralised repository. Its purpose is to let manufacturers assemble verifiable end-to-end provenance chains &mdash; raw material through fabrication, assembly, ship and receive &mdash; using interoperable event templates that different parties can each hold in their own systems. For supply-chain risk management that translates into two concrete questions becoming answerable: whether a component is counterfeit or substituted, and whether a piece of hardware or firmware entered the build without authorisation. This is standards guidance, not an advisory and not a response to an active threat; there is no CVE, no deadline and nothing to patch. It is worth a slot on a manufacturing board because component provenance is the control that sits underneath several of the threats already on this page &mdash; the PLM and engineering-data campaigns, and the integrator and machine-builder access paths that keep showing up as the way in.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not a vulnerability &mdash; NIST standards publication, confirmed by NIST. No exploitation, no incident, no affected product</span>
+            <span class="ops-tag kev-off">No CVE &mdash; informational guidance</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; adoption is a data-architecture and supplier-contracting exercise, not a software update</span>
+            <span class="ops-cc"><b>Action:</b> Read it against what you already have rather than starting a programme. Pick one product line and try to reconstruct provenance for its two or three most security-relevant components &mdash; the controller, the drive, anything carrying firmware you do not build &mdash; and see how far you actually get before the trail ends at a distributor spreadsheet. Where it breaks, that gap is the finding. Then look at where traceability data already lives: ERP goods-receipt records, MES genealogy, quality records, supplier certificates of conformance. IR&nbsp;8536&rsquo;s value is in linking those rather than replacing them. If you write supplier requirements, this is the reference to cite the next time you revise component and firmware provenance clauses, and it pairs naturally with SBOM language you may already be asking for.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Read and route to supply-chain quality and procurement &mdash; 30 days; single-product-line provenance trial &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-nist-ir8536" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-nist-ir8536">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>NIST IR 8536 final publication &mdash; reported by Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Finalised and reported 10 Sep 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/nist/nist-finalizes-meta-framework-to-boost-manufacturing-supply-chain-visibility-traceability-provenance-verification/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-reporting-fragmentation" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-info">Policy</span>
@@ -1832,7 +1861,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 9&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the September ICS Patch Tuesday advisories from Siemens ProductCERT (SSA-142885 on Reyrolle&nbsp;7SR5 among nine advisories), Schneider Electric, Rockwell Automation and Aveva, the CISA KEV additions of 2 and 8&nbsp;September&nbsp;2026, the CISA ICS advisory batches of 1, 3 and 8&nbsp;September (ICSA-26-244, ICSA-26-246 and ICSA-26-251 series) including the OPC Foundation LocalDiscoveryServer fix, Boston Scientific&rsquo;s company updates through 3&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo;, the Five Eyes CI&nbsp;Fortify isolation guidance and the UK NCSC alert on internet-exposed OT, plus vendor advisories from N-able, Microsoft, Adobe, Inductive Automation, IXON, SonicWall, Citrix and PaperCut. Research and analysis from Dragos, Nozomi Networks, Forescout Vedere Labs, Sygnia, Huntress, CYFIRMA, F6 and Google&rsquo;s Threat Intelligence Group, with vendor-published telemetry treated as directional rather than a global count. Reporting drawn from SecurityWeek, Industrial Cyber, The Record, BleepingComputer, CyberScoop, The Hacker News, Cybersecurity Dive and Help Net Security, with policy and regulatory material reported factually and without partisan framing. Added this edition: the September ICS Patch Tuesday round-up, the 8&nbsp;September KEV batch led by N-able N-central, the Rockwell Logix CIP controller-fault advisory (reported as not known to be exploited, per CISA, despite the vendor advisory header), the OPC UA LocalDiscoveryServer fix, Google GTIG&rsquo;s autonomous multi-agent campaign, CYFIRMA&rsquo;s deepfake supply-chain research, and the McCrary Institute and US Chamber of Commerce analysis of fragmented federal incident reporting. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled at 8:00&nbsp;AM&nbsp;ET on 11&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources including the September ICS Patch Tuesday advisories from Siemens ProductCERT (SSA-142885 on Reyrolle&nbsp;7SR5 among nine advisories), Schneider Electric, Rockwell Automation and Aveva, the CISA KEV additions of 2 and 8&nbsp;September&nbsp;2026, the CISA ICS advisory batches of 1, 3 and 8&nbsp;September (ICSA-26-244, ICSA-26-246 and ICSA-26-251 series) including the OPC Foundation LocalDiscoveryServer fix, Boston Scientific&rsquo;s company updates through 3&nbsp;September, the NSA/CISA/FBI/DOE/EPA joint advisory AA26-231A on active targeting of Siemens S7 PLCs, the six-agency joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo;, the Five Eyes CI&nbsp;Fortify isolation guidance and the UK NCSC alert on internet-exposed OT, plus vendor advisories from N-able, Microsoft, Adobe, Inductive Automation, IXON, SonicWall, Citrix and PaperCut. Research and analysis from Dragos, Nozomi Networks, Forescout Vedere Labs, Sygnia, Huntress, CYFIRMA, F6 and Google&rsquo;s Threat Intelligence Group, with vendor-published telemetry treated as directional rather than a global count. Reporting drawn from SecurityWeek, Industrial Cyber, The Record, BleepingComputer, CyberScoop, The Hacker News, Cybersecurity Dive and Help Net Security, with policy and regulatory material reported factually and without partisan framing. Added this edition: the September ICS Patch Tuesday round-up, the 8&nbsp;September KEV batch led by N-able N-central, the Rockwell Logix CIP controller-fault advisory (reported as not known to be exploited, per CISA, despite the vendor advisory header), the OPC UA LocalDiscoveryServer fix, Google GTIG&rsquo;s autonomous multi-agent campaign, CYFIRMA&rsquo;s deepfake supply-chain research, and the McCrary Institute and US Chamber of Commerce analysis of fragmented federal incident reporting. This edition (11&nbsp;September, 8:00&nbsp;AM&nbsp;ET) is a roughly twenty-hour incremental on the 10&nbsp;September run. CISA ICS advisories, the KEV catalog, OT vendor PSIRTs and the manufacturing trade press were re-queried for 9&ndash;11&nbsp;September. The material change is Boston Scientific: the company stated on 9&nbsp;September that manufacturing, order fulfilment and shipping are fully restored and that CrowdStrike found no evidence of compromise to manufacturing or product-development systems, so that card has been rewritten as resolved, re-rated from Critical to Medium and dropped from the threat radar. Cisco Secure FMC CVE-2026-20079 has been promoted to the top story on the strength of confirmed exploitation, the Talos cluster attribution and a 12&nbsp;September KEV deadline; the September ICS Patch Tuesday round-up it replaces moves into Critical Advisories, updated with CISA&rsquo;s formal Aveva advisory ICSA-26-253-01 of 10&nbsp;September. Added: NIST&rsquo;s finalised IR&nbsp;8536 supply-chain traceability meta-framework, and the 10&nbsp;September analysis of Panzer ransomware &mdash; carried as a claim only, since neither Doimo Cucine nor NTE Italia has confirmed an incident and no production halt is confirmed. Retired: the Dragos Q2 industrial ransomware report, now past the roughly thirty-day freshness horizon. Held out deliberately: no new Rockwell, Siemens, Mitsubishi Electric, Omron, Beckhoff or Inductive Automation advisory could be dated inside this window, so none was added; the CERT Polska confirmation that the MikroTik &ldquo;MikroTrick&rdquo; chain is now actively exploited names no victim or sector and was judged not manufacturing-specific enough for a card. Threat level recomputed to 5.1&nbsp;Medium, down from 5.4, on the resolution of the only confirmed production disruption on the board. Every item links to its primary or best-available accessible source; federal attribution is presented as an official assessment rather than proven attribution. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

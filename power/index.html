@@ -646,7 +646,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Friday, 11 Sep 2026, 12:15 PM ET</span>
+        <span>Generated Friday, 11 Sep 2026, 8:00 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to electric generation and transmission operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:58.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, nudged from 5.6 to 5.8 and now pressing the ceiling. There is still no confirmed OT-disruptive cyber incident and no confirmed hands-on manipulation of grid control by a nation-state actor, so the hard cap applies and the score stays below&nbsp;6 regardless of how many exploited edge flaws stack up. What moved it is a second actively-exploited remote-access item in as many days: on 10&nbsp;September CISA added MikroTik RouterOS CVE-2026-67277 and CVE-2026-86060 to KEV, the &ldquo;MikroTrick&rdquo; chain CERT Polska confirms is being used to take full administrative control of routers with SSH exposed &mdash; ShadowServer counted about 122,500 exposed SSH interfaces, and this class of router is common at unmanned substations, remote generation and DER sites. It lands on top of Cisco Secure Firewall Management Center CVE-2026-20079, confirmed exploited by Cisco and Talos with clusters tied to Sandworm and Qilin, plus still-exploited N-able N-central and SonicWall SMA1000. The September ICS Patch Tuesday is heavy &mdash; Reyrolle&nbsp;7SR5 relays, Modicon&nbsp;M580, PowerLogic&nbsp;T300 &mdash; but unexploited, and unexploited advisories never aggregate upward. The theme this week is the path in, not the plant: patch and verify the remote-access and management tier.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:57.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, 5.7 &mdash; re-derived this run, not carried. The binding rule is still the ceiling: no confirmed OT-disruptive cyber incident was published in this window and no confirmed hands-on manipulation of grid control by a nation-state actor, so the score stays below&nbsp;6. The Cisco FMC picture sharpened rather than changed category. Talos now sets out three exploitation clusters on CVE-2026-20079 &mdash; web shells harvesting credentials, a Sandworm-linked Cyclops Blink variant doing reconnaissance, and a Qilin ransomware operation &mdash; and the CISA federal deadline falls tomorrow, 12&nbsp;September. Sandworm on the console that configures your IT/OT boundary firewalls is serious, but on the evidence published it is targeting of boundary infrastructure and pre-positioning, not hands-on OT, and it does not by itself reach High. What moved the number a tenth is a second confirmed-exploited edge product: CERT Polska confirmed on 9&nbsp;September that the MikroTik &ldquo;MikroTrick&rdquo; SSH chain is being used in the wild, and that class of router is common backhaul at unmanned substations, DER and storage sites. Against that, the September advisory pile &mdash; Reyrolle&nbsp;7SR5, Modicon&nbsp;M580, the new PowerLogic&nbsp;T300 feeder RTU and Aveva Pipeline Integrity Monitor &mdash; is still entirely unexploited, and unexploited advisories do not aggregate upward. Patch and hunt on the management tier first, then go and find your remote-site routers.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -693,31 +693,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-siemens-reyrolle-7sr5" data-published="2026-09-08">
+    <div class="top-story" id="story-cisco-fmc-kev" data-published="2026-09-10">
         <span class="top-story-pill">Top Story</span>
-        <h2>Siemens patches an authentication bypass in Reyrolle 7SR5 protection relays, the gear that trips your feeders</h2>
-        <p>Siemens ProductCERT published SSA-142885 on 8&nbsp;September, covering fourteen vulnerabilities in the Reyrolle&nbsp;7SR5 protection and control relay family across every firmware version before V2.70. The lead flaw, CVE-2026-62645 at CVSS&nbsp;9.8, is an information disclosure in the device web interface that lets an unauthenticated attacker calculate current and previous session identifiers and step straight past authentication. Two companion issues make that worse: weak session-token entropy in CVE-2026-62646, and a role-based access control bypass in CVE-2026-62650 that hands an attacker administrative rights. A pre-authentication denial-of-service condition is also fixed. Siemens reports no exploitation. The reason this leads for transmission and distribution operators is placement rather than score &mdash; 7SR5 relays sit in feeder, transformer and busbar protection schemes, and Siemens took the unusual step of reminding TSOs and DSOs to confirm their redundant secondary protection is healthy.</p>
+        <h2>Sandworm and Qilin are inside Cisco firewall management consoles &mdash; and the federal deadline on the patch is tomorrow</h2>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is being exploited in the wild, and Cisco Talos has since set out what the exploitation actually looks like. The flaw is a critical authentication bypass at CVSS&nbsp;10.0, caused by an improper system process created at boot: a remote, unauthenticated attacker sends crafted HTTP requests and gains root on the underlying operating system. Cisco patched it in early March and added indicators of compromise in late July without flagging exploitation, then updated the advisory on 9&nbsp;September to say it became aware of active exploitation in August. Talos now describes three distinct intrusion clusters abusing CVE-2026-20079 together with the lower-severity CVE-2026-20316: UAT-12197, which drops JSP web shells and Java command executors to harvest credentials; UAT-11823, which deployed Netcat reverse shells and a variant of Cyclops Blink, a modular ELF implant previously attributed to the Russian state-sponsored group Sandworm, for credential harvesting and network reconnaissance; and UAT-11988, which used FMC&rsquo;s own built-in tooling for reconnaissance, credential theft and security-tool termination before deploying Qilin ransomware on selected systems. CISA added the flaw to the KEV catalog on 9&nbsp;September with a federal remediation deadline of 12&nbsp;September &mdash; tomorrow. Read this carefully for what it is and is not. No OT or ICS impact has been reported, and no critical-infrastructure victim has been named; what is documented is compromise of network security management infrastructure. But FMC is the console that configures the firewalls enforcing the boundary between your corporate network and generation, substation and DER control networks, and Sandworm is the actor with the longest record of causing electricity outages. Espionage and ransomware converging on the same management appliance is the part worth acting on.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation &mdash; Siemens reports no public exploitation of any of the fourteen CVEs at advisory publication</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVE-2026-62645, CVE-2026-62646 and CVE-2026-62650 carry no KEV listing at generation time</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Talos cluster attribution published alongside it</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026, listed alongside Citrix NetScaler CVE-2026-19490 and Fortinet CVE-2025-25249. Third Secure FMC flaw in KEV this year, after CVE-2026-20316 and CVE-2026-20131</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Siemens fixes all fourteen issues in Reyrolle 7SR5 firmware V2.70; all earlier versions are affected</span>
-            <span class="ops-cc"><b>Action:</b> Start with an honest inventory: pull every 7SR5 out of your relay asset register with its firmware revision, and separate the ones whose web interface is reachable from an engineering VLAN, an SCADA gateway or a vendor maintenance path from the ones that are genuinely isolated. The reachable population is your upgrade queue for V2.70; schedule it against protection outage windows rather than trying to force it, and coordinate with protection engineering so a relay is never left out of service without a documented alternative. Where an upgrade cannot happen this quarter, remove the web interface from any routable path, put relay engineering access behind a jump host with MFA, and turn on logging of authentication attempts to the relay so a session-ID replay leaves a trace. Take Siemens&rsquo; own prompt seriously and re-verify that your redundant secondary protection scheme is in service and correctly graded on the affected feeders.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds and hotfixes available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries versions and IoCs</span>
+            <span class="ops-cc"><b>Action:</b> Find every on-premises FMC instance, including ones your protection-and-control or telecoms contractor manages on your behalf, and confirm the build against Cisco&rsquo;s advisory before the 12&nbsp;September deadline &mdash; the deadline binds federal civilian agencies, but the exploitation does not care who you are. Take the FMC web interface off any internet-reachable path and restrict it to a dedicated management network; Cisco is explicit that internet exposure is the dominant risk factor. Because exploitation predates your patch, treat patching as step one only: hunt the published IoCs, look for unexpected web shells, JAR files and Netcat binaries on the appliance, review administrative logins and policy-change history since late July, and rotate the device credentials and any RADIUS/TACACS or API secrets FMC holds. Then verify the firewall policy itself &mdash; an attacker with root on the management console can loosen the very rules that enforce your electronic security perimeter, and a quiet rule change will not show up as an alarm. Where the Qilin cluster&rsquo;s pattern applies, check whether FMC&rsquo;s own management tooling was used to reach endpoints, because that traffic will look legitimate in your logs.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> 7SR5 inventory and exposure review &mdash; 7 days; firmware upgrade to V2.70 on network-reachable relays &mdash; 30 days or next protection outage window; redundant-protection verification &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-reyrolle-7sr5" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-reyrolle-7sr5">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; firewall policy diff against last known-good baseline &mdash; 7 days; contractor attestation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-cisco-fmc-kev">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT advisory SSA-142885 &mdash; corroborated by SecurityWeek&rsquo;s September ICS Patch Tuesday round-up</span>
+          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek, with cluster detail corroborated by The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Published 8 Sep 2026 (v1.0)</span>
+          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026; federal deadline 12 Sep 2026</span>
         </div>
-        <a href="https://cert-portal.siemens.com/productcert/html/ssa-142885.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -746,35 +746,33 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-siemens-reyrolle-7sr5"><circle class="blip crit" cx="218.6" cy="134.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="218.6" y="138.8">1</text></a>
-        <a href="#story-mikrotik-kev"><circle class="blip crit" cx="239.1" cy="169.6" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="239.1" y="174.1">2</text></a>
-        <a href="#story-kev-8sep"><circle class="blip crit" cx="232.0" cy="210.0" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="232.0" y="214.2">3</text></a>
-        <a href="#story-ics-patch-tuesday-sep"><circle class="blip crit" cx="200.5" cy="236.4" r="12.4"/><text class="blip-num" style="font-size:11.2px" x="200.5" y="240.4">4</text></a>
-        <a href="#story-sonicwall-sma1000"><circle class="blip crit" cx="159.5" cy="236.4" r="11.6"/><text class="blip-num" style="font-size:10.4px" x="159.5" y="240.1">5</text></a>
-        <a href="#story-papercut-kev"><circle class="blip crit" cx="128.0" cy="210.0" r="10.9"/><text class="blip-num" style="font-size:9.8px" x="128.0" y="213.5">6</text></a>
-        <a href="#story-fireant"><circle class="blip crit" cx="120.9" cy="169.6" r="10.2"/><text class="blip-num" style="font-size:9.2px" x="120.9" y="172.9">7</text></a>
-        <a href="#story-ukgen"><circle class="blip crit" cx="141.4" cy="134.0" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="141.4" y="137.0">8</text></a>
-        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="180.0" cy="120.0" r="8.8"/><text class="blip-num" style="font-size:7.9px" x="180.0" y="122.8">9</text></a>
-        <a href="#story-cisa-sep3"><circle class="blip high" cx="257.8" cy="102.2" r="8.2"/><text class="blip-num" style="font-size:7.4px" x="257.8" y="104.8">10</text></a>
-        <a href="#story-rockwell-sep1"><circle class="blip high" cx="257.8" cy="257.8" r="7.4"/><text class="blip-num" style="font-size:6.7px" x="257.8" y="260.2">11</text></a>
-        <a href="#story-ai-plc-port"><circle class="blip high" cx="102.2" cy="257.8" r="6.6"/><text class="blip-num" style="font-size:5.9px" x="102.2" y="259.9">12</text></a>
-        <a href="#story-berlin-rhysida"><circle class="blip high" cx="102.2" cy="102.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="102.2" y="104.1">13</text></a>
+        <a href="#story-cisco-fmc-kev"><circle class="blip crit" cx="218.6" cy="134.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="218.6" y="138.8">1</text></a>
+        <a href="#story-siemens-reyrolle-7sr5"><circle class="blip crit" cx="239.1" cy="169.6" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="239.1" y="174.1">2</text></a>
+        <a href="#story-ukgen"><circle class="blip crit" cx="232.0" cy="210.0" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="232.0" y="214.2">3</text></a>
+        <a href="#story-mikrotik-exploited"><circle class="blip crit" cx="200.5" cy="236.4" r="12.2"/><text class="blip-num" style="font-size:11.0px" x="200.5" y="240.3">4</text></a>
+        <a href="#story-ics-patch-tuesday-sep"><circle class="blip crit" cx="159.5" cy="236.4" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="159.5" y="240.0">5</text></a>
+        <a href="#story-kev-8sep"><circle class="blip crit" cx="128.0" cy="210.0" r="10.6"/><text class="blip-num" style="font-size:9.5px" x="128.0" y="213.4">6</text></a>
+        <a href="#story-sonicwall-sma1000"><circle class="blip crit" cx="120.9" cy="169.6" r="9.8"/><text class="blip-num" style="font-size:8.8px" x="120.9" y="172.7">7</text></a>
+        <a href="#story-fireant"><circle class="blip crit" cx="141.4" cy="134.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="141.4" y="136.9">8</text></a>
+        <a href="#story-ncsc-ot-alert"><circle class="blip high" cx="257.8" cy="102.2" r="8.2"/><text class="blip-num" style="font-size:7.4px" x="257.8" y="104.8">9</text></a>
+        <a href="#story-papercut-kev"><circle class="blip high" cx="257.8" cy="257.8" r="7.4"/><text class="blip-num" style="font-size:6.7px" x="257.8" y="260.2">10</text></a>
+        <a href="#story-cisa-sep3"><circle class="blip high" cx="102.2" cy="257.8" r="6.6"/><text class="blip-num" style="font-size:5.9px" x="102.2" y="259.9">11</text></a>
+        <a href="#story-schneider-t300"><circle class="blip high" cx="102.2" cy="102.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="102.2" y="104.1">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-siemens-reyrolle-7sr5"><span class="ld crit"></span><b>1</b> Siemens Reyrolle 7SR5 relay authentication bypass</a>
-        <a href="#story-mikrotik-kev"><span class="ld crit"></span><b>2</b> MikroTik RouterOS &ldquo;MikroTrick&rdquo; chain exploited, in KEV</a>
-        <a href="#story-kev-8sep"><span class="ld crit"></span><b>3</b> N-able N-central CVSS 10 exploited, added to KEV</a>
-        <a href="#story-ics-patch-tuesday-sep"><span class="ld crit"></span><b>4</b> September ICS Patch Tuesday: Siemens and Schneider</a>
-        <a href="#story-sonicwall-sma1000"><span class="ld crit"></span><b>5</b> SonicWall SMA1000 CVSS 10 zero-days exploited, in KEV</a>
-        <a href="#story-papercut-kev"><span class="ld crit"></span><b>6</b> PaperCut zero-day chain exploited, added to KEV</a>
-        <a href="#story-fireant"><span class="ld crit"></span><b>7</b> Fire Ant hijacks routers and TACACS servers</a>
-        <a href="#story-ukgen"><span class="ld crit"></span><b>8</b> UK generator taken offline for four days</a>
-        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>9</b> NCSC alerts on increased OT targeting</a>
-        <a href="#story-cisa-sep3"><span class="ld high"></span><b>10</b> IXON VPN client, ControlFLASH and Ignition advisories</a>
-        <a href="#story-rockwell-sep1"><span class="ld high"></span><b>11</b> Rockwell Logix CIP denial-of-service fault</a>
-        <a href="#story-ai-plc-port"><span class="ld high"></span><b>12</b> AI-assisted porting of a working PLC exploit</a>
-        <a href="#story-berlin-rhysida"><span class="ld high"></span><b>13</b> Berlin data published, utility risk records exposed</a>
+        <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>1</b> Cisco Secure FMC exploited by Sandworm and Qilin</a>
+        <a href="#story-siemens-reyrolle-7sr5"><span class="ld crit"></span><b>2</b> Siemens Reyrolle 7SR5 relay authentication bypass</a>
+        <a href="#story-ukgen"><span class="ld crit"></span><b>3</b> UK generator taken offline for four days</a>
+        <a href="#story-mikrotik-exploited"><span class="ld crit"></span><b>4</b> MikroTik RouterOS &ldquo;MikroTrick&rdquo; confirmed exploited</a>
+        <a href="#story-ics-patch-tuesday-sep"><span class="ld crit"></span><b>5</b> September ICS Patch Tuesday: Siemens and Schneider</a>
+        <a href="#story-kev-8sep"><span class="ld crit"></span><b>6</b> N-able N-central CVSS 10 exploited, added to KEV</a>
+        <a href="#story-sonicwall-sma1000"><span class="ld crit"></span><b>7</b> SonicWall SMA1000 CVSS 10 zero-days exploited, in KEV</a>
+        <a href="#story-fireant"><span class="ld crit"></span><b>8</b> Fire Ant hijacks routers and TACACS servers</a>
+        <a href="#story-ncsc-ot-alert"><span class="ld high"></span><b>9</b> NCSC alerts on increased OT targeting</a>
+        <a href="#story-papercut-kev"><span class="ld high"></span><b>10</b> PaperCut zero-day chain exploited, added to KEV</a>
+        <a href="#story-cisa-sep3"><span class="ld high"></span><b>11</b> IXON VPN client, ControlFLASH and Ignition advisories</a>
+        <a href="#story-schneider-t300"><span class="ld high"></span><b>12</b> Schneider PowerLogic T300 distribution RTU flaw</a>
       </div>
     </div>
 
@@ -801,7 +799,7 @@
       <div class="trend">
         <span class="trend-tag">Patch Burden</span>
         <b class="trend-head">A protection relay is now on the same monthly patch treadmill as a laptop</b>
-        <p>The 8&nbsp;September ICS round was unusually heavy &mdash; nine Siemens advisories, four from Schneider Electric, four Aveva flaws &mdash; and the items landing hardest are the ones closest to the primary system: Reyrolle&nbsp;7SR5 protection relays, Modicon&nbsp;M580 controllers, a PowerLogic&nbsp;T300 distribution RTU. The discussion among utility teams this week has not been about severity scores. It has been about cadence. Relay and RTU firmware moves on outage windows measured in quarters, while advisories now arrive monthly, and the gap between the two is becoming the real exposure. Several operators are openly asking whether protection asset management belongs in the vulnerability-management programme at all, or needs its own risk register with its own honest timelines.</p>
+        <p>The 8&nbsp;September ICS round was unusually heavy &mdash; nine Siemens advisories, four from Schneider Electric, and four Aveva flaws that CISA published on 10&nbsp;September as ICSA-26-253-01 &mdash; and the items landing hardest are the ones closest to the primary system: Reyrolle&nbsp;7SR5 protection relays, Modicon&nbsp;M580 controllers, a PowerLogic&nbsp;T300 distribution RTU. The discussion among utility teams this week has not been about severity scores. It has been about cadence. Relay and RTU firmware moves on outage windows measured in quarters, while advisories now arrive monthly, and the gap between the two is becoming the real exposure. Several operators are openly asking whether protection asset management belongs in the vulnerability-management programme at all, or needs its own risk register with its own honest timelines.</p>
         <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
@@ -1298,34 +1296,63 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-cisco-fmc-kev" data-published="2026-09-10">
+<div class="card" id="story-siemens-reyrolle-7sr5" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
+          <span class="category">Critical Advisory &mdash; Protection relay, no known exploitation</span>
         </div>
-        <h3>Sandworm and Qilin are inside Cisco firewall management consoles &mdash; the box that defines your IT/OT boundary</h3>
-        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is being exploited in the wild. It is a critical authentication bypass caused by an improper system process created at boot; a remote, unauthenticated attacker sends crafted HTTP requests and gains root on the underlying operating system. Cisco patched it in early March and added indicators of compromise in late July without flagging exploitation, then updated the advisory on 9&nbsp;September to say it became aware of active exploitation in August. CISA added the flaw to the KEV catalog with a 12&nbsp;September federal deadline. Cisco Talos reports three clusters abusing CVE-2026-20079 and the earlier CVE-2026-20316: UAT-12197, which drops a web shell and a malicious JAR to harvest credentials; UAT-11823, tied to the Russian state actor Sandworm and delivering Cyclops Blink; and UAT-11988, linked to Qilin ransomware, enumerating endpoints for encryption. For a utility this is not an ordinary IT patch. FMC is the management plane for the firewalls that separate corporate networks from generation, substation and DER control networks, and Sandworm is the actor with the longest record of causing electricity outages.</p>
+        <h3>Siemens patches an authentication bypass in Reyrolle 7SR5 protection relays, the gear that trips your feeders</h3>
+        <p>Siemens ProductCERT published SSA-142885 on 8&nbsp;September, covering fourteen vulnerabilities in the Reyrolle&nbsp;7SR5 protection and control relay family across every firmware version before V2.70. The lead flaw, CVE-2026-62645 at CVSS&nbsp;9.8, is an information disclosure in the device web interface that lets an unauthenticated attacker calculate current and previous session identifiers and step straight past authentication. Two companion issues make that worse: weak session-token entropy in CVE-2026-62646, and a role-based access control bypass in CVE-2026-62650 that hands an attacker administrative rights. A pre-authentication denial-of-service condition is also fixed. Siemens reports no exploitation, and no change of state was found when the advisory was re-checked on 11&nbsp;September. This remains the highest-consequence unexploited item on the board for transmission and distribution operators because of placement rather than score &mdash; 7SR5 relays sit in feeder, transformer and busbar protection schemes, and Siemens took the unusual step of reminding TSOs and DSOs to confirm their redundant secondary protection is healthy.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Talos published attribution the same day</span>
-            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-20079 added 9 Sep 2026; federal remediation deadline 12 Sep 2026. Third Secure FMC flaw in KEV this year, after CVE-2026-20316 and CVE-2026-20131</span>
+            <span class="ops-tag ex-none">No known exploitation &mdash; Siemens reports no public exploitation of any of the fourteen CVEs; re-checked 11 Sep 2026, unchanged</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVE-2026-62645, CVE-2026-62646 and CVE-2026-62650 carry no KEV listing at generation time</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available since early March 2026; Cisco advisory cisco-sa-onprem-fmc-authbypass-5JPp45V2 carries versions and IoCs</span>
-            <span class="ops-cc"><b>Action:</b> Find every on-premises FMC instance, including ones your protection-and-control or telecoms contractor manages on your behalf, and confirm the build against Cisco&rsquo;s advisory. Take the FMC web interface off any internet-reachable path and restrict it to a dedicated management network &mdash; Cisco is explicit that internet exposure is the dominant risk factor. Because exploitation predates your patch, treat patching as step one only: hunt the published IoCs, look for unexpected web shells and JAR files on the appliance, review administrative logins and policy-change history since late July, and rotate the device credentials and any RADIUS/TACACS or API secrets FMC holds. Then verify the firewall policy itself &mdash; an attacker with root on the management console can loosen the very rules that enforce your electronic security perimeter, and a quiet rule change will not show up as an alarm.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Siemens fixes all fourteen issues in Reyrolle 7SR5 firmware V2.70; all earlier versions are affected</span>
+            <span class="ops-cc"><b>Action:</b> Start with an honest inventory: pull every 7SR5 out of your relay asset register with its firmware revision, and separate the ones whose web interface is reachable from an engineering VLAN, an SCADA gateway or a vendor maintenance path from the ones that are genuinely isolated. The reachable population is your upgrade queue for V2.70; schedule it against protection outage windows rather than trying to force it, and coordinate with protection engineering so a relay is never left out of service without a documented alternative. Where an upgrade cannot happen this quarter, remove the web interface from any routable path, put relay engineering access behind a jump host with MFA, and turn on logging of authentication attempts to the relay so a session-ID replay leaves a trace. Take Siemens&rsquo; own prompt seriously and re-verify that your redundant secondary protection scheme is in service and correctly graded on the affected feeders.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet exposure check and patch &mdash; 24 hours; IoC hunt and credential rotation &mdash; 72 hours; firewall policy diff against last known-good baseline &mdash; 7 days; contractor attestation &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-cisco-fmc-kev">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> 7SR5 inventory and exposure review &mdash; 7 days; firmware upgrade to V2.70 on network-reachable relays &mdash; 30 days or next protection outage window; redundant-protection verification &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-reyrolle-7sr5" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-reyrolle-7sr5">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Cisco security advisory update and Cisco Talos research of 9 Sep 2026, plus the CISA KEV addition of 9 Sep 2026 &mdash; reported by SecurityWeek</span>
+          <span>Siemens ProductCERT advisory SSA-142885 &mdash; corroborated by SecurityWeek&rsquo;s September ICS Patch Tuesday round-up</span>
           <span class="dot">&bull;</span>
-          <span>Advisory updated and KEV listing added 9 Sep 2026; reporting 10 Sep 2026</span>
+          <span>Published 8 Sep 2026 (v1.0)</span>
         </div>
-        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cert-portal.siemens.com/productcert/html/ssa-142885.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-mikrotik-exploited" data-published="2026-09-09">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; Confirmed exploited, remote-site edge routers</span>
+        </div>
+        <h3>&ldquo;MikroTrick&rdquo; moves from disclosed to confirmed exploited &mdash; two CVSS 9.2 SSH flaws hand over RouterOS admin</h3>
+        <p>CERT Polska issued an alert on 9&nbsp;September confirming that the MikroTik RouterOS vulnerability chain known as &ldquo;MikroTrick&rdquo; &mdash; disclosed earlier but not previously confirmed as exploited &mdash; is now being used in real-world attacks observed since at least 2&nbsp;September. The chain pairs an SSH authentication bypass, CVE-2026-67276 at CVSS&nbsp;9.2, with an SSH privilege-escalation flaw, CVE-2026-86060 at CVSS&nbsp;9.2, to take full unauthenticated administrative control of an internet-exposed RouterOS device. A third bug, CVE-2026-67277, allows memory disclosure or denial of service through the bandwidth-test service. CERT Polska named no victims and no sectors; it noted only that MikroTik devices are widely deployed by ISPs, data centres, enterprises and critical-infrastructure networks. That is the honest boundary of this item &mdash; there is no confirmed utility victim and no confirmed OT impact. It earns a place here because of where this hardware tends to live in an electricity network: cheap, capable routers are a common choice for cellular or fixed-wireless backhaul at unmanned substations, distributed generation sites and storage compounds, often installed by a contractor and often the one device on that site with a route to both the corporate network and the RTU.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; CERT Polska states real-world exploitation observed since at least 2 Sep 2026; state change from the earlier disclosure-only status</span>
+            <span class="ops-tag kev-off">No CISA KEV listing identified for these CVEs at generation time</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Patch status &mdash; CERT Polska&rsquo;s alert as reported covers exploitation confirmation; check MikroTik&rsquo;s own RouterOS release notes for the fixed version applicable to your branch before planning the upgrade</span>
+            <span class="ops-cc"><b>Action:</b> The first question is not which version you run, it is whether you know where these devices are. Pull the remote-site connectivity inventory for substations, DER and storage sites, wind and solar farms, and anywhere a contractor supplied the router, and identify every MikroTik unit by model and RouterOS branch. Then check the exposure that actually matters here: SSH reachable from the internet, or from any carrier APN that is not genuinely private. Close inbound SSH at the perimeter or the carrier, restrict management to a named jump host, and disable the bandwidth-test service, which is the third flaw&rsquo;s attack surface and is rarely needed in production. Confirm the fixed RouterOS version against MikroTik&rsquo;s release notes and schedule the upgrade. Because exploitation has been running since early September, assume nothing until you have looked: review admin account lists, scheduled scripts, and SSH and firewall configuration on each device for changes you did not make.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Remote-site MikroTik inventory and internet-facing SSH check &mdash; 72 hours; exposure closure and bandwidth-test disable &mdash; 7 days; firmware upgrade and configuration review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-mikrotik-exploited" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-mikrotik-exploited">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CERT Polska alert &mdash; reported by Industrial Cyber. No victims or sectors named; no confirmed OT impact</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation observed from 2 Sep 2026; CERT Polska confirmation and reporting 9 Sep 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/critical-infrastructure/cert-polska-alerts-that-mikrotik-routeros-vulnerabilities-actively-being-exploited-in-mikrotrick-attack-chain/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="story-kev-8sep" data-published="2026-09-08">
         <div class="card-header">
@@ -1362,7 +1389,7 @@
           <span class="category">Critical Advisory &mdash; September ICS Patch Tuesday</span>
         </div>
         <h3>September ICS Patch Tuesday: Siemens ships nine advisories, Schneider four, with a distribution RTU fix in the pile</h3>
-        <p>The 8&nbsp;September ICS patch round landed heavier than usual for electricity operators. Siemens issued nine advisories, seven of them on the day, with critical findings in the Reyrolle&nbsp;7SR5 relay family covered separately above, Open Interface Services, Industrial Edge Management and SIMOVE Fleetmanager/SIPLANT, and began rolling out fixes for Linux kernel flaw CVE-2026-31431 at CVSS&nbsp;7.8 across affected product lines. Schneider Electric published four. The most severe is a critical authentication vulnerability in Modicon&nbsp;M580 and M580 Safety controllers, CVE-2026-3869 at CVSS&nbsp;9.2. Closer to the grid edge, Schneider also fixed a high-severity issue in PowerLogic&nbsp;T300 &mdash; the former Easergy&nbsp;T300 RTU used for MV feeder automation and substation remote terminal duty &mdash; alongside EcoStruxure IT Data Center Expert and a medium-severity SCADAPack&nbsp;x70 defect. Aveva disclosed four flaws in the PIMBoards component of Pipeline Integrity Monitor, including a hardcoded encryption key and MD5 password hashing. Nothing in the round is reported as exploited.</p>
+        <p>The 8&nbsp;September ICS patch round landed heavier than usual for electricity operators. Siemens issued nine advisories, seven of them on the day, with critical findings in the Reyrolle&nbsp;7SR5 relay family covered separately above, Open Interface Services, Industrial Edge Management and SIMOVE Fleetmanager/SIPLANT, and began rolling out fixes for Linux kernel flaw CVE-2026-31431 at CVSS&nbsp;7.8 across affected product lines. Schneider Electric published four. The most severe is a critical authentication vulnerability in Modicon&nbsp;M580 and M580 Safety controllers, CVE-2026-3869 at CVSS&nbsp;9.2. Closer to the grid edge, Schneider also fixed a high-severity issue in PowerLogic&nbsp;T300 &mdash; the former Easergy&nbsp;T300 RTU used for MV feeder automation and substation remote terminal duty &mdash; alongside EcoStruxure IT Data Center Expert and a medium-severity SCADAPack&nbsp;x70 defect. Aveva disclosed four flaws in the PIMBoards component of Pipeline Integrity Monitor, and CISA published them on 10&nbsp;September as ICSA-26-253-01: CVE-2026-81821, a hardcoded cryptographic key, and CVE-2026-81822, weak MD5 password hashing, both at CVSS&nbsp;8.4, alongside a missing-authorisation issue at 5.3 and a cross-site scripting flaw at 4.7, all fixed in Pipeline Integrity Monitor 2025&nbsp;SP1&nbsp;P2. Nothing in the round is reported as exploited, and that remained true when the batch was re-checked on 11&nbsp;September. The T300 item is covered separately below.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">No known exploitation &mdash; neither Siemens, Schneider Electric nor Aveva reports exploitation of any item in the September round as of this edition</span>
@@ -1379,9 +1406,38 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Siemens ProductCERT, Schneider Electric and Aveva security advisories of 8 Sep 2026 &mdash; summarised by SecurityWeek</span>
+          <span>Siemens ProductCERT, Schneider Electric and Aveva security advisories of 8 Sep 2026, plus CISA advisory ICSA-26-253-01 of 10 Sep 2026 &mdash; summarised by SecurityWeek and ISSSource</span>
           <span class="dot">&bull;</span>
-          <span>Advisories published 8 Sep 2026</span>
+          <span>Advisories published 8 Sep 2026; Aveva advisory published by CISA 10 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-schneider-t300" data-published="2026-09-09">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Distribution feeder RTU, no known exploitation</span>
+        </div>
+        <h3>The one genuinely new power item this cycle is a feeder-automation RTU &mdash; Schneider&rsquo;s PowerLogic T300</h3>
+        <p>Schneider Electric&rsquo;s September&nbsp;2026 patch release included a high-severity vulnerability in the PowerLogic&nbsp;T300 platform, the rebranded Easergy&nbsp;T300 remote terminal unit used for MV distribution feeder automation and monitoring. It is a separate advisory from the Modicon&nbsp;M580 critical flaw (CVE-2026-3869) and the Siemens Reyrolle&nbsp;7SR5 relay set published in the same cycle, and it is the only genuinely new electricity-sector disclosure found in the 9&ndash;11&nbsp;September window. Be clear about what is and is not known: the secondary reporting reviewed &mdash; SecurityWeek&rsquo;s ICS Patch Tuesday round-up and the associated conference coverage &mdash; characterised the severity only as &ldquo;high&rdquo; and did not carry a CVE identifier or a CVSS vector, so none is published here. A vendor fix or mitigation was issued as part of the same September advisory cycle. No exploitation has been reported. The reason it matters out of proportion to a missing score is the device&rsquo;s job: a T300 sits in a ring main unit or pole-mounted cabinet and actuates switchgear, so it is one of the few products in this month&rsquo;s pile that can directly change the state of a distribution feeder.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation reported as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fix available &mdash; issued as part of Schneider Electric&rsquo;s September 2026 advisory cycle; confirm the exact CVE, CVSS and fixed firmware against Schneider&rsquo;s own Security Notification and the corresponding CISA ICS advisory</span>
+            <span class="ops-cc"><b>Action:</b> Because the identifier is not in the public secondary reporting, start at the vendor rather than at a CVE feed: pull Schneider Electric&rsquo;s September&nbsp;2026 Security Notification for PowerLogic&nbsp;T300 / Easergy&nbsp;T300 and match the affected firmware against your feeder-automation fleet, including units still carrying Easergy badging. These devices are usually field-installed in ring main units and pole cabinets and reached over cellular or fibre, so the practical control while you plan firmware is the path: confirm no T300 web or engineering interface is reachable from a routable corporate network or an open carrier APN, and that remote access runs through your standard substation access broker rather than a vendor-specific tunnel. Fold the upgrade into your distribution-automation maintenance schedule with the M580 and 7SR5 work rather than raising it as a separate campaign, and record the CVE number in your asset register once Schneider and CISA publish it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Retrieve the vendor notification and scope the affected T300 population &mdash; 7 days; exposure and remote-access path verification &mdash; 14 days; firmware update &mdash; 30 days or next distribution-automation maintenance window</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-schneider-t300" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-schneider-t300">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Schneider Electric September 2026 advisory cycle &mdash; reported by SecurityWeek&rsquo;s ICS Patch Tuesday round-up. CVE identifier and CVSS vector not disclosed in the secondary reporting reviewed</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor cycle 8 Sep 2026; reporting 9 Sep 2026</span>
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1678,35 +1734,6 @@
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-siemens-iot2050" data-published="2026-08-12">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Maximum severity, Siemens edge gateway</span>
-        </div>
-        <h3>CVSS 10.0 on a Siemens edge gateway &mdash; the management interface takes commands from anyone who can reach it</h3>
-        <p>Siemens&rsquo; August advisory set includes a maximum-severity missing-authentication flaw in SIMATIC IoT2050 Advanced devices, where the management interface allows a remote unauthenticated attacker to execute code with elevated privileges. Ten Siemens advisories landed in the same batch alongside Schneider Electric and Phoenix Contact publications. The IoT2050 matters disproportionately in generation and substation environments because of where it sits: these gateways are deployed specifically to bridge process data out to historians, analytics platforms and cloud services, which means they are dual-homed by design and frequently the one device with a route in both directions.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the flaw is unauthenticated and requires only network reachability</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Siemens has published fixed firmware; interim mitigation is restricting network access to the management interface</span>
-            <span class="ops-cc"><b>Action:</b> Inventory every IoT2050 and comparable edge gateway and establish which networks each one touches &mdash; that dual-homed position is the reason a CVSS 10.0 here matters more than the same score on an isolated device. Apply the Siemens firmware update; where an outage window is needed, restrict the management interface immediately to a named engineering subnet using a host or upstream firewall rule. Then close the underlying gap: a device that bridges process data outward should never accept inbound management from the enterprise side.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or restrict management access on all edge gateways &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-iot2050" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="pd-iot2050">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Siemens ProductCERT August 2026 advisories and the CISA ICS advisory batch &mdash; reported by SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Published 12 Aug 2026; re-verified 27 Aug 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -1924,7 +1951,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Power Generation &amp; Transmission.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on 9&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources and reputable security reporting. Primary material this run: CISA ICS advisories and the Known Exploited Vulnerabilities catalog, including the KEV additions of 8&nbsp;September&nbsp;2026 (N-able N-central CVE-2026-86218, the two exploited Windows zero-days and the Adobe Commerce flaw) and the earlier September ICS advisory batches; Siemens ProductCERT, in particular SSA-142885 covering the Reyrolle&nbsp;7SR5 protection relay family; Schneider Electric&rsquo;s 8&nbsp;September advisories covering Modicon&nbsp;M580, PowerLogic&nbsp;T300, EcoStruxure IT Data Center Expert and SCADAPack&nbsp;x70; Rockwell Automation advisories; and Inductive Automation. Research and analysis from DOE CESER with Sandia National Laboratories on AI-assisted grid threat detection, and Forescout Vedere Labs on AI-assisted porting of PLC exploits. Reporting and corroboration drawn from SecurityWeek, Industrial Cyber, Cybersecurity Dive, The Record, BleepingComputer, CyberScoop and The Hacker News, with policy and regulatory material &mdash; including the McCrary Institute and US Chamber of Commerce analysis of federal incident-reporting fragmentation &mdash; reported factually and without partisan framing. Wired was not used for this edition. Every item links to its primary or best-available accessible source; vendor and federal attribution is presented as an official assessment rather than proven attribution, and claimed incidents are labelled as claimed. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
+    <p><strong>Methodology.</strong> Compiled at 8:00&nbsp;AM&nbsp;ET on 11&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources and reputable security reporting. Primary material this run: CISA ICS advisories and the Known Exploited Vulnerabilities catalog, including the KEV additions of 8&nbsp;September&nbsp;2026 (N-able N-central CVE-2026-86218, the two exploited Windows zero-days and the Adobe Commerce flaw) and the earlier September ICS advisory batches; Siemens ProductCERT, in particular SSA-142885 covering the Reyrolle&nbsp;7SR5 protection relay family; Schneider Electric&rsquo;s 8&nbsp;September advisories covering Modicon&nbsp;M580, PowerLogic&nbsp;T300, EcoStruxure IT Data Center Expert and SCADAPack&nbsp;x70; Rockwell Automation advisories; and Inductive Automation. Research and analysis from DOE CESER with Sandia National Laboratories on AI-assisted grid threat detection, and Forescout Vedere Labs on AI-assisted porting of PLC exploits. Reporting and corroboration drawn from SecurityWeek, Industrial Cyber, Cybersecurity Dive, The Record, BleepingComputer, CyberScoop and The Hacker News, with policy and regulatory material &mdash; including the McCrary Institute and US Chamber of Commerce analysis of federal incident-reporting fragmentation &mdash; reported factually and without partisan framing. Wired was not used for this edition. Every item links to its primary or best-available accessible source; vendor and federal attribution is presented as an official assessment rather than proven attribution, and claimed incidents are labelled as claimed. This 11&nbsp;September edition is a short incremental over the 10&nbsp;September run, and the 9&ndash;11&nbsp;September window was quiet for this sector. Re-queried: CISA ICS advisories and the KEV catalog, Siemens ProductCERT, Schneider Electric, Aveva, CERT Polska, Industrial Cyber, SecurityWeek and the daily OT digests. Four things changed. Cisco Talos published cluster-level detail on the Secure FMC exploitation &mdash; UAT-12197, the Sandworm-linked UAT-11823 delivering a Cyclops Blink variant, and UAT-11988 deploying Qilin &mdash; so that item was updated and promoted to the top story ahead of the Reyrolle&nbsp;7SR5 advisory, which carries no exploitation and under the lead rule cannot hold the lead; Reyrolle moves into Critical Advisories unchanged. CERT Polska confirmed active in-the-wild exploitation of the MikroTik &ldquo;MikroTrick&rdquo; SSH chain, added as a new card with its exposure framed honestly &mdash; no victims and no sectors were named. CISA published the Aveva Pipeline Integrity Monitor advisory as ICSA-26-253-01 on 10&nbsp;September, folded into the existing Patch Tuesday card rather than duplicated. A dedicated card was added for Schneider&rsquo;s PowerLogic&nbsp;T300 feeder RTU, the one genuinely new electricity-sector disclosure in the window; no CVE identifier or CVSS vector appears in the secondary reporting reviewed, so none is published here. The August Siemens SIMATIC IoT2050 advisory was retired on age. Held out: an unsourced &ldquo;Midwest water utilities&rdquo; item circulating in an AI-generated digest that could not be traced to any primary source, and the ST Engineering iDirect iQ-Series advisory update of 10&nbsp;September, whose changelog could not be retrieved. No confirmed OT-disruptive incident at an electricity operator was found in the window; the threat level was re-derived from the current card set at 5.7, still Medium. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
