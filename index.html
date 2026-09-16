@@ -647,13 +647,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wed, 16 Sep 2026, 4:45 AM ET</span>
+        <span>Generated Wed, 16 Sep 2026, 7:55 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>23</strong> stories across
+      <strong>27</strong> stories across
 
       <strong>4</strong> categories
     </div>
@@ -687,7 +687,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:59%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Holds at 5.9 on this 16&nbsp;September pass &mdash; the top of the no-advisory-stacking cap, and nothing overnight lifts it. Cisco Secure Email Gateway CVE-2026-76461 (CVSS&nbsp;9.8, unauthenticated root from a crafted message) is being exploited as a zero-day, is in KEV, and federal agencies must remediate it by 17&nbsp;September. It sits beside Cisco Secure&nbsp;FMC CVE-2026-20079, exploited since August across three Talos clusters &mdash; one Sandworm-linked, one ending in Qilin ransomware. VMware vCenter CVE-2026-59310 now carries ransomware operators as well as espionage, which matters to OT because the historian, HMI and engineering virtual machines usually live on that cluster. New this pass: Stadtwerke Landsberg confirms its central IT was encrypted on 1&nbsp;September while electricity, water and heat supply kept running &mdash; an IT-side breach at an operator, which the calibration places below the cap rather than above it, and a useful demonstration that the boundary can hold. No OT-disruptive incident is live and no hands-on-OT nation-state activity is in progress, so the ceiling stays under High. Ageing anchors keep this clear of Low: 100-plus internet-exposed water systems hit, a UK generating station run manually for four days, the five-agency Siemens&nbsp;S7 warning. September&rsquo;s ICS Patch Tuesday, Modicon&nbsp;M580 at CVSS&nbsp;9.2 included, remains unexploited. Confirmed OT disruption in a second sector moves this to High.</div>
+      <div class="tl-why"><b>Why:</b> Holds at 5.9 on this 16&nbsp;September pass &mdash; the ceiling of the no-advisory-stacking cap. No OT-disruptive incident is live and no hands-on-OT nation-state activity is in progress, so the High gate stays shut. Cisco Secure Email Gateway CVE-2026-76461 (CVSS&nbsp;9.8, unauthenticated root from a crafted email, no workaround) is an exploited zero-day, KEV-listed 14&nbsp;September with a 17&nbsp;September federal deadline. Talos tracks three clusters exploiting Cisco Secure&nbsp;FMC CVE-2026-20079 and CVE-2026-20316: one Sandworm-linked (tooling overlap, Cyclops&nbsp;Blink variant), and one ransomware operator that entered through CVE-2026-20316 and ultimately deployed Qilin. VMware vCenter CVE-2026-59310 is now flagged for ransomware use, and historian, HMI and engineering VMs usually sit on that cluster. The nearest operational event, Malaysia&rsquo;s Port of Tanjung Pelepas, suspended container terminal operations after a 9&nbsp;September cyber incident and resumed on 15&nbsp;September &mdash; single-site, unattributed and recovered, worth about 5.5 on this all-sector view. Record August ransomware claims and Panzer&rsquo;s ESXi encryptor are volume signals, not OT disruption. New this pass: IO-Link master firmware flaws at CVSS&nbsp;9.8 across three vendors and CISA&rsquo;s 15&nbsp;September batch, Siemens Reyrolle&nbsp;7SR5 included &mdash; unexploited advisories, which do not stack. Ageing anchors keep this clear of Low: 100-plus exposed water systems hit, a UK generating station run manually for four days. Confirmed OT disruption in a second sector moves this to High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -699,12 +699,12 @@
 
     <div class="top-story" id="story-fmc" data-published="2026-09-10">
         <span class="top-story-pill">Top Story</span>
-        <h2>Sandworm and Qilin are inside Cisco firewall management: a critical auth bypass, exploited since August</h2>
-        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 &mdash; a critical authentication bypass in Secure Firewall Management Center, patched back in March &mdash; has been exploited since August. Crafted HTTP requests reach a process created at boot and hand an unauthenticated attacker root on the appliance that configures your firewalls. Cisco Talos attributes three activity clusters: one deploying a web shell to harvest credentials, one tied to the Russian state group Sandworm delivering Cyclops&nbsp;Blink, and one linked to Qilin ransomware staging encryption target lists. CISA added the flaw to KEV with a federal remediation deadline of 12&nbsp;September, which has now passed. For OT defenders the significance is not the firewall &mdash; it is the management plane above it. Whoever holds FMC holds the rule set separating enterprise from plant, and can rewrite it without touching a single controller.</p>
+        <h2>A Sandworm-linked APT and a Qilin ransomware operator are exploiting Cisco firewall management: a critical auth bypass, exploited since August</h2>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 &mdash; a critical authentication bypass in Secure Firewall Management Center, patched back in March &mdash; has been exploited since August. Crafted HTTP requests reach a process created at boot and hand an unauthenticated attacker root on the appliance that configures your firewalls. Cisco Talos tracks three activity clusters across this flaw and a second FMC bug, CVE-2026-20316: one deploying a web shell to harvest credentials; an APT whose tooling overlaps with Sandworm, delivering a Cyclops&nbsp;Blink variant; and a ransomware operator that came in through CVE-2026-20316&rsquo;s static credentials, built encryption target lists and ultimately deployed Qilin. CISA added the flaw to KEV with a federal remediation deadline of 12&nbsp;September, which has now passed. For OT defenders the significance is not the firewall &mdash; it is the management plane above it. Whoever holds FMC holds the rule set separating enterprise from plant, and can rewrite it without touching a single controller.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; Cisco updated its advisory for CVE-2026-20079 on 9 Sep 2026 to state it became aware of active exploitation in August 2026; the flaw was patched in early March 2026 and the advisory had already been updated in late July with indicators of compromise, without an exploitation warning at that time. Cisco Talos reported on 9 Sep 2026 that it is tracking three activity clusters abusing CVE-2026-20079 and the separate FMC flaw CVE-2026-20316: UAT-12197, which deployed a web shell and a malicious JAR file to harvest authentication data and credentials; UAT-11823, which Talos ties to the Russian GRU-linked state actor Sandworm and which chained CVE-2026-20316 to deliver a variant of the Cyclops Blink malware capable of file transfer, credential harvesting, command execution and network reconnaissance; and UAT-11988, linked to the Qilin ransomware operation, which used CVE-2026-20316 for reconnaissance, credential theft and building target lists for encryption. SecurityWeek&rsquo;s 10 Sep 2026 write-up of the Talos findings restates all three clusters and the 12 Sep 2026 KEV deadline; no additional cluster, victim or OT-side impact has been reported since. This is the third Secure FMC flaw added to KEV in 2026. <b>Confirmed vs claimed:</b> exploitation is confirmed by the vendor and by CISA; the actor attributions are Talos assessments, and no OT-side impact has been reported to date</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 9 Sep 2026 alongside Citrix NetScaler CVE-2026-19490, Fortinet CVE-2025-25249 and Chromium CVE-2026-87491; federal remediation was due 12 Sep 2026 and that deadline has now passed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; Cisco updated its advisory for CVE-2026-20079 on 9 Sep 2026 to state it became aware of active exploitation in August 2026; the flaw was patched in early March 2026 and the advisory had already been updated in late July with indicators of compromise, without an exploitation warning at that time. Cisco Talos reported on 9 Sep 2026 that it is tracking three activity clusters abusing CVE-2026-20079 and the separate FMC flaw CVE-2026-20316: UAT-12197, which deployed a web shell and a malicious JAR file to harvest authentication data and credentials; UAT-11823, an APT actor that Talos says overlaps in tooling with Sandworm (Talos does not say Sandworm itself carried out the activity), which used both CVE-2026-20079 and CVE-2026-20316 to deliver a variant of the Cyclops Blink malware capable of file transfer, credential harvesting, command execution and network reconnaissance; and UAT-11988, which Talos assesses as a ransomware operator with TTPs consistent with Qilin affiliates, which used only CVE-2026-20316 (logging in with static credentials) for reconnaissance, credential theft and building target lists for encryption before ultimately deploying Qilin ransomware. SecurityWeek&rsquo;s 10 Sep 2026 write-up of the Talos findings restates all three clusters and the 12 Sep 2026 KEV deadline; no additional cluster, victim or OT-side impact has been reported since. This is the third Secure FMC flaw added to KEV in 2026. <b>Confirmed vs claimed:</b> exploitation is confirmed by the vendor and by CISA; the actor attributions are Talos assessments, and no OT-side impact has been reported to date</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 9 Sep 2026 alongside Citrix NetScaler CVE-2026-19490, Fortinet CVE-2025-25249 and Chromium CVE-2026-87491; federal remediation was due 12 Sep 2026 and that deadline has now passed. The companion flaw CVE-2026-20316 has been in KEV since 29 Jul 2026 (due 1 Aug 2026) and is flagged for known ransomware use</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Patch now &mdash; fixes have been available since early March 2026; restricting the FMC web interface from the internet substantially reduces exposure</span>
@@ -805,11 +805,11 @@
         <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">AI</span>
-        <b class="trend-head">The autonomy debate has moved from whether to how fast &mdash; and OT defenders are being told to assume machine-speed adversaries</b>
-        <p>GreyNoise&rsquo;s account of an AI-orchestrated PaperCut campaign that reached 395 organisations, Forescout&rsquo;s demonstration of a frontier model porting a working PLC exploit to a second controller inside eight hours, and a run of disclosures about agents being used for hands-on intrusion have converged on one practitioner question: what does a defensive programme look like when the window between disclosure and mass exploitation is under a working day? The consensus answer so far is unglamorous &mdash; standing internet-exposure inventory and authentication boundaries, not faster ticket queues.</p>
-        <a href="https://www.securityweek.com/papercut-flaws-exploited-in-ai-powered-attacks/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
-        <a href="https://industrialcyber.co/ai/anthropic-flags-ai-driven-cyberattacks-warns-that-cybersecurity-has-reached-a-critical-inflection-point/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Ransomware</span>
+        <b class="trend-head">Record volume, and the crews now ship hypervisor builds as standard &mdash; the OT question is what one ESXi cluster takes down</b>
+        <p>Comparitech&rsquo;s count of 997 ransomware claims worldwide in August &mdash; a monthly record, about 32 a day, with utility-sector claims doubling month on month and Qilin alone claiming 157 &mdash; landed in the same fortnight as CISA&rsquo;s warning that VMware vCenter is now in ransomware use, and research on an emerging service operation whose affiliate platform ships a VMware ESXi encryptor by default. The practitioner conversation has moved off encryption speed and onto blast radius: how many historians, HMI servers, engineering workstations and domain controllers share one hypervisor cluster, and whether anyone has actually timed a restore of all of them at once.</p>
+        <a href="https://industrialcyber.co/ransomware/global-ransomware-attacks-hit-record-997-in-august-2026-as-utility-healthcare-and-business-attacks-surge/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <a href="https://industrialcyber.co/manufacturing/panzer-ransomware-targets-italian-manufacturer-as-esxi-capability-raises-industrial-security-concerns/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Engineering</span>
@@ -838,17 +838,17 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-    <div class="card" id="story-redheron" data-published="2026-09-15">
+    <div class="card" id="story-redheron" data-published="2026-09-13">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident &mdash; n-day exploitation campaign; industrial automation, energy, government and election-adjacent targets in five countries</span>
         </div>
         <h3>An industrial automation vendor lost its SCADA/HMI source code &mdash; to a public proof-of-concept weaponised within days</h3>
-        <p>Acronis Threat Research Unit published findings on 15&nbsp;September describing a PRC-linked, Chinese-speaking actor it tracks as Red Heron, which turned a public proof-of-concept for a critical Gitea remote code execution flaw (CVE-2026-60004) into an automated mass-exploitation campaign within days of the code appearing. The operators scanned 1,386 internet-facing Gitea instances across seven countries and kept a separate list of 477 Taiwan-based systems, classified by target type: defence, energy, aerospace, telecommunications, government, research and election or voting systems. Acronis confirmed compromises at eleven organisations in Canada, the United States, Taiwan, Argentina and Sri Lanka. The heaviest loss was a Taiwanese industrial automation company, from which the operators pulled hundreds of repositories including a SCADA/HMI product, surveillance and monitoring software, IoT platform integrations and a network sniffer.</p>
+        <p>Acronis Threat Research Unit published findings on 13&nbsp;September describing a PRC-linked, Chinese-speaking actor it tracks as Red Heron, which turned a public proof-of-concept for a critical Gitea remote code execution flaw (CVE-2026-60004) into an automated mass-exploitation campaign within days of the code appearing. The operators scanned 1,386 internet-facing Gitea instances across seven countries and kept a separate list of 477 Taiwan-based systems, classified by target type: defence, energy, aerospace, telecommunications, government, research and election or voting systems. Acronis confirmed compromises at eleven organisations in Canada, the United States, Taiwan, Argentina and Sri Lanka; The Hacker News counts 13 organisations in six countries, so read the victim count as at least eleven. The heaviest loss was a Taiwanese industrial automation company, from which the operators pulled hundreds of repositories including a SCADA/HMI product, surveillance and monitoring software, IoT platform integrations and a network sniffer.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; Acronis TRU recovered the actor&rsquo;s staging server, including its automated exploitation framework, FOFA reconnaissance data, target databases written in Simplified Chinese, stolen repositories and post-exploitation tooling. The campaign chained a forked GitHub PoC for CVE-2026-60004 with the Adaptix command-and-control framework and an implant Acronis names JITTERLY, which supports more than 30 post-exploitation commands including shell execution, file transfer, network tunnelling and internal pivoting. Embedded in JITTERLY is a previously undocumented Linux rootkit Acronis tracks as SIXZUT, able to hide files, processes and network connections, resist termination and relaunch the implant. A Canadian renewable energy company was the most extensively compromised victim, with 22 separate exploitation sessions: the operators mapped the infrastructure, identified a legitimate employee account and pulled the full application stack including HR, CRM, authentication service, intranet and business APIs, along with JWT tokens, internal tokens, SSH host keys and a deploy key to an HCM staging environment. <b>Confirmed vs claimed:</b> the exploitation, the victim set and the tooling are Acronis telemetry from a recovered staging server; attribution to Red Heron as a PRC-linked actor is an Acronis assessment made with moderate confidence on language artefacts, victimology and tradecraft. No OT or control-system disruption has been reported at any victim &mdash; the observed outcome is source-code theft, credential collection and persistent access</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition &mdash; verify against the catalogue before relying on that</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-60004 added 25 Aug 2026 with a federal remediation deadline of 28 Aug 2026, now passed; fixed in Gitea 1.27.1</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Patch now &mdash; update self-hosted Gitea and Forgejo instances, and treat any internet-facing instance that was unpatched after the PoC appeared as compromised rather than merely vulnerable</span>
@@ -864,7 +864,7 @@
           <span class="cve-badge">CVE-2026-60004</span>
           <span>Acronis Threat Research Unit, reported by Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Published 15 Sep 2026, 5:11 AM ET</span>
+          <span>Acronis TRU report 13 Sep 2026; Industrial Cyber report 15 Sep 2026, 5:11 AM ET; KEV status corrected 16 Sep 2026</span>
         </div>
         <a href="https://industrialcyber.co/ransomware/red-heron-exploits-gitea-rce-flaw-in-multinational-campaign-targeting-industrial-and-government-organizations/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -959,7 +959,36 @@
         <a href="https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-bsx" data-published="2026-09-09">
+      <div class="card" id="story-panzer" data-published="2026-09-10">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; claimed ransomware victims; manufacturing and telecommunications, Italy and Central Europe</span>
+        </div>
+        <h3>A new ransomware-as-a-service arrived with a VMware ESXi build as standard &mdash; and a kitchen manufacturer on its leak site</h3>
+        <p>Independent researcher Andrea Fortuna, in analysis relayed by Industrial Cyber on 10&nbsp;September, profiled Panzer &mdash; a ransomware-as-a-service operation that surfaced in August and within its first month listed victims across eleven countries. Two are Italian: Doimo Cucine, a designer kitchen manufacturer near Treviso, posted on 17&nbsp;August with an alleged 30&nbsp;GB of exfiltrated data, and NTE Italia, a telecommunications engineering consultancy in Catanzaro, posted four days later with a claimed 16&nbsp;GB. Neither has publicly confirmed an incident. What earns an OT reader&rsquo;s attention is not the brand but the build matrix: the affiliate platform ships encryptors for Windows, Linux, FreeBSD and VMware&nbsp;ESXi, putting hypervisor-wide encryption in the hands of any screened affiliate rather than only the mature crews.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-unknown"><span class="d"></span>Claimed, not confirmed &mdash; the Italian victims are leak-site listings, and neither Doimo Cucine nor NTE Italia has publicly acknowledged an incident. No encryptor sample, hash set or network indicator has been published for Panzer, and no initial-access vector has been independently verified; CyberXtron associates the group with medium-to-low confidence to credential dumping, brute force, network service discovery, lateral movement via remote services and valid accounts, and impairment of security tooling. Reported recruitment on Russian-speaking forums remains unconfirmed by independent sources. Fortuna describes a semi-open service model with applicant screening via Tox, an 80/20 affiliate revenue split collected automatically, deactivation of accounts idle beyond seven days, and rules barring CIS targets. Victim sectors skew technology (about 25 per cent) and manufacturing (about 19 per cent), clustering in Central Europe. Estimated dwell time is five to twelve days from initial access to detonation, with exfiltration typically beginning 48 to 72 hours after domain-level access. <b>Confirmed vs claimed:</b> the platform capabilities and victimology are researcher analysis of the operation&rsquo;s own advertising and leak site; every named victim is an attacker claim. No OT or control-system impact has been reported at any victim</span>
+            <span class="ops-tag kev-off">No CVE attached &mdash; this is an operator profile, not a product vulnerability, so nothing here appears in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-monitor">Monitor &mdash; no patch applies; the actionable content is hypervisor hardening, backup immutability and exfiltration detection</span>
+            <span class="ops-cc"><b>Action:</b> Treat this as a prompt to answer one question in writing: if your virtualisation cluster were encrypted tonight, what stops running in the plant, and how long until it runs again? In most industrial sites the honest answer is the historian, the HMI servers, the engineering workstations, the domain controllers and the backup catalogue &mdash; and nobody has timed the restore. Start by mapping which OT-supporting virtual machines share a hypervisor, then isolate the ESXi and vCenter management interfaces onto a monitored administrative segment reachable only from hardened jump hosts, never from general user networks. Enforce phishing-resistant MFA on hypervisor management, remote access and every privileged account, and make sure hypervisor administration is not performed with the same identities used for day-to-day IT work. Hold at least one immutable or offline copy of the OT-supporting virtual machines and of controller programme backups, and validate it by actually restoring &mdash; a backup that has never been restored is an assumption, not a control. For detection, the 48-to-72-hour gap between domain compromise and encryption is the realistic window: alert on large outbound transfers to non-corporate cloud storage and on anomalous access to backup infrastructure. Finally, rehearse the double-extortion case with legal and communications, because data publication proceeds on its own timetable regardless of how cleanly you recover.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> map OT-supporting virtual machines to hypervisor clusters and confirm management-interface isolation &mdash; 14 days; MFA and credential separation on hypervisor administration &mdash; 30 days; restore test of an immutable copy of the OT virtual machines &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="panzer" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="panzer">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Andrea Fortuna research with CyberXtron profiling, reported by Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Victims listed 17 and 21 Aug 2026; researcher analysis 7 Sep 2026; reported 10 Sep 2026, 9:11 AM ET &mdash; re-verified 16 Sep 2026, 8:00 AM ET</span>
+        </div>
+        <a href="https://industrialcyber.co/manufacturing/panzer-ransomware-targets-italian-manufacturer-as-esxi-capability-raises-industrial-security-concerns/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    <div class="card" id="story-bsx" data-published="2026-09-09">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident &mdash; confirmed production, order and distribution disruption; medical-device manufacturing (global)</span>
@@ -995,7 +1024,7 @@
           <span class="category">Incident &mdash; confirmed IT encryption at a multi-utility; electricity, water and district heating supply unaffected (Germany)</span>
         </div>
         <h3>A municipal utility lost its whole back office and kept the lights on &mdash; the separation held, and it is worth reading why</h3>
-        <p>Stadtwerke Landsberg am Lech, the Bavarian municipal utility that supplies electricity, water, wastewater, district heating and fibre to a town of roughly 30,000, disclosed a criminal cyberattack that encrypted its central IT systems on 1&nbsp;September&nbsp;2026. File servers, the ERP database and administrative server clusters were either encrypted or pre-emptively shut down; corporate email and VoIP telephony were cut from external networks, leaving customers unable to reach the utility by phone or email for days. The utility stated that the systems controlling electricity, water and heat supply were not affected and continued to run normally. It disconnected the affected environment from the internet, stood up a crisis team and brought in external responders; by 7&nbsp;September enough administrative capability was restored to resume customer service and contract processing. No group has claimed the attack and the utility has not said whether an extortion demand was made. It cannot yet rule out theft of customer names, addresses, contact details and bank data.</p>
+        <p>Stadtwerke Landsberg am Lech, the Bavarian municipal utility that supplies electricity, water, wastewater, district heating and fibre to a town of roughly 30,000, disclosed a criminal cyberattack that encrypted its central IT systems on 1&nbsp;September&nbsp;2026. File servers, the ERP database and administrative server clusters were either encrypted or pre-emptively shut down; corporate email and VoIP telephony were cut from external networks, leaving customers unable to reach the utility by phone or email for days. The utility stated that the systems controlling electricity, water and heat supply were not affected and continued to run normally. It disconnected the affected environment from the internet, stood up a crisis team and brought in external responders; by 7&nbsp;September enough administrative capability was restored to resume customer service and contract processing. No group has claimed the attack and the utility has not said whether an extortion demand was made. It cannot yet rule out theft of customer names, addresses, contact details and bank data, and a GDPR data-subject notice posted on 7&nbsp;September warns customers that their data may have been exposed.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Operator-confirmed encryption event and confirmed loss of business systems &mdash; the utility has confirmed the 1&nbsp;September intrusion, the encryption of central IT, the communications outage and the partial restoration by 7&nbsp;September, and has confirmed that supply-side control systems were unaffected. <b>Not confirmed:</b> no ransomware family or actor has been identified publicly, no extortion demand has been acknowledged, the initial access route has not been stated, and data theft is described as not yet ruled out rather than established</span>
@@ -1123,7 +1152,36 @@
         <a href="https://www.securityweek.com/experiment-porting-a-plc-exploit-with-ai-takes-hours-and-hundreds-of-dollars/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-adcomp" data-published="2026-09-15">
+      <div class="card" id="story-ransomvol" data-published="2026-09-14">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Threat intelligence &mdash; ransomware volume telemetry; utilities, manufacturing, healthcare</span>
+        </div>
+        <h3>August set a ransomware record, and the sharpest rise was in utilities &mdash; off a base small enough that one month is not a trend</h3>
+        <p>Comparitech data published on 14&nbsp;September counted 997 ransomware claims worldwide in August 2026, an average of about 32 a day and a 23&nbsp;per&nbsp;cent rise on July&rsquo;s 809. That passes the previous monthly high of 988 set in February 2025. Businesses accounted for 861 of the total, up 24&nbsp;per&nbsp;cent month on month, while claims against healthcare providers rose 30&nbsp;per&nbsp;cent to 69. The steepest proportional increase was in utilities, where claims doubled from five in July to ten in August. Two operations drove more than a quarter of the month&rsquo;s volume: Qilin with 157 claims and The Gentlemen with 107 &mdash; Qilin being the same brand Cisco Talos ties to one of the three clusters exploiting Secure Firewall Management Center (see top story).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-unknown"><span class="d"></span>Counting caveat &mdash; these are leak-site and public-claim counts, not confirmed compromises, and they measure claims published in August rather than intrusions that began in August. Ten utility claims is a doubling in percentage terms but a very small absolute base, so the month-on-month figure is volatile and should not on its own be read as a campaign against utilities; the useful signal is the direction of the ecosystem, the concentration of volume in two operations, and the continued pressure on manufacturing. Sector labelling in datasets of this kind follows the victim&rsquo;s primary business description, so an engineering firm or system integrator serving utilities is likely counted elsewhere, which cuts both ways for anyone benchmarking their own sector. <b>Confirmed vs claimed:</b> every figure here derives from attacker claims aggregated by a third party; individual victims are not independently confirmed, and the dataset asserts no OT or control-system impact</span>
+            <span class="ops-tag kev-off">No CVE attached &mdash; volume telemetry, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-monitor">Monitor &mdash; use this to calibrate board-level framing and recovery assumptions, not to drive a patch cycle</span>
+            <span class="ops-cc"><b>Action:</b> This is the number to take into a budget or board conversation, with the caveat attached. The defensible framing is not &ldquo;utility attacks doubled&rdquo; &mdash; ten claims worldwide is too small a base for that to carry weight &mdash; but &ldquo;the ransomware ecosystem set a volume record in August, two operations account for a quarter of it, and one of them is the crew currently exploiting boundary security appliances.&rdquo; Concentration is the practical point: when a handful of operations dominate, their tooling choices become your planning assumptions, and both leading brands work comfortably in virtualised environments. Translate that into two concrete asks rather than a slide. First, an exposure review of the paths those operations actually use &mdash; internet-facing remote access, security and management appliances, and the standing accounts your integrators and outsourced IT providers hold. Second, a tested recovery time for the OT-supporting systems, expressed in hours of lost production rather than gigabytes restored; finance and operations understand the first number and not the second. Where you report sector benchmarking upward, state the claim-based methodology explicitly so the figure survives scrutiny when someone checks it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> refresh the internet-exposure and third-party-access inventory &mdash; 30 days; produce a tested recovery time for OT-supporting systems expressed in lost production hours &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ransomvol" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ransomvol">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Comparitech ransomware tracking, reported by Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Covers August 2026; published 14 Sep 2026 &mdash; re-verified 16 Sep 2026, 8:00 AM ET</span>
+        </div>
+        <a href="https://industrialcyber.co/ransomware/global-ransomware-attacks-hit-record-997-in-august-2026-as-utility-healthcare-and-business-attacks-surge/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    <div class="card" id="story-adcomp" data-published="2026-09-15">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Guidance &mdash; six-nation technical publication on Active Directory attack techniques; directly relevant to the IT-to-OT pivot</span>
@@ -1416,6 +1474,70 @@
         <a href="https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-iolink" data-published="2026-09-16">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">CERT@VDE VDE-2026-014, -027 and -028 &mdash; shared IO-Link master firmware; CVSS 9.8 across Phoenix Contact, Pepperl+Fuchs and Carlo Gavazzi</span>
+        </div>
+        <h3>One firmware, three nameplates: unauthenticated admin access and root-level file upload in IO-Link masters from three vendors</h3>
+        <p>CERT@VDE published three coordinated advisories on 16&nbsp;September for IO-Link master devices built on a common firmware base below version 1.7.4: Phoenix Contact IOL MA8 EIP DI8 and IOL MA8 PN DI8 (VDE-2026-027, 19 CVEs), the Pepperl+Fuchs ICE2 and ICE3 families (VDE-2026-014, 24 CVEs) and Carlo Gavazzi YL212 and YN115 models (VDE-2026-028, 20 CVEs). The two worst are rated CVSS&nbsp;9.8: CVE-2026-27546, an unauthenticated authentication bypass to administrator, and CVE-2026-27565, an unauthenticated upload of a malicious IODD device-description file that runs a shell script as root. Many further command-injection flaws score 8.8, and others leak password hashes and SSH private keys. Phoenix Contact&rsquo;s advisory credits Nozomi Networks with the research. IO-Link masters sit at the very bottom of the plant network, between field sensors and actuators and the controller, and the same defect arriving under three brands is a reminder that the name on the housing does not tell you whose firmware is inside.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-off"><span class="d"></span>No exploitation reported &mdash; coordinated vendor disclosures published through CERT@VDE on 16 Sep 2026, with fixed firmware 1.7.8 available. <b>Confirmed vs claimed:</b> the flaws, affected models and fix are vendor-confirmed; no in-the-wild use has been reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed firmware 1.7.8 available &mdash; vendors advise isolating affected devices until it is applied</span>
+            <span class="ops-cc"><b>Action:</b> Inventory IO-Link masters by firmware rather than by brand: check Phoenix Contact, Pepperl+Fuchs and Carlo Gavazzi units against the three advisories and treat anything below 1.7.4 as affected. Until 1.7.8 is installed, make sure the masters&rsquo; web and management interfaces are reachable only from the engineering network &mdash; nothing from the enterprise side and nothing from remote-access paths. Because one flaw runs a script as root from an uploaded IODD file, restrict who can push device descriptions and where those files come from. If the password hashes or SSH keys held on these devices are reused anywhere else, rotate them after patching. Schedule the firmware change with the line owner, since every sensor and actuator behind a master depends on it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IO-Link master inventory and interface exposure check &mdash; 7 days; firmware 1.7.8 &mdash; next planned maintenance window</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="iolink" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="iolink">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-27546</span>
+          <span class="cve-badge">CVE-2026-27565</span>
+          <span>CERT@VDE advisories VDE-2026-014 (Pepperl+Fuchs), VDE-2026-027 (Phoenix Contact) and VDE-2026-028 (Carlo Gavazzi)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 16 Sep 2026 &mdash; verified 16 Sep 2026, 7:55 AM ET</span>
+        </div>
+        <a href="https://certvde.com/en/advisories/VDE-2026-027/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-icsa258" data-published="2026-09-15">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">ICSA-26-258-01 to -08 &mdash; CISA&rsquo;s 15 September batch; Siemens Reyrolle 7SR5 and mySCADA myPRO at CVSS 9.8</span>
+        </div>
+        <h3>CISA&rsquo;s 15 September batch puts a protection relay, a ship-fleet system and a SCADA manager on the same list</h3>
+        <p>CISA released eight ICS advisories on 15&nbsp;September, plus two updates. The heaviest for grid operators is ICSA-26-258-05, CISA&rsquo;s republication of Siemens SSA-142885 (first issued 8&nbsp;September) for the Reyrolle&nbsp;7SR5 protection relay: 14 CVEs in versions before V2.70, led by CVE-2026-62645, missing authentication for a critical function at CVSS&nbsp;9.8, and CVE-2026-62650, an authentication bypass at 8.8. ICSA-26-258-03 covers mySCADA myPRO Manager 2.1 and earlier, where CVE-2026-73807 (missing authorisation, 9.8) and CVE-2026-82567 could expose privileged management functions or send arbitrary SMS through a connected GSM modem; version 2.2 fixes both. ICSA-26-258-02 covers Wärtsilä FOS-Onboard 5.07.0923.01, where two hard-coded cryptographic keys (CVE-2026-78225 at 9.0 and CVE-2026-81855 at 9.1) could allow unauthorised update delivery, code execution or credential extraction &mdash; Wärtsilä says they are not exploitable when the product is installed as recommended. The rest of the batch: Digital Watchdog VMAX recorders with hard-coded credentials (9.6), CareCam CM2507 cameras with no fix because the vendor did not respond to CISA, Schneider Electric SCADAPack x70 RTUs (6.5), Siemens Mendix SAML (8.7) and Siemens Teamcenter (6.1). CISA also updated its Siemens OpenSSL (ICSA-26-174-03) and SICAM&nbsp;8 (ICSA-26-197-05) advisories.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-off"><span class="d"></span>No known public exploitation &mdash; CISA states for each advisory in the batch that no exploitation specifically targeting these vulnerabilities has been reported to it. Several items, including Reyrolle 7SR5 and SCADAPack x70, republish vendor advisories from the 8 Sep 2026 patch day. <b>Note:</b> CISA scores the Digital Watchdog flaws up to 9.6 but also states they are not exploitable remotely</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixes available for most items &mdash; Reyrolle 7SR5 V2.70, myPRO Manager 2.2, Wärtsilä patch on request, updated Digital Watchdog firmware; no fix for CareCam CM2507</span>
+            <span class="ops-cc"><b>Action:</b> Triage by where the asset sits, not by score. Protection engineers should confirm Reyrolle 7SR5 firmware across substations and schedule V2.70 through the normal relay change process, keeping engineering access to the relays reachable only from the protection network in the meantime. Anyone running mySCADA myPRO Manager should move to 2.2 and check whether a GSM modem is attached &mdash; an SMS path out of a SCADA manager is a notification channel an attacker could abuse. Fleet operators with Wärtsilä FOS-Onboard should confirm the installation matches the vendor&rsquo;s recommended configuration and request the patch. CareCam CM2507 cameras have no fix, so take them off any network that reaches control systems. SCADAPack x70 owners should apply Schneider&rsquo;s role-based access, segmentation and RTU firewall guidance.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Reyrolle 7SR5 and myPRO Manager inventory &mdash; 7 days; firmware and software fixes &mdash; next planned outage; CareCam isolation &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="icsa258" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="icsa258">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-62645</span>
+          <span class="cve-badge">CVE-2026-73807</span>
+          <span>CISA ICS advisories ICSA-26-258-01 through -08, with updates to ICSA-26-174-03 and ICSA-26-197-05, read from CISA&rsquo;s CSAF advisory files</span>
+          <span class="dot">&bull;</span>
+          <span>Published 15 Sep 2026 &mdash; verified 16 Sep 2026, 7:55 AM ET</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-05" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-icsa244" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1557,7 +1679,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled at 4:45&nbsp;AM&nbsp;ET on 16&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources &mdash; CISA ICS advisories and the KEV catalogue, vendor PSIRTs (Schneider Electric, Siemens ProductCERT, Rockwell, Aveva, Cisco, Palo Alto Networks, Broadcom/VMware), the UK NCSC, Australia&rsquo;s ASD, the Canadian Centre for Cyber Security, the NSA, FERC and the Federal Register, the FBI, EPA, DOE CESER and CERT Polska, Dragos, Claroty, Nozomi, Forescout and GreyNoise &mdash; corroborated against SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, MedTech Dive, Industrial Cyber, The Hacker News, TechCrunch, Help Net Security, Dark Reading, GovInfoSecurity, Nextgov/FCW and StateScoop. Wired was not used as a source this run. <b>This edition (16&nbsp;September, 4:45&nbsp;AM&nbsp;ET). Three items are added since the overnight pass. Stadtwerke Landsberg, a Bavarian municipal multi-utility, has confirmed that its central IT was encrypted on 1&nbsp;September while electricity, water and district-heating supply continued to run &mdash; an instructive case of the boundary holding, and of a utility that kept supplying while becoming uncontactable. Six national agencies jointly published guidance on 15&nbsp;September covering seventeen Active Directory attack techniques, which is the route most documented OT intrusions actually take. And FERC&rsquo;s order approving NERC Reliability Standard CIP-014-4 was published in the Federal Register on 15&nbsp;September. Two ageing items were retired to make room. No new confirmed OT-disruptive incident, and no newly exploited ICS product, has been reported since the last pass. The overall threat level holds at 5.9 &mdash; upper Medium, below the High gate, which still requires confirmed OT disruption across more than one environment or sector. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled at 8:00&nbsp;AM&nbsp;ET on 16&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources &mdash; CISA ICS advisories and the KEV catalogue, vendor PSIRTs (Schneider Electric, Siemens ProductCERT, Rockwell, Aveva, Cisco, Palo Alto Networks, Broadcom/VMware), the UK NCSC, Australia&rsquo;s ASD, the Canadian Centre for Cyber Security, the NSA, FERC and the Federal Register, the FBI, EPA, DOE CESER and CERT Polska, Dragos, Claroty, Nozomi, Forescout and GreyNoise &mdash; corroborated against SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, MedTech Dive, Industrial Cyber, The Hacker News, TechCrunch, Help Net Security, Dark Reading, GovInfoSecurity, Nextgov/FCW and StateScoop. Wired was not used as a source this run. <b>This edition (16&nbsp;September, 7:55&nbsp;AM&nbsp;ET).</b> Two advisory cards are added: CERT@VDE&rsquo;s 16&nbsp;September IO-Link master firmware flaws across Phoenix Contact, Pepperl+Fuchs and Carlo Gavazzi, and CISA&rsquo;s 15&nbsp;September ICSA-26-258 batch, now verified against CISA&rsquo;s CSAF advisory files. Corrections: the Cisco Secure&nbsp;FMC top story now follows Talos&rsquo;s wording &mdash; one cluster overlaps in tooling with Sandworm, and the Qilin ransomware cluster entered through CVE-2026-20316, not CVE-2026-20079; Red Heron&rsquo;s Gitea flaw CVE-2026-60004 has been in CISA KEV since 25&nbsp;August. No KEV additions were found for 15 or 16&nbsp;September at the time of writing. The overall threat level holds at 5.9 &mdash; upper Medium, below the High gate, which still requires confirmed OT disruption across more than one environment or sector. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
 </div>

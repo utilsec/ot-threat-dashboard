@@ -646,13 +646,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 15 Sep 2026, 11:17 AM ET</span>
+        <span>Generated Wednesday, 16 Sep 2026, 7:53 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>39</strong> stories across
+      <strong>42</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -678,14 +678,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to drinking water and wastewater utilities. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:56.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, re-derived at 5.6 and nudged up slightly. The confirmed driver is unchanged and still the only one that matters: the FBI and EPA public service announcement of 30&nbsp;July on actors reaching internet-facing Rockwell MicroLogix 1100 and 1400 PLCs at water and wastewater utilities, changing IP addresses and passwords, causing loss of view and in some cases loss of control, with reported pressure loss and flooding. That is a confirmed single-sector OT-disruptive campaign, which sets an upper-Medium ceiling &mdash; but it is now seven weeks old with no new confirmed operational impact reported, so it does not carry full weight. The small increase reflects the access layer tightening around the same utilities: GitLab CVE-2026-85706, CVSS&nbsp;10 and unauthenticated, confirmed exploited and in KEV since 11&nbsp;September, and Red Heron exploiting a Gitea RCE against industrial and government organisations &mdash; both routes into the integrator-held engineering material that describes your plant. Roughly 4,400 controllers remain internet-exposed. It stays out of High because no new confirmed OT manipulation has been reported and nothing has spread beyond the sector.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:55.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium at 5.5, re-derived from the card set and eased slightly from 5.6. The confirmed driver is still the FBI and EPA public service announcement of 30&nbsp;July on actors reaching internet-facing Rockwell MicroLogix 1100 and 1400 PLCs at water and wastewater utilities, changing IP addresses and passwords and causing loss of view and in some cases loss of control. That is a confirmed single-sector OT-disruptive campaign and sets the upper-Medium ceiling, but it is now seven weeks old with no new confirmed operational impact reported. Nothing in this edition changes that. Stadtwerke Landsberg&rsquo;s ransomware attack encrypted IT only and water supply continued, and the critical mySCADA myPRO Manager advisory and the SCADAPack&nbsp;x70 republication issued by CISA on 15&nbsp;September carry no reported exploitation, so they do not stack upward. The access layer stays active &mdash; Cisco Secure FMC, GitLab CVE-2026-85706 and the Gitea flaw used by Red Heron are all exploited and KEV-listed &mdash; and the FMC activity is now described as Talos published it: a tooling overlap with Sandworm, not an attribution. The Micro-Comm vendor breach and Red Heron&rsquo;s theft of SCADA and HMI source code from an industrial-automation firm keep integrator and supply-chain risk live, but neither has produced a confirmed control-system intrusion. It stays below High because no new confirmed OT manipulation has been reported and nothing has spread beyond the sector.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -695,8 +695,8 @@
 
     <div class="top-story" id="story-cisco-fmc-kev" data-published="2026-09-10">
         <span class="top-story-pill">Top Story</span>
-        <h2>The firewall console that keeps your business network out of SCADA is being exploited by Sandworm and a ransomware crew</h2>
-        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is under active attack. The CVSS&nbsp;10.0 authentication bypass lets a remote, unauthenticated attacker send crafted HTTP requests and take root on the appliance. CISA added it to KEV on 9&nbsp;September with a federal deadline of 12&nbsp;September, now passed. Cisco Talos describes three clusters abusing it, one attributed to the Russian state actor Sandworm deploying Cyclops Blink and one tied to Qilin ransomware. For a water utility the relevance is direct. After July&rsquo;s PLC campaign the advice to the sector was to get controllers off the internet and put a properly configured firewall between business systems and treatment control. FMC is where that firewall is configured, and root on FMC means an attacker can quietly rewrite the rules you are relying on.</p>
+        <h2>The firewall console that keeps your business network out of SCADA is being exploited by a Sandworm-linked APT and a ransomware crew</h2>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is under active attack. The CVSS&nbsp;10.0 authentication bypass lets a remote, unauthenticated attacker send crafted HTTP requests and take root on the appliance. CISA added it to KEV on 9&nbsp;September with a federal deadline of 12&nbsp;September, now passed. Cisco Talos describes three clusters exploiting the FMC flaws: one unattributed; one APT whose tooling overlaps with the Russian actor Sandworm and which deployed a Cyclops Blink variant &mdash; a link, not an attribution to Sandworm; and a ransomware operator that got in through a second flaw, CVE-2026-20316 (static credentials, in KEV since 29&nbsp;July with known ransomware use), and ultimately deployed Qilin. For a water utility the relevance is direct. After July&rsquo;s PLC campaign the advice to the sector was to get controllers off the internet and put a properly configured firewall between business systems and treatment control. FMC is where that firewall is configured, and root on FMC means an attacker can quietly rewrite the rules you are relying on.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Cisco Talos published cluster attribution the same day</span>
@@ -765,7 +765,7 @@
     </svg>
 
       <div class="radar-legend">
-        <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>1</b> Sandworm and Qilin exploiting Cisco Secure FMC, KEV deadline 12 Sep</a>
+        <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>1</b> Sandworm-linked APT and Qilin operator exploiting Cisco Secure FMC</a>
         <a href="#story-schneider-m580"><span class="ld crit"></span><b>2</b> Modicon M580 critical authentication flaw patched</a>
         <a href="#story-mikrotik-exploited"><span class="ld crit"></span><b>3</b> MikroTik RouterOS chain confirmed exploited in the wild</a>
         <a href="#story-kev-8sep"><span class="ld crit"></span><b>4</b> N-able N-central CVSS 10 exploited, added to KEV</a>
@@ -853,6 +853,35 @@
         </div>
         <a href="https://www.fbi.gov/investigate/cyber/alerts/2026/malicious-cyber-actors-targeting-water-and-wastewater-sector-internet--facing-programmable-logic-controllers-causing-operational-disruptions" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+<div class="card" id="story-stadtwerke-landsberg" data-published="2026-09-07">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; Ransomware at a German utility supplying electricity and water</span>
+        </div>
+        <h3>A Bavarian utility lost its IT systems to ransomware &mdash; water kept flowing, but customer bank details may be exposed</h3>
+        <p>Stadtwerke Landsberg in Bavaria says attackers encrypted its central IT systems overnight into 1&nbsp;September in what it calls a targeted criminal cyberattack. The utility&rsquo;s own press releases confirm the incident and a rebuild under way, and The Record, citing the utility, reports that electricity, water and other essential services kept running; the visible disruption was limited phone and email contact. On 7&nbsp;September the utility posted a GDPR data-subject notification saying it cannot rule out access to or theft of customer data, including names, addresses, contact details and bank details. No ransomware group has claimed the attack and no extortion demand is known. This is an IT-side incident with no reported operational impact, and it belongs here for that reason: IT was lost while supply continued, which is exactly the outcome separation between business and control systems is meant to buy. Whether it would hold at your utility is worth testing before an incident answers the question.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; IT encryption confirmed by the utility; supply unaffected; no group has claimed it</span>
+            <span class="ops-tag kev-off">No CVE disclosed &mdash; initial access vector not published</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; incident response and recovery</span>
+            <span class="ops-cc"><b>Action:</b> Run this scenario as a tabletop: central IT, email and phones are encrypted overnight. Can treatment and distribution run, be monitored and be staffed without them, and for how long? Look for control-system dependencies hiding on the business side &mdash; a shared directory service, a historian or remote-access server on the corporate domain, alarm call-outs routed through corporate email. Confirm customer billing and bank data is separated from both, and draft the breach-notification process and customer message now rather than during recovery.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IT-loss tabletop and dependency review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-landsberg" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-landsberg">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Stadtwerke Landsberg press releases and GDPR notice, reported by The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Attack 1 Sep 2026; GDPR notice posted 7 Sep 2026</span>
+        </div>
+        <a href="https://www.stadtwerke-landsberg.de/pressemitteilungen/cyber-angriff-auf-stadtwerke-landsberg-ku-wiederaufbau-laeuft" class="source-link" target="_blank" rel="noopener">Stadtwerke Landsberg</a>
+      </div>
 <div class="card" id="story-microcomm" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -897,14 +926,14 @@
           <span class="category">Threat intel &mdash; Code repositories at industrial suppliers</span>
         </div>
         <h3>A China-linked crew is emptying self-hosted code servers &mdash; and one of the hauls was SCADA and HMI source code</h3>
-        <p>Acronis researchers describe a campaign they attribute, with moderate confidence, to a China-nexus actor they call Red Heron, exploiting a critical remote code execution flaw in the self-hosted Gitea code-repository platform (CVE-2026-60004) since 29&nbsp;July&nbsp;2026. The actor scanned 1,386 internet-facing Gitea instances across seven countries and confirmed compromises at 13 organisations in six of them. Two victims should concern industrial operators directly: a Taiwanese industrial-automation company whose stolen repositories covered SCADA and HMI tooling, IoT platform integrations and network-monitoring products, and a Canadian renewable-energy firm that lost infrastructure maps, configuration secrets, SSH host keys and internal tokens. The intrusions carried a custom implant, JITTERLY, with an embedded Linux rootkit supporting more than thirty post-exploitation commands. For a water utility the exposure is second-hand but real, because the repository at risk is almost never yours &mdash; it is your integrator&rsquo;s. Ladder logic, HMI projects, network diagrams, VPN configurations and device passwords for dozens of small systems routinely sit in one self-hosted Git server that nobody involved treats as critical infrastructure.</p>
+        <p>Acronis researchers describe a campaign they attribute, with moderate confidence, to a China-nexus actor they call Red Heron, exploiting a critical remote code execution flaw in the self-hosted Gitea code-repository platform (CVE-2026-60004) since 29&nbsp;July&nbsp;2026. Confirmed compromises number at least 11 organisations &mdash; Acronis counts 11 targets in five countries, while The Hacker News reports 13 in six. Two victims should concern industrial operators directly: a Taiwanese industrial-automation company whose stolen repositories covered SCADA and HMI tooling, IoT platform integrations and network-monitoring products, and a Canadian renewable-energy firm that lost infrastructure maps, configuration secrets, SSH host keys and internal tokens. The intrusions carried a custom implant, JITTERLY, with an embedded Linux rootkit supporting more than thirty post-exploitation commands. For a water utility the exposure is second-hand but real, because the repository at risk is almost never yours &mdash; it is your integrator&rsquo;s. Ladder logic, HMI projects, network diagrams, VPN configurations and device passwords for dozens of small systems routinely sit in one self-hosted Git server that nobody involved treats as critical infrastructure.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; compromises verified at 13 organisations across six countries; the Red Heron attribution itself is moderate confidence, resting on Chinese-language artefacts and tradecraft</span>
-            <span class="ops-tag kev-off">CVE-2026-60004 in Gitea &mdash; vendor patch available; not listed in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; compromises verified at at least 11 organisations (sources differ: 11 in five countries per Acronis, 13 in six per The Hacker News); the Red Heron attribution itself is moderate confidence, resting on Chinese-language artefacts and tradecraft</span>
+            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-60004 added 25 Aug 2026; federal remediation deadline 28 Aug 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; update self-hosted Gitea, restrict open self-registration, and review accounts and tokens created since late July 2026</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed in Gitea 1.27.1; update self-hosted Gitea, restrict open self-registration, and review accounts and tokens created since late July 2026</span>
             <span class="ops-cc"><b>Action:</b> Put three questions to your SCADA integrator and controls contractor in writing: do you self-host a code repository, is it reachable from the internet, and is our plant material in it. If the first two answers are yes, ask when it was patched and whether accounts and tokens created since 29&nbsp;July have been reviewed. Then reduce what a breach there would be worth to an attacker: require that any credential stored in their repository is unique to your site and revocable by you, rotate the remote-access secrets they hold, and keep your own last known-good controller programs and HMI projects offline in your possession rather than only on their server. Apply the same test to yourself if you keep configurations in a repository of your own.</span>
           </div>
           <div class="ops-row ops-assign">
@@ -914,7 +943,7 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Acronis threat intelligence, reported by The Hacker News and Industrial Cyber</span>
+          <span>Acronis TRU research of 13 Sep 2026, reported by The Hacker News and Industrial Cyber</span>
           <span class="dot">&bull;</span>
           <span>Reported 14&ndash;15 Sep 2026; exploitation observed from 29 Jul 2026 onward</span>
         </div>
@@ -1311,6 +1340,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-myscada-mypro" data-published="2026-09-15">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Critical Advisory &mdash; SCADA management software, CISA ICSA-26-258-03</span>
+        </div>
+        <h3>A CVSS 9.8 flaw in mySCADA myPRO Manager could hand an attacker the management functions &mdash; and the SMS modem behind them</h3>
+        <p>CISA published advisory ICSA-26-258-03 on 15&nbsp;September covering mySCADA myPRO Manager version&nbsp;2.1 and earlier. CVE-2026-73807 is a missing-authorization flaw scored CVSS&nbsp;v3 9.8, and CVE-2026-82567, scored 6.3, is missing authentication for a critical function. Together they could let an attacker reach privileged management functions or send arbitrary SMS messages through a connected GSM modem. CISA lists water and wastewater among the affected sectors, alongside energy, critical manufacturing, food and agriculture, and transportation. The fix is version&nbsp;2.2, and CISA reports no known public exploitation. For a utility the SMS path deserves as much attention as the console: if on-call alarm texts go out through that modem, messages an attacker can send through it could muddy the alarms operators rely on at night. CISA&rsquo;s machine-readable record for this advisory batch was posted to its public CSAF repository on 15&nbsp;September and was still awaiting merge when this edition was compiled.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation reported to CISA as of this edition</span>
+            <span class="ops-tag kev-off">CVE-2026-73807 (CVSS 9.8) and CVE-2026-82567 (6.3) &mdash; not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fix available &mdash; upgrade myPRO Manager to version 2.2</span>
+            <span class="ops-cc"><b>Action:</b> Find out whether myPRO Manager runs anywhere in your estate or in your integrator&rsquo;s remote-support setup, including at remote sites, and record its version. Anything at 2.1 or earlier goes to 2.2. Until then, make sure the management interface is not reachable from the internet or the business network and is limited to the engineering workstations that need it. If a GSM modem is attached for alarm texts, review its outbound message history for messages your system did not generate, and remind on-call staff to confirm an unexpected alarm text against the HMI before acting on it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory, exposure check and upgrade to v2.2 &mdash; 7 days; SMS modem history review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-myscada-mypro" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-myscada-mypro">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisory ICSA-26-258-03 (CSAF record in CISA&rsquo;s public repository, pending merge at compile time)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 15 Sep 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-03" class="source-link" target="_blank" rel="noopener">CISA</a>
+      </div>
 <div class="card" id="story-gitlab-85706-kev" data-published="2026-09-14">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1378,11 +1436,11 @@
           <span class="category">Advisory &mdash; RTUs at water and wastewater remote sites</span>
         </div>
         <h3>Schneider&rsquo;s SCADAPack x70 RTUs protect stored credentials too weakly &mdash; and these are the boxes at your well fields and lift stations</h3>
-        <p>Alongside the Modicon&nbsp;M580 authentication flaw in the same 8&nbsp;September round, Schneider Electric issued advisory SEVD-2026-251-03 covering insufficiently protected credentials in the SCADAPack x70 family &mdash; the 47x, 47xi, 47xd, 470R and 57x remote terminal units. Schneider rates it medium and on its own terms that is fair: an attacker has to reach the device or the traffic to it before the weakness is worth anything. The reason it belongs on a water dashboard is what that access buys in a sector where one credential is usually the whole fleet&rsquo;s credential. SCADAPack RTUs are the standard workhorse at unstaffed remote sites &mdash; well fields, lift stations, booster stations, tank and reservoir telemetry &mdash; and they are also among the devices most likely to sit behind a cellular modem with a public address. Set that against the documented technique of the July campaign, where actors who reached internet-facing controllers changed passwords and IP addresses to lock operators out, and a credential recoverable from one roadside cabinet stops reading like a medium-severity abstraction.</p>
+        <p>Alongside the Modicon&nbsp;M580 authentication flaw in the same 8&nbsp;September round, Schneider Electric issued advisory SEVD-2026-251-03 covering insufficiently protected credentials in the SCADAPack x70 family &mdash; the 47x, 47xi, 47xd, 470R and 57x remote terminal units. Schneider rates it medium and on its own terms that is fair: an attacker has to reach the device or the traffic to it before the weakness is worth anything. The reason it belongs on a water dashboard is what that access buys in a sector where one credential is usually the whole fleet&rsquo;s credential. SCADAPack RTUs are the standard workhorse at unstaffed remote sites &mdash; well fields, lift stations, booster stations, tank and reservoir telemetry &mdash; and they are also among the devices most likely to sit behind a cellular modem with a public address. Set that against the documented technique of the July campaign, where actors who reached internet-facing controllers changed passwords and IP addresses to lock operators out, and a credential recoverable from one roadside cabinet stops reading like a medium-severity abstraction. CISA republished the advisory on 15&nbsp;September as ICSA-26-258-04, scoring the flaw CVSS&nbsp;v3 6.5, reporting no known public exploitation, and recommending role-based access control, network segmentation and the RTU&rsquo;s own firewall service as mitigations.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">No known exploitation reported as of this edition &mdash; the flaw requires prior access to the RTU or to the traffic reaching it</span>
-            <span class="ops-tag kev-off">CVE-2026-81861 &mdash; not in CISA KEV as of this edition; no numeric CVSS score published in the advisory material reviewed</span>
+            <span class="ops-tag kev-off">CVE-2026-81861, CVSS&nbsp;v3 6.5 per CISA &mdash; not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fix available &mdash; remediation is published under Schneider advisory SEVD-2026-251-03 for the affected SCADAPack 47x, 47xi, 47xd, 470R and 57x units</span>
@@ -1395,9 +1453,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Schneider Electric security notification SEVD-2026-251-03, issued in the September 2026 ICS advisory round</span>
+          <span>Schneider Electric security notification SEVD-2026-251-03, republished by CISA as ICSA-26-258-04</span>
           <span class="dot">&bull;</span>
-          <span>Published 8 Sep 2026 &mdash; verified 15 Sep 2026</span>
+          <span>Published 8 Sep 2026; CISA republication 15 Sep 2026</span>
         </div>
         <a href="https://www.se.com/ww/en/work/support/cybersecurity/security-notifications/" class="source-link" target="_blank" rel="noopener">Schneider Electric</a>
       </div>
@@ -1790,6 +1848,35 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+<div class="card" id="story-nascio-gdit" data-published="2026-09-11">
+        <div class="card-header">
+          <span class="severity sev-low">Low</span>
+          <span class="category">Policy &mdash; State capacity to defend water and energy infrastructure</span>
+        </div>
+        <h3>States report they lack the money and staff to defend water and energy systems</h3>
+        <p>A report from NASCIO and GDIT released on 11&nbsp;September finds that state and local governments do not have the funding or staff to protect water, energy and other critical sectors, and cites the July 2026 Iran-linked water system campaign as context. Its recommendations are to inventory high-risk critical infrastructure, set baseline hygiene standards, require incident reporting, and expand shared services for local entities. It is a policy document rather than threat intelligence, but it matters to a small water system for a practical reason: the state programmes many utilities expect to lean on are saying they are stretched too.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not an exploitation item &mdash; state and local policy report</span>
+            <span class="ops-tag kev-off">No CVE &mdash; policy analysis</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the gap described is funding and staffing</span>
+            <span class="ops-cc"><b>Action:</b> Get ahead of the recommendations rather than waiting for them to become requirements: keep your inventory of high-risk assets current, measure yourself against a recognised baseline hygiene standard, and decide now how and to whom you would report an incident. Ask your state what shared security services exist for local utilities and how to get in line for them.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review of state shared-service options &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-nascio-gdit" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-nascio-gdit">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>NASCIO and GDIT report, reported by Cybersecurity Dive</span>
+          <span class="dot">&bull;</span>
+          <span>Published 11 Sep 2026</span>
+        </div>
+        <a href="https://www.cybersecuritydive.com/news/state-infrastructure-resources-cyberthreats/830178/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive</a>
+      </div>
 <div class="card" id="story-enisa-cra-srp" data-published="2026-09-14">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -2031,7 +2118,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Water &amp; Wastewater.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled at 11:00&nbsp;AM&nbsp;ET on 15&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources and reputable security reporting. Primary material this run: CISA ICS advisories and the Known Exploited Vulnerabilities catalog, including the KEV additions of 8&nbsp;September&nbsp;2026 (N-able N-central CVE-2026-86218, the two exploited Windows zero-days and the Adobe Commerce flaw) and the earlier September ICS advisory batches; Schneider Electric&rsquo;s 8&nbsp;September advisories covering Modicon&nbsp;M580 and M580 Safety, PowerLogic&nbsp;T300, EcoStruxure IT Data Center Expert and SCADAPack&nbsp;x70; Siemens ProductCERT, including SSA-142885 on the Reyrolle&nbsp;7SR5 family; Rockwell Automation advisories; and Inductive Automation. Research and analysis from Forescout Vedere Labs on AI-assisted porting of PLC exploits, alongside DOE and Sandia National Laboratories work on AI-assisted grid and cyber-physical threat detection. Reporting and corroboration drawn from SecurityWeek, Industrial Cyber, Cybersecurity Dive, The Record, BleepingComputer, CyberScoop and The Hacker News, with policy and regulatory material &mdash; including the McCrary Institute and US Chamber of Commerce analysis of federal incident-reporting fragmentation &mdash; reported factually and without partisan framing. Wired was not used for this edition. Every item links to its primary or best-available accessible source; vendor and federal attribution is presented as an official assessment rather than proven attribution, and claimed incidents are labelled as claimed. For this 14&nbsp;September run the sector sources above were re-queried across the 13&ndash;14&nbsp;September window &mdash; CISA ICS advisories and the KEV catalog, WaterISAC and EPA material, Schneider Electric, Siemens and Rockwell PSIRT output, CERT Polska, and the trade and general security press &mdash; and returned no new confirmed water or wastewater incident. Three items were added, all on the remote-access tier that reaches plant networks rather than in the water sector itself: CISA added five actively exploited flaws in JFrog Artifactory, ConnectWise ScreenConnect and MikroTik RouterOS to the KEV catalog on 12&nbsp;September, which also moves the existing MikroTik card from no-KEV to KEV-listed with a 13&nbsp;September federal deadline; the Dutch NCSC assessed exploitation of two CVSS&nbsp;9.8 Check&nbsp;Point VPN flaws patched on 9&nbsp;September as imminent, which is recorded as a forecast rather than observed activity; and the EU Cyber Resilience Act&rsquo;s vulnerability and incident reporting obligations took effect on 11&nbsp;September. The remaining cards carry forward with dates and deadline wording re-checked. Held out again this run: a syndicated AI-generated OT digest carrying a &ldquo;Midwest water treatment facility ransomware&rdquo; item and a &ldquo;Siemens S7-1200 exploited in remote attacks&rdquo; item whose cited source URLs do not resolve to any published article; both were re-tested against primary vendor and outlet sources and remain excluded. The threat level was re-derived from the current card set at 5.5, Medium. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe to CISA, WaterISAC and your vendors&rsquo; PSIRT feeds directly. <strong>Prior run (11&nbsp;September&nbsp;2026, 8:00&nbsp;AM&nbsp;ET).</strong> A roughly twenty-hour incremental on the 10&nbsp;September edition. Re-queried CISA ICS advisories and the KEV catalog, WaterISAC and water-sector reporting, Schneider Electric and Siemens PSIRT output, CERT Polska, Cisco Talos, and the OT trade press including SecurityWeek, Industrial Cyber and ISSSource. What changed state: CERT Polska confirmed on 9&nbsp;September that the MikroTik RouterOS &ldquo;MikroTrick&rdquo; chain is being exploited in the wild, which is added here as a new card; CISA published ICSA-26-253-01 on 10&nbsp;September covering the four Aveva Pipeline Integrity Monitor flaws, folded into the existing September Patch Tuesday card with its CVE identifiers and fixed build rather than duplicated; and the Cisco Secure FMC item was promoted to the top story, being the only actively exploited, KEV-listed flaw on the board and carrying a 12&nbsp;September federal deadline. The Schneider SCADAPack&nbsp;x70 telemetry defect from the same September cycle is described at the level the available reporting supports &mdash; no CVE identifier or CVSS vector appeared in the secondary sources reviewed, so none is stated here. Retired: the 12&nbsp;August Siemens SIMATIC IoT2050 advisory, on age with no change of state. Held out: an item headlined as a major cyberattack on Midwest water utilities, circulating in an AI-generated news digest, which could not be traced to any primary source and appears to be a re-paraphrase of the already-carried multi-state PLC campaign. No new confirmed water or wastewater incident was found in this window, and the multi-state PLC campaign, the CRS analysis and Watershed&nbsp;250 show no reported movement. The threat level was re-derived from the card set and held at 5.4, Medium. For this 15&nbsp;September edition the sources above were re-queried and five items were added: the actively exploited GitLab path-traversal flaw CVE-2026-85706 and its 11&nbsp;September KEV listing, Nozomi&rsquo;s four PROFINET DCP flaws in the Siemens SCALANCE LPE9403, ENISA&rsquo;s Single Reporting Platform going live under the Cyber Resilience Act, Comparitech&rsquo;s record August ransomware figures, the Industrial Cyber analysis of cyber-informed engineering, and renewed attention to the exposed-PLC and remote-access gap at small water and electric utilities. No new confirmed operational impact in the water sector was reported since the FBI and EPA advisory.</p>
+    <p><strong>Methodology.</strong> Compiled on 16&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources and reputable security reporting. Primary material this run: CISA ICS advisories and the Known Exploited Vulnerabilities catalog, including the KEV additions of 8&nbsp;September&nbsp;2026 (N-able N-central CVE-2026-86218, the two exploited Windows zero-days and the Adobe Commerce flaw) and the earlier September ICS advisory batches; Schneider Electric&rsquo;s 8&nbsp;September advisories covering Modicon&nbsp;M580 and M580 Safety, PowerLogic&nbsp;T300, EcoStruxure IT Data Center Expert and SCADAPack&nbsp;x70; Siemens ProductCERT, including SSA-142885 on the Reyrolle&nbsp;7SR5 family; Rockwell Automation advisories; and Inductive Automation. Research and analysis from Forescout Vedere Labs on AI-assisted porting of PLC exploits, alongside DOE and Sandia National Laboratories work on AI-assisted grid and cyber-physical threat detection. Reporting and corroboration drawn from SecurityWeek, Industrial Cyber, Cybersecurity Dive, The Record, BleepingComputer, CyberScoop and The Hacker News, with policy and regulatory material &mdash; including the McCrary Institute and US Chamber of Commerce analysis of federal incident-reporting fragmentation &mdash; reported factually and without partisan framing. Wired was not used for this edition. Every item links to its primary or best-available accessible source; vendor and federal attribution is presented as an official assessment rather than proven attribution, and claimed incidents are labelled as claimed. <strong>This edition (16&nbsp;September&nbsp;2026).</strong> CISA&rsquo;s 15&nbsp;September ICS advisory batch, the KEV catalog (no additions on 15 or 16&nbsp;September at compile time), vendor PSIRTs and water-sector reporting were re-checked. Added: mySCADA myPRO Manager (ICSA-26-258-03), the Stadtwerke Landsberg ransomware incident, and the NASCIO/GDIT state-capacity report. Updated: SCADAPack&nbsp;x70 with CISA&rsquo;s republication and CVSS score; Red Heron with its KEV listing and a victim count of at least 11 organisations; and the Cisco FMC top story, where Talos describes a Sandworm tooling overlap rather than a Sandworm attribution and ties the Qilin operator to CVE-2026-20316. Threat level re-derived at 5.5, Medium. Not a replacement for ICS-CERT subscriptions or sector ISAC membership &mdash; for time-critical advisories, subscribe to CISA, WaterISAC and your vendors&rsquo; PSIRT feeds directly.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
