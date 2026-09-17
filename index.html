@@ -648,13 +648,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wed, 16 Sep 2026, 6:30 PM ET</span>
+        <span>Generated Wed, 16 Sep 2026, 8:45 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>23</strong> stories across
+      <strong>21</strong> stories across
 
       <strong>4</strong> categories
     </div>
@@ -681,14 +681,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to operators across all critical-infrastructure sectors. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity that is currently live. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:58%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 5.8 on this 16&nbsp;September evening pass &mdash; mid-to-upper Medium, still held under the no-advisory-stacking cap. No OT-disruptive incident is live anywhere on the page and no nation-state actor is currently hands-on a control system, so the High gate stays shut. What moved the score up a tenth is a fourth actively-exploited authentication bypass, and the worst-placed one yet: Cisco disclosed CVE-2026-76460 in Identity Services Engine at 4:00&nbsp;PM&nbsp;GMT today &mdash; CVSS&nbsp;10.0, unauthenticated, root, no workaround, already exploited in the wild and in KEV the same day. ISE is the policy engine that decides which device lands in which VLAN, which is how a great many plants enforce the IT/OT boundary. It joins Cisco Secure&nbsp;FMC CVE-2026-20079 (three Talos clusters, one Sandworm-linked, one ending in Qilin), Cisco Secure Email Gateway CVE-2026-76461, whose federal KEV deadline falls tomorrow, and WSO2 API Manager CVE-2026-5430. VMware vCenter CVE-2026-59310 remains flagged for ransomware use, which matters because historian, HMI and engineering virtual machines usually share that cluster. The two operational anchors keeping this clear of Low are unchanged and ageing: the 100-plus internet-exposed water systems reached through their PLCs, and the small UK generating station run manually for four days. Exposure keeps accumulating and by design does not aggregate upward. Confirmed OT disruption in a second sector moves this to High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:59%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 5.9 on this 16&nbsp;September evening pass &mdash; the top of the Medium band and hard against the no-advisory-stacking cap. What moved it is the first confirmed compromise to surface in a second sector: the Coast Guard and FBI put cyber teams aboard two US-bound energy tankers on 21 and 24&nbsp;August after the networks of both ships were found compromised, and disclosed it today. That is a confirmed intrusion into vessel IT and OT inside an energy supply chain, with a suspected nation-state hand &mdash; but the agencies report no operational disruption, no loss of vessel stability and no environmental impact, so it counts as exposure rather than an OT-disruptive incident and the High gate stays shut. Beneath it sits a four-week run of actively-exploited authentication bypasses in exactly the gear that enforces the IT/OT boundary: Cisco Secure&nbsp;FMC CVE-2026-20079, with one Talos cluster overlapping Sandworm tooling and another ending in Qilin; Cisco Identity Services Engine CVE-2026-76460 at CVSS&nbsp;10.0 with no workaround; Cisco Secure Email Gateway CVE-2026-76461, whose federal KEV deadline falls tomorrow; and VMware vCenter CVE-2026-59310, now flagged for ransomware use, which matters because historian, HMI and engineering virtual machines usually share that cluster. The two operational anchors keeping this clear of Low are unchanged and ageing: 100-plus internet-exposed water systems reached through their PLCs, and a small UK generating station run by hand for four days. Confirmed OT disruption in a second sector moves this to High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -698,33 +698,31 @@
 
     <!-- TOP STORY -->
 
-    <div class="top-story" id="story-fmc" data-published="2026-09-10">
+    <div class="top-story" id="story-tankers" data-published="2026-09-16">
         <span class="top-story-pill">Top Story</span>
-        <h2>A Sandworm-linked APT and a Qilin ransomware operator are exploiting Cisco firewall management: a critical auth bypass, exploited since August</h2>
-        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 &mdash; a critical authentication bypass in Secure Firewall Management Center, patched back in March &mdash; has been exploited since August. Crafted HTTP requests reach a process created at boot and hand an unauthenticated attacker root on the appliance that configures your firewalls. Cisco Talos tracks three activity clusters across this flaw and a second FMC bug, CVE-2026-20316: one harvesting credentials with a web shell; an APT whose tooling overlaps with Sandworm, delivering a Cyclops&nbsp;Blink variant; and a ransomware operator that came in through CVE-2026-20316 and ultimately deployed Qilin. The KEV remediation deadline of 12&nbsp;September has now passed. For OT defenders the significance is not the firewall &mdash; it is the management plane above it. Whoever holds FMC holds the rule set separating enterprise from plant, and can rewrite it without touching a single controller.</p>
+        <h2>Federal cyber teams boarded two US-bound energy tankers at sea after both ships&rsquo; networks were found compromised</h2>
+        <p>The Coast Guard and FBI confirmed on 16&nbsp;September that joint offshore security boardings took place in the Gulf of Mexico on 21 and 24&nbsp;August, after indications that the networks of two foreign-flagged commercial tankers bound for US ports had been compromised. Teams of Coast Guard law enforcement officers, Cyber Protection Team members, a vessel inspector and FBI Cyber Action Team operators went aboard each ship to establish the integrity of both the operational and the information technology systems. Reporting places the vessels as oil and gas carriers, with the first hacked near the Strait of Gibraltar and out of communication for more than thirty hours. Investigators are weighing whether Iran, or an opportunist riding the same conflict, was responsible. The agencies report no operational disruption, no loss of vessel stability and no environmental impact.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; Cisco updated its advisory for CVE-2026-20079 on 9 Sep 2026 to state it became aware of active exploitation in August 2026; the flaw was patched in early March 2026 and the advisory had already been updated in late July with indicators of compromise, without an exploitation warning at that time. Cisco Talos reported on 9 Sep 2026 that it is tracking three activity clusters abusing CVE-2026-20079 and the separate FMC flaw CVE-2026-20316: UAT-12197, which deployed a web shell and a malicious JAR file to harvest authentication data and credentials; UAT-11823, an APT actor that Talos says overlaps in tooling with Sandworm (Talos does not say Sandworm itself carried out the activity), which used both CVE-2026-20079 and CVE-2026-20316 to deliver a variant of the Cyclops Blink malware capable of file transfer, credential harvesting, command execution and network reconnaissance; and UAT-11988, which Talos assesses as a ransomware operator with TTPs consistent with Qilin affiliates, which used only CVE-2026-20316 (logging in with static credentials) for reconnaissance, credential theft and building target lists for encryption before ultimately deploying Qilin ransomware. SecurityWeek&rsquo;s 10 Sep 2026 write-up of the Talos findings restates all three clusters and the 12 Sep 2026 KEV deadline; no additional cluster, victim or OT-side impact has been reported since. This is the third Secure FMC flaw added to KEV in 2026. <b>Confirmed vs claimed:</b> exploitation is confirmed by the vendor and by CISA; the actor attributions are Talos assessments, and no OT-side impact has been reported to date</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 9 Sep 2026 alongside Citrix NetScaler CVE-2026-19490, Fortinet CVE-2025-25249 and Chromium CVE-2026-87491; federal remediation was due 12 Sep 2026 and that deadline has now passed. The companion flaw CVE-2026-20316 has been in KEV since 29 Jul 2026 (due 1 Aug 2026) and is flagged for known ransomware use</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; the Coast Guard and FBI issued a joint statement on Wednesday 16 Sep 2026 saying the two joint offshore security boardings of commercial vessels in the Gulf of Mexico on 21 and 24 Aug 2026 were carried out to ensure the integrity of each vessel&rsquo;s operational and information technology systems, following indications that the networks of both vessels had been compromised. Each boarding party comprised Coast Guard law enforcement personnel, a Coast Guard Cyber Protection Team, a vessel inspector and FBI Cyber Action Team operators. The agencies state there are currently no reports of operational disruptions, vessel instability, physical danger to crews or environmental impacts, and that the Coast Guard is coordinating with port operators, vessel owners and local maritime stakeholders so that port operations continue. Separate reporting identifies the ships as tankers carrying oil and natural gas, and says the first was compromised in the Strait of Gibraltar and lost communications for over 30 hours. <b>Confirmed vs claimed:</b> the boardings, the network compromises and the absence of operational impact are confirmed by the two agencies; the cargo detail and the Gibraltar timeline come from press reporting, and the suggestion that Iran or a third party exploiting the Iran&ndash;US conflict was responsible is an unattributed line of investigation, not a finding. No vendor, product or vulnerability has been named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; no vulnerability has been published for this activity and the initial access vector has not been disclosed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Patch now &mdash; fixes have been available since early March 2026; restricting the FMC web interface from the internet substantially reduces exposure</span>
-            <span class="ops-cc"><b>Action:</b> Treat this as a management-plane compromise question, not a firewall patch. First establish whether your FMC web interface has ever been reachable from the internet, and take it off immediately if so &mdash; that single change is what separates &ldquo;patch on the next window&rdquo; from &ldquo;assume breach.&rdquo; Confirm the build is at or past the March fix, then hunt rather than close the ticket: Cisco published IoCs for this CVE in late July, so pull FMC logs and any surviving forensic images back to at least 1 August and look for web shells, unexpected JAR files, new local accounts and outbound connections from the appliance itself. Because root on FMC means control of the policy that separates enterprise from plant, export the current firewall rule set and diff it against your last known-good configuration &mdash; specifically the rules governing traffic into OT zones, any newly permitted management or remote-access paths, and logging suppression. Rotate every credential the appliance holds or has proxied, including device management accounts and any shared service accounts used by the managed firewalls. If FMC also administers the boundary firewalls in front of your DMZ or plant network, brief the process-safety and operations owners: a silently rewritten rule is an OT exposure even when no controller was touched.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; this is a shipboard segregation, remote-access and shore-interface question, and for terminals it is a third-party access question</span>
+            <span class="ops-cc"><b>Action:</b> If you operate or receive at a marine terminal, the useful reframing is that a vessel is a mobile OT site you do not own and cannot patch, which docks against your plant for hours at a time. Start by writing down what actually connects when a ship is alongside: loading-arm and metering interfaces, cargo transfer control and quantity measurement, shore power where fitted, terminal Wi-Fi or cellular offered to the crew, the agent&rsquo;s laptop used for documentation, and any link carrying custody-transfer figures. Each of those is a potential path from a compromised vessel network into terminal OT; treat the ship side as untrusted by default and make sure nothing on the terminal side depends on the ship for a safety or shutdown function. Second, confirm your terminal can fall back to manual cargo-transfer control and independent quantity verification if the shore interface has to be isolated mid-operation, and rehearse who holds authority to stop a transfer on a cyber indication rather than a mechanical one &mdash; that authority is usually unassigned. Third, if you operate or manage vessels, this is the case for treating the integrated navigation, cargo, ballast and power management systems as OT with a named owner rather than as ship IT: segregated from crew and business networks, with remote vendor access brokered and logged, offline copies of charts and configurations, and a written procedure for prolonged loss of satellite communications. Finally, exercise the reporting path now &mdash; the Coast Guard expects maritime cyber incidents to reach the National Response Center, and that call is worth most before the logs have rolled.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Confirm FMC internet exposure and patch level &mdash; 24 hours; compromise hunt against Cisco IoCs back to 1 Aug and firewall rule-set diff &mdash; 7 days; credential rotation for FMC and every managed firewall &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fmc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fmc">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Map every ship-to-shore data and control interface at each berth and classify trust &mdash; 14 days; confirm and drill manual cargo-transfer fallback with stop authority on a cyber indication &mdash; 30 days; review vessel or charter-partner cyber requirements and incident-reporting routes into the National Response Center &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="tankers" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="tankers">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20079</span>
-          <span class="cve-badge">CVE-2026-20316</span>
-          <span>Cisco security advisory and Cisco Talos, plus CISA KEV catalog, reported by SecurityWeek</span>
+          <span>US Coast Guard and FBI joint statement, reported by CyberScoop; vessel, cargo and Gibraltar detail from ABC News and Bloomberg</span>
           <span class="dot">&bull;</span>
-          <span>Patched Mar 2026; exploitation began Aug 2026; Cisco and Talos disclosure and KEV addition 9 Sep 2026; reported 10 Sep 2026, 6:06 AM ET; KEV remediation deadline 12 Sep 2026, now passed &mdash; re-verified 15 Sep 2026, 4:00 PM ET</span>
+          <span>Boardings 21 and 24 Aug 2026; agencies&rsquo; joint statement and reporting 16 Sep 2026, 10:48 AM ET</span>
         </div>
-        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cyberscoop.com/coast-guard-fbi-investigate-tanker-cyberattacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -753,39 +751,35 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-fmc"><circle class="blip crit" cx="180.0" cy="95.0" r="15.00"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.7">1</text></a>
-        <a href="#story-ise"><circle class="blip crit" cx="230.0" cy="111.2" r="14.50"/><text class="blip-num" style="font-size:13.1px" x="230.0" y="115.8">2</text></a>
-        <a href="#story-esa"><circle class="blip crit" cx="260.8" cy="153.7" r="14.00"/><text class="blip-num" style="font-size:12.6px" x="260.8" y="158.1">3</text></a>
-        <a href="#story-vcenter"><circle class="blip crit" cx="260.8" cy="206.3" r="13.50"/><text class="blip-num" style="font-size:12.2px" x="260.8" y="210.5">4</text></a>
-        <a href="#story-wso2"><circle class="blip crit" cx="230.0" cy="248.8" r="13.00"/><text class="blip-num" style="font-size:11.7px" x="230.0" y="252.8">5</text></a>
-        <a href="#story-cisaexp"><circle class="blip crit" cx="180.0" cy="265.0" r="12.50"/><text class="blip-num" style="font-size:11.2px" x="180.0" y="268.9">6</text></a>
-        <a href="#story-ukgen"><circle class="blip crit" cx="130.0" cy="248.8" r="12.00"/><text class="blip-num" style="font-size:10.8px" x="130.0" y="252.5">7</text></a>
-        <a href="#story-screenconnect"><circle class="blip crit" cx="99.2" cy="206.3" r="11.50"/><text class="blip-num" style="font-size:10.3px" x="99.2" y="209.9">8</text></a>
-        <a href="#story-iolink"><circle class="blip crit" cx="99.2" cy="153.7" r="11.00"/><text class="blip-num" style="font-size:9.9px" x="99.2" y="157.2">9</text></a>
-        <a href="#story-patchtue"><circle class="blip crit" cx="130.0" cy="111.2" r="10.50"/><text class="blip-num" style="font-size:9.5px" x="130.0" y="114.5">10</text></a>
-        <a href="#story-redheron"><circle class="blip high" cx="180.0" cy="35.0" r="9.00"/><text class="blip-num" style="font-size:8.1px" x="180.0" y="37.8">11</text></a>
-        <a href="#story-iranexp"><circle class="blip high" cx="317.9" cy="135.2" r="8.50"/><text class="blip-num" style="font-size:7.7px" x="317.9" y="137.9">12</text></a>
-        <a href="#story-aveva"><circle class="blip high" cx="265.2" cy="297.3" r="8.00"/><text class="blip-num" style="font-size:7.2px" x="265.2" y="299.8">13</text></a>
-        <a href="#story-icsa258"><circle class="blip high" cx="94.8" cy="297.3" r="7.50"/><text class="blip-num" style="font-size:6.8px" x="94.8" y="299.7">14</text></a>
-        <a href="#story-scalance"><circle class="blip high" cx="42.1" cy="135.2" r="7.00"/><text class="blip-num" style="font-size:6.3px" x="42.1" y="137.4">15</text></a>
+        <a href="#story-tankers"><circle class="blip crit" cx="180.0" cy="95.0" r="15.00"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.7">1</text></a>
+        <a href="#story-fmc"><circle class="blip crit" cx="234.6" cy="114.9" r="14.50"/><text class="blip-num" style="font-size:13.1px" x="234.6" y="119.4">2</text></a>
+        <a href="#story-ise"><circle class="blip crit" cx="263.7" cy="165.2" r="14.00"/><text class="blip-num" style="font-size:12.6px" x="263.7" y="169.6">3</text></a>
+        <a href="#story-esa"><circle class="blip crit" cx="253.6" cy="222.5" r="13.50"/><text class="blip-num" style="font-size:12.2px" x="253.6" y="226.7">4</text></a>
+        <a href="#story-vcenter"><circle class="blip crit" cx="209.1" cy="259.9" r="13.00"/><text class="blip-num" style="font-size:11.7px" x="209.1" y="263.9">5</text></a>
+        <a href="#story-cisaexp"><circle class="blip crit" cx="150.9" cy="259.9" r="12.50"/><text class="blip-num" style="font-size:11.2px" x="150.9" y="263.8">6</text></a>
+        <a href="#story-ukgen"><circle class="blip crit" cx="106.4" cy="222.5" r="12.00"/><text class="blip-num" style="font-size:10.8px" x="106.4" y="226.3">7</text></a>
+        <a href="#story-iolink"><circle class="blip crit" cx="96.3" cy="165.2" r="11.50"/><text class="blip-num" style="font-size:10.3px" x="96.3" y="168.8">8</text></a>
+        <a href="#story-patchtue"><circle class="blip crit" cx="125.4" cy="114.9" r="11.00"/><text class="blip-num" style="font-size:9.9px" x="125.4" y="118.3">9</text></a>
+        <a href="#story-redheron"><circle class="blip high" cx="180.0" cy="35.0" r="9.00"/><text class="blip-num" style="font-size:8.1px" x="180.0" y="37.8">10</text></a>
+        <a href="#story-iranexp"><circle class="blip high" cx="325.0" cy="180.0" r="8.50"/><text class="blip-num" style="font-size:7.7px" x="325.0" y="182.7">11</text></a>
+        <a href="#story-icsa258"><circle class="blip high" cx="180.0" cy="325.0" r="8.00"/><text class="blip-num" style="font-size:7.2px" x="180.0" y="327.5">12</text></a>
+        <a href="#story-aveva"><circle class="blip high" cx="35.0" cy="180.0" r="7.50"/><text class="blip-num" style="font-size:6.8px" x="35.0" y="182.3">13</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-fmc"><span class="ld crit"></span><b>1</b> Cisco FMC exploited &mdash; Sandworm, Qilin</a>
-        <a href="#story-ise"><span class="ld crit"></span><b>2</b> Cisco ISE CVSS 10: root, exploited, no fix but patch</a>
-        <a href="#story-esa"><span class="ld crit"></span><b>3</b> Cisco email gateway zero-day: root, no clicks</a>
-        <a href="#story-vcenter"><span class="ld crit"></span><b>4</b> vCenter CVSS 9.8 now in ransomware use</a>
-        <a href="#story-wso2"><span class="ld crit"></span><b>5</b> WSO2 gateways: forged admin tokens in the wild</a>
+        <a href="#story-tankers"><span class="ld crit"></span><b>1</b> Tankers boarded at sea after network compromise</a>
+        <a href="#story-fmc"><span class="ld crit"></span><b>2</b> Cisco FMC exploited &mdash; Sandworm, Qilin</a>
+        <a href="#story-ise"><span class="ld crit"></span><b>3</b> Cisco ISE CVSS 10: root, exploited, no workaround</a>
+        <a href="#story-esa"><span class="ld crit"></span><b>4</b> Cisco email gateway zero-day: root, no clicks</a>
+        <a href="#story-vcenter"><span class="ld crit"></span><b>5</b> vCenter CVSS 9.8 now in ransomware use</a>
         <a href="#story-cisaexp"><span class="ld crit"></span><b>6</b> CISA: 100+ exposed water systems hit</a>
         <a href="#story-ukgen"><span class="ld crit"></span><b>7</b> UK generator taken offline for four days</a>
-        <a href="#story-screenconnect"><span class="ld crit"></span><b>8</b> ScreenConnect: files run on hosts, in KEV</a>
-        <a href="#story-iolink"><span class="ld crit"></span><b>9</b> IO-Link masters: CVSS 9.8 under three brands</a>
-        <a href="#story-patchtue"><span class="ld crit"></span><b>10</b> ICS Patch Tuesday: Modicon M580 CVSS 9.2</a>
-        <a href="#story-redheron"><span class="ld high"></span><b>11</b> Red Heron steals SCADA/HMI source via Gitea</a>
-        <a href="#story-iranexp"><span class="ld high"></span><b>12</b> Iran targeting widens; $10M reward posted</a>
+        <a href="#story-iolink"><span class="ld crit"></span><b>8</b> IO-Link masters: CVSS 9.8 under three brands</a>
+        <a href="#story-patchtue"><span class="ld crit"></span><b>9</b> ICS Patch Tuesday: Modicon M580 CVSS 9.2</a>
+        <a href="#story-redheron"><span class="ld high"></span><b>10</b> Red Heron steals SCADA/HMI source via Gitea</a>
+        <a href="#story-iranexp"><span class="ld high"></span><b>11</b> Iran targeting widens; $10M reward posted</a>
+        <a href="#story-icsa258"><span class="ld high"></span><b>12</b> CISA 15 Sep batch: relay, ship system, SCADA</a>
         <a href="#story-aveva"><span class="ld high"></span><b>13</b> Pipeline integrity monitor: hard-coded key</a>
-        <a href="#story-icsa258"><span class="ld high"></span><b>14</b> CISA 15 Sep batch: relay, ship system, SCADA</a>
-        <a href="#story-scalance"><span class="ld high"></span><b>15</b> Siemens edge gateway: four PROFINET crashes</a>
       </div>
     </div>
 
@@ -797,39 +791,39 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
+        <span class="trend-tag">Maritime</span>
+        <b class="trend-head">Two tankers boarded mid-voyage &mdash; the ship is the part of the energy supply chain nobody segments</b>
+        <p>The Coast Guard and FBI disclosure on 16&nbsp;September that federal cyber teams went aboard two US-bound energy tankers in the Gulf of Mexico (see top story) has pushed shipboard OT back into the conversation, arriving two weeks after the Coast Guard stood up a dedicated Office of Maritime Cybersecurity Policy as the central authority for US ports, vessels and facilities. The practitioner argument is about where a terminal&rsquo;s boundary actually sits: a vessel arrives carrying its own integrated navigation, cargo, ballast and power management systems, connects to shore to load, and is inspected for hull and pumps rather than for what is running on its network.</p>
+        <a href="https://cyberscoop.com/coast-guard-fbi-investigate-tanker-cyberattacks/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
+        <a href="https://www.securityweek.com/coast-guard-establishes-office-of-maritime-cybersecurity-policy/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Remote Access</span>
+        <b class="trend-head">Four weeks, four exploited authentication bypasses &mdash; and the run has reached the box that decides what gets onto the OT VLAN</b>
+        <p>The sequence of exploited boundary and identity gear &mdash; Cisco Secure&nbsp;FMC, Cisco Secure Email Gateway, ConnectWise ScreenConnect, forged administrator tokens against WSO2 API gateways, and VMware vCenter flagged by CISA for ransomware use &mdash; gained its sharpest entry on 16&nbsp;September with an actively-exploited CVSS&nbsp;10.0 authentication bypass in Cisco Identity Services Engine carrying no workaround (see Critical Advisories). The practitioner argument has moved on accordingly: not just who terminates vendor remote access, nor only who owns the hypervisor the historian and HMI run on, but who owns the policy engine that enforces the IT/OT VLAN boundary &mdash; and whether anyone has written down what the plant does while that box is being re-imaged.</p>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/09/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV</a>
+      </div>
+      <div class="trend">
         <span class="trend-tag">Market</span>
         <b class="trend-head">The largest cheque ever written in OT security is closing &mdash; and buyers are asking what an independent vendor was worth</b>
-        <p>Accenture&rsquo;s roughly $4.175&nbsp;billion deal for a majority stake in Dragos plus all of runZero and NetRise &mdash; announced with a close expected in the August-to-September window &mdash; has turned into the sector&rsquo;s running conversation now that the date is here. The practitioner argument is not about the price but about independence: whether threat intelligence and asset discovery bought by a global systems integrator stay vendor-neutral, whether procurement teams who deliberately split their detection vendor from their delivery partner now have to rethink that, and what it signals that the OT security market is being valued as a platform play rather than a specialist one.</p>
+        <p>Accenture&rsquo;s roughly $4.175&nbsp;billion deal for a majority stake in Dragos plus all of runZero and NetRise, with a close expected in the August-to-September window, is still the sector&rsquo;s running conversation now that the date has arrived. The practitioner argument is not about the price but about independence: whether threat intelligence and asset discovery bought by a global systems integrator stay vendor-neutral, whether procurement teams who deliberately split their detection vendor from their delivery partner have to rethink that, and what it signals that OT security is now valued as a platform play rather than a specialist one.</p>
         <a href="https://www.securityweek.com/accenture-to-acquire-majority-stake-in-dragos-all-of-runzero-netrise-in-4-1-billion-ot-cybersecurity-push/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
         <a href="https://industrialcyber.co/news/accenture-expands-ot-cybersecurity-capabilities-with-dragos-stake-acquires-runzero-and-netrise/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Remote Access</span>
-        <b class="trend-head">Four weeks, four exploited authentication bypasses &mdash; the run has now reached the box that decides what gets onto the OT VLAN</b>
-        <p>The sequence of exploited boundary and identity gear &mdash; Cisco Secure&nbsp;FMC, Cisco Secure Email Gateway, ConnectWise ScreenConnect, forged administrator tokens against WSO2 API gateways, and VMware vCenter flagged by CISA for ransomware use &mdash; gained its sharpest entry on 16&nbsp;September, when Cisco disclosed an actively-exploited CVSS&nbsp;10.0 authentication bypass in Identity Services Engine with no workaround (see Critical Advisories). The practitioner argument has moved on accordingly: not just who terminates vendor remote access, nor only who owns the hypervisor the historian and HMI run on, but who owns the policy engine that enforces the IT/OT VLAN boundary in the first place &mdash; and whether anyone has written down what the plant does when that box has to be re-imaged.</p>
-        <a href="https://thehackernews.com/2026/09/active-exploitation-attempts-target.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
-        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
-      </div>
-      <div class="trend">
         <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Record volume, and the crews now ship hypervisor builds as standard &mdash; the OT question is what one ESXi cluster takes down</b>
-        <p>Comparitech&rsquo;s count of 997 ransomware claims worldwide in August &mdash; a monthly record, about 32 a day, with utility-sector claims doubling month on month and Qilin alone claiming 157 &mdash; landed in the same fortnight as CISA&rsquo;s warning that VMware vCenter is now in ransomware use, and research on an emerging service operation whose affiliate platform ships a VMware ESXi encryptor by default. The practitioner conversation has moved off encryption speed and onto blast radius: how many historians, HMI servers, engineering workstations and domain controllers share one hypervisor cluster, and whether anyone has actually timed a restore of all of them at once.</p>
+        <b class="trend-head">Record volume, and the crews ship hypervisor builds as standard &mdash; the OT question is what one ESXi cluster takes down</b>
+        <p>A count of 997 ransomware claims worldwide in August &mdash; a monthly record, roughly 32 a day, with utility-sector claims doubling month on month &mdash; landed in the same fortnight as CISA&rsquo;s warning that VMware vCenter is now in ransomware use. The practitioner conversation has moved off encryption speed and onto blast radius: how many historians, HMI servers, engineering workstations and domain controllers share one hypervisor cluster, whether the backups for those machines live on the same cluster, and whether anyone has actually timed a restore of all of them at once rather than one of them in isolation.</p>
         <a href="https://industrialcyber.co/ransomware/global-ransomware-attacks-hit-record-997-in-august-2026-as-utility-healthcare-and-business-attacks-surge/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
-        <a href="https://industrialcyber.co/manufacturing/panzer-ransomware-targets-italian-manufacturer-as-esxi-capability-raises-industrial-security-concerns/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Engineering</span>
-        <b class="trend-head">Cyber-informed engineering is having its moment &mdash; the pitch is to engineer the consequence out rather than keep the adversary out</b>
-        <p>A well-circulated 15&nbsp;September piece reframed the industry&rsquo;s default posture: a compromised network does not have to become a catastrophic physical event, and the design question is where a mechanical, electrical or procedural control can cap the worst outcome regardless of what happens on the wire. It lands in the same week DOE picked three vendors for SENTRY funding whose common theme is prioritisation and remediation rather than more discovery (see Regulation &amp; Policy) &mdash; both pointing at the same complaint, that visibility programmes have outrun anyone&rsquo;s capacity to act on them. The FBI and EPA guidance to water utilities runs the same way: key switches in run, validated project files, and a tested ability to operate manually.</p>
-        <a href="https://industrialcyber.co/features/cyber-informed-engineering-shifts-critical-infrastructure-security-from-protecting-networks-to-engineering-out-consequences/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
-        <a href="https://www.fbi.gov/investigate/cyber/alerts/2026/malicious-cyber-actors-targeting-water-and-wastewater-sector-internet--facing-programmable-logic-controllers-causing-operational-disruptions" class="source-link" target="_blank" rel="noopener">FBI and EPA</a>
+        <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026" class="source-link" target="_blank" rel="noopener">Dragos</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Regulation</span>
         <b class="trend-head">The supply chain has become the regulatory instrument &mdash; on both sides of the Atlantic</b>
-        <p>The EU Cyber Resilience Act&rsquo;s reporting obligations took effect on 11&nbsp;September, with ENISA standing up a Single Reporting Platform and a 24-hour clock on actively exploited vulnerabilities for anyone selling a connected product into the EU (see Regulation &amp; Policy). On the US side, DOE&rsquo;s comment window on foreign-supplied bulk-power equipment reaches RTUs, PLCs and safety systems, and explicitly to gear already installed. Both push the obligation toward the vendor, and both leave operators with the same homework: know what is in the plant and who made it.</p>
+        <p>The EU Cyber Resilience Act&rsquo;s reporting obligations took effect on 11&nbsp;September, with ENISA standing up a Single Reporting Platform and a 24-hour clock on actively exploited vulnerabilities for anyone selling a connected product into the EU (see Regulation &amp; Policy). On the US side, the executive order on foreign-supplied bulk-power equipment reaches RTUs, PLCs and protection and safety systems, and explicitly covers gear already installed. Both push the obligation toward the vendor, and both leave operators with the same homework: know what is in the plant, who made it, and who can still patch it.</p>
         <a href="https://industrialcyber.co/regulation-standards-and-compliance/eu-cyber-resilience-act-reporting-rules-take-effect-putting-vulnerability-disclosure-and-product-security-in-focus/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
-        <a href="https://industrialcyber.co/regulation-standards-and-compliance/enisa-launches-single-reporting-platform-as-eu-cyber-resilience-act-vulnerability-reporting-obligations-take-effect/" class="source-link" target="_blank" rel="noopener">ENISA via Industrial Cyber</a>
+        <a href="https://www.securityweek.com/trump-order-aims-to-block-foreign-backdoors-in-us-power-grid-gear/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
     </div>
   </div>
@@ -839,6 +833,38 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="story-fmc" data-published="2026-09-10">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; confirmed exploitation of firewall management; an APT overlapping Sandworm tooling and a Qilin ransomware operator</span>
+        </div>
+        <h3>A Sandworm-linked APT and a Qilin ransomware operator are exploiting Cisco firewall management: a critical auth bypass, exploited since August</h3>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 &mdash; a critical authentication bypass in Secure Firewall Management Center, patched back in March &mdash; has been exploited since August. Crafted HTTP requests reach a process created at boot and hand an unauthenticated attacker root on the appliance that configures your firewalls. Cisco Talos tracks three activity clusters across this flaw and a second FMC bug, CVE-2026-20316: one harvesting credentials with a web shell; an APT whose tooling overlaps with Sandworm, delivering a Cyclops&nbsp;Blink variant; and a ransomware operator that came in through CVE-2026-20316 and ultimately deployed Qilin. The KEV remediation deadline of 12&nbsp;September has now passed. For OT defenders the significance is not the firewall &mdash; it is the management plane above it. Whoever holds FMC holds the rule set separating enterprise from plant, and can rewrite it without touching a single controller.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; Cisco updated its advisory for CVE-2026-20079 on 9 Sep 2026 to state it became aware of active exploitation in August 2026; the flaw was patched in early March 2026 and the advisory had already been updated in late July with indicators of compromise, without an exploitation warning at that time. Cisco Talos reported on 9 Sep 2026 that it is tracking three activity clusters abusing CVE-2026-20079 and the separate FMC flaw CVE-2026-20316: UAT-12197, which deployed a web shell and a malicious JAR file to harvest authentication data and credentials; UAT-11823, an APT actor that Talos says overlaps in tooling with Sandworm (Talos does not say Sandworm itself carried out the activity), which used both CVE-2026-20079 and CVE-2026-20316 to deliver a variant of the Cyclops Blink malware capable of file transfer, credential harvesting, command execution and network reconnaissance; and UAT-11988, which Talos assesses as a ransomware operator with TTPs consistent with Qilin affiliates, which used only CVE-2026-20316 (logging in with static credentials) for reconnaissance, credential theft and building target lists for encryption before ultimately deploying Qilin ransomware. SecurityWeek&rsquo;s 10 Sep 2026 write-up of the Talos findings restates all three clusters and the 12 Sep 2026 KEV deadline; no additional cluster, victim or OT-side impact has been reported since. This is the third Secure FMC flaw added to KEV in 2026. <b>Confirmed vs claimed:</b> exploitation is confirmed by the vendor and by CISA; the actor attributions are Talos assessments, and no OT-side impact has been reported to date</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 9 Sep 2026 alongside Citrix NetScaler CVE-2026-19490, Fortinet CVE-2025-25249 and Chromium CVE-2026-87491; federal remediation was due 12 Sep 2026 and that deadline has now passed. The companion flaw CVE-2026-20316 has been in KEV since 29 Jul 2026 (due 1 Aug 2026) and is flagged for known ransomware use</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Patch now &mdash; fixes have been available since early March 2026; restricting the FMC web interface from the internet substantially reduces exposure</span>
+            <span class="ops-cc"><b>Action:</b> Treat this as a management-plane compromise question, not a firewall patch. First establish whether your FMC web interface has ever been reachable from the internet, and take it off immediately if so &mdash; that single change is what separates &ldquo;patch on the next window&rdquo; from &ldquo;assume breach.&rdquo; Confirm the build is at or past the March fix, then hunt rather than close the ticket: Cisco published IoCs for this CVE in late July, so pull FMC logs and any surviving forensic images back to at least 1 August and look for web shells, unexpected JAR files, new local accounts and outbound connections from the appliance itself. Because root on FMC means control of the policy that separates enterprise from plant, export the current firewall rule set and diff it against your last known-good configuration &mdash; specifically the rules governing traffic into OT zones, any newly permitted management or remote-access paths, and logging suppression. Rotate every credential the appliance holds or has proxied, including device management accounts and any shared service accounts used by the managed firewalls. If FMC also administers the boundary firewalls in front of your DMZ or plant network, brief the process-safety and operations owners: a silently rewritten rule is an OT exposure even when no controller was touched.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm FMC internet exposure and patch level &mdash; 24 hours; compromise hunt against Cisco IoCs back to 1 Aug and firewall rule-set diff &mdash; 7 days; credential rotation for FMC and every managed firewall &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fmc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fmc">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20079</span>
+          <span class="cve-badge">CVE-2026-20316</span>
+          <span>Cisco security advisory and Cisco Talos, plus CISA KEV catalog, reported by SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Patched Mar 2026; exploitation began Aug 2026; Cisco and Talos disclosure and KEV addition 9 Sep 2026; reported 10 Sep 2026, 6:06 AM ET; KEV remediation deadline 12 Sep 2026, now passed &mdash; re-verified 15 Sep 2026, 4:00 PM ET</span>
+        </div>
+        <a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     <div class="card" id="story-redheron" data-published="2026-09-13">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1267,37 +1293,6 @@
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-screenconnect" data-published="2026-09-12">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; actively exploited remote-support tooling; the software your integrator dials in with</span>
-        </div>
-        <h3>The remote-support client your integrator installed can now push and run files on your machine without asking &mdash; and it is in KEV</h3>
-        <p>CISA added CVE-2026-84869 to the Known Exploited Vulnerabilities catalogue on 11&nbsp;September with a 14&nbsp;September federal deadline. The flaw sits in the ConnectWise ScreenConnect <i>client</i> &mdash; improper privilege management combined with a missing authorisation check &mdash; and it lets files be transferred to and executed on a connected machine through an already-active remote session, without authorisation and without the host confirmation prompt that operators are trained to watch for. CVSS is 9.9. ConnectWise says servers are not affected; the fix is client version 26.6.5. Huntress documented three unrelated incidents in which rogue ScreenConnect installations pushed a malicious VBScript payload to newly connected systems, which is the detail that matters: the abuse path runs from the support platform outward to the endpoint, in the direction integrators and OEMs normally use to reach a plant.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; CISA&rsquo;s KEV addition of 11 Sep 2026 records active exploitation in the wild, and Huntress attributes observed abuse to three separate, unrelated incidents involving rogue ScreenConnect client installations distributing VBScript to systems as they connected. ConnectWise&rsquo;s 8 Sep 2026 security bulletin describes the condition in measured terms &mdash; files &ldquo;may&rdquo; be transferred and executed through an active remote session without authorisation or host confirmation in certain circumstances, including through elevated execution actions. <b>Confirmed vs claimed:</b> the exploitation and the KEV listing are agency and vendor record; the specific incident set is Huntress telemetry. No OT or control-system impact has been reported, and no ICS vendor has published a related advisory</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 11 Sep 2026; federal remediation deadline 14 Sep 2026, now past</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-now">Patch now &mdash; update ScreenConnect clients to 26.6.5; the server-side fix does not cover you, because the defect is in the client that sits on the machine being supported</span>
-            <span class="ops-cc"><b>Action:</b> Remote-support software is the category OT asset owners most often inherit rather than choose. Start with an honest inventory: ScreenConnect clients arrive on engineering workstations, HMI servers, historian boxes and vendor-supplied panel PCs by way of integrators, OEM service contracts and outsourced IT, and they frequently outlive the project that installed them. Search the plant Windows estate for the client &mdash; by service name and installed-programs entry, not by asking the integrator &mdash; and record which machines have it, who owns the corresponding instance, and whether the session gateway is one you control or one a supplier controls. Update every client to 26.6.5. Where a machine has the client but no current support contract needs it, remove it rather than patch it; an unused remote-support agent on an HMI is a standing inbound path with no operational benefit. For the instances you keep, check the two settings this flaw makes load-bearing: whether unattended access is enabled on control-network hosts, and whether session recording and file-transfer logging are on. Then hunt backwards &mdash; look for VBScript execution, unexpected file drops and child processes spawned by the ScreenConnect client service since late August on any host with the agent. Finally, treat this as the argument for the control you have probably been deferring: vendor remote access should terminate at a broker you own, with per-session approval by a named operator, rather than running agent-to-cloud from a machine inside the process network.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> inventory ScreenConnect clients across engineering, HMI, historian and vendor-supplied hosts &mdash; 48 hours; update to 26.6.5 or remove &mdash; 7 days; hunt for VBScript execution and unexpected file transfers on agent hosts since 25 Aug &mdash; 14 days; vendor remote access brokered through an owner-controlled gateway with per-session approval &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="screenconnect" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="screenconnect">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-84869</span>
-          <span>CISA KEV catalogue addition of 11 Sep 2026 and ConnectWise security bulletin of 8 Sep 2026, with incident detail from Huntress &mdash; reported by The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Bulletin 8 Sep 2026; KEV addition 11 Sep 2026; reported 12 Sep 2026 &mdash; verified 15 Sep 2026, 8:15 PM ET</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     <div class="card" id="story-iolink" data-published="2026-09-16">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1328,37 +1323,6 @@
           <span>Published 16 Sep 2026 &mdash; verified 16 Sep 2026, 7:55 AM ET</span>
         </div>
         <a href="https://certvde.com/en/advisories/VDE-2026-027/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-wso2" data-published="2026-09-16">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">CVE-2026-5430 &mdash; WSO2 API Manager and gateway products; CVSS 9.8, exploitation attempts observed from 13 September</span>
-        </div>
-        <h3>Forged admin tokens against WSO2 API gateways &mdash; a flaw patched in April is now being tried in the wild</h3>
-        <p>watchTowr reported on 15&nbsp;September that its honeypot network began catching JSON Web Tokens carrying baked-in administrator privileges on 13&nbsp;September, aimed at CVE-2026-5430 in WSO2 API Manager. The flaw, rated CVSS&nbsp;9.8 and patched by WSO2 in April, is an improper verification of a cryptographic signature: a token signed with an algorithm the product does not properly support is accepted anyway, letting an unauthenticated attacker present themselves as an administrator. WSO2 API Control Plane, Traffic Manager and Universal Gateway are affected alongside API Manager. Successful use gives access to the APIs behind the gateway along with stored credentials and the secrets of registered applications. For industrial operators the exposure is indirect but real: API gateways of this kind increasingly front historian, MES, asset-management and telemetry services, and the secrets they hold are frequently the same service accounts used on the plant side of the boundary.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation attempts confirmed by a third-party researcher &mdash; watchTowr observed forged JWTs with administrator claims arriving at its sensors from 13 Sep 2026, reported by The Hacker News on 15-16 Sep 2026. The Hacktron Team is credited with the original discovery and report. <b>Confirmed vs claimed:</b> the vulnerability and the patch are vendor-confirmed; in-the-wild exploitation attempts are confirmed by watchTowr telemetry. No confirmed victim organisation and no OT-side impact have been reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition &mdash; worth watching, as observed exploitation attempts against a CVSS 9.8 authentication bypass frequently precede a KEV addition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-now">Patch now &mdash; fixed by WSO2 in April 2026; unpatched gateways are being probed today</span>
-            <span class="ops-cc"><b>Action:</b> Find out first whether you run WSO2 at all &mdash; it is commonly embedded by systems integrators rather than bought directly, so ask the team that built your data-historian or MES integration rather than assuming the answer is no. Where it exists, confirm the version against WSO2&rsquo;s April advisory and patch it; a flaw patched five months ago and probed this week is a backlog problem, not a zero-day. Because the payload is a forged token rather than an exploit binary, hunt in the gateway logs for authentication events bearing administrator claims with unusual or unsupported signing algorithms, and for administrative API calls from addresses that have never made one before. Treat any confirmed acceptance of a forged token as credential compromise: rotate the secrets of every registered application, the gateway&rsquo;s own keys, and any service account the gateway proxies. Then check whether those same service accounts appear on the OT side of the boundary &mdash; in shared historian collectors and OPC connectors, they routinely do.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Confirm whether WSO2 products are in use, including inside integrator-built stacks &mdash; 72 hours; patch and rotate gateway and application secrets &mdash; 7 days; log hunt for forged-token authentication back to 1 Sep &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wso2" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wso2">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-5430</span>
-          <span>watchTowr honeypot telemetry and the WSO2 security advisory, reported by The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Patched Apr 2026; exploitation attempts observed from 13 Sep 2026; reported 15&ndash;16 Sep 2026 &mdash; verified 16 Sep 2026, 3:25 PM ET</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/active-exploitation-attempts-target.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-icsa258" data-published="2026-09-15">
@@ -1526,35 +1490,6 @@
         </div>
         <a href="https://industrialcyber.co/news/doe-selects-frenos-raptor-dynamix-and-bastazo-for-sentry-energy-cybersecurity-funding/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-nascio" data-published="2026-09-16">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Governance &mdash; state and local critical-infrastructure cyber capability; US water, wastewater, dams, transit and public health</span>
-        </div>
-        <h3>The states now own a lot of critical-infrastructure OT &mdash; and their CIOs say nobody has settled who answers when it breaks</h3>
-        <p>NASCIO and GDIT published a research brief on 16&nbsp;September drawing on the 2026 NASCIO State CIO Survey, the 2026 NASCIO-Deloitte Cybersecurity Study and interviews with state CISOs. Close to 90 per cent of state CIOs rate cyberattacks on critical systems a high concern and 73 per cent now fold critical-infrastructure protection into a whole-of-state plan, but only about 32 per cent extend any cyber service to public electric, water and wastewater utilities. The CISOs interviewed put their highest risk in water and wastewater, dams and hydro, hospitals and transportation &mdash; and named the causes as ageing OT, broad remote-access exposure and automated reconnaissance. The finding worth sitting with is not the percentages: several states reported that when a critical-infrastructure cyberattack happens, legal authority and response ownership between the state, the locality and the operator have never actually been established.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Governance research, not a threat &mdash; <b>confirmed:</b> the brief, &ldquo;The Expanding Cyber Perimeter: States and Critical Infrastructure Protection,&rdquo; was published 16&nbsp;September&nbsp;2026 by NASCIO with GDIT and rests on NASCIO&rsquo;s own 2026 survey data plus state CISO interviews. <b>Treat as directional:</b> the interview findings are self-reported by state officials and are not an independent assessment of any operator&rsquo;s posture</span>
-            <span class="ops-tag kev-off">No CVE &mdash; policy and capability research, not a vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; governance, funding and mutual-aid planning</span>
-            <span class="ops-cc"><b>Action:</b> If you run a municipal, co-op or special-district utility, the practical takeaway is a phone call, not a project. Find out, in writing, what your state actually offers &mdash; assessments, incident response, endpoint and patching services, tabletop support &mdash; because roughly a third of states extend something to utilities and many operators have never asked. Then close the ownership question the report says is open: agree now, before an event, who declares a cyber incident at your plant, who has legal authority to direct the response, which state or federal body you notify and on what clock, and whether your state already mandates SCADA incident reporting (at least ten do). Write it into your IR plan with names and numbers, and exercise it once with the state included. For larger operators and integrators serving these communities, the same finding is a supply-chain fact: the small water and transit districts downstream of you are the least-resourced entities in the sector, and the remote-access path you hold into them is frequently their most sensitive asset. And if you are building a budget case, the report&rsquo;s clearest signal is that federal grant funding is uncertain &mdash; do not plan a multi-year OT programme that only closes if a grant renews.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> confirm what cyber services your state offers and who owns incident authority at your site &mdash; 30 days; documented state/local notification and mutual-aid path written into the OT IR plan and exercised &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nascio" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="nascio">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>NASCIO and GDIT research brief, drawing on the 2026 NASCIO State CIO Survey and the 2026 NASCIO-Deloitte Cybersecurity Study &mdash; reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Published 16 Sep 2026 &mdash; verified 16 Sep 2026, 4:10 PM ET</span>
-        </div>
-        <a href="https://industrialcyber.co/risk-management/nascio-reports-state-cios-confront-expanding-critical-infrastructure-cyber-risks-amid-local-capability-governance-gaps/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
 
 
@@ -1566,7 +1501,7 @@
   <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled at 6:30&nbsp;PM&nbsp;ET on 16&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources &mdash; CISA ICS advisories and the KEV catalogue, vendor PSIRTs (Schneider Electric, Siemens ProductCERT, Rockwell, Aveva, Cisco, Palo Alto Networks, Broadcom/VMware), the UK NCSC, Australia&rsquo;s ASD, the Canadian Centre for Cyber Security, the NSA, FERC and the Federal Register, the FBI, EPA, DOE CESER and CERT Polska, Dragos, Claroty, Nozomi, Forescout and GreyNoise &mdash; corroborated against SecurityWeek, BleepingComputer, The Record, CyberScoop, Cybersecurity Dive, Industrial Cyber, The Hacker News, TechCrunch, Help Net Security, Dark Reading, GovInfoSecurity, Nextgov/FCW and StateScoop. Wired was not used as a source this run. <b>This edition (16&nbsp;September, 6:30&nbsp;PM&nbsp;ET).</b> One story is added on the evening pass. Cisco published advisory cisco-sa-ISE-ABP-VNSW7Tn5 at 4:00&nbsp;PM&nbsp;GMT disclosing CVE-2026-76460, a CVSS&nbsp;10.0 authentication bypass in an Identity Services Engine API endpoint that the PSIRT confirms is being exploited in the wild, yields command execution as root, affects ISE and ISE-PIC in any configuration, and has no workaround; CISA added it to KEV the same day alongside Acronis Backup CVE-2026-87886. The same Cisco bundle carries a second CVSS&nbsp;10.0 REST API bypass (CVE-2026-76423), an arbitrary file access flaw leading to remote code execution (CVE-2026-76424) and two CVSS&nbsp;9.1 authenticated command injections, none reported as exploited. It enters the radar at rank&nbsp;2 and the Trends remote-access theme is rewritten around it. Nothing was retired this pass and no other card changed. The overall threat level moves to 5.8, mid-to-upper Medium: ISE is the most consequentially placed of the four actively-exploited authentication bypasses now on the page, because it is the policy engine many plants use to enforce the IT/OT VLAN boundary &mdash; but it is exposure, not disruption, and the no-advisory-stacking cap holds. High still requires confirmed OT disruption across more than one environment or sector. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled at 8:45&nbsp;PM&nbsp;ET on 16&nbsp;September&nbsp;2026 by searching authoritative OT/ICS sources &mdash; CISA ICS advisories and the KEV catalogue, vendor PSIRTs (Schneider Electric, Siemens ProductCERT, Rockwell, Aveva, Cisco, Broadcom/VMware), CERT@VDE, the US Coast Guard and FBI, the NSA, FERC and the Federal Register, the EPA, DOE CESER, ENISA, the Canadian Centre for Cyber Security, Dragos, Claroty, Nozomi, Forescout and Acronis TRU &mdash; corroborated against CyberScoop, SecurityWeek, BleepingComputer, The Record, Cybersecurity Dive, Industrial Cyber, The Hacker News, ABC News, Bloomberg, Dark Reading, TechCrunch, Nextgov/FCW and StateScoop. Wired was not used as a source this run. <b>This edition (16&nbsp;September, 8:45&nbsp;PM&nbsp;ET).</b> The lead changes. The Coast Guard and FBI issued a joint statement today confirming that federal cyber teams conducted offshore security boardings of two US-bound foreign-flagged tankers in the Gulf of Mexico on 21 and 24&nbsp;August, after indications that the networks of both vessels were compromised; the agencies report no operational disruption, vessel instability or environmental impact, and investigators are weighing an Iran link that has not been established. It takes the top-story slot and radar rank&nbsp;1, and a new Maritime theme leads Trends. The Cisco Secure&nbsp;FMC exploitation story moves down into Incidents &amp; Attacks at radar rank&nbsp;2. Three ageing IT-side cards &mdash; ConnectWise ScreenConnect, WSO2 API Manager and the NASCIO state-capability report &mdash; were retired to bring the page back toward its normal size; those items remain valid and the first two are carried in the Trends remote-access theme. The overall threat level moves to 5.9, the top of Medium: a confirmed compromise in a second sector, but still no OT disruption anywhere on the page, so the no-advisory-stacking cap holds and High still requires confirmed OT disruption across more than one environment or sector. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
 </div>
