@@ -647,13 +647,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 21 Sep 2026, 2:06 AM ET</span>
+        <span>Generated Tuesday, 22 Sep 2026, 6:06 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Aviation</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>33</strong> stories across
+      <strong>28</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -686,7 +686,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:45.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, re-derived for the 21&nbsp;September pass and held at 4.5. The weekend was quiet for aviation: no new aviation cyber incident, no CISA ICS advisories after the 17&nbsp;September batch, no KEV additions after 18&nbsp;September, and nothing verifiable touching airport ground OT (baggage, fuelling, airfield lighting, BMS, access control), airline operations, MRO, ATC, NAVAID or GNSS. The Manchester Airports Group leak stays the top story as the sector&rsquo;s only confirmed incident, but it scores little: it is IT-side customer data, MAG says operations were unaffected, and MAG has issued nothing new since 27&nbsp;August. NATS traced the 8&nbsp;September UK outage to a software defect, so it scores nothing. The level rests on confirmed exploitation in the access layer this sector depends on, none of it aviation-specific: Cisco ISE, a CVSS&nbsp;10.0 bypass whose KEV deadline passed on 19&nbsp;September; Cisco Secure FMC (CVE-2026-20079), where Talos tracks an APT cluster whose tooling overlaps Sandworm and an operator it assesses as a Qilin affiliate; NetScaler, MikroTik RouterOS and ScreenConnect; and the Red Heron Gitea campaign, China-linked at moderate confidence, which reached aerospace. Passed deadlines ease rather than raise the score. That is boundary and pre-positioning exposure, not hands-on manipulation of aviation OT, so the 5.9 cap applies and advisory volume does not stack upward.</div>
+      <div class="tl-why"><b>Why:</b> Medium, re-derived for the 22&nbsp;September pass and held at 4.5, unchanged from 21&nbsp;September. The new lead is a report, not an incident: GAO-26-108439 finds the ACARS and CPDLC datalinks could carry a forged clearance and the FAA has no real-time spectrum-threat monitoring. DOT accepted all nine recommendations, but the report describes no exploitation, so it changes the argument, not the number. Nothing verifiable touched airport ground OT, airline operations, MRO, ATC or NAVAID systems in the window; the NATS failures are a confirmed software defect (8&nbsp;September) and an unattributed connectivity fault at Prestwick (21&nbsp;September), so neither scores. The level rests on confirmed exploitation of access-layer gear, none of it aviation-specific: Cisco ISE and Secure FMC, whose KEV deadlines have passed; NetScaler, MikroTik and ScreenConnect; the Red Heron Gitea campaign, PRC-linked at moderate confidence, which reached aerospace; and, newly, Zyxel GS1900 switches, 996 of them harvested for configurations and credentials per GreyNoise, with a 24&nbsp;September KEV deadline. Passed deadlines ease the score and the fresh Zyxel entry offsets that, so it holds. The unexploited Pepperl+Fuchs IO-Link disclosure at CVSS&nbsp;9.8 sits near 4.0 alone. This is boundary and pre-positioning exposure, not hands-on manipulation of aviation OT, so the 5.9 cap applies and advisories do not stack upward. A confirmed cyber cause behind an airport, airline or ATC disruption, or exploitation of the datalink weaknesses GAO describes, would lift it toward 6.0 to 6.5.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -694,32 +694,32 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-mag-leak" data-published="2026-09-03">
+    <div class="top-story" id="story-gao-aircraft-comms" data-published="2026-09-21">
         <span class="top-story-pill">Top Story</span>
-        <h2>Manchester Airports Group data published in full after the ransom was refused &mdash; airport operations untouched</h2>
-        <p>Manchester Airports Group refused to pay, and the group calling itself FulcrumSec then published what it says is the full haul, roughly 550GB of uncompressed data, as SecurityWeek reported on 3&nbsp;September. HaveIBeenPwned added 8.8&nbsp;million accounts from it on 2&nbsp;September: email addresses and phone numbers, with names, IP addresses, locations, browser details, vehicle registrations, parking history, and Fast Track and lounge bookings, relating to customers of Manchester, London Stansted and East Midlands airports. MAG, which disclosed the breach on 27&nbsp;August, says the records sat in a database hosted by a third party and that airport operations were not affected. How the attackers got in rests on FulcrumSec&rsquo;s own claim, that admin keys sat in plain sight in the front-end JavaScript of the three airports&rsquo; websites; MAG has not confirmed it. Nothing new has emerged since: MAG&rsquo;s incident page still shows 27&nbsp;August as its latest update, and we found no regulator action. For airport operators the material question is custody: who holds passenger data, on whose infrastructure, and how far that estate sits from anything operational.</p>
+        <h2>GAO: the FAA cannot see spectrum attacks on aircraft communications in real time, and the ACARS and CPDLC datalinks could carry a forged clearance</h2>
+        <p>The US Government Accountability Office published GAO-26-108439 on 21&nbsp;September, titled &ldquo;Aviation Cybersecurity: Enhanced Air Safety Requires FAA to Better Mitigate Threats to Aircraft Communications.&rdquo; Auditors examined the text-based datalinks that carry messages between aircraft, airline operations and air traffic control &mdash; ACARS and Controller-Pilot Data Link Communications &mdash; and found weaknesses in authentication, encryption and protocol design such that, in GAO&rsquo;s words, &ldquo;a malicious actor could transmit fraudulent clearance cancellations, possibly leading to flight delays or safety issues.&rdquo; On the spectrum side, GAO found that the FAA acknowledges jamming and spoofing as threats but &ldquo;did not have a defined, real-time monitoring and detection capability for all spectrum-related threats,&rdquo; and that its risk assessments and security documentation for the National Airspace System are incomplete. GAO makes nine recommendations, covering NAS risk assessments, real-time spectrum-threat monitoring, interagency coordination and stronger authentication and encryption for aircraft communications; the Department of Transportation concurred with all nine, and all nine were open at publication. <b>This is an audit, not an incident.</b> GAO reports no exploitation of either weakness, and the report leads this edition because it is the only primary-source aviation item in the window, not because anything happened. It matters to this page for two reasons. The datalink finding belongs to airlines and their communications providers, and it puts on the record that a message channel crews act on is not authenticated. The spectrum finding is the same problem the Jammertest work exposed for GNSS, stated at national scale: a signal that is manipulated rather than removed produces no alarm anywhere in the chain, and nobody currently owns detecting it.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident, contested detail &mdash; MAG confirms the breach, the refused ransom demand and the publication of stolen data, and states that airport operations were not affected. FulcrumSec&rsquo;s account of how it got in, via admin keys left in front-end JavaScript, is FulcrumSec&rsquo;s claim only and has not been confirmed by MAG</span>
-            <span class="ops-tag kev-off">No CVE &mdash; MAG has not published the entry point</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Not an incident &mdash; GAO audit findings published 21 Sep 2026; no exploitation of the datalink or spectrum weaknesses is reported; DOT concurred with all nine recommendations, all open at publication</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the findings are protocol-design and programme-level, not a product vulnerability</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is bulk passenger data held in a supplier-hosted commercial platform, and the untested assumption that such platforms are separated from operational systems</span>
-            <span class="ops-cc"><b>Action:</b> Start with custody. List every third party holding passenger or staff records on your behalf &mdash; car parking, lounges, Fast Track, retail, loyalty, guest Wi-Fi registration &mdash; and record where each dataset physically lives, who administers it and what your contract says about breach notification and deletion. Then prove the boundary rather than assume it: map the network and identity paths between those commercial platforms and terminal and airfield operational systems, looking for shared Active Directory or SSO tenancy, shared jump hosts, shared vendor remote-support accounts and flat VLANs left over from a fit-out. Separately, have your web teams check that no administrative key, storage token or API secret is reachable in client-side JavaScript on any airport-branded site or booking portal.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; remediation is FAA programme work against nine open recommendations; for operators the exposure is every operational input that arrives over unauthenticated radio</span>
+            <span class="ops-cc"><b>Action:</b> Airlines: take the report to flight operations and dispatch rather than to IT, and ask one question &mdash; when a CPDLC or ACARS message is unexpected, contradictory or arrives out of sequence, what does the procedure say the crew and the operations centre do, and is that procedure trained and logged? GAO&rsquo;s finding is about the channel; your control is the human check on it. Airports and ANSPs: inventory the operational inputs on your estate that arrive over the air with no integrity check &mdash; GNSS-disciplined timing on surveillance and logging, datalink ground stations, ADS-B feeds into operations displays &mdash; and record, for each, what the consuming system does when the input is wrong rather than absent. Both: track the FAA&rsquo;s response to the nine recommendations, because a real-time spectrum-monitoring capability, once built, will need airport and airline data to work, and the interagency-coordination recommendation is where that requirement will surface.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Third-party passenger-data custody inventory &mdash; 14 days; commercial-to-operational segmentation and shared-identity review &mdash; 30 days; client-side secret sweep of public-facing portals &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-magleak" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-magleak">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Datalink anomaly-handling procedure review with flight operations &mdash; 45 days; inventory of unauthenticated RF operational inputs and their failure behaviour &mdash; 60 days; recommendation tracking against FAA responses &mdash; quarterly</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-gao-aircraft-comms" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-gao-aircraft-comms">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek reporting on Manchester Airports Group statements, with the record count and data classes taken from HaveIBeenPwned&rsquo;s entry for the published data</span>
+          <span>US Government Accountability Office report GAO-26-108439, read from GAO&rsquo;s product page; AeroTime coverage of 22 Sep 2026 for context</span>
           <span class="dot">&bull;</span>
-          <span>Breach disclosed by MAG 27 Aug 2026; HaveIBeenPwned load 2 Sep 2026; SecurityWeek report 3 Sep 2026; re-checked 21 Sep 2026, no new MAG statement</span>
+          <span>Report published 21 Sep 2026; nine recommendations open, DOT concurred</span>
         </div>
-        <a href="https://www.securityweek.com/manchester-airports-group-data-on-8-8-million-people-leaked-after-ransom-refusal/" class="source-link" target="_blank" rel="noopener">Read source</a>
-        <a href="https://haveibeenpwned.com/Breach/ManchesterAirportsGroup" class="source-link" target="_blank" rel="noopener">HaveIBeenPwned entry</a>
+        <a href="https://www.gao.gov/products/gao-26-108439" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.aerotime.aero/articles/faa-atc-message-spoofing-cybersecurity-gao-report" class="source-link" target="_blank" rel="noopener">AeroTime coverage</a>
       </div>
 
     <!-- RADAR -->
@@ -748,39 +748,43 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-mag-leak"><circle class="blip crit" cx="240.0" cy="180.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="240.0" y="184.8">1</text></a>
-        <a href="#story-cisco-ise-kev"><circle class="blip crit" cx="232.0" cy="210.0" r="14.4"/><text class="blip-num" style="font-size:13.0px" x="232.0" y="214.6">2</text></a>
-        <a href="#story-cisco-fmc-kev"><circle class="blip crit" cx="210.0" cy="232.0" r="13.9"/><text class="blip-num" style="font-size:12.5px" x="210.0" y="236.4">3</text></a>
-        <a href="#story-gitlab-85706-kev"><circle class="blip crit" cx="180.0" cy="240.0" r="13.3"/><text class="blip-num" style="font-size:12.0px" x="180.0" y="244.3">4</text></a>
-        <a href="#story-digital-watchdog-vmax"><circle class="blip crit" cx="150.0" cy="232.0" r="12.8"/><text class="blip-num" style="font-size:11.5px" x="150.0" y="236.1">5</text></a>
-        <a href="#story-screenconnect-kev"><circle class="blip crit" cx="128.0" cy="210.0" r="12.2"/><text class="blip-num" style="font-size:11.0px" x="128.0" y="213.9">6</text></a>
-        <a href="#story-netscaler-kev-sep"><circle class="blip crit" cx="120.0" cy="180.0" r="11.7"/><text class="blip-num" style="font-size:10.5px" x="120.0" y="183.7">7</text></a>
-        <a href="#story-mikrotik-exploited"><circle class="blip crit" cx="128.0" cy="150.0" r="11.1"/><text class="blip-num" style="font-size:10.0px" x="128.0" y="153.6">8</text></a>
-        <a href="#story-kev-8sep"><circle class="blip crit" cx="150.0" cy="128.0" r="10.6"/><text class="blip-num" style="font-size:9.5px" x="150.0" y="131.4">9</text></a>
-        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="180.0" cy="120.0" r="10.1"/><text class="blip-num" style="font-size:9.0px" x="180.0" y="123.2">10</text></a>
-        <a href="#story-sonicwall-sma1000"><circle class="blip crit" cx="210.0" cy="128.0" r="9.8"/><text class="blip-num" style="font-size:8.8px" x="210.0" y="131.2">11</text></a>
-        <a href="#story-ncsc-ot-alert"><circle class="blip crit" cx="232.0" cy="150.0" r="9.8"/><text class="blip-num" style="font-size:8.8px" x="232.0" y="153.1">12</text></a>
-        <a href="#story-red-heron-gitea"><circle class="blip high" cx="290.0" cy="180.0" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="290.0" y="183.1">13</text></a>
-        <a href="#story-scalance-lpe9403-dcp"><circle class="blip high" cx="125.0" cy="275.3" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="125.0" y="278.0">14</text></a>
-        <a href="#story-gnss-jammertest"><circle class="blip high" cx="125.0" cy="84.7" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="125.0" y="87.2">15</text></a>
+        <a href="#story-gao-aircraft-comms"><circle class="blip crit" cx="240.0" cy="180.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="240.0" y="184.7">1</text></a>
+        <a href="#story-cisco-ise-kev"><circle class="blip crit" cx="232.0" cy="210.0" r="14.5"/><text class="blip-num" style="font-size:13.1px" x="232.0" y="214.6">2</text></a>
+        <a href="#story-cisco-fmc-kev"><circle class="blip crit" cx="210.0" cy="232.0" r="14.1"/><text class="blip-num" style="font-size:12.6px" x="210.0" y="236.4">3</text></a>
+        <a href="#story-zyxel-gs1900-kev"><circle class="blip crit" cx="180.0" cy="240.0" r="13.6"/><text class="blip-num" style="font-size:12.2px" x="180.0" y="244.3">4</text></a>
+        <a href="#story-gitlab-85706-kev"><circle class="blip crit" cx="150.0" cy="232.0" r="13.1"/><text class="blip-num" style="font-size:11.8px" x="150.0" y="236.1">5</text></a>
+        <a href="#story-pepperl-fuchs-iolink"><circle class="blip crit" cx="128.0" cy="210.0" r="12.6"/><text class="blip-num" style="font-size:11.4px" x="128.0" y="214.0">6</text></a>
+        <a href="#story-digital-watchdog-vmax"><circle class="blip crit" cx="120.0" cy="180.0" r="12.2"/><text class="blip-num" style="font-size:10.9px" x="120.0" y="183.8">7</text></a>
+        <a href="#story-screenconnect-kev"><circle class="blip crit" cx="128.0" cy="150.0" r="11.7"/><text class="blip-num" style="font-size:10.5px" x="128.0" y="153.7">8</text></a>
+        <a href="#story-netscaler-kev-sep"><circle class="blip crit" cx="150.0" cy="128.0" r="11.2"/><text class="blip-num" style="font-size:10.1px" x="150.0" y="131.6">9</text></a>
+        <a href="#story-mikrotik-exploited"><circle class="blip crit" cx="180.0" cy="120.0" r="10.7"/><text class="blip-num" style="font-size:9.7px" x="180.0" y="123.4">10</text></a>
+        <a href="#story-kev-8sep"><circle class="blip crit" cx="210.0" cy="128.0" r="10.3"/><text class="blip-num" style="font-size:9.2px" x="210.0" y="131.3">11</text></a>
+        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="232.0" cy="150.0" r="9.8"/><text class="blip-num" style="font-size:8.8px" x="232.0" y="153.1">12</text></a>
+        <a href="#story-red-heron-gitea"><circle class="blip high" cx="290.0" cy="180.0" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="290.0" y="183.0">13</text></a>
+        <a href="#story-scalance-lpe9403-dcp"><circle class="blip high" cx="214.0" cy="284.6" r="9.2"/><text class="blip-num" style="font-size:8.2px" x="214.0" y="287.5">14</text></a>
+        <a href="#story-rockwell-sd1790"><circle class="blip high" cx="91.0" cy="244.7" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="91.0" y="247.4">15</text></a>
+        <a href="#story-moxa-tn4500b"><circle class="blip high" cx="91.0" cy="115.3" r="8.2"/><text class="blip-num" style="font-size:7.4px" x="91.0" y="117.9">16</text></a>
+        <a href="#story-gnss-jammertest"><circle class="blip high" cx="214.0" cy="75.4" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="214.0" y="77.8">17</text></a>
     </svg>
 
       <div class="radar-legend">
-        <a href="#story-mag-leak"><span class="ld crit"></span><b>1</b> MAG data published in full after ransom refused</a>
-        <a href="#story-cisco-ise-kev"><span class="ld crit"></span><b>2</b> Cisco ISE CVSS&nbsp;10 bypass exploited &mdash; KEV deadline 19 Sep</a>
+        <a href="#story-gao-aircraft-comms"><span class="ld crit"></span><b>1</b> GAO: FAA cannot monitor spectrum threats in real time; ACARS/CPDLC spoofable</a>
+        <a href="#story-cisco-ise-kev"><span class="ld crit"></span><b>2</b> Cisco ISE CVSS&nbsp;10 bypass exploited &mdash; KEV deadline passed</a>
         <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>3</b> Cisco Secure FMC exploited &mdash; Sandworm-overlap APT and Qilin operator</a>
-        <a href="#story-gitlab-85706-kev"><span class="ld crit"></span><b>4</b> GitLab CVSS 10 path traversal exploited, in KEV</a>
-        <a href="#story-digital-watchdog-vmax"><span class="ld crit"></span><b>5</b> Digital Watchdog VMAX recorders, CVSS 9.6 &mdash; Transportation listed</a>
-        <a href="#story-screenconnect-kev"><span class="ld crit"></span><b>6</b> ScreenConnect CVSS 9.9 abused to push scripts, in KEV</a>
-        <a href="#story-netscaler-kev-sep"><span class="ld crit"></span><b>7</b> NetScaler bypass in KEV &mdash; 56 exploitation attempts in a week</a>
-        <a href="#story-mikrotik-exploited"><span class="ld crit"></span><b>8</b> MikroTik RouterOS chain confirmed exploited in the wild</a>
-        <a href="#story-kev-8sep"><span class="ld crit"></span><b>9</b> N-able N-central CVSS 10 pre-auth RCE exploited, in KEV</a>
-        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>10</b> September ICS Patch Tuesday: Siemens and Schneider criticals</a>
-        <a href="#story-sonicwall-sma1000"><span class="ld crit"></span><b>11</b> SonicWall SMA1000 CVSS 10 zero-days exploited, in KEV</a>
-        <a href="#story-ncsc-ot-alert"><span class="ld crit"></span><b>12</b> NCSC alerts on increased OT targeting</a>
+        <a href="#story-zyxel-gs1900-kev"><span class="ld crit"></span><b>4</b> Zyxel GS1900 in KEV &mdash; 996 switches harvested, deadline 24 Sep</a>
+        <a href="#story-gitlab-85706-kev"><span class="ld crit"></span><b>5</b> GitLab CVSS 10 path traversal exploited, in KEV</a>
+        <a href="#story-pepperl-fuchs-iolink"><span class="ld crit"></span><b>6</b> Pepperl+Fuchs IO-Link masters: 22 flaws, two at CVSS 9.8</a>
+        <a href="#story-digital-watchdog-vmax"><span class="ld crit"></span><b>7</b> Digital Watchdog VMAX recorders, CVSS 9.6 &mdash; Transportation listed</a>
+        <a href="#story-screenconnect-kev"><span class="ld crit"></span><b>8</b> ScreenConnect CVSS 9.9 abused to push scripts, in KEV</a>
+        <a href="#story-netscaler-kev-sep"><span class="ld crit"></span><b>9</b> NetScaler bypass in KEV &mdash; 56 exploitation attempts in a week</a>
+        <a href="#story-mikrotik-exploited"><span class="ld crit"></span><b>10</b> MikroTik RouterOS chain confirmed exploited in the wild</a>
+        <a href="#story-kev-8sep"><span class="ld crit"></span><b>11</b> N-able N-central CVSS 10 pre-auth RCE exploited, in KEV</a>
+        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>12</b> September ICS Patch Tuesday: Siemens and Schneider criticals</a>
         <a href="#story-red-heron-gitea"><span class="ld high"></span><b>13</b> Red Heron steals SCADA and HMI source via Gitea RCE</a>
         <a href="#story-scalance-lpe9403-dcp"><span class="ld high"></span><b>14</b> SCALANCE LPE9403: 12 flaws, several chainable to root</a>
-        <a href="#story-gnss-jammertest"><span class="ld high"></span><b>15</b> GNSS spoofing walked a helicopter 40 minutes off position</a>
+        <a href="#story-rockwell-sd1790"><span class="ld high"></span><b>15</b> Rockwell SD1790: lock-out recovery extended to Micro820/850</a>
+        <a href="#story-moxa-tn4500b"><span class="ld high"></span><b>16</b> Moxa TN-4500B unauthenticated web-login crash, CVSS 8.8</a>
+        <a href="#story-gnss-jammertest"><span class="ld high"></span><b>17</b> GNSS spoofing walked a helicopter 40 minutes off position</a>
       </div>
     </div>
 
@@ -801,14 +805,14 @@
       <div class="trend">
         <span class="trend-tag">Remote Access</span>
         <b class="trend-head">The contractor&rsquo;s support console is the thing actually being exploited</b>
-        <p>CISA added N-able N-central to the KEV catalog on 8&nbsp;September after the vendor confirmed exploitation of a pre-authentication code-injection flaw rated CVSS&nbsp;10, with Huntress reporting attacks against the platform&rsquo;s API from 4&nbsp;September &mdash; the fourth hotfix for the product in five weeks. It lands beside SonicWall&rsquo;s exploited SMA1000 gateways. The discussion at airports has turned to who actually reaches terminal BMS, access control and baggage systems out of hours: almost always a managed-service provider or systems integrator, through exactly this class of console, and rarely through sessions that are brokered, recorded and time-bound rather than standing.</p>
+        <p>CISA added N-able N-central to the KEV catalog on 8&nbsp;September after the vendor confirmed exploitation of a pre-authentication code-injection flaw rated CVSS&nbsp;10, with Huntress reporting attacks against the platform&rsquo;s API from 4&nbsp;September &mdash; the fourth hotfix for the product in five weeks. It lands beside ScreenConnect, where actors pushed scripts to endpoints through the legitimate management channel. The discussion at airports has turned to who actually reaches terminal BMS, access control and baggage systems out of hours: almost always a managed-service provider or systems integrator, through exactly this class of console, and rarely through sessions that are brokered, recorded and time-bound rather than standing.</p>
         <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Facility OT</span>
-        <b class="trend-head">Building systems are now the ransomware objective, not collateral</b>
-        <p>The Winnipeg hospital incident, which disabled door access, elevators and HVAC monitoring while clinical IT kept running, has been read across critical infrastructure as a deliberate shift toward facility OT. Airport operators have taken the obvious inference: access control, jet bridges and terminal HVAC are safety- and security-relevant systems that frequently sit on converged networks with a single vendor remote-access path.</p>
-        <a href="https://www.bankinfosecurity.com/ransomware-attack-disables-canadian-hospitals-doors-hvac-a-32535" class="source-link" target="_blank" rel="noopener">Bank Info Security</a>
+        <span class="trend-tag">Deadlines</span>
+        <b class="trend-head">Three-day KEV clocks are now the normal cadence, and they are landing on edge gear</b>
+        <p>CISA gave federal agencies three days on Cisco ISE (added 16&nbsp;September, due 19&nbsp;September), three days on three Linux kernel flaws (added 18&nbsp;September, due 21&nbsp;September) and three days on Zyxel GS1900 switches (added 21&nbsp;September, due 24&nbsp;September). Every one of those deadlines except the last has now passed, and the pattern is what airport teams have been comparing notes on: the additions are access-control servers, kernels inside edge appliances and cheap managed switches, none of them owned by one team, and a three-day clock is shorter than most change-advisory cycles. The practical response being discussed is to pre-agree an emergency path for KEV additions on boundary gear rather than to argue each one through the normal board.</p>
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV catalog</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Automation</span>
@@ -824,16 +828,16 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="story-nats-outage" data-published="2026-09-18">
+<div class="card" id="story-nats-outage" data-published="2026-09-21">
         <div class="card-header">
           <span class="severity sev-info">Not Cyber</span>
           <span class="category">Context &mdash; ATC operational failure; preliminary report finds a software defect, and cyber was ruled out by the operator</span>
         </div>
         <h3>UK air traffic failure traced to a software defect in aircraft code allocation &mdash; NATS&rsquo; preliminary report describes a timing fault, not an attack</h3>
-        <p><b>This is not a cyber incident.</b> It is carried here, clearly labelled, because it is the aviation infrastructure story of the period and readers will reasonably have wondered. On 8&nbsp;September a failure at NATS, the UK air navigation service provider, forced Heathrow to suspend arrivals and disrupted Gatwick and Manchester, affecting more than 2,000 flights across 8&ndash;9&nbsp;September. NATS&rsquo; preliminary report, published on 18&nbsp;September, places the cause in a small part of the National Airspace System: a software defect in the code that allocates aircraft identification codes. A code request was paused when a higher-priority task pre-empted it, and the update did not complete; Reuters quotes the report as saying that had the higher-priority request arrived &ldquo;even one millisecond earlier or later, the update would have completed normally.&rdquo; Restrictions lasted about six hours and clearing the backlog took more than two days. NATS says a mitigation is in place while a permanent fix is safety-tested and deployed. Chief executive Martin Rolfe, who had already ruled out cyber on 10&nbsp;September, dismissed speculation of military interference and said the fault is unrelated to the 2023 outage; the early accounts blaming an anomalous military flight plan are not supported by the stated cause. Transport Secretary Heidi Alexander called the failure &ldquo;completely unacceptable&rdquo; and has tasked the Civil Aviation Authority with an independent review of NATS&rsquo; findings, its resilience investment plans and regulatory accountability. A full report is to follow, and NATS proposes a further &pound;1bn of investment by 2033. For aviation OT teams the lesson is availability engineering rather than attack defence: a defect that only surfaces when two tasks collide within a millisecond is exactly the kind of fault conventional testing can miss, so the useful questions are how your own flight-critical systems behave when an update stalls and how quickly you recover when one does.</p>
+        <p><b>This is not a cyber incident.</b> It is carried here, clearly labelled, because it is the aviation infrastructure story of the period and readers will reasonably have wondered. On 8&nbsp;September a failure at NATS, the UK air navigation service provider, forced Heathrow to suspend arrivals and disrupted Gatwick and Manchester, affecting more than 2,000 flights across 8&ndash;9&nbsp;September. NATS&rsquo; preliminary report, published on 18&nbsp;September, places the cause in a small part of the National Airspace System: a software defect in the code that allocates aircraft identification codes. A code request was paused when a higher-priority task pre-empted it, and the update did not complete; Reuters quotes the report as saying that had the higher-priority request arrived &ldquo;even one millisecond earlier or later, the update would have completed normally.&rdquo; Restrictions lasted about six hours and clearing the backlog took more than two days. NATS says a mitigation is in place while a permanent fix is safety-tested and deployed. Chief executive Martin Rolfe, who had already ruled out cyber on 10&nbsp;September, dismissed speculation of military interference and said the fault is unrelated to the 2023 outage; the early accounts blaming an anomalous military flight plan are not supported by the stated cause. Transport Secretary Heidi Alexander called the failure &ldquo;completely unacceptable&rdquo; and has tasked the Civil Aviation Authority with an independent review of NATS&rsquo; findings, its resilience investment plans and regulatory accountability. A full report is to follow, and NATS proposes a further &pound;1bn of investment by 2033. For aviation OT teams the lesson is availability engineering rather than attack defence: a defect that only surfaces when two tasks collide within a millisecond is exactly the kind of fault conventional testing can miss, so the useful questions are how your own flight-critical systems behave when an update stalls and how quickly you recover when one does. <b>Addendum, 21&nbsp;September:</b> FlightGlobal reports that a separate &ldquo;connectivity&rdquo; issue at NATS&rsquo; Prestwick centre in Scotland caused delays at several airports less than two weeks after the 8&nbsp;September failure. No cause has been published, NATS has not linked it to the earlier defect, and nothing in the reporting suggests a cyber element. We carry it as an unattributed operational fault and will update if NATS publishes a cause.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Confirmed NOT a cyberattack &mdash; NATS publicly ruled cyber out on 10 Sep 2026, and its preliminary report of 18 Sep 2026 attributes the failure to a software defect in aircraft identification code allocation; the full report and the CAA review are still to come</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Confirmed NOT a cyberattack &mdash; NATS publicly ruled cyber out on 10 Sep 2026, and its preliminary report of 18 Sep 2026 attributes the failure to a software defect in aircraft identification code allocation; the full report and the CAA review are still to come. The 21 Sep 2026 Prestwick disruption is unattributed and carries no cyber claim</span>
             <span class="ops-tag kev-off">No CVE &mdash; no vulnerability, no exploitation and no threat actor is involved in this event</span>
           </div>
           <div class="ops-row">
@@ -849,9 +853,10 @@
         <div class="card-meta">
           <span>NATS preliminary report of 18 Sep 2026, with Reuters reporting on its findings and the Transport Secretary&rsquo;s response; earlier AeroTime and AP reporting on the disruption and Martin Rolfe&rsquo;s BBC Radio remarks ruling out cyber</span>
           <span class="dot">&bull;</span>
-          <span>Failure 8 Sep 2026; cyber publicly ruled out 10 Sep 2026; preliminary report published 18 Sep 2026</span>
+          <span>Failure 8 Sep 2026; cyber publicly ruled out 10 Sep 2026; preliminary report published 18 Sep 2026; Prestwick connectivity disruption reported 21 Sep 2026, cause not published</span>
         </div>
         <a href="https://www.nats.aero/news/nats-publishes-preliminary-report-on-technical-incident-of-8-september/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.flightglobal.com/ops-safety/2026/09/pressure-on-nats-continues-after-disruption-at-primary-scottish-centre/" class="source-link" target="_blank" rel="noopener">FlightGlobal on Prestwick</a>
       </div>
 
 <div class="card" id="story-drone-airspace" data-published="2026-09-13">
@@ -890,7 +895,7 @@
           <span class="category">Incident &mdash; State-linked source-code and credential theft from self-hosted developer infrastructure</span>
         </div>
         <h3>A China-linked crew is emptying self-hosted code repositories of SCADA and HMI source &mdash; and aerospace is on the victim list</h3>
-        <p>Acronis threat intelligence, published on 13&nbsp;September and reported on 14&ndash;15&nbsp;September, describes a campaign it attributes with moderate confidence to a China-linked actor it calls Red Heron, exploiting a critical remote code execution flaw in the self-hosted Gitea code platform, CVE-2026-60004, since 29&nbsp;July. The actor scanned 1,386 internet-facing Gitea instances across seven countries and compromised 11 organisations in five countries, by Acronis&rsquo;s count (some secondary reports give higher figures) &mdash; the victim set spanning aerospace, telecommunications, government, elections and defence alongside industry. Two victims define the objective: a Taiwanese industrial-automation company whose stolen repositories covered SCADA and HMI tooling, IoT platform integrations and network-sniffer products, and a Canadian renewable-energy firm from which infrastructure maps, configuration secrets, SSH host keys and internal tokens were taken. The implant, a custom loader Acronis calls JITTERLY with an embedded Linux rootkit named SIXZUT, supports more than thirty post-exploitation commands. Nothing here is aviation-specific and no airport or airline has been named, but the pattern is the one that reaches this sector indirectly: MRO software houses, baggage and BMS integrators and ground-systems developers routinely keep deployment configurations, VPN profiles, device credentials and site diagrams in self-hosted repositories that sit outside anyone&rsquo;s OT security programme. Stolen host keys and infrastructure maps are not the attack; they are the preparation for one that arrives later looking like legitimate maintenance access.</p>
+        <p>Acronis threat intelligence, published on 13&nbsp;September and reported on 14&ndash;15&nbsp;September, describes a campaign it attributes with moderate confidence to a China-linked actor it calls Red Heron, exploiting a critical remote code execution flaw in the self-hosted Gitea code platform, CVE-2026-60004, since 29&nbsp;July. The actor scanned 1,386 internet-facing Gitea instances across seven countries and compromised 11 organisations in five countries, by Acronis&rsquo;s count (some secondary reports give higher figures) &mdash; the victim set spanning aerospace, telecommunications, government, elections and defence alongside industry. Two victims define the objective: a Taiwanese industrial-automation company whose stolen repositories covered SCADA and HMI tooling, IoT platform integrations and network-sniffer products, and a Canadian renewable-energy firm from which infrastructure maps, configuration secrets, SSH host keys and internal tokens were taken. The implant, a custom loader Acronis calls JITTERLY with an embedded Linux rootkit named SIXZUT, supports more than thirty post-exploitation commands. Nothing here is aviation-specific and no airport or airline has been named, but the pattern is the one that reaches this sector indirectly: MRO software houses, baggage and BMS integrators and ground-systems developers routinely keep deployment configurations, VPN profiles, device credentials and site diagrams in self-hosted repositories that sit outside anyone&rsquo;s OT security programme. Stolen host keys and infrastructure maps are not the attack; they are the preparation for one that arrives later looking like legitimate maintenance access. On 21&nbsp;September GreyNoise reported that the actor behind the <a href="#story-zyxel-gs1900-kev">Zyxel GS1900 switch campaign</a> also targeted Gitea CVE-2026-60004, and it infers an overlap with Red Heron from shared command-and-control and malware; that is GreyNoise&rsquo;s inference, not Acronis&rsquo;s finding, and we carry it as such.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation and confirmed compromises &mdash; Acronis documents exploitation from 29 Jul 2026 and at least 11 confirmed victim organisations, with published counts differing between sources; the attribution to a China-linked actor is assessed at moderate confidence, not proven, and no remediation completion has been reported</span>
@@ -1043,123 +1048,6 @@
         </div>
         <a href="https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-ukraine-airspace" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Operational risk &mdash; Airspace safety and navigation integrity, not a cyber incident</span>
-        </div>
-        <h3>Ukraine formally notifies aviation authorities that Russian airspace presents a growing risk to civil aircraft</h3>
-        <p>Ukraine issued a formal notification to international aviation authorities on 2&nbsp;September warning that Russian airspace carries growing risk to civil aviation, a day after President Zelenskyy urged airlines and insurers to stop using Russian airspace and airports as long-range drone operations expand. Russia&rsquo;s civil aviation regulator rejected the warning. This is an airspace-safety and geopolitical matter rather than a cyber event, and most Western carriers have avoided the airspace since 2022 &mdash; but it belongs on an OT dashboard for one reason. The same operating environment has produced sustained regional GNSS jamming and spoofing, and navigation-integrity degradation is the point where an external, non-cyber disruption starts behaving like an attack on a safety system: correct equipment, wrong answers.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Confirmed diplomatic notification, no cyber component &mdash; nothing in this item indicates compromise of an aircraft, an airline or an air navigation service provider. GNSS interference in the wider region is a separate, ongoing and independently reported issue</span>
-            <span class="ops-tag kev-off">No CVE &mdash; not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is routing, insurance and navigation-integrity assumptions rather than a software defect</span>
-            <span class="ops-cc"><b>Action:</b> Keep the cyber and non-cyber columns separate in your own reporting, because conflating them wastes response capacity. For flight operations, confirm routing and diversion planning reflects the current notification and that crews are briefed on regional GNSS interference reporting. For the security team, the transferable work is degradation handling: know which of your ground systems consume GNSS timing &mdash; surface movement, timing sources feeding surveillance and some synchronisation for airfield systems &mdash; and confirm each has a defined holdover behaviour and an alarm when it loses lock, so that an interference event is recognised as interference and not investigated for days as a cyber intrusion.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> GNSS-dependency inventory for ground systems with holdover and alarm review &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-ukrair" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-ukrair">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Euronews reporting on Ukraine&rsquo;s formal notification to international aviation authorities and the response from Russia&rsquo;s civil aviation regulator</span>
-          <span class="dot">&bull;</span>
-          <span>Notification issued and reported 2 Sep 2026</span>
-        </div>
-        <a href="https://www.euronews.com/my-europe/2026/09/02/ukraine-formally-warns-airlines-that-russian-airspace-is-unsafe" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-booz-ai" data-published="2026-09-04">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; measured autonomous attack capability in frontier AI models; no incident</span>
-        </div>
-        <h3>Eighteen frontier models were run at a real enterprise network &mdash; one completed the whole kill chain unaided</h3>
-        <p>Booz Allen published its Cyber Weapon Index and an accompanying report on 4&nbsp;September, grading eighteen frontier AI models on how much of an intrusion they can carry out without a human driving. The models were run against a representative enterprise network rather than a benchmark; the top performer completed the full sequence &mdash; reconnaissance, initial access, lateral movement and objective &mdash; unaided, while most managed individual stages. The authors&rsquo; conclusion is about time rather than novelty: nothing in the tested behaviour was a new technique, but the interval between a foothold and a consequence compresses when the attacker never pauses to think. Booz Allen also reports that defensive playbooks written specifically against autonomous attackers cut their success rate by more than 95% in the same tests. For an airport the implication is the overnight window &mdash; baggage, fuelling and BMS controls sit behind facility networks that are watched hardest during the operating day, not at 3&nbsp;am.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No exploitation &mdash; this is controlled vendor testing against a representative network, not observed attacker activity; treat the percentages as the authors&rsquo; own results</span>
-            <span class="ops-tag kev-off">No CVE &mdash; the finding concerns attacker capability and timing, not a product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the mitigations named are segmentation, least privilege, strong identity controls and isolation of high-value assets</span>
-            <span class="ops-cc"><b>Action:</b> Use it to test response coverage rather than to buy tooling. Time your detection-to-containment path for an intrusion that starts on the airport corporate network at 3&nbsp;am and moves toward baggage handling, fuelling, BMS or access control. Then confirm the controls the report found most effective: segmentation between corporate IT and airside or facility OT, phishing-resistant MFA on remote and contractor access, least privilege on engineering and BMS accounts, and isolation of the systems that would stop departures. Confirm the duty manager can authorise disconnecting a facility system, and that manual fallbacks for check-in, baggage and gate operations have been rehearsed this year rather than merely written down.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Compressed-timeline tabletop with an out-of-hours start &mdash; 30 days; verification that segmentation, MFA and least-privilege controls on remote paths are implemented rather than documented &mdash; 21 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-booz-ai" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-booz-ai">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Booz Allen Cyber Weapon Index and the report &ldquo;The Offensive Frontier: AI as the Attacker&rdquo;, reported by Industrial Cyber &mdash; vendor-published research; the figures are the authors&rsquo; own test results and have not been independently reproduced</span>
-          <span class="dot">&bull;</span>
-          <span>Published and reported 4 Sep 2026 &mdash; verified 6 Sep 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/reports/booz-allen-ai-models-approaching-autonomous-cyberattack-capability-as-critical-infrastructure-response-windows-narrow/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-ci-fortify-6step" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Research &mdash; Isolation readiness, practitioner guidance</span>
-        </div>
-        <h3>Six steps to being able to disconnect airside systems &mdash; and a three-month planning horizon</h3>
-        <p>Nozomi Networks published a practitioner summary on 2&nbsp;September of the Five Eyes &ldquo;CI Fortify&rdquo; guidance released in late July, reducing it to six steps: identify vital systems and their dependencies; establish trust levels and connection maps; pre-build the separation points; create and test graduated isolation plans; retain visibility while isolated; and run post-isolation checks before reconnecting. For airports the first step is the awkward one, because so many vital systems belong to someone else &mdash; common-use check-in, baggage reconciliation, ground-handling platforms. The recent European airport disruptions showed manual fallback working for check-in but not scaling. Nozomi&rsquo;s suggestion that operators plan to sustain isolated operations for up to three months is worth reading against airside plant specifically: BMS, access control and airfield lighting need to keep running whether or not the terminal IT estate does.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Confirmed &mdash; Nozomi Networks analysis published 2 Sep 2026, summarising the Five Eyes CI Fortify guidance released 28 Jul 2026</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is preparedness guidance, not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the work is dependency mapping, pre-built separation points and tested isolation plans</span>
-            <span class="ops-cc"><b>Action:</b> Start with the dependency map and be honest about ownership: for baggage handling, jet bridges, fuelling, de-icing, airfield lighting, BMS and access control, record what each depends on outside the OT network &mdash; directory services, NTP, licence servers, vendor remote access, shared common-use platforms. That list is the isolation plan, and the third-party entries are the ones you cannot fix alone. Pre-build the separation points so disconnection is documented rather than improvised, and confirm monitoring survives isolation. Test the achievable tier: drop vendor remote access to a single airside system for a defined window and confirm it keeps running. Then check the manual fallbacks against a horizon longer than one shift.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Dependency map for airside and facility OT &mdash; 60 days; test vendor-access isolation on one system &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-ci-fortify-6" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-ci-fortify-6">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Nozomi Networks Labs analysis of the CISA / ASD ACSC / NCSC-UK / CCCS &ldquo;CI Fortify&rdquo; guidance</span>
-          <span class="dot">&bull;</span>
-          <span>Analysis published 2 Sep 2026; underlying guidance published 28 Jul 2026</span>
-        </div>
-        <a href="https://www.nozominetworks.com/blog/ci-fortify-you-cant-prevent-the-storm-but-you-can-ride-it-out-" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-ncsc-ot-alert" data-published="2026-08-27">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Threat Intelligence &mdash; National agency alert on OT targeting</span>
-        </div>
-        <h3>NCSC issues an alert: increased targeting of OT across multiple sectors globally, and it has already caused real-world disruption</h3>
-        <p>The NCSC published a formal alert on 27&nbsp;August stating it has seen increased targeting of operational technology across multiple sectors globally, including in the UK, by a range of threat actors, with some limited real-world disruption already resulting. It names no victims, actors or techniques, and it landed the same day Manchester Airports Group disclosed its breach &mdash; a coincidence of timing, not a link. Aviation is not called out, but the exposure the NCSC describes is the airport&rsquo;s: a campus estate of controllers bought as part of a building fit-out, supported remotely by an OEM, and rarely re-surveyed. Baggage handling drives, jet bridge controllers, de-icing and fuelling telemetry, airfield lighting cabinets, stand equipment, BMS and access control all sit in that category, and the instruction not to assume they are unreachable from the internet without verifying it is the whole point of the alert.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by a national authority &mdash; the NCSC states it has seen increased targeting of OT across multiple sectors globally, by a range of threat actors, resulting in some limited real-world disruption; specific victims, actors and techniques are not named</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is an agency threat alert covering exposure and configuration, not a single product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the alert targets internet-exposed OT, weak credentials, unsupported boundary devices and insecure management protocols</span>
-            <span class="ops-cc"><b>Action:</b> Take the NCSC&rsquo;s eight actions to the apron and the plant rooms. Verify by scanning your own address ranges that no controller, gateway or HMI on baggage, jet bridge, fuelling, de-icing, lighting, BMS or access-control systems answers from the public internet, and ask each OEM whether the equipment it supports carries a cellular router you did not procure. Replace default and shared credentials across those systems &mdash; fit-out contractors leave them behind consistently. Confirm the firewalls, industrial gateways and remote-access appliances at the OT boundary are vendor-supported, patched and manageable only from a segregated network, and retire end-of-life kit. Log and baseline connectivity into and within the OT network. Finally, confirm that stands, gates and baggage can run in a degraded manual mode, that configurations and controller logic are backed up offline, and that a restoration has actually been rehearsed.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Verified internet-exposure check across airfield and terminal OT &mdash; 14 days; OEM remote-access review and degraded-mode exercise &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-ncsc-ot" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-ncsc-ot">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>UK National Cyber Security Centre alert, &ldquo;Disruptive cyber activity highlights risk from internet-exposed systems and edge devices&rdquo;</span>
-          <span class="dot">&bull;</span>
-          <span>Published 27 Aug 2026; the NCSC says it has been engaging affected sectors directly ahead of publication</span>
-        </div>
-        <a href="https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
 </div>
   </div>
 
@@ -1173,7 +1061,7 @@
           <span class="category">Advisory &mdash; Actively exploited zero-day, CISA KEV</span>
         </div>
         <h3>Cisco&rsquo;s network access control server has a CVSS&nbsp;10 authentication bypass under active attack &mdash; this is the box that decides which devices get onto which airport network</h3>
-        <p>Cisco published advisory cisco-sa-ISE-ABP-VNSW7Tn5 on 16&nbsp;September for CVE-2026-76460, a CVSS&nbsp;10.0 flaw in Identity Services Engine and ISE-PIC that lets an unauthenticated remote attacker bypass the web-based management interface through an API endpoint with insufficient authentication. Cisco states its PSIRT &ldquo;is aware of active exploitation of this vulnerability.&rdquo; All versions are affected; fixes are 3.1 Patch&nbsp;12, 3.2 Patch&nbsp;11, 3.3 Patch&nbsp;12, 3.4 Patch&nbsp;7 and 3.5 Patch&nbsp;4. There are no workarounds &mdash; restricting management traffic with infrastructure access control lists is the only mitigation short of patching. CISA added the CVE to the Known Exploited Vulnerabilities catalog on 16&nbsp;September with an unusually short three-day federal remediation deadline of 19&nbsp;September, which has now passed. No attribution has been published and no critical-infrastructure or aviation targeting has been claimed. The reason it matters here is architectural rather than reported: where an airport or airline estate runs 802.1X and posture-based access control, ISE is the policy engine that decides which contractor laptop, handheld or engineering workstation lands on a terminal, baggage or airside VLAN &mdash; so administrative control of it is control of the segmentation itself.</p>
+        <p>Cisco published advisory cisco-sa-ISE-ABP-VNSW7Tn5 on 16&nbsp;September for CVE-2026-76460, a CVSS&nbsp;10.0 flaw in Identity Services Engine and ISE-PIC that lets an unauthenticated remote attacker bypass the web-based management interface through an API endpoint with insufficient authentication. Cisco states its PSIRT &ldquo;is aware of active exploitation of this vulnerability.&rdquo; All versions are affected; fixes are 3.1 Patch&nbsp;12, 3.2 Patch&nbsp;11, 3.3 Patch&nbsp;12, 3.4 Patch&nbsp;7 and 3.5 Patch&nbsp;4. There are no workarounds &mdash; restricting management traffic with infrastructure access control lists is the only mitigation short of patching. CISA added the CVE to the Known Exploited Vulnerabilities catalog on 16&nbsp;September with an unusually short three-day federal remediation deadline of 19&nbsp;September, which has now passed. No attribution has been published and no critical-infrastructure or aviation targeting has been claimed; Singapore&rsquo;s Cyber Security Agency issued its own alert on 21&nbsp;September urging immediate patching. The reason it matters here is architectural rather than reported: where an airport or airline estate runs 802.1X and posture-based access control, ISE is the policy engine that decides which contractor laptop, handheld or engineering workstation lands on a terminal, baggage or airside VLAN &mdash; so administrative control of it is control of the segmentation itself.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco PSIRT states it is aware of active exploitation; no actor attribution and no industrial or aviation victimology has been published</span>
@@ -1192,9 +1080,69 @@
         <div class="card-meta">
           <span>Cisco security advisory cisco-sa-ISE-ABP-VNSW7Tn5 and the CISA Known Exploited Vulnerabilities catalog &mdash; corroborated by SecurityWeek and BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Cisco advisory published 16 Sep 2026; added to CISA KEV 16 Sep 2026, deadline 19 Sep 2026</span>
+          <span>Cisco advisory published 16 Sep 2026; added to CISA KEV 16 Sep 2026, deadline 19 Sep 2026, now passed; CSA Singapore alert 21 Sep 2026</span>
         </div>
         <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ISE-ABP-VNSW7Tn5" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+<div class="card" id="story-zyxel-gs1900-kev" data-published="2026-09-21">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, federal deadline 24 September</span>
+        </div>
+        <h3>A Zyxel small-office switch flaw enters KEV after 996 devices in 48 countries were harvested for configurations and credentials &mdash; the kit in the corners of an airport nobody inventories</h3>
+        <p>CISA added CVE-2026-7273 to the Known Exploited Vulnerabilities catalog on 21&nbsp;September with a federal remediation deadline of 24&nbsp;September. The flaw is a stack-based buffer overflow in the CGI program of Zyxel&rsquo;s GS1900-series managed switches &mdash; GS1900-8, 8HP, 10HP, 16, 24, 24E, 24EP, 24HPv2, 48 and 48HPv2 &mdash; that lets an unauthenticated attacker on the LAN execute operating-system commands with a crafted HTTP request; Zyxel patched it on 16&nbsp;June in firmware 2.90(AAHH.2)C0 and per-model equivalents, and publishes no CVSS score for it. GreyNoise&rsquo;s report of the same day documents what it describes as the first in-the-wild exploitation: a single actor, active since 7&nbsp;May and assessed as a Chinese speaker, compromised 996 GS1900 switches across 48 countries &mdash; Italy, the United States, Taiwan, France, South Korea and the Netherlands lead the count &mdash; using an obfuscated Python tool that pulled device configurations and root-level hashed credentials over TFTP; 564 of the victims were still on factory-default credentials. The same actor stole records from an unnamed western government organisation through two WordPress flaws and also targeted Gitea CVE-2026-60004, among other products; GreyNoise infers an overlap with Red Heron from shared infrastructure and malware, which is an inference rather than an observation. KEV lists the flaw as LAN-based, so the practical exposure is any path that reaches the switch&rsquo;s management interface. That is the aviation angle: GS1900-class switches are what a contractor site office, a car-park attendant booth, a retail concession or a CCTV closet gets fitted with, they rarely appear in an asset register, and a stolen configuration is a map of every VLAN the switch carries plus the credentials to reach it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; CISA KEV addition of 21 Sep 2026; GreyNoise documents 996 compromised switches in 48 countries since 7 May 2026; no aviation victim is named and the Red Heron overlap is GreyNoise&rsquo;s inference</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-7273 added 21 Sep 2026, federal remediation deadline 24 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; Zyxel firmware 2.90(AAHH.2)C0 and per-model equivalents, published 16 Jun 2026; the campaign ran against unpatched and default-credential devices</span>
+            <span class="ops-cc"><b>Action:</b> Discovery is the whole job here, because the switches that matter are the ones nobody knows about. Sweep your own address space and every contractor, concession and car-park segment for GS1900 web interfaces, and ask facilities, CCTV, retail and parking contractors what they installed. For each device found: update the firmware, change the credentials &mdash; more than half the compromised devices were on factory defaults &mdash; and confine the management interface to a management VLAN. Then assume the worst for any device found on default credentials or reachable from a general-purpose network: pull the running configuration, look for accounts, mirror ports, trunk or VLAN changes you did not make, rotate whatever credentials the configuration held, and check what other segments that switch could see. A cheap edge switch is not a cheap problem when it carries the access-control or CCTV VLAN.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Discovery sweep across own and contractor segments &mdash; 7 days; firmware update and credential change on every device found &mdash; 7 days, the federal deadline is 24 Sep 2026; configuration-integrity review and rotation for devices on defaults &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-zyxel-gs1900-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-zyxel-gs1900-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA Known Exploited Vulnerabilities catalog entry of 21 Sep 2026, GreyNoise research published 21 Sep 2026 and Zyxel&rsquo;s security advisory for the GS1900 series of 16 Jun 2026</span>
+          <span class="dot">&bull;</span>
+          <span>Zyxel advisory 16 Jun 2026; KEV listing and GreyNoise report 21 Sep 2026; federal deadline 24 Sep 2026</span>
+        </div>
+        <a href="https://www.greynoise.io/blog/open-season-on-kapibala-attacker-steals-government-records-wordpress-exploitation" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.zyxel.com/global/en/support/security-advisories" class="source-link" target="_blank" rel="noopener">Zyxel advisories</a>
+      </div>
+<div class="card" id="story-pepperl-fuchs-iolink" data-published="2026-09-16">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; CERT@VDE VDE-2026-014; no known exploitation</span>
+        </div>
+        <h3>Twenty-two flaws in Pepperl+Fuchs IO-Link masters, two at CVSS&nbsp;9.8 &mdash; and the same firmware ships under Phoenix Contact and Carlo Gavazzi badges</h3>
+        <p>CERT@VDE published VDE-2026-014 on 16&nbsp;September: Pepperl+Fuchs has fixed 22 vulnerabilities in the firmware of its ICE2-8IOL and ICE3-8IOL IO-Link master modules, found by Nozomi Networks Labs researchers, with the fix in firmware 1.7.8. The two worst are CVE-2026-27546, an authentication bypass, and CVE-2026-27565, unauthenticated upload of a malicious IODD device-description file that executes shell scripts, both at CVSS&nbsp;9.8. Most of the rest, CVE-2026-27547 through -27564, are command-injection, file-inclusion and authorisation flaws between 7.2 and 8.8 that lead to root-level code execution on the module; CVE-2026-27557 at 7.5 is an unauthenticated path traversal that reads the module&rsquo;s SSH server private keys, and CVE-2026-27553 at 6.5 discloses password hashes. The same firmware is sold rebadged, so the exposure is wider than one vendor: Phoenix Contact IOL MA8 PN DI8 and IOL MA8 EIP DI8 masters carry 20 of the CVEs under VDE-2026-027, and Carlo Gavazzi YL212 and YN115 masters are covered by VDE-2026-028, all with the same 1.7.8 fix and the same date. No exploitation is reported and CISA has not yet republished it. Our assessment of the aviation relevance, since no airport is named: IO-Link is the sensor and actuator layer of modern conveyor and sortation systems, and baggage-handling systems are assembled by integrators from exactly this class of discrete-automation component. A master module that gives root to anyone who can reach its web interface is a foothold on the PROFINET or EtherNet/IP segment that runs the belts.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation &mdash; CERT@VDE and Nozomi report coordinated disclosure only; no attacks reported as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of the 22 CVEs carries a KEV listing at generation time, and no CISA ICS advisory had been published for them</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fix available &mdash; firmware 1.7.8 for Pepperl+Fuchs ICE2-8IOL and ICE3-8IOL; matching Phoenix Contact (VDE-2026-027) and Carlo Gavazzi (VDE-2026-028) releases</span>
+            <span class="ops-cc"><b>Action:</b> Ask your baggage-handling integrator, in writing, for an inventory of IO-Link masters on the system across all three brands &mdash; the Phoenix Contact and Carlo Gavazzi units will not show up in a search for Pepperl+Fuchs. Confirm that no master&rsquo;s web interface is reachable from outside its control cell, and in particular not from the integrator&rsquo;s remote-support path. Schedule firmware 1.7.8 into the next maintenance window and, because one of the flaws reads the SSH private keys, regenerate the module&rsquo;s keys and any credentials configured on it after the update rather than before. Treat this as a segment-integrity finding: if a master is reachable from the terminal IT network at all, that is the finding, independent of the patch.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IO-Link master inventory across all three brands with the BHS integrator &mdash; 14 days; reachability check from outside the control cell &mdash; 14 days; firmware 1.7.8 and key regeneration in the next maintenance window &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-pepperl-fuchs-iolink" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-pepperl-fuchs-iolink">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CERT@VDE advisory VDE-2026-014, with Nozomi Networks Labs research credit and CVE records at MITRE; rebadged products per VDE-2026-027 and VDE-2026-028</span>
+          <span class="dot">&bull;</span>
+          <span>Published 16 Sep 2026</span>
+        </div>
+        <a href="https://www.certvde.com/en/advisories/VDE-2026-014/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
 <div class="card" id="story-digital-watchdog-vmax" data-published="2026-09-15">
@@ -1232,12 +1180,12 @@
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory &mdash; CISA ICS batch, 17 September</span>
         </div>
-        <h3>CISA&rsquo;s 17&nbsp;September batch runs to seven advisories &mdash; none of them aviation; the highest scores are in Mitsubishi engineering software and Schneider Modicon M340 controllers</h3>
-        <p>CISA released seven ICS advisories on Thursday 17&nbsp;September, ICSA-26-260-01 through -07: Bransys ELD, Mitsubishi Electric GX Works3 and Motion Control Settings, Hitachi Energy FACTS Control Platform, Schneider Electric Modicon M340 controllers and communication modules, Schneider Electric NetBotz 5 (750 and 755), ABB Ability Edgenius, and Schneider Electric PowerChute Serial Shutdown. The highest score we can verify in the batch is CVE-2026-15688 in GX Works3 and Motion Control Settings, an authentication-algorithm weakness rated CVSS&nbsp;8.8 under v3.1 and 8.7 under v4.0, affecting all versions of Mitsubishi&rsquo;s PLC engineering software. The Bransys advisory covers three credential-handling issues in an electronic logging device &mdash; hardcoded MQTT credentials at 7.5, cleartext transmission at 5.9 and hardcoded FTP credentials at 5.3, fixed in Android&nbsp;11.00.00 and iOS&nbsp;1.1.54. CISA lists Transportation Systems on that advisory, but ELDs are commercial-trucking hours-of-service devices and we are not going to stretch them into an aviation finding. CISA&rsquo;s machine-readable advisory files now carry detail for four more. ICSA-26-260-04 republishes Schneider&rsquo;s August&nbsp;2025 advisory for CVE-2025-6625, a crafted FTP command that can deny service on Modicon M340 controllers and X80 Ethernet modules (CVSS&nbsp;7.5 v3.1, 8.7 v4; M340 firmware fixed in SV3.70). ICSA-26-260-05 covers NetBotz 5 command injection CVE-2026-13336 (6.4 v3.1, 7.3 v4) and SQL injection CVE-2026-13337, fixed in 5.6.0. ICSA-26-260-06 is the Linux kernel &ldquo;Copy Fail&rdquo; privilege escalation CVE-2026-31431 (7.8) in ABB Edgenius gateways, fixed in 3.2.4.1. ICSA-26-260-07 is CVE-2026-13348 in PowerChute Serial Shutdown, a missing limit on authentication attempts (5.3 v3.1, 6.9 v4); CISA&rsquo;s remediation text says to upgrade to version&nbsp;1.6, but the same advisory also lists 1.6 as affected, so confirm the fixed build against Schneider&rsquo;s own advisory. <b>The Hitachi Energy advisory (-03) was still not verifiable at generation time</b>, and its scores are deliberately omitted rather than guessed. Separately, CISA updated ICSA-26-211-07 (Mitsubishi Electric CC-Link IE TSN) on the same day, adding eight affected products. No exploitation is reported for anything in the batch.</p>
+        <h3>CISA&rsquo;s 17&nbsp;September batch runs to seven new advisories plus one update &mdash; none of them aviation; the highest scores are in Mitsubishi engineering software and Schneider Modicon M340 controllers</h3>
+        <p>CISA released seven new ICS advisories on Thursday 17&nbsp;September, ICSA-26-260-01 through -07, plus one update: Bransys ELD, Mitsubishi Electric GX Works3 and Motion Control Settings, Hitachi Energy FACTS Control Platform, Schneider Electric Modicon M340 controllers and communication modules, Schneider Electric NetBotz 5 (750 and 755), ABB Ability Edgenius, and Schneider Electric PowerChute Serial Shutdown. The highest score we can verify in the batch is CVE-2026-15688 in GX Works3 and Motion Control Settings, an authentication-algorithm weakness rated CVSS&nbsp;8.8 under v3.1 and 8.7 under v4.0, affecting all versions of Mitsubishi&rsquo;s PLC engineering software. The Bransys advisory covers three credential-handling issues in an electronic logging device &mdash; hardcoded MQTT credentials at 7.5, cleartext transmission at 5.9 and hardcoded FTP credentials at 5.3, fixed in Android&nbsp;11.00.00 and iOS&nbsp;1.1.54. CISA lists Transportation Systems on that advisory, but ELDs are commercial-trucking hours-of-service devices and we are not going to stretch them into an aviation finding. CISA&rsquo;s machine-readable advisory files now carry detail for four more. ICSA-26-260-04 republishes Schneider&rsquo;s August&nbsp;2025 advisory for CVE-2025-6625, a crafted FTP command that can deny service on Modicon M340 controllers and X80 Ethernet modules (CVSS&nbsp;7.5 v3.1, 8.7 v4; M340 firmware fixed in SV3.70). ICSA-26-260-05 covers NetBotz 5 command injection CVE-2026-13336 (6.4 v3.1, 7.3 v4) and SQL injection CVE-2026-13337, fixed in 5.6.0. ICSA-26-260-06 is the Linux kernel &ldquo;Copy Fail&rdquo; privilege escalation CVE-2026-31431 (7.8) in ABB Edgenius gateways, fixed in 3.2.4.1. ICSA-26-260-07 is CVE-2026-13348 in PowerChute Serial Shutdown, a missing limit on authentication attempts (5.3 v3.1, 6.9 v4); CISA&rsquo;s remediation text says to upgrade to version&nbsp;1.6, but the same advisory also lists 1.6 as affected, so confirm the fixed build against Schneider&rsquo;s own advisory. The NetBotz and PowerChute items are Schneider advisories originally dated 11&nbsp;August that CISA has now republished; both products are ordinary fixtures of terminal comms rooms and energy centres, which is why an otherwise non-aviation batch is worth a look here. <b>The Hitachi Energy advisory (-03) was still not verifiable at generation time</b>, and its scores are deliberately omitted rather than guessed. Separately, CISA updated ICSA-26-211-07 (Mitsubishi Electric CC-Link IE TSN) on the same day, adding eight affected products. No exploitation is reported for anything in the batch.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">No known exploitation &mdash; CISA reports none for any advisory in this batch</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of this batch&rsquo;s CVEs are listed; CISA&rsquo;s only KEV additions in the period were three Linux kernel flaws on 18 September</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of this batch&rsquo;s CVEs are listed; CISA&rsquo;s KEV additions since were three Linux kernel flaws on 18 September (deadline 21 September, passed) and Zyxel GS1900 on 21 September</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixes available &mdash; vendor updates are named in the individual advisories; the Bransys fixes are Android 11.00.00 and iOS 1.1.54; Modicon M340 SV3.70, NetBotz 5.6.0, Edgenius 3.2.4.1</span>
@@ -1250,9 +1198,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisories ICSA-26-260-01 to -07, confirmed from the CISA CSAF advisory files and CISA advisory titles; CVSS detail verified for all but the Hitachi Energy advisory (-03); KEV status from the CISA KEV catalog of 18 Sep 2026</span>
+          <span>CISA ICS advisories ICSA-26-260-01 to -07 and the ICSA-26-211-07 update, confirmed from CISA&rsquo;s 17 Sep bulletin and the CISA CSAF advisory files; CVSS detail verified for all but the Hitachi Energy advisory (-03); KEV status from the CISA KEV catalog of 21 Sep 2026</span>
           <span class="dot">&bull;</span>
-          <span>Advisories published 17 Sep 2026; corrected 20 Sep 2026 to seven advisories and the 18 Sep KEV additions</span>
+          <span>Advisories published 17 Sep 2026; corrected 22 Sep 2026 to seven new advisories plus one update, per CISA&rsquo;s bulletin</span>
         </div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A95" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1315,6 +1263,65 @@
           <span>CVEs disclosed May 2025; research published 10 and 18 Sep 2026; CISA advisory updated 15 Sep 2026</span>
         </div>
         <a href="https://industrialcyber.co/vulnerabilities/nozomi-identifies-12-vulnerabilities-in-siemens-scalance-lpe9403-enabling-root-access-and-ot-network-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+<div class="card" id="story-moxa-tn4500b" data-published="2026-09-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Moxa MPSA-252620; no known exploitation</span>
+        </div>
+        <h3>Moxa fixes an unauthenticated crash in the web login of its TN-4500B switches &mdash; a rolling-stock line, so the airport question is the people-mover</h3>
+        <p>Moxa published security advisory MPSA-252620 on 18&nbsp;September for CVE-2026-15579 in its TN-4500B Ethernet switch series, a line Moxa&rsquo;s product page describes as designed for railway applications including rolling stock and as meeting EN&nbsp;50155 test requirements. The flaw is an out-of-bounds write in the web login: the username field is not length-checked, so a remote, unauthenticated attacker who can reach the web interface can send an overlong value and crash the authentication process. Moxa describes the impact as denial of service with no confidentiality loss, scores it CVSS&nbsp;v4 8.8 and rates it High. Firmware v2.0 and earlier is affected; v2.1 or later fixes it. The advisory makes no statement about exploitation and we found no report of attacks. This is not an airport product and we have no evidence of it at any airport. It is carried because the one place a rolling-stock switch does turn up on an airport estate is the automated people-mover or airside shuttle, which is usually maintained by a rail systems contractor under a separate contract and separate security regime from the terminal. If you have no people-mover, file this; if you do, the question is whether the on-board network&rsquo;s web management is reachable from the train-to-ground link or from the maintenance depot network.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation &mdash; Moxa makes no statement on exploitation and no attacks have been reported as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVE-2026-15579 carries no KEV listing at generation time</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fix available &mdash; TN-4500B firmware v2.1 or later</span>
+            <span class="ops-cc"><b>Action:</b> If you operate an automated people-mover or airside shuttle, put the advisory to its maintainer and ask two things: whether TN-4500B switches are fitted, and from which networks their web management interface can be reached &mdash; the on-board network only, the train-to-ground link, or the depot. Plan the v2.1 update into the vehicle maintenance cycle and, until then, confirm the web interface is not exposed beyond the vehicle. A denial of service on an on-board switch is a stopped train, and on a people-mover a stopped train is a terminal connection problem within minutes.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> People-mover maintainer inventory and reachability answer &mdash; 14 days; firmware v2.1 in the vehicle maintenance cycle &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-moxa-tn4500b" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-moxa-tn4500b">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Moxa security advisory MPSA-252620 and the Moxa TN-4500B product page</span>
+          <span class="dot">&bull;</span>
+          <span>Published 18 Sep 2026</span>
+        </div>
+        <a href="https://www.moxa.com/en/support/product-support/security-advisory/mpsa-252620-cve-2026-15579-out-of-bounds-write-vulnerability-in-ethernet-switch" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-rockwell-sd1790" data-published="2026-09-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Guidance &mdash; Rockwell Automation SD1790 revision 5.0; exploitation is the premise, per the FBI</span>
+        </div>
+        <h3>Rockwell extends its lock-out recovery guidance to Micro820 and Micro850 &mdash; the small PLCs in the parts of an airport that never get a security review</h3>
+        <p>Rockwell Automation revised security notice SD1790 for a fifth time on 18&nbsp;September. The notice, first published on 30&nbsp;July, is titled as hardening guidance and instructions for restoring access when a controller&rsquo;s password is unknown, and revision 5.0 extends the recovery and hardening instructions to Micro820 and Micro850 controllers alongside the MicroLogix 1100 and 1400 it already covered. It exists because of the FBI&rsquo;s public service announcement of 30&nbsp;July, which described attackers remotely altering the configuration of internet-exposed PLCs, changing IP addresses and setting passwords where none had existed, locking operators out of their own controllers. There is no CVE; the guidance is to remove controllers from direct internet exposure, reach them through a VPN and firewall isolation, set strong passwords, keep offline project backups, disable the controller&rsquo;s HTTP server and keep firmware current. Revision 5.0 adds no new incident data and names no sector; Rockwell has published no new vulnerability advisories since its 1&nbsp;September batch. Our assessment of why it belongs here: MicroLogix and Micro800 controllers are the PLCs of small standalone plant &mdash; car-park barriers and pay-on-foot systems, pump stations, fuel-farm ancillaries, de-icing fluid recovery, packaged HVAC &mdash; typically installed by a mechanical or electrical contractor with a cellular router for remote support, and typically absent from the airport&rsquo;s own asset register. The FBI&rsquo;s scenario, a controller that suddenly has a password its owner does not know, is the one those sites are least prepared to recover from.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploitation is the premise &mdash; the FBI PSA of 30 Jul 2026 describes attackers altering configuration on internet-exposed PLCs; revision 5.0 adds no new incident data and names no sector or victim</span>
+            <span class="ops-tag kev-off">No CVE &mdash; hardening and recovery guidance rather than a vulnerability; nothing here is in KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the controls are exposure removal, VPN and firewall isolation, passwords, offline backups and a disabled HTTP server</span>
+            <span class="ops-cc"><b>Action:</b> Scan your own address ranges, and ask your contractors to scan theirs, for controllers answering EtherNet/IP or HTTP from the internet; the FBI&rsquo;s scenario needs nothing more than that exposure. Ask facilities, parking, fuel and de-icing contractors which Micro800 and MicroLogix controllers they maintain, how they reach them, and whether a current offline copy of each project exists &mdash; the recovery procedure in SD1790 depends on it. Then apply the notice in order: off the internet first, behind a VPN and firewall second, passwords set and the HTTP server disabled third. Record which sites had no password at all, because on the FBI&rsquo;s description those are the ones an attacker can lock without breaking anything.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure scan for small controllers across own and contractor ranges &mdash; 7 days; contractor inventory and offline backup confirmation &mdash; 30 days; hardening per SD1790 &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-rockwell-sd1790" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-rockwell-sd1790">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Rockwell Automation security notice SD1790, revision 5.0, read from Rockwell&rsquo;s trust center; FBI public service announcement of 30 Jul 2026 as referenced by the notice</span>
+          <span class="dot">&bull;</span>
+          <span>Notice first published 30 Jul 2026; revision 5.0 published 18 Sep 2026</span>
+        </div>
+        <a href="https://www.rockwellautomation.com/en-us/trust-center/security-advisories/advisory.SD1790.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
 <div class="card" id="story-cisco-fmc-kev" data-published="2026-09-16">
@@ -1494,65 +1501,6 @@
         </div>
         <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-cisa-sep3" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Critical Advisory &mdash; Remote-access client, firmware tool and SCADA platform</span>
-        </div>
-        <h3>CISA&rsquo;s 3 September batch covers the contractor&rsquo;s VPN client and the firmware tool &mdash; IXON, Rockwell ControlFLASH, Ignition</h3>
-        <p>CISA published a further set of ICS advisories on 3&nbsp;September. Three are relevant to airport facility and ground OT. ICSA-26-246-02 covers the IXON VPN Client, where CVE-2026-75925 allows remote code execution with elevated privileges on the machine running the client in versions before 1.4.7 &mdash; the standard arrangement for baggage-handling, jet-bridge and de-icing vendors who support kit remotely. ICSA-26-246-03 covers Rockwell Automation ControlFLASH at V15.07 and earlier, where CVE-2026-12663 lets commands or code run at the logged-in user&rsquo;s permission level; ControlFLASH is the firmware tool for the controllers under baggage systems, fuelling and airfield plant. ICSA-26-246-06 covers Inductive Automation Ignition, where any authenticated user can create projects &mdash; Ignition appears as a visualisation layer over BMS and baggage telemetry. None is reported as exploited.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation &mdash; CISA lists no reported public exploitation for CVE-2026-75925, CVE-2026-12663 or the Ignition issue as of this edition</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of the three advisories carries a KEV listing at generation time</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed versions available &mdash; IXON VPN Client 1.4.7 or later; Rockwell ControlFLASH beyond V15.07; see each advisory for Ignition guidance</span>
-            <span class="ops-cc"><b>Action:</b> Start with the VPN client, since it is the one that hands an attacker elevated privilege on a machine that already reaches airside plant: inventory every host running the IXON VPN Client, including vendor laptops used for baggage, jet-bridge and de-icing support, verify versions and move anything below 1.4.7 forward. Make the client version part of the pre-visit check for contractors. For ControlFLASH, plan the upgrade past V15.07 and, until then, keep firmware work off accounts that also administer terminal IT. For Ignition, audit authenticated accounts and restrict project creation. Record the review against your airport cyber plan &mdash; vendor remote access is the recurring finding in this sector.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> IXON VPN Client inventory and upgrade to 1.4.7+, including vendor laptops &mdash; 14 days; ControlFLASH and Ignition reviews &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-cisa-sep3" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-cisa-sep3">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisories ICSA-26-246-02 (IXON VPN Client), ICSA-26-246-03 (Rockwell Automation ControlFLASH) and ICSA-26-246-06 (Inductive Automation Ignition)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 3 Sep 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-sonicwall-sma1000" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Critical Advisory &mdash; Actively exploited, KEV-listed</span>
-        </div>
-        <h3>A CVSS&nbsp;10 pre-auth flaw in SonicWall&rsquo;s SMA1000 remote-access gateway is being exploited, and CISA gave agencies three days</h3>
-        <p>SonicWall disclosed on 1&nbsp;September that two previously unknown vulnerabilities in its SMA1000 secure remote access gateway and SSL-VPN appliance are being exploited in the wild; the company says it found both the flaws and the exploitation internally. CVE-2026-83548, scored CVSS&nbsp;10, is a pre-authentication server-side request forgery in the Appliance Work Place interface. CVE-2026-83549, at 7.8, is an operating-system command injection flaw in the Appliance Management Console. Chained, the pair gives an unauthenticated attacker remote code execution on the appliance itself. CISA added both to the Known Exploited Vulnerabilities catalog on 2&nbsp;September with a 5&nbsp;September deadline for federal civilian agencies, and marked both entries as requiring forensic triage under Binding Operational Directive&nbsp;26-04 &mdash; a signal that patching alone does not close the incident. Affected models are the SMA1000 6210, 7210 and 8200v; SSL-VPN running on SonicWall firewalls and the SMA&nbsp;100 series are not affected.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; SonicWall reported in-the-wild exploitation on 1 Sep 2026; CISA added both CVEs to KEV on 2 Sep 2026</span>
-            <span class="ops-tag kev-on">In KEV &mdash; CVE-2026-83548 (CVSS 10, pre-authentication SSRF) and CVE-2026-83549 (CVSS 7.8, OS command injection), added 2 Sep 2026; federal due date 5 Sep 2026, flagged for forensic triage under BOD 26-04</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; SonicWall has published hotfix builds 12.4.3-03526 and 12.5.0-02952 and later; upgrading is the remediation</span>
-            <span class="ops-cc"><b>Action:</b> SMA1000 appliances commonly carry baggage-handling, BMS, access-control and airline-systems vendor access into airport and MRO networks. Establish whether one sits in any of those paths, apply the SonicWall hotfix build, or take the appliance off the internet until you can. CISA flagged both CVEs for forensic triage, so patching is only the first move: review appliance logs from mid-August onward for unexpected outbound requests from the Appliance Work Place interface and command execution on the management console, and rotate the credentials, certificates and MFA seeds the gateway held. Then map what a vendor session on that gateway reaches &mdash; if it lands on the baggage system PLC network, the jet-bridge controls or the building management front end without a second authentication step, escalate that as a segmentation finding.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or take offline &mdash; 24 hours (CVSS 10, actively exploited, KEV-listed); forensic review of the appliance and credential rotation &mdash; 72 hours</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-sonicwall" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-sonicwall">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SonicWall PSIRT advisory and the CISA Known Exploited Vulnerabilities catalog addition of 2 Sep 2026 &mdash; corroborated by SecurityWeek, BleepingComputer, Help Net Security and Sophos</span>
-          <span class="dot">&bull;</span>
-          <span>Vendor advisory published 1 Sep 2026; added to CISA KEV 2 Sep 2026 &mdash; verified 3 Sep 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
 </div>
   </div>
 
@@ -1711,94 +1659,6 @@
         </div>
         <a href="https://industrialcyber.co/critical-infrastructure/mccrary-institute-warns-fragmented-federal-cyber-incident-reporting-diverting-resources-from-incident-response/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-g7-pqc" data-published="2026-09-04">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Guidance &mdash; CISA and G7 joint call to begin the post-quantum cryptography transition; no deadline attached</span>
-        </div>
-        <h3>CISA and the G7 tell operators to start the post-quantum inventory now &mdash; the deadline is set by your asset lifetimes, not by them</h3>
-        <p>CISA and the G7 Cyber Security Working Group issued a joint call on 4&nbsp;September for governments and organisations to begin the transition to post-quantum cryptography, setting out a phased, risk-based approach: inventory the cryptography in use and the dependencies that carry it, identify the data and systems whose exposure would outlast the migration, and hold a written transition plan rather than a procurement wish. The statement is explicit about store-now-decrypt-later &mdash; traffic captured today can be decrypted later &mdash; and about the second-order problem, which is that authentication and firmware-signing chains rest on the same public-key algorithms. It is guidance, not a rule, and no deadline attaches. For an airport the relevance is lifecycle: BMS, access control and baggage systems specified this year will still be in service well past the migration window, and their firmware-signing and remote-access cryptography is fixed at purchase.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No exploitation &mdash; forward-looking guidance; the near-term risk named is store-now-decrypt-later capture of traffic</span>
-            <span class="ops-tag kev-off">No CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the action is inventory and procurement language, not remediation</span>
-            <span class="ops-cc"><b>Action:</b> Nothing here requires action this quarter, and treat any vendor selling you &ldquo;quantum-safe&rdquo; hardware today with scepticism. What is worth doing now is cheap and durable: start a cryptographic inventory covering the certificates, VPNs, remote-access tunnels, firmware-signing chains and device identities in your OT estate, and record which of them you can update in the field and which are fixed at manufacture. That second column is the real finding &mdash; a device whose signing chain cannot be updated has a hard end-of-life date. Then add a crypto-agility clause to your next control-system and networking purchases: the supplier commits to supporting post-quantum algorithms and to a field-updatable signing chain. Assign the inventory to IT security with an OT engineer alongside; do not open a separate programme for it.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Cryptographic inventory of OT certificates, tunnels and firmware-signing chains &mdash; 90 days; crypto-agility clause added to control-system procurement templates &mdash; next purchasing cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-g7-pqc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-g7-pqc">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Joint statement from CISA and the G7 Cyber Security Working Group, reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Published and reported 4 Sep 2026 &mdash; verified 6 Sep 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/cisa/g7-urges-governments-organizations-to-begin-pqc-transition-protect-public-key-encryption-from-quantum-threats/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-outage-comms" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; Joint international guidance, incident communications</span>
-        </div>
-        <h3>Six agencies publish outage-communication guidance for IT and OT service providers &mdash; the gap the airport disruptions exposed</h3>
-        <p>On 2&nbsp;September the Canadian Centre for Cyber Security joined CISA, Australia&rsquo;s ASD ACSC, NCSC-NZ, NCSC-UK and the FBI to publish joint guidance on communicating during IT and OT service outages, titled &ldquo;Communicating Under Pressure: Best Practices for Service Providers.&rdquo; It calls for a written incident communications plan with defined trigger thresholds and named audiences, plain-language updates, root-cause and technical detail end users can act on, and messaging aligned with legal and regulatory duties. Aviation has the clearest recent illustration of why this is an operational control rather than a communications nicety: shared check-in and baggage platforms mean a single supplier outage propagates across independent airports simultaneously, and the airports affected are left explaining a failure they did not cause and cannot directly diagnose.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Confirmed &mdash; joint guidance published 2 Sep 2026 by CISA, the Canadian Centre for Cyber Security, ASD&rsquo;s ACSC, NCSC-NZ, NCSC-UK and the FBI</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is guidance on incident communications, not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the action required is a documented, tested incident communications plan</span>
-            <span class="ops-cc"><b>Action:</b> Test your plan against the guidance, then apply it to the shared platforms you depend on. Define the thresholds that trigger notification to airlines, ground handlers, the airport authority and passengers, and write them down; name a communications owner who is not running the technical response; and prepare a first-hour message for the case where a shared supplier is degraded and you cannot yet say why. Most importantly, ask your check-in, baggage and common-use platform providers for their outage-communication commitment in hours, and make it a contractual term at renewal &mdash; on current evidence that is the dependency most likely to put you in this position.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Gap-check the incident communications plan &mdash; 30 days; obtain shared-platform outage-notification commitments at next renewal</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-outage-comms" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-outage-comms">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Canadian Centre for Cyber Security and CISA &mdash; joint guidance &ldquo;Communicating Under Pressure: Best Practices for Service Providers&rdquo;</span>
-          <span class="dot">&bull;</span>
-          <span>Published 2 Sep 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/resources-tools/resources/communicating-under-pressure-best-practices-service-providers" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-uk-csr-bill" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Regulation &amp; Policy &mdash; Proposed, not yet in force</span>
-        </div>
-        <h3>Britain moves to bar designated high-risk suppliers from critical infrastructure &mdash; without naming them publicly</h3>
-        <p>The UK government has tabled late amendments to the Cyber Security and Resilience Bill that would let ministers stop critical-sector organisations from using technology suppliers designated as high risk. The Bill, introduced in November 2025 and now near the end of its passage through the Lords, already extends duties to energy, water, transport and health operators and pulls managed service providers, data centres and digital infrastructure into scope. The amendments were tabled on 24&nbsp;August and reported on 2&nbsp;September; they follow reporting that a small UK generating station ran manually for four days after a cyberattack. Designations would not necessarily be made public, which is the detail operators should notice: a supplier could be designated without a public list to check against, so the obligation to know your own supply chain moves from good practice to compliance exposure. None of this is in force yet, and the Bill has not completed its passage.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Not an incident &mdash; proposed legislation; amendments tabled but not enacted</span>
-            <span class="ops-tag kev-off">Not a CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; this is a supply-chain governance and procurement obligation</span>
-            <span class="ops-cc"><b>Action:</b> If you operate a UK airport or airline, or supply technology into one, this is worth tracking now rather than at commencement. Two practical steps. First, know which suppliers sit in the operational path &mdash; baggage handling, stand and jet-bridge systems, building management and access control, airline operations platforms, and the managed service providers behind them &mdash; because designation risk attaches to named suppliers and replacing an installed airport system is a capital programme rather than a purchase order. Second, check whether your contracts let you replace a supplier and recover costs if it is later designated. Operators outside the UK have a reason to watch as well: designation regimes get copied, and a supplier designated in one jurisdiction usually becomes a procurement question in others.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Operational-path supplier inventory &mdash; 60 days; contract review for designation and replacement clauses &mdash; next contract cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-ukcsr" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-ukcsr">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek reporting on the amendments tabled to the UK Cyber Security and Resilience Bill</span>
-          <span class="dot">&bull;</span>
-          <span>Amendments tabled 24 Aug 2026; reported 2 Sep 2026; not yet in force &mdash; verified 3 Sep 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/uk-moves-to-block-high-risk-tech-suppliers-from-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -1806,7 +1666,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Aviation.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>This edition.</strong> Refreshed Monday 21&nbsp;September&nbsp;2026 after a quiet weekend. Re-queried CISA ICS advisories (none after the 17&nbsp;September batch), the KEV catalogue (no additions after 18&nbsp;September), MAG&rsquo;s incident page, HaveIBeenPwned and aviation press: no new aviation cyber item. Corrected the MAG top story (publication timing, data classes from HaveIBeenPwned&rsquo;s own entry, the access method labelled as FulcrumSec&rsquo;s claim only), the Cisco Secure FMC card (CVE-2026-20316 is not in KEV; Qilin wording per Talos; Cisco&rsquo;s 16&nbsp;September hardening release added) and the Red Heron card (Acronis&rsquo;s count of 11 organisations in five countries; CVE-2026-60004 KEV deadline of 28&nbsp;August passed). Marked the Cisco ISE deadline as passed. No cards added or retired. Threat level re-derived and held at 4.5, Medium.</p>
+    <p><strong>This edition.</strong> Refreshed Tuesday 22&nbsp;September&nbsp;2026. Re-queried GAO, FAA, NATS and aviation press, CISA ICS advisories and the KEV catalogue, CERT@VDE and vendor PSIRTs. New top story: GAO-26-108439 on ACARS/CPDLC spoofing risk and the FAA&rsquo;s spectrum-monitoring gap (21&nbsp;September). Added Zyxel GS1900 (KEV, 21&nbsp;September), Pepperl+Fuchs IO-Link masters (CERT@VDE, 16&nbsp;September), Rockwell SD1790 revision 5.0 and Moxa TN-4500B (both 18&nbsp;September). Updated the NATS card with the 21&nbsp;September Prestwick disruption, unattributed; corrected the 17&nbsp;September CISA batch to seven new advisories plus one update; noted the CSA Singapore alert on Cisco ISE and GreyNoise&rsquo;s inferred Red Heron overlap. Retired the Manchester Airports Group top story and nine further cards dated before 8&nbsp;September as out of window. Threat level re-derived and held at 4.5, Medium.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
