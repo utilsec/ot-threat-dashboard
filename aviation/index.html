@@ -647,13 +647,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 22 Sep 2026, 6:06 AM ET</span>
+        <span>Generated Thursday, 24 Sep 2026, 6:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Aviation</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>28</strong> stories across
+      <strong>31</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -686,7 +686,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:45.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, re-derived for the 22&nbsp;September pass and held at 4.5, unchanged from 21&nbsp;September. The new lead is a report, not an incident: GAO-26-108439 finds the ACARS and CPDLC datalinks could carry a forged clearance and the FAA has no real-time spectrum-threat monitoring. DOT accepted all nine recommendations, but the report describes no exploitation, so it changes the argument, not the number. Nothing verifiable touched airport ground OT, airline operations, MRO, ATC or NAVAID systems in the window; the NATS failures are a confirmed software defect (8&nbsp;September) and an unattributed connectivity fault at Prestwick (21&nbsp;September), so neither scores. The level rests on confirmed exploitation of access-layer gear, none of it aviation-specific: Cisco ISE and Secure FMC, whose KEV deadlines have passed; NetScaler, MikroTik and ScreenConnect; the Red Heron Gitea campaign, PRC-linked at moderate confidence, which reached aerospace; and, newly, Zyxel GS1900 switches, 996 of them harvested for configurations and credentials per GreyNoise, with a 24&nbsp;September KEV deadline. Passed deadlines ease the score and the fresh Zyxel entry offsets that, so it holds. The unexploited Pepperl+Fuchs IO-Link disclosure at CVSS&nbsp;9.8 sits near 4.0 alone. This is boundary and pre-positioning exposure, not hands-on manipulation of aviation OT, so the 5.9 cap applies and advisories do not stack upward. A confirmed cyber cause behind an airport, airline or ATC disruption, or exploitation of the datalink weaknesses GAO describes, would lift it toward 6.0 to 6.5.</div>
+      <div class="tl-why"><b>Why:</b> Medium, re-derived for the 24&nbsp;September edition and held at 4.5. Nothing verifiable touched airport ground OT, airline operations, MRO, ATC or NAVAID systems in the window. The one aviation disruption, Berlin Brandenburg&rsquo;s 45-minute closure on 23&nbsp;September, followed a drone sighting and has no cyber element, so it does not score. New this edition is a fresh set of exploited edge and management gear, all added to KEV on 22&nbsp;September with a 25&nbsp;September deadline: Check Point&rsquo;s gateway VPN flaw, exploited against Spark firewalls since 12&nbsp;September, and a separate management-server flaw used in targeted attacks in July; Arista VeloCloud Orchestrator at CVSS&nbsp;10; and F5 BIG-IP APM. None is aviation-specific and no aviation victim is named. They replace rather than add to the weight of Cisco ISE and Secure FMC, NetScaler, MikroTik, ScreenConnect and Zyxel GS1900, whose deadlines have passed or fall today, so the score holds rather than rises. CISA&rsquo;s 22&nbsp;September ICS batch, including Siemens Desigo CC and Siveillance Control, is unexploited and sits near 4.0 alone; Cyber Storm&nbsp;X is an exercise, and GAO&rsquo;s datalink findings remain an audit with no exploitation. This is boundary exposure, not hands-on manipulation of aviation OT, so the 5.9 cap applies and advisories do not stack. A confirmed cyber cause behind an airport, airline or ATC disruption would lift it toward 6.0 to 6.5.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -694,32 +694,32 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-gao-aircraft-comms" data-published="2026-09-21">
+    <div class="top-story" id="story-checkpoint-vpn-kev" data-published="2026-09-22">
         <span class="top-story-pill">Top Story</span>
-        <h2>GAO: the FAA cannot see spectrum attacks on aircraft communications in real time, and the ACARS and CPDLC datalinks could carry a forged clearance</h2>
-        <p>The US Government Accountability Office published GAO-26-108439 on 21&nbsp;September, titled &ldquo;Aviation Cybersecurity: Enhanced Air Safety Requires FAA to Better Mitigate Threats to Aircraft Communications.&rdquo; Auditors examined the text-based datalinks that carry messages between aircraft, airline operations and air traffic control &mdash; ACARS and Controller-Pilot Data Link Communications &mdash; and found weaknesses in authentication, encryption and protocol design such that, in GAO&rsquo;s words, &ldquo;a malicious actor could transmit fraudulent clearance cancellations, possibly leading to flight delays or safety issues.&rdquo; On the spectrum side, GAO found that the FAA acknowledges jamming and spoofing as threats but &ldquo;did not have a defined, real-time monitoring and detection capability for all spectrum-related threats,&rdquo; and that its risk assessments and security documentation for the National Airspace System are incomplete. GAO makes nine recommendations, covering NAS risk assessments, real-time spectrum-threat monitoring, interagency coordination and stronger authentication and encryption for aircraft communications; the Department of Transportation concurred with all nine, and all nine were open at publication. <b>This is an audit, not an incident.</b> GAO reports no exploitation of either weakness, and the report leads this edition because it is the only primary-source aviation item in the window, not because anything happened. It matters to this page for two reasons. The datalink finding belongs to airlines and their communications providers, and it puts on the record that a message channel crews act on is not authenticated. The spectrum finding is the same problem the Jammertest work exposed for GNSS, stated at national scale: a signal that is manipulated rather than removed produces no alarm anywhere in the chain, and nobody currently owns detecting it.</p>
+        <h2>Check Point firewalls are being exploited through the VPN handshake, and a separate management-server flaw was in use two months before a fix &mdash; both entered KEV on 22&nbsp;September</h2>
+        <p>Check Point published a security advisory on 22&nbsp;September confirming active exploitation of two separate critical flaws, both rated CVSS&nbsp;9.8. The first, CVE-2026-85102, is in Security Gateways and Spark firewalls: improper validation of certificate data during VPN negotiation lets an unauthenticated attacker execute code on the gateway. Check Point released the fix on 9&nbsp;September and writes that &ldquo;starting September 12, 2026, we observed a wave of exploitation attempts against Spark customers&rdquo;; it gives no customer count and no attribution, and publishes indicators in the form of exploitation certificates with the subjects CN=vpn, CN=vpn-user or CN=vpnuser, OU=users, O=global. The second, CVE-2026-93616, is a pre-authentication path traversal in the Security Management web service that leads to script execution or Java class loading. Check Point says it was used in &ldquo;a handful of pinpointed attacks on July 23, 2026&rdquo;, about two months before the fix became available on 22&nbsp;September. It is <b>not</b> CVE-2026-91843, the earlier management-server username flaw, which is still not reported as exploited. CISA added both flaws to the Known Exploited Vulnerabilities catalog on 22&nbsp;September with a federal deadline of 25&nbsp;September, in the same batch as Arista VeloCloud Orchestrator and F5 BIG-IP APM. No airport, airline or air navigation service provider has been named as a victim. The story leads this page because Check Point is the most widely deployed product under confirmed exploitation this week, and because of where it sits in aviation. Spark is Check Point&rsquo;s small-office firewall line, the class of appliance fitted at outlying sites such as NAVAID and radar shelters, fuel farms, cargo sheds and contractor offices, and often run by a managed-service provider. Check Point gateways also terminate the remote-access VPNs that integrators use to reach terminal BMS, baggage and airfield-lighting systems. The management server is the bigger prize, because it holds the policy for every gateway it manages.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Not an incident &mdash; GAO audit findings published 21 Sep 2026; no exploitation of the datalink or spectrum weaknesses is reported; DOT concurred with all nine recommendations, all open at publication</span>
-            <span class="ops-tag kev-off">No CVE &mdash; the findings are protocol-design and programme-level, not a product vulnerability</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Check Point reports exploitation attempts against Spark customers since 12 Sep 2026 (CVE-2026-85102) and targeted attacks on 23 Jul 2026 (CVE-2026-93616); no aviation victim named; no attribution</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-85102 and CVE-2026-93616 both added 22 Sep 2026, federal deadline 25 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; remediation is FAA programme work against nine open recommendations; for operators the exposure is every operational input that arrives over unauthenticated radio</span>
-            <span class="ops-cc"><b>Action:</b> Airlines: take the report to flight operations and dispatch rather than to IT, and ask one question &mdash; when a CPDLC or ACARS message is unexpected, contradictory or arrives out of sequence, what does the procedure say the crew and the operations centre do, and is that procedure trained and logged? GAO&rsquo;s finding is about the channel; your control is the human check on it. Airports and ANSPs: inventory the operational inputs on your estate that arrive over the air with no integrity check &mdash; GNSS-disciplined timing on surveillance and logging, datalink ground stations, ADS-B feeds into operations displays &mdash; and record, for each, what the consuming system does when the input is wrong rather than absent. Both: track the FAA&rsquo;s response to the nine recommendations, because a real-time spectrum-monitoring capability, once built, will need airport and airline data to work, and the interagency-coordination recommendation is where that requirement will surface.</span>
+            <span class="ops-tag patch-yes">Fixed &mdash; CVE-2026-85102 fix released 9 Sep 2026; CVE-2026-93616 fix available 22 Sep 2026; take the build for your version from Check Point&rsquo;s advisory</span>
+            <span class="ops-cc"><b>Action:</b> Start with the inventory, and include every Spark appliance your managed-service providers run on your behalf, because those are the ones most likely to be missed. Apply the fixes to all gateways, Spark appliances and management servers. Then hunt rather than assume: look in the VPN logs for negotiation using certificates with the subjects Check Point lists (CN=vpn, CN=vpn-user, CN=vpnuser with OU=users, O=global) from 12&nbsp;September onward. On the management server, which was exploitable before a fix existed, confine the web service to named administrative hosts and review it for unexpected scripts, accounts and policy pushes back to July. If a gateway or management server shows any sign of compromise, treat every credential, certificate and pre-shared key it held as exposed, and check what the gateways it manages allowed into the OT segments behind them.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Datalink anomaly-handling procedure review with flight operations &mdash; 45 days; inventory of unauthenticated RF operational inputs and their failure behaviour &mdash; 60 days; recommendation tracking against FAA responses &mdash; quarterly</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-gao-aircraft-comms" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-gao-aircraft-comms">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch gateways, Spark appliances and management servers &mdash; now, the federal deadline is 25 Sep 2026; VPN-log hunt for the listed certificate subjects since 12 Sep &mdash; 7 days; management-server access restriction and compromise review back to July &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-checkpoint-vpn-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-checkpoint-vpn-kev">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Government Accountability Office report GAO-26-108439, read from GAO&rsquo;s product page; AeroTime coverage of 22 Sep 2026 for context</span>
+          <span>Check Point security advisory of 22 Sep 2026; CISA alert adding four flaws to the KEV catalog, 22 Sep 2026</span>
           <span class="dot">&bull;</span>
-          <span>Report published 21 Sep 2026; nine recommendations open, DOT concurred</span>
+          <span>CVE-2026-85102 fixed 9 Sep, exploited from 12 Sep; CVE-2026-93616 attacked 23 Jul, fixed 22 Sep; both in KEV 22 Sep 2026, due 25 Sep 2026</span>
         </div>
-        <a href="https://www.gao.gov/products/gao-26-108439" class="source-link" target="_blank" rel="noopener">Read source</a>
-        <a href="https://www.aerotime.aero/articles/faa-atc-message-spoofing-cybersecurity-gao-report" class="source-link" target="_blank" rel="noopener">AeroTime coverage</a>
+        <a href="https://blog.checkpoint.com/security/security-advisory-action-required-active-exploitation-of-cve-2026-85102-and-a-management-pre-authentication-vulnerability-cve-2026-93616/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV alert</a>
       </div>
 
     <!-- RADAR -->
@@ -748,43 +748,49 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-gao-aircraft-comms"><circle class="blip crit" cx="240.0" cy="180.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="240.0" y="184.7">1</text></a>
-        <a href="#story-cisco-ise-kev"><circle class="blip crit" cx="232.0" cy="210.0" r="14.5"/><text class="blip-num" style="font-size:13.1px" x="232.0" y="214.6">2</text></a>
-        <a href="#story-cisco-fmc-kev"><circle class="blip crit" cx="210.0" cy="232.0" r="14.1"/><text class="blip-num" style="font-size:12.6px" x="210.0" y="236.4">3</text></a>
-        <a href="#story-zyxel-gs1900-kev"><circle class="blip crit" cx="180.0" cy="240.0" r="13.6"/><text class="blip-num" style="font-size:12.2px" x="180.0" y="244.3">4</text></a>
-        <a href="#story-gitlab-85706-kev"><circle class="blip crit" cx="150.0" cy="232.0" r="13.1"/><text class="blip-num" style="font-size:11.8px" x="150.0" y="236.1">5</text></a>
-        <a href="#story-pepperl-fuchs-iolink"><circle class="blip crit" cx="128.0" cy="210.0" r="12.6"/><text class="blip-num" style="font-size:11.4px" x="128.0" y="214.0">6</text></a>
-        <a href="#story-digital-watchdog-vmax"><circle class="blip crit" cx="120.0" cy="180.0" r="12.2"/><text class="blip-num" style="font-size:10.9px" x="120.0" y="183.8">7</text></a>
-        <a href="#story-screenconnect-kev"><circle class="blip crit" cx="128.0" cy="150.0" r="11.7"/><text class="blip-num" style="font-size:10.5px" x="128.0" y="153.7">8</text></a>
-        <a href="#story-netscaler-kev-sep"><circle class="blip crit" cx="150.0" cy="128.0" r="11.2"/><text class="blip-num" style="font-size:10.1px" x="150.0" y="131.6">9</text></a>
-        <a href="#story-mikrotik-exploited"><circle class="blip crit" cx="180.0" cy="120.0" r="10.7"/><text class="blip-num" style="font-size:9.7px" x="180.0" y="123.4">10</text></a>
-        <a href="#story-kev-8sep"><circle class="blip crit" cx="210.0" cy="128.0" r="10.3"/><text class="blip-num" style="font-size:9.2px" x="210.0" y="131.3">11</text></a>
-        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="232.0" cy="150.0" r="9.8"/><text class="blip-num" style="font-size:8.8px" x="232.0" y="153.1">12</text></a>
-        <a href="#story-red-heron-gitea"><circle class="blip high" cx="290.0" cy="180.0" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="290.0" y="183.0">13</text></a>
-        <a href="#story-scalance-lpe9403-dcp"><circle class="blip high" cx="214.0" cy="284.6" r="9.2"/><text class="blip-num" style="font-size:8.2px" x="214.0" y="287.5">14</text></a>
-        <a href="#story-rockwell-sd1790"><circle class="blip high" cx="91.0" cy="244.7" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="91.0" y="247.4">15</text></a>
-        <a href="#story-moxa-tn4500b"><circle class="blip high" cx="91.0" cy="115.3" r="8.2"/><text class="blip-num" style="font-size:7.4px" x="91.0" y="117.9">16</text></a>
-        <a href="#story-gnss-jammertest"><circle class="blip high" cx="214.0" cy="75.4" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="214.0" y="77.8">17</text></a>
+        <a href="#story-checkpoint-vpn-kev"><circle class="blip crit" cx="244.0" cy="180.0" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="244.0" y="184.2">1</text></a>
+        <a href="#story-arista-velocloud-kev"><circle class="blip crit" cx="237.7" cy="207.8" r="13.1"/><text class="blip-num" style="font-size:11.8px" x="237.7" y="211.8">2</text></a>
+        <a href="#story-f5-apm-kev"><circle class="blip crit" cx="219.9" cy="230.0" r="12.8"/><text class="blip-num" style="font-size:11.5px" x="219.9" y="234.0">3</text></a>
+        <a href="#story-cisco-ise-kev"><circle class="blip crit" cx="194.2" cy="242.4" r="12.4"/><text class="blip-num" style="font-size:11.2px" x="194.2" y="246.2">4</text></a>
+        <a href="#story-cisco-fmc-kev"><circle class="blip crit" cx="165.8" cy="242.4" r="12.1"/><text class="blip-num" style="font-size:10.8px" x="165.8" y="246.1">5</text></a>
+        <a href="#story-zyxel-gs1900-kev"><circle class="blip crit" cx="140.1" cy="230.0" r="11.7"/><text class="blip-num" style="font-size:10.5px" x="140.1" y="233.7">6</text></a>
+        <a href="#story-gitlab-85706-kev"><circle class="blip crit" cx="122.3" cy="207.8" r="11.3"/><text class="blip-num" style="font-size:10.2px" x="122.3" y="211.3">7</text></a>
+        <a href="#story-pepperl-fuchs-iolink"><circle class="blip crit" cx="116.0" cy="180.0" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="116.0" y="183.4">8</text></a>
+        <a href="#story-digital-watchdog-vmax"><circle class="blip crit" cx="122.3" cy="152.2" r="10.6"/><text class="blip-num" style="font-size:9.5px" x="122.3" y="155.5">9</text></a>
+        <a href="#story-screenconnect-kev"><circle class="blip crit" cx="140.1" cy="130.0" r="10.2"/><text class="blip-num" style="font-size:9.2px" x="140.1" y="133.1">10</text></a>
+        <a href="#story-netscaler-kev-sep"><circle class="blip crit" cx="165.8" cy="117.6" r="9.9"/><text class="blip-num" style="font-size:8.9px" x="165.8" y="120.7">11</text></a>
+        <a href="#story-mikrotik-exploited"><circle class="blip crit" cx="194.2" cy="117.6" r="9.5"/><text class="blip-num" style="font-size:8.6px" x="194.2" y="120.6">12</text></a>
+        <a href="#story-kev-8sep"><circle class="blip crit" cx="219.9" cy="130.0" r="9.2"/><text class="blip-num" style="font-size:8.2px" x="219.9" y="132.8">13</text></a>
+        <a href="#story-ics-patch-sep"><circle class="blip crit" cx="237.7" cy="152.2" r="8.8"/><text class="blip-num" style="font-size:7.9px" x="237.7" y="155.0">14</text></a>
+        <a href="#story-gao-aircraft-comms"><circle class="blip high" cx="282.2" cy="239.0" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="282.2" y="242.0">15</text></a>
+        <a href="#story-red-heron-gitea"><circle class="blip high" cx="180.0" cy="298.0" r="9.2"/><text class="blip-num" style="font-size:8.3px" x="180.0" y="300.9">16</text></a>
+        <a href="#story-scalance-lpe9403-dcp"><circle class="blip high" cx="77.8" cy="239.0" r="8.8"/><text class="blip-num" style="font-size:7.9px" x="77.8" y="241.7">17</text></a>
+        <a href="#story-rockwell-sd1790"><circle class="blip high" cx="77.8" cy="121.0" r="8.4"/><text class="blip-num" style="font-size:7.6px" x="77.8" y="123.6">18</text></a>
+        <a href="#story-moxa-tn4500b"><circle class="blip high" cx="180.0" cy="62.0" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="180.0" y="64.5">19</text></a>
+        <a href="#story-gnss-jammertest"><circle class="blip high" cx="282.2" cy="121.0" r="7.6"/><text class="blip-num" style="font-size:6.8px" x="282.2" y="123.4">20</text></a>
     </svg>
 
       <div class="radar-legend">
-        <a href="#story-gao-aircraft-comms"><span class="ld crit"></span><b>1</b> GAO: FAA cannot monitor spectrum threats in real time; ACARS/CPDLC spoofable</a>
-        <a href="#story-cisco-ise-kev"><span class="ld crit"></span><b>2</b> Cisco ISE CVSS&nbsp;10 bypass exploited &mdash; KEV deadline passed</a>
-        <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>3</b> Cisco Secure FMC exploited &mdash; Sandworm-overlap APT and Qilin operator</a>
-        <a href="#story-zyxel-gs1900-kev"><span class="ld crit"></span><b>4</b> Zyxel GS1900 in KEV &mdash; 996 switches harvested, deadline 24 Sep</a>
-        <a href="#story-gitlab-85706-kev"><span class="ld crit"></span><b>5</b> GitLab CVSS 10 path traversal exploited, in KEV</a>
-        <a href="#story-pepperl-fuchs-iolink"><span class="ld crit"></span><b>6</b> Pepperl+Fuchs IO-Link masters: 22 flaws, two at CVSS 9.8</a>
-        <a href="#story-digital-watchdog-vmax"><span class="ld crit"></span><b>7</b> Digital Watchdog VMAX recorders, CVSS 9.6 &mdash; Transportation listed</a>
-        <a href="#story-screenconnect-kev"><span class="ld crit"></span><b>8</b> ScreenConnect CVSS 9.9 abused to push scripts, in KEV</a>
-        <a href="#story-netscaler-kev-sep"><span class="ld crit"></span><b>9</b> NetScaler bypass in KEV &mdash; 56 exploitation attempts in a week</a>
-        <a href="#story-mikrotik-exploited"><span class="ld crit"></span><b>10</b> MikroTik RouterOS chain confirmed exploited in the wild</a>
-        <a href="#story-kev-8sep"><span class="ld crit"></span><b>11</b> N-able N-central CVSS 10 pre-auth RCE exploited, in KEV</a>
-        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>12</b> September ICS Patch Tuesday: Siemens and Schneider criticals</a>
-        <a href="#story-red-heron-gitea"><span class="ld high"></span><b>13</b> Red Heron steals SCADA and HMI source via Gitea RCE</a>
-        <a href="#story-scalance-lpe9403-dcp"><span class="ld high"></span><b>14</b> SCALANCE LPE9403: 12 flaws, several chainable to root</a>
-        <a href="#story-rockwell-sd1790"><span class="ld high"></span><b>15</b> Rockwell SD1790: lock-out recovery extended to Micro820/850</a>
-        <a href="#story-moxa-tn4500b"><span class="ld high"></span><b>16</b> Moxa TN-4500B unauthenticated web-login crash, CVSS 8.8</a>
-        <a href="#story-gnss-jammertest"><span class="ld high"></span><b>17</b> GNSS spoofing walked a helicopter 40 minutes off position</a>
+        <a href="#story-checkpoint-vpn-kev"><span class="ld crit"></span><b>1</b> Check Point VPN and management flaws exploited, in KEV &mdash; due 25 Sep</a>
+        <a href="#story-arista-velocloud-kev"><span class="ld crit"></span><b>2</b> Arista VeloCloud Orchestrator CVSS&nbsp;10 exploited, in KEV</a>
+        <a href="#story-f5-apm-kev"><span class="ld crit"></span><b>3</b> F5 BIG-IP APM CVSS&nbsp;9.8 RCE exploited, in KEV</a>
+        <a href="#story-cisco-ise-kev"><span class="ld crit"></span><b>4</b> Cisco ISE CVSS&nbsp;10 bypass exploited &mdash; KEV deadline passed</a>
+        <a href="#story-cisco-fmc-kev"><span class="ld crit"></span><b>5</b> Cisco Secure FMC exploited &mdash; Sandworm-overlap APT and Qilin operator</a>
+        <a href="#story-zyxel-gs1900-kev"><span class="ld crit"></span><b>6</b> Zyxel GS1900 in KEV &mdash; 996 switches harvested, deadline 24 Sep</a>
+        <a href="#story-gitlab-85706-kev"><span class="ld crit"></span><b>7</b> GitLab CVSS 10 path traversal exploited, in KEV</a>
+        <a href="#story-pepperl-fuchs-iolink"><span class="ld crit"></span><b>8</b> Pepperl+Fuchs IO-Link masters: 22 flaws, two at CVSS 9.8</a>
+        <a href="#story-digital-watchdog-vmax"><span class="ld crit"></span><b>9</b> Digital Watchdog VMAX recorders, CVSS 9.6 &mdash; Transportation listed</a>
+        <a href="#story-screenconnect-kev"><span class="ld crit"></span><b>10</b> ScreenConnect CVSS 9.9 abused to push scripts, in KEV</a>
+        <a href="#story-netscaler-kev-sep"><span class="ld crit"></span><b>11</b> NetScaler bypass in KEV &mdash; 56 exploitation attempts in a week</a>
+        <a href="#story-mikrotik-exploited"><span class="ld crit"></span><b>12</b> MikroTik RouterOS chain confirmed exploited in the wild</a>
+        <a href="#story-kev-8sep"><span class="ld crit"></span><b>13</b> N-able N-central CVSS 10 pre-auth RCE exploited, in KEV</a>
+        <a href="#story-ics-patch-sep"><span class="ld crit"></span><b>14</b> September ICS Patch Tuesday: Siemens and Schneider criticals</a>
+        <a href="#story-gao-aircraft-comms"><span class="ld high"></span><b>15</b> GAO: FAA cannot monitor spectrum threats in real time; ACARS/CPDLC spoofable</a>
+        <a href="#story-red-heron-gitea"><span class="ld high"></span><b>16</b> Red Heron steals SCADA and HMI source via Gitea RCE</a>
+        <a href="#story-scalance-lpe9403-dcp"><span class="ld high"></span><b>17</b> SCALANCE LPE9403: 12 flaws, several chainable to root</a>
+        <a href="#story-rockwell-sd1790"><span class="ld high"></span><b>18</b> Rockwell SD1790: lock-out recovery extended to Micro820/850</a>
+        <a href="#story-moxa-tn4500b"><span class="ld high"></span><b>19</b> Moxa TN-4500B unauthenticated web-login crash, CVSS 8.8</a>
+        <a href="#story-gnss-jammertest"><span class="ld high"></span><b>20</b> GNSS spoofing walked a helicopter 40 minutes off position</a>
       </div>
     </div>
 
@@ -811,14 +817,14 @@
       <div class="trend">
         <span class="trend-tag">Deadlines</span>
         <b class="trend-head">Three-day KEV clocks are now the normal cadence, and they are landing on edge gear</b>
-        <p>CISA gave federal agencies three days on Cisco ISE (added 16&nbsp;September, due 19&nbsp;September), three days on three Linux kernel flaws (added 18&nbsp;September, due 21&nbsp;September) and three days on Zyxel GS1900 switches (added 21&nbsp;September, due 24&nbsp;September). Every one of those deadlines except the last has now passed, and the pattern is what airport teams have been comparing notes on: the additions are access-control servers, kernels inside edge appliances and cheap managed switches, none of them owned by one team, and a three-day clock is shorter than most change-advisory cycles. The practical response being discussed is to pre-agree an emergency path for KEV additions on boundary gear rather than to argue each one through the normal board.</p>
+        <p>CISA gave federal agencies three days on Cisco ISE (added 16&nbsp;September, due 19&nbsp;September), three days on three Linux kernel flaws (added 18&nbsp;September, due 21&nbsp;September) and three days on Zyxel GS1900 switches (added 21&nbsp;September, due 24&nbsp;September), and three days again on the four flaws added on 22&nbsp;September &mdash; Check Point&rsquo;s gateway VPN and management server, Arista VeloCloud Orchestrator and F5 BIG-IP APM, all due 25&nbsp;September. The pattern is what airport teams have been comparing notes on: the additions are access-control servers, kernels inside edge appliances, cheap managed switches, firewalls and SD-WAN orchestrators, none of them owned by one team, and a three-day clock is shorter than most change-advisory cycles. The practical response being discussed is to pre-agree an emergency path for KEV additions on boundary gear rather than to argue each one through the normal board.</p>
         <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV catalog</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Automation</span>
-        <b class="trend-head">A credential-harvesting campaign built and run inside six hours</b>
-        <p>Google&rsquo;s Threat Intelligence Group reported on 8&nbsp;September that a financially motivated group used an autonomous multi-agent framework to stand up and run a large-scale credential-harvesting campaign in under six hours, and its assessment is blunt: assume every actor is now using AI somewhere in the chain. For aviation the compression matters more than the novelty. Crew, ground-handler and vendor account phishing has always been high volume; a campaign that builds, launches and adapts itself inside a single shift gives a service desk very little time to spot the pattern before those accounts start authenticating from the wrong places.</p>
-        <a href="https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+        <span class="trend-tag">Management Planes</span>
+        <b class="trend-head">This week&rsquo;s exploitation went for the boxes that configure other boxes</b>
+        <p>Three of CISA&rsquo;s four KEV additions on 22&nbsp;September are control or management planes rather than endpoints. Check Point&rsquo;s Security Management server holds the policy for every gateway it manages. Arista&rsquo;s VeloCloud Orchestrator pushes configuration to SD-WAN edges at remote sites. F5 BIG-IP APM, in the affected configuration, is the OAuth server that issues tokens other applications trust. Check Point&rsquo;s management flaw was in use about two months before a fix existed. Airports and airlines often link their outlying sites, such as NAVAID and radar shelters, fuel farms, cargo and MRO facilities, through SD-WAN and managed firewalls run by a provider. For them the practical question is no longer only whether the edge is patched, but who can reach the console that controls it, and whether anyone would notice a policy push they did not make.</p>
+        <a href="https://blog.checkpoint.com/security/security-advisory-action-required-active-exploitation-of-cve-2026-85102-and-a-management-pre-authentication-vulnerability-cve-2026-93616/" class="source-link" target="_blank" rel="noopener">Check Point</a>
       </div>
       
     </div>
@@ -859,16 +865,16 @@
         <a href="https://www.flightglobal.com/ops-safety/2026/09/pressure-on-nats-continues-after-disruption-at-primary-scottish-centre/" class="source-link" target="_blank" rel="noopener">FlightGlobal on Prestwick</a>
       </div>
 
-<div class="card" id="story-drone-airspace" data-published="2026-09-13">
+<div class="card" id="story-drone-airspace" data-published="2026-09-23">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident &mdash; Airspace intrusion and detection; no cyber component</span>
         </div>
-        <h3>Three airports stopped flying for drones inside ten days, and one of them for a flock of birds &mdash; the gap is detection, not defence</h3>
-        <p>Brussels Airport halted traffic for roughly half an hour on the evening of Friday 12&nbsp;September after a drone was sighted near the airfield; no injuries or damage were reported and movements resumed once the area was cleared, with the drone&rsquo;s origin and intent unattributed. The following day Vilnius closed for 38&nbsp;minutes on a drone alert that scrambled a NATO jet before the object was confirmed to be a flock of birds. Both follow the US Labor Day weekend incursion at San Diego that grounded around 400 flights, where the TSA reportedly could not identify the operator and coverage noted that US airports carry no mandatory drone-detection requirement at all. None of this is a cyberattack and none of it should be filed as one. It belongs on this page because the operational consequence is identical to an OT failure and lands on the same people: a ground stop cascades into stand and gate reallocation, jet-bridge and ramp re-sequencing, baggage re-flow and fuel and de-icing re-planning, and the decision to stop or resume is increasingly taken from software &mdash; counter-UAS detection feeds, ground-movement displays, airfield lighting control &mdash; that few airports treat as operational technology with an integrity requirement. Vilnius is the instructive one: the cost was not the drone, it was the ambiguity.</p>
+        <h3>Berlin Brandenburg stops all flying for 45 minutes on a drone sighting, its 28th drone this year against eight in all of 2025 &mdash; the gap is detection, not defence</h3>
+        <p>On the evening of Wednesday 23&nbsp;September, Germany&rsquo;s air navigation service DFS closed Berlin Brandenburg&rsquo;s northern runway after a drone was sighted at about 20:00 local time. It closed the southern runway at 20:20 and lifted the closure at 21:05, dpa reports, leaving the airport with no take-offs or landings for about 45 minutes. Numerous flights were delayed and several were diverted. The Federal Police searched and found nothing, and Brandenburg police have opened an investigation into dangerous interference with air traffic. No operator or motive has been identified. Some early English-language reports gave the closure as about five minutes, apparently misreading the time zone; dpa&rsquo;s timeline gives 45. The trend matters more than the single event. DFS figures reported by dpa put drones recorded at BER at 28 in the first half of 2026, against eight in the whole of 2025, and flying was suspended seven times in the half-year. Earlier in the month, Brussels Airport halted traffic for roughly half an hour on the evening of Friday 12&nbsp;September after a drone was sighted near the airfield; no injuries or damage were reported and movements resumed once the area was cleared, with the drone&rsquo;s origin and intent unattributed. The following day Vilnius closed for 38&nbsp;minutes on a drone alert that scrambled a NATO jet before the object was confirmed to be a flock of birds. Both follow the US Labor Day weekend incursion at San Diego that grounded around 400 flights, where the TSA reportedly could not identify the operator and coverage noted that US airports carry no mandatory drone-detection requirement at all. None of this is a cyberattack and none of it should be filed as one. It belongs on this page because the operational consequence is identical to an OT failure and lands on the same people: a ground stop cascades into stand and gate reallocation, jet-bridge and ramp re-sequencing, baggage re-flow and fuel and de-icing re-planning, and the decision to stop or resume is increasingly taken from software &mdash; counter-UAS detection feeds, ground-movement displays, airfield lighting control &mdash; that few airports treat as operational technology with an integrity requirement. Vilnius is the instructive one: the cost was not the drone, it was the ambiguity.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Confirmed disruptions, no cyber element &mdash; the Brussels halt, the Vilnius closure and the San Diego grounding are confirmed; the Vilnius trigger is confirmed to have been birds, and neither the Brussels drone operator nor the San Diego one has been identified</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Confirmed disruptions, no cyber element &mdash; the Berlin Brandenburg closure of 23 Sep 2026 (about 45 minutes, per dpa; operator unidentified, police investigating), the Brussels halt, the Vilnius closure and the San Diego grounding are confirmed; the Vilnius trigger is confirmed to have been birds, and neither the Brussels drone operator nor the San Diego one has been identified</span>
             <span class="ops-tag kev-off">No CVE &mdash; this is an airspace-security and sensing problem, not a vulnerability</span>
           </div>
           <div class="ops-row">
@@ -882,11 +888,12 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Reuters reporting on the Brussels Airport halt, with IJR on the Vilnius closure and NATO scramble and Tech Times on the San Diego grounding and the absence of a US detection mandate</span>
+          <span>dpa reporting on the Berlin Brandenburg closure and DFS drone statistics, via Der Tagesspiegel; Reuters reporting on the Brussels Airport halt, with IJR on the Vilnius closure and NATO scramble and Tech Times on the San Diego grounding and the absence of a US detection mandate</span>
           <span class="dot">&bull;</span>
-          <span>Brussels 12 Sep 2026; Vilnius 13 Sep 2026; San Diego over the Labor Day weekend, 4&ndash;7 Sep 2026, carried as preceding context</span>
+          <span>Berlin Brandenburg 23 Sep 2026; Brussels 12 Sep 2026; Vilnius 13 Sep 2026; San Diego over the Labor Day weekend, 4&ndash;7 Sep 2026, carried as preceding context</span>
         </div>
-        <a href="https://www.msn.com/en-us/news/other/brussels-airport-traffic-disrupted-friday-evening-after-drone-sighting/ar-AA2c5PPO" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.tagesspiegel.de/gesellschaft/panorama/dpa-flughafen-ber-drohnen-alarm-am-ber-flugbetrieb-kurzzeitig-eingestellt-16089503.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.msn.com/en-us/news/other/brussels-airport-traffic-disrupted-friday-evening-after-drone-sighting/ar-AA2c5PPO" class="source-link" target="_blank" rel="noopener">Brussels (Reuters)</a>
       </div>
 
 <div class="card" id="story-red-heron-gitea" data-published="2026-09-15">
@@ -927,6 +934,37 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="story-gao-aircraft-comms" data-published="2026-09-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research &mdash; GAO audit of aircraft datalinks and spectrum-threat monitoring; no exploitation reported</span>
+        </div>
+        <h3>GAO: the FAA cannot see spectrum attacks on aircraft communications in real time, and the ACARS and CPDLC datalinks could carry a forged clearance</h3>
+        <p>The US Government Accountability Office published GAO-26-108439 on 21&nbsp;September, titled &ldquo;Aviation Cybersecurity: Enhanced Air Safety Requires FAA to Better Mitigate Threats to Aircraft Communications.&rdquo; Auditors examined the text-based datalinks that carry messages between aircraft, airline operations and air traffic control &mdash; ACARS and Controller-Pilot Data Link Communications &mdash; and found weaknesses in authentication, encryption and protocol design such that, in GAO&rsquo;s words, &ldquo;a malicious actor could transmit fraudulent clearance cancellations, possibly leading to flight delays or safety issues.&rdquo; On the spectrum side, GAO found that the FAA acknowledges jamming and spoofing as threats but &ldquo;did not have a defined, real-time monitoring and detection capability for all spectrum-related threats,&rdquo; and that its risk assessments and security documentation for the National Airspace System are incomplete. GAO makes nine recommendations, covering NAS risk assessments, real-time spectrum-threat monitoring, interagency coordination and stronger authentication and encryption for aircraft communications; the Department of Transportation concurred with all nine, and all nine were open at publication. <b>This is an audit, not an incident.</b> GAO reports no exploitation of either weakness; the report is carried because it is the most substantive primary-source aviation item of the fortnight, not because anything happened. It matters to this page for two reasons. The datalink finding belongs to airlines and their communications providers, and it puts on the record that a message channel crews act on is not authenticated. The spectrum finding is the same problem the Jammertest work exposed for GNSS, stated at national scale: a signal that is manipulated rather than removed produces no alarm anywhere in the chain, and nobody currently owns detecting it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not an incident &mdash; GAO audit findings published 21 Sep 2026; no exploitation of the datalink or spectrum weaknesses is reported; DOT concurred with all nine recommendations, all open at publication</span>
+            <span class="ops-tag kev-off">No CVE &mdash; the findings are protocol-design and programme-level, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; remediation is FAA programme work against nine open recommendations; for operators the exposure is every operational input that arrives over unauthenticated radio</span>
+            <span class="ops-cc"><b>Action:</b> Airlines: take the report to flight operations and dispatch rather than to IT, and ask one question &mdash; when a CPDLC or ACARS message is unexpected, contradictory or arrives out of sequence, what does the procedure say the crew and the operations centre do, and is that procedure trained and logged? GAO&rsquo;s finding is about the channel; your control is the human check on it. Airports and ANSPs: inventory the operational inputs on your estate that arrive over the air with no integrity check &mdash; GNSS-disciplined timing on surveillance and logging, datalink ground stations, ADS-B feeds into operations displays &mdash; and record, for each, what the consuming system does when the input is wrong rather than absent. Both: track the FAA&rsquo;s response to the nine recommendations, because a real-time spectrum-monitoring capability, once built, will need airport and airline data to work, and the interagency-coordination recommendation is where that requirement will surface.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Datalink anomaly-handling procedure review with flight operations &mdash; 45 days; inventory of unauthenticated RF operational inputs and their failure behaviour &mdash; 60 days; recommendation tracking against FAA responses &mdash; quarterly</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-gao-aircraft-comms" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-gao-aircraft-comms">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>US Government Accountability Office report GAO-26-108439, read from GAO&rsquo;s product page; AeroTime coverage of 22 Sep 2026 for context</span>
+          <span class="dot">&bull;</span>
+          <span>Report published 21 Sep 2026; nine recommendations open, DOT concurred</span>
+        </div>
+        <a href="https://www.gao.gov/products/gao-26-108439" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.aerotime.aero/articles/faa-atc-message-spoofing-cybersecurity-gao-report" class="source-link" target="_blank" rel="noopener">AeroTime coverage</a>
+      </div>
+
 <div class="card" id="story-gnss-jammertest" data-published="2026-09-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1019,35 +1057,6 @@
       </div>
 
 
-<div class="card" id="story-gtig-agents" data-published="2026-09-08">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Threat intelligence &mdash; Autonomous agent frameworks in live intrusion operations</span>
-        </div>
-        <h3>Google reports a financially motivated group running a full credential-harvesting campaign with autonomous agents in under six hours</h3>
-        <p>Google&rsquo;s Threat Intelligence Group reported on 8&nbsp;September that a financially motivated actor stood up and executed a large-scale credential-harvesting campaign in less than six hours using an autonomous multi-agent framework, with the agents handling stages that previously took an operator days. GTIG also observed actors going after proprietary AI models across healthcare, government and media, stealing API credentials and hijacking victim cloud tenants to run their own workloads on someone else&rsquo;s bill. Its guidance is to assume every threat actor now uses AI somewhere in the chain. For airports and airlines the exposure is the credential estate around operations: crew and ground-handler portals, ground-support scheduling, maintenance and MRO tooling, and the federated identity that increasingly sits behind vendor access to terminal and airside systems.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed observed activity &mdash; GTIG reports the campaign and the AI-model targeting from its own telemetry; the specific victims and the framework used have not been named publicly</span>
-            <span class="ops-tag kev-off">No CVE &mdash; this is tradecraft, not a product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is credential-based access to operational and vendor systems, and detection windows measured in hours rather than days</span>
-            <span class="ops-cc"><b>Action:</b> Assume phishing that adapts faster than your service desk can escalate. Move any account that can reach an operational system &mdash; BMS, access control, baggage, airfield lighting, fuelling, flight-information displays, MRO tooling &mdash; onto phishing-resistant authentication rather than push or one-time codes, and put a hard verification step on help-desk password and MFA resets for those roles. Review conditional-access rules for impossible-travel and residential-proxy sign-ins on crew, handler and contractor accounts. Then check the AI-model angle on your own estate: inventory where API keys for AI or analytics services are stored, and make sure none sits in a shared engineering repository or a maintenance workstation image.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Phishing-resistant MFA for operational and vendor accounts &mdash; 45 days; help-desk reset verification for those roles &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-gtig" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-gtig">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Google Threat Intelligence Group research reported by The Hacker News, including comment from GTIG&rsquo;s John Hultquist</span>
-          <span class="dot">&bull;</span>
-          <span>Published and reported 8 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 </div>
   </div>
 
@@ -1055,6 +1064,68 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-arista-velocloud-kev" data-published="2026-09-22">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, federal deadline 25 September</span>
+        </div>
+        <h3>Arista&rsquo;s VeloCloud SD-WAN orchestrator has a CVSS&nbsp;10 flaw under active attack &mdash; the console that configures the links to your outlying sites</h3>
+        <p>Arista published Security Advisory 0183 on 22&nbsp;September for CVE-2026-93952, an improper input validation flaw in on-premises VeloCloud Orchestrator (VCO), rated CVSS&nbsp;10.0 under v3.1 and 9.5 under v4.0. Arista says the flaw &ldquo;may allow a remote attacker to access privileged internal functionality and impact the VCO host&rdquo; and that it is &ldquo;known to be actively exploited.&rdquo; Exposure depends on configuration. An attacker needs certificate-based authentication to be set up between VeloCloud Edges and the orchestrator, the public part of an Edge&rsquo;s authentication certificate, and network access to the VCO web interface; &ldquo;VCO tenant or operator credentials are not required.&rdquo; Vulnerable on-prem releases are 5.2.3.15 and earlier, 6.1.3.7 and earlier, 6.4.2.7 and earlier, and 7.0.0.2 and earlier. Fixes are in 5.2.3.16 and 6.4.2.8, and Arista lists no fixed build yet for the 6.1 or 7.0 trains. Hosted and dedicated VCO instances have already been patched. Arista publishes indicators: the files /usr/local/sbin/.vcnode.js and /usr/local/sbin/vc-sysmond (MD5 dc78e206eaeadec59fc5801fe4556bd0), a vc-sysmon systemd service, an x-vc-opt HTTP header, and the source addresses 142.93.149.77 and 104.248.126.159. CISA added the flaw to KEV on 22&nbsp;September with a 25&nbsp;September deadline. No aviation victim is named. The aviation angle is architectural. An SD-WAN orchestrator pushes configuration and policy to every edge it manages, and those edges can connect remote NAVAID and surveillance sites, fuel farms, cargo and MRO facilities, and regional airports to the core network. Compromising the orchestrator gives an attacker a view of every site and possibly a way into each one.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Arista states the flaw is known to be actively exploited; CISA KEV addition 22 Sep 2026; no aviation victim named, no attribution published</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-93952 added 22 Sep 2026, federal deadline 25 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Partly fixed &mdash; on-prem VCO 5.2.3.16 and 6.4.2.8; no fixed build listed yet for the 6.1.x and 7.0.x trains; hosted and dedicated VCO already patched</span>
+            <span class="ops-cc"><b>Action:</b> Find out first whether you, or the carrier or managed-service provider running your SD-WAN, operate an on-premises orchestrator, and ask the question in writing if it is outsourced. If you do, upgrade to a fixed release, or for the 6.1 and 7.0 trains restrict the VCO web interface to trusted management networks until Arista ships a fix. Then check the host for the files, service and header Arista lists, block and search logs for the two source addresses, and look for unexpected outbound traffic from the orchestrator. If anything matches, treat the configuration pushed to every edge as suspect: review policy, routes and VPN definitions at each managed site, especially where an edge fronts OT or airfield systems, and rotate the certificates and credentials the orchestrator held.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Establish whether an on-prem VCO is in use, including provider-run &mdash; 2 days; upgrade or restrict the web UI to trusted networks &mdash; now, the federal deadline is 25 Sep 2026; IOC sweep and edge-configuration review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-arista-velocloud-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-arista-velocloud-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Arista Security Advisory 0183, read from Arista&rsquo;s advisory page; CISA alert adding four flaws to the KEV catalog, 22 Sep 2026</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory and KEV listing 22 Sep 2026; federal deadline 25 Sep 2026</span>
+        </div>
+        <a href="https://www.arista.com/en/support/advisories-notices/security-advisory/24765-security-advisory-0183" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV alert</a>
+      </div>
+
+<div class="card" id="story-f5-apm-kev" data-published="2026-09-22">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; Actively exploited, CISA KEV, federal deadline 25 September</span>
+        </div>
+        <h3>An F5 BIG-IP APM overflow gives unauthenticated code execution, but only where APM acts as an OAuth authorisation server &mdash; and it is being exploited</h3>
+        <p>CISA added CVE-2026-94127 in F5 BIG-IP Access Policy Manager to the KEV catalog on 22&nbsp;September, with a federal deadline of 25&nbsp;September. The flaw is a heap-based buffer overflow rated CVSS&nbsp;9.8 that allows unauthenticated remote code execution. It is covered by F5 advisory K000162605. Exposure is narrower than the score suggests. Rapid7&rsquo;s analysis says a system is exposed only when a virtual server has both an APM access policy and an OAuth profile attached, so that APM is acting as an OAuth authorisation server. F5 has issued engineering hotfixes for the 21.1.0, 17.5.0 and 17.1.0 branches. Rapid7 reported no confirmed public proof-of-concept as of 22&nbsp;September, and F5 has published no attribution or victim count. No aviation victim is named. It belongs on this page because BIG-IP APM is widely used as the access gateway in front of web portals and vendor remote access, the role it can play for crew, engineering and MRO applications and for integrator access into airport systems, and in an OAuth-server role it issues the tokens those applications trust.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; CISA KEV addition 22 Sep 2026; no public proof-of-concept confirmed per Rapid7; no aviation victim named, no attribution</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-94127 added 22 Sep 2026, federal deadline 25 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed by engineering hotfix &mdash; F5 K000162605 lists hotfixes for 21.1.0, 17.5.0 and 17.1.0; only systems with an APM access policy plus an OAuth profile are exposed</span>
+            <span class="ops-cc"><b>Action:</b> Check every BIG-IP for virtual servers that combine an APM access policy with an OAuth profile. That configuration is the exposure, so the check takes minutes and removes most devices from scope. Apply F5&rsquo;s hotfix to any that match. Where APM issues tokens for crew, engineering, MRO or vendor-access applications, assume a compromised device could have minted or read tokens: review APM and OAuth logs for anomalous grants from before the hotfix, and plan to rotate signing keys and client secrets if anything looks wrong. Record which operational applications trust tokens from this server, because that list shows how far an intrusion here could spread.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Configuration check for APM plus OAuth profile &mdash; 1 day; hotfix on matching systems &mdash; now, the federal deadline is 25 Sep 2026; token and log review, key rotation if indicated &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-f5-apm-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-f5-apm-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA alert adding four flaws to the KEV catalog, 22 Sep 2026; Rapid7 emergent-threat analysis of 22 Sep 2026, citing F5 advisory K000162605</span>
+          <span class="dot">&bull;</span>
+          <span>KEV listing 22 Sep 2026; federal deadline 25 Sep 2026</span>
+        </div>
+        <a href="https://www.rapid7.com/blog/post/etr-cve-2026-94127-critical-unauthenticated-rce-in-f5-big-ip-apm/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">CISA KEV alert</a>
+      </div>
+
 <div class="card" id="story-cisco-ise-kev" data-published="2026-09-16">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1175,6 +1246,37 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+<div class="card" id="story-cisa-ics-advisories-22sep" data-published="2026-09-22">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; CISA ICS batch, 22 September</span>
+        </div>
+        <h3>CISA&rsquo;s 22&nbsp;September batch brings nine advisories, and two of them are airport-terminal systems: Siemens Desigo CC building management and Siveillance Control security management</h3>
+        <p>CISA released nine ICS advisories on Tuesday 22&nbsp;September, ICSA-26-265-01 through -09. Two cover the lwIP embedded TCP/IP stack: an out-of-bounds write in its MQTT client application, reported by Shahriyar Jalayeri of ByteRay (-01), and a double free, reported by Eric Evenchick of Tetrel Security (-02). Six are Siemens: Siveillance Control, an unrestricted upload of a file with a dangerous type (-03); SIPLUS and SIMATIC products affected by the third-party Linux &ldquo;Copy Fail&rdquo; flaw (-04); the Desigo CC family, a code injection reported by Michelin CERT (-05); Industrial Edge Management, a third-party weak password-recovery issue (-06); SIMOVE Fleetmanager and SIPLANT, a relative path traversal (-07); and WTV676 and WTV776, improper validation of a specified type of input (-08). The last is OpenPLC, a cross-site scripting flaw (-09). For this page, two of those matter most. Desigo CC is Siemens&rsquo; building-management platform and sits over HVAC, fire and energy systems in many terminals. Siveillance Control is a security-management platform that brings access control, video and alarms together in a control room. We could not reach CISA&rsquo;s own advisory pages at generation time. <b>CVE numbers, CVSS scores, fix availability and CISA&rsquo;s sector listings are therefore deliberately left out</b> rather than taken from secondary digests; read each advisory before prioritising. No exploitation has been reported for anything in the batch.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; none reported for any advisory in this batch</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of this batch is listed; CISA&rsquo;s 22 Sep KEV additions were Check Point, Arista and F5 edge and management flaws</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Fix status per advisory &mdash; not verified here; check each CISA advisory and Siemens ProductCERT for fixed versions or mitigations</span>
+            <span class="ops-cc"><b>Action:</b> Put Desigo CC and Siveillance Control first, because those are the two most likely to be on a terminal estate, and they often belong to a facilities or security contractor rather than IT. Confirm the versions you run, read the Siemens advisory for each, and ask the integrator for a dated plan. If there is no fix for your version, apply Siemens&rsquo; mitigations and restrict who can deliver files and documents to those servers. For lwIP, ask the vendors of your embedded devices, such as sensors, gateways and IO modules, whether they ship lwIP&rsquo;s MQTT client and when they will publish their own notices; lwIP is a library, so most owners will be fixed through downstream vendor updates rather than directly. The remaining advisories are a filing exercise unless the inventory says otherwise.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Desigo CC and Siveillance Control version check and integrator plan &mdash; 14 days; lwIP downstream-vendor enquiries &mdash; 30 days; remaining items matched against inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-cisa-ics-advisories-22sep" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-cisa-ics-advisories-22sep">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICS advisories ICSA-26-265-01 to -09, product and vulnerability-type list confirmed from the Chemical Facility Security News review of 22 Sep 2026; CISA pages not reachable at generation time</span>
+          <span class="dot">&bull;</span>
+          <span>Advisories published 22 Sep 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-03" class="source-link" target="_blank" rel="noopener">Siveillance Control (CISA)</a>
+        <a href="https://chemical-facility-security-news.blogspot.com/2026/09/" class="source-link" target="_blank" rel="noopener">CFSN review</a>
+      </div>
 <div class="card" id="story-cisa-ics-advisories-17sep" data-published="2026-09-17">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1185,7 +1287,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">No known exploitation &mdash; CISA reports none for any advisory in this batch</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of this batch&rsquo;s CVEs are listed; CISA&rsquo;s KEV additions since were three Linux kernel flaws on 18 September (deadline 21 September, passed) and Zyxel GS1900 on 21 September</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; none of this batch&rsquo;s CVEs are listed; CISA&rsquo;s KEV additions since were three Linux kernel flaws on 18 September (deadline 21 September, passed), Zyxel GS1900 on 21 September, and Check Point, Arista and F5 edge and management flaws on 22 September</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixes available &mdash; vendor updates are named in the individual advisories; the Bransys fixes are Android 11.00.00 and iOS 1.1.54; Modicon M340 SV3.70, NetBotz 5.6.0, Edgenius 3.2.4.1</span>
@@ -1508,6 +1610,37 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+<div class="card" id="story-cyber-storm-x" data-published="2026-09-22">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Exercise &mdash; CISA national cyber exercise, transportation and water</span>
+        </div>
+        <h3>CISA&rsquo;s Cyber Storm&nbsp;X ran a nation-state scenario against transportation, but the published scope names rail and ports, not aviation</h3>
+        <p>CISA announced on 22&nbsp;September that it had hosted Cyber Storm&nbsp;X, the latest in its national cyber exercise series. The four-day exercise brought together about 2,000 participants from more than 200 federal, state, local and private-sector organisations. The scenario was a nation-state adversary targeting the Transportation Systems sector, specifically rail and ports, and the Water and Wastewater Systems sector. Acting CISA Director Nick Andersen said the series &ldquo;helps critical infrastructure owners and operators understand how we would manage a large-scale cyber incident.&rdquo; CISA will produce a public after-action report of observations, analysis and recommendations. The published coverage gives no exact exercise dates. Aviation is not named in the scope. That is itself useful to know, because it means the national playbook tested this month was not rehearsed against an airport or airline scenario. The after-action report is still worth reading when it appears, because cross-sector coordination, information sharing and the federal-to-operator handoff are the same whichever mode of transport is attacked.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Exercise, not an incident &mdash; CISA announcement of 22 Sep 2026; scenario covered rail, ports and water; aviation not named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; preparedness exercise</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the value is the after-action report and the chance to test your own escalation paths against it</span>
+            <span class="ops-cc"><b>Action:</b> Diary the after-action report and, when it lands, map its findings on federal coordination and information sharing onto your own incident plan: who in your organisation takes the call from CISA, TSA or the FAA, and what they are authorised to decide. If your airport or airline has not exercised a nation-state OT scenario, borrow the structure: pick one operational system such as baggage, fuel or airfield lighting, assume a capable adversary, and walk the decisions from detection to regulator notification. Ports and rail in the scenario are also your intermodal partners, so check whether your cargo operation would hear about a port or rail incident in time to act.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> After-action report review and mapping to own plan &mdash; 30 days after publication; tabletop of a nation-state OT scenario on one airport or airline system &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-cyber-storm-x" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-cyber-storm-x">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA news release on Cyber Storm X, reported by Industrial Cyber on 22 Sep 2026 (CISA page not reachable at generation time)</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 22 Sep 2026; public after-action report to follow</span>
+        </div>
+        <a href="https://industrialcyber.co/news/cisas-cyber-storm-x-tests-cybersecurity-preparedness-across-transportation-water-and-wastewater-sectors/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/news/cisa-hosts-cyber-storm-x-nationwide-cybersecurity-exercise-strengthen-resilience" class="source-link" target="_blank" rel="noopener">CISA release</a>
+      </div>
+
 <div class="card" id="story-cisa-cyber-decoys" data-published="2026-09-17">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1630,35 +1763,6 @@
       </div>
 
 
-<div class="card" id="story-reporting-fragmentation" data-published="2026-09-08">
-        <div class="card-header">
-          <span class="severity sev-info">Policy</span>
-          <span class="category">Regulation &mdash; Federal cyber incident reporting</span>
-        </div>
-        <h3>117 federal cyber incident reporting rules across 27 agencies, and the argument that duplication costs you the first hours</h3>
-        <p>The McCrary Institute and the US Chamber of Commerce, drawing on GAO figures, count 117 federal cyber incident reporting regulations spread across 27 agencies, 48 of which apply to private industry. Their argument is operational rather than administrative: in the first hours of an incident the same small group of people is asked to satisfy several overlapping reporting obligations on different clocks and in different formats, and that work is taken directly from response. The timing matters because CIRCIA rules are expected to be finalised this autumn. Aviation operators already sit under a dense stack &mdash; TSA security directives for regulated entities, CISA reporting, national aviation authority obligations, and separate data-protection notification duties as the Manchester case illustrated.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Policy analysis, not an incident &mdash; the counts are drawn from GAO work; the recommendations are advocacy and carry no legal effect</span>
-            <span class="ops-tag kev-off">No CVE &mdash; regulatory analysis</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is response capacity consumed by parallel reporting obligations during the first day of an incident</span>
-            <span class="ops-cc"><b>Action:</b> Build the reporting matrix now, while nothing is burning. For each obligation that applies to your operation list the trigger, the clock, the recipient, the format and the named person accountable, then walk a realistic scenario &mdash; a ransomware event that forces you to isolate a terminal system &mdash; and time how long the notification work actually takes. Assign it to someone who is not running the technical response; that single separation of duties recovers more capacity than any template. Where the same facts feed several reports, prepare a shared factual core in advance so the variations are formatting rather than re-investigation. Track the CIRCIA final rule and re-run the matrix when it lands.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Reporting-obligation matrix with named owners &mdash; 30 days; timed notification walk-through in the next incident exercise &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-reporting" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="av-reporting">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>McCrary Institute and US Chamber of Commerce analysis citing GAO counts, reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Published and reported 8 Sep 2026; CIRCIA final rule expected autumn 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/critical-infrastructure/mccrary-institute-warns-fragmented-federal-cyber-incident-reporting-diverting-resources-from-incident-response/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -1666,7 +1770,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Aviation.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>This edition.</strong> Refreshed Tuesday 22&nbsp;September&nbsp;2026. Re-queried GAO, FAA, NATS and aviation press, CISA ICS advisories and the KEV catalogue, CERT@VDE and vendor PSIRTs. New top story: GAO-26-108439 on ACARS/CPDLC spoofing risk and the FAA&rsquo;s spectrum-monitoring gap (21&nbsp;September). Added Zyxel GS1900 (KEV, 21&nbsp;September), Pepperl+Fuchs IO-Link masters (CERT@VDE, 16&nbsp;September), Rockwell SD1790 revision 5.0 and Moxa TN-4500B (both 18&nbsp;September). Updated the NATS card with the 21&nbsp;September Prestwick disruption, unattributed; corrected the 17&nbsp;September CISA batch to seven new advisories plus one update; noted the CSA Singapore alert on Cisco ISE and GreyNoise&rsquo;s inferred Red Heron overlap. Retired the Manchester Airports Group top story and nine further cards dated before 8&nbsp;September as out of window. Threat level re-derived and held at 4.5, Medium.</p>
+    <p><strong>This edition (24&nbsp;September).</strong> Refreshed Thursday 24&nbsp;September&nbsp;2026. Re-queried aviation press and dpa reporting, Check Point, Arista and F5 advisories, the CISA KEV catalogue and ICS advisories, and CISA exercise announcements. New top story: Check Point CVE-2026-85102 (gateway VPN, exploited since 12&nbsp;September) and the separate management-server flaw CVE-2026-93616, both in KEV on 22&nbsp;September. Added Arista VeloCloud Orchestrator CVE-2026-93952 and F5 BIG-IP APM CVE-2026-94127 (both KEV, 22&nbsp;September), CISA&rsquo;s 22&nbsp;September ICS batch (ICSA-26-265-01 to -09, scores omitted pending CISA&rsquo;s own pages) and CISA Cyber Storm&nbsp;X. Updated the drone card with the Berlin Brandenburg closure of 23&nbsp;September, about 45 minutes per dpa&rsquo;s timeline, with DFS drone statistics; moved the GAO datalink audit from the lead into Threat Intelligence &amp; Research; refreshed the KEV-deadline trend and replaced the automation trend with one on management planes. Retired the GTIG autonomous-agents and federal reporting-fragmentation cards (both 8&nbsp;September) for age. Threat level re-derived and held at 4.5, Medium: new exploited edge gear offsets ageing KEV deadlines, and nothing cyber touched aviation OT.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
