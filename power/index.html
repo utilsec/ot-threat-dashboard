@@ -647,13 +647,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thursday, 24 Sep 2026, 6:15 AM ET</span>
+        <span>Generated Friday, 25 Sep 2026, 10:47 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Power Generation &amp; Transmission</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>47</strong> stories across
+      <strong>49</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -679,14 +679,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to electric generation and transmission operators. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.3</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:54.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, 5.4, down a tenth from 5.5 on 22&nbsp;September. There is still no confirmed OT-disruptive incident at an electricity operator and no reported hands-on manipulation of grid control, so the 5.9 ceiling applies. The top driver is unchanged and ageing: Acronis&rsquo; moderate-confidence finding that a PRC-linked actor, Red&nbsp;Heron, exploited Gitea CVE-2026-60004 at a Canadian renewable-energy operator, taking credentials and planting SSH keys. That is pre-positioning-grade, around 5.0, with nothing new since mid-September. New this edition is exploited perimeter and management gear. Check Point confirms its CVE-2026-85102 VPN flaw has been exploited since 12&nbsp;September, and a separate management-server flaw, CVE-2026-93616, was used as a zero-day in July. Both entered KEV on 22&nbsp;September with Arista VeloCloud Orchestrator and F5 BIG-IP APM, due 25&nbsp;September. That holds the band but does not stack, because no utility victim is named. Unexploited additions sit near 4.0: the lwIP MQTT flaw, Siemens&rsquo; Copy Fail fixes for SIMATIC and SIPLUS, and the rest of CISA&rsquo;s 22&nbsp;September batch. The small ease reflects Red&nbsp;Heron&rsquo;s age and the passed Cisco ISE and FMC clocks. What would move it: a confirmed intrusion into an EMS, substation or plant control network, or a utility named among the Check Point or VeloCloud victims. Order of work: Check Point gateways and management servers, then VeloCloud orchestrators, then Gitea secrets and SSH keys, then field-device firmware on outage windows.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:53.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, 5.3, unchanged from this morning&rsquo;s edition. The 23&ndash;25&nbsp;September window was quiet for electricity: no confirmed OT-disruptive incident at an operator, no reported hands-on manipulation of grid control and no new E-ISAC, NERC or FERC cyber action, so the 5.9 ceiling applies. The top driver remains Red&nbsp;Heron&rsquo;s mid-September compromise of a Canadian renewable operator&rsquo;s Gitea server &mdash; credential theft, network mapping and planted SSH keys &mdash; pre-positioning-grade, around 5.0, with no new vendor or government reporting since. CISA and the FBI&rsquo;s 24&nbsp;September integrator guidance reinforces that theme without adding a fresh compromise. The Check Point, Arista VeloCloud and F5 BIG-IP APM items added to KEV on 22&nbsp;September reach their federal deadline today with no utility victim named and no new exploitation evidence, so they hold rather than add. New this edition is TDengine CVE-2026-42542, a pre-authentication crash in a time-series database used in industrial telemetry; it is unexploited and patched, near 4.0. What would move it: a confirmed intrusion into an EMS, substation or plant control network, or a utility named among the Check Point, VeloCloud or integrator victims. Order of work: integrator and contractor remote access, then Check Point and VeloCloud gear, then Gitea secrets and SSH keys, then historian and field-device patching on outage windows.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -697,7 +697,7 @@
     <div class="top-story" id="story-red-heron-gitea" data-published="2026-09-15">
         <span class="top-story-pill">Top Story</span>
         <h2>A PRC-linked crew took credentials and secrets from a renewable operator&rsquo;s own code server and left its SSH keys behind</h2>
-        <p>Acronis&rsquo; Threat Research Unit published findings on 13&nbsp;September, picked up by The Hacker News on 14&nbsp;September and Industrial Cyber on 15&nbsp;September. It describes a campaign it attributes, with moderate confidence, to Red&nbsp;Heron, an actor operating in a PRC-linked context. The vehicle is CVE-2026-60004, a CVSS&nbsp;9.8 remote code execution flaw in self-hosted Gitea, fixed in Gitea 1.27.1 on 27&nbsp;July. Acronis says the operator began building tooling within days of the 28&nbsp;July advisory and had scanned 1,386 Gitea instances across seven countries by 30&nbsp;July. It confirms 11 compromised targets in five countries: Canada, the United States, Taiwan, Argentina and Sri Lanka. The Hacker News&rsquo; headline figure of 13 organisations in six countries does not match the primary report, so this page uses Acronis&rsquo; count. Two of the victims are why this leads the page. From a Taiwanese industrial-automation company the actor took repositories for a SCADA/HMI tool used in industrial control environments. It also took a surveillance and monitoring product, IoT platform integrations, a network sniffer and server configurations. At a Canadian renewable-energy operator, Acronis counts 22 separate exploitation sessions. The actor took source code, credentials and secrets, mapped the operator&rsquo;s Docker networks, and planted its own SSH keys in authorized_keys for persistent access. The tooling includes an implant Acronis tracks as JITTERLY, with more than 30 post-exploitation commands, and an LD_PRELOAD Linux rootkit it calls SIXZUT. Be precise about what this is and is not. It is a confirmed compromise of an electricity-sector organisation by an actor a vendor assesses as PRC-linked. It is not a government attribution, and it is not confirmed manipulation of generation or grid control; nothing in the reporting says a plant moved. But what the actor took and left behind at the Canadian operator is what you would want if you intended to come back: credentials and secrets that authenticate to the estate, a map of how it is networked, and SSH keys that survive a password reset. No public statement says remediation is complete, and Acronis had published no new development by 24&nbsp;September. One adjacent data point arrived on 21&nbsp;September: GreyNoise&rsquo;s report on the actor exploiting Zyxel GS1900 switches (see the advisory below) lists Gitea CVE-2026-60004 among that actor&rsquo;s targets and infers, from shared command-and-control infrastructure and malware, an overlap with Red&nbsp;Heron. That is GreyNoise&rsquo;s inference, not a confirmed link, and it changes nothing about what to do. KEV status: CISA added CVE-2026-60004 to the Known Exploited Vulnerabilities catalogue on 25&nbsp;August with a 28&nbsp;August federal deadline, confirmed against the catalogue on 22&nbsp;September; that deadline is long passed.</p>
+        <p>Acronis published findings on 13&nbsp;September, picked up by The Hacker News and Industrial Cyber, attributing a campaign with moderate confidence to Red&nbsp;Heron, a PRC-linked actor. The vehicle is CVE-2026-60004, a CVSS&nbsp;9.8 remote-code-execution flaw in self-hosted Gitea, fixed 27&nbsp;July; Acronis confirms 11 compromised targets in five countries. Two victims matter most. At a Canadian renewable-energy operator, the actor ran 22 exploitation sessions, taking source code, credentials and secrets, mapping Docker networks, and planting its own SSH keys for persistent access. A Taiwanese industrial-automation firm lost SCADA/HMI tooling repositories and surveillance-platform code. This is a confirmed compromise of an electricity-sector organisation by a vendor-assessed PRC-linked actor &mdash; not confirmed manipulation of grid control. But the credentials, network map and planted keys are exactly what a return visit would need. No remediation has been confirmed complete, and CISA&rsquo;s KEV deadline passed weeks ago.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Acronis documents exploitation of CVE-2026-60004 from late July 2026 and 11 confirmed compromised targets in five countries; the Red Heron attribution is a vendor assessment made with moderate confidence, not a government attribution</span>
@@ -783,27 +783,27 @@
     <div class="trends-strip">
 <div class="trend">
         <span class="trend-tag">Management Plane</span>
-        <b class="trend-head">The consoles that manage the boundary are now the target, not just the boundary itself</b>
-        <p>Within two weeks the exploited items have moved up a layer. Cisco&rsquo;s Secure Firewall Management Center was confirmed exploited on 9&nbsp;September. On 22&nbsp;September CISA added a Check Point management-server flaw, exploited since July, and an Arista VeloCloud SD-WAN orchestrator flaw to KEV, alongside Check Point&rsquo;s VPN gateway and F5&rsquo;s BIG-IP access proxy. What these systems have in common is that they write the policy everything else enforces. For utilities that raises a question many programmes have not asked: who can log in to the firewall and SD-WAN management consoles, from where, and would anyone notice a rule change made at 3&nbsp;am? NIST&rsquo;s SP&nbsp;800-82r4 draft, out on 21&nbsp;September, makes protecting system management functions an explicit architecture principle.</p>
+        <b class="trend-head">Boundary-management consoles keep landing in KEV, and today is the deadline for three of them</b>
+        <p>In two weeks the exploited list moved from firewalls to the consoles that manage them and the identity gear beside them: Cisco Secure FMC (9&nbsp;September), Cisco ISE (16&nbsp;September), a Check Point management-server zero-day and Arista&rsquo;s VeloCloud orchestrator (22&nbsp;September), and WSO2&rsquo;s API Manager (24&nbsp;September). The Check Point, Arista and F5 BIG-IP APM items added on 22&nbsp;September reach their federal KEV deadline today, 25&nbsp;September, with no utility victim named yet. NIST&rsquo;s SP&nbsp;800-82r4 draft, out 21&nbsp;September, makes protecting these management functions an explicit architecture principle &mdash; worth reading against whichever of these consoles sits between your corporate network and generation or substation control.</p>
         <a href="https://securityaffairs.com/199631/hacking/u-s-cisa-adds-check-point-arista-velocloud-orchestrator-and-f5-big-ip-apm-flaws-to-its-known-exploited-vulnerabilities-catalog.html" class="source-link" target="_blank" rel="noopener">SecurityAffairs</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Concentration Risk</span>
-        <b class="trend-head">Storage is the fastest-growing thing on the system and the least individually supervised</b>
-        <p>Centrii&rsquo;s GRIDLOCK report, out 3&nbsp;September, has given the sector a number to argue about: a modelled 92% probability of a major attack on UK battery storage by 2031, with roughly 29% of national capacity &mdash; about 400 units &mdash; sufficient to trigger a nationwide outage. The figures are contestable and the report says so; what has carried is the underlying premise, which is the same one Help Net Security aired the day before. Fast-frequency capacity is being added faster than the governance around who may dispatch it, and a hostile fleet-wide swing would present on a control-room trace as an ordinary market response. The conversation among operators this week has been less about the percentage and more about whether anyone can currently answer who holds setpoint authority over the storage connected to their area.</p>
-        <a href="https://industrialcyber.co/utilities-energy-power-water-waste/centriis-gridlock-report-warns-uk-battery-storage-faces-92-probability-of-major-cyberattack-by-2031/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
+        <span class="trend-tag">Third-Party Access</span>
+        <b class="trend-head">Your integrator&rsquo;s standing VPN account may be the softest way into your control network</b>
+        <p>CISA and the FBI published joint guidance on 24&nbsp;September urging critical-infrastructure operators to put third-party ICS integrators on least privilege and on-demand remote access rather than standing accounts. The warning is grounded in a 2025 intrusion at a US automation vendor that served power utilities, where foreign actors staged roughly 800 files of customer network schematics and SCADA/ICS details. It lands in the same week Red&nbsp;Heron was shown taking credentials and planting SSH keys at a renewable operator through its own code server &mdash; two different routes to the same conclusion: audit who holds standing access to your engineering environment before someone else does.</p>
+        <a href="https://www.securityweek.com/ot-security-guidance-nist-drafts-updated-guide-cisa-fbi-advise-on-ics-integrators/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Patch Burden</span>
+        <span class="trend-tag">Segmentation Myth</span>
+        <b class="trend-head">Most networks that contain OT devices are not actually OT-only networks</b>
+        <p>Forescout research published 22&nbsp;September found that only 13% of network segments containing OT devices were exclusive to OT, with the rest mixed alongside IT and IoT gear on the same broadcast domain. That flat architecture is what turns an IT-side credential theft, an exploited management console or a compromised integrator account into a path onto generation, substation or DER control networks, rather than a contained incident. It is a quieter finding than any single CVE this week, but it explains why so many of them matter more to a utility than their CVSS score alone suggests.</p>
+        <a href="https://www.forescout.com/blog/" class="source-link" target="_blank" rel="noopener">Forescout</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Patch Cadence</span>
         <b class="trend-head">A protection relay is now on the same monthly patch treadmill as a laptop</b>
-        <p>The 8&nbsp;September ICS round was unusually heavy &mdash; nine Siemens advisories, four from Schneider Electric, and four Aveva flaws that CISA published on 10&nbsp;September as ICSA-26-253-01 &mdash; and the items landing hardest are the ones closest to the primary system: Reyrolle&nbsp;7SR5 protection relays, Modicon&nbsp;M580 controllers, a PowerLogic&nbsp;T300 distribution RTU. The discussion among utility teams this week has not been about severity scores. It has been about cadence. Relay and RTU firmware moves on outage windows measured in quarters, while advisories now arrive monthly, and the gap between the two is becoming the real exposure. Several operators are openly asking whether protection asset management belongs in the vulnerability-management programme at all, or needs its own risk register with its own honest timelines.</p>
+        <p>September&rsquo;s ICS advisory volume kept climbing: nine Siemens advisories and four from Schneider Electric on 8&nbsp;September, a Siemens Copy&nbsp;Fail batch for SIMATIC and SIPLUS on 22&nbsp;September, and ABB and Rockwell items in between. The items landing hardest sit closest to the primary system &mdash; Reyrolle&nbsp;7SR5 protection relays, a PowerLogic&nbsp;T300 distribution RTU &mdash; and utility teams are increasingly asking whether protection-asset patching belongs in the same monthly vulnerability-management cadence as IT, or needs its own risk register built around outage-window realities rather than patch-Tuesday timelines.</p>
         <a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Regulation</span>
-        <b class="trend-head">The first hour of an incident is being spent on paperwork</b>
-        <p>The McCrary Institute and the US Chamber of Commerce counted 117 federal cyber incident reporting regulations across 27 agencies on 8&nbsp;September, 48 of them applying to private industry. For registered entities the point lands immediately: one event can trigger E-ISAC notification, an OE-417, CIP-008 obligations and a state commission filing, each with its own clock and threshold, and usually the same handful of people file them all. With CIRCIA rules expected to be finalised this autumn, the conversation has turned practical &mdash; who actually files what, and are they the same people you need on the containment bridge?</p>
-        <a href="https://industrialcyber.co/critical-infrastructure/mccrary-institute-warns-fragmented-federal-cyber-incident-reporting-diverting-resources-from-incident-response/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
       
     </div>
@@ -819,7 +819,7 @@
           <span class="category">Incident &mdash; Exploited firewall management platform, CISA KEV</span>
         </div>
         <h3>Clusters exploiting Cisco firewall management consoles include one with Sandworm-overlapping tooling and a Qilin ransomware affiliate &mdash; and Cisco&rsquo;s hardening release has now shipped</h3>
-        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is being exploited in the wild. It is a CVSS&nbsp;10.0 authentication bypass: a remote, unauthenticated attacker sends crafted HTTP requests and gains root on the appliance. CISA added it to KEV the same day with a federal remediation deadline of 12&nbsp;September, now passed. Cisco Talos describes three post-compromise clusters. UAT-12197 used CVE-2026-20079 and is not attributed to a named actor. UAT-11823 used CVE-2026-20079 together with CVE-2026-20316 and delivered Cyclops Blink malware; Talos describes &ldquo;overlaps in tooling with the Sandworm APT actor&rdquo;, which is not an attribution to Sandworm. UAT-11988, which Talos assesses with high confidence is a ransomware operator with TTPs consistent with Qilin affiliates, got in only through CVE-2026-20316, a CVSS&nbsp;5.3 static-credential flaw that is not in KEV, then carried out reconnaissance, stole credentials and built a list of endpoints to target for encryption. On 16&nbsp;September Cisco published its hardening release, cisco-sa-hardening-asaftdfmc-uvpPROhN, covering eight internally found flaws across ASA, FTD and FMC (CVE-2026-20329 to CVE-2026-20336, maximum CVSS&nbsp;9.9); those eight are not reported exploited. The same day Cisco revised the FMC advisory itself to version 2.6, replacing the earlier hot fixes with security hardening releases in the 7.0.10, 7.2.12, 7.4.8, 7.6.6, 7.7.13, 10.0.2 and 10.1.0 trains, and the hardening advisory&rsquo;s ASA fixed-release table was revised again on 18&nbsp;September. Talos updated its post on 21&nbsp;September and still describes the same three clusters. No OT impact and no utility victim has been named. But FMC is the console that configures the firewalls enforcing the boundary between your corporate network and generation, substation and DER control networks, and the tooling overlap Talos describes is with Sandworm, the actor with the longest record of causing electricity outages.</p>
+        <p>Cisco and CISA confirmed on 9&nbsp;September that CVE-2026-20079 in Cisco Secure Firewall Management Center is being exploited in the wild. It is a CVSS&nbsp;10.0 authentication bypass: a remote, unauthenticated attacker sends crafted HTTP requests and gains root on the appliance. CISA added it to KEV the same day with a federal remediation deadline of 12&nbsp;September, now passed. Cisco Talos describes three post-compromise clusters. UAT-12197 used CVE-2026-20079 and is not attributed to a named actor. UAT-11823 used CVE-2026-20079 together with CVE-2026-20316 and delivered Cyclops Blink malware; Talos describes &ldquo;overlaps in tooling with the Sandworm APT actor&rdquo;, which is not an attribution to Sandworm. UAT-11988, which Talos assesses with high confidence is a ransomware operator with TTPs consistent with Qilin affiliates, got in only through CVE-2026-20316, a CVSS&nbsp;5.3 static-credential flaw that is not in KEV, then carried out reconnaissance, stole credentials and built a list of endpoints to target for encryption. On 16&nbsp;September Cisco published its hardening release, cisco-sa-hardening-asaftdfmc-uvpPROhN, covering eight internally found flaws across ASA, FTD and FMC (CVE-2026-20329 to CVE-2026-20336, maximum CVSS&nbsp;9.9); those eight are not reported exploited. The same day Cisco revised the FMC advisory itself to version 2.6, replacing the earlier hot fixes with security hardening releases in the 7.0.10, 7.2.12, 7.4.8, 7.6.6, 7.7.13, 10.0.2 and 10.1.0 trains, and the hardening advisory&rsquo;s ASA fixed-release table was revised again on 18&nbsp;September. Talos updated its post on 21&nbsp;September and still describes the same three clusters. No OT impact and no utility victim has been named. But FMC is the console that configures the firewalls enforcing the boundary between your corporate network and generation, substation and DER control networks, and the tooling overlap Talos describes &mdash; an overlap, not an attribution &mdash; is with Sandworm, the actor with the longest record of causing electricity outages.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco updated its advisory on 9 Sep 2026 confirming exploitation observed from August 2026; Talos cluster attribution published alongside it</span>
@@ -1182,6 +1182,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-tdengine-42542" data-published="2026-09-23">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; Industrial time-series database denial of service, researcher disclosure</span>
+        </div>
+        <h3>One unauthenticated packet can crash TDengine, a time-series database used behind industrial and energy telemetry</h3>
+        <p>Ridge Security published details on 23&nbsp;September of CVE-2026-42542, an integer underflow in the RPC handling of TDengine, an open-source time-series database. An attacker with network reach to the default RPC port, TCP&nbsp;6030, sends a single crafted packet with an undersized length field; the length calculation wraps around, the memory copy overruns the heap and the server process crashes. No credentials, session or user interaction are needed. The project&rsquo;s GitHub advisory, GHSA-vg95-j2hf-hvjx, rates it CVSS&nbsp;v3.1 7.5 (High, availability impact only), lists TDengine 3.4.0.0 through 3.4.1.5 as affected and 3.4.1.6 as the fix, and shows a publication date of 4&nbsp;June 2026 &mdash; so the fix has been available for months and the 23&nbsp;September write-up is the public technical disclosure. The confirmed impact is denial of service; Ridge notes the heap-corruption primitive but states it is not claiming remote code execution. Ridge says it has a working proof of concept it is not publishing, and knows of no public exploit code or in-the-wild exploitation. Editorial assessment: time-series databases of this kind sit in the historian and telemetry tier of renewable-plant, DER and substation monitoring stacks, often bundled inside an OEM or integrator product rather than installed by the utility itself. Losing one does not trip a breaker, but it blinds the monitoring and reporting that operators rely on.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">No known exploitation &mdash; Ridge Security reports no in-the-wild exploitation and no public exploit code; its own proof of concept is unpublished</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; CVE-2026-42542 is not KEV-listed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixed in TDengine 3.4.1.6 (GHSA-vg95-j2hf-hvjx); affected 3.4.0.0 to 3.4.1.5; no vendor workaround beyond restricting access to TCP 6030</span>
+            <span class="ops-cc"><b>Action:</b> Ask your plant-monitoring, SCADA and DER-aggregation vendors and integrators whether TDengine is embedded in anything they supplied, because it is more likely to arrive inside an OEM historian or telemetry platform than as a line in your own asset register. Upgrade to 3.4.1.6 or later. Until then, restrict TCP&nbsp;6030 to the specific collector and application hosts that need it, and alert on repeated crashes or restart loops of the database service, which is what an attempt would look like.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor and integrator inquiry on embedded TDengine &mdash; 14 days; TCP 6030 access restriction &mdash; 14 days; upgrade to 3.4.1.6 &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-tdengine-42542" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-tdengine-42542">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Ridge Security research blog, 23 Sep 2026 (primary); TDengine GitHub security advisory GHSA-vg95-j2hf-hvjx (primary, read 25 Sep 2026); reported by Industrial Cyber, 25 Sep 2026</span>
+          <span class="dot">&bull;</span>
+          <span>GitHub advisory dated 4 Jun 2026; public research disclosure 23 Sep 2026; no exploitation reported</span>
+        </div>
+        <a href="https://ridgesecurity.ai/blog/one-packet-can-take-down-the-database-behind-industrial-operations-ridge-security-discovers-cve-2026-42542/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-arista-vco-93952" data-published="2026-09-22">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1192,7 +1221,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Arista states the flaw is known to be actively exploited (advisory 0183, 22 Sep 2026); no victim count or attribution</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-93952 added 22 Sep 2026, federal remediation deadline 25 Sep 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-93952 added 22 Sep 2026, federal remediation deadline 25 Sep 2026 (reached with this edition); advisory rev 1.1 of 23 Sep only added a CSAF file, still no fix for 6.1.x or 7.0.x</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Partly patched &mdash; fixed in VCO 5.2.3.16 and later and 6.4.2.8 and later; fixes for the 6.1.x and 7.0.x trains are pending</span>
@@ -1221,7 +1250,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; all four CVEs were KEV-listed on evidence of active exploitation; F5 has not disclosed attacker, start date or victim count</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; four CVEs added 22 Sep 2026, federal remediation deadline 25 Sep 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; four CVEs added 22 Sep 2026, federal remediation deadline 25 Sep 2026 (reached with this edition; no new exploitation evidence reported since)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; F5 engineering hotfixes for BIG-IP 21.1.0, 17.5.x and 17.1.x (K000162605); Check Point and Arista fixes as in their cards (no Arista fix yet for 6.1.x or 7.0.x)</span>
@@ -1746,7 +1775,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Check Point observed a wave of exploitation attempts against Spark customers from 12 Sep 2026 (vendor advisory, 22 Sep 2026); no customer count or attribution given</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-85102 added 22 Sep 2026, federal remediation deadline 25 Sep 2026; CVE-2026-85103 was not among the 22 Sep additions</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-85102 added 22 Sep 2026, federal remediation deadline 25 Sep 2026 (reached with this edition); CVE-2026-85103 was not among the 22 Sep additions</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; Check Point fixes released 9 Sep 2026 (sk1000117); confirm the fixed hotfix take or Spark build for your version against the vendor advisory</span>
@@ -1804,7 +1833,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Check Point reports a handful of targeted attacks on 23 Jul 2026, before a fix existed; targets and actor not named</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-93616 added 22 Sep 2026, federal remediation deadline 25 Sep 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-93616 added 22 Sep 2026, federal remediation deadline 25 Sep 2026 (reached with this edition)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; fix available 22 Sep 2026 (sk1000171); reporting says R81.10 and older are out of support with no fix, so confirm your version against the vendor advisory</span>
@@ -2177,6 +2206,35 @@
         </div>
         <a href="https://industrialcyber.co/critical-infrastructure/mccrary-institute-warns-fragmented-federal-cyber-incident-reporting-diverting-resources-from-incident-response/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+<div class="card" id="story-cisa-fbi-ics-integrators" data-published="2026-09-24">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Advisory &mdash; CISA/FBI guidance on third-party ICS integrator risk</span>
+        </div>
+        <h3>CISA and the FBI tell critical-infrastructure operators that their ICS integrator may be the softest target in the chain</h3>
+        <p>CISA and the FBI published joint guidance on 24&nbsp;September, &ldquo;Considerations for Critical Infrastructure Operators Working With Third-Party ICS Integrators,&rdquo; urging operators to apply least privilege to integrator access, require on-demand rather than standing remote access, log and monitor every integrator session, and write cybersecurity, data-handling and change-management terms into contracts. The guidance grounds the warning in FBI technical analysis of a March&ndash;April 2025 intrusion at a US industrial-automation vendor that provided system integration, engineering consulting and SCADA programming &mdash; including to power utilities and transportation companies. Foreign actors who compromised the vendor staged nine archive files, roughly 800 items, containing customer network schematics, device configurations and SCADA/ICS details apparently for exfiltration; the agencies say that kind of data could support follow-on attacks on the vendor&rsquo;s customers. No customer of the vendor is named as compromised, and no utility outage or OT manipulation resulted from the 2025 intrusion as far as public reporting shows. For a power operator the relevance is direct: engineering, protection-and-control and telecoms contractors routinely hold standing VPN access, SCADA program files and network diagrams for exactly the systems this dashboard tracks, and the guidance is a checklist for auditing that access before someone else finds it first.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Not a new exploit &mdash; the guidance cites a March&ndash;April 2025 intrusion at an integrator, confirmed by FBI technical analysis; no new 2026 compromise is claimed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is guidance, not a vulnerability advisory</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the fix is contract, access and monitoring controls</span>
+            <span class="ops-cc"><b>Action:</b> List every integrator, protection-and-control contractor and telecoms provider with standing access to engineering workstations, SCADA programming tools or network diagrams for your generation, transmission or substation systems. Convert standing VPN or remote-access accounts to on-demand access that requires your explicit authorization each session, and make sure every integrator session is logged and reviewed. Add or update contract language covering where the integrator stores your data, what happens to it at contract end, and your right to audit their security controls. Ask each one directly whether they were the vendor in the 2025 incident described in the advisory, or whether they have had a similar compromise; do not assume a &ldquo;no&rdquo; without evidence.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Integrator access inventory &mdash; 14 days; conversion of standing access to on-demand &mdash; 30 days; contract-language review for active integrator agreements &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="pd-cisa-fbi-ics-integrators" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="pd-cisa-fbi-ics-integrators">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA/FBI joint guidance of 24 Sep 2026 (primary), corroborated by SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Published 24 Sep 2026; cites a March&ndash;April 2025 intrusion at the integrator</span>
+        </div>
+        <a href="https://www.cisa.gov/resources-tools/resources/considerations-critical-infrastructure-operators-working-third-party-ics-integrators" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
@@ -2184,7 +2242,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Power Generation &amp; Transmission.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> This edition (24&nbsp;September) re-queried CISA ICS advisories, the KEV catalogue, vendor PSIRTs, grid-sector outlets and primary sources from Check Point, Arista, NIST and Forescout for 21&ndash;24&nbsp;September. Added: the Check Point management-server zero-day CVE-2026-93616, the Arista VeloCloud Orchestrator zero-day CVE-2026-93952, the 22&nbsp;September KEV batch including F5 BIG-IP APM, the lwIP MQTT client flaw, CISA&rsquo;s 22&nbsp;September Siemens batch (Copy Fail in SIMATIC and SIPLUS), the NIST SP&nbsp;800-82r4 draft, Forescout&rsquo;s segmentation study and ENISA&rsquo;s 2026 threat landscape. Updated: the Check Point VPN card (CVE-2026-85102 now exploited and in KEV), the Check Point CVE-2026-91843 card and the top story. Retired five items dated 27&nbsp;August to 8&nbsp;September. Threat level eased to 5.4: the Red&nbsp;Heron driver is ageing with no new development, and the newly exploited edge gear has no named utility victim.</p>
+    <p><strong>Methodology.</strong> This edition (25&nbsp;September, afternoon) builds on this morning&rsquo;s refresh and re-checked CISA ICS advisories, the KEV catalogue (via mirrors, which can lag), OT vendor PSIRT listings, grid-sector outlets and researcher disclosures for 23&ndash;25&nbsp;September. Added: TDengine CVE-2026-42542, a pre-authentication denial-of-service flaw in an industrial time-series database, verified against the project&rsquo;s GitHub advisory and Ridge Security&rsquo;s write-up. Updated: the four 22&nbsp;September KEV items (Check Point&nbsp;&times;2, Arista VeloCloud, F5 BIG-IP APM) now note that their federal deadline arrived on 25&nbsp;September, with no new exploitation evidence; the Cisco FMC card restates that Talos reports tooling overlap with Sandworm, not attribution. No new confirmed OT-disruptive incident, grid-sector alert or nation-state OT activity was found; Red&nbsp;Heron remains the top story. Threat level held at 5.3. Unverified sector survey figures were left out. Sources this run: CISA (via GitHub mirrors and re-posts), Ridge Security, the TDengine GitHub advisory, Arista, Check Point, Rapid7 and Industrial Cyber.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
