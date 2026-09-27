@@ -645,7 +645,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 27 Sep 2026, 12:13 PM ET</span>
+        <span>Generated Sun, 27 Sep 2026, 6:11 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -684,7 +684,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 5.5 &mdash; mid Medium, unchanged from this morning&rsquo;s check; nothing in this midday pass moves the needle. The anchor is Colorado&rsquo;s confirmed single-sector OT tampering: on 18&nbsp;Sep the Governor&rsquo;s office confirmed foreign actors altered pumping cycles and disabled alarms at two small water systems in late August, with no development since. At the remote-access edge, CISA added a third MikroTik RouterOS flaw (CVE-2026-67279) to KEV on 25&nbsp;Sep; watchTowr&rsquo;s reported Citrix NetScaler zero-days remain unfixed by Citrix as of midday (a patch is expected the week of 28&nbsp;Sep); Check Point&rsquo;s two exploited flaws are past their KEV deadline; and 996 Zyxel GS1900 switches were reported compromised. Edge exploitation like this rates about 4.5 on its own and does not stack upward. The tanker campaign has no official development since 24&nbsp;Sep, and the <i>Vivit&nbsp;Africa&nbsp;LNG</i> crew claim remains unverified. Unexploited ICS flaws (Modicon&nbsp;M580, IO-Link masters), Honeywell&rsquo;s OT visibility-gap survey, and Accenture&rsquo;s completed Dragos/runZero/NetRise consolidation are awareness and market signals, not threat escalation. High would require a confirmed OT-disruptive incident across multiple sectors or live hands-on-OT nation-state activity; neither is established, so the level holds at 5.5.</div>
+      <div class="tl-why"><b>Why:</b> 5.5 &mdash; mid Medium, unchanged since this afternoon&rsquo;s edition. The anchor remains Colorado&rsquo;s confirmed single-sector OT tampering: on 18&nbsp;Sep the Governor&rsquo;s office confirmed foreign actors altered pumping cycles and disabled alarms at two small water systems in late August, with no development since. Citrix&rsquo;s two actively-exploited NetScaler zero-days (CVE-2026-88771, CVE-2026-88772, both CVSS&nbsp;v4.0&nbsp;9.5) remain the top story; CISA added both to its KEV catalog this evening (27&nbsp;Sep), a procedural federal-mandate step that confirms the urgency already reflected in the &ldquo;patch immediately&rdquo; guidance rather than a new escalation. That flaw is the latest in a cluster of edge-device exploitation that also includes MikroTik&rsquo;s third KEV-listed flaw (25&nbsp;Sep), Check Point&rsquo;s two exploited flaws past their KEV deadline, and 996 compromised Zyxel GS1900 switches; that cluster rates about 4.5 on its own and does not stack upward. A newly disclosed, unauthenticated denial-of-service flaw in the TDengine time-series database (CVE-2026-42542, CVSS&nbsp;7.5) rounds out this edition&rsquo;s advisories but carries no known exploitation and does not move the level. The tanker campaign and the <i>Vivit&nbsp;Africa&nbsp;LNG</i> crew claim have no official development since 24&nbsp;Sep. Unexploited ICS flaws (Modicon&nbsp;M580, IO-Link masters) and SpyCloud&rsquo;s water-credential exposure research are awareness signals, not threat escalation. High would require a confirmed OT-disruptive incident across multiple sectors or live hands-on-OT nation-state activity; neither is established, so the level holds at 5.5.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -694,31 +694,31 @@
 
     <!-- TOP STORY -->
 
-    <div class="top-story" id="story-mikrotik-routeros" data-published="2026-09-25">
+    <div class="top-story" id="story-citrix-netscaler" data-published="2026-09-27">
         <span class="top-story-pill">Top Story</span>
-        <h2>A third MikroTik router flaw joins CISA&rsquo;s exploited list as attacks at the OT remote-access edge continue</h2>
-        <p>CISA added a third MikroTik RouterOS flaw, CVE-2026-67279, to its Known Exploited Vulnerabilities catalog on 25&nbsp;September, with a 28&nbsp;September federal deadline, joining CVE-2026-86060 and CVE-2026-67277 from 10&nbsp;September. CERT Polska has tracked in-the-wild exploitation since roughly 2&nbsp;September of a two-flaw SSH chain it calls &ldquo;MikroTrick,&rdquo; and its 22&nbsp;September write-up shows CVE-2026-67279 chained with CVE-2026-86060 handing an unauthenticated attacker full administrative control. Shadowserver separately counted more than 122,500 MikroTik devices with SSH reachable from the internet in early September &mdash; an exposure figure, not a confirmed-unpatched count. These routers commonly front remote-access and cellular-telemetry links into field sites and small, unattended facilities that rarely get timely firmware updates.</p>
+        <h2>Citrix patches two actively exploited NetScaler zero-days after a week of unpatched attacks</h2>
+        <p>Citrix released fixes on 27 September for two remote-code-execution flaws in NetScaler ADC and Gateway that it confirmed were being actively exploited on unmitigated appliances. CVE-2026-88771, an improper input-validation flaw, lets an unauthenticated attacker run commands on a default configuration; CVE-2026-88772, a memory-overflow flaw exploitable when DTLS is enabled, the default for VPN virtual servers, can cause remote code execution or a crash. Both score CVSS v4.0 9.5. The disclosure caps roughly a week of uncertainty: watchTowr first reported active exploitation on 26 September, before Citrix had published any advisory, CVE, or fix, and some administrators were advised to shut appliances down as a precaution. NetScaler Gateway is a common remote-access front door into OT DMZs and vendor-support paths, so the exposure window mattered directly to industrial operators, not just enterprise IT.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed active exploitation &mdash; CERT Polska (5&nbsp;Sep) documented in-the-wild exploitation of the &ldquo;MikroTrick&rdquo; SSH chain from about 2&nbsp;Sep. CISA KEV now lists three MikroTik flaws: CVE-2026-86060 (argument injection), CVE-2026-67277 (missing authentication for a critical function in the bandwidth-test service) and CVE-2026-67279 (SSH workflow bypass that lets an unauthenticated client open a session channel and send an exec request; CVSS 6.9, version not stated). <b>Confirmed vs claimed:</b> exploitation is confirmed by CERT Polska and CISA KEV; the 122,500 figure is internet-reachable SSH exposure, not compromise. No threat actor, victim count or targeted sector has been named</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-86060 and CVE-2026-67277 (added 10&nbsp;Sep), CVE-2026-67279 (added 25&nbsp;Sep, due 28&nbsp;Sep); CVE-2026-67276 not KEV-listed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Vendor-confirmed active exploitation &mdash; Citrix states: &ldquo;Exploitation of CVE-2026-88771 and CVE-2026-88772 on unmitigated NetScaler deployments has been observed.&rdquo; <b>Confirmed vs claimed:</b> exploitation is now vendor-confirmed, not just reported by a research firm; Citrix has not disclosed a victim count, actor identity, or the exploitation timeline before watchTowr&rsquo;s 26&nbsp;Sep report</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CISA added CVE-2026-88771 and CVE-2026-88772 on 27&nbsp;Sep 2026; the alert sets no specific remediation due date but treats both as demanding immediate action given confirmed active exploitation</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Fixes available &mdash; RouterOS 7.25beta3, 7.24.2, 7.23.4 and 6.49.21 (CERT Polska); the related CVE-2026-67278 needs 7.24.3 or 7.23.6 because the earlier fix was incomplete</span>
-            <span class="ops-cc"><b>Action:</b> Inventory every MikroTik router reachable from the internet or from a field/remote-access network and upgrade to a fixed release (7.24.3 or 7.23.6 on the 7.x line also covers CVE-2026-67278). Restrict SSH to named management hosts. Check logs for the indicators CERT Polska published &mdash; &ldquo;login failure for user -2 &hellip; via ssh&rdquo;, users &ldquo;added by ssh:-2@&rdquo; and an unexplained privileged account named &ldquo;ops&rdquo; &mdash; and treat any match as a compromise requiring a rebuild, not just a patch. Prioritize units serving water, energy or other unattended field sites.</span>
+            <span class="ops-tag patch-now">Fixes available &mdash; NetScaler ADC/Gateway 14.1-73.37 and 13.1-64.23 and later; 14.1-FIPS and 13.1-FIPS/NDcPP on 13.1-37.279. The August builds 14.1-73.32 and 13.1-63.21 do <b>not</b> include this fix</span>
+            <span class="ops-cc"><b>Action:</b> Patch every NetScaler ADC and Gateway appliance to a fixed build immediately, starting with anything fronting OT remote-access, VPN, or vendor-support paths. Until patched, treat internet-facing management interfaces as potentially compromised and follow Citrix&rsquo;s existing forensic guidance (CTX694799) to check for indicators before and after patching. Disable DTLS on VPN virtual servers where it isn&rsquo;t required to remove the second flaw&rsquo;s exposure.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet/remote-access exposure check of all MikroTik devices &mdash; 3 days; upgrade to a fixed RouterOS release &mdash; 7 days (federal KEV deadline for CVE-2026-67279 is 28&nbsp;Sep); SSH log review for MikroTrick indicators &mdash; 7 days; rebuild any device showing a match rather than only patching &mdash; immediately upon detection</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mikrotik-routeros" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mikrotik-routeros">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch to a fixed build &mdash; immediately (active exploitation confirmed, now CISA KEV-listed); forensic triage per CTX694799 on any internet-facing appliance &mdash; 48 hours; disable DTLS where not required &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix-netscaler-patched" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="citrix-netscaler-patched">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV catalog (25 Sep release) and CERT Polska; reported by The Hacker News</span>
+          <span>Citrix security bulletin; reported by watchTowr, Cyber Kendra and SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed and patched early Sep 2026 (CERT Polska, 5 Sep); CVE-2026-86060/67277 added to CISA KEV 10 Sep; CVE-2026-67279 added 25 Sep 2026 (due 28 Sep)</span>
+          <span>Exploitation reported 26 Sep 2026; Citrix fixes published 27 Sep 2026; added to CISA KEV 27 Sep 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cyberkendra.com/2026/09/cve-2026-88771-netscaler-zero-days-exploited.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -747,27 +747,29 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-mikrotik-routeros"><circle class="blip crit" cx="180.0" cy="95.0" r="15.00"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="100.1">1</text></a>
+        <a href="#story-citrix-netscaler"><circle class="blip crit" cx="180.0" cy="95.0" r="15.00"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="100.1">1</text></a>
         <a href="#story-colorado-water-intrusions"><circle class="blip crit" cx="265.0" cy="180.0" r="13.50"/><text class="blip-num" style="font-size:12.2px" x="265.0" y="184.6">2</text></a>
         <a href="#story-checkpoint-exploited"><circle class="blip crit" cx="180.0" cy="265.0" r="12.00"/><text class="blip-num" style="font-size:10.8px" x="180.0" y="269.1">3</text></a>
-        <a href="#story-citrix-netscaler-zero-days"><circle class="blip crit" cx="95.0" cy="180.0" r="10.50"/><text class="blip-num" style="font-size:9.5px" x="95.0" y="183.6">4</text></a>
-        <a href="#story-modicon-m580"><circle class="blip crit" cx="240.1" cy="119.9" r="9.40"/><text class="blip-num" style="font-size:8.5px" x="240.1" y="123.1">5</text></a>
-        <a href="#story-tankers"><circle class="blip high" cx="274.0" cy="86.0" r="9.00"/><text class="blip-num" style="font-size:8.1px" x="274.0" y="89.1">6</text></a>
-        <a href="#story-zyxel-gs1900"><circle class="blip high" cx="274.0" cy="274.0" r="8.10"/><text class="blip-num" style="font-size:7.3px" x="274.0" y="276.8">7</text></a>
-        <a href="#story-tanjung-pelepas"><circle class="blip high" cx="86.0" cy="274.0" r="7.30"/><text class="blip-num" style="font-size:6.6px" x="86.0" y="276.5">8</text></a>
-        <a href="#story-iolink-masters"><circle class="blip high" cx="86.0" cy="86.0" r="6.60"/><text class="blip-num" style="font-size:5.9px" x="86.0" y="88.2">9</text></a>
+        <a href="#story-modicon-m580"><circle class="blip crit" cx="95.0" cy="180.0" r="10.50"/><text class="blip-num" style="font-size:9.5px" x="95.0" y="183.6">4</text></a>
+        <a href="#story-mikrotik-routeros"><circle class="blip high" cx="305.0" cy="134.5" r="9.00"/><text class="blip-num" style="font-size:8.1px" x="305.0" y="137.6">5</text></a>
+        <a href="#story-zyxel-gs1900"><circle class="blip high" cx="281.9" cy="265.5" r="8.30"/><text class="blip-num" style="font-size:7.5px" x="281.9" y="268.4">6</text></a>
+        <a href="#story-tankers"><circle class="blip high" cx="156.9" cy="311.0" r="7.60"/><text class="blip-num" style="font-size:6.8px" x="156.9" y="313.6">7</text></a>
+        <a href="#story-tanjung-pelepas"><circle class="blip high" cx="55.0" cy="225.5" r="6.90"/><text class="blip-num" style="font-size:6.2px" x="55.0" y="227.9">8</text></a>
+        <a href="#story-iolink-masters"><circle class="blip high" cx="78.1" cy="94.5" r="6.20"/><text class="blip-num" style="font-size:5.6px" x="78.1" y="96.6">9</text></a>
+        <a href="#story-tdengine"><circle class="blip high" cx="203.1" cy="49.0" r="5.50"/><text class="blip-num" style="font-size:5.0px" x="203.1" y="50.9">10</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-mikrotik-routeros"><span class="ld crit"></span><b>1</b> MikroTik RouterOS: third exploited flaw added to CISA KEV</a>
+        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: two zero-days patched after active exploitation</a>
         <a href="#story-colorado-water-intrusions"><span class="ld crit"></span><b>2</b> Colorado: foreign hackers tampered with two water systems</a>
         <a href="#story-checkpoint-exploited"><span class="ld crit"></span><b>3</b> Check Point VPN + management: exploited, KEV deadline passed</a>
-        <a href="#story-citrix-netscaler-zero-days"><span class="ld crit"></span><b>4</b> Citrix NetScaler: two unpatched zero-days reported exploited</a>
-        <a href="#story-modicon-m580"><span class="ld crit"></span><b>5</b> Schneider Modicon M580: auth bypass, CVSS v4.0 9.2</a>
-        <a href="#story-tankers"><span class="ld high"></span><b>6</b> Tanker campaign: third-vessel claim unverified; Texas statement</a>
-        <a href="#story-zyxel-gs1900"><span class="ld high"></span><b>7</b> Zyxel GS1900 switches: ~1,000 compromised, in KEV</a>
+        <a href="#story-modicon-m580"><span class="ld crit"></span><b>4</b> Schneider Modicon M580: auth bypass, CVSS v4.0 9.2</a>
+        <a href="#story-mikrotik-routeros"><span class="ld high"></span><b>5</b> MikroTik RouterOS: third exploited flaw added to CISA KEV</a>
+        <a href="#story-zyxel-gs1900"><span class="ld high"></span><b>6</b> Zyxel GS1900 switches: ~1,000 compromised, in KEV</a>
+        <a href="#story-tankers"><span class="ld high"></span><b>7</b> Tanker campaign: third-vessel claim unverified; Texas statement</a>
         <a href="#story-tanjung-pelepas"><span class="ld high"></span><b>8</b> Tanjung Pelepas: container handling suspended, resumed</a>
         <a href="#story-iolink-masters"><span class="ld high"></span><b>9</b> IO-Link masters: chained flaws give root, CVSS 9.8</a>
+        <a href="#story-tdengine"><span class="ld high"></span><b>10</b> TDengine: single-packet DoS, CVSS 7.5, patch available</a>
       </div>
     </div>
   </div>
@@ -779,9 +781,9 @@
     <div class="trends-strip">
       <div class="trend">
         <span class="trend-tag">Edge Devices</span>
-        <b class="trend-head">The exploitation this week clusters at the remote-access edge, not inside the plant</b>
-        <p>Every item under active exploitation in this window is a box that sits between an outside network and the control system: MikroTik routers (a third flaw joined CISA KEV on 25&nbsp;Sep), Check Point VPN gateways and management servers past their KEV deadline, Zyxel GS1900 switches, and two Citrix NetScaler zero-days Citrix still hadn&rsquo;t confirmed as of 27&nbsp;Sep (see top story). None are ICS products &mdash; each is a common path a technician, integrator or vendor uses to reach one.</p>
-        <a href="https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html" class="source-link" target="_blank" rel="noopener">The Hacker News (CISA KEV)</a>
+        <b class="trend-head">The exploitation this week keeps clustering at the remote-access edge &mdash; and Citrix has now patched into it</b>
+        <p>Every item under active exploitation in this window is a box that sits between an outside network and the control system: MikroTik routers (a third flaw joined CISA KEV on 25&nbsp;Sep), Check Point VPN gateways and management servers past their KEV deadline, Zyxel GS1900 switches, and now two Citrix NetScaler zero-days that Citrix confirmed and patched on 27&nbsp;Sep after roughly a week of in-the-wild exploitation (see top story). None are ICS products &mdash; each is a common path a technician, integrator or vendor uses to reach one.</p>
+        <a href="https://www.cyberkendra.com/2026/09/cve-2026-88771-netscaler-zero-days-exploited.html" class="source-link" target="_blank" rel="noopener">Cyber Kendra (Citrix patch)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Ransomware</span>
@@ -975,36 +977,6 @@
         <a href="https://spycloud.com/blog/water-utility-identity-exposure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-honeywell-ot-benchmark" data-published="2026-09-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; Honeywell OT Cybersecurity Benchmark report: 88% of organizations call their OT security program mature but only 21% have a complete asset inventory; average 16.2 hours downtime per significant incident; no CVE, no confirmed incident</span>
-        </div>
-        <h3>Honeywell: most OT programs call themselves mature &mdash; four in five still can&rsquo;t say what&rsquo;s on the network</h3>
-        <p>Honeywell&rsquo;s 2026 OT Cybersecurity Benchmark report, published 22&nbsp;September, found 88% of surveyed organizations describe their OT security program as mature, while only 21% have a complete asset inventory and just 20% continuously monitor connected IoT devices. Significant incidents cost an average 16.2&nbsp;hours of downtime, at up to $500,000 per hour by Honeywell&rsquo;s estimate. Energy and utilities respondents reported the highest incident rate at 91%, followed by maritime at 87%. Honeywell frames visibility as the differentiator: organizations with stronger asset and network visibility say they are about four times better positioned to detect, respond to and recover from incidents &mdash; a gap worth weighing against any maturity self-assessment.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Vendor survey finding, not an incident &mdash; Honeywell Process Automation commissioned and published this benchmark. <b>Confirmed vs claimed:</b> the statistics are Honeywell&rsquo;s own survey data; no specific victim, exploitation or intrusion is named or implied, and the maturity/inventory gap is self-reported by respondents</span>
-            <span class="ops-tag kev-off">No CVE &mdash; survey research, not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the work is asset-inventory and continuous-monitoring discipline, not remediation of a specific flaw</span>
-            <span class="ops-cc"><b>Action:</b> Treat a maturity self-assessment as a starting point, not proof &mdash; validate it against whether you can actually produce a complete, current OT and IoT asset inventory today. If you can&rsquo;t, prioritize passive discovery and inventory tooling before investing further in detection content that depends on knowing what&rsquo;s on the network.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Gap-check current asset inventory completeness against the 21% benchmark &mdash; 14 days; scope passive-discovery coverage for unmonitored IoT/OT segments &mdash; 30 days; re-baseline downtime-cost assumptions in the IR plan &mdash; 45 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="honeywell-ot-benchmark" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="honeywell-ot-benchmark">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Honeywell Process Automation, 2026 OT Cybersecurity Benchmark report</span>
-          <span class="dot">&bull;</span>
-          <span>Published 22 Sep 2026</span>
-        </div>
-        <a href="https://www.honeywell.com/us/en/news/press-releases/2026/09/honeywell-technologies-report-reveals-significant-gaps-in-industry-s-ot-cybersecurity-protection" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       </div>
   </div>
 
@@ -1013,6 +985,36 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+
+      <div class="card" id="story-mikrotik-routeros" data-published="2026-09-25">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; CVE-2026-67279 (SSH workflow bypass) joins CVE-2026-86060 and CVE-2026-67277 in CISA KEV for MikroTik RouterOS; confirmed active exploitation via the &ldquo;MikroTrick&rdquo; SSH chain since ~2&nbsp;Sep; fixed firmware available</span>
+        </div>
+        <h3>A third MikroTik router flaw joins CISA&rsquo;s exploited list as attacks at the OT remote-access edge continue</h3>
+        <p>CISA added a third MikroTik RouterOS flaw, CVE-2026-67279, to its Known Exploited Vulnerabilities catalog on 25&nbsp;September, joining CVE-2026-86060 and CVE-2026-67277 from 10&nbsp;September. CERT Polska has tracked in-the-wild exploitation since roughly 2&nbsp;September of a two-flaw SSH chain it calls &ldquo;MikroTrick,&rdquo; which hands an unauthenticated attacker full administrative control when chained with CVE-2026-86060. Shadowserver separately counted more than 122,500 internet-reachable MikroTik devices in early September &mdash; an exposure figure, not a confirmed-unpatched count. These routers commonly front remote-access and cellular-telemetry links into field sites and small, unattended facilities that rarely get timely firmware updates.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed active exploitation &mdash; CERT Polska (5&nbsp;Sep) documented in-the-wild exploitation of the &ldquo;MikroTrick&rdquo; SSH chain from about 2&nbsp;Sep. CISA KEV now lists three MikroTik flaws: CVE-2026-86060 (argument injection), CVE-2026-67277 (missing authentication for a critical function in the bandwidth-test service) and CVE-2026-67279 (SSH workflow bypass; CVSS 6.9). <b>Confirmed vs claimed:</b> exploitation is confirmed by CERT Polska and CISA KEV; the 122,500 figure is internet-reachable SSH exposure, not compromise. No threat actor, victim count or targeted sector has been named</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-86060 and CVE-2026-67277 (added 10&nbsp;Sep), CVE-2026-67279 (added 25&nbsp;Sep, federal deadline 28&nbsp;Sep); CVE-2026-67276 not KEV-listed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Fixes available &mdash; RouterOS 7.25beta3, 7.24.2, 7.23.4 and 6.49.21 (CERT Polska); the related CVE-2026-67278 needs 7.24.3 or 7.23.6 because the earlier fix was incomplete</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every MikroTik router reachable from the internet or from a field/remote-access network and upgrade to a fixed release (7.24.3 or 7.23.6 on the 7.x line also covers CVE-2026-67278). Restrict SSH to named management hosts. Check logs for the indicators CERT Polska published &mdash; &ldquo;login failure for user -2 &hellip; via ssh&rdquo;, users &ldquo;added by ssh:-2@&rdquo; and an unexplained privileged account named &ldquo;ops&rdquo; &mdash; and treat any match as a compromise requiring a rebuild, not just a patch. Prioritize units serving water, energy or other unattended field sites.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet/remote-access exposure check of all MikroTik devices &mdash; 3 days; upgrade to a fixed RouterOS release &mdash; 7 days (federal KEV deadline for CVE-2026-67279 is 28&nbsp;Sep); SSH log review for MikroTrick indicators &mdash; 7 days; rebuild any device showing a match rather than only patching &mdash; immediately upon detection</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mikrotik-routeros" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mikrotik-routeros">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV catalog (25 Sep release) and CERT Polska; reported by The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed and patched early Sep 2026 (CERT Polska, 5 Sep); CVE-2026-86060/67277 added to CISA KEV 10 Sep; CVE-2026-67279 added 25 Sep 2026 (due 28 Sep)</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
       <div class="card" id="story-checkpoint-exploited" data-published="2026-09-22">
         <div class="card-header">
@@ -1042,36 +1044,6 @@
           <span>Gateway fix 9 Sep 2026; exploitation from 12 Sep 2026 (gateway) and 23 Jul 2026 (management); KEV addition 22 Sep 2026; federal deadline 25 Sep 2026</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/check-point-warns-of-hackers-exploiting-security-gateway-vpn-rce-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="story-citrix-netscaler-zero-days" data-published="2026-09-26">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; two unpatched remote-code-execution zero-days in Citrix NetScaler ADC and Gateway, reported exploited in the wild by watchTowr; no Citrix advisory, CVE, affected-build list or fix as of 27 Sep; not CVE-2026-19490</span>
-        </div>
-        <h3>Two unpatched NetScaler zero-days are reportedly under attack &mdash; and Citrix has not yet published a fix, a CVE or a build list</h3>
-        <p>Research firm watchTowr said on 26&nbsp;September that two distinct remote-code-execution flaws in Citrix NetScaler ADC and Gateway are being exploited in the wild, discovered during forensic investigations. As of the morning of 27&nbsp;September, Citrix had published no advisory, CVE, affected-build list, indicators of compromise or fix; fixes are reported to be expected early in the week of 28&nbsp;September. watchTowr says these are not CVE-2026-19490, the August Gateway/AAA authentication bypass, and it is not known whether builds that fixed that flaw offer any protection. NetScaler 13.1 reached End of Maintenance on 15&nbsp;September. In our editorial assessment the OT relevance is direct: NetScaler Gateway is a common remote-access front door into OT DMZs and vendor-support paths.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation reported by a named research firm, not yet vendor-confirmed &mdash; watchTowr says both flaws were exploited before any fix existed and that it verified this with authoritative sources. <b>Confirmed vs claimed:</b> Citrix (Cloud Software Group) has not confirmed the flaws. Advice to shut appliances down has circulated via IT suppliers and a Reddit thread; it is not a public government advisory, and watchTowr did not recommend shutdown. CVE IDs, CVSS, affected versions, actor and victim count are not established</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE has been assigned as of 27 Sep</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-no">No fix available yet &mdash; Citrix fixes reported as expected early in the week of 28 Sep 2026</span>
-            <span class="ops-cc"><b>Action:</b> Follow Citrix&rsquo;s existing compromise guidance (CTX694799): preserve evidence, isolate any appliance that looks suspicious, and rotate credentials and certificates. Keep NetScaler management interfaces off the internet, confirm who can reach the Gateway from vendor and OT-support paths, and pre-approve the emergency change so the fix can go on the day Citrix publishes it. Plan off 13.1 now that it is past End of Maintenance.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Confirm management interfaces are not internet-reachable &mdash; immediately; CTX694799 compromise checks on every appliance &mdash; 3 days; pre-approve emergency change for the vendor fix &mdash; before release; apply the fix &mdash; within 48 hours of release</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix-netscaler-zero-days" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="citrix-netscaler-zero-days">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>watchTowr (26 Sep); reported by The Hacker News (27 Sep); no Citrix advisory yet</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 26 Sep 2026 &mdash; vendor fix expected week of 28 Sep</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-zyxel-gs1900" data-published="2026-09-21">
@@ -1132,6 +1104,36 @@
           <span>Published 8 Sep 2026</span>
         </div>
         <a href="https://download.se.com/files?p_Doc_Ref=SEVD-2026-251-04&amp;p_File_Name=SEVD-2026-251-04.pdf&amp;p_enDocType=Security+and+Safety+Notice" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-tdengine" data-published="2026-09-23">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; CVE-2026-42542 (CVSS 7.5), TDengine open-source time-series database; pre-authentication integer-underflow denial of service; fix available, no known exploitation</span>
+        </div>
+        <h3>A single malformed packet can crash the time-series database embedded in many OT historians and IIoT pipelines</h3>
+        <p>Ridge Security disclosed CVE-2026-42542 on 23&nbsp;September: a pre-authentication integer-underflow flaw in TDengine, the open-source time-series database widely embedded in industrial telemetry, historian and IIoT monitoring pipelines. A malformed packet with an undersized length field sent to TDengine&rsquo;s RPC handler on TCP&nbsp;6030 triggers an arithmetic wraparound that reaches a memory-copy call, crashing the database process with no authentication or user interaction required. Affected versions run 3.4.0.0 through 3.4.1.5; 3.4.1.6 fixes it. Ridge Security says it has no telemetry indicating in-the-wild exploitation and is not aware of public exploit code. TDengine instances bundled inside historian or IIoT platforms are easy to miss in an asset inventory built around PLCs and HMIs, and no credentials are needed to knock one over.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported &mdash; Ridge Security states it has no telemetry indicating in-the-wild exploitation and is not aware of public exploit code. <b>Confirmed vs claimed:</b> the CVE, CVSS score and root cause are researcher-published and match the public CVE record; no victim or exploitation has been reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no known exploitation reported as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fix available &mdash; TDengine 3.4.1.6 and later (affected: 3.4.0.0&ndash;3.4.1.5)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory TDengine instances embedded in historian, IIoT-gateway or telemetry platforms &mdash; vendors often bundle it without naming it &mdash; and upgrade to 3.4.1.6. Until upgraded, restrict TCP/6030 to known application hosts and block it at the OT network perimeter; the flaw needs no credentials, so network exposure is the entire attack surface.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of TDengine instances across historian/IIoT platforms &mdash; 14 days; restrict TCP/6030 to known hosts &mdash; 7 days; upgrade to 3.4.1.6 &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="tdengine-42542" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="tdengine-42542">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Ridge Security research; CVE-2026-42542 public record</span>
+          <span class="dot">&bull;</span>
+          <span>Published 23 Sep 2026</span>
+        </div>
+        <a href="https://ridgesecurity.ai/blog/one-packet-can-take-down-the-database-behind-industrial-operations-ridge-security-discovers-cve-2026-42542/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       </div>
@@ -1208,7 +1210,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and re-verified against primary sources 27&nbsp;September&nbsp;2026, 12:13&nbsp;PM&nbsp;ET. Every carried-over item was independently re-checked this run against its primary source: no new development on the MikroTik KEV chain, the Colorado water intrusions, the tanker campaign, or the Citrix NetScaler zero-days (Citrix has still published no CVE, advisory or fix as of midday; a patch remains expected the week of 28&nbsp;Sep). Refreshed this run: the Trends section now covers Accenture&rsquo;s completed Dragos/runZero/NetRise consolidation in place of the maritime-volume theme, which is fully covered by the Tanjung Pelepas and tanker cards above. Threat level holds at 5.5 (Medium). Sources: the CISA KEV catalog, CERT Polska, Check Point, Schneider Electric, CERT@VDE, Nozomi Networks, SpyCloud, GreyNoise, watchTowr, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, the Railroad Commission of Texas, the Port of Tanjung Pelepas, the FBI and CISA, NIST, Honeywell Process Automation, Microsoft Threat Intelligence, Wiz/Nextgov, Black Kite and SecurityWeek; corroborated against The Hacker News, BleepingComputer, Industrial Cyber, Help Net Security, Dark Reading, Axios, Bloomberg, Splash247, Cybernews, WorldCargo News and The Loadstar. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and re-verified against primary sources 27&nbsp;September&nbsp;2026, 6:11&nbsp;PM&nbsp;ET. Citrix&rsquo;s NetScaler flaws remain the top story; the material development this run is CISA&rsquo;s 27&nbsp;September addition of CVE-2026-88771 and CVE-2026-88772 to the KEV catalog (no specific remediation due date set). Every other carried-over item was independently re-checked against its primary source with no new development: the Colorado water intrusions, the tanker campaign, the Tanjung Pelepas restart, the Zyxel GS1900, Check Point and MikroTik KEV items, the Schneider Modicon M580 advisory, the Nozomi/CERT@VDE IO-Link master research, the SpyCloud water-credential research, the CISA/FBI ICS-integrator fact sheet and the NIST&nbsp;SP&nbsp;800-82 draft. Threat level holds at 5.5 (Medium). Sources: Citrix, the CISA KEV catalog, CERT Polska, Check Point, Schneider Electric, CERT@VDE, Nozomi Networks, Ridge Security, SpyCloud, GreyNoise, watchTowr, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, the Railroad Commission of Texas, the Port of Tanjung Pelepas, the FBI and CISA, and NIST; corroborated against The Hacker News, BleepingComputer, Industrial Cyber, Help Net Security, Cyber Kendra, SecurityWeek, Axios, Bloomberg, Splash247, Cybernews, WorldCargo News and The Loadstar. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
 </div>
