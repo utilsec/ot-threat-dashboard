@@ -645,7 +645,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 27 Sep 2026, 6:11 PM ET</span>
+        <span>Generated Mon, 28 Sep 2026, 12:12 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -684,7 +684,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 5.5 &mdash; mid Medium, unchanged since this afternoon&rsquo;s edition. The anchor remains Colorado&rsquo;s confirmed single-sector OT tampering: on 18&nbsp;Sep the Governor&rsquo;s office confirmed foreign actors altered pumping cycles and disabled alarms at two small water systems in late August, with no development since. Citrix&rsquo;s two actively-exploited NetScaler zero-days (CVE-2026-88771, CVE-2026-88772, both CVSS&nbsp;v4.0&nbsp;9.5) remain the top story; CISA added both to its KEV catalog this evening (27&nbsp;Sep), a procedural federal-mandate step that confirms the urgency already reflected in the &ldquo;patch immediately&rdquo; guidance rather than a new escalation. That flaw is the latest in a cluster of edge-device exploitation that also includes MikroTik&rsquo;s third KEV-listed flaw (25&nbsp;Sep), Check Point&rsquo;s two exploited flaws past their KEV deadline, and 996 compromised Zyxel GS1900 switches; that cluster rates about 4.5 on its own and does not stack upward. A newly disclosed, unauthenticated denial-of-service flaw in the TDengine time-series database (CVE-2026-42542, CVSS&nbsp;7.5) rounds out this edition&rsquo;s advisories but carries no known exploitation and does not move the level. The tanker campaign and the <i>Vivit&nbsp;Africa&nbsp;LNG</i> crew claim have no official development since 24&nbsp;Sep. Unexploited ICS flaws (Modicon&nbsp;M580, IO-Link masters) and SpyCloud&rsquo;s water-credential exposure research are awareness signals, not threat escalation. High would require a confirmed OT-disruptive incident across multiple sectors or live hands-on-OT nation-state activity; neither is established, so the level holds at 5.5.</div>
+      <div class="tl-why"><b>Why:</b> 5.5 &mdash; mid Medium, holding steady. The anchor remains Colorado&rsquo;s confirmed single-sector OT tampering: state officials confirmed on 18&nbsp;Sep that foreign actors altered pumping cycles and disabled alarms at two small water systems in late August, with no new development reported. Citrix&rsquo;s two NetScaler zero-days (CVE-2026-88771, CVE-2026-88772, both CVSS&nbsp;9.5) remain the top story &mdash; the Dutch NCSC has confirmed exploitation at multiple customers worldwide and CISA reissued its own alert alongside the 27&nbsp;Sep KEV addition; total scope is still unclear. That flaw sits alongside a broader cluster of exploited edge devices &mdash; a third MikroTik RouterOS flaw added to KEV, Check Point&rsquo;s VPN and management-server flaws past their federal deadline, and roughly a thousand compromised Zyxel GS1900 switches &mdash; that cluster rates about 4.5 on its own and does not stack upward. Two unexploited but severe advisories, a CVSS&nbsp;9.2 authentication flaw in Schneider&rsquo;s Modicon&nbsp;M580 safety PLC and a CVSS&nbsp;9.8 missing-authentication flaw in Siemens&rsquo;s Reyrolle&nbsp;7SR5 protection relay, do not move the level on their own. Russia&rsquo;s widening hybrid campaign against European energy, transport and public-sector targets (see Trends) is a geopolitical signal worth tracking but is not a confirmed OT-disruptive event. High would require a confirmed OT-disruptive incident across multiple sectors, or live hands-on-OT nation-state activity; neither is established, so the level holds at 5.5.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -696,29 +696,29 @@
 
     <div class="top-story" id="story-citrix-netscaler" data-published="2026-09-27">
         <span class="top-story-pill">Top Story</span>
-        <h2>Citrix patches two actively exploited NetScaler zero-days after a week of unpatched attacks</h2>
-        <p>Citrix released fixes on 27 September for two remote-code-execution flaws in NetScaler ADC and Gateway that it confirmed were being actively exploited on unmitigated appliances. CVE-2026-88771, an improper input-validation flaw, lets an unauthenticated attacker run commands on a default configuration; CVE-2026-88772, a memory-overflow flaw exploitable when DTLS is enabled, the default for VPN virtual servers, can cause remote code execution or a crash. Both score CVSS v4.0 9.5. The disclosure caps roughly a week of uncertainty: watchTowr first reported active exploitation on 26 September, before Citrix had published any advisory, CVE, or fix, and some administrators were advised to shut appliances down as a precaution. NetScaler Gateway is a common remote-access front door into OT DMZs and vendor-support paths, so the exposure window mattered directly to industrial operators, not just enterprise IT.</p>
+        <h2>Citrix confirms two NetScaler zero-days exploited worldwide, Dutch officials confirm multiple hits</h2>
+        <p>Citrix confirmed on 27&nbsp;September that two NetScaler ADC and Gateway flaws, CVE-2026-88771 and CVE-2026-88772 (both CVSS&nbsp;9.5), were being actively exploited on unpatched appliances, after roughly a week of informal warnings that circulated among IT suppliers and national CERTs before any official advisory existed. The Dutch National Cyber Security Centre said it had confirmed exploitation at multiple Citrix customers worldwide, though full scope remains unclear. Both flaws let an unauthenticated attacker execute code on any NetScaler configuration; Citrix&rsquo;s bulletin lists eight CVEs in total, but only these two are confirmed under attack. CISA added both to its Known Exploited Vulnerabilities catalog the same day and issued its own alert. NetScaler commonly fronts remote-access and vendor-support paths into OT environments, so the exposure reaches well past enterprise IT.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Vendor-confirmed active exploitation &mdash; Citrix states: &ldquo;Exploitation of CVE-2026-88771 and CVE-2026-88772 on unmitigated NetScaler deployments has been observed.&rdquo; <b>Confirmed vs claimed:</b> exploitation is now vendor-confirmed, not just reported by a research firm; Citrix has not disclosed a victim count, actor identity, or the exploitation timeline before watchTowr&rsquo;s 26&nbsp;Sep report</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CISA added CVE-2026-88771 and CVE-2026-88772 on 27&nbsp;Sep 2026; the alert sets no specific remediation due date but treats both as demanding immediate action given confirmed active exploitation</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Vendor- and NCSC-confirmed active exploitation, multiple customers &mdash; Citrix states exploits &ldquo;on unmitigated NetScaler deployments have been observed,&rdquo; and the Dutch NCSC separately confirmed exploitation at multiple Citrix customers worldwide. <b>Confirmed vs claimed:</b> exploitation is confirmed by both the vendor and a national CERT; total victim count, actor identity, and the precise start date of the informal warnings from around 20&nbsp;Sep remain undisclosed</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; added 27 Sep 2026; no specific remediation due date set, given confirmed active exploitation</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Fixes available &mdash; NetScaler ADC/Gateway 14.1-73.37 and 13.1-64.23 and later; 14.1-FIPS and 13.1-FIPS/NDcPP on 13.1-37.279. The August builds 14.1-73.32 and 13.1-63.21 do <b>not</b> include this fix</span>
-            <span class="ops-cc"><b>Action:</b> Patch every NetScaler ADC and Gateway appliance to a fixed build immediately, starting with anything fronting OT remote-access, VPN, or vendor-support paths. Until patched, treat internet-facing management interfaces as potentially compromised and follow Citrix&rsquo;s existing forensic guidance (CTX694799) to check for indicators before and after patching. Disable DTLS on VPN virtual servers where it isn&rsquo;t required to remove the second flaw&rsquo;s exposure.</span>
+            <span class="ops-tag patch-now">Fixes available &mdash; NetScaler ADC/Gateway 14.1-73.37 and 13.1-64.23 and later; 14.1-FIPS and 13.1-FIPS/NDcPP on 13.1-37.279. The August builds 14.1-73.32 and 13.1-63.21 do <b>not</b> include this fix. Citrix&rsquo;s bulletin (CTX697096) covers six additional CVEs, up to CVSS&nbsp;9.3, in the same release; none of those six is confirmed exploited</span>
+            <span class="ops-cc"><b>Action:</b> Patch every NetScaler ADC and Gateway appliance to a fixed build immediately, starting with anything fronting OT remote-access, VPN, or vendor-support paths. Until patched, treat internet-facing management interfaces as potentially compromised and follow Citrix&rsquo;s forensic guidance (CTX694799) before and after patching, then review CTX697096&rsquo;s remaining six CVEs for applicability to your build.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch to a fixed build &mdash; immediately (active exploitation confirmed, now CISA KEV-listed); forensic triage per CTX694799 on any internet-facing appliance &mdash; 48 hours; disable DTLS where not required &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch to a fixed build &mdash; immediately (active exploitation confirmed, CISA KEV-listed); forensic triage per CTX694799 on any internet-facing appliance &mdash; 48 hours; review remaining CTX697096 CVEs for applicability &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix-netscaler-patched" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="citrix-netscaler-patched">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Citrix security bulletin; reported by watchTowr, Cyber Kendra and SecurityWeek</span>
+          <span>Citrix security bulletin CTX697096; CISA KEV catalog and 27&nbsp;Sep alert; Dutch NCSC; reported by BleepingComputer and The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation reported 26 Sep 2026; Citrix fixes published 27 Sep 2026; added to CISA KEV 27 Sep 2026</span>
+          <span>Informal warnings from roughly 20 Sep 2026; Citrix confirmed and patched 27 Sep 2026; added to CISA KEV 27 Sep 2026</span>
         </div>
-        <a href="https://www.cyberkendra.com/2026/09/cve-2026-88771-netscaler-zero-days-exploited.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -748,28 +748,28 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
         <a href="#story-citrix-netscaler"><circle class="blip crit" cx="180.0" cy="95.0" r="15.00"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="100.1">1</text></a>
-        <a href="#story-colorado-water-intrusions"><circle class="blip crit" cx="265.0" cy="180.0" r="13.50"/><text class="blip-num" style="font-size:12.2px" x="265.0" y="184.6">2</text></a>
-        <a href="#story-checkpoint-exploited"><circle class="blip crit" cx="180.0" cy="265.0" r="12.00"/><text class="blip-num" style="font-size:10.8px" x="180.0" y="269.1">3</text></a>
-        <a href="#story-modicon-m580"><circle class="blip crit" cx="95.0" cy="180.0" r="10.50"/><text class="blip-num" style="font-size:9.5px" x="95.0" y="183.6">4</text></a>
-        <a href="#story-mikrotik-routeros"><circle class="blip high" cx="305.0" cy="134.5" r="9.00"/><text class="blip-num" style="font-size:8.1px" x="305.0" y="137.6">5</text></a>
-        <a href="#story-zyxel-gs1900"><circle class="blip high" cx="281.9" cy="265.5" r="8.30"/><text class="blip-num" style="font-size:7.5px" x="281.9" y="268.4">6</text></a>
-        <a href="#story-tankers"><circle class="blip high" cx="156.9" cy="311.0" r="7.60"/><text class="blip-num" style="font-size:6.8px" x="156.9" y="313.6">7</text></a>
-        <a href="#story-tanjung-pelepas"><circle class="blip high" cx="55.0" cy="225.5" r="6.90"/><text class="blip-num" style="font-size:6.2px" x="55.0" y="227.9">8</text></a>
-        <a href="#story-iolink-masters"><circle class="blip high" cx="78.1" cy="94.5" r="6.20"/><text class="blip-num" style="font-size:5.6px" x="78.1" y="96.6">9</text></a>
-        <a href="#story-tdengine"><circle class="blip high" cx="203.1" cy="49.0" r="5.50"/><text class="blip-num" style="font-size:5.0px" x="203.1" y="50.9">10</text></a>
+        <a href="#story-colorado-water-intrusions"><circle class="blip crit" cx="260.8" cy="153.7" r="13.50"/><text class="blip-num" style="font-size:12.2px" x="260.8" y="158.3">2</text></a>
+        <a href="#story-checkpoint-exploited"><circle class="blip crit" cx="230.0" cy="248.8" r="12.00"/><text class="blip-num" style="font-size:10.8px" x="230.0" y="252.9">3</text></a>
+        <a href="#story-modicon-m580"><circle class="blip crit" cx="130.0" cy="248.8" r="10.50"/><text class="blip-num" style="font-size:9.5px" x="130.0" y="252.4">4</text></a>
+        <a href="#story-siemens-reyrolle"><circle class="blip crit" cx="99.2" cy="153.7" r="9.50"/><text class="blip-num" style="font-size:8.6px" x="99.2" y="157.2">5</text></a>
+        <a href="#story-mikrotik-routeros"><circle class="blip high" cx="258.2" cy="72.4" r="9.00"/><text class="blip-num" style="font-size:8.1px" x="258.2" y="75.5">6</text></a>
+        <a href="#story-zyxel-gs1900"><circle class="blip high" cx="306.5" cy="221.1" r="8.20"/><text class="blip-num" style="font-size:7.4px" x="306.5" y="224.0">7</text></a>
+        <a href="#story-tankers"><circle class="blip high" cx="180.0" cy="313.0" r="7.40"/><text class="blip-num" style="font-size:6.7px" x="180.0" y="315.6">8</text></a>
+        <a href="#story-tanjung-pelepas"><circle class="blip high" cx="53.5" cy="221.1" r="6.60"/><text class="blip-num" style="font-size:5.9px" x="53.5" y="223.5">9</text></a>
+        <a href="#story-iolink-masters"><circle class="blip high" cx="101.8" cy="72.4" r="5.80"/><text class="blip-num" style="font-size:5.2px" x="101.8" y="74.5">10</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: two zero-days patched after active exploitation</a>
+        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: two zero-days exploited worldwide</a>
         <a href="#story-colorado-water-intrusions"><span class="ld crit"></span><b>2</b> Colorado: foreign hackers tampered with two water systems</a>
         <a href="#story-checkpoint-exploited"><span class="ld crit"></span><b>3</b> Check Point VPN + management: exploited, KEV deadline passed</a>
-        <a href="#story-modicon-m580"><span class="ld crit"></span><b>4</b> Schneider Modicon M580: auth bypass, CVSS v4.0 9.2</a>
-        <a href="#story-mikrotik-routeros"><span class="ld high"></span><b>5</b> MikroTik RouterOS: third exploited flaw added to CISA KEV</a>
-        <a href="#story-zyxel-gs1900"><span class="ld high"></span><b>6</b> Zyxel GS1900 switches: ~1,000 compromised, in KEV</a>
-        <a href="#story-tankers"><span class="ld high"></span><b>7</b> Tanker campaign: third-vessel claim unverified; Texas statement</a>
-        <a href="#story-tanjung-pelepas"><span class="ld high"></span><b>8</b> Tanjung Pelepas: container handling suspended, resumed</a>
-        <a href="#story-iolink-masters"><span class="ld high"></span><b>9</b> IO-Link masters: chained flaws give root, CVSS 9.8</a>
-        <a href="#story-tdengine"><span class="ld high"></span><b>10</b> TDengine: single-packet DoS, CVSS 7.5, patch available</a>
+        <a href="#story-modicon-m580"><span class="ld crit"></span><b>4</b> Schneider Modicon M580: auth flaw in safety PLC, CVSS 9.2</a>
+        <a href="#story-siemens-reyrolle"><span class="ld crit"></span><b>5</b> Siemens Reyrolle 7SR5: missing-auth flaw, CVSS 9.8</a>
+        <a href="#story-mikrotik-routeros"><span class="ld high"></span><b>6</b> MikroTik RouterOS: third exploited flaw added to CISA KEV</a>
+        <a href="#story-zyxel-gs1900"><span class="ld high"></span><b>7</b> Zyxel GS1900 switches: ~1,000 compromised, in KEV</a>
+        <a href="#story-tankers"><span class="ld high"></span><b>8</b> Tanker campaign: third-vessel claim unverified; Texas statement</a>
+        <a href="#story-tanjung-pelepas"><span class="ld high"></span><b>9</b> Tanjung Pelepas: container handling suspended, resumed</a>
+        <a href="#story-iolink-masters"><span class="ld high"></span><b>10</b> IO-Link masters: chained flaws give root, CVSS 9.8</a>
       </div>
     </div>
   </div>
@@ -781,26 +781,20 @@
     <div class="trends-strip">
       <div class="trend">
         <span class="trend-tag">Edge Devices</span>
-        <b class="trend-head">The exploitation this week keeps clustering at the remote-access edge &mdash; and Citrix has now patched into it</b>
-        <p>Every item under active exploitation in this window is a box that sits between an outside network and the control system: MikroTik routers (a third flaw joined CISA KEV on 25&nbsp;Sep), Check Point VPN gateways and management servers past their KEV deadline, Zyxel GS1900 switches, and now two Citrix NetScaler zero-days that Citrix confirmed and patched on 27&nbsp;Sep after roughly a week of in-the-wild exploitation (see top story). None are ICS products &mdash; each is a common path a technician, integrator or vendor uses to reach one.</p>
-        <a href="https://www.cyberkendra.com/2026/09/cve-2026-88771-netscaler-zero-days-exploited.html" class="source-link" target="_blank" rel="noopener">Cyber Kendra (Citrix patch)</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Ransomware affiliates rotate brands; the underlying tradecraft barely changes</b>
-        <p>Microsoft&rsquo;s 24&nbsp;Sep profile of the affiliate it tracks as Storm-2570 shows it cycling through Qilin, DragonForce, Anubis and BERT payloads against energy, chemicals, manufacturing, food and agriculture, and transportation victims, while leaning on the same legitimate remote-management tools, PsExec and Rclone each time. Black Kite separately tallied 1,183 manufacturing ransomware victims from January through July, nearly half from groups that didn&rsquo;t exist in 2023 or 2024 &mdash; a reminder that detection tuned to behavior outlasts detection tuned to a brand name.</p>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Microsoft Threat Intelligence</a>
+        <b class="trend-head">Exploitation keeps clustering at the remote-access edge &mdash; Citrix is the newest confirmed hit</b>
+        <p>Every actively-exploited item in this window sits at the boundary between the outside network and the control system, not inside an ICS product itself: MikroTik routers picked up a third CISA KEV listing on 25&nbsp;Sep, Check Point&rsquo;s VPN gateways and management servers passed their federal remediation deadline, roughly a thousand Zyxel GS1900 switches were found compromised, and Citrix confirmed two NetScaler zero-days under worldwide attack on 27&nbsp;Sep (see top story). None of these devices runs a control loop, but each is a common path a vendor, integrator, or remote technician uses to reach one.</p>
+        <a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" class="source-link" target="_blank" rel="noopener">BleepingComputer (Citrix)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">AI</span>
-        <b class="trend-head">AI is cutting the time to find exposure &mdash; for defenders and intruders alike</b>
-        <p>Wiz reported its AI-assisted &ldquo;Scan for Good&rdquo; sweep surfaced a leaked database exposing live administrator sessions at an unnamed rail operator &mdash; control over routes, schedules and service announcements &mdash; and helped get it secured before any disruption (Nextgov, 24&nbsp;Sep). Days later Microsoft detailed Storm-3168, an AI-orchestrated cloud ransomware run that entered through a service-principal secret leaked on GitHub and, after roughly 15 hours of quiet reconnaissance, destroyed data across more than 100 storage accounts in a seven-minute burst (25&nbsp;Sep).</p>
+        <b class="trend-head">AI is shortening the gap between exposure and exploitation, for defenders and attackers alike</b>
+        <p>Wiz said an AI-assisted internet sweep it calls &ldquo;Scan for Good&rdquo; surfaced a leaked database exposing live administrator sessions at an unnamed rail operator &mdash; control over routes, schedules and service announcements &mdash; and helped get it secured before any disruption (Nextgov, 24&nbsp;Sep). Days later Microsoft detailed Storm-3168, a largely AI-orchestrated cloud ransomware run that entered through a service-principal secret leaked on GitHub and, after roughly 15 hours of quiet reconnaissance, destroyed data across more than 100 storage accounts in a seven-minute burst.</p>
         <a href="https://www.nextgov.com/cybersecurity/2026/09/ai-scanning-tools-found-security-gaps-rail-operator-and-hospitals-wiz-says/416181/" class="source-link" target="_blank" rel="noopener">Nextgov</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Market</span>
-        <b class="trend-head">Accenture&rsquo;s $4.1B OT security bet closes, and the platform consolidation begins</b>
-        <p>Accenture&rsquo;s majority stake in Dragos has closed, and on 21&nbsp;Sep Dragos announced it had completed its own acquisitions of runZero and NetRise &mdash; wiring together asset discovery, firmware analysis and OT threat detection under one roof, a combination Accenture puts at roughly $208M in annual recurring revenue. It follows the ~$4.1B deal Accenture announced in June and mirrors ServiceNow&rsquo;s earlier Armis purchase, both signs that OT security vendors are being absorbed into larger platform plays rather than staying standalone.</p>
+        <b class="trend-head">Accenture&rsquo;s $4.1B OT security bet closes, and platform consolidation begins</b>
+        <p>Accenture&rsquo;s majority stake in Dragos has closed, and on 21&nbsp;Sep Dragos said it had completed its own acquisitions of runZero and NetRise &mdash; combining asset discovery, firmware analysis and OT threat detection under one roof, a combination Accenture values at roughly $208M in annual recurring revenue. It follows the ~$4.1B deal Accenture announced in June and mirrors ServiceNow&rsquo;s earlier Armis purchase, both signs that OT security vendors are being absorbed into larger platform plays rather than staying standalone.</p>
         <a href="https://www.securityweek.com/dragos-completes-netrise-and-runzero-acquisitions-following-accenture-deal/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
@@ -808,6 +802,12 @@
         <b class="trend-head">CISA opens a &ldquo;Quality Era&rdquo; push for the CVE program as volume outpaces triage</b>
         <p>CISA&rsquo;s new framework for improving CVE data quality, reported by Industrial Cyber on 25&nbsp;Sep, rests on four pillars: program governance, ecosystem participation, data infrastructure and record quality. It cites more than 67,000 CVEs published in 2026 through 18&nbsp;Sep, on pace for roughly 96,000 by year-end. Nothing in it is OT-specific, but for teams already struggling to triage advisory volume, whether identifiers and records can be trusted matters directly.</p>
         <a href="https://industrialcyber.co/threats-attacks/cisa-launches-cve-quality-era-framework-to-improve-vulnerability-data-quality-infrastructure-program-governance/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (CISA)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Geopolitical</span>
+        <b class="trend-head">Russia&rsquo;s hybrid campaign against European infrastructure keeps widening</b>
+        <p>European officials say Russia is testing NATO&rsquo;s response with a widening mix of drone incursions, sabotage and cyberattacks: a drone intercepted near Romania&rsquo;s Neptun&nbsp;Deep gas platform, an explosives-laden drone found near a Ukrainian cargo plane at a German airport, and &ldquo;coordinated cyberattacks&rdquo; on Norwegian public infrastructure, all attributed by national authorities within the last several weeks. None of these is a confirmed OT-disruptive event on its own, but the pattern &mdash; energy, transport and public-sector targets across multiple NATO states &mdash; is the clearest cross-sector geopolitical signal this edition (see Threat Level).</p>
+        <a href="https://www.spokesman.com/stories/2026/sep/26/us-europe-worry-russia-is-testing-nato-with-hybrid/" class="source-link" target="_blank" rel="noopener">The Spokesman-Review</a>
       </div>
     </div>
   </div>
@@ -824,7 +824,7 @@
           <span class="category">Incident &mdash; confirmed foreign intrusion into two small, privately owned drinking-water systems; equipment settings, pumping cycles and alarms altered; no known impact to treatment or public safety; actors unidentified; no development since disclosure</span>
         </div>
         <h3>Colorado confirms foreign hackers tampered with two small water systems&rsquo; pumps and alarms</h3>
-        <p>Gov. Jared Polis&rsquo;s office confirmed on 18&nbsp;September that foreign cyber actors breached two small, privately owned Colorado water systems in late August, changing equipment settings, disabling remote access and alarms, and altering pumping cycles. Officials say the disruption was brief, with no known impact on water treatment, water quality or public safety. The office says it cannot confirm which foreign actors were involved; federal officials are separately tracking an Iranian-backed effort against US water systems, but no link to these intrusions has been confirmed. It remains the only confirmed OT-tampering incident in this edition, with no new development reported as of 27&nbsp;September.</p>
+        <p>Gov. Jared Polis&rsquo;s office confirmed on 18&nbsp;September that foreign cyber actors breached two small, privately owned Colorado water systems in late August, changing equipment settings, disabling remote access and alarms, and altering pumping cycles. Officials say the disruption was brief, with no known impact on water treatment, water quality or public safety. The office says it cannot confirm which foreign actors were involved; federal officials are separately tracking a broader Iran-linked effort against US water systems, but no link to these intrusions has been confirmed. It remains the only confirmed OT-tampering incident in this edition, with no new development reported as of 28&nbsp;September.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed OT tampering, no known treatment impact &mdash; the Governor&rsquo;s office confirmed on 18 Sep 2026 that foreign actors breached two small, privately owned water utilities in late Aug 2026. <b>Confirmed vs claimed:</b> the intrusions and the operational changes are confirmed by the state; attribution is not &mdash; the office says it cannot confirm which foreign actors were involved. No device type, vendor, product, access method or CVE has been named</span>
@@ -843,7 +843,7 @@
         <div class="card-meta">
           <span>Colorado Governor&rsquo;s office statement, reported by Axios Denver and Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Intrusions late Aug 2026; confirmed 18 Sep 2026 &mdash; no new development as of 27 Sep</span>
+          <span>Intrusions late Aug 2026; confirmed 18 Sep 2026 &mdash; no new development as of 28 Sep</span>
         </div>
         <a href="https://www.axios.com/local/denver/2026/09/18/water-utilities-cyberattack-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -873,7 +873,7 @@
         <div class="card-meta">
           <span>US Coast Guard and FBI via Cybernews; Bloomberg and Splash247 on <i>Vivit Africa LNG</i>; Railroad Commission of Texas release (Commissioner Wayne Christian)</span>
           <span class="dot">&bull;</span>
-          <span>Boardings late Aug 2026; third vessel reported 18 Sep 2026; Texas statement 24 Sep 2026 &mdash; no official development since</span>
+          <span>Boardings late Aug 2026; third vessel reported 18 Sep 2026; Texas statement 24 Sep 2026 &mdash; no official development as of 28 Sep</span>
         </div>
         <a href="https://cybernews.com/news/fbi-fuel-tanker-attacks-hackers-gain-control-critical-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -903,7 +903,7 @@
         <div class="card-meta">
           <span>Port of Tanjung Pelepas spokesperson and Maersk statements, reported by WorldCargo News and The Loadstar</span>
           <span class="dot">&bull;</span>
-          <span>Incident 9 Sep 2026; phased restart from 10 Sep; resumption statement 15 Sep 2026 &mdash; no new development as of 27 Sep</span>
+          <span>Incident 9 Sep 2026; phased restart from 10 Sep; resumption statement 15 Sep 2026 &mdash; no new development as of 28 Sep</span>
         </div>
         <a href="https://www.worldcargonews.com/news/2026/09/port-of-tanjung-pelepas-resumes-operations-after-cyber-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -947,34 +947,34 @@
         <a href="https://www.nozominetworks.com/blog/fooling-the-master-pepperl-fuchs-io-link-under-attack" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-spycloud-water" data-published="2026-09-20">
+      <div class="card" id="story-foodag-isac-report" data-published="2026-09-03">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; SpyCloud infostealer-exposure analysis of 10,000 US water and wastewater utilities and their technology vendors; OT or remote-access credentials exposed at 258 organizations; exposure, not confirmed intrusion; no CVE</span>
+          <span class="category">Research &mdash; Food and Ag-ISAC 2026 threat report: ransomware, nation-state and AI-accelerated exploitation trends across food and agriculture; sector-aggregated statistics, not a specific incident; no CVE</span>
         </div>
-        <h3>Stolen remote-access logins for US water utilities are already circulating, SpyCloud finds</h3>
-        <p>SpyCloud analyzed stolen-identity data linked to 10,000 US water and wastewater utilities and their technology vendors and found active infostealer exposure at 1,787 of them; 258 had exposed credentials for OT or remote-access systems. In one case, a single infected device at a major US advanced-metering technology provider held saved logins for about 167 utility metering portals. Tools named include TeamViewer, LogMeIn, GoToMyPC and SonicWall and Fortinet management portals. SpyCloud stresses that it measures identity exposure, not confirmed intrusion, and does not tie the findings to any actor or campaign; nothing links them to the Colorado intrusions &mdash; but stolen remote-access credentials are one of the most direct routes to the pumps and alarms small utilities depend on.</p>
+        <h3>Food and Ag-ISAC: ransomware against food and agriculture is up 62% this year, led by Qilin</h3>
+        <p>Food and Ag-ISAC&rsquo;s 2026 threat report, published 3&nbsp;September, counted 227 ransomware incidents against the food and agriculture sector through July &mdash; a 62% increase over the same period in 2025 &mdash; led by Qilin (47 attacks), a group it tracks as The Gentlemen (31) and Akira (14). The report also flags nation-state activity as the sector&rsquo;s second-largest adversary category: China pre-positioning for future disruption and IP theft, Russia seeking persistent access to critical infrastructure, Iran directly targeting processing equipment, and North Korea using remote-worker schemes for data theft and insider access. It separately notes AI compressing the gap between a CVE&rsquo;s disclosure and a working exploit to hours, and a 108% first-half surge in ClickFix-style social engineering. Its central recommendation: triage vulnerabilities rather than attempt to patch everything, since production schedules rarely allow it.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Research finding, not an intrusion &mdash; SpyCloud&rsquo;s analysis covered 76,367 infected devices and 523,572 infostealer records; exposure concentrated in larger operators and vendors, with small utilities under-represented in the data. <b>Confirmed vs claimed:</b> the counts are SpyCloud&rsquo;s measured data; no utility or vendor is named, and no intrusion, actor or campaign is claimed</span>
-            <span class="ops-tag kev-off">No CVE &mdash; credential exposure from infostealer malware, not a product vulnerability</span>
+            <span class="ops-tag ex-info"><span class="d"></span>Sector threat report, not an active campaign &mdash; Food and Ag-ISAC aggregates member-reported and researched data through Jul 2026. <b>Confirmed vs claimed:</b> the incident counts and group rankings are Food and Ag-ISAC&rsquo;s own tally; no specific victim organization is named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; a sector threat-trend report, not a product vulnerability</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the controls are credential rotation, MFA on every remote-access path and infostealer hygiene on machines that hold those logins</span>
-            <span class="ops-cc"><b>Action:</b> Rotate passwords and session tokens for every remote-access tool and firewall-management portal that reaches OT, starting with vendor and integrator accounts, and require MFA on each. Ask your metering, SCADA-support and remote-access vendors how they protect and monitor the credentials they hold for you. Remove saved passwords from browsers on engineering and support laptops.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; the report&rsquo;s own recommendation is triage and prioritization, not universal patching</span>
+            <span class="ops-cc"><b>Action:</b> Compare your own ransomware and phishing detections against the named groups&rsquo; known tradecraft (Qilin, The Gentlemen, Akira) rather than assuming a single dominant actor. Build a vulnerability-triage process that accounts for production-cycle constraints instead of an all-or-nothing patch policy, and brief staff on ClickFix-style social engineering given its reported surge.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Rotate remote-access and firewall-management credentials that reach OT &mdash; 14 days; MFA on every remote-access path &mdash; 30 days; vendor questions on credential protection and monitoring &mdash; 30 days; purge saved browser passwords on engineering/support machines &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="spycloud-water" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="spycloud-water">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Cross-reference detections against named-group TTPs &mdash; 30 days; document a formal vulnerability-triage policy for production-constrained systems &mdash; 45 days; ClickFix-specific staff awareness update &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="foodag-isac-2026" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="foodag-isac-2026">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>SpyCloud research; reported by SecurityWeek (25 Sep)</span>
+          <span>Food and Ag-ISAC 2026 threat report; reported by Industrial Cyber</span>
           <span class="dot">&bull;</span>
-          <span>Published 20 Sep 2026</span>
+          <span>Published 3 Sep 2026</span>
         </div>
-        <a href="https://spycloud.com/blog/water-utility-identity-exposure/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://industrialcyber.co/critical-infrastructure/food-and-ag-isac-warns-ai-ransomware-nation-state-threats-intensifying-cyber-risks-across-food-and-agriculture/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       </div>
@@ -1059,7 +1059,7 @@
             <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; added 21 Sep 2026; federal deadline 24 Sep 2026 has passed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Fix available since June 2026 &mdash; upgrade GS1900 firmware beyond 2.90(XXXX.1)C0 per Zyxel&rsquo;s advisory</span>
+            <span class="ops-tag patch-yes">Fix available since June 2026 &mdash; upgrade GS1900 firmware beyond 2.90(XXXX.1)C0 per Zyxel&rsquo;s advisory</span>
             <span class="ops-cc"><b>Action:</b> Find every GS1900 on plant, utility and remote-site networks &mdash; they are often installed by integrators and missing from the asset register &mdash; and upgrade the firmware. Restrict the web management interface to a management VLAN, and treat any unit that has been reachable from a broadly shared network as possibly compromised: check its configuration and admin accounts, and reflash if in doubt.</span>
           </div>
           <div class="ops-row ops-assign">
@@ -1076,64 +1076,64 @@
         <a href="https://www.helpnetsecurity.com/2026/09/22/zyxel-switches-cve-2026-7273-vulnerability-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-modicon-m580" data-published="2026-09-08">
+      <div class="card" id="story-siemens-reyrolle" data-published="2026-09-09">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; CVE-2026-3869 (CVSS v4.0 9.2; v3.1 9.8), Schneider Electric Modicon M580 and M580 Safety controllers; incorrect authentication-algorithm implementation; fixed firmware available, no known exploitation</span>
+          <span class="category">Advisory &mdash; CVE-2026-62645 (CVSS v3.1 9.8), Siemens Reyrolle 7SR5 protection relays; missing authentication (CWE-306) lets session IDs be predicted from exposed web-interface data; fixed firmware available, no known exploitation</span>
         </div>
-        <h3>A broken authentication check in the Modicon M580 leaves safety controllers exposed for as long as change control takes</h3>
-        <p>Schneider Electric&rsquo;s notice SEVD-2026-251-04, published 8&nbsp;September, discloses CVE-2026-3869: an incorrect implementation of an authentication algorithm (CWE-303) in Modicon M580 and M580 Safety programmable controllers that lets an attacker bypass an authentication check. It scores CVSS v4.0 9.2 and v3.1 9.8. Affected are M580 below application level 4.00 and M580 Safety below application level 4.20. No public exploitation has been reported, but the M580 is a widely deployed controller family, and validation and change-control requirements routinely keep plants on older firmware for weeks or quarters after a fix ships &mdash; a gap defenders need to cover with compensating controls.</p>
+        <h3>A missing authentication check in a widely used grid-protection relay lets an attacker predict valid session IDs</h3>
+        <p>Siemens ProductCERT advisory SSA-142885, published 9&nbsp;September, discloses CVE-2026-62645: a missing-authentication flaw (CWE-306) in the Reyrolle 7SR5 family of protection relays, used for overcurrent, motor and transformer protection in substations. The relay&rsquo;s web interface exposes information that lets an attacker calculate current and past session ID numbers, potentially bypassing authentication outright. It scores CVSS v3.1 9.8 and affects all firmware versions before V2.70. No public exploitation has been reported. Reyrolle relays are deployed widely across power-grid substations, and a compromised protection relay is a direct path to disabling the safety function that trips a circuit during a fault &mdash; exactly the kind of device validation and change-control cycles keep on older firmware for months after a fix ships.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; SEVD-2026-251-04 documents CVE-2026-3869 (CVSS v4.0 9.2; v3.1 9.8), an incorrect authentication-algorithm implementation (CWE-303). <b>Confirmed vs claimed:</b> the CVE, affected versions and mechanism are vendor-published; no proof-of-concept or victim has been reported</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation reported &mdash; SSA-142885 documents CVE-2026-62645 (CVSS v3.1 9.8), a missing-authentication flaw letting an attacker predict session IDs from exposed web-interface data. <b>Confirmed vs claimed:</b> the CVE, CVSS score and mechanism are vendor-published; no proof-of-concept or victim has been reported</span>
             <span class="ops-tag kev-off">Not in CISA KEV &mdash; no known exploitation reported as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fix available &mdash; M580 firmware 4.10+ with application level 4.00+ (EcoStruxure Control Expert V15.2+); M580 Safety firmware 4.21+ with application level 4.20+ (Control Expert V16.0 HF001+)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory M580 and M580 Safety controllers with their firmware and application levels, then schedule the upgrade through your normal change-control and maintenance-window process for safety-rated controllers rather than rushing it. Until upgraded, limit which hosts can reach the controllers to named engineering workstations, block controller protocols at zone boundaries, and log every remote engineering session.</span>
+            <span class="ops-tag patch-yes">Fix available &mdash; Reyrolle 7SR5 firmware V2.70 and later</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Reyrolle 7SR5 relays and their firmware versions across substations, and schedule the upgrade to V2.70+ through your normal protection-relay change-control process. Until upgraded, restrict the relay&rsquo;s web interface to isolated engineering networks and disable it entirely where local HMI or engineering-tool access is sufficient.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of M580/M580 Safety firmware and application levels &mdash; 14 days; restrict controller reachability to named engineering hosts &mdash; 30 days; scheduled firmware upgrade during next validated maintenance window &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="modicon-m580" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="modicon-m580">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of Reyrolle 7SR5 firmware versions &mdash; 14 days; restrict or disable web-interface access &mdash; 21 days; firmware upgrade during next validated maintenance window &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="siemens-reyrolle-62645" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="siemens-reyrolle-62645">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Schneider Electric security notification SEVD-2026-251-04</span>
+          <span>Siemens ProductCERT advisory SSA-142885</span>
           <span class="dot">&bull;</span>
-          <span>Published 8 Sep 2026</span>
+          <span>Published 9 Sep 2026</span>
         </div>
-        <a href="https://download.se.com/files?p_Doc_Ref=SEVD-2026-251-04&amp;p_File_Name=SEVD-2026-251-04.pdf&amp;p_enDocType=Security+and+Safety+Notice" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cert-portal.siemens.com/productcert/html/ssa-142885.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-tdengine" data-published="2026-09-23">
+      <div class="card" id="story-modicon-m580" data-published="2026-09-09">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; CVE-2026-42542 (CVSS 7.5), TDengine open-source time-series database; pre-authentication integer-underflow denial of service; fix available, no known exploitation</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory &mdash; CVE-2026-3869 (CVSS v4 9.2), Schneider Electric Modicon M580, M580 Safety and MC80 PLCs; incorrect implementation of an authentication algorithm (CWE-303); fixed firmware available (SEVD-2026-251-04), no known exploitation</span>
         </div>
-        <h3>A single malformed packet can crash the time-series database embedded in many OT historians and IIoT pipelines</h3>
-        <p>Ridge Security disclosed CVE-2026-42542 on 23&nbsp;September: a pre-authentication integer-underflow flaw in TDengine, the open-source time-series database widely embedded in industrial telemetry, historian and IIoT monitoring pipelines. A malformed packet with an undersized length field sent to TDengine&rsquo;s RPC handler on TCP&nbsp;6030 triggers an arithmetic wraparound that reaches a memory-copy call, crashing the database process with no authentication or user interaction required. Affected versions run 3.4.0.0 through 3.4.1.5; 3.4.1.6 fixes it. Ridge Security says it has no telemetry indicating in-the-wild exploitation and is not aware of public exploit code. TDengine instances bundled inside historian or IIoT platforms are easy to miss in an asset inventory built around PLCs and HMIs, and no credentials are needed to knock one over.</p>
+        <h3>A broken authentication check in Schneider&rsquo;s flagship M580 safety PLC needs a validated patch window</h3>
+        <p>Schneider Electric disclosed CVE-2026-3869 on 9&nbsp;September in advisory SEVD-2026-251-04: an incorrect implementation of an authentication algorithm (CWE-303) affecting Modicon&nbsp;M580 controllers below application level 4.00, M580&nbsp;Safety below 4.20, and Modicon&nbsp;MC80 units. The flaw scores CVSS&nbsp;v4 9.2 and could let an attacker who reaches the controller bypass authentication on management functions. The M580 is Schneider&rsquo;s flagship PLC platform, widely deployed across process manufacturing, water, oil and gas, and power applications, and the M580&nbsp;Safety variant runs safety-instrumented functions tied directly to process protection. No public exploitation has been reported. Fixed firmware is available, but as with most safety-certified controllers, operators cannot apply it without a validated change-control cycle, so unpatched units are likely to remain in service for weeks to months after disclosure &mdash; making network isolation the interim control that matters most.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported &mdash; Ridge Security states it has no telemetry indicating in-the-wild exploitation and is not aware of public exploit code. <b>Confirmed vs claimed:</b> the CVE, CVSS score and root cause are researcher-published and match the public CVE record; no victim or exploitation has been reported</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported &mdash; Schneider&rsquo;s advisory documents CVE-2026-3869 (CVSS v4 9.2), an authentication-algorithm flaw. <b>Confirmed vs claimed:</b> the CVE, CVSS score and mechanism are vendor-published; no proof-of-concept or victim has been reported</span>
             <span class="ops-tag kev-off">Not in CISA KEV &mdash; no known exploitation reported as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fix available &mdash; TDengine 3.4.1.6 and later (affected: 3.4.0.0&ndash;3.4.1.5)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory TDengine instances embedded in historian, IIoT-gateway or telemetry platforms &mdash; vendors often bundle it without naming it &mdash; and upgrade to 3.4.1.6. Until upgraded, restrict TCP/6030 to known application hosts and block it at the OT network perimeter; the flaw needs no credentials, so network exposure is the entire attack surface.</span>
+            <span class="ops-tag patch-yes">Fix available &mdash; Modicon M580 application level 4.00+, M580 Safety 4.20+, per SEVD-2026-251-04</span>
+            <span class="ops-cc"><b>Action:</b> Inventory M580, M580 Safety and MC80 controllers and their firmware/application levels across all sites, and schedule the upgrade through your normal safety-system change-control process. Until upgraded, restrict engineering and management access to the controller to an isolated engineering network, and prioritize isolation for any exposed management interface.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of TDengine instances across historian/IIoT platforms &mdash; 14 days; restrict TCP/6030 to known hosts &mdash; 7 days; upgrade to 3.4.1.6 &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="tdengine-42542" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="tdengine-42542">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of M580/M580 Safety/MC80 firmware and application levels &mdash; 14 days; restrict engineering/management access to an isolated network &mdash; 21 days; firmware/application upgrade during next validated safety change window &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="modicon-m580-3869" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="modicon-m580-3869">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Ridge Security research; CVE-2026-42542 public record</span>
+          <span>Schneider Electric advisory SEVD-2026-251-04; CVE-2026-3869 public record</span>
           <span class="dot">&bull;</span>
-          <span>Published 23 Sep 2026</span>
+          <span>Published 9 Sep 2026</span>
         </div>
-        <a href="https://ridgesecurity.ai/blog/one-packet-can-take-down-the-database-behind-industrial-operations-ridge-security-discovers-cve-2026-42542/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.blastwave.com/blog/ics-patch-tuesday-september-2026-a-cvss-9-2-in-the-modicon-m580-and-the-weeks-before-you-can-patch-it" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       </div>
@@ -1210,7 +1210,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and re-verified against primary sources 27&nbsp;September&nbsp;2026, 6:11&nbsp;PM&nbsp;ET. Citrix&rsquo;s NetScaler flaws remain the top story; the material development this run is CISA&rsquo;s 27&nbsp;September addition of CVE-2026-88771 and CVE-2026-88772 to the KEV catalog (no specific remediation due date set). Every other carried-over item was independently re-checked against its primary source with no new development: the Colorado water intrusions, the tanker campaign, the Tanjung Pelepas restart, the Zyxel GS1900, Check Point and MikroTik KEV items, the Schneider Modicon M580 advisory, the Nozomi/CERT@VDE IO-Link master research, the SpyCloud water-credential research, the CISA/FBI ICS-integrator fact sheet and the NIST&nbsp;SP&nbsp;800-82 draft. Threat level holds at 5.5 (Medium). Sources: Citrix, the CISA KEV catalog, CERT Polska, Check Point, Schneider Electric, CERT@VDE, Nozomi Networks, Ridge Security, SpyCloud, GreyNoise, watchTowr, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, the Railroad Commission of Texas, the Port of Tanjung Pelepas, the FBI and CISA, and NIST; corroborated against The Hacker News, BleepingComputer, Industrial Cyber, Help Net Security, Cyber Kendra, SecurityWeek, Axios, Bloomberg, Splash247, Cybernews, WorldCargo News and The Loadstar. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources 28&nbsp;September&nbsp;2026, 12:12&nbsp;AM&nbsp;ET. Citrix&rsquo;s NetScaler zero-days remain the top story; CISA&rsquo;s 27&nbsp;September alert and KEV addition reconfirm exploitation at multiple customers worldwide per the Dutch NCSC, and Citrix&rsquo;s eight-CVE bulletin (CTX697096) is unchanged. Every other item was independently re-checked against its primary source: the Colorado water intrusions, the tanker campaign, the Tanjung Pelepas restart, the Zyxel GS1900, Check Point and MikroTik KEV items, the Siemens Reyrolle 7SR5 protection-relay advisory, the Schneider Modicon M580 authentication flaw, the Nozomi/CERT@VDE IO-Link master research, Food and Ag-ISAC&rsquo;s 2026 threat report, the CISA/FBI ICS-integrator fact sheet, and the NIST&nbsp;SP&nbsp;800-82 draft. Threat level holds at 5.5 (Medium). Sources: Citrix, the CISA KEV catalog, the Dutch NCSC, CERT Polska, Check Point, Siemens ProductCERT, Schneider Electric, CERT@VDE, Nozomi Networks, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, the Railroad Commission of Texas, the Port of Tanjung Pelepas, the FBI and CISA, Food and Ag-ISAC, and NIST; corroborated against The Hacker News, BleepingComputer, Industrial Cyber, Help Net Security, SecurityWeek, Axios, Bloomberg, Splash247, Cybernews, WorldCargo News, The Loadstar, Blastwave, Nextgov and The Spokesman-Review. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
 </div>
