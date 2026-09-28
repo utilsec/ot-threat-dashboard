@@ -647,7 +647,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sunday, 27 Sep 2026, 9:56 AM ET</span>
+        <span>Generated Monday, 28 Sep 2026, 4:14 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Manufacturing</span>
       </div>
@@ -679,14 +679,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level, weighted to discrete and process manufacturers. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.3</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:53.0%"></span></div>
-      <div class="tl-why"><b>Why:</b> Medium, 5.3, re-scored and unchanged. No victim-confirmed cyber incident halting production at a manufacturer was found for 24&ndash;27&nbsp;September, so the 5.9 no-incident ceiling applies. The new top story, Microsoft&rsquo;s 24&nbsp;September profile of Storm-2570, shows a ransomware affiliate rotating Qilin, DragonForce, Anubis and BERT with critical manufacturing and chemicals among its victim sectors &mdash; live tradecraft aimed at the sector, but IT-side and with initial access unconfirmed. Exploited boundary gear sets the base: Cisco&rsquo;s firewall manager (three clusters; this run corrects the link &mdash; Talos ties the Qilin-consistent cluster to CVE-2026-20316, not the KEV-listed CVE-2026-20079) and Check Point&rsquo;s VPN and management flaws, both in KEV with deadlines passed. watchTowr&rsquo;s report of two exploited, unpatched Citrix NetScaler zero-days widens remote-access exposure but is not yet vendor-confirmed, so it adds little. Red&nbsp;Heron&rsquo;s SCADA/HMI code theft is supplier-side, and the IO-Link and Modicon&nbsp;M580 flaws remain unexploited. What would move it: a victim-confirmed production halt tied to a cyber incident (toward roughly 6.5), or Citrix confirming the flaws with evidence of use against plant remote access.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:54.0%"></span></div>
+      <div class="tl-why"><b>Why:</b> Medium, 5.4, ticking up from 5.3. No victim-confirmed cyber incident halted production at a named manufacturer through a confirmed control-system compromise this run, so the 5.9 no-incident ceiling holds. The new top driver is Citrix&rsquo;s 27&nbsp;September confirmation that CVE-2026-88771 and CVE-2026-88772 (CVSS&nbsp;9.5 each) were exploited pre-disclosure on NetScaler ADC/Gateway appliances; CISA added both to KEV the same day with a 30&nbsp;September deadline &mdash; the third KEV-listed remote-access product in three weeks after Cisco&rsquo;s firewall manager and Check Point&rsquo;s VPN/management servers, all common paths for contractor and vendor access into plant networks. Microsoft&rsquo;s 24&nbsp;September profile of ransomware affiliate Storm-2570 (rotating Qilin, DragonForce, Anubis, BERT) names critical manufacturing among its targeted sectors but gives no confirmed initial-access method or victim. Boston Scientific&rsquo;s 22&nbsp;September update on its August breach confirms manufacturing was disrupted but that SCADA and production-control systems were not reached, so it does not read as a confirmed OT-disruptive incident. IO-Link masters and Schneider&rsquo;s Modicon&nbsp;M580 remain unexploited advisories. What would move it: a victim-confirmed production halt tied to a control-system compromise (toward roughly 6.5), or evidence any of the three exploited remote-access products was used against a manufacturer specifically.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -694,31 +694,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-storm-2570-mfg" data-published="2026-09-24">
+    <div class="top-story" id="story-citrix-netscaler-mfg" data-published="2026-09-27">
         <span class="top-story-pill">Top Story</span>
-        <h2>Microsoft: a ransomware affiliate rotating Qilin, DragonForce, Anubis and BERT has hit critical manufacturing and chemicals</h2>
-        <p>Microsoft Threat Intelligence published a profile on 24&nbsp;September of Storm-2570, a ransomware affiliate it has tracked since April&nbsp;2025 that deploys Qilin, DragonForce, Anubis or BERT while its hands-on tradecraft stays the same. Affected organizations are in the US, Canada, the UK, Spain, the Netherlands and Puerto Rico, across 14 sectors that include critical manufacturing, chemicals, energy, and food and agriculture; Microsoft names no victims and gives no count. How the group gets in &ldquo;remains unconfirmed.&rdquo; Once inside, it uses remote-management tools (Atera, ScreenConnect, Splashtop, NinjaRMM, MeshAgent), PsExec, Impacket and NetExec to move laterally, Mimikatz, LaZagne and ntdsutil to harvest credentials, and Rclone or s5cmd to take data out. Qilin and DragonForce are the first- and fourth-most-active ransomware groups against manufacturers this year in Black&nbsp;Kite&rsquo;s count, and because the payload changes while the tools do not, detections built on this tradecraft are more durable than ones keyed to a ransomware name.</p>
+        <h2>Citrix confirms two actively exploited NetScaler zero-days, CVSS 9.5, now added to CISA&rsquo;s KEV catalog</h2>
+        <p>Citrix confirmed on 27&nbsp;September that two NetScaler ADC and Gateway vulnerabilities, CVE-2026-88771 and CVE-2026-88772 (CVSS&nbsp;9.5 each), are being actively exploited on unmitigated appliances. CVE-2026-88771 is an unauthenticated, improper input-validation flaw that lets an attacker run arbitrary commands in any default configuration; CVE-2026-88772 is a memory-overflow flaw reachable through DTLS, which is enabled by default on VPN virtual servers. Citrix shipped fixes the same day in versions 14.1-73.37 and 13.1-64.23, alongside six more flaws (CVE-2026-88773 through -88778, CVSS&nbsp;7.0&ndash;9.3) disclosed but not reported exploited. CISA added both exploited CVEs to its Known Exploited Vulnerabilities catalog on 27&nbsp;September with a federal deadline of 30&nbsp;September. NetScaler Gateway is a common front door for contractor, vendor and remote-engineer access into manufacturing DMZs, and Citrix warns that exploitation predating disclosure means patching alone cannot rule out prior compromise.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Microsoft Threat Intelligence documents Storm-2570 ransomware deployments since April 2025; no victims named</span>
-            <span class="ops-tag kev-off">No CVE or KEV entry &mdash; initial access unconfirmed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Citrix and CISA confirm active exploitation of CVE-2026-88771 and CVE-2026-88772 on unmitigated NetScaler deployments; no manufacturing victim named</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; both CVEs added 27 Sep 2026, federal deadline 30 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; detection and hardening</span>
-            <span class="ops-cc"><b>Action:</b> Alert on any remote-management agent that isn&rsquo;t on your approved list (Atera, ScreenConnect, Splashtop, NinjaRMM and MeshAgent are the ones named) appearing on engineering workstations, historian servers or OT jump hosts; enforce MFA on the RMM tools you do approve; and turn on tamper protection and attack-surface-reduction rules for PsExec and WMI process creation wherever plant-floor applications have been validated against them.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; 14.1-73.37 and 13.1-64.23 (FIPS: 14.1-73.37 FIPS, 13.1-37.279+), released 27 Sep 2026</span>
+            <span class="ops-cc"><b>Action:</b> Patch every internet-facing NetScaler ADC/Gateway now &mdash; treat the 30&nbsp;September KEV deadline as your own &mdash; and, because exploitation predates disclosure, review authentication and session logs on any appliance that fronts vendor, integrator or remote-engineer access into plant networks for signs of prior compromise.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Unapproved-RMM alerting &mdash; 7 days; tamper protection and ASR rules on OT-adjacent Windows hosts &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-storm-2570" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-storm-2570">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; by 30 Sep 2026 (KEV deadline); compromise-assessment review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-citrix-netscaler" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-citrix-netscaler">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Microsoft Threat Intelligence blog, 24 Sep 2026 (primary)</span>
+          <span>Citrix security bulletin CTX697096, 27 Sep 2026 (primary); CISA KEV catalog, 27 Sep 2026</span>
           <span class="dot">&bull;</span>
-          <span>Tracked since Apr 2025; published 24 Sep 2026</span>
+          <span>Exploited pre-disclosure; confirmed and patched 27 Sep 2026</span>
         </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://support.citrix.com/external/article/CTX697096/citrix-netscaler-adc-and-citrix-netscale.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -747,27 +747,27 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-storm-2570-mfg"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="124.7">1</text></a>
-        <a href="#story-cisco-fmc-mfg"><circle class="blip crit" cx="240.0" cy="180.0" r="14.3"/><text class="blip-num" style="font-size:12.9px" x="240.0" y="184.5">2</text></a>
-        <a href="#story-checkpoint-mfg"><circle class="blip crit" cx="180.0" cy="240.0" r="13.6"/><text class="blip-num" style="font-size:12.2px" x="180.0" y="244.3">3</text></a>
-        <a href="#story-citrix-netscaler-mfg"><circle class="blip crit" cx="120.0" cy="180.0" r="12.9"/><text class="blip-num" style="font-size:11.6px" x="120.0" y="184.1">4</text></a>
-        <a href="#story-iolink-masters-mfg"><circle class="blip crit" cx="222.4" cy="137.6" r="12.2"/><text class="blip-num" style="font-size:11.0px" x="222.4" y="141.4">5</text></a>
-        <a href="#story-modicon-m580-mfg"><circle class="blip crit" cx="137.6" cy="222.4" r="11.5"/><text class="blip-num" style="font-size:10.3px" x="137.6" y="226.0">6</text></a>
-        <a href="#story-red-heron-gitea-mfg"><circle class="blip high" cx="180.0" cy="70.0" r="10.8"/><text class="blip-num" style="font-size:9.7px" x="180.0" y="73.4">7</text></a>
-        <a href="#story-blackkite-ransomware"><circle class="blip high" cx="284.6" cy="146.0" r="10.1"/><text class="blip-num" style="font-size:9.1px" x="284.6" y="149.2">8</text></a>
-        <a href="#story-forescout-convergence-mfg"><circle class="blip high" cx="244.7" cy="269.0" r="9.4"/><text class="blip-num" style="font-size:8.5px" x="244.7" y="272.0">9</text></a>
+        <a href="#story-citrix-netscaler-mfg"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="124.7">1</text></a>
+        <a href="#story-cisco-fmc-mfg"><circle class="blip crit" cx="237.1" cy="161.5" r="14.3"/><text class="blip-num" style="font-size:12.9px" x="237.1" y="166.0">2</text></a>
+        <a href="#story-checkpoint-mfg"><circle class="blip crit" cx="215.3" cy="228.5" r="13.6"/><text class="blip-num" style="font-size:12.2px" x="215.3" y="232.8">3</text></a>
+        <a href="#story-iolink-masters-mfg"><circle class="blip crit" cx="144.7" cy="228.5" r="12.9"/><text class="blip-num" style="font-size:11.6px" x="144.7" y="232.6">4</text></a>
+        <a href="#story-modicon-m580-mfg"><circle class="blip crit" cx="122.9" cy="161.5" r="12.2"/><text class="blip-num" style="font-size:11.0px" x="122.9" y="165.3">5</text></a>
+        <a href="#story-storm-2570-mfg"><circle class="blip high" cx="180.0" cy="70.0" r="11.5"/><text class="blip-num" style="font-size:10.3px" x="180.0" y="73.6">6</text></a>
+        <a href="#story-boston-scientific-mfg"><circle class="blip high" cx="290.0" cy="180.0" r="10.8"/><text class="blip-num" style="font-size:9.7px" x="290.0" y="183.4">7</text></a>
+        <a href="#story-red-heron-gitea-mfg"><circle class="blip high" cx="180.0" cy="290.0" r="10.1"/><text class="blip-num" style="font-size:9.1px" x="180.0" y="293.2">8</text></a>
+        <a href="#story-blackkite-ransomware"><circle class="blip high" cx="70.0" cy="180.0" r="9.4"/><text class="blip-num" style="font-size:8.5px" x="70.0" y="183.0">9</text></a>
             </svg>
 
       <div class="radar-legend">
-        <a href="#story-storm-2570-mfg"><span class="ld crit"></span><b>1</b> Microsoft: affiliate Storm-2570 hits critical manufacturing, rotating Qilin and DragonForce</a>
+        <a href="#story-citrix-netscaler-mfg"><span class="ld crit"></span><b>1</b> Citrix confirms two exploited NetScaler zero-days, now KEV-listed</a>
         <a href="#story-cisco-fmc-mfg"><span class="ld crit"></span><b>2</b> Cisco Secure FMC exploited by three clusters; one Qilin-consistent</a>
         <a href="#story-checkpoint-mfg"><span class="ld crit"></span><b>3</b> Check Point VPN and management-server flaws exploited, KEV deadline passed</a>
-        <a href="#story-citrix-netscaler-mfg"><span class="ld crit"></span><b>4</b> Two unpatched NetScaler zero-days reported exploited; Citrix yet to confirm</a>
-        <a href="#story-iolink-masters-mfg"><span class="ld crit"></span><b>5</b> IO-Link masters: 20 shared flaws, CVSS 9.8; Nozomi chains them to root</a>
-        <a href="#story-modicon-m580-mfg"><span class="ld crit"></span><b>6</b> Schneider Modicon M580 authentication flaw, CVSS v4.0 9.2</a>
-        <a href="#story-red-heron-gitea-mfg"><span class="ld high"></span><b>7</b> Red Heron steals SCADA/HMI source code from an automation vendor</a>
-        <a href="#story-blackkite-ransomware"><span class="ld high"></span><b>8</b> Manufacturing ransomware victims topped 1,183 through July</a>
-        <a href="#story-forescout-convergence-mfg"><span class="ld high"></span><b>9</b> Forescout: manufacturing segments average 29 devices</a>
+        <a href="#story-iolink-masters-mfg"><span class="ld crit"></span><b>4</b> IO-Link masters: 20 shared flaws, CVSS 9.8; Nozomi chains them to root</a>
+        <a href="#story-modicon-m580-mfg"><span class="ld crit"></span><b>5</b> Schneider Modicon M580 authentication flaw, CVSS v4.0 9.2</a>
+        <a href="#story-storm-2570-mfg"><span class="ld high"></span><b>6</b> Microsoft: affiliate Storm-2570 hits critical manufacturing, rotating Qilin and DragonForce</a>
+        <a href="#story-boston-scientific-mfg"><span class="ld high"></span><b>7</b> Boston Scientific: breach halted manufacturing; SCADA not reached</a>
+        <a href="#story-red-heron-gitea-mfg"><span class="ld high"></span><b>8</b> Red Heron steals SCADA/HMI source code from an automation vendor</a>
+        <a href="#story-blackkite-ransomware"><span class="ld high"></span><b>9</b> Manufacturing ransomware victims topped 1,183 through July</a>
               </div>
     </div>
 
@@ -780,14 +780,14 @@
     <div class="trends-strip">
 <div class="trend">
         <span class="trend-tag">Remote Access</span>
-        <b class="trend-head">Boundary and remote-access gear is this month&rsquo;s most-exploited attack surface</b>
-        <p>Cisco&rsquo;s firewall manager (KEV, 9&nbsp;September), Check Point&rsquo;s VPN gateways and management servers (KEV, 22&nbsp;September, deadline passed 25&nbsp;September) and now two NetScaler zero-days that watchTowr reported on 26&nbsp;September, still without a Citrix advisory or fix, all sit on the path contractors and integrators use to reach plant networks. No manufacturing victim has been named for any of them.</p>
-        <a href="https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+        <b class="trend-head">Boundary and remote-access gear remains this month&rsquo;s most-exploited attack surface &mdash; now including a patched Citrix zero-day</b>
+        <p>Cisco&rsquo;s firewall manager (KEV, 9&nbsp;September), Check Point&rsquo;s VPN gateways and management servers (KEV, 22&nbsp;September, deadline passed 25&nbsp;September) and now two Citrix NetScaler zero-days that Citrix confirmed and patched on 27&nbsp;September (KEV, deadline 30&nbsp;September) all sit on the path contractors and integrators use to reach plant networks. No manufacturing victim has been named for any of them, but that is now four separate KEV-listed remote-access products in three weeks.</p>
+        <a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Ransomware Affiliates</span>
         <b class="trend-head">Ransomware brands churn while the people and tools behind them stay the same</b>
-        <p>Microsoft&rsquo;s Storm-2570 profile (24&nbsp;September) shows one affiliate moving between Qilin, DragonForce, Anubis and BERT with unchanged tradecraft, and Black&nbsp;Kite&rsquo;s manufacturing report (18&nbsp;September) found nearly half of this year&rsquo;s manufacturing incidents came from groups absent in 2023 and 2024. Detections keyed to tools such as unapproved RMM agents, PsExec and Rclone age better than ones keyed to a ransomware name.</p>
+        <p>Microsoft&rsquo;s Storm-2570 profile (24&nbsp;September) shows one affiliate moving between Qilin, DragonForce, Anubis and BERT with unchanged tradecraft, and Black&nbsp;Kite&rsquo;s manufacturing report (18&nbsp;September) found nearly half of this year&rsquo;s manufacturing incidents came from groups absent in 2023 and 2024. Boston Scientific&rsquo;s 22&nbsp;September update, on a breach first disclosed in August, is a reminder that a single compromised internet-facing device can still force a manufacturer to halt production even without ransomware or OT access.</p>
         <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Microsoft</a>
       </div>
       <div class="trend">
@@ -799,7 +799,7 @@
       <div class="trend">
         <span class="trend-tag">Field Layer</span>
         <b class="trend-head">Field-device and plant-telemetry flaws get deeper scrutiny, none exploited</b>
-        <p>Nozomi&rsquo;s 24&nbsp;September write-up showed the IO-Link master flaws chaining to root, and Ridge Security disclosed CVE-2026-42542 (23&nbsp;September), a pre-authentication crash in the TDengine time-series database used for industrial telemetry (3.4.0.0&ndash;3.4.1.5, fixed in 3.4.1.6; block TCP&nbsp;6030 if you can&rsquo;t upgrade). Neither is reported exploited, and CISA published no new ICS advisories of plant-floor value from 25 to 27&nbsp;September.</p>
+        <p>Nozomi&rsquo;s 24&nbsp;September write-up showed the IO-Link master flaws chaining to root, and Ridge Security disclosed CVE-2026-42542 (23&nbsp;September), a pre-authentication crash in the TDengine time-series database used for industrial telemetry (3.4.0.0&ndash;3.4.1.5, fixed in 3.4.1.6; block TCP&nbsp;6030 if you can&rsquo;t upgrade). Neither is reported exploited, and CISA published no new ICS advisories of plant-floor value from 25 to 28&nbsp;September.</p>
         <a href="https://industrialcyber.co/industrial-cyber-attacks/ridge-security-warns-of-high-severity-tdengine-vulnerability-that-can-disrupt-industrial-telemetry-and-monitoring/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
 
@@ -810,13 +810,71 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-storm-2570-mfg" data-published="2026-09-24">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Ransomware &mdash; Multi-brand affiliate tradecraft, initial access unconfirmed</span>
+        </div>
+        <h3>Microsoft: a ransomware affiliate rotating Qilin, DragonForce, Anubis and BERT has hit critical manufacturing and chemicals</h3>
+        <p>Microsoft Threat Intelligence published a profile on 24&nbsp;September of Storm-2570, a ransomware affiliate it has tracked since April&nbsp;2025 that deploys Qilin, DragonForce, Anubis or BERT while its hands-on tradecraft stays the same. Affected organizations are in the US, Canada, the UK, Spain, the Netherlands and Puerto Rico, across 14 sectors that include critical manufacturing, chemicals, energy, and food and agriculture; Microsoft names no victims and gives no count. How the group gets in &ldquo;remains unconfirmed.&rdquo; Once inside, it uses remote-management tools (Atera, ScreenConnect, Splashtop, NinjaRMM, MeshAgent), PsExec, Impacket and NetExec to move laterally, Mimikatz, LaZagne and ntdsutil to harvest credentials, and Rclone or s5cmd to take data out. Qilin and DragonForce are the first- and fourth-most-active ransomware groups against manufacturers this year in Black&nbsp;Kite&rsquo;s count.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Microsoft Threat Intelligence documents Storm-2570 ransomware deployments since April 2025; no victims named</span>
+            <span class="ops-tag kev-off">No CVE or KEV entry &mdash; initial access unconfirmed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; detection and hardening</span>
+            <span class="ops-cc"><b>Action:</b> Alert on any remote-management agent that isn&rsquo;t on your approved list (Atera, ScreenConnect, Splashtop, NinjaRMM and MeshAgent are the ones named) appearing on engineering workstations, historian servers or OT jump hosts; enforce MFA on the RMM tools you do approve; and turn on tamper protection and attack-surface-reduction rules for PsExec and WMI process creation wherever plant-floor applications have been validated against them.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Unapproved-RMM alerting &mdash; 7 days; tamper protection and ASR rules on OT-adjacent Windows hosts &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-storm-2570" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-storm-2570">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft Threat Intelligence blog, 24 Sep 2026 (primary)</span>
+          <span class="dot">&bull;</span>
+          <span>Tracked since Apr 2025; published 24 Sep 2026</span>
+        </div>
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="story-boston-scientific-mfg" data-published="2026-09-22">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident &mdash; Confirmed breach disrupted manufacturing; no SCADA/OT compromise found</span>
+        </div>
+        <h3>Boston Scientific confirms an attacker reached an external-facing network device and halted manufacturing for weeks; SCADA systems were not touched</h3>
+        <p>Boston Scientific disclosed on 26&nbsp;August that a threat actor had gained access to an external-facing network device and a limited part of its on-premises IT environment, forcing it to halt product manufacturing and queue orders for days while it restored core business systems. In a 22&nbsp;September update, the medical-device maker said CrowdStrike&rsquo;s investigation found no evidence the actor reached manufacturing-maintenance systems, product or software development, medical-device maintenance, or SCADA environments, and no data was staged or exfiltrated from those systems. The company has not said whether the incident will materially affect 2026 results. The case is a reminder that an IT-side compromise of a single internet-facing device can stop a production line even when engineering and control systems are never touched.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Boston Scientific and CrowdStrike confirm unauthorized access via an external-facing network device; no attribution given</span>
+            <span class="ops-tag kev-off">No CVE or KEV entry &mdash; access vector not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; incident response and recovery</span>
+            <span class="ops-cc"><b>Action:</b> Treat every internet-facing network device (VPN concentrators, load balancers, remote-access gateways) as a path to a production halt, not just a data-breach risk; confirm your own incident-response plan can keep manufacturing running when core IT business systems go offline, and ask suppliers to state explicitly whether SCADA/production-control systems were in scope of any breach, not just IT.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> IT/OT incident-response tabletop review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-boston-scientific" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mf-boston-scientific">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Boston Scientific customer update, 22 Sep 2026 (primary); initial disclosure 26 Aug 2026; reported by MedTech Dive</span>
+          <span class="dot">&bull;</span>
+          <span>Incident began 25 Aug 2026; recovery update 22 Sep 2026</span>
+        </div>
+        <a href="https://news.bostonscientific.com/update-on-recent-cybersecurity-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-cisco-fmc-mfg" data-published="2026-09-21">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Exploitation campaign &mdash; Cisco Secure FMC, CISA KEV</span>
         </div>
         <h3>Three clusters are exploiting Cisco&rsquo;s firewall manager; one uses tactics Talos says match Qilin ransomware affiliates</h3>
-        <p>Cisco Talos, in an analysis published 9&nbsp;September and last updated 21&nbsp;September, describes three clusters exploiting two flaws in Cisco Secure Firewall Management Center: CVE-2026-20079 (CVSS&nbsp;10.0), which lets an unauthenticated attacker run scripts as root and is in CISA&rsquo;s KEV catalog, and CVE-2026-20316 (CVSS&nbsp;5.3), which lets a remote attacker log in with a low-privileged account. UAT-12197, which Talos describes as crimeware, used CVE-2026-20079. UAT-11823 used both flaws and deployed Cyclops Blink; Talos says its tooling overlaps with the Sandworm APT actor. UAT-11988, a ransomware operator whose tactics Talos calls consistent with Qilin affiliates, used CVE-2026-20316. Talos names no victims or sectors, and no new development has been reported as of 27&nbsp;September. FMC often manages the firewalls between corporate IT and plant-floor networks.</p>
+        <p>Cisco Talos, in an analysis published 9&nbsp;September and last updated 21&nbsp;September, describes three clusters exploiting two flaws in Cisco Secure Firewall Management Center: CVE-2026-20079 (CVSS&nbsp;10.0), which lets an unauthenticated attacker run scripts as root and is in CISA&rsquo;s KEV catalog, and CVE-2026-20316 (CVSS&nbsp;5.3), which lets a remote attacker log in with a low-privileged account. UAT-12197, which Talos describes as crimeware, used CVE-2026-20079. UAT-11823 used both flaws and deployed Cyclops Blink; Talos says its tooling overlaps with the Sandworm APT actor. UAT-11988, a ransomware operator whose tactics Talos calls consistent with Qilin affiliates, used CVE-2026-20316. Talos names no victims or sectors, and no new development has been reported as of 28&nbsp;September. FMC often manages the firewalls between corporate IT and plant-floor networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Cisco, Talos and CISA confirmed in-the-wild exploitation on 9 Sep 2026; the Sandworm tooling overlap and Qilin-consistent tactics are Talos assessments, not government attribution</span>
@@ -835,7 +893,7 @@
         <div class="card-meta">
           <span>Cisco Talos analysis, 9 Sep 2026, updated 21 Sep 2026 (primary); CISA KEV entry 9 Sep 2026</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation confirmed 9 Sep 2026; no new development reported as of 27 Sep 2026</span>
+          <span>Exploitation confirmed 9 Sep 2026; no new development reported as of 28 Sep 2026</span>
         </div>
         <a href="https://blog.talosintelligence.com/fmc-ongoing-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -881,7 +939,7 @@
           <span class="category">Threat Intelligence &mdash; Supplier source-code theft via a self-hosted code server</span>
         </div>
         <h3>Red&nbsp;Heron stole SCADA/HMI source code from a Taiwanese automation vendor&rsquo;s own code server</h3>
-        <p>Acronis&rsquo;s Threat Research Unit reported on 13&nbsp;September that an actor it tracks as Red&nbsp;Heron exploited CVE-2026-60004, a critical remote-code-execution flaw in self-hosted Gitea, against 11 confirmed targets in five countries (Canada, the US, Taiwan, Argentina and Sri&nbsp;Lanka), deploying a new Linux rootkit Acronis calls SIXZUT. A Taiwanese industrial-automation firm lost code for a SCADA/HMI tool, a surveillance and monitoring product, IoT integrations and a network sniffer &mdash; the kind of intellectual property that ends up in products sold to plants worldwide. Acronis attributes the activity, at moderate confidence, to a Chinese-speaking actor operating in a PRC-linked context. Gitea&rsquo;s fix has been available since 27&nbsp;July; no new development has been reported as of 27&nbsp;September.</p>
+        <p>Acronis&rsquo;s Threat Research Unit reported on 13&nbsp;September that an actor it tracks as Red&nbsp;Heron exploited CVE-2026-60004, a critical remote-code-execution flaw in self-hosted Gitea, against 11 confirmed targets in five countries (Canada, the US, Taiwan, Argentina and Sri&nbsp;Lanka), deploying a new Linux rootkit Acronis calls SIXZUT. A Taiwanese industrial-automation firm lost code for a SCADA/HMI tool, a surveillance and monitoring product, IoT integrations and a network sniffer &mdash; the kind of intellectual property that ends up in products sold to plants worldwide. Acronis attributes the activity, at moderate confidence, to a Chinese-speaking actor operating in a PRC-linked context. Gitea&rsquo;s fix has been available since 27&nbsp;July; no new development has been reported as of 28&nbsp;September.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Acronis documents 11 compromised targets in five countries via CVE-2026-60004; the attribution is Acronis&rsquo;s moderate-confidence assessment</span>
@@ -933,35 +991,6 @@
         </div>
         <a href="https://industrialcyber.co/manufacturing/black-kite-manufacturing-ransomware-surged-in-2026-spreading-beyond-the-us-with-1183-victims-through-july/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-forescout-convergence-mfg" data-published="2026-09-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; IT/OT/IoT/IoMT network convergence</span>
-        </div>
-        <h3>Forescout: only 13% of segments with OT devices are OT-only, and manufacturing segments average a 29-device blast radius</h3>
-        <p>Forescout&rsquo;s Vedere&nbsp;Labs published a 22&nbsp;September analysis of 47,700 network segments holding more than 2.5&nbsp;million devices across 209 organizations. Only 13% of segments containing OT devices were OT-only; the rest also held other device types, and almost half mixed OT with both IT and IoT assets. Manufacturing segments averaged 29 devices each &mdash; the &ldquo;blast radius&rdquo; one compromised device can reach without crossing a boundary. IP cameras, common on plant floors for quality and safety monitoring, sat alone in only 2% of the 2,266 segments where they appeared; 60% of those segments also held workstations and 37% held servers. That flat architecture is what can turn an IT-side ransomware foothold, or a compromised management console like this edition&rsquo;s Cisco and Check Point items, into a production-line stoppage.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Research finding &mdash; not tied to a specific exploited vulnerability or incident</span>
-            <span class="ops-tag kev-off">Not KEV-related</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable</span>
-            <span class="ops-cc"><b>Action:</b> Verify your own segmentation claims against actual traffic, not architecture diagrams, and pay particular attention to plant-floor IP cameras and other IoT devices that share a segment with workstations or servers.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Segmentation audit against live traffic &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-forescout-convergence" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-forescout-convergence">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Forescout Vedere Labs, 22 Sep 2026 (primary), reported by Industrial Cyber 24 Sep 2026</span>
-          <span class="dot">&bull;</span>
-          <span>Published 22 Sep 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/control-device-security/forescout-finds-network-convergence-across-it-ot-iot-and-iomt-could-increase-lateral-movement-and-cyberattack-impact/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -969,35 +998,6 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="story-citrix-netscaler-mfg" data-published="2026-09-26">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; Unpatched remote-access zero-days, not yet vendor-confirmed</span>
-        </div>
-        <h3>watchTowr says two unpatched Citrix NetScaler RCE flaws are being exploited; Citrix has yet to confirm or fix them</h3>
-        <p>Research firm watchTowr said on 26&nbsp;September that two distinct remote-code-execution flaws in Citrix NetScaler ADC and Gateway are being exploited in the wild, found during forensic investigations. As of the morning of 27&nbsp;September, Citrix had published no advisory, CVE, affected-build list, indicators of compromise or fix; fixes are reported to be expected the week of 28&nbsp;September. watchTowr says these are not CVE-2026-19490, the August NetScaler flaw already in KEV, and it is not yet known whether builds patched for that flaw are protected. NetScaler 13.1 reached End of Maintenance on 15&nbsp;September. Some IT suppliers have advised shutting appliances down, citing a private briefing from the Dutch NCSC; watchTowr did not recommend shutdown, and NCSC-NL has published no public advisory. Our editorial assessment: NetScaler Gateway is a common remote-access front door into plant DMZs and vendor-support paths, so manufacturers should treat this as their problem even though the flaws are IT-side.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Reported exploited &mdash; attested by watchTowr on 26 Sep 2026; not yet confirmed by Citrix</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned as of 27 Sep 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-no">No patch &mdash; Citrix fixes reported as expected the week of 28 Sep 2026</span>
-            <span class="ops-cc"><b>Action:</b> Keep NetScaler management interfaces off the internet, identify which appliances front vendor or remote access into plant networks, follow Citrix&rsquo;s existing compromise-assessment guidance (CTX694799) if anything looks wrong, and be ready to patch the day fixes ship; plan a move off 13.1.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &mdash; 24 hours; patch &mdash; within 72 hours of release</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mf-citrix-netscaler" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="mf-citrix-netscaler">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>watchTowr statements, 26 Sep 2026 (primary), reported by The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Citrix advisory and fix pending</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 <div class="card" id="story-iolink-masters-mfg" data-published="2026-09-24">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1099,7 +1099,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Manufacturing.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> This edition, refreshed on 27&nbsp;September, re-verified every carried item against its primary source and corrected several: Cisco Talos ties the Qilin-consistent cluster to CVE-2026-20316 rather than the KEV-listed CVE-2026-20079; Schneider&rsquo;s M580 notice is dated 8&nbsp;September and its 9.2 score is CVSS&nbsp;v4.0; Forescout&rsquo;s IP-camera figures and the Check Point CVE details now match their sources. New this run: Microsoft&rsquo;s Storm-2570 profile (now the top story), watchTowr&rsquo;s report of two unpatched Citrix NetScaler zero-days (hedged; no Citrix advisory yet), Nozomi&rsquo;s IO-Link write-up and NIST&rsquo;s SP&nbsp;800-82 Rev.&nbsp;4 draft. Retired: the 1&nbsp;September Rockwell RSLinx advisory and the 11&nbsp;September EU Cyber Resilience Act card, neither with new developments. No confirmed production-halting cyber incident at a manufacturer was found for 24&ndash;27&nbsp;September, so the threat level held in the Medium band at 5.3. Every card carries the real publication date of its primary source. Sources this run: Microsoft Threat Intelligence, Cisco Talos, CISA, Check Point, watchTowr (via The Hacker News), Acronis, Black Kite, Forescout, CERT@VDE, Nozomi Networks, Schneider Electric, FBI, NIST, Ridge Security and Industrial Cyber.</p>
+    <p><strong>Methodology.</strong> This edition, refreshed on 28&nbsp;September, promoted Citrix&rsquo;s newly confirmed and patched NetScaler zero-days (CVE-2026-88771, CVE-2026-88772; KEV-listed 27&nbsp;September, federal deadline 30&nbsp;September) to the top story now that exploitation, a patch and a KEV deadline are all confirmed &mdash; it ran the day before as a hedged, unconfirmed critical advisory. Microsoft&rsquo;s Storm-2570 profile moves from top story into Incidents &amp; Attacks, re-verified with no material change. New this run: Boston Scientific&rsquo;s 22&nbsp;September update confirming a cyberattack disrupted its manufacturing and shipping for weeks but that SCADA and production-control systems were not reached. Cisco FMC, Check Point, Acronis&rsquo;s Red&nbsp;Heron findings, Black&nbsp;Kite&rsquo;s ransomware report, the IO-Link master flaws and Schneider&rsquo;s Modicon&nbsp;M580 advisory were all re-verified against their primary sources with no material change; Forescout&rsquo;s convergence research was retired to make room for the Boston Scientific update. No confirmed production-halting cyber incident tied to a control-system compromise was found at a manufacturer this run, so the threat level held in the Medium band, ticking up to 5.4 on the new KEV-listed remote-access exposure. Every card carries the real publication date of its primary source. Sources this run: Citrix, CISA, Cisco Talos, Check Point, Microsoft Threat Intelligence, Boston Scientific, Acronis, Black Kite, CERT@VDE, Nozomi Networks, Schneider Electric, FBI, NIST, BleepingComputer, The Hacker News and Industrial Cyber.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>

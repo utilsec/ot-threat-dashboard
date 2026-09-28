@@ -6,21 +6,21 @@
 <atom:link href="https://utilsec.github.io/ot-threat-dashboard/rss-power.xml" rel="self" type="application/rss+xml"/>
 <description>Curated OT/ICS advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Sun, 27 Sep 2026 09:56:00 -0400</lastBuildDate>
+<lastBuildDate>Mon, 28 Sep 2026 04:15:00 -0400</lastBuildDate>
 <generator>otthreatfeed update-dashboard.ps1</generator>
 <item>
 <title>[Critical] CISA and FBI: a compromised ICS integrator held utilities’ SCADA data — limit what yours can reach</title>
 <link>https://www.cisa.gov/resources-tools/resources/considerations-critical-infrastructure-operators-working-third-party-ics-integrators</link>
 <guid isPermaLink="false">otthreatfeed:power:cisa-fbi-ics-integrators-power</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Top Story</category>
-<description><![CDATA[CISA and the FBI released a joint fact sheet on 24 September, “Considerations for Critical Infrastructure Operators Working With Third-Party ICS Integrators” (dated 23 September). Its motivating case: in March–April 2025, foreign actors inside a US industrial automation company that does system integration and SCADA programming for customers including power utilities and transportation entities searched for “customers” and “SCADA” and staged nine archives of about 800 files — customer SCADA information, ICS device details and schematics — for exfiltration. The agencies do not name the company, the actor or its country, and do not say any utility was breached. Their advice: write security and supply-chain requirements into integrator contracts, apply least privilege, route remote access through monitored, logged and preferably on-demand paths, know what data integrators hold and where, and be able to operate if an integrator is compromised. It lands the same week Forescout found only 13% of OT-containing network segments are OT-only, and less than two weeks after Acronis showed Red Heron taking credentials and planting SSH keys in a renewable operator’s code server. - CISA/FBI joint fact sheet, dated 23 Sep and released 24 Sep 2026 (primary), corroborated by SecurityWeek and Industrial Cyber - Published 24 Sep 2026; cites a March–April 2025 intrusion at the integrator]]></description>
+<description><![CDATA[CISA and the FBI released a joint fact sheet on 24 September, “Considerations for Critical Infrastructure Operators Working With Third-Party ICS Integrators” (dated 23 September). Its motivating case: in March–April 2025, foreign actors inside a US industrial automation company that does system integration and SCADA programming for customers including power utilities and transportation entities searched for “customers” and “SCADA” and staged nine archives of about 800 files — customer SCADA information, ICS device details and schematics — for exfiltration. The agencies do not name the company, the actor or its country, and do not say any utility was breached. Their advice: write security and supply-chain requirements into integrator contracts, apply least privilege, route remote access through monitored, logged and preferably on-demand paths, know what data integrators hold and where, and be able to operate if an integrator is compromised. - CISA/FBI joint fact sheet, dated 23 Sep and released 24 Sep 2026 (primary), corroborated by SecurityWeek and Industrial Cyber - Published 24 Sep 2026; cites a March–April 2025 intrusion at the integrator]]></description>
 </item>
 <item>
 <title>[Critical] Three clusters are exploiting Cisco firewall-manager flaws CVE-2026-20079 and CVE-2026-20316; one shares tooling with Sandworm</title>
 <link>https://blog.talosintelligence.com/fmc-ongoing-exploitation/</link>
 <guid isPermaLink="false">otthreatfeed:power:cisco-fmc-kev</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Incident — Exploited firewall management platform, CISA KEV</category>
 <description><![CDATA[Cisco and CISA confirmed on 9 September that CVE-2026-20079, a CVSS 10.0 flaw that lets an unauthenticated attacker gain root on Cisco Secure Firewall Management Center, is being exploited; CISA added it to KEV that day with a 12 September deadline, now passed. Cisco Talos describes three clusters. UAT-12197 (unattributed) exploited CVE-2026-20079. UAT-11823 exploited both CVE-2026-20079 and CVE-2026-20316 (CVSS 5.3, static credentials), deployed Cyclops Blink, a malware family previously attributed to Sandworm, and “overlaps in tooling with the Sandworm APT actor” — an overlap, not an attribution. UAT-11988, a ransomware operator, logged in using the CVE-2026-20316 static credentials, and its later actions were “consistent with those of Qilin ransomware affiliates.” Cisco shipped a hardening release on 16 September. Talos last updated its post on 21 September and names no victims or sectors; no new development was reported as of 27 September. FMC configures the firewalls that separate corporate networks from generation, substation and DER control. - Cisco Talos analysis, published 9 Sep and updated 21 Sep 2026 (primary); CISA KEV entry 9 Sep 2026 - Exploitation confirmed 9 Sep 2026; hardening release 16 Sep 2026; Talos update 21 Sep 2026]]></description>
 </item>
@@ -28,15 +28,23 @@
 <title>[Critical] Check Point management-server and VPN-gateway flaws were exploited before KEV listing; the federal deadline passed on 25 September</title>
 <link>https://support.checkpoint.com/results/sk/sk1000117</link>
 <guid isPermaLink="false">otthreatfeed:power:checkpoint-exploited</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Incident — Exploited management-server and VPN-gateway flaws, CISA KEV</category>
 <description><![CDATA[CISA added two Check Point flaws to KEV on 22 September. CVE-2026-93616 is a pre-authentication path traversal in Security Management Server, Multi-Domain Security Management, Log Server and SmartEvent that lets an attacker upload and run scripts; it was exploited as a zero-day on 23 July, and Check Point says a handful of customers were attacked. CVE-2026-85102 is an improper certificate-validation flaw that gives unauthenticated remote code execution on Security Gateway and Spark firewalls running site-to-site or remote-access VPN, with an exploitation wave from 12 September. For a utility these appliances often terminate the VPNs that contractors and integrators use to reach plant and substation networks. The same 22 September KEV batch added F5 BIG-IP APM CVE-2026-94127 (OAuth-profile configurations only) and Arista VeloCloud Orchestrator CVE-2026-93952; all four deadlines fell on 25 September. No power-sector victim has been named. - CISA KEV catalog, 22 Sep 2026 (primary); Check Point advisory sk1000117 - Exploited on 23 Jul 2026 (CVE-2026-93616) and 12 Sep 2026 (CVE-2026-85102); KEV listing 22 Sep, deadline 25 Sep 2026]]></description>
+</item>
+<item>
+<title>[High] CenterPoint Energy confirms a breach of about 7.5 million customer records; the actor threatens to target “infrastructure” next</title>
+<link>https://www.securityweek.com/texas-utility-centerpoint-energy-confirms-breach-after-hacker-leaks-data/</link>
+<guid isPermaLink="false">otthreatfeed:power:centerpoint-breach</guid>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
+<category>Incident — Confirmed customer-data breach at a US electric &amp; gas utility</category>
+<description><![CDATA[CenterPoint Energy, which serves roughly 7 million electric and gas customers across Texas, Indiana, Minnesota and Ohio, told the SEC on 15 September that an unauthorized third party had obtained customer personal information through one of its externally facing systems. A threat actor had posted a 2.5 GB archive it claimed held about 7.5 million records on a cybercrime forum on 12 September, adding: “next time we won’t simply pull data, we’ll start attacking the main infrastructure.” CenterPoint says the incident has not affected electric or gas delivery and, based on its investigation so far, does not expect a material impact; no vulnerability, intrusion vector or actor identity has been disclosed. This reads as an IT-side data breach, not an OT compromise — but the actor’s own words, and CenterPoint’s history of prior IT intrusions (an access broker in 2024, exposure via the Cl0p MOVEit campaign), are reason enough for other utilities to check that customer-facing systems are properly segmented from anything that touches control-system networks. - CenterPoint Energy SEC Form 8-K, 15 Sep 2026 (primary), reported by SecurityWeek - Data posted for sale 12 Sep 2026; disclosed 15 Sep 2026]]></description>
 </item>
 <item>
 <title>[High] Red Heron, assessed as PRC-linked, stole secrets and planted SSH keys in a renewable operator’s code server</title>
 <link>https://www.acronis.com/en/tru/posts/red-heron-exploits-gitea-n-day-flaw-in-multinational-campaign-exposing-new-linux-rootkit/</link>
 <guid isPermaLink="false">otthreatfeed:power:red-heron-gitea</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Threat Intelligence — Nation-state pre-positioning via a code server</category>
 <description><![CDATA[Acronis reported on 13 September that an actor it tracks as Red Heron exploited CVE-2026-60004, a critical remote-code-execution flaw in self-hosted Gitea, to compromise 11 targets in five countries (Canada, the US, Taiwan, Argentina and Sri Lanka). The clearest power-sector case: a Canadian renewable-energy operator, where Acronis documented 22 exploitation sessions; the actor took source code, credentials and secrets, mapped internal Docker networks, and planted its own SSH keys for return access. Acronis holds the PRC-linked attribution at moderate confidence; nothing here shows hands-on manipulation of grid control, but the stolen credentials and network map are exactly what a follow-on intrusion would need. The campaign also exposed a previously undocumented Linux rootkit, SIXZUT. Gitea’s fix has been available since 27 July, and CISA’s KEV deadline passed a month ago; no new development was reported as of 27 September. - Acronis Threat Research Unit analysis, 13 Sep 2026 (primary), reported by The Hacker News and Industrial Cyber - Gitea fix 27 Jul 2026; KEV deadline 28 Aug 2026; campaign reporting 13–15 Sep 2026]]></description>
 </item>
@@ -44,23 +52,23 @@
 <title>[Medium] Forescout study of 47,700 network segments: only 13% of those holding OT devices are OT-only</title>
 <link>https://industrialcyber.co/control-device-security/forescout-finds-network-convergence-across-it-ot-iot-and-iomt-could-increase-lateral-movement-and-cyberattack-impact/</link>
 <guid isPermaLink="false">otthreatfeed:power:forescout-segmentation</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Research — IT/OT/IoT/IoMT network convergence</category>
 <description><![CDATA[Forescout’s Vedere Labs published a 22 September analysis of 47,700 network segments containing more than 2.5 million devices across 209 organizations. Only 13% of segments containing OT devices were OT-only; the rest also held other types of device, and almost half mixed OT with both IT and IoT assets. Forescout also measured each sector’s average “blast radius” — devices per segment — at 9 for utilities, against 29 for manufacturing and 72 for oil and gas. Utilities fared better than most on that measure, but the core finding still applies: a mixed segment is what turns an IT-side credential theft, an exploited management console (see this edition’s Cisco and Check Point items) or a compromised integrator account into a path onto generation, substation or DER control networks, rather than a contained incident. - Forescout Vedere Labs, 22 Sep 2026 (primary), reported by Industrial Cyber 24 Sep 2026 - Published 22 Sep 2026]]></description>
 </item>
 <item>
-<title>[Critical] watchTowr says two unpatched NetScaler zero-days are being exploited; Citrix has not yet confirmed or fixed them</title>
-<link>https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html</link>
-<guid isPermaLink="false">otthreatfeed:power:citrix-netscaler-zero-days</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
-<category>Advisory — Unpatched remote-access gateway zero-days, vendor not yet confirmed</category>
-<description><![CDATA[Research firm watchTowr said on 26 September that two distinct remote-code-execution flaws in NetScaler ADC and NetScaler Gateway are being exploited in the wild, found during forensic investigations. As of Sunday morning, 27 September, Citrix (Cloud Software Group) had published no advisory, CVE, affected-build list, indicators or fix; fixes are reported to be expected early in the week of 28 September. watchTowr says these are not CVE-2026-19490, the authentication bypass fixed on 19 August, and it is not known whether those builds offer any protection. NetScaler 13.1 reached End of Maintenance on 15 September. Advice circulating online to take appliances offline came from IT suppliers and is unconfirmed; watchTowr did not recommend a shutdown. Editorial assessment: NetScaler Gateway is a common remote-access front door into utility corporate networks and, from there, OT DMZs, so it belongs on a power operator’s watch list until Citrix publishes. - watchTowr disclosure, 26 Sep 2026 (primary), reported by The Hacker News - Disclosed 26 Sep 2026; no Citrix advisory as of this edition]]></description>
+<title>[Critical] Citrix confirms two NetScaler zero-days were exploited before a fix existed; both are now in CISA KEV with a 30 September deadline</title>
+<link>https://support.citrix.com/external/article/CTX697096</link>
+<guid isPermaLink="false">otthreatfeed:power:citrix-netscaler-kev</guid>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
+<category>Advisory — Confirmed exploited remote-access gateway zero-days, CISA KEV, patched</category>
+<description><![CDATA[Citrix confirmed on 27 September, a day after watchTowr’s disclosure, that CVE-2026-88771 and CVE-2026-88772 (both CVSS 9.5) had been exploited against NetScaler ADC and Gateway before patches existed. CVE-2026-88771 is an improper-input-validation flaw giving unauthenticated remote code execution regardless of configuration; CVE-2026-88772 is a memory overflow reachable when DTLS is enabled, the default for VPN virtual servers. CISA added both to KEV the same day with a 30 September federal deadline. Citrix’s bulletin CTX697096 also fixes six other flaws (CVE-2026-88773 through -88778, CVSS 7.0–9.3) not reported as exploited. Fixed builds are 14.1-73.37 and 13.1-64.23 (and FIPS equivalents); no workaround exists. No actor has been named. NetScaler Gateway is a common remote-access front door into utility corporate networks and, from there, OT DMZs. - Citrix security bulletin CTX697096 and CISA KEV, 27 Sep 2026 (primary); watchTowr disclosure 26 Sep 2026 - Disclosed 26 Sep 2026; confirmed, patched and KEV-listed 27 Sep 2026]]></description>
 </item>
 <item>
 <title>[High] CISA adds a third exploited MikroTik RouterOS flaw to KEV; paired with an earlier one it gives password-free admin access</title>
 <link>https://cert.pl/en/posts/2026/09/mikrotik-routeros-cve/</link>
 <guid isPermaLink="false">otthreatfeed:power:mikrotik-routeros-kev</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Advisory — Exploited edge-router flaws, CISA KEV</category>
 <description><![CDATA[CISA added CVE-2026-67279, an SSH workflow bypass in MikroTik RouterOS rated CVSS 6.9, to its Known Exploited Vulnerabilities catalog on 25 September with a 28 September federal deadline. It joins CVE-2026-86060 and CVE-2026-67277, added on 10 September. CERT Polska reported in-the-wild exploitation from about 2 September of a two-flaw SSH chain it calls “MikroTrick”; its 22 September technical analysis names the chain as CVE-2026-67279 combined with CVE-2026-86060, which gives an unauthenticated attacker full administrative control. Fixed releases are RouterOS 7.24.2, 7.23.4 and 6.49.21; the related CVE-2026-67278 needs 7.24.3 or 7.23.6. Shadowserver counted more than 122,500 MikroTik devices with SSH reachable from the internet in early September — an exposure count, not a count of compromised or unpatched devices. Editorial assessment: RouterOS is common on cellular and backhaul routers at small remote sites, which for a power operator can mean substations, solar and wind sites, and telemetry links. - CISA KEV catalog, 25 Sep 2026 (primary); CERT Polska advisories, 5 Sep 2026 - CVE-2026-86060/67277 added to KEV 10 Sep 2026; CVE-2026-67279 added 25 Sep 2026]]></description>
 </item>
@@ -68,23 +76,15 @@
 <title>[Critical] A predictable session ID lets an attacker bypass authentication on Siemens’ Reyrolle 7SR5 protection relay</title>
 <link>https://cert-portal.siemens.com/productcert/html/ssa-142885.html</link>
 <guid isPermaLink="false">otthreatfeed:power:siemens-reyrolle-62645</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Advisory — Protection relay authentication bypass, no known exploitation</category>
 <description><![CDATA[Siemens disclosed CVE-2026-62645 on 8 September as part of that month’s ICS Patch Tuesday batch: a CVSS 9.8 missing-authentication flaw (CWE-306) in the Reyrolle 7SR5 protection relay’s web interface. The relay exposes information that lets an attacker calculate current and past session IDs, defeating the login entirely. All versions before V2.70 are affected. No in-the-wild exploitation or public exploit code has been reported. Protection relays like this trip breakers to protect equipment during faults; an attacker with unauthenticated access could, in principle, alter settings or block a legitimate trip, though doing so would require network reach to the relay first. - Siemens ProductCERT advisory SSA-142885, 8 Sep 2026 (primary); republished by CISA (ICSA-26-258-05) 15 Sep 2026 - Published 8 Sep 2026]]></description>
-</item>
-<item>
-<title>[Critical] Schneider’s Modicon M580 and M580 Safety controllers have an authentication flaw rated CVSS v4.0 9.2 (v3.1 9.8)</title>
-<link>https://download.se.com/files?p_Doc_Ref=SEVD-2026-251-04&amp;amp;p_File_Name=SEVD-2026-251-04.pdf&amp;amp;p_enDocType=Security+and+Safety+Notice</link>
-<guid isPermaLink="false">otthreatfeed:power:modicon-m580-3869</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
-<category>Advisory — Controller authentication flaw, no known exploitation</category>
-<description><![CDATA[Schneider Electric disclosed CVE-2026-3869 on 8 September in notice SEVD-2026-251-04: an incorrectly implemented authentication algorithm (CWE-303) in Modicon M580 controllers below application level 4.00 and M580 Safety controllers below application level 4.20, rated CVSS v4.0 9.2 and v3.1 9.8. The M580 line is widely used in power-plant balance-of-plant and substation automation. No exploitation has been reported and it is not in KEV. The fix is M580 firmware 4.10 or later with application level 4.00 or later (EcoStruxure Control Expert V15.2+), or M580 Safety firmware 4.21 or later with application level 4.20 or later (Control Expert V16.0 HF001+). Updating a safety controller is not a same-day operation: it needs a maintenance window, vendor validation and change control, which is why this class of flaw tends to stay unpatched far longer than an IT system would. - Schneider Electric security notification SEVD-2026-251-04, 8 Sep 2026 (primary), corroborated by SecurityWeek - Published 8 Sep 2026]]></description>
 </item>
 <item>
 <title>[Info] The EU Cyber Resilience Act’s incident-reporting clock started running on 11 September</title>
 <link>https://www.bsigroup.com/en-US/insights-and-media/insights/blogs/the-september-2026europecyber-resilience-act-cradeadline/</link>
 <guid isPermaLink="false">otthreatfeed:power:eu-cra-reporting</guid>
-<pubDate>Sun, 27 Sep 2026 09:56:00 -0400</pubDate>
+<pubDate>Mon, 28 Sep 2026 04:15:00 -0400</pubDate>
 <category>Policy — EU Cyber Resilience Act incident-reporting obligations</category>
 <description><![CDATA[As of 11 September, manufacturers of connected products sold into the EU — a list that includes most of the vendors behind generation, substation and DER equipment — must report actively exploited vulnerabilities and severe security incidents to ENISA’s new Single Reporting Platform within set deadlines, even for products already installed and still within their support window. The rule applies to embedded software, control systems and networking gear, not just finished consumer devices. For a US utility this mostly shows up indirectly, in tighter and more standardized vendor disclosure timelines, but multinational vendors and integrators with EU operations should confirm their own reporting processes are live. - EU Cyber Resilience Act, obligations effective 11 Sep 2026 (primary), reported by BSI Group - Effective 11 Sep 2026]]></description>
 </item>
