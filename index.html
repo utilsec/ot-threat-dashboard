@@ -649,13 +649,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wed, 30 Sep 2026, 6:10 AM ET</span>
+        <span>Generated Wed, 30 Sep 2026, 12:09 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>16</strong> stories across
+      <strong>18</strong> stories across
 
       <strong>4</strong> categories
     </div>
@@ -700,7 +700,7 @@
     <div class="top-story" id="story-citrix-netscaler" data-published="2026-09-30">
         <span class="top-story-pill">Top Story</span>
         <h2>Citrix NetScaler zero-days exploited for weeks before disclosure, CISA warns</h2>
-        <p>Two Citrix NetScaler ADC and Gateway zero-days, CVE-2026-88771 and CVE-2026-88772 (both CVSS&nbsp;9.5), have moved from quiet espionage to mass attacks. The first is an unauthenticated command-injection bug that yields root; researcher Kevin Beaumont is tracking more than 100 victim organizations, each with a unique webshell that remote scanning cannot detect. On 30&nbsp;September watchTowr published proof-of-concept code for the second flaw, a DTLS memory overflow that also enables root-level code execution, and The Hacker News reports it is being exploited as well. Censys counts about 42,000 exposed appliances, and Beaumont estimates fewer than 10% are patched. CISA&rsquo;s KEV deadline is today. NetScaler often fronts remote access into plant networks, so an unpatched appliance is a ready-made foothold toward OT.</p>
+        <p>Two Citrix NetScaler ADC and Gateway zero-days, CVE-2026-88771 and CVE-2026-88772 (both CVSS&nbsp;9.5), have gone from quiet espionage to mass exploitation worldwide. The first is an unauthenticated command-injection bug that yields root; researcher Kevin Beaumont tracks more than 100 victims, each with a unique webshell. On 30&nbsp;September watchTowr published proof-of-concept code for the second flaw, a DTLS memory overflow, and Mandiant and Google Threat Intelligence describe exploitation deploying WHIPSHOT, a PHP webshell, and SLAPSHOT, a tunneler for internal reconnaissance. Censys counts about 42,000 exposed appliances, and CISA&rsquo;s KEV deadline is today. NetScaler often fronts remote access into plant networks, so an unpatched appliance is a ready-made foothold toward OT networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Citrix-, NCSC- and CISA-confirmed active exploitation, dwelling for weeks before disclosure &mdash; Citrix, the Dutch NCSC and CISA all confirmed exploitation on 27&nbsp;September; Tenable and other researchers say the compromise predates the public disclosure by weeks, with per-device webshells and log-wiping found on affected appliances. <b>Confirmed vs claimed:</b> exploitation, the webshells and the anti-forensics activity are confirmed by multiple parties; the nation-state assessment is researchers&rsquo; analytic judgment, and the 100+ victim count is one researcher&rsquo;s independent tracking, not an official figure, and actor identity remains undisclosed</span>
@@ -717,7 +717,7 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Citrix security bulletin CTX697096; CISA KEV catalog and 27&nbsp;Sep alert (30&nbsp;Sep deadline); Dutch NCSC; Tenable, Rapid7 and watchTowr research; Palo Alto Unit 42 threat brief (28 Sep); reported by Help Net Security (incl. 29 Sep escalation report), The Hacker News (30 Sep), BleepingComputer and SecurityWeek</span>
+          <span>Citrix security bulletin CTX697096; CISA KEV catalog and 27&nbsp;Sep alert (30&nbsp;Sep deadline); Dutch NCSC; Tenable, Rapid7 and watchTowr research; Palo Alto Unit 42 threat brief (28 Sep); reported by Help Net Security (incl. 29 Sep escalation report), The Hacker News (30 Sep, incl. Mandiant/GTIG WHIPSHOT and SLAPSHOT findings), BleepingComputer and SecurityWeek</span>
           <span class="dot">&bull;</span>
           <span>Public PoC for CVE-2026-88772 and exploitation of it reported 30 Sep 2026; now in mass exploitation (29 Sep 2026); exploited for weeks before disclosure; Citrix confirmed and patched 27 Sep 2026; watchTowr technical write-up 28 Sep 2026; escalation to mass exploitation reported 29 Sep 2026; added to CISA KEV 27 Sep 2026 (federal deadline 30 Sep 2026)</span>
         </div>
@@ -1200,6 +1200,36 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-teamviewer" data-published="2026-09-30">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; TeamViewer Full Client and Host: five vulnerabilities including a remote-session access-control bypass that could lead to code execution (CVE-2026-92370); fixed in 15.82; vendor reports no known exploitation; CVSS not published in the source</span>
+        </div>
+        <h3>TeamViewer urges immediate updates for five flaws, including a session-control bypass that could lead to code execution</h3>
+        <p>TeamViewer released version 15.82 on 30&nbsp;September to fix five vulnerabilities in its Windows, Linux and macOS clients and hosts. The most serious, CVE-2026-92370, is a remote-session access-control bypass that could allow unauthorized actions up to remote code execution; the others are a path traversal, a heap buffer overflow, a race condition and a path-validation error. TeamViewer says it is not aware of public disclosure or exploitation in the wild, and the reporting gives no CVSS scores. The product is not OT-specific, but it is a common vendor and technician remote-access tool on engineering workstations and HMIs, so any copy reaching plant networks deserves attention. Severity here is an editorial estimate.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No confirmed exploitation &mdash; TeamViewer states it is not aware of public disclosure or in-the-wild use. <b>Confirmed vs claimed:</b> the flaws and the fixed version come from the vendor via BleepingComputer; CVSS scores were not published in the source and the OT relevance is editorial</span>
+            <span class="ops-tag kev-off"><span class="d"></span>Not in CISA KEV as of 30 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fix available &mdash; upgrade to TeamViewer 15.82 or later</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every TeamViewer install on engineering workstations, HMIs, jump hosts and vendor-support laptops, update to 15.82, and remove it where a brokered, multi-factor-protected remote-access path already exists. Where it must stay, restrict it to named sessions and log connections.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of TeamViewer installs touching OT &mdash; 7 days; update to 15.82 &mdash; 14 days, in a validated window for plant-floor hosts</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="teamviewer" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="teamviewer">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>TeamViewer advisory as reported by BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Published 30 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/teamviewer-urges-users-to-patch-severe-flaws-as-soon-as-possible/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       </div>
   </div>
 
@@ -1301,6 +1331,36 @@
         <a href="https://industrialcyber.co/regulation-standards-and-compliance/ferc-approves-nerc-cip-014-4-to-strengthen-physical-security-and-risk-assessments-for-critical-transmission-facilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-soci-cisc" data-published="2026-09-29">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation &mdash; Australia&rsquo;s CISC moves to tiered SOCI Act enforcement from the 2026&ndash;27 financial year; no CVE</span>
+        </div>
+        <h3>Australia&rsquo;s CISC shifts from partnership to tiered enforcement of critical-infrastructure security duties</h3>
+        <p>Australia&rsquo;s Critical Infrastructure Security Centre says it will enforce the Security of Critical Infrastructure (SOCI) Act through three escalating steps: guidance notices for gaps below the non-compliance threshold, formal non-compliance notices, and infringement notices for serious or persistent breaches. The approach takes effect in the 2026&ndash;27 financial year and follows the 2026 independent review of the Act. It applies to all regulated entities, including energy, water, transport and other operators with OT, and weighs factors such as severity, conduct, harm and whether an issue was self-reported.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Regulatory change, forward-looking &mdash; reported 29&nbsp;Sep 2026; applies from the 2026&ndash;27 financial year. <b>Confirmed vs claimed:</b> details are as reported by Industrial Cyber from the CISC announcement</span>
+            <span class="ops-tag kev-off">No CVE &mdash; regulatory change, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the work is confirming your SOCI obligations and evidence are current</span>
+            <span class="ops-cc"><b>Action:</b> If you operate an Australian regulated asset, confirm your risk-management program, annual report and incident-reporting evidence are current and self-report any known gaps before they draw a notice. Operators elsewhere can read it as a sign that partnership-first oversight is giving way to enforcement.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review SOCI obligations and evidence &mdash; 60 days; close self-identified gaps &mdash; before the 2026&ndash;27 enforcement posture bites</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="soci-cisc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="soci-cisc">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Australian CISC announcement; reported by Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 29 Sep 2026; applies 2026&ndash;27 financial year</span>
+        </div>
+        <a href="https://industrialcyber.co/regulation-standards-and-compliance/australias-cisc-strengthens-critical-infrastructure-compliance-under-soci-act-with-tiered-regulatory-measures/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       </div>
   </div>
 
@@ -1308,7 +1368,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and verified against primary sources Wed, 30 Sep 2026, 6:10 AM ET. This edition re-checked SecurityWeek ICS/OT and front page, Industrial Cyber, BleepingComputer, The Record, Cybersecurity Dive, The Hacker News, CISA KEV and Citrix NetScaler coverage from Help Net Security, SecurityWeek and watchTowr. New since the prior edition: Shieldworkz&rsquo;s analysis of the Adif/Renfe breach in Spain (reported by Industrial Cyber, 30 Sep); watchTowr&rsquo;s public proof-of-concept and reported exploitation of the second Citrix flaw (top story), Nozomi&rsquo;s 29 Sep write-up on the Pepperl+Fuchs IO-Link masters, and the F5 BIG-IP APM KEV item. No new confirmed OT-disruptive incidents were found, every card was re-checked against the 30-day freshness window, and the Threat Level is 5.5 (Medium) after recalibration for the all-sectors page. Wired was not used. Sources: Citrix, the CISA KEV catalog, F5, Check Point, Schneider Electric, CISA, CERT@VDE, Nozomi Networks, Forescout, NCC Group, SpyCloud, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, NIST, FERC/NERC and Honeywell; corroborated against Help Net Security, BleepingComputer, SecurityWeek, The Hacker News, Industrial Cyber and CyberScoop. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources Wed, 30 Sep 2026, 10:09 AM ET. This edition re-checked SecurityWeek ICS/OT and front page, Industrial Cyber, BleepingComputer, The Record, Cybersecurity Dive, The Hacker News, CISA KEV and Citrix NetScaler coverage from Help Net Security, SecurityWeek and watchTowr. New since the prior edition: TeamViewer&rsquo;s 15.82 security update (BleepingComputer, 30 Sep) and Mandiant/Google Threat Intelligence findings on Citrix exploitation (The Hacker News, 30 Sep); earlier this cycle, Shieldworkz&rsquo;s analysis of the Adif/Renfe breach in Spain (reported by Industrial Cyber, 30 Sep); watchTowr&rsquo;s public proof-of-concept and reported exploitation of the second Citrix flaw (top story), Nozomi&rsquo;s 29 Sep write-up on the Pepperl+Fuchs IO-Link masters, and the F5 BIG-IP APM KEV item. No new confirmed OT-disruptive incidents were found, every card was re-checked against the 30-day freshness window, and the Threat Level is 5.5 (Medium) after recalibration for the all-sectors page. Wired was not used. Sources: Citrix, the CISA KEV catalog, F5, Check Point, Schneider Electric, CISA, CERT@VDE, Nozomi Networks, Forescout, NCC Group, SpyCloud, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, NIST, FERC/NERC and Honeywell; corroborated against Help Net Security, BleepingComputer, SecurityWeek, The Hacker News, Industrial Cyber and CyberScoop. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
