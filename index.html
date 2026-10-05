@@ -649,13 +649,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Mon, 5 Oct 2026, 3:18 AM ET</span>
+        <span>Generated Mon, 5 Oct 2026, 12:15 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>22</strong> stories across
+      <strong>23</strong> stories across
 
       <strong>4</strong> categories
     </div>
@@ -688,7 +688,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
-      <div class="tl-why"><b>Why 5.5 (Medium):</b> Mid Medium: OT access is confirmed in two sectors, but only one single-sector water incident involved altered equipment and no actor is named.<br><b>Top threat:</b> Two Citrix NetScaler zero-days are under mass exploitation, likely espionage, with web shells left behind; a FortiMail zero-day is also exploited and unpatched.<br><b>Confirmed OT attack:</b> Hackers reached a tanker&rsquo;s propulsion system (reported 2 Oct); two Colorado water systems had pumping and alarms altered.<br><b>Also watching:</b> Exploited Check Point, F5 and Cisco SD-WAN flaws; Warlock ransomware via SharePoint; unexploited Schneider M580 and lwIP bugs.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers actively manipulating OT.</div>
+      <div class="tl-why"><b>Why 5.5 (Medium):</b> Mid Medium: OT access is confirmed in two sectors, but only one single-sector water incident involved altered equipment and no actor is named.<br><b>Top threat:</b> Three Citrix NetScaler zero-days are now exploited (the newest, a SAML flaw now showing signs of code execution, is in KEV), with web shells left by the first two; a FortiMail zero-day is also exploited and unpatched.<br><b>Confirmed OT attack:</b> Hackers reached a tanker&rsquo;s propulsion system (reported 2 Oct); two Colorado water systems had pumping and alarms altered.<br><b>Also watching:</b> Exploited Check Point, F5 and Cisco SD-WAN flaws; Warlock ransomware via SharePoint; unexploited Schneider M580 and lwIP bugs.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers actively manipulating OT.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -697,31 +697,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-citrix-netscaler" data-published="2026-10-01">
+    <div class="top-story" id="story-citrix-netscaler" data-published="2026-10-04">
         <span class="top-story-pill">Top Story</span>
-        <h2>Citrix NetScaler zero-days exploited for weeks before disclosure, CISA warns</h2>
-        <p>Two Citrix NetScaler ADC and Gateway zero-days, CVE-2026-88771 and CVE-2026-88772, are under global exploitation, and researchers say intruders were inside appliances for weeks before Citrix disclosed on 27&nbsp;September. One is an unauthenticated remote-code-execution flaw; the other is a memory overflow on DTLS-enabled devices. Dozens of organizations are affected, a public proof of concept exists, and on 1&nbsp;October LevelBlue detailed a post-exploitation script that creates privileged accounts, exfiltrates configuration data and plants web shells disguised as CSS files. Both flaws are in CISA KEV and the federal deadline has passed. Patching does not evict an intruder. NetScaler often fronts remote access into plant networks, so any unhunted appliance is a possible foothold toward OT.</p>
+        <h2>A third Citrix NetScaler zero-day is now exploited, days after two others were patched</h2>
+        <p>A third NetScaler zero-day is under attack, days after Citrix patched two others that were exploited for weeks before disclosure. The new flaw, CVE-2026-88779 (CVSS&nbsp;8.7), is a memory overflow on SAML-configured appliances that Citrix describes as a service crash. CISA added it to KEV with a 7&nbsp;October federal deadline. Researchers now report signs it may allow code execution: administrators found crafted login usernames carrying shell commands that tried to fetch a payload, and one researcher&rsquo;s honeypot ran a downloaded binary. Citrix has not confirmed code execution. The earlier pair brought web shells, rogue admin accounts and configuration theft, and patching does not evict an intruder. NetScaler often fronts remote access into plant networks, so an unhunted appliance is a possible foothold toward OT.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Citrix-, NCSC- and CISA-confirmed active exploitation, dwelling for weeks before disclosure &mdash; Citrix, the Dutch NCSC and CISA all confirmed exploitation on 27&nbsp;September; Tenable and other researchers say the compromise predates the public disclosure by weeks, with per-device webshells and log-wiping found on affected appliances. <b>Confirmed vs claimed:</b> exploitation, the webshells and the anti-forensics activity are confirmed by multiple parties; the nation-state assessment is researchers&rsquo; analytic judgment, and the 100+ victim count is one researcher&rsquo;s independent tracking, not an official figure, and actor identity remains undisclosed</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; both CVEs added 27 Sep 2026; federal civilian deadline 30 Sep 2026, now passed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Citrix-confirmed active exploitation of all three flaws &mdash; Citrix, the Dutch NCSC and CISA confirmed the first two on 27&nbsp;September; Citrix confirmed targeted attacks on CVE-2026-88779 when it patched on 4&nbsp;October. <b>Confirmed vs claimed:</b> exploitation and the web-shell/anti-forensics activity are confirmed by multiple parties; the nation-state assessment is researchers&rsquo; analytic judgment, the 100+ victim count is one researcher&rsquo;s tracking, any remote-code-execution potential in the new flaw is unconfirmed, and actor identity remains undisclosed</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; first two CVEs added 27 Sep 2026 (deadline 30 Sep, now passed); CVE-2026-88779 added 4 Oct 2026 per SecurityWeek, federal deadline 7 Oct 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Fixes available &mdash; NetScaler ADC/Gateway 14.1-73.37 and 13.1-64.23 and later, plus the matching FIPS builds. Citrix&rsquo;s bulletin (CTX697096) covers six additional CVEs, up to CVSS&nbsp;9.3, in the same release; none of those six is confirmed exploited</span>
-            <span class="ops-cc"><b>Action:</b> Patch every NetScaler ADC and Gateway appliance to a fixed build now &mdash; the 30&nbsp;Sep federal deadline has now passed. Given weeks of likely dwell time, treat every internet-facing appliance as possibly already compromised: hunt for webshells and unexplained accounts before and after patching per Citrix&rsquo;s forensic guidance, then review the bulletin&rsquo;s other six CVEs for applicability.</span>
+            <span class="ops-tag patch-now">Fixes available &mdash; the earlier pair is fixed in 14.1-73.37 and 13.1-64.23; the new SAML flaw needs 14.1-73.41 or 13.1-64.28 and later, plus matching FIPS builds. Appliances patched last week must be upgraded again</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade every NetScaler ADC and Gateway to 14.1-73.41, 13.1-64.28 or later now &mdash; even units patched last week. Treat internet-facing appliances as possibly already compromised: hunt for web shells and unexplained accounts per Citrix&rsquo;s forensic guidance, and review the remaining CVEs in bulletin CTX697096 for applicability.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch to a fixed build &mdash; immediately (active exploitation confirmed, CISA KEV deadline 30&nbsp;Sep); forensic hunt for webshell/anti-forensics indicators on every internet-facing appliance &mdash; 48 hours; review remaining CTX697096 CVEs for applicability &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch to the 4&nbsp;Oct builds &mdash; immediately (active exploitation, KEV deadline 7&nbsp;Oct); forensic hunt for web-shell and anti-forensics indicators on every internet-facing appliance &mdash; 48 hours; review remaining CTX697096 CVEs &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix-netscaler-patched" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="citrix-netscaler-patched">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Citrix security bulletin CTX697096; CISA KEV catalog and 27&nbsp;Sep alert (30&nbsp;Sep deadline); Dutch NCSC; Tenable, Rapid7 and watchTowr research; Palo Alto Unit 42 threat brief (28 Sep); reported by The Hacker News (1 Oct, LevelBlue findings), Help Net Security (incl. 29 Sep escalation report), The Hacker News (30 Sep, incl. Mandiant/GTIG WHIPSHOT and SLAPSHOT findings), BleepingComputer and SecurityWeek</span>
+          <span>Citrix security bulletins CTX697096 and the 4&nbsp;Oct update; CISA KEV catalog; Dutch NCSC; Tenable, Rapid7, watchTowr, LevelBlue and Mandiant/GTIG research; reported by SecurityWeek and BleepingComputer (new flaw), The Hacker News, Cybersecurity Dive, Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>LevelBlue post-exploitation analysis of CVE-2026-88771 attacks (web shells, privileged accounts, config exfiltration) reported 1 Oct 2026 (The Hacker News); Mandiant/GTIG trace CVE-2026-88772 exploitation to early September, suspected state-linked actors (Help Net Security, 30 Sep 2026); public PoC for CVE-2026-88772 and exploitation of it reported 30 Sep 2026; now in mass exploitation (29 Sep 2026); exploited for weeks before disclosure; Citrix confirmed and patched 27 Sep 2026; watchTowr technical write-up 28 Sep 2026; escalation to mass exploitation reported 29 Sep 2026; added to CISA KEV 27 Sep 2026 (federal deadline 30 Sep 2026)</span>
+          <span>Third zero-day (CVE-2026-88779) patched and reported 4&ndash;5 Oct 2026, KEV deadline 7 Oct 2026; first two flaws confirmed and patched 27 Sep 2026, in mass exploitation 29 Sep 2026, LevelBlue post-exploitation analysis 1 Oct 2026</span>
         </div>
-        <a href="https://www.cybersecuritydive.com/news/exploitation-citrix-netscaler-what-we-know/831780/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -763,7 +763,7 @@
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: two zero-days exploited for weeks</a>
+        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: third zero-day exploited, after two others</a>
         <a href="#story-checkpoint"><span class="ld crit"></span><b>2</b> Check Point VPN + mgmt: exploited, KEV deadline passed</a>
         <a href="#story-colorado-water"><span class="ld crit"></span><b>3</b> Colorado: foreign hackers tampered with two water utilities</a>
         <a href="#story-iolink-masters"><span class="ld crit"></span><b>4</b> IO-Link masters: chained flaws give root, CVSS 9.8</a>
@@ -786,13 +786,13 @@
       <div class="trend">
         <span class="trend-tag">Edge Devices</span>
         <b class="trend-head">Exploitation keeps clustering at the remote-access and WAN edge, not in control-loop devices</b>
-        <p>The exploited flaws this cycle sit at the boundary between outside networks and the plant: two Citrix NetScaler zero-days under global attack for weeks (see top story), Check Point VPN and F5 BIG-IP flaws past their federal deadlines, Cisco&rsquo;s fifth SD-WAN zero-day of 2026 (KEV, 30&nbsp;September), and an unpatched FortiMail zero-day added to KEV on 2&nbsp;October. None of these devices runs a control loop, but each is a path a vendor, integrator or technician uses to reach one.</p>
+        <p>The exploited flaws this cycle sit at the boundary between outside networks and the plant: three Citrix NetScaler zero-days now exploited, the third a SAML denial-of-service added to KEV this weekend (see top story), Check Point VPN and F5 BIG-IP flaws past their federal deadlines, Cisco&rsquo;s fifth SD-WAN zero-day of 2026 (KEV, 30&nbsp;September), and an unpatched FortiMail zero-day added to KEV on 2&nbsp;October. None of these devices runs a control loop, but each is a path a vendor, integrator or technician uses to reach one.</p>
         <a href="https://www.cybersecuritydive.com/news/exploitation-citrix-netscaler-what-we-know/831780/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive (Citrix)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">AI &amp; Vulnerabilities</span>
         <b class="trend-head">AI is speeding up vulnerability discovery, and edge appliances are the favorite target</b>
-        <p>Google&rsquo;s Threat Intelligence Group reported on 1&nbsp;October that monthly vulnerability disclosures roughly doubled between January and August 2026, with attackers weaponizing newly disclosed flaws faster rather than waiting for zero-days. Edge and security appliances made up about 14% of exploited flaws, and unauthenticated management interfaces on perimeter gear were a common entry point. Honeywell&rsquo;s benchmark adds the defender side: most OT teams expect AI to change security work but few trust it with autonomous action.</p>
+        <p>Google&rsquo;s Threat Intelligence Group reported on 1&nbsp;October that monthly vulnerability disclosures roughly doubled between January and August 2026, with attackers weaponizing newly disclosed flaws faster rather than waiting for zero-days. Edge and security appliances made up about 14% of exploited flaws, and unauthenticated management interfaces on perimeter gear were a common entry point. Honeywell&rsquo;s benchmark adds the defender side: most OT teams expect AI to change security work but few trust it with autonomous action. On 5&nbsp;October the McCrary Institute added a call for operators to assess readiness, speed up remediation and plan to keep running during a compromise.</p>
         <a href="https://industrialcyber.co/critical-infrastructure/google-gtig-finds-ai-accelerating-vulnerability-discovery-across-enterprise-and-critical-infrastructure-attack-surfaces/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (Google GTIG)</a>
       </div>
       <div class="trend">
@@ -1458,6 +1458,37 @@
         <a href="https://csrc.nist.gov/pubs/sp/800/82/r4/ipd" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+
+      <div class="card" id="story-nist-1800-45" data-published="2026-10-01">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Guidance &mdash; NIST publishes secure remote access guidance for water and wastewater OT (SP&nbsp;1800-45); no CVE</span>
+        </div>
+        <h3>NIST publishes secure remote access guidance for water and wastewater OT</h3>
+        <p>NIST has released SP&nbsp;1800-45, practical guidance on securing remote access into water and wastewater operational technology. It recommends multifactor authentication, network segmentation, encryption, activity logging and an accurate asset inventory, and sets out three reference architectures: a conventional firewall-based design for larger utilities, a cloud-based service for resource-constrained operators, and encrypted system-to-system links for automated environments. NIST also plans a call for collaborators on an OT asset-visibility project. The advice applies well beyond water to any site that lets vendors or staff reach controls remotely.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Confirmed publication &mdash; NIST guidance as reported by Industrial Cyber (5&nbsp;Oct). <b>Confirmed vs claimed:</b> voluntary reference architectures; no new regulatory requirement or deadline</span>
+            <span class="ops-tag kev-off">No CVE &mdash; guidance document, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; compare your remote access design against the reference architectures</span>
+            <span class="ops-cc"><b>Action:</b> Check that every remote path into control networks requires MFA, ends in a segmented jump zone, and is logged; use the three reference architectures to decide which fits your size and staffing.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review remote access against the NIST architectures &mdash; 30 days; close MFA and logging gaps &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nist-1800-45" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="nist-1800-45">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>NIST; reported by Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Published 1 Oct 2026; reported 5 Oct 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/secure-remote-access/nist-outlines-secure-remote-access-strategies-to-strengthen-water-and-wastewater-ot-cybersecurity/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-cisa-next-250" data-published="2026-10-02">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1499,7 +1530,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and verified against primary sources Sun, 4 Oct 2026, 8:09 PM ET. This edition re-checked the CISA KEV catalog, Industrial Cyber, SecurityWeek, Cybersecurity Dive, The Hacker News and BleepingComputer for new OT-relevant developments since the previous edition and found one new development: the 2 October report that hackers reached a tanker&rsquo;s propulsion system, plus CISA&rsquo;s 1 October ICS batch (re-searched Industrial Cyber, SecurityWeek, CISA advisories and the CISA KEV catalog again at the 4:09 AM ET run, including SecurityWeek and Industrial Cyber front pages through 3 Oct; nothing new beyond the 2 Oct KEV additions already carried); CISA&rsquo;s 2 October awareness-month &ldquo;Securing the Next 250&rdquo; campaign remains left off as general guidance. Every card was re-checked against the 30-day freshness window and the Threat Level is 6.0 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, Fortinet, Symantec, Cisco, F5, Check Point, Schneider Electric, CISA, CERT@VDE, Nozomi Networks, Ridge Security, NCC Group, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, NIST, GAO and Honeywell; corroborated against Supply Chain Brain, Transport Topics, Security Boulevard, Cybersecurity Dive, BleepingComputer, SecurityWeek, Dark Reading, The Hacker News and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources Mon, 5 Oct 2026, 10:10 AM ET. This edition re-checked SecurityWeek, BleepingComputer, The Hacker News, Industrial Cyber and the CISA KEV and advisory feeds for developments since the 8:09 AM ET edition and added one: a third exploited NetScaler zero-day (CVE-2026-88779), folded into the top story. Nothing else new and verifiable surfaced; NIST&rsquo;s SP&nbsp;1800-45 water remote-access guide was published in June 2026 and stays outside the 30-day window. Every card was re-checked against the 30-day freshness window and the Threat Level is 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, Fortinet, Symantec, Cisco, F5, Check Point, Schneider Electric, CISA, CERT@VDE, Nozomi Networks, Ridge Security, NCC Group, the Colorado Governor&rsquo;s office, the US Coast Guard and FBI, NIST, GAO and Honeywell; corroborated against Supply Chain Brain, Transport Topics, Security Boulevard, Cybersecurity Dive, BleepingComputer, SecurityWeek, Dark Reading, The Hacker News and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
