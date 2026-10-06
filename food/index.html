@@ -697,13 +697,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Tuesday, 29 Sep 2026, 4:19 AM ET</span>
+        <span>Generated Tuesday, 6 Oct 2026, 10:03 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Food &amp; Agriculture</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>10</strong> stories across
+      <strong>12</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -736,7 +736,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:52.0%"></span></div>
-      <div class="tl-why"><b>Why 5.2 (Medium):</b> Unchanged. No OT-disruptive incident at a food or agriculture operator this week, so the level is capped at 5.9.<br><b>Top threat:</b> Citrix confirmed two NetScaler zero-days were exploited before patching (CISA KEV), and Cisco Talos tracks three clusters, one deploying Qilin ransomware, exploiting Cisco Secure FMC.<br><b>Confirmed OT attack:</b> None this week. Fairlife&rsquo;s July ransomware production halt is now ten weeks old.<br><b>Also watching:</b> Food and Ag-ISAC&rsquo;s reported ransomware rise; Microsoft&rsquo;s Storm-2570; record August ransomware; unexploited IO-Link and Rockwell flaws.<br><b>What would raise it:</b> A confirmed production-halting incident at a processor or grain handler.</div>
+      <div class="tl-why"><b>Why 5.2 (Medium):</b> Edge exploitation widened, but no food or agriculture operator has a confirmed OT-disruptive incident, so the level stays under the 5.9 ceiling.<br><b>Top threat:</b> Attackers Mandiant describes as suspected state-sponsored are exploiting Citrix NetScaler gateways; a third zero-day joined CISA&rsquo;s KEV catalog on 4&nbsp;October.<br><b>Confirmed OT attack:</b> None. ATB, Ukraine&rsquo;s largest grocery chain, confirmed an attack on its online services; no OT impact is reported.<br><b>Also watching:</b> FortiMail and Cisco SD-WAN zero-days; Qilin-deploying Cisco FMC exploitation; August ransomware at a 2026 high; unexploited WAGO and IO-Link flaws.<br><b>What would raise it:</b> A confirmed production-halting incident at a food processor, packer or grain handler.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -744,18 +744,18 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-citrix-netscaler" data-published="2026-09-27">
+    <div class="top-story" id="story-citrix-netscaler" data-published="2026-10-04">
         <span class="top-story-pill">Top Story</span>
-        <h2>Citrix confirms two NetScaler zero-days were exploited before patches shipped; CISA adds both to KEV</h2>
-        <p>Citrix confirmed on 27&nbsp;September that two NetScaler ADC and Gateway remote-code-execution flaws, CVE-2026-88771 and CVE-2026-88772 (both CVSS&nbsp;v4 9.5), were exploited in the wild before fixes were released, and CISA listed both in its KEV catalog the same day. Neither has a workaround, so only upgrading to fixed builds closes the exposure, and CISA advises preserving forensic evidence first because patching cannot remove an earlier compromise. Food and beverage plants commonly let integrators, co-packers and equipment vendors reach line controllers, refrigeration monitoring and batch systems through gateways like these, so a compromised appliance can become the first hop into production networks. Citrix has not said who is exploiting the flaws or how widely.</p>
+        <h2>Citrix NetScaler: a third exploited zero-day joins CISA&rsquo;s KEV list, and responders warn patching alone will not evict intruders</h2>
+        <p>Citrix confirmed on 27&nbsp;September that two NetScaler ADC and Gateway flaws, CVE-2026-88771 (unauthenticated command execution) and CVE-2026-88772 (a memory overflow on appliances with DTLS enabled), both CVSS&nbsp;v4 9.5, were exploited before fixes shipped, and CISA added both to its KEV catalog that day. On 4&nbsp;October CISA added a third, CVE-2026-88779 (CVSS&nbsp;v4 8.7), a memory overflow on appliances configured for SAML that Citrix says it has seen used in targeted attacks causing denial of service; federal agencies must fix it by 7&nbsp;October. watchTowr reproduced it as a crash-only bug and suspects attackers use it to knock appliances over and speed up exploitation of CVE-2026-88771; one researcher reported signs of code execution, but Citrix says it has found no impact on data integrity. Mandiant describes the attackers as advanced and suspected state-sponsored, names no group, and reports dozens of victim organizations; Arctic Wolf counts at least 78, and researcher Kevin Beaumont tracked more than 100. Responders found web shells, a rogue superuser account and stolen appliance configurations, and Mandiant warns that upgrading alone will not remove that access. The victim sectors Mandiant names are government, education, technology, financial services, telecom, and legal and professional services; food and agriculture is not among them. <em>Editorial assessment:</em> food and beverage plants commonly let integrators, co-packers and equipment vendors reach line controllers, refrigeration monitoring and batch systems through gateways like these, so a compromised appliance can be the first hop into production networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Citrix states exploitation of both flaws on unmitigated NetScaler deployments was observed; victims, actors and scale are undisclosed</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 27 Sep 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Citrix and CISA confirm exploitation of all three flaws; Citrix describes CVE-2026-88779 attacks as causing denial of service</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; 88771 and 88772 added 27 Sep (due 30 Sep); 88779 added 4 Oct (due 7 Oct)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched 27 Sep &mdash; NetScaler ADC/Gateway 14.1-73.37+, 13.1-64.23+, FIPS 13.1-37.279+; no workarounds; 12.1 and 13.0 are end-of-life with no fix</span>
-            <span class="ops-cc"><b>Action:</b> Find every NetScaler ADC/Gateway that fronts vendor, integrator or staff access to plant networks, capture logs before upgrading, patch, then rotate credentials and certificates and hunt for earlier compromise. Put any end-of-life 12.1 or 13.0 appliance on an immediate replacement plan.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; builds that also fix CVE-2026-88779: 14.1-73.41+, 13.1-64.28+, FIPS 14.1-73.41+ and 13.1-37.282+; 12.1 and 13.0 are end-of-life with no fix</span>
+            <span class="ops-cc"><b>Action:</b> Find every NetScaler ADC/Gateway that fronts vendor, integrator or staff access to plant networks, capture memory and logs before upgrading to the newest fixed build, then hunt for web shells and unknown admin accounts and rotate credentials and certificates, starting with SAML-enabled appliances. Put any end-of-life 12.1 or 13.0 appliance on an immediate replacement plan.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 72 hours (KEV-listed); compromise hunt &mdash; 7 days</span>
@@ -764,9 +764,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA alert and KEV listing (primary); Citrix bulletin CTX697096; watchTowr, Tenable, eSecurityPlanet</span>
+          <span>CISA alert and KEV listings (primary); Citrix bulletins CTX697096 and CTX697174; Mandiant, watchTowr, Arctic Wolf, The Hacker News, SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation warning 26 Sep 2026; patches and KEV listing 27 Sep 2026</span>
+          <span>First two flaws patched and KEV-listed 27 Sep 2026; third flaw patched and KEV-listed 4 Oct 2026</span>
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/09/27/critical-zero-day-vulnerabilities-exploited-citrix-netscaler-adc-gateway" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -798,22 +798,22 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
         <a href="#story-citrix-netscaler"><circle class="blip crit" cx="180.0" cy="120.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="124.7">1</text></a>
-        <a href="#story-cisco-fmc-food"><circle class="blip crit" cx="232.0" cy="210.0" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="232.0" y="214.3">2</text></a>
-        <a href="#story-iolink-masters-food"><circle class="blip crit" cx="128.0" cy="210.0" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="128.0" y="214.0">3</text></a>
-        <a href="#story-foodag-isac-report"><circle class="blip high" cx="257.8" cy="102.2" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="257.8" y="105.9">4</text></a>
-        <a href="#story-rockwell-sept-food"><circle class="blip high" cx="257.8" cy="257.8" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="257.8" y="261.2">5</text></a>
-        <a href="#story-cisa-fbi-ics-integrators-food"><circle class="blip high" cx="102.2" cy="257.8" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="102.2" y="260.9">6</text></a>
-        <a href="#story-fairlife-anubis-background"><circle class="blip high" cx="102.2" cy="102.2" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="102.2" y="105.0">7</text></a>
+        <a href="#story-fortimail-sdwan-food"><circle class="blip crit" cx="232.0" cy="210.0" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="232.0" y="214.3">2</text></a>
+        <a href="#story-cisco-fmc-food"><circle class="blip crit" cx="128.0" cy="210.0" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="128.0" y="214.0">3</text></a>
+        <a href="#story-iolink-masters-food"><circle class="blip crit" cx="180.0" cy="240.0" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="180.0" y="243.7">4</text></a>
+        <a href="#story-wago-codesys-food"><circle class="blip high" cx="257.8" cy="102.2" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="257.8" y="105.6">5</text></a>
+        <a href="#story-foodag-isac-report"><circle class="blip high" cx="257.8" cy="257.8" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="257.8" y="260.9">6</text></a>
+        <a href="#story-cisa-fbi-ics-integrators-food"><circle class="blip high" cx="102.2" cy="257.8" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="102.2" y="260.6">7</text></a>
             </svg>
 
       <div class="radar-legend">
-        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: two RCE zero-days exploited before patches, KEV-listed 27 Sep</a>
-        <a href="#story-cisco-fmc-food"><span class="ld crit"></span><b>2</b> Cisco Secure FMC: crimeware, Sandworm-linked and Qilin clusters exploiting CVE-2026-20079/-20316</a>
-        <a href="#story-iolink-masters-food"><span class="ld crit"></span><b>3</b> IO-Link masters: about 20 shared flaws, two at CVSS 9.8; Nozomi write-up</a>
-        <a href="#story-foodag-isac-report"><span class="ld high"></span><b>4</b> Food and Ag-ISAC: sector ransomware +62%; federal confirmation of PLC attacks</a>
-        <a href="#story-rockwell-sept-food"><span class="ld high"></span><b>5</b> Rockwell RSLinx Classic, Logix and FactoryTalk patches (Sep)</a>
-        <a href="#story-cisa-fbi-ics-integrators-food"><span class="ld high"></span><b>6</b> CISA/FBI fact sheet on third-party ICS integrator access</a>
-        <a href="#story-fairlife-anubis-background"><span class="ld high"></span><b>7</b> Background (Jul 2026): Coca-Cola&rsquo;s Fairlife ransomware production halt</a>
+        <a href="#story-citrix-netscaler"><span class="ld crit"></span><b>1</b> Citrix NetScaler: three exploited zero-days in KEV, latest added 4 Oct</a>
+        <a href="#story-fortimail-sdwan-food"><span class="ld crit"></span><b>2</b> FortiMail and Cisco Catalyst SD-WAN Manager zero-days exploited, both in KEV</a>
+        <a href="#story-cisco-fmc-food"><span class="ld crit"></span><b>3</b> Cisco Secure FMC: crimeware, Sandworm-overlap and Qilin clusters exploiting CVE-2026-20079/-20316</a>
+        <a href="#story-iolink-masters-food"><span class="ld crit"></span><b>4</b> IO-Link masters: about 20 shared flaws, two at CVSS 9.8; Nozomi write-up</a>
+        <a href="#story-wago-codesys-food"><span class="ld high"></span><b>5</b> WAGO BACnet stack flaw (CVSS 9.8) and CODESYS runtime fixes (CERT@VDE)</a>
+        <a href="#story-foodag-isac-report"><span class="ld high"></span><b>6</b> Food and Ag-ISAC: sector ransomware +62%; reports federally confirmed PLC attacks</a>
+        <a href="#story-cisa-fbi-ics-integrators-food"><span class="ld high"></span><b>7</b> CISA/FBI fact sheet on third-party ICS integrator access</a>
       </div>
     </div>
 
@@ -826,27 +826,27 @@
     <div class="trends-strip">
       <div class="trend">
         <span class="trend-tag">Edge Exposure</span>
-        <b class="trend-head">Remote-access and firewall gear keeps being the way in</b>
-        <p>Citrix&rsquo;s 27&nbsp;September NetScaler disclosure and Talos&rsquo; Cisco FMC findings (updated 21&nbsp;September) both show attackers &mdash; including a Qilin-deploying operator &mdash; working the appliances that sit between corporate networks and plants. For food sites that give vendors and co-packers remote access, these are the devices to inventory and patch first.</p>
-        <a href="https://watchtowr.com/intelligence/citrix-netscaler-zero-day-vulnerabilities-faq/" class="source-link" target="_blank" rel="noopener">watchTowr</a>
+        <b class="trend-head">Exploited zero-days keep landing on the gear between offices and plants</b>
+        <p>Between 30&nbsp;September and 4&nbsp;October CISA added exploited flaws in Cisco Catalyst SD-WAN Manager, Fortinet FortiMail and a third Citrix NetScaler bug to KEV, on top of the two NetScaler zero-days from 27&nbsp;September. Responders say patching does not remove access attackers already gained, so for food sites that give vendors and co-packers remote access the compromise hunt matters as much as the upgrade.</p>
+        <a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Ransomware Landscape</span>
-        <b class="trend-head">Volume is at a 2026 high, and the same few groups lead</b>
-        <p>NCC Group counted 1,073 ransomware attacks in August, a 2026 high, with Qilin first at 164; the Food and Ag-ISAC&rsquo;s own count for the sector was up 62% through July. Microsoft&rsquo;s Storm-2570 profile shows one affiliate swapping between four ransomware brands with the same tools, so behavior-based detection outlasts family names.</p>
+        <b class="trend-head">Volume sits at a 2026 high, and Qilin keeps leading</b>
+        <p>NCC Group&rsquo;s leak-site count put August at 1,073 attacks, with industrial organizations 31% of victims and Qilin first at 164; the Food and Ag-ISAC&rsquo;s own count for the sector was up 62% through July. Talos tied a Qilin-deploying operator to Cisco FMC exploitation, and Microsoft&rsquo;s Storm-2570 profile shows one affiliate reusing the same remote-access and lateral-movement tools across four ransomware brands.</p>
         <a href="https://industrialcyber.co/ransomware/ransomware-activity-hits-2026-high-as-industrial-sector-bears-31-of-attacks-and-qilin-dominates/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Production Impact</span>
-        <b class="trend-head">Perishability, not equipment damage, sets the cost of an outage</b>
-        <p>A 25&nbsp;September Zscaler analysis of Fairlife&rsquo;s July shutdown argues that food plants stop when teams cannot trust batch and quality records, and that product shelf life decides how long a plant can sit idle. It is vendor commentary built on public facts, but the three pre-incident questions it poses are a workable tabletop script.</p>
-        <a href="https://www.zscaler.com/blogs/product-insights/fairlife-had-eleven-days-runway-most-food-plants-can-t-buy-shift" class="source-link" target="_blank" rel="noopener">Zscaler</a>
+        <span class="trend-tag">Supply Chain</span>
+        <b class="trend-head">This week&rsquo;s food-chain incident hit a storefront, not a plant floor</b>
+        <p>ATB, Ukraine&rsquo;s largest grocery chain, confirmed on 5&nbsp;October a cyberattack that took some online services offline; a group&rsquo;s claim to hold millions of customer records is disputed by the company. No confirmed OT-disruptive incident at a food, beverage or agriculture operator was found between 26&nbsp;September and 6&nbsp;October.</p>
+        <a href="https://therecord.media/atb-ukraine-cyberattack-ransomware" class="source-link" target="_blank" rel="noopener">The Record</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Guidance</span>
-        <b class="trend-head">Federal guidance is widening to third-party access and food-sector OT</b>
-        <p>CISA and the FBI&rsquo;s integrator fact sheet (dated 23&nbsp;September) targets a common plant-floor blind spot, and NIST&rsquo;s draft SP&nbsp;800-82 Rev.&nbsp;4 (21&nbsp;September) now names food and agriculture in scope, with comments open to 30&nbsp;November.</p>
-        <a href="https://www.nist.gov/news-events/news/2026/09/guide-operational-technology-ot-security-nist-requests-comments-draft-sp" class="source-link" target="_blank" rel="noopener">NIST</a>
+        <span class="trend-tag">Controller Advisories</span>
+        <b class="trend-head">Line-level controller flaws keep coming, none reported exploited</b>
+        <p>CERT@VDE&rsquo;s WAGO BACnet advisory (CVSS&nbsp;9.8, 1&nbsp;October) and CODESYS runtime fixes (30&nbsp;September&ndash;1&nbsp;October) follow September&rsquo;s IO-Link master disclosures. None is reported exploited and most already have fixes (CODESYS&rsquo;s Linux-based variants follow in the fourth quarter), so they fit planned line-down windows, provided the devices are not reachable from the internet.</p>
+        <a href="https://certvde.com/en/advisories/VDE-2025-102/" class="source-link" target="_blank" rel="noopener">CERT@VDE</a>
       </div>
 
     </div>
@@ -861,15 +861,15 @@
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active exploitation &mdash; Firewall management platform, CVE-2026-20079 in CISA KEV</span>
         </div>
-        <h3>Cisco Talos: crimeware, state-sponsored and Qilin-deploying clusters all exploited Secure Firewall Management Center</h3>
-        <p>Talos reported on 9&nbsp;September, updating on 21&nbsp;September, that Cisco Secure Firewall Management Center is under active exploitation through CVE-2026-20079 (authentication bypass to root, CVSS&nbsp;10.0) and CVE-2026-20316 (static credential, CVSS&nbsp;5.3). It tracks three clusters: UAT-12197, crimeware using CVE-2026-20079 for web shells and credential theft; UAT-11823, described as state-sponsored with Sandworm links, which deployed Cyclops Blink; and UAT-11988, a ransomware operator that used CVE-2026-20316 and deployed Qilin after living-off-the-land reconnaissance. Cisco released hotfixes, with a fuller hardening patch scheduled for the week of 16&nbsp;September. CISA added CVE-2026-20079 to KEV on 9&nbsp;September; we did not verify a KEV listing for CVE-2026-20316. <em>Editorial assessment:</em> Qilin is the most active group against food and agriculture in the sector&rsquo;s own data, and the management console holds the segmentation policy between IT and plant networks.</p>
+        <h3>Cisco Talos: crimeware, Sandworm-overlapping and Qilin-deploying clusters all exploited Secure Firewall Management Center</h3>
+        <p>Talos reported on 9&nbsp;September, updating on 21&nbsp;September, that Cisco Secure Firewall Management Center is under active exploitation through CVE-2026-20079 (authentication bypass to root, CVSS&nbsp;10.0) and CVE-2026-20316 (static credential, CVSS&nbsp;5.3). It tracks three clusters: UAT-12197, crimeware using CVE-2026-20079 for web shells and credential theft; UAT-11823, which used both flaws to deploy Cyclops Blink and which Talos says overlaps in tooling with the Sandworm APT; and UAT-11988, a ransomware operator that used CVE-2026-20316 and deployed Qilin after living-off-the-land reconnaissance. Cisco released hotfixes for both flaws, with a fuller hardening release scheduled for mid-September. CISA added CVE-2026-20079 to KEV on 9&nbsp;September; we did not verify a KEV listing for CVE-2026-20316. <em>Editorial assessment:</em> Qilin is the most active group against food and agriculture in the sector&rsquo;s own data, and the management console holds the segmentation policy between IT and plant networks.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco Talos observed three separate clusters exploiting the flaws</span>
             <span class="ops-tag kev-on">CVE-2026-20079 in CISA KEV (9 Sep 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Hotfixes released; hardening patch was scheduled for the week of 16 Sep &mdash; confirm the current fixed release in Cisco&rsquo;s advisory</span>
+            <span class="ops-tag patch-yes">Hotfixes released; a hardening release was scheduled for mid-September &mdash; confirm the current fixed release in Cisco&rsquo;s advisory</span>
             <span class="ops-cc"><b>Action:</b> Check whether your firewall management plane is Cisco FMC, apply the hotfix or hardening release, confine its management interface to a dedicated admin network, and review for the Talos indicators and Snort rules, since a breach here exposes IT/OT segmentation policy.</span>
           </div>
           <div class="ops-row ops-assign">
@@ -885,34 +885,34 @@
         </div>
         <a href="https://blog.talosintelligence.com/fmc-ongoing-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-fairlife-anubis-background" data-published="2026-07-27">
+<div class="card" id="story-atb-ukraine-food" data-published="2026-10-05">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Background &mdash; The sector&rsquo;s clearest confirmed production-halting ransomware case this year</span>
+          <span class="severity sev-low">Low</span>
+          <span class="category">Incident &mdash; Grocery retail, IT-side (website and online services); no OT impact reported</span>
         </div>
-        <h3>Coca-Cola&rsquo;s Fairlife: ransomware suspended US dairy production for roughly 11 days and data was stolen</h3>
-        <p><em>Background (July 2026), not a new incident:</em> Coca-Cola disclosed on 16&nbsp;July that fairlife had identified unauthorized third-party access to part of its systems, including production-related systems, and that US production was temporarily suspended; it said product quality and safety were not affected. The Anubis ransomware group claimed the attack, said it encrypted Nutanix systems and took about 1&nbsp;TB, and its data was reported published when its deadline lapsed around 27&nbsp;July, the day Coca-Cola confirmed data theft and said most US production had resumed. The initial-access route has not been disclosed, and the company has not said whether plant-floor control systems were reached. A 25&nbsp;September Zscaler analysis (vendor blog) argues that perishability and uncertainty about system integrity, not equipment damage, drive food-plant shutdowns. Carried as context: no confirmed OT-disruptive incident at a food or agriculture operator was found in the past week.</p>
+        <h3>Ukraine&rsquo;s largest grocery chain, ATB, confirms a cyberattack; a data-theft claim by DataSuckers is disputed</h3>
+        <p>ATB, which runs more than 1,300 stores, confirmed on 5&nbsp;October that it had been hit by a cyberattack and took some online services offline, describing the website disruption as technical maintenance. It said a temporary message shown on its website did not affect the security of customer data and that the site remains fully under its control. A group calling itself DataSuckers claims to hold 7.9&nbsp;million customer records, employee passport data and more than 11&nbsp;million order records, has demanded $400,000, and says it will sell the data rather than leak it; ATB denies that customer data was compromised, and the claim has not been independently verified. The reporting describes no disruption to stores, logistics or payments, and no operational-technology impact has been reported. Carried as the only confirmed attack on a food-supply-chain business found this week; it is IT-side and retail.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Coca-Cola confirmed the production suspension and data theft; the Anubis claim (about 1 TB, Nutanix encryption) is the group&rsquo;s own</span>
-            <span class="ops-tag kev-off">Access vector not disclosed &mdash; no CVE named</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed attack &mdash; ATB confirms the incident; the data theft is claimed by DataSuckers and denied by ATB</span>
+            <span class="ops-tag kev-off">No CVE or access route disclosed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Recovery: most US production resumed by about 27 Jul 2026</span>
-            <span class="ops-cc"><b>Action:</b> Use as a tabletop for a dairy or beverage line: if IT is down, can you show from existing records that attackers never reached production systems, and can you run one to two weeks on manual fallback? Decide in advance which production systems truly need enterprise connectivity.</span>
+            <span class="ops-tag patch-na">No patch applicable</span>
+            <span class="ops-cc"><b>Action:</b> Use it as a check on your own e-commerce, ordering and loyalty platforms: confirm they are segmented from warehouse, cold-chain and distribution systems, and that orders and deliveries can keep moving if customer-facing sites go offline.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Ransomware tabletop &mdash; 90 days if not already run this year</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fairlife-anubis-background" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-fairlife-anubis-background">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Segmentation check &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-atb-ukraine-food" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-atb-ukraine-food">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>The Coca-Cola Company disclosure, 16 Jul 2026 (primary); BleepingComputer, SecurityWeek, Cybersecurity Dive</span>
+          <span>ATB statements, as reported by The Record; DataSuckers&rsquo; claim (unverified)</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 16 Jul 2026; data theft confirmed and data reported leaked 27 Jul 2026</span>
+          <span>Reported 5 Oct 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/coca-cola-confirms-data-theft-in-fairlife-ransomware-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/atb-ukraine-cyberattack-ransomware" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -927,7 +927,7 @@
           <span class="category">Research &mdash; Monthly ransomware statistics (NCC Group)</span>
         </div>
         <h3>NCC Group: August ransomware hit a 2026 high of 1,073 attacks, with industrials at 31% and Qilin leading</h3>
-        <p>NCC Group&rsquo;s review of August, reported by Industrial Cyber on 28&nbsp;September, counted 1,073 ransomware attacks, up 12% from July&rsquo;s 960 and the highest monthly total this year. Industrial organizations took 329 attacks (31%), North America 473 (44%), and Qilin led all groups with 164 attacks (15%), passing The&nbsp;Gentlemen. The public breakdown does not isolate food and agriculture, so treat the figures as backdrop rather than a sector count; the Food and Ag-ISAC&rsquo;s own data below is the better yardstick. <em>Editorial assessment:</em> Qilin also tops the ISAC&rsquo;s sector list, which makes its behavior the most useful thing to detect against.</p>
+        <p>NCC Group&rsquo;s review of August, reported by Industrial Cyber on 28&nbsp;September, counted 1,073 ransomware attacks from leak-site postings, up 12% from July&rsquo;s 960 and the highest monthly total this year. Industrial organizations took 329 attacks (31%), North America 473 (44%), and Qilin led all groups with 164 attacks (15%), passing The&nbsp;Gentlemen. The public breakdown does not isolate food and agriculture, so treat the figures as backdrop rather than a sector count; the Food and Ag-ISAC&rsquo;s own data below is the better yardstick. <em>Editorial assessment:</em> Qilin also tops the ISAC&rsquo;s sector list, which makes its behavior the most useful thing to detect against.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">Statistical report of claimed ransomware victims &mdash; not a vulnerability</span>
@@ -956,7 +956,7 @@
           <span class="category">Threat actor profile &mdash; Cross-sector ransomware affiliate (IT-side)</span>
         </div>
         <h3>Microsoft: one ransomware affiliate rotates Qilin, DragonForce, Anubis and BERT, and lists food and agriculture among victim sectors</h3>
-        <p>Microsoft Threat Intelligence published a Storm-2570 profile on 24&nbsp;September describing one affiliate that deployed four ransomware families &mdash; Qilin, DragonForce, Anubis and BERT &mdash; with largely the same toolkit: remote-management tools (MeshAgent, Atera, ScreenConnect, Splashtop, NinjaRMM), PsExec, Impacket and NetExec for lateral movement, Mimikatz-style credential theft, and s5cmd and Rclone for exfiltration. Microsoft lists food and agriculture among the affected sectors. Its recommended controls include tamper protection, attack surface reduction rules blocking PsExec and WMI lateral movement, MFA on approved remote-management tools, and credential resets if unauthorized installs appear. Anubis is also the brand that claimed the Fairlife attack; no link between the two is asserted.</p>
+        <p>Microsoft Threat Intelligence published a Storm-2570 profile on 24&nbsp;September describing one affiliate that deployed four ransomware families &mdash; Qilin, DragonForce, Anubis and BERT &mdash; with largely the same toolkit: remote-management tools (MeshAgent, Atera, ScreenConnect, Splashtop, NinjaRMM), PsExec, Impacket and NetExec for lateral movement, Mimikatz-style credential theft, and s5cmd and Rclone for exfiltration. Microsoft lists food and agriculture among the affected sectors. Its recommended controls include tamper protection, attack surface reduction rules blocking PsExec and WMI lateral movement, MFA on approved remote-management tools, and credential resets if unauthorized installs appear. Anubis is also the brand that claimed July&rsquo;s Fairlife attack; no link between the two is asserted.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Observed activity &mdash; Microsoft profiles real intrusions; victims are not named and no single CVE is involved</span>
@@ -1008,6 +1008,35 @@
         </div>
         <a href="https://industrialcyber.co/critical-infrastructure/food-and-ag-isac-warns-ai-ransomware-nation-state-threats-intensifying-cyber-risks-across-food-and-agriculture/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+<div class="card" id="story-cling-botnet-food" data-published="2026-10-01">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research &mdash; IoT and edge-device botnet (Nozomi Networks Labs); no OT impact reported</span>
+        </div>
+        <h3>Nozomi: the Cling botnet hides its command traffic in STUN requests and spreads through old router, camera and DVR flaws</h3>
+        <p>Nozomi Networks Labs reported on 1&nbsp;October that a botnet it calls Cling infects routers, access points, repeaters, DVRs and cameras, mainly through CVE-2021-35394 in the Realtek Jungle SDK, and carries exploits for seven other flaws, including CVE-2014-8361, CVE-2023-26801 and CVE-2024-3721. Infected devices contact public STUN servers, and the operators send commands encoded in STUN transaction IDs while spoofing source addresses so the traffic appears to come from Google&rsquo;s STUN service. Nozomi saw the bots used for denial-of-service attacks on an internet provider, a university computing cluster and game servers; it gives no victim count and reports no OT or ICS compromise. Its advice is to patch the listed flaws, restrict inbound access and watch for unusual STUN patterns. <em>Editorial assessment:</em> low-cost routers, DVRs and cameras are common at farms, packhouses, grain sites and cold-storage warehouses, often on the same flat network as refrigeration or irrigation controllers.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Observed in the wild &mdash; Nozomi confirmed live command-and-control and DDoS use; no OT impact reported</span>
+            <span class="ops-tag kev-off">No new CISA KEV action tied to this report</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Nozomi&rsquo;s first advice: patch devices affected by CVE-2021-35394 and the other listed flaws</span>
+            <span class="ops-cc"><b>Action:</b> Inventory routers, DVRs and cameras at remote farm, packing and storage sites, move them off any segment shared with refrigeration, irrigation or process controllers, block inbound internet access to them, and replace devices that no longer receive firmware.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Remote-site device inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-cling-botnet-food" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-cling-botnet-food">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Nozomi Networks Labs (primary); The Hacker News, Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Published 1 Oct 2026</span>
+        </div>
+        <a href="https://www.nozominetworks.com/blog/a-stunning-disguise-cling-malware-masquerades-as-google-" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
@@ -1015,6 +1044,35 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+<div class="card" id="story-fortimail-sdwan-food" data-published="2026-10-05">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active exploitation &mdash; Email gateway and SD-WAN management, both in CISA KEV</span>
+        </div>
+        <h3>Fortinet FortiMail and Cisco Catalyst SD-WAN Manager zero-days are exploited in the wild; CISA lists both in KEV</h3>
+        <p>Fortinet disclosed on 1&nbsp;October that FortiMail CVE-2026-104286 (CVSS&nbsp;9.8), a path-traversal flaw that lets an unauthenticated attacker write arbitrary files through crafted web requests, has been reported exploited in the wild; CISA added it to KEV the same day. Fortinet&rsquo;s 5&nbsp;October update lists fixed releases 7.4.9, 7.6.7 and 8.0.2 and tells 7.2 users to move to 7.4 or later; disabling the IBE feature and limiting webmail access to trusted networks are interim workarounds. Cisco disclosed on 30&nbsp;September that Catalyst SD-WAN Manager CVE-2026-76504 (CVSS&nbsp;9.8) lets an unauthenticated attacker bypass API authentication and act as an administrator. Cisco says its PSIRT learned of active exploitation in September and that there are no workarounds; CISA added it to KEV on 30&nbsp;September. Neither vendor has named an attacker or victims. <em>Editorial assessment:</em> processors and distributors with many plants and warehouses often link them over SD-WAN, and the mail gateway is a common starting point for phishing that ends in ransomware.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Fortinet and Cisco both report in-the-wild exploitation; attackers and victims undisclosed</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; SD-WAN Manager 30 Sep (due 3 Oct); FortiMail 1 Oct (due 4 Oct)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; FortiMail 7.4.9 / 7.6.7 / 8.0.2; SD-WAN Manager 20.9.10.1, 20.12.8.2, 20.15.6.1, 20.18.4.1, 26.1.2.1 or 26.2.1</span>
+            <span class="ops-cc"><b>Action:</b> Check whether you run FortiMail or Catalyst SD-WAN Manager, upgrade to the fixed releases, keep their management and webmail interfaces off the internet, and review both for unknown admin accounts or dropped files, since a compromised SD-WAN controller can change routing to every connected site.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; 72 hours (KEV-listed); log review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-fortimail-sdwan-food" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-fortimail-sdwan-food">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Fortinet PSIRT FG-IR-26-175 and Cisco advisory cisco-sa-sdwan-webauth-xr8beuuU (primary); CISA KEV; SecurityWeek, BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Cisco advisory 30 Sep 2026 (revised 2 Oct); Fortinet advisory 1 Oct 2026, fixed releases listed 5 Oct 2026</span>
+        </div>
+        <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-175" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="story-iolink-masters-food" data-published="2026-09-24">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1044,34 +1102,34 @@
         </div>
         <a href="https://certvde.com/en/advisories/VDE-2026-014/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-rockwell-sept-food" data-published="2026-09-02">
+<div class="card" id="story-wago-codesys-food" data-published="2026-10-01">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Advisory &mdash; Rockwell Automation software and controllers, no known exploitation</span>
+          <span class="category">Advisory &mdash; WAGO controllers and CODESYS runtime (CERT@VDE), no known exploitation</span>
         </div>
-        <h3>Rockwell patches over a dozen flaws in RSLinx Classic, Logix controllers and FactoryTalk software</h3>
-        <p>Rockwell Automation&rsquo;s early-September advisories, summarized by SecurityWeek on 2&nbsp;September, cover RSLinx Classic (four critical and high-severity denial-of-service issues that crash the service until restart), a high-severity DoS flaw in ControlLogix and CompactLogix controllers (CVE-2026-9637), a high-severity remote code execution flaw in FactoryTalk Historian Machine Edition, a privilege flaw in FactoryTalk Activation Manager, and an arbitrary-code-execution issue in the ControlFLASH utility; ArmorStart motor controllers and 1756-ENBT modules are also listed. Patches or workarounds exist for all. SecurityWeek notes one advisory header conflicts with its body on exploitation, while CISA confirms no known exploitation of CVE-2026-9637. <em>Editorial assessment:</em> Logix controllers, RSLinx and FactoryTalk are staples of packaging, batching and palletizing lines, and CompactLogix and Micro850 were named in the April federal Iran-affiliated PLC advisory.</p>
+        <h3>CERT@VDE: a CVSS 9.8 flaw in the BACnet stack of WAGO controllers, plus CODESYS runtime fixes for WAGO and other PLCs</h3>
+        <p>CERT@VDE published WAGO advisory VDE-2025-102 on 1&nbsp;October for CVE-2025-41753 (CVSS&nbsp;9.8), a path-traversal flaw in the BACnet/IP stack: by giving BACnet File Objects names that act as file paths, an unauthenticated attacker can read or overwrite arbitrary files, which can lead to full compromise of the device. It affects 750-811x, 750-821x, 751-9x01 and 752-8303 controllers and 762-series panels on firmware below 4.8.9 (FW30). A second WAGO advisory the same day (VDE-2025-081) covers CODESYS runtime flaws in the same families that let an unauthenticated attacker crash the device (the highest, CVE-2025-41738, is CVSS&nbsp;8.3), plus a manipulated project file that can run code if a user opens it; the fix is firmware 4.10.0 (FW32). On 30&nbsp;September CODESYS fixed a runtime race condition, CVE-2026-79625 (CVSS&nbsp;8.1, needs authenticated monitoring access), in 3.5.22.40, with Linux-based variants due in 4.23.0.0 in the fourth quarter. No exploitation is reported for any of them. <em>Editorial assessment:</em> WAGO controllers and CODESYS-based PLCs are common in food-processing automation, refrigeration plant control and building management, where BACnet is the usual building-systems protocol.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">No known exploitation reported</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches or workarounds available for all listed issues</span>
-            <span class="ops-cc"><b>Action:</b> Inventory RSLinx Classic and ControlLogix/CompactLogix on line controllers, apply the patches or workarounds at the next planned window, and confirm no controller is reachable from the internet.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; WAGO firmware 4.8.9 (FW30) for the BACnet flaw and 4.10.0 (FW32) for the CODESYS issues; CODESYS 3.5.22.40, with Linux-based variants awaiting 4.23.0.0 (expected Q4 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory WAGO 750, 751, 752 and 762 devices and CODESYS-based controllers on processing lines and refrigeration plants, turn off BACnet/IP where it is not used, block BACnet traffic (UDP 47808) at the cell boundary, and schedule the fixed firmware at the next line-down window.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &mdash; 7 days; patches &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-rockwell-sept-food" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="fd-rockwell-sept-food">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &mdash; 7 days; firmware update &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="fd-wago-codesys-food" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="fd-wago-codesys-food">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Rockwell Automation security advisories (primary); SecurityWeek</span>
+          <span>CERT@VDE advisories VDE-2025-102, VDE-2025-081 and VDE-2026-097 (primary)</span>
           <span class="dot">&bull;</span>
-          <span>Reported 2 Sep 2026</span>
+          <span>Published 30 Sep&ndash;1 Oct 2026</span>
         </div>
-        <a href="https://www.securityweek.com/rockwell-automation-patches-over-a-dozen-vulnerabilities-across-products/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://certvde.com/en/advisories/VDE-2025-102/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1145,7 +1203,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. Sector edition: Food &amp; Agriculture.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> This edition (29&nbsp;September 2026) re-searched primary sources and IT/general-security outlets and re-verified every carried story against its source. New this run: the Citrix NetScaler zero-day exploitation (27&nbsp;September) now leads; NCC Group&rsquo;s August ransomware data (28&nbsp;September); NIST&rsquo;s draft SP&nbsp;800-82 Rev.&nbsp;4, which names food and agriculture (21&nbsp;September); and Rockwell&rsquo;s September advisories. Corrected: the Fairlife ransomware claim is attributed to Anubis (per BleepingComputer, SecurityWeek and Cybersecurity Dive), not Everest as an earlier edition stated; the CISA/FBI integrator fact sheet does not name food or agriculture; a CISA KEV listing was verified for Cisco CVE-2026-20079 only; the IO-Link advisories are from Pepperl+Fuchs, Phoenix Contact and Carlo Gavazzi (CERT@VDE, 16&nbsp;September). Retired: the Asahi Qilin background card (September 2025), Forescout&rsquo;s segmentation research (22&nbsp;September) and Schneider&rsquo;s Modicon M580 advisory (8&nbsp;September, no exploitation) to keep the page focused; the Fairlife card stays as clearly labeled background. Sources used: CISA alerts, Citrix (via watchTowr, Tenable, eSecurityPlanet), Cisco Talos, CERT@VDE, Nozomi Networks, Microsoft Threat Intelligence, NCC Group (via Industrial Cyber), the Food and Ag-ISAC (via Industrial Cyber), NIST, CISA/FBI, Rockwell Automation (via SecurityWeek), The Coca-Cola Company, BleepingComputer, Cybersecurity Dive, The Hacker News, Zscaler and Dark Reading. No confirmed OT-disruptive incident at a food, beverage or agriculture operator was reported this week; the threat level stays at 5.2, Medium, under the no-incident ceiling. Every card carries the publication date of its primary source. Two items could not be fully verified: the ISAC&rsquo;s federal-confirmation claim about food and grain-handling PLC attacks, and the exact scope of CVE-2026-20316 exploitation.</p>
+    <p><strong>Methodology.</strong> This edition (6&nbsp;October 2026) re-queried primary sources and IT/general-security outlets for 26&nbsp;September&ndash;6&nbsp;October and re-checked every carried story against its source. Added: ATB&rsquo;s confirmed attack on its online services (IT-side, 5&nbsp;October); the Fortinet FortiMail and Cisco Catalyst SD-WAN Manager zero-days (KEV, 1&nbsp;October and 30&nbsp;September); Nozomi&rsquo;s Cling botnet research (1&nbsp;October); and CERT@VDE&rsquo;s WAGO and CODESYS advisories (30&nbsp;September&ndash;1&nbsp;October). Updated: the Citrix NetScaler lead now covers the third exploited flaw, CVE-2026-88779 (KEV, 4&nbsp;October). Corrected: Talos describes the UAT-11823 cluster as overlapping in tooling with Sandworm, not as state-sponsored. Retired as stale: the Fairlife background card (July) and Rockwell&rsquo;s early-September advisories. No confirmed OT-disruptive incident at a food, beverage or agriculture operator was found; the threat level holds at 5.2, Medium, under the no-incident ceiling. Every card carries the publication date of its primary source. Open questions: whether CVE-2026-88779 does more than crash appliances (watchTowr and Citrix describe denial of service), whether ATB customer data was taken (claimed by DataSuckers, denied by ATB), and the Food and Ag-ISAC&rsquo;s federal-confirmation claim about food and grain-handling PLC attacks.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a>, the E-ISAC, and your vendors' PSIRT feeds directly.</p>
   </div>
 </div>
