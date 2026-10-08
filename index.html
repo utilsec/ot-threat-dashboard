@@ -649,13 +649,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wed, 7 Oct 2026, 6:10 PM ET</span>
+        <span>Generated Thu, 8 Oct 2026, 12:09 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>31</strong> stories across <strong>4</strong> categories
+      <strong>23</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -686,7 +686,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
-      <div class="tl-why"><b>Why 5.5 (Medium):</b> One confirmed single-sector OT incident holds the level; the tanker propulsion access is reported, not confirmed.<br><b>Top threat:</b> Three exploited Citrix NetScaler zero-days in KEV; the first two left web shells and rogue accounts, newest is a SAML crash bug (KEV deadline today).<br><b>Confirmed OT attack:</b> Two small Colorado water systems had pumps and alarms altered in late August (confirmed 18 Sep).<br><b>Also watching:</b> FortiBleed VPN credential theft (still active); SonicWall SMA1000 flaw (not exploited); tanker access (reported); Southern Company portal breach (IT-side); exploited FortiMail, Cisco, Check Point, F5 flaws.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers manipulating OT.</div>
+      <div class="tl-why"><b>Why 5.5 (Medium):</b> One confirmed single-sector OT incident holds the level; nothing new this period raised it.<br><b>Top threat:</b> Three exploited Citrix NetScaler zero-days in KEV; the first two left web shells and rogue accounts, and the newest SAML flaw&rsquo;s federal deadline has passed.<br><b>Confirmed OT attack:</b> Two small Colorado water systems had pumps and alarms altered in late August (confirmed 18 Sep).<br><b>Also watching:</b> FortiBleed VPN credential theft (still active); SonicWall SMA1000 flaw (not exploited); tanker access (reported); Southern Company portal breach (IT-side); exploited FortiMail, Cisco, Check Point, F5 flaws.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers manipulating OT.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -698,18 +698,18 @@
     <div class="top-story" id="story-citrix-netscaler" data-published="2026-10-04">
         <span class="top-story-pill">Top Story</span>
         <h2>A third Citrix NetScaler zero-day is now exploited, days after two others were patched</h2>
-        <p>Citrix has confirmed a third NetScaler zero-day under attack, days after patching two others that were exploited for weeks before disclosure. The new flaw, CVE-2026-88779 (CVSS&nbsp;v4 8.7), is a memory overflow that affects only appliances configured for SAML; watchTowr reproduced it as a crash bug only, and one researcher&rsquo;s claim of code execution is disputed. CISA added it to KEV on 4&nbsp;October and, with Australian authorities, issued warnings on 5&nbsp;October; the federal deadline is today, 7&nbsp;October. The earlier pair, CVE-2026-88771 and CVE-2026-88772, brought web shells, rogue admin accounts and configuration theft, and patching does not evict an intruder, so appliances fixed last week need a second upgrade. NetScaler often fronts remote access into plant networks, so an unhunted appliance is a possible foothold toward OT.</p>
+        <p>Citrix has confirmed a third NetScaler zero-day under attack, days after patching two others that were exploited for weeks before disclosure. The new flaw, CVE-2026-88779 (CVSS&nbsp;v4 8.7), is a memory overflow affecting only SAML-configured appliances; watchTowr reproduced it as a crash bug, and one researcher&rsquo;s claim of code execution is disputed. CISA added it to KEV on 4&nbsp;October, and the federal deadline passed on 7&nbsp;October. The earlier pair, CVE-2026-88771 and CVE-2026-88772, brought web shells, rogue admin accounts and configuration theft, and patching does not evict an intruder, so appliances fixed last week need a second upgrade. NetScaler often fronts remote access into plant networks, making an unhunted appliance a possible foothold toward OT.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Citrix-confirmed active exploitation of all three flaws &mdash; Citrix, the Dutch NCSC and CISA confirmed the first two on 27&nbsp;September; Citrix confirmed targeted attacks on CVE-2026-88779, which it and watchTowr describe as a crash bug. <b>Confirmed vs claimed:</b> exploitation and the web-shell/anti-forensics activity are confirmed by multiple parties; Mandiant calls the actors &ldquo;suspected state-sponsored&rdquo; and no group is named; victim counts belong to each tracker (Mandiant &ldquo;dozens&rdquo;, Arctic Wolf at least 78, Kevin Beaumont over 100 by his own tracking); code execution through the new flaw is one researcher&rsquo;s disputed observation</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-88771 and -88772 added 27 Sep 2026 (deadline 30 Sep, now passed); CVE-2026-88779 added 4 Oct 2026, federal deadline 7 Oct 2026</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-88771 and -88772 added 27 Sep 2026 (deadline 30 Sep, now passed); CVE-2026-88779 added 4 Oct 2026, federal deadline 7 Oct 2026 (now passed)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Fixes available &mdash; the earlier pair is fixed in 14.1-73.37 and 13.1-64.23; the new SAML flaw needs 14.1-73.41 or 13.1-64.28 and later, plus matching FIPS builds. Appliances patched last week must be upgraded again</span>
             <span class="ops-cc"><b>Action:</b> Upgrade every NetScaler ADC and Gateway to 14.1-73.41, 13.1-64.28 or later now &mdash; even units patched last week. Treat internet-facing appliances as possibly already compromised: hunt for web shells and unexplained accounts per Citrix&rsquo;s forensic guidance, and review the remaining CVEs in bulletin CTX697096 for applicability.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch to the 4&nbsp;Oct builds &mdash; immediately (active exploitation, KEV deadline 7&nbsp;Oct); forensic hunt for web-shell and anti-forensics indicators on every internet-facing appliance &mdash; 48 hours; review remaining CTX697096 CVEs &mdash; 7 days; federal agencies also owe forensic analysis per CISA</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch to the 4&nbsp;Oct builds &mdash; immediately (active exploitation, KEV deadline 7&nbsp;Oct has passed); forensic hunt for web-shell and anti-forensics indicators on every internet-facing appliance &mdash; 48 hours; review remaining CTX697096 CVEs &mdash; 7 days; federal agencies also owe forensic analysis per CISA</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix-netscaler-patched" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="citrix-netscaler-patched">Open</button>
           </div>
@@ -717,7 +717,7 @@
         <div class="card-meta">
           <span>Citrix security bulletins CTX697096 and CTX697174; CISA KEV catalog; Dutch NCSC; Tenable, watchTowr, LevelBlue, Arctic Wolf and Mandiant/GTIG research; reported by SecurityWeek, BleepingComputer, The Hacker News, Cybersecurity Dive and Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>CVE-2026-88779 fixed 3&ndash;4 Oct and added to KEV 4 Oct 2026 (deadline 7 Oct); watchTowr denial-of-service finding and CISA/Australian warnings 5 Oct 2026 (SecurityWeek and The Record, 5 Oct); first two flaws confirmed and patched 27 Sep 2026, mass exploitation after a 28 Sep proof-of-concept write-up; post-exploitation analysis 1 Oct 2026</span>
+          <span>CVE-2026-88779 fixed 3&ndash;4 Oct and added to KEV 4 Oct 2026 (deadline 7 Oct, now passed); watchTowr denial-of-service finding and CISA/Australian warnings 5 Oct 2026 (SecurityWeek and The Record, 5 Oct); first two flaws confirmed and patched 27 Sep 2026, mass exploitation after a 28 Sep proof-of-concept write-up; post-exploitation analysis 1 Oct 2026</span>
         </div>
         <a href="https://www.securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -855,35 +855,6 @@
         <a href="https://industrialcyber.co/utilities-energy-power-water-waste/colorado-water-utilities-face-foreign-cyberattacks-targeting-pumps-alarms-and-remote-access/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-adif-renfe" data-published="2026-09-30">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident &mdash; Spanish rail infrastructure manager Adif and operator Renfe hit by a data breach through Adif&rsquo;s public web infrastructure; passenger data exposed; signalling and train control reported unaffected; attacker unidentified</span>
-        </div>
-        <h3>Spain&rsquo;s Adif web systems served as the way into Renfe in a data breach, with no train disruption reported</h3>
-        <p>Industrial Cyber, citing analysis from Shieldworkz, reports that attackers compromised Adif&rsquo;s internet-facing web infrastructure after weeks of probing, then pivoted into connected Renfe IT systems. Adif detected unusual activity late on 24&nbsp;September, suspended its websites on 25&nbsp;September as a precaution and restored them on 26&nbsp;September. Renfe said the passenger names and email addresses exposed in the breach originated on Adif servers, and Adif says no application or system tied to rail operations was affected; trains ran normally. The roughly 500&nbsp;GB volume and the AI-assisted tooling come from Spanish media reports and Shieldworkz&rsquo;s analysis and are not confirmed by either operator, and no actor has been identified. The lesson for rail and transit OT teams is that a shared external web front end can become the bridge between two organizations&rsquo; IT networks.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Data breach confirmed, no rail-operations impact &mdash; Adif and Renfe disclosed the incident on 25&nbsp;Sep 2026. <b>Confirmed vs claimed:</b> the breach, the precautionary web shutdown, the passenger-data exposure, its origin on Adif servers and the absence of rail-operations impact are the operators&rsquo; own statements; the 500&nbsp;GB volume and the AI-assisted tooling are media and Shieldworkz claims; no attribution has been made</span>
-            <span class="ops-tag kev-off">No CVE &mdash; no vulnerability has been publicly named</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the controls are perimeter hardening, brute-force protection and IT&ndash;OT isolation</span>
-            <span class="ops-cc"><b>Action:</b> Inventory internet-facing web applications that connect to partner or operator networks, add rate limiting and multi-factor authentication, and monitor for sustained login-guessing. Confirm that signalling, traffic-control and traction-power networks have no path from business or partner IT, and that a precautionary web shutdown does not affect operations.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External web-application and partner-link review &mdash; 30 days; brute-force detection and rate limiting on public logins &mdash; 30 days; IT&ndash;OT path verification &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="adif-renfe" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="adif-renfe">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Renfe and Adif statements (25 Sep 2026); Shieldworkz analysis, reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Detected 24 Sep 2026; disclosed 25 Sep 2026; systems restored 26 Sep 2026; analysis reported 30 Sep 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/transport/shieldworkz-finds-adif-web-infrastructure-served-as-entry-point-for-renfe-compromise-in-ai-assisted-cyber-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
       <div class="card" id="story-southern-portal" data-published="2026-10-07">
         <div class="card-header">
@@ -1137,155 +1108,10 @@
         <a href="https://industrialcyber.co/ransomware/ransomware-activity-hits-2026-high-as-industrial-sector-bears-31-of-attacks-and-qilin-dominates/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-tdengine" data-published="2026-09-25">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; Ridge Security disclosure of CVE-2026-42542 (CVSS&nbsp;7.5), a pre-authentication denial-of-service flaw in the TDengine time-series database used for industrial telemetry; fixed in 3.4.1.6; no known exploitation</span>
-        </div>
-        <h3>One malformed packet can crash TDengine, a database behind industrial telemetry and monitoring</h3>
-        <p>Ridge Security reported on 25&nbsp;September an integer-underflow bug in how TDengine parses messages before authentication. A single malformed packet sent to TCP port&nbsp;6030 can crash an affected instance (versions 3.4.0.0 through 3.4.1.5). TDengine is a time-series database common in industrial, IoT, energy and automotive monitoring, so a crash can blind historians and dashboards rather than stop a process. The vendor published its advisory in June and patches have been available since April; the researchers have not released their proof-of-concept, but say the bug is relatively easy to reproduce. We tag it Medium because it is availability-only and not known to be exploited.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported &mdash; Ridge Security says it has seen no in-the-wild use. <b>Confirmed vs claimed:</b> the flaw, version range and fix are researcher- and vendor-published; the &ldquo;easy to exploit&rdquo; characterization is the researchers&rsquo; own</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no known exploitation reported as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fix available &mdash; TDengine 3.4.1.6</span>
-            <span class="ops-cc"><b>Action:</b> Find TDengine instances in historian, telemetry and IoT stacks (including those bundled in vendor products), upgrade to 3.4.1.6 or later, and block TCP&nbsp;6030 from anything but known collectors.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory TDengine instances &mdash; 14 days; restrict port 6030 &mdash; 14 days; upgrade in the next maintenance window &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="tdengine" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="tdengine">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Ridge Security research, reported by Industrial Cyber and Dark Reading</span>
-          <span class="dot">&bull;</span>
-          <span>Research reported 25 Sep 2026 (Dark Reading 28 Sep); vendor fix and advisory predate it (patch available since April, advisory 4 Jun)</span>
-        </div>
-        <a href="https://www.darkreading.com/ics-ot-security/one-packet-crash-servers-tdengine" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
-      <div class="card" id="story-cling-botnet" data-published="2026-10-01">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; Nozomi Networks Labs report on the &ldquo;Cling&rdquo; botnet, which hides command traffic in STUN-like exchanges and exploits old flaws in routers, DVRs and access points, led by CVE-2021-35394 in the Realtek Jungle SDK; no confirmed OT impact</span>
-        </div>
-        <h3>Cling botnet hides its command traffic inside STUN and preys on unpatched edge and IoT gear</h3>
-        <p>Nozomi Networks Labs reported on 1&nbsp;October a botnet that disguises its command channel as STUN traffic, the protocol used to set up voice and video calls, encoding commands in STUN transaction IDs and spoofing source addresses to look like a Google STUN server. It spreads by exploiting years-old flaws in networking and IoT devices, led by the Realtek Jungle SDK bug CVE-2021-35394, plus bugs in Linksys, LB-LINK, FiberHome and several DVR products. Nozomi confirmed the infrastructure by sending its own registration messages to suspected controllers and receiving operator commands back. Observed DDoS targets included a South Korean ISP and a university computing cluster. The report shows no OT impact, but unpatched internet-facing routers and cameras at remote sites are a plausible foothold, and STUN-disguised traffic can slip past simple firewall rules.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation observed by Nozomi in the wild &mdash; botnet infrastructure confirmed by the researchers. <b>Confirmed vs claimed:</b> the exploit attempts and command channel are researcher-observed; victim counts and any OT or ICS compromise are not reported</span>
-            <span class="ops-tag kev-off">KEV status not verified for every CVE listed &mdash; check the catalog for your devices</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch or replace &mdash; the exploited flaws are years old; check each vendor for fixed firmware and replace end-of-life devices</span>
-            <span class="ops-cc"><b>Action:</b> Inventory internet-facing routers, access points, DVRs and cameras at plant and remote sites, patch or replace affected models, restrict inbound management access, and alert on unexpected STUN traffic leaving the OT network.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory exposed edge and IoT devices &mdash; 14 days; patch or isolate affected models &mdash; 30 days; add STUN egress monitoring &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cling-botnet" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="cling-botnet">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Nozomi Networks Labs blog; reported by The Hacker News, Dark Reading and Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Published 1 Oct 2026; reported 5&ndash;6 Oct 2026</span>
-        </div>
-        <a href="https://www.nozominetworks.com/blog/a-stunning-disguise-cling-malware-masquerades-as-google-" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
-      <div class="card" id="story-gtig-ai-vulns" data-published="2026-09-30">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Research &mdash; Google Threat Intelligence Group analysis of vulnerability discovery and exploitation trends in the AI era; no CVE</span>
-        </div>
-        <h3>Google: vulnerability disclosures have doubled this year, and edge and security appliances are a favored target</h3>
-        <p>Google&rsquo;s Threat Intelligence Group reported on 30&nbsp;September that monthly vulnerability disclosures roughly doubled in 2026, from about 5,000 in January to more than 10,000 in July and August. Exploited flaws averaged 18 a month from January to August, up from 10.5 in 2025, and half of the AI-discovered vulnerabilities in its data were remote-code-execution bugs, roughly twice the share across all CVEs. Edge and security appliances made up 14% of exploited vulnerabilities, most of them rated High or Critical. GTIG&rsquo;s report does not discuss OT; the critical-infrastructure angle is Industrial Cyber&rsquo;s and ours. It fits this edition&rsquo;s Citrix, F5, Check Point, Cisco and Fortinet items: the exploited gear is the remote-access and security edge that often fronts plant networks.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Confirmed publication &mdash; findings are GTIG&rsquo;s own analysis. <b>Confirmed vs claimed:</b> the statistics are one vendor&rsquo;s dataset and method, not an industry-wide census; the OT framing is editorial</span>
-            <span class="ops-tag kev-off">No CVE &mdash; trend research, not a single product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the response is shrinking and watching your exposed management surface</span>
-            <span class="ops-cc"><b>Action:</b> Inventory every internet-reachable management interface on VPN, firewall, load-balancer and remote-access gear that fronts OT networks; take them off the internet or behind a gateway, and shorten your emergency-patch path for edge devices.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Management-plane exposure inventory &mdash; 14 days; emergency edge-patch procedure review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="gtig-ai-vulns" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="gtig-ai-vulns">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Google Threat Intelligence Group blog; critical-infrastructure framing reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Published 30 Sep 2026; Industrial Cyber 1 Oct 2026</span>
-        </div>
-        <a href="https://cloud.google.com/blog/topics/threat-intelligence/vulnerability-discovery-and-exploitation-trends-in-the-ai-era" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
-        <div class="card" id="story-maritime-tos" data-published="2026-10-06">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Analysis &mdash; Industrial Cyber feature on cyber risk to ports, vessels and supply chains; no CVE; not a new incident</span>
-        </div>
-        <h3>Port terminal operating systems are the single point where an IT outage can halt cargo, a new analysis warns</h3>
-        <p>An Industrial Cyber feature published 6&nbsp;October argues that failures in terminal operating systems can stop cargo movement even when cranes and other physical equipment are undamaged, citing DP World Australia&rsquo;s 2023 incident, where a corporate-network disruption halted operations for three days. It notes that accountability is split among port authorities, terminal operators and shipping lines, leaving gaps at vessel-to-shore interfaces and shared vendor access paths, and that US Coast Guard rules now require cybersecurity assessments and incident reporting by July&nbsp;2027. The attack-rise and dollar-loss figures in the piece are the author&rsquo;s and are not independently verified here.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Analysis, not an incident &mdash; no new attack is reported. <b>Confirmed vs claimed:</b> the 2023 DP World outage is a documented event; the percentage and loss estimates are the feature&rsquo;s own claims</span>
-            <span class="ops-tag kev-off">No CVE &mdash; not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the controls are dependency mapping, segmentation and tested manual fallbacks</span>
-            <span class="ops-cc"><b>Action:</b> Map which business and terminal-system outages would stop physical operations, confirm vendor and shore-side access paths are brokered and logged, and rehearse a manual cargo-handling fallback.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Dependency mapping for terminal and port systems &mdash; 30 days; manual-fallback exercise &mdash; 90 days; check Coast Guard assessment and reporting readiness ahead of July&nbsp;2027</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="maritime-tos" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="maritime-tos">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Industrial Cyber feature (6 Oct 2026); US Coast Guard MTSA cybersecurity requirements as cited</span>
-          <span class="dot">&bull;</span>
-          <span>Published 6 Oct 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/features/anchoring-maritime-logistics-backbone-against-rising-tide-of-cyber-threats-targeting-ports-vessels-supply-chains/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
-      <div class="card" id="story-forescout-pqc" data-published="2026-10-07">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Research &mdash; Forescout analysis of post-quantum cryptography readiness across healthcare IT, IoMT and OT devices; no CVE; not an incident</span>
-        </div>
-        <h3>Forescout: few OT devices can support post-quantum encryption yet, and OT lags IT on modern TLS</h3>
-        <p>Forescout&rsquo;s research, published 7&nbsp;October and drawn from more than 2.5 million devices at over 50 healthcare organizations, found that 16% of OT devices support SSH capable of post-quantum cryptography, against 50% of IT devices and 6% of medical IoT. TLS&nbsp;1.3, the only version that standardized post-quantum key exchange can ride on, accounts for just 0.8% of OT traffic in enterprise networks, the lowest of any device class. Forescout attributes the gap to long equipment lifecycles and difficult patching, and says OT is not the main cryptographic worry in healthcare; the sample is healthcare-sector only, so treat the figures as indicative for other industries, not representative.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Confirmed publication &mdash; findings are Forescout&rsquo;s own device telemetry. <b>Confirmed vs claimed:</b> the percentages come from one vendor&rsquo;s healthcare dataset; extending them to other sectors is our inference, not the report&rsquo;s</span>
-            <span class="ops-tag kev-off">No CVE &mdash; readiness research, not a product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the response is inventory and lifecycle planning</span>
-            <span class="ops-cc"><b>Action:</b> Record which OT assets cannot be upgraded to modern TLS or SSH, put long-lived ones behind gateways that can terminate current encryption, and add cryptographic support to your next hardware-refresh requirements.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Cryptographic-capability inventory of OT assets &mdash; 90 days; add crypto-agility requirements to procurement &mdash; next refresh cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="forescout-pqc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="forescout-pqc">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Forescout research (7 Oct 2026), reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Published 7 Oct 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/reports/forescout-finds-healthcare-lagging-in-post-quantum-cryptography-readiness-as-iomt-and-ot-devices-fall-behind-it/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
 
     </div>
@@ -1701,65 +1527,7 @@
       </div>
 
 
-      <div class="card" id="story-nist-1800-45" data-published="2026-10-01">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Guidance &mdash; NIST blog highlights SP&nbsp;1800-45, its secure remote access guide for water and wastewater OT, finalized 24 Jun 2026; not a new publication; no CVE</span>
-        </div>
-        <h3>NIST spotlights its secure remote access guide for water and wastewater OT</h3>
-        <p>A 1&nbsp;October NIST Cybersecurity Insights blog highlights SP&nbsp;1800-45, &ldquo;Cybersecurity for the Water and Wastewater Sector: Build Architecture (Operational Technology Remote Access),&rdquo; which NIST finalized on 24&nbsp;June 2026. The guide is not new, but its three reference architectures remain a practical yardstick: a conventional firewall and remote-access server design, a cloud-based, provider-managed option for resource-constrained utilities, and encrypted system-to-system links. The blog adds that NIST&rsquo;s National Cybersecurity Center of Excellence will soon issue a call for collaborators on its OT asset management and visibility project. The architectures apply well beyond water to any site that lets vendors or staff reach controls remotely.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Existing guidance, not a new release &mdash; SP&nbsp;1800-45 has been final since 24&nbsp;Jun 2026; the 1&nbsp;Oct NIST blog spotlights it. <b>Confirmed vs claimed:</b> voluntary reference architectures; no new regulatory requirement or deadline</span>
-            <span class="ops-tag kev-off">No CVE &mdash; guidance document, not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; compare your remote access design against the reference architectures</span>
-            <span class="ops-cc"><b>Action:</b> Check that every remote path into control networks requires MFA, ends in a segmented jump zone, and is logged; use the three reference architectures to decide which fits your size and staffing.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Review remote access against the NIST architectures &mdash; 30 days; close MFA and logging gaps &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nist-1800-45" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="nist-1800-45">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>NIST Cybersecurity Insights blog; NIST CSRC (SP 1800-45 final); reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Final guide 24 Jun 2026; NIST blog 1 Oct 2026; Industrial Cyber 5 Oct 2026</span>
-        </div>
-        <a href="https://www.nist.gov/blogs/cybersecurity-insights/securing-water-and-wastewater-operational-technology-environments" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
-      <div class="card" id="story-cisa-next-250" data-published="2026-10-02">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy &mdash; CISA launches &ldquo;Securing the Next 250&rdquo; campaign for Cybersecurity Awareness Month; no CVE</span>
-        </div>
-        <h3>CISA launches &ldquo;Securing the Next 250&rdquo; campaign aimed at critical infrastructure resilience</h3>
-        <p>For Cybersecurity Awareness Month, CISA has launched &ldquo;Securing the Next 250,&rdquo; a campaign urging critical infrastructure owners and operators and individuals to harden their defenses. It frames the effort around three Rs &mdash; reduce attack surfaces, replace end-of-support devices, and recover quickly to keep operations running &mdash; alongside four basic practices: avoiding and reporting phishing, strong passwords, multifactor authentication with password managers, and keeping software updated. It is voluntary guidance rather than a new rule, but it is a useful hook for leadership conversations about replacing unsupported OT and funding recovery planning.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Confirmed publication &mdash; campaign announced by CISA and reported by Industrial Cyber. <b>Confirmed vs claimed:</b> voluntary guidance; no new regulatory requirement or deadline</span>
-            <span class="ops-tag kev-off">No CVE &mdash; awareness campaign, not a product vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; use the campaign to reinforce basics and recovery planning</span>
-            <span class="ops-cc"><b>Action:</b> Use the awareness-month momentum to confirm your OT incident response plan has been exercised in the last 12 months, that MFA covers all remote access into plant networks, and that you know how and when to report an incident to CISA.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Verify MFA on all OT remote access &mdash; 14 days; schedule an OT incident response exercise if none in the last year &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisa-next-250" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="cisa-next-250">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA; reported by Industrial Cyber</span>
-          <span class="dot">&bull;</span>
-          <span>Launched for Cybersecurity Awareness Month (October 2026); reported 2 Oct 2026</span>
-        </div>
-        <a href="https://industrialcyber.co/critical-infrastructure/cisa-launches-securing-the-next-250-campaign-to-strengthen-critical-infrastructure-cybersecurity-and-resilience/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
 
 
@@ -1772,7 +1540,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and verified against primary sources on Wed, 7 Oct 2026 (evening ET refresh). A fresh sweep of SecurityWeek, Industrial Cyber, Cybersecurity Dive and CISA/Citrix/Fortinet reporting found no new qualifying incidents or advisories since the 4:14 PM ET edition, so story content carries over and the timestamp is refreshed. CISA&rsquo;s ICS advisory page could not be fetched directly this run, so advisory content carries over from the prior edition. Every card remains inside the 30-day window and Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Symantec, Cisco, F5, Check Point, Schneider Electric, ABB, CERT@VDE, Nozomi Networks, Google GTIG, Forescout, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Renfe and Adif, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources on Wed, 7 Oct 2026 (10:08 PM ET refresh). A fresh sweep of ICS-CERT advisories, the CISA KEV catalog and industrial-security press found no new qualifying OT incidents or advisories since the 8:10 PM edition, so story content carries over and every card remains inside the 30-day window. Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Symantec, Cisco, F5, Check Point, Schneider Electric, ABB, CERT@VDE, Nozomi Networks, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
