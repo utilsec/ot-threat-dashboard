@@ -649,13 +649,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Fri, 9 Oct 2026, 12:15 AM ET</span>
+        <span>Generated Fri, 9 Oct 2026, 6:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across <strong>4</strong> categories
+      <strong>16</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -686,7 +686,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
-      <div class="tl-why"><b>Why 5.5 (Medium):</b> One confirmed single-sector OT incident holds the level; nothing new has raised it.<br><b>Top threat:</b> Three exploited Citrix NetScaler zero-days in KEV; the first two left web shells and rogue accounts, and the newest SAML flaw&rsquo;s federal deadline has passed.<br><b>Confirmed OT attack:</b> Two small Colorado water systems had pumps and alarms altered in late August (confirmed 18 Sep).<br><b>Also watching:</b> Southern Company IT portal breach (no OT impact); FortiBleed VPN credential theft (still active); Flax Typhoon tools seized (no OT breach confirmed); SonicWall SMA1000 flaw (not exploited); tanker access (reported); exploited FortiMail, Cisco, Check Point, F5 flaws.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers manipulating OT.</div>
+      <div class="tl-why"><b>Why 5.5 (Medium):</b> One confirmed single-sector OT incident holds the level; nothing new has raised it.<br><b>Top threat:</b> Three exploited Citrix NetScaler zero-days in KEV, and a fourth critical SAML flaw patched 9 Oct (not yet exploited).<br><b>Confirmed OT attack:</b> Two small Colorado water systems had pumps and alarms altered in late August (confirmed 18 Sep).<br><b>Also watching:</b> Southern Company portal breach (no OT impact); FortiBleed VPN credential theft; Flax Typhoon tools seized; SonicWall SMA1000 flaw; tanker access (reported); exploited FortiMail, Cisco, Check Point flaws.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers manipulating OT.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -695,29 +695,29 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-citrix-netscaler" data-published="2026-10-04">
+    <div class="top-story" id="story-citrix-netscaler" data-published="2026-10-09">
         <span class="top-story-pill">Top Story</span>
-        <h2>A third Citrix NetScaler zero-day is now exploited, days after two others were patched</h2>
-        <p>Citrix has confirmed a third NetScaler zero-day under attack, days after patching two others that were exploited for weeks before disclosure. The new flaw, CVE-2026-88779 (CVSS&nbsp;v4 8.7), is a memory overflow affecting only SAML-configured appliances; watchTowr reproduced it as a crash bug, and one researcher&rsquo;s claim of code execution is disputed. CISA added it to KEV on 4&nbsp;October, and the federal deadline passed on 7&nbsp;October. The earlier pair, CVE-2026-88771 and CVE-2026-88772, brought web shells, rogue admin accounts and configuration theft, and patching does not evict an intruder, so appliances fixed last week need a second upgrade. NetScaler often fronts remote access into plant networks, making an unhunted appliance a possible foothold toward OT.</p>
+        <h2>A third Citrix NetScaler zero-day is exploited, and a fourth critical flaw was patched on 9 October</h2>
+        <p>Citrix has confirmed a third NetScaler zero-day under attack, days after patching two others that were exploited for weeks before disclosure, and on 9&nbsp;October it shipped a fourth fix. The exploited trio is CVE-2026-88771, CVE-2026-88772 and CVE-2026-88779 (a SAML-only memory overflow, CVSS&nbsp;v4 8.7); the federal KEV deadline for the newest passed on 7&nbsp;October. The earlier pair brought web shells, rogue admin accounts and configuration theft, and patching does not evict an intruder. The new CVE-2026-107406 (CVSS&nbsp;9.5) is another SAML memory overflow that Citrix says could allow code execution; no exploitation is reported, but it affects builds through 14.1-73.41 and 13.1-64.28, so appliances patched last week need yet another upgrade. NetScaler often fronts remote access into plant networks, making an unhunted appliance a possible foothold toward OT.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Citrix-confirmed active exploitation of all three flaws &mdash; Citrix, the Dutch NCSC and CISA confirmed the first two on 27&nbsp;September; Citrix confirmed targeted attacks on CVE-2026-88779, which it and watchTowr describe as a crash bug. <b>Confirmed vs claimed:</b> exploitation and the web-shell/anti-forensics activity are confirmed by multiple parties; Mandiant calls the actors &ldquo;suspected state-sponsored&rdquo; and no group is named; victim counts belong to each tracker (Mandiant &ldquo;dozens&rdquo;, Arctic Wolf at least 78, Kevin Beaumont over 100 by his own tracking); code execution through the new flaw is one researcher&rsquo;s disputed observation</span>
             <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-88771 and -88772 added 27 Sep 2026 (deadline 30 Sep, now passed); CVE-2026-88779 added 4 Oct 2026, federal deadline 7 Oct 2026 (now passed)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Fixes available &mdash; the earlier pair is fixed in 14.1-73.37 and 13.1-64.23; the new SAML flaw needs 14.1-73.41 or 13.1-64.28 and later, plus matching FIPS builds. Appliances patched last week must be upgraded again</span>
-            <span class="ops-cc"><b>Action:</b> Upgrade every NetScaler ADC and Gateway to 14.1-73.41, 13.1-64.28 or later now &mdash; even units patched last week. Treat internet-facing appliances as possibly already compromised: hunt for web shells and unexplained accounts per Citrix&rsquo;s forensic guidance, and review the remaining CVEs in bulletin CTX697096 for applicability.</span>
+            <span class="ops-tag patch-now">Fixes available &mdash; the new SAML flaw (CVE-2026-107406) is fixed in 14.1-73.46, 13.1-64.29 and 13.1-NDcPP 13.1-37.283 and later; those builds also cover the three exploited flaws. Appliances patched last week must be upgraded again</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade every NetScaler ADC and Gateway to 14.1-73.46, 13.1-64.29 or later now &mdash; even units patched last week. Treat internet-facing appliances as possibly already compromised: hunt for web shells and unexplained accounts per Citrix&rsquo;s forensic guidance, and check whether SAML is configured (authentication samlAction or samlIdPProfile) to gauge exposure to the new flaw.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch to the 4&nbsp;Oct builds &mdash; immediately (active exploitation, KEV deadline 7&nbsp;Oct has passed); forensic hunt for web-shell and anti-forensics indicators on every internet-facing appliance &mdash; 48 hours; review remaining CTX697096 CVEs &mdash; 7 days; federal agencies also owe forensic analysis per CISA</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch to 14.1-73.46 / 13.1-64.29 or later &mdash; immediately (active exploitation, KEV deadline 7&nbsp;Oct has passed); forensic hunt for web-shell and anti-forensics indicators on every internet-facing appliance &mdash; 48 hours; confirm SAML exposure and review remaining Citrix bulletin CVEs &mdash; 7 days; federal agencies also owe forensic analysis per CISA</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="citrix-netscaler-patched" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="citrix-netscaler-patched">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Citrix security bulletins CTX697096 and CTX697174; CISA KEV catalog; Dutch NCSC; Tenable, watchTowr, LevelBlue, Arctic Wolf and Mandiant/GTIG research; reported by SecurityWeek, BleepingComputer, The Hacker News, Cybersecurity Dive and Help Net Security</span>
+          <span>Citrix security bulletins CTX697096 and CTX697174 (and the 9 Oct bulletin for CVE-2026-107406); CISA KEV catalog; Dutch NCSC; Tenable, watchTowr, LevelBlue, Arctic Wolf and Mandiant/GTIG research; reported by SecurityWeek, BleepingComputer, The Hacker News, Cybersecurity Dive and Help Net Security</span>
           <span class="dot">&bull;</span>
-          <span>CVE-2026-88779 fixed 3&ndash;4 Oct and added to KEV 4 Oct 2026 (deadline 7 Oct, now passed); watchTowr denial-of-service finding and CISA/Australian warnings 5 Oct 2026 (SecurityWeek and The Record, 5 Oct); first two flaws confirmed and patched 27 Sep 2026, mass exploitation after a 28 Sep proof-of-concept write-up; post-exploitation analysis 1 Oct 2026</span>
+          <span>Fourth flaw CVE-2026-107406 patched 9 Oct 2026, no exploitation reported (The Hacker News, 9 Oct); CVE-2026-88779 fixed 3&ndash;4 Oct and added to KEV 4 Oct 2026 (deadline 7 Oct, now passed); watchTowr denial-of-service finding and CISA/Australian warnings 5 Oct 2026 (SecurityWeek and The Record, 5 Oct); first two flaws confirmed and patched 27 Sep 2026, mass exploitation after a 28 Sep proof-of-concept write-up; post-exploitation analysis 1 Oct 2026</span>
         </div>
         <a href="https://www.securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -800,10 +800,10 @@
         <a href="https://industrialcyber.co/ransomware/ransomware-activity-hits-2026-high-as-industrial-sector-bears-31-of-attacks-and-qilin-dominates/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (NCC Group)</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Energy Risk</span>
-        <b class="trend-head">Energy-sector cyber risk is being framed as financial exposure</b>
-        <p>Centrii&rsquo;s 6&nbsp;October analysis says nation-state pre-positioning in energy networks and Chinese-made renewable equipment are the long-term worry, while criminal ransomware is causing the most measurable cost today, with recovery running to millions per incident. It adds that regulation and insurance underwriting are becoming the main enforcement levers. This is a vendor assessment rather than a new incident report; CISA and the FBI&rsquo;s 24&nbsp;September integrator-access guidance (see Regulation &amp; Policy) addresses one common path in.</p>
-        <a href="https://industrialcyber.co/utilities-energy-power-water-waste/centrii-warns-nation-state-access-and-renewable-supply-chain-risks-raise-energy-sector-financial-exposure/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (Centrii)</a>
+        <span class="trend-tag">Third-Party Access</span>
+        <b class="trend-head">Two vendor surveys put roughly half of industrial organizations in the incident column, with outside access a common path</b>
+        <p>Claroty&rsquo;s 8&nbsp;October survey found 58% of respondents had an attack affect operations in the past year and 75% had an incident tied to third-party access, while Rockwell&rsquo;s survey the same day put the share of industrial organizations with a cyber incident at 46%. Both are self-reported and vendor-run, but they line up with CISA and the FBI&rsquo;s 24&nbsp;September guidance on integrator access (see Regulation &amp; Policy) and with Centrii&rsquo;s 6&nbsp;October warning that nation-state access and renewable supply-chain risk are raising energy-sector financial exposure.</p>
+        <a href="https://industrialcyber.co/industrial-cyber-attacks/claroty-finds-58-of-cps-operators-faced-operational-cyberattacks-as-third-party-access-and-ai-risks-grow/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (Claroty)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Policy</span>
@@ -986,6 +986,66 @@
           <span>Announced 8 Oct 2026</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/fbi-disrupts-chinese-hacking-tools-used-to-breach-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-matchboil" data-published="2026-10-08">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Threat Intelligence &mdash; ESET research (reported 8 Oct 2026) on MatchBoil, a downloader used by the Russia-aligned UAC-0099 group against Ukrainian transport, manufacturing and energy firms; observed infections are in Ukraine only; no OT impact described</span>
+        </div>
+        <h3>Russia-aligned UAC-0099 keeps reworking its MatchBoil downloader against Ukrainian transport and energy firms</h3>
+        <p>ESET has published new research on MatchBoil, a downloader used by the espionage group UAC-0099, which ESET assesses is likely working in Russia&rsquo;s interests. The tool collects system details, pulls further malware from an attacker server and sets up persistence, and arrives mainly through phishing links. ESET saw infections at several transport companies in mid-2025, a manufacturer in December 2025 and an energy company in June 2026, all in Ukraine, and finds the code has been under development since at least July 2024, with a version seen as recently as April 2026. Earlier CERT-UA reporting tied it to fake court-summons lures that delivered a backdoor and an information stealer. The activity is IT-side espionage rather than control-system tampering, but it shows sustained interest in infrastructure operators.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Observed espionage campaign, Ukraine only &mdash; <b>Confirmed vs claimed:</b> the infections, detection timeline and malware behaviour are ESET&rsquo;s observations; the Russia link is ESET&rsquo;s &ldquo;likely&rdquo; assessment, not a government attribution; the number of victims has not been disclosed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; delivery is phishing, not a software flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the controls are email filtering, endpoint detection and user awareness</span>
+            <span class="ops-cc"><b>Action:</b> Add ESET&rsquo;s published indicators to email and endpoint monitoring, block newly registered domains in phishing links, and keep business-network workstations that can reach engineering or historian systems under endpoint detection. Operators with Ukraine-based staff or partners should brief them on court-summons style lures.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Indicator sweep of mail and endpoint logs &mdash; 7 days; review IT-to-OT workstation exposure &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="matchboil" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="matchboil">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>ESET research, with earlier CERT-UA reporting; reported by The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 8 Oct 2026</span>
+        </div>
+        <a href="https://therecord.media/russia-ukraine-malware-transportation" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-claroty-survey" data-published="2026-10-08">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research &mdash; Claroty survey of 2,000 business and technology leaders in 16 industries: 58% say a cyberattack affected operations in the past year; three-quarters link an incident to third-party access; survey self-reporting, not incident data</span>
+        </div>
+        <h3>Claroty survey: most operators had an attack hit operations last year, and third-party access is the common thread</h3>
+        <p>Claroty&rsquo;s &ldquo;Global State of Operational Security 2026&rdquo; reports that 58% of respondents had a cyberattack affect their operational environments over the past 12 months, with downtime (43%) and safety incidents (40%) the most cited impacts. The average loss was about $1.04&nbsp;million and the average outage three days. Seventy-five percent had at least one operations-affecting incident tied to third-party access, yet 49% monitor those connections only partly or not at all, and only 16% say IT and OT security are fully integrated. A separate Rockwell Automation survey reported the same day found 46% of industrial organizations had a cyber incident in the past year. Both are vendor-commissioned self-reports, useful for budgeting arguments rather than as measured attack counts.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Survey findings, not exploitation data &mdash; <b>Confirmed vs claimed:</b> figures are respondents&rsquo; self-reports from a vendor-run survey and are not independently verified</span>
+            <span class="ops-tag kev-off">No CVE &mdash; not applicable to a survey</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the lever is governance and third-party access control</span>
+            <span class="ops-cc"><b>Action:</b> Use the third-party-access figures to test your own position: list every vendor and integrator connection into the plant, require brokered sessions with multi-factor authentication and recording, and confirm someone reviews that access regularly.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of third-party remote-access paths &mdash; 30 days; session recording and review for vendor access &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="claroty-survey" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="claroty-survey">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Claroty &ldquo;Global State of Operational Security 2026&rdquo; and Rockwell Automation &ldquo;Operational Resilience in the Age of Connectivity&rdquo;, reported by Industrial Cyber</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 8 Oct 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/industrial-cyber-attacks/claroty-finds-58-of-cps-operators-faced-operational-cyberattacks-as-third-party-access-and-ai-risks-grow/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-iolink-masters" data-published="2026-09-16">
@@ -1270,7 +1330,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and verified against primary sources on Fri, 9 Oct 2026 (12:15 AM ET refresh). A fresh sweep of industrial-security press, the CISA KEV catalog and IT-security outlets found one new qualifying item since the prior edition, the 7 Oct Southern Company customer-portal breach (IT-side, no OT impact reported); the 8 Oct FBI/CISA/NSA advisory and domain seizure (Flax Typhoon) is already carried. Seven older incident, advisory and policy cards were retired to keep the page focused to 14 stories, and every remaining card is inside the 30-day window. Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Symantec, Cisco, F5, Check Point, Schneider Electric, ABB, CERT@VDE, Nozomi Networks, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Southern Company, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources on Fri, 9 Oct 2026, 6:10 AM ET refresh. A fresh sweep of industrial-security press, the CISA KEV catalog and IT-security outlets found one new development since the prior edition: Citrix&rsquo;s 9 Oct patch for a fourth critical NetScaler flaw, CVE-2026-107406 (no exploitation reported), folded into the top story. The Cisco Nexus NX-OS advisories of 8 Oct concern data-centre switches and were not carried. Every card is inside the 30-day window and Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Cisco, F5, Check Point, Schneider Electric, ABB, CERT@VDE, Nozomi Networks, ESET, Claroty, Rockwell Automation, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Southern Company, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
