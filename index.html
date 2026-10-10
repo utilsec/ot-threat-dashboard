@@ -649,13 +649,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 10 Oct 2026, 12:10 PM ET</span>
+        <span>Generated Sat, 10 Oct 2026, 6:13 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>18</strong> stories across <strong>4</strong> categories
+      <strong>19</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -686,7 +686,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
-      <div class="tl-why"><b>Why 5.5 (Medium):</b> One confirmed single-sector OT incident holds the level; nothing new has raised it.<br><b>Top threat:</b> Three exploited Citrix NetScaler zero-days in KEV, and a fourth critical SAML flaw patched 9 Oct (not yet exploited).<br><b>Confirmed OT attack:</b> Two small Colorado water systems had pumps and alarms altered in late August (confirmed 18 Sep).<br><b>Also watching:</b> SonicWall SMA1000 flaw now probed (attempts reported); FortiBleed VPN credential theft; Flax Typhoon tools seized; tanker access (reported); exploited FortiMail, Cisco, Check Point flaws; public AnyDesk Linux exploit.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers manipulating OT.</div>
+      <div class="tl-why"><b>Why 5.5 (Medium):</b> One confirmed single-sector OT incident holds the level; nothing new has raised it.<br><b>Top threat:</b> Three exploited Citrix NetScaler zero-days in KEV, and a fourth critical SAML flaw patched 9 Oct (not yet exploited).<br><b>Confirmed OT attack:</b> Two small Colorado water systems had pumps and alarms altered in late August (confirmed 18 Sep).<br><b>Also watching:</b> SonicWall SMA1000 flaw now probed (attempts reported); FortiBleed VPN credential theft; Flax Typhoon tools seized; tanker access (reported); exploited FortiMail, Cisco, Check Point flaws.<br><b>What would raise it:</b> Confirmed OT disruption in more than one sector, or nation-state hackers manipulating OT.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1247,65 +1247,69 @@
         <a href="https://www.bleepingcomputer.com/news/security/max-severity-sonicwall-sma1000-flaw-now-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-anydesk-linux" data-published="2026-10-09">
+      <div class="card" id="story-jci-easyio-fg" data-published="2026-10-06">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory &mdash; public exploit for a pre-authentication heap overflow in AnyDesk for Linux 8.0.2 gives root; no CVE assigned; fixed in 8.0.3 (June 2026); no in-the-wild exploitation reported</span>
+          <span class="category">Advisory &mdash; CISA ICSA-26-279-01, Johnson Controls EasyIO FG building-automation controller; two flaws (CVE-2026-27872, CVE-2026-27873), CVSS&nbsp;v3 7.7 each as reported; end-of-life, no fix will be issued; no known exploitation</span>
         </div>
-        <h3>A working exploit is public for a pre-authentication root flaw in AnyDesk for Linux</h3>
-        <p>Researchers published a proof-of-concept on 8&nbsp;October for a heap buffer overflow in AnyDesk&rsquo;s Linux session protocol that gives an unauthenticated remote attacker code execution as root. It was reported in June, AnyDesk acknowledged it, and version 8.0.3 (June 2026) fixed it, though the changelog only mentions a crash bug; the latest release is 8.1.0. The exploit works over direct TCP connections on port 7070 and is probabilistic; whether it works through AnyDesk relays is unresolved. Windows and macOS are not affected, and no CVE or vendor advisory exists. AnyDesk is a common remote-support tool for vendors and integrators, so Linux-based HMI, historian and jump hosts that run it deserve a check.</p>
+        <h3>Johnson Controls says it will not patch hard-coded-credential flaws in its end-of-life EasyIO FG controller</h3>
+        <p>On 6&nbsp;October CISA published ICSA-26-279-01 for the Johnson Controls EasyIO FG, a building-automation controller. Two vulnerabilities involving hard-coded credentials and improper privilege management could let an attacker gain unauthorized access and fully compromise the device. Trade coverage reports they affect firmware up to and including 2.0b52, carry CVSS&nbsp;v3 scores of 7.7 (v4: 7.2), and are not remotely exploitable with high attack complexity. The notable point is the remedy: the product is end-of-life and end-of-support, so Johnson Controls states there will be no firmware patch, and points customers to supported EasyIO Neo-series products. No exploitation is known. Operators of older building-management gear should treat this as a replace-and-isolate item.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Public proof-of-concept; no exploitation reported &mdash; <b>Confirmed vs claimed:</b> the exploit is published and the fix version is stated by the researchers; exploitation reliability and the relay path are not established</span>
-            <span class="ops-tag kev-off"><span class="d"></span>No CVE assigned; not in CISA KEV</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; <b>Confirmed vs claimed:</b> the advisory and end-of-life/no-fix position come from CISA and Johnson Controls (JCI-PSA-2026-12) as relayed by ISSSource on 8&nbsp;Oct; scores and affected-version range are as reported there</span>
+            <span class="ops-tag kev-off"><span class="d"></span>Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fix available &mdash; upgrade AnyDesk for Linux to 8.0.3 or later (8.1.0 is current)</span>
-            <span class="ops-cc"><b>Action:</b> Find Linux hosts running AnyDesk, including engineering, jump and vendor-support systems, and upgrade them. Where an upgrade is not possible, block inbound TCP port 7070 and keep remote-support tools off internet-reachable interfaces.</span>
+            <span class="ops-tag patch-na">No fix &mdash; end-of-life product; migrate to supported hardware and isolate in the meantime</span>
+            <span class="ops-cc"><b>Action:</b> Find any EasyIO FG units (HVAC, lighting, plant-room controllers), take them off any internet-reachable path, segment them behind a firewall with minimal ports, and plan replacement with a supported model per the vendor&rsquo;s guidance.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of Linux AnyDesk installs &mdash; 7 days; upgrade or block port 7070 &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="anydesk-linux" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="anydesk-linux">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and exposure check &mdash; 7 days; isolation &mdash; 14 days; replacement plan &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="jci-easyio-fg" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="jci-easyio-fg">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>V12 security team research, reported by The Hacker News</span>
+          <span>CISA ICS advisory ICSA-26-279-01 and Johnson Controls advisory JCI-PSA-2026-12, relayed by ISSSource</span>
           <span class="dot">&bull;</span>
-          <span>Proof-of-concept published 8 Oct 2026; reported 9 Oct 2026</span>
+          <span>Released 6 Oct 2026; ISSSource coverage 8 Oct 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/10/researchers-publish-working-exploit-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-cisa-oct6-hitachi" data-published="2026-10-06">
+      <div class="card" id="story-abb-pcm600" data-published="2026-10-01">
         <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Advisory &mdash; CISA ICS batch of 6&nbsp;Oct 2026 (ICSA-26-279-01 to -06): Johnson Controls EasyIO FG, the lwIP network stack, and four Hitachi Energy products including RTU500 series CMU firmware and REB500; severity scores not retrieved for this edition; no known exploitation reported</span>
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; CISA ICSA-26-274-03, ABB PCM600 (protection and control IED manager) 2.14 and earlier; CVE-2026-15952 and CVE-2026-15953; local and user-interaction attack paths; no known exploitation</span>
         </div>
-        <h3>CISA&rsquo;s 6 October ICS batch covers Hitachi Energy RTU500 and REB500 and Johnson Controls EasyIO FG</h3>
-        <p>CISA released six industrial control system advisories on 6&nbsp;October. Four concern Hitachi Energy products: Asset Suite, SOI, REB500 and the CMU firmware in the RTU500 series, a remote terminal unit family used in substations and other utility field sites. The others cover Johnson Controls&rsquo; EasyIO FG building-automation controller and lwIP, an open-source network stack embedded in many devices, so the lwIP entry may touch products from several makers. CISA&rsquo;s bulletin lists the titles only, and this edition did not retrieve the CVE details or scores, so open each advisory for the affected versions and mitigations before prioritising. We have no report of exploitation for any of them.</p>
+        <h3>ABB PCM600 flaws let a local user hijack a SYSTEM-level service on substation engineering workstations</h3>
+        <p>CISA published ICSA-26-274-03 on 1&nbsp;October for ABB&rsquo;s PCM600, the engineering tool used to configure protection and control relays. CVE-2026-15952 is a permissions weakness in a scheduler service that lets a local, credentialed user run code as SYSTEM (CVSS&nbsp;v3.1 6.4 per ABB; v4 7.1 per CISA), and CVE-2026-15953 is a path traversal when importing a crafted project archive (about 5.0 / 5.6). ABB says neither is remotely exploitable and reports no direct effect on protection relays. The practical risk is to the engineering workstation itself: project data, configurations and security controls. ABB describes its scheduler change as a workaround rather than a fix; check the advisory for the current hotfix status.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported in the bulletin. <b>Confirmed vs claimed:</b> the advisory list and dates come from CISA&rsquo;s bulletin; CVEs, scores and affected versions were not reviewed here</span>
-            <span class="ops-tag kev-off"><span class="d"></span>Not known to be in CISA KEV &mdash; check the catalog for each CVE</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; <b>Confirmed vs claimed:</b> advisory, CVEs and scores are as published by CISA and ABB and relayed by a third-party write-up; whether the 23&nbsp;Sep hotfix covers either flaw is not established here</span>
+            <span class="ops-tag kev-off"><span class="d"></span>Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Fix status varies &mdash; see each advisory for vendor updates and mitigations</span>
-            <span class="ops-cc"><b>Action:</b> If you run Hitachi Energy RTU500, REB500, Asset Suite or SOI, or Johnson Controls EasyIO FG, open the matching advisory, confirm your versions and apply the vendor fix or mitigation. Keep RTU and building-controller management interfaces off the internet and reachable only from engineering networks. Ask embedded-device vendors whether their firmware bundles lwIP.</span>
+            <span class="ops-tag patch-na">Workaround from ABB; see advisory and ABB notice for hotfix status</span>
+            <span class="ops-cc"><b>Action:</b> Restrict who can log on to PCM600 engineering workstations, apply ABB&rsquo;s scheduler workaround, and only import project archives from trusted sources. Keep the workstation off the corporate and internet-facing network.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Applicability check against your asset inventory &mdash; 14 days; patch or mitigation per advisory severity &mdash; next maintenance window (Critical &asymp; 7 days, High &asymp; 30 days once scored)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisa-oct6-hitachi" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="cisa-oct6-hitachi">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory PCM600 installs &mdash; 7 days; apply workaround/hotfix &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="abb-pcm600" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="abb-pcm600">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisories ICSA-26-279-01 to -06 (CISA bulletin)</span>
+          <span>CISA ICS advisory ICSA-26-274-03; ABB security notice</span>
           <span class="dot">&bull;</span>
-          <span>Released 6 Oct 2026</span>
+          <span>Released 1 Oct 2026</span>
         </div>
-        <a href="https://content.govdelivery.com/accounts/USDHSCISA/bulletins/42e2a0a" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+
+      
+
+      
 
       
 
@@ -1351,6 +1355,36 @@
 
 
 
+      <div class="card" id="story-nsa-zt-ot" data-published="2026-10-08">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Guidance &mdash; NSA cybersecurity information sheet applying zero-trust principles to critical OT environments; aimed at defense and national-security systems but useful to any operator; no CVE</span>
+        </div>
+        <h3>NSA publishes zero-trust guidance for hardening critical OT environments</h3>
+        <p>The NSA released a cybersecurity information sheet on 8&nbsp;October that lays out how to apply zero-trust principles to critical operational technology. Its core idea is to assume a breach may already exist and to keep verifying users, devices, workflows and communications rather than trusting anything on the plant network. It is written mainly for owners and operators of national security systems, defense and the defense industrial base, but it also covers the added attack surface from bringing advanced AI into OT and notes that adversaries increasingly aim to disrupt or destroy critical infrastructure in sectors such as energy and water. WaterISAC has circulated it to the water sector. In our assessment, it gives other operators a ready reference for segmentation and access-control projects, though it is guidance, not a requirement.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Guidance, released 8&nbsp;Oct 2026. <b>Confirmed vs claimed:</b> the document is published by NSA; it describes recommended practice and reports no new incident</span>
+            <span class="ops-tag kev-off">No CVE &mdash; guidance, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; a design and access-control framework</span>
+            <span class="ops-cc"><b>Action:</b> Use the sheet as a checklist when reviewing how users, vendors and devices reach your OT network: confirm each connection is explicitly authorized, logged and limited to what it needs, and note where trust is currently assumed because a device is &ldquo;inside&rdquo; the plant network.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review OT remote-access and segmentation design against the guidance &mdash; 45 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nsa-zt-ot" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="nsa-zt-ot">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>NSA press release and cybersecurity information sheet; circulated by WaterISAC</span>
+          <span class="dot">&bull;</span>
+          <span>Released 8 Oct 2026</span>
+        </div>
+        <a href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4621936/nsa-releases-zero-trust-guidance-for-protecting-operational-technology-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-cisa-fbi-integrators" data-published="2026-09-24">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1390,7 +1424,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and verified against primary sources on Sat, 10 Oct 2026, 10:09 AM ET refresh. A fresh sweep of industrial-security press, CISA bulletins and IT-security outlets (Industrial Cyber, SecurityWeek, The Hacker News, BleepingComputer, The Record) found one change since the previous edition, Palo Alto Networks&rsquo; 10&nbsp;October survey report (added to Trends); earlier in the day the sweep found three changes: Previdian honeypot reports of exploitation attempts against the SonicWall SMA1000 flaw, a public proof-of-concept for a pre-authentication AnyDesk Linux flaw, and Unit 42&rsquo;s Blinder Tunnel report on an Iran-aligned actor. The Southern Company portal breach, the Claroty/Rockwell survey card and the MatchBoil downloader card were retired to keep the page focused; the Cisco Nexus NX-OS advisories (8 Oct) concern data-centre switching and were not carried. Every card is inside the 30-day window and Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Cisco, F5, Check Point, Schneider Electric, ABB, CERT@VDE, Nozomi Networks, ESET, Claroty, Rockwell Automation, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Previdian, V12, Palo Alto Networks Unit 42 and its State of Critical Infrastructure Cybersecurity report, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources on Sat, 10 Oct 2026, 6:13 PM ET refresh. This refresh re-swept industrial-security press, CISA bulletins and IT-security outlets (Industrial Cyber, SecurityWeek, The Hacker News, BleepingComputer, The Record, Cybersecurity Dive) and confirmed no new confirmed OT-disruptive incident since the previous edition. It added two CISA ICS advisory cards (ABB PCM600, 1&nbsp;Oct; Johnson Controls EasyIO FG, 6&nbsp;Oct, end-of-life with no fix) and retired the AnyDesk Linux proof-of-concept card, which concerns an IT remote-support tool with no reported exploitation. The 6&nbsp;October Hitachi Energy batch (Asset Suite, SOI, REB500, RTU500 CMU firmware) was not carded because advisory details could not be verified this run; check CISA directly. Every card is inside the 30-day window and Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Cisco, F5, Check Point, Schneider Electric, ABB, Johnson Controls, CERT@VDE, Nozomi Networks, ESET, Claroty, Rockwell Automation, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Previdian, Palo Alto Networks Unit 42 and its State of Critical Infrastructure Cybersecurity report, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record, ISSSource and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
