@@ -649,7 +649,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 11 Oct 2026, 6:09 AM ET</span>
+        <span>Generated Sun, 11 Oct 2026, 12:08 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -915,6 +915,37 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+
+      <div class="card" id="story-insider-extortion" data-published="2026-10-10">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; court-confirmed insider sabotage and extortion at a US industrial firm (IT domain, Nov 2023); sentencing reported 10 Oct 2026; no OT or production impact stated</span>
+        </div>
+        <h3>A former engineer is sentenced for locking an industrial firm out of its network and demanding bitcoin</h3>
+        <p>SecurityWeek reported on 10&nbsp;October that a former core-infrastructure engineer at a New Jersey industrial company was sentenced on 28&nbsp;September to 32 months in federal prison. In November 2023 he used scheduled tasks on a domain controller to delete 13 domain administrator accounts and reset passwords across hundreds of user, server and workstation accounts, then emailed a demand for 20 bitcoin with a threat to shut down servers daily. The company traced him with its own logs and physical-access records plus an FBI investigation. The case is a corporate IT incident and the reporting does not describe any plant or control-system effect, but it shows how a single trusted administrator with broad domain rights can lock out an entire environment, including anything that authenticates through it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Court-confirmed insider incident, historical &mdash; guilty plea 1&nbsp;Apr 2026, sentence 28&nbsp;Sep 2026. <b>Confirmed vs claimed:</b> facts come from the Justice Department case as reported by SecurityWeek; no OT or production impact is stated and the ransom is not reported as paid</span>
+            <span class="ops-tag kev-off">No CVE &mdash; abuse of legitimate administrative access, not a product vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the controls are privileged-access governance, offboarding and change monitoring</span>
+            <span class="ops-cc"><b>Action:</b> Limit and review who holds domain-admin rights, especially accounts that also reach OT jump hosts or engineering workstations. Alert on bulk account deletions, mass password resets and newly scheduled tasks on domain controllers, remove access at departure, and keep offline, tested backups plus break-glass local accounts for OT servers.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Privileged-account review including OT-connected admins &mdash; 30 days; alerting on bulk account and password changes &mdash; 30 days; offboarding and break-glass access test &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="insider-extortion" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="insider-extortion">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek (Kevin Townsend), citing US court records</span>
+          <span class="dot">&bull;</span>
+          <span>Offense Nov 2023; sentenced 28 Sep 2026; reported 10 Oct 2026</span>
+        </div>
+        <a href="https://securityweek.com/insider-cyber-extortion-plot-against-industrial-firm-lands-engineer-in-prison" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
 
 
 
@@ -1277,36 +1308,6 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-abb-pcm600" data-published="2026-10-01">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory &mdash; CISA ICSA-26-274-03, ABB PCM600 (protection and control IED manager) 2.14 and earlier; CVE-2026-15952 and CVE-2026-15953; local and user-interaction attack paths; no known exploitation</span>
-        </div>
-        <h3>ABB PCM600 flaws let a local user hijack a SYSTEM-level service on substation engineering workstations</h3>
-        <p>CISA published ICSA-26-274-03 on 1&nbsp;October for ABB&rsquo;s PCM600, the engineering tool used to configure protection and control relays. CVE-2026-15952 is a permissions weakness in a scheduler service that lets a local, credentialed user run code as SYSTEM (CVSS&nbsp;v3.1 6.4 per ABB; v4 7.1 per CISA), and CVE-2026-15953 is a path traversal when importing a crafted project archive (about 5.0 / 5.6). ABB says neither is remotely exploitable and reports no direct effect on protection relays. The practical risk is to the engineering workstation itself: project data, configurations and security controls. ABB describes its scheduler change as a workaround rather than a fix; check the advisory for the current hotfix status.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; <b>Confirmed vs claimed:</b> advisory, CVEs and scores are as published by CISA and ABB and relayed by a third-party write-up; whether the 23&nbsp;Sep hotfix covers either flaw is not established here</span>
-            <span class="ops-tag kev-off"><span class="d"></span>Not in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Workaround from ABB; see advisory and ABB notice for hotfix status</span>
-            <span class="ops-cc"><b>Action:</b> Restrict who can log on to PCM600 engineering workstations, apply ABB&rsquo;s scheduler workaround, and only import project archives from trusted sources. Keep the workstation off the corporate and internet-facing network.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory PCM600 installs &mdash; 7 days; apply workaround/hotfix &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="abb-pcm600" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="abb-pcm600">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-274-03; ABB security notice</span>
-          <span class="dot">&bull;</span>
-          <span>Released 1 Oct 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-03" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       
 
       
@@ -1424,7 +1425,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> Compiled and verified against primary sources on Sun, 11 Oct 2026, 2:09 AM ET refresh. This refresh re-swept industrial-security press, CISA bulletins and IT-security outlets (Industrial Cyber, SecurityWeek, The Hacker News, BleepingComputer, The Record, Cybersecurity Dive) and confirmed no new confirmed OT-disruptive incident since the previous edition. It added two CISA ICS advisory cards (ABB PCM600, 1&nbsp;Oct; Johnson Controls EasyIO FG, 6&nbsp;Oct, end-of-life with no fix) and retired the AnyDesk Linux proof-of-concept card, which concerns an IT remote-support tool with no reported exploitation. The 6&nbsp;October Hitachi Energy batch (Asset Suite, SOI, REB500, RTU500 CMU firmware) was not carded because advisory details could not be verified this run; check CISA directly. Every card is inside the 30-day window and Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Cisco, F5, Check Point, Schneider Electric, ABB, Johnson Controls, CERT@VDE, Nozomi Networks, ESET, Claroty, Rockwell Automation, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Previdian, Palo Alto Networks Unit 42 and its State of Critical Infrastructure Cybersecurity report, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record, ISSSource and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> Compiled and verified against primary sources on Sun, 11 Oct 2026, 12:08 PM ET refresh. This refresh re-swept industrial-security press, CISA bulletins and IT-security outlets (Industrial Cyber, SecurityWeek, Security Boulevard OT digest, The Hacker News, BleepingComputer, The Record, Cybersecurity Dive) and found no new confirmed OT-disruptive incident and no new exploited-ICS flaw since the morning edition (CISA publishes no ICS advisories on weekends). It added one card (court-confirmed insider sabotage and extortion case, SecurityWeek, 10&nbsp;Oct) and retired the ABB PCM600 advisory card to hold the story count steady. The 6&nbsp;October Hitachi Energy batch was not carded because advisory details could not be verified; check CISA directly. Every card is inside the 30-day window and Threat Level holds at 5.5 (Medium). Wired was not used. Sources: Citrix, the CISA KEV catalog, CISA ICS advisories, Fortinet, SonicWall, Cisco, F5, Check Point, Schneider Electric, ABB, Johnson Controls, CERT@VDE, Nozomi Networks, ESET, Claroty, Rockwell Automation, Google GTIG, watchTowr, Mandiant, DOE, NCC Group, the Colorado Governor&rsquo;s office, the City of Vicksburg, Previdian, Palo Alto Networks Unit 42 and its State of Critical Infrastructure Cybersecurity report, the US Coast Guard and FBI, Dragos, NIST and GAO; corroborated against Bloomberg, CyberScoop, Cybersecurity Dive, BleepingComputer, SecurityWeek, The Hacker News, The Record, ISSSource and Industrial Cyber. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
