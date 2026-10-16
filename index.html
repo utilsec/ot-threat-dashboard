@@ -610,6 +610,47 @@
 <script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
 <div class="container">
 
+  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md) -->
+  <style>
+  .course-ad{display:flex;align-items:center;gap:18px;margin:0 0 16px;padding:14px 18px;border:1px solid #bfe0e3;border-left:5px solid #2c7480;border-radius:10px;background:linear-gradient(135deg,#e6f1f2 0%,#ffffff 72%);}
+  .course-ad__icon{flex:0 0 auto;display:block;width:64px;height:64px;}
+  .course-ad__body{flex:1 1 auto;min-width:0;}
+  .course-ad__tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#1f5c66;background:#d5eaec;padding:2px 9px;border-radius:999px;margin-bottom:6px;}
+  .course-ad__title{font-size:17px;font-weight:700;color:#1f2328;margin:0 0 3px;line-height:1.22;}
+  .course-ad__title span{color:#2c7480;font-weight:600;}
+  .course-ad__meta{font-size:13px;color:#4a4f55;margin:0 0 2px;}
+  .course-ad__blurb{font-size:12.5px;color:#5b6169;margin:2px 0 0;}
+  .course-ad__cta{flex:0 0 auto;display:inline-block;background:#2c7480;color:#fff;font-weight:700;font-size:13px;text-decoration:none;padding:10px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);}
+  .course-ad__cta:hover{background:#225c66;color:#fff;}
+  body.dark .course-ad{background:linear-gradient(135deg,rgba(44,116,128,.18) 0%,#0d1117 72%);border-color:#30363d;border-left-color:#3fa3b3;}
+  body.dark .course-ad__title{color:#e6edf3;}
+  body.dark .course-ad__title span{color:#7cc7d2;}
+  body.dark .course-ad__tag{color:#b8e3e9;background:rgba(44,116,128,.30);}
+  body.dark .course-ad__meta{color:#b9c1ca;}
+  body.dark .course-ad__blurb{color:#98a1ab;}
+  body.dark .course-ad__cta{background:#3a8f9c;color:#fff;}
+  body.dark .course-ad__cta:hover{background:#2c7480;}
+  @media(max-width:640px){.course-ad{flex-wrap:wrap;gap:12px;}.course-ad__cta{width:100%;text-align:center;}}
+  </style>
+  <div class="course-ad">
+    <svg class="course-ad__icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On-demand video course">
+      <rect x="1" y="1" width="62" height="62" rx="12" fill="#2c7480"/>
+      <rect x="10" y="14" width="44" height="29" rx="3.5" fill="#ffffff"/>
+      <path d="M28 21.5 L40 28.5 L28 35.5 Z" fill="#2c7480"/>
+      <rect x="28" y="44" width="8" height="4" fill="#ffffff"/>
+      <rect x="20" y="48" width="24" height="3.5" rx="1.75" fill="#ffffff"/>
+    </svg>
+    <div class="course-ad__body">
+      <span class="course-ad__tag">On-demand course &middot; Start anytime</span>
+      <div class="course-ad__title">Getting Started in OT/ICS Cybersecurity <span>&mdash; now on demand</span></div>
+      <div class="course-ad__meta">With Mike Holcomb &middot; Self-paced, with hands-on labs</div>
+      <div class="course-ad__blurb">Learn to protect our families, friends, and communities &mdash; the fundamentals of industrial control system security, at your own pace.</div>
+    </div>
+    <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Get started today &rarr;</a>
+  </div>
+  <!-- /COURSE AD -->
+
+
   <!-- DISCLAIMER -->
   <div class="disclaimer">
     <strong>For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity and exploitation indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
@@ -649,7 +690,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thu, 15 Oct 2026, 8:09 PM ET</span>
+        <span>Generated Fri, 16 Oct 2026, 10:12 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -686,7 +727,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:70.0%;"></span></div>
-      <div class="tl-why"><b>Why 7.0 (High):</b> A confirmed attack on refrigeration controllers hit about 700 French supermarkets across several chains at once, with fires and food loss; a second vendor is now named.<br><b>Top threat:</b> Forced defrost on Danfoss and Copeland/Dixell controllers (11&ndash;12 Oct); actor and route unknown.<br><b>Confirmed OT attack:</b> French supermarket refrigeration (Paris prosecutor, ANSSI investigating); Colorado water tampering (announced 18 Sep).<br><b>Also watching:</b> Ahold Delhaize outage (EU and US sites; store OT unconfirmed); Tanker propulsion access (reported); n0n port-data extortion claims (unverified); Citrix, Ivanti, Fortinet and SonicWall edge zero-days; Siemens, Rockwell, ABB fixes.<br><b>What would raise it:</b> Confirmed impact outside Europe, spread to other sectors, or a nation-state actor tied to it.</div>
+      <div class="tl-why"><b>Why 7.0 (High):</b> A confirmed attack on refrigeration controllers hit about 700 French supermarkets across several chains at once, with fires and food loss; a second vendor is now named.<br><b>Top threat:</b> Forced defrost on Danfoss and Copeland/Dixell controllers (11&ndash;12 Oct); actor and route unknown.<br><b>Confirmed OT attack:</b> French supermarket refrigeration (Paris prosecutor, ANSSI investigating); Colorado water tampering (announced 18 Sep).<br><b>Also watching:</b> Ahold Delhaize outage (store OT unconfirmed); tanker propulsion access (reported); n0n port-data claims (unverified); Citrix, Ivanti, Fortinet, SonicWall edge zero-days.<br><b>What would raise it:</b> Confirmed impact outside Europe, spread to other sectors, or a nation-state actor tied to it.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -695,10 +736,10 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-fr-refrigeration" data-published="2026-10-14">
+    <div class="top-story" id="story-fr-refrigeration" data-published="2026-10-15">
         <span class="top-story-pill">Top Story</span>
         <h2>Refrigeration hack hits about 700 French supermarkets; France&rsquo;s cyber agency now names Copeland as well as Danfoss</h2>
-        <p>Attackers remotely pushed refrigeration controllers at French supermarkets into defrost from the night of 11&nbsp;October, driving cabinets and cold rooms toward 50&deg;C, starting fires at some stores and spoiling stock. France&rsquo;s finance minister told Parliament on 13&nbsp;October that about 700 of the country&rsquo;s 10,000 supermarkets were affected, including Intermarch&eacute;, Netto, Coop&eacute;rative&nbsp;U, Carrefour and Monoprix. The French cyber agency ANSSI reports numerous compromises of remote-control modules from Danfoss and, newly, Copeland&rsquo;s Dixell line; both vendors say the affected units were older, end-of-life products. Claroty&rsquo;s Team82 had warned in August that such controllers could be told to &ldquo;defrost the food&rdquo;; 618 Danfoss devices were still internet-reachable on 15&nbsp;October, per The Register. No group has claimed it, and no actor, entry route or CVE is confirmed; the Paris prosecutor is investigating. It shows web-managed building controllers can cause physical loss.</p>
+        <p>Attackers remotely forced refrigeration controllers at French supermarkets into defrost from the night of 11&nbsp;October, pushing cabinets toward 50&deg;C, starting fires at some stores and spoiling stock. France&rsquo;s finance minister put the toll at about 700 of 10,000 supermarkets, across Intermarch&eacute;, Carrefour, Monoprix, Coop&eacute;rative&nbsp;U and E.Leclerc. CERT-FR first named Danfoss AK-series controllers, then on 13&nbsp;October added Copeland&rsquo;s Dixell XWEB systems; both vendors say most affected units are older, end-of-life models. Sekoia told Reuters that stores in Spain, Portugal, Poland, Germany and Belgium were also hit, without detail. Censys saw French-exposed Danfoss panels fall from over 1,800 to 537 in three days, yet Reuters and Onyphe still counted at least 4,500 Danfoss interfaces online on 14&nbsp;October. No group, entry route or CVE is confirmed; the Paris prosecutor is investigating. It shows web-managed building controllers can cause physical loss.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed attack on refrigeration control systems &mdash; acknowledged by the retailers, by France&rsquo;s finance minister and by ANSSI, and under investigation by the Paris prosecutor. <b>Confirmed vs claimed:</b> the attack, the forced-defrost effect and the ~700-store figure (a government statement) are confirmed; ANSSI&rsquo;s Copeland/Dixell finding is the agency&rsquo;s, and Copeland says the flaw is in a discontinued controller generation; Le Monde&rsquo;s report that defrost cycles were stretched to as long as eight hours to delay alarms is press reporting, not an investigator&rsquo;s reconstruction; impact in other European countries is reported but unconfirmed; no actor, entry route or CVE has been named</span>
@@ -715,9 +756,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>AP via News4JAX (13 Oct 2026); Reuters via The Star (14 Oct 2026); Cybernews; IBTimes citing Le Monde (13 Oct 2026); SecurityWeek and Industrial Cyber (13 Oct 2026); Danfoss statement (12 Oct 2026); Claroty Team82 research (Aug 2026)</span>
+          <span>AP via News4JAX (13 Oct 2026); Reuters via The Star (14 Oct 2026); Cybernews; IBTimes citing Le Monde (13 Oct 2026); SecurityWeek (15 Oct 2026) and Industrial Cyber (13 Oct 2026); Danfoss statement (12 Oct 2026); Claroty Team82 research (Aug 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Attack from the night of 11 Oct 2026; updated 14 Oct 2026 &mdash; investigation ongoing</span>
+          <span>Attack from the night of 11 Oct 2026; updated 16 Oct 2026 (Euronews/Reuters 14 Oct: 4,500+ Danfoss interfaces still exposed; SecurityWeek: CERT-FR adds Copeland/Dixell; Sekoia: other EU countries) &mdash; investigation ongoing</span>
         </div>
         <a href="https://www.news4jax.com/business/2026/10/13/cyberattack-targeting-refrigeration-systems-hits-700-supermarkets-french-government-says/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
