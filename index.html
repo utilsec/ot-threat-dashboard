@@ -690,7 +690,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 17 Oct 2026, 6:09 PM ET</span>
+        <span>Generated Sun, 18 Oct 2026, 12:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -839,10 +839,10 @@
         <a href="https://industrialcyber.co/ai/mccrary-institute-outlines-three-priorities-for-defending-critical-infrastructure-against-ai-enabled-cyberattacks/" class="source-link" target="_blank" rel="noopener">Industrial Cyber (McCrary Institute)</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Cold Chain &amp; Retail OT</span>
+        <span class="trend-tag">Cold Chain &amp; Building OT</span>
         <b class="trend-head">Refrigeration and building controls become a physical-impact target</b>
-        <p>The 11&ndash;13&nbsp;October forced-defrost attack on French supermarket refrigeration (see top story) put web-managed cold-chain controllers in the spotlight. On 13&nbsp;October France&rsquo;s finance minister put the toll at about 700 stores, and ANSSI added Copeland&rsquo;s Dixell line to Danfoss as compromised; both vendors say the affected units are older, end-of-life models, and Claroty Team82 showed flaws in both vendors&rsquo; platforms in August. Officials have not named an entry route or an actor.</p>
-        <a href="https://claroty.com/team82/research/freeze-the-controller-defrost-the-food-uncovering-vulnerabilities-in-danfoss-refrigeration-controllers" class="source-link" target="_blank" rel="noopener">Claroty Team82 (Danfoss)</a>
+        <p>The 11&ndash;13&nbsp;October forced-defrost attack on French supermarket refrigeration (see top story) put web-managed cold-chain controllers in the spotlight, and 17&nbsp;October coverage widened it to building systems: Armis Labs reports most organizations run building automation with known exploited flaws and insecure protocols such as BACnet, and cites an August ransomware incident that disrupted a Canadian hospital&rsquo;s HVAC monitoring and access systems. Officials have not named an entry route or actor for the French attack.</p>
+        <a href="https://theregister.com/security/2026/10/17/cybercrims-go-beyond-stealing-data-to-attack-physical-building-systems/5303677" class="source-link" target="_blank" rel="noopener">The Register (building systems)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Third-Party Access</span>
@@ -1135,7 +1135,38 @@
 
       
 
-      <div class="card" id="story-mitre-attack-v20" data-published="2026-10-16">
+      <div class="card" id="story-booz-ai-ot" data-published="2026-10-08">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research &mdash; Booz Allen lab test of frontier AI models against a simulated factory network; no CVE</span>
+        </div>
+        <h3>Booz Allen: AI models went from a perimeter foothold to commands on industrial controllers in about 16 minutes in a lab</h3>
+        <p>Booz Allen published results on 8&nbsp;October from its OT cybersecurity lab, a multi-vendor mock-up of a manufacturing site. Across eight scenarios, frontier AI models met every test objective without source code, engineering documents or OT-specific guidance; in one run a model moved a robotic arm. Firewalls, segmentation and endpoint protection slowed some actions but no single control stopped the models consistently, while a controller that rejected a stop command and a motor in local-control mode held up. This was an isolated lab, and human operators approved every exploit and any action with physical effect, so it shows speed and adaptability, not an observed attack.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Vendor lab research &mdash; <b>Confirmed vs claimed:</b> results are Booz Allen&rsquo;s own, from a controlled lab with human approval of each step; no real-world attack is reported</span>
+            <span class="ops-tag kev-off">No CVE &mdash; research and guidance</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies</span>
+            <span class="ops-cc"><b>Action:</b> Treat the IT-to-OT boundary as the control that must hold: verify segmentation and remote-access paths, keep local-mode and hardware interlocks in place, and alert on unexpected engineering commands so a fast intruder is noticed in minutes, not days.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Boundary and remote-access review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="booz-ai-ot" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="booz-ai-ot">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Booz Allen Hamilton research</span>
+          <span class="dot">&bull;</span>
+          <span>Published 8 Oct 2026</span>
+        </div>
+        <a href="https://www.boozallen.com/insights/cyber/frontier-si-reaches-ot-systems.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      
+<div class="card" id="story-mitre-attack-v20" data-published="2026-10-16">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Research &mdash; MITRE ATT&amp;CK v20 adds ICS techniques and two critical-infrastructure campaigns; no CVE</span>
@@ -1401,43 +1432,6 @@
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-02" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-redlion-ntron" data-published="2026-10-08">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory &mdash; CISA ICSA-26-281-01, Red Lion Controls N-Tron 700 Series industrial switches; seven CVEs; no known exploitation</span>
-        </div>
-        <h3>CISA lists seven flaws in Red Lion N-Tron 700 Series industrial Ethernet switches, including administrator takeover and repeated reboots</h3>
-        <p>CISA published ICSA-26-281-01 on 8&nbsp;October covering seven vulnerabilities in Red Lion Controls&rsquo; N-Tron 700 Series switches, which are commonly used to connect devices on plant and substation networks. Depending on the flaw, an attacker could gain device-administrator access or force a switch to reboot repeatedly, which would interrupt traffic for everything behind it. Red Lion recommends upgrading to firmware 3.11.1 or later. CISA reports no known public exploitation, and the advisory&rsquo;s CVSS scores are not repeated here. In our assessment the practical risk is an attacker who is already on the network, so management-interface exposure matters most.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; CISA reports none. <b>Confirmed vs claimed:</b> the advisory, product line, CVE count and fixed firmware version are from CISA; the description of where these switches are used is ours</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Upgrade to firmware 3.11.1 or later per the advisory</span>
-            <span class="ops-cc"><b>Action:</b> Find any N-Tron 700 Series switches, upgrade to 3.11.1 or later, and make sure their management interfaces are reachable only from a dedicated administration network.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and exposure check &mdash; 14 days; upgrade &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="redlion-ntron" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="redlion-ntron">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-281-01 (CISA bulletin 8 Oct 2026; Security Boulevard roundup 17 Oct)</span>
-          <span class="dot">&bull;</span>
-          <span>Released 8 Oct 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-01" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      
-
-      
-
-
-
-
       <div class="card" id="story-sonicwall-sma1000" data-published="2026-10-12">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1568,7 +1562,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition: the 17&nbsp;October late-afternoon refresh, rechecked against Industrial Cyber, SecurityWeek, BleepingComputer, the CISA ICS advisory bulletins and French-press coverage of the refrigeration attacks; no material new developments were found since the 2:10&nbsp;PM edition, so the story set is unchanged. Added the Palo Alto Networks PAN-OS zero-day (CVE-2026-0322, 14&nbsp;October, in CISA KEV); the French refrigeration lead, with CERT-FR&rsquo;s 16&nbsp;October warning that campaigns are probably ongoing, is unchanged and no actor or entry route has been named. No new confirmed OT incident, so the Threat Level stays at 7.0 (High). Every card sits inside the 30-day window or carries a forward-looking date. Wired was not used. Sources: MITRE ATT&amp;CK, Danfoss and retailer statements, Claroty Team82, Nozomi Networks, Booz Allen, SOCRadar, FERC, CISA ICS advisories and KEV, Palo Alto Networks, SonicWall, Citrix, Ivanti, Fortinet, Hitachi Energy, BeyondTrust, Mandiant, Siemens, Rockwell, ABB, the Colorado Governor&rsquo;s office and the FBI; corroborated against SecurityWeek, Industrial Cyber, AP, Reuters, Cybernews, BleepingComputer, The Hacker News, The Record, CyberScoop and Cybersecurity Dive. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition: the early-morning 18&nbsp;October refresh, rechecked against SecurityWeek, Industrial Cyber, The Register, Security Boulevard&rsquo;s daily OT roundup, the CISA ICS advisory bulletins and KEV, and coverage of the French refrigeration attacks. No material new developments were found on the lead story since the 10&nbsp;PM edition (CERT-FR&rsquo;s 16&nbsp;October warning that campaigns are probably ongoing still stands; no actor, entry route or CVE named). Added Booz Allen&rsquo;s 8&nbsp;October lab test of AI models against a simulated factory network (research, not an observed attack) and retired the Red Lion N-Tron advisory card; the Trends strip now carries The Register&rsquo;s 17&nbsp;October building-systems coverage, built on Armis Labs research. No new confirmed OT incident, so the Threat Level stays at 7.0 (High). Every card sits inside the 30-day window or carries a forward-looking date. Wired was not used. Sources: The Register, Armis Labs via Facilities Dive, MITRE ATT&amp;CK, Danfoss and retailer statements, Claroty Team82, Nozomi Networks, Booz Allen, SOCRadar, FERC, CISA ICS advisories and KEV, Palo Alto Networks, SonicWall, Citrix, Ivanti, Fortinet, Hitachi Energy, BeyondTrust, Mandiant, Siemens, Rockwell, ABB, the Colorado Governor&rsquo;s office and the FBI; corroborated against SecurityWeek, Industrial Cyber, AP, Reuters, Cybernews, BleepingComputer, The Hacker News, The Record, CyberScoop and Cybersecurity Dive. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
