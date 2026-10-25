@@ -690,13 +690,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 25 Oct 2026, 12:09 PM ET</span>
+        <span>Generated Sun, 25 Oct 2026, 2:08 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across <strong>4</strong> categories
+      <strong>15</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -1075,6 +1075,36 @@
         <a href="https://www.boozallen.com/insights/cyber/frontier-si-reaches-ot-systems.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-phantom-ai-ransomware" data-published="2026-10-23">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Threat Intel &mdash; SOCRadar analysis of AI-assisted ransomware intrusions aimed mainly at industrial, manufacturing and energy organisations</span>
+        </div>
+        <h3>AI-agent ransomware toolkit &ldquo;Phantom&rdquo; used edge and remote-access flaws against industrial, manufacturing and energy targets</h3>
+        <p>SOCRadar researchers, reported by The Hacker News on 23&nbsp;October, found an exposed directory showing affiliates of the INC and The Gentlemen ransomware groups running intrusions through an AI-agent framework called Phantom, with a human operator writing prompts and reviewing each step. Entry came through internet-facing systems such as FortiClient EMS, SimpleHelp, cPanel and VPN gateways, and one reused password opened VPN, backup, remote-management and security platforms. SOCRadar estimates about 62 organisations were targeted, most of them in the US, and four appeared on leak sites. The activity is IT-side data theft and extortion; the report describes no access to controllers or SCADA, but the same edge entry points and reused credentials are what an attacker needs to reach OT-adjacent networks.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation of edge flaws by ransomware affiliates &mdash; <b>Confirmed vs claimed:</b> the tooling, session logs and target estimate are SOCRadar&rsquo;s findings from an exposed directory, and the Russian-speaking operator attribution is an assessment; no OT or ICS compromise is reported</span>
+            <span class="ops-tag kev-off">Three exploited CVEs cited (CVE-2024-57727, CVE-2026-35616, CVE-2026-41940); KEV status not checked for each</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Patch the cited FortiClient EMS, SimpleHelp and cPanel flaws and remove direct internet exposure of remote-access tools</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every VPN gateway, remote-support and endpoint-management service reachable from the internet, patch or retire it, and enforce multi-factor authentication. Stop password reuse between IT and OT-facing accounts, keep OT backups and engineering workstations off shared credentials, and alert on bulk file collection from finance and engineering shares.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposed remote-access review &mdash; 7 days; credential-reuse cleanup for OT-adjacent accounts &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="phantom-ai-ransomware" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="phantom-ai-ransomware">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News, citing SOCRadar (23 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 23 Oct 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-ccrf-small-utilities" data-published="2026-10-20">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1356,7 +1386,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition: refreshed 25&nbsp;October 2026 (10:09&nbsp;AM ET). The window was re-queried against Industrial Cyber and SecurityWeek and no newer confirmed OT incident or advisory surfaced after 23&nbsp;October, so content and the Threat Level are unchanged from the prior edition. Prior edition: 24&nbsp;October 2026 (5:01&nbsp;PM ET). The window was re-queried 17&ndash;24&nbsp;October and the Threat Level recomputed; no new confirmed OT incident surfaced since the 4:00&nbsp;AM edition, so the top story remains the French supermarket refrigeration attack, led by Forescout&rsquo;s exposure count. The one addition is the US Coast Guard&rsquo;s NVIC&nbsp;02-26 maritime cybersecurity guidance (23&nbsp;October, via Industrial Cyber). The edition was previously trimmed to 13 cards: the SonicWall SMA1000, FortiBleed and PAN-OS cards (older exploitation-attempt and edge items, still described in Trends where relevant), the ConnectWise Storm-0940 card and the Team82 AI-exploit card were retired to keep the page focused. Statements were re-checked against Rapid7 (BeyondTrust, published 19&nbsp;October), Cybersecurity Dive and Industrial Cyber (SafePay, 21&ndash;22&nbsp;October), Help Net Security (Siemens Software Center, 20&nbsp;October; French and Dutch grocer attacks, 12&ndash;13&nbsp;October), The Record (Community Cyber Resilience Foundation, 21&nbsp;October), Forescout and the Coast Guard NVIC via Industrial Cyber (23&nbsp;October) and AP (French refrigeration, via Insurance Journal, 16&nbsp;October). The Threat Level is 5.5 (Medium, unchanged): one confirmed OT-disruptive attack across several retailers in a single sector, with no multi-sector OT impact and no confirmed hands-on-OT nation-state activity. Every card sits inside the 30-day window. Wired was not used. Sources this run: CERT-FR, Forescout, CISA ICS advisories and KEV, Siemens ProductCERT, Schneider Electric, Mitsubishi Electric, Unit 42, Microsoft, Dragos, Booz Allen, Citrix, Ivanti, BeyondTrust, the FBI and FERC; corroborated against Rapid7, The Record, SecurityWeek, Industrial Cyber, The Hacker News, BleepingComputer, Cybersecurity Dive, Help Net Security and AP. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition: refreshed 25&nbsp;October 2026 (2:08&nbsp;PM ET). The window was re-queried against Security Boulevard, Cyware and The Hacker News; the one addition is the SOCRadar Phantom AI-ransomware report (23&nbsp;October), and no newer confirmed OT incident surfaced, so the top story and Threat Level (5.5) are unchanged. Prior edition: 25&nbsp;October 2026 (10:09&nbsp;AM ET). The window was re-queried against Industrial Cyber and SecurityWeek and no newer confirmed OT incident or advisory surfaced after 23&nbsp;October, so content and the Threat Level are unchanged from the prior edition. Prior edition: 24&nbsp;October 2026 (5:01&nbsp;PM ET). The window was re-queried 17&ndash;24&nbsp;October and the Threat Level recomputed; no new confirmed OT incident surfaced since the 4:00&nbsp;AM edition, so the top story remains the French supermarket refrigeration attack, led by Forescout&rsquo;s exposure count. The one addition is the US Coast Guard&rsquo;s NVIC&nbsp;02-26 maritime cybersecurity guidance (23&nbsp;October, via Industrial Cyber). The edition was previously trimmed to 13 cards: the SonicWall SMA1000, FortiBleed and PAN-OS cards (older exploitation-attempt and edge items, still described in Trends where relevant), the ConnectWise Storm-0940 card and the Team82 AI-exploit card were retired to keep the page focused. Statements were re-checked against Rapid7 (BeyondTrust, published 19&nbsp;October), Cybersecurity Dive and Industrial Cyber (SafePay, 21&ndash;22&nbsp;October), Help Net Security (Siemens Software Center, 20&nbsp;October; French and Dutch grocer attacks, 12&ndash;13&nbsp;October), The Record (Community Cyber Resilience Foundation, 21&nbsp;October), Forescout and the Coast Guard NVIC via Industrial Cyber (23&nbsp;October) and AP (French refrigeration, via Insurance Journal, 16&nbsp;October). The Threat Level is 5.5 (Medium, unchanged): one confirmed OT-disruptive attack across several retailers in a single sector, with no multi-sector OT impact and no confirmed hands-on-OT nation-state activity. Every card sits inside the 30-day window. Wired was not used. Sources this run: CERT-FR, Forescout, CISA ICS advisories and KEV, Siemens ProductCERT, Schneider Electric, Mitsubishi Electric, Unit 42, Microsoft, Dragos, Booz Allen, Citrix, Ivanti, BeyondTrust, the FBI and FERC; corroborated against Rapid7, The Record, SecurityWeek, Industrial Cyber, The Hacker News, BleepingComputer, Cybersecurity Dive, Help Net Security and AP. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
