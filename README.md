@@ -1,7 +1,8 @@
 # OT/ICS Cybersecurity Threat Intelligence Dashboard
 
-Auto-generated daily dashboard, published via GitHub Pages and embedded on
-https://www.mikeholcomb.com.
+Auto-generated daily dashboard, published via GitHub Pages.
+
+**Live dashboard: https://otthreatfeed.com**
 
 - `index.html` is regenerated each day by an automated task and overwritten here.
 - `publish.bat` commits and pushes the latest `index.html` to GitHub.
