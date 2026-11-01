@@ -690,13 +690,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Fri, 30 Oct 2026, 11:20 PM ET</span>
+        <span>Generated Sat, 31 Oct 2026, 12:08 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across <strong>4</strong> categories
+      <strong>17</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -720,14 +720,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to operators across all critical-infrastructure sectors. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity that is currently live. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:58.0%;"></span></div>
-      <div class="tl-why"><b>Why 5.8 (Medium):</b> Russia-aligned crews tampering with exposed controls is documented across several sectors and countries, but no new disruption was confirmed this week and nothing is coordinated or widespread.<br><b>Top threat:</b> CARR and Z-Pentest manipulating internet-exposed pump, refrigeration and HVAC controllers with weak passwords.<br><b>Confirmed OT attack:</b> French supermarket refrigeration, 11&ndash;13&nbsp;Oct; earlier Danish, Spanish and US cases in Bloomberg&rsquo;s 27&nbsp;Oct review.<br><b>Also watching:</b> Pentagon freezer failures (suspected hack, unconfirmed); PHP2Shell in KEV; edge-device flaws; SafePay.<br><b>What would raise it:</b> Confirmed new disruption in a second sector, or live hands-on OT activity by a nation-state.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:55.0%;"></span></div>
+      <div class="tl-why"><b>Why 5.5 (Medium):</b> The only confirmed OT-disruptive attack in the last 30 days is still the single-sector French refrigeration attack; this week brought confirmed edge intrusions and state pre-positioning, not new OT disruption.<br><b>Top threat:</b> PHP2Shell chained with a Linux kernel flaw to root exposed firewalls, and now listed in grid-control, DCS and RTU products, several unfixed.<br><b>Confirmed OT attack:</b> French supermarket refrigeration, 11&ndash;13&nbsp;Oct; nothing newer.<br><b>Also watching:</b> Volt Typhoon in management platforms; Russia-aligned tampering with exposed controls; suspected US commissary freezer hack; Cisco ASA and Ivanti VPN flaws in KEV.<br><b>What would raise it:</b> A confirmed new OT disruption in a second sector, or live hands-on OT activity by a nation-state.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -736,31 +736,31 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="story-ru-hacktivist-ot" data-published="2026-10-27">
+    <div class="top-story" id="story-php2shell-ot-vendors" data-published="2026-10-30">
         <span class="top-story-pill">Top Story</span>
-        <h2>Russia-aligned hackers are manipulating exposed industrial controls across NATO countries, Bloomberg reports</h2>
-        <p>Bloomberg&rsquo;s 27&nbsp;October investigation describes a loose network of pro-Russian hacktivist crews, chiefly CARR and Z-Pentest, tampering with exposed industrial controls across NATO countries since late 2024. Documented cases include a Danish water-pump controller set to zero pressure and then surged, bursting pipes and cutting water to about 450 homes (password &ldquo;1234&rdquo;); a Los Angeles-area meatpacker whose refrigeration was shut off, causing an ammonia leak; and Spanish crematorium, winery and transformer-factory incidents. Attribution of individual cases is mostly unconfirmed and CISA says these groups exaggerate, yet US charges and sanctions treat CARR as GRU-directed. The common thread is internet-exposed controllers with weak passwords, not sophisticated malware, so basic exposure and password hygiene blocks most of it.</p>
+        <h2>PHP2Shell attacks rooted about two dozen Palo Alto firewalls, and Siemens, Schneider and ABB now list grid-control, DCS and RTU products, several with no fix</h2>
+        <p>Palo Alto Networks&rsquo; Unit&nbsp;42 said on 29&nbsp;October that it had independently verified research by Israeli firm Dream: a suspected China-nexus actor chained the PHP2Shell flaws (CVE-2026-109618 and CVE-2026-109619, CVSS&nbsp;v4.0 9.2 per the PHP Group) with the Linux kernel privilege-escalation flaw CVE-2026-46300 to gain root on about two dozen internet-exposed PAN-OS firewall and management servers on 23&ndash;24&nbsp;October. Victims were in the US, including a US government-affiliated network, and in Japan, Taiwan and South Korea, and the intruders went on to steal Active Directory credentials. Palo Alto&rsquo;s advisory (Critical since 27&nbsp;October) reports exploitation of exposed management interfaces, and all PAN-OS hotfixes were out by 29&nbsp;October. CISA added CVE-2026-46300 to KEV on 28&nbsp;October, noting that it can be chained with PHP2Shell to plant web shells and run commands as root. No OT operator has been named, and no exploitation of Siemens&rsquo; PAN-OS-based RUGGEDCOM APE1808 is reported (SSA-566512 went to V1.1 on 28&nbsp;October, an administrative revision; fixes still come through Siemens support). The OT exposure widened during the week. Siemens&rsquo; SSA-166980 (V1.2, 29&nbsp;October) now lists web and monitoring components of its Spectrum Power 3, 4, 7 and TG grid-control systems, plus AMIS TS, blueplanet 360 and Energy Engage, as affected; there is no fix for Spectrum Power 4, AMIS TS, blueplanet 360 or Energy Engage V2.0SP9, while the others take PHP or Red Hat updates. Schneider&rsquo;s SESB-2026-295-01 (v3.0.0, 28&nbsp;October; now v3.2.0) adds the EcoStruxure Foxboro DCS H90 Server, with port blocking as the only mitigation. ABB published PHP2Shell advisories for Netcontrol RTUs and NAM (30&nbsp;October, no fix yet), Arctic ARG/ARP/ARR/ARC/ARM600 wireless gateways (30&nbsp;October; obsolete, and ABB will not fix them) and ASPECT (29&nbsp;October, no firmware fix at publication), and had not published its planned APROL patch as of 31&nbsp;October; Welotec and Mettler Toledo notices followed through CERT@VDE. The same kernel flaw is in the Linux subsystem of Siemens&rsquo; S7-1500 CPU 1518(F)-4 PN/DP MFP (V3.1.7 fixes it on V3.1.6; no fix for V3.1.5), though it needs local access. Attribution is suspected, not confirmed, and no Siemens, Schneider or ABB product is reported exploited.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span><b>Confirmed vs claimed:</b> the Danish water incident was confirmed as a hack by the controller maker; US/EU charges and sanctions on CARR and Z-Pentest members are official; the Spanish and 2024 US cases are not attributed in the report, and the groups&rsquo; own claims are not independently verified</span>
-            <span class="ops-tag kev-off">No CVE &mdash; weak or default passwords and exposed remote access (such as VNC) on HMIs and controllers; not in CISA KEV</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> the root compromises are Dream&rsquo;s findings, verified by Unit&nbsp;42, and Palo Alto confirms exploitation of exposed PAN-OS management interfaces; the China-nexus attribution is suspected, not confirmed; victims are unnamed; the affected OT products come from Siemens&rsquo;, Schneider&rsquo;s and ABB&rsquo;s own advisories, and none of them is reported exploited</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-109618 and CVE-2026-109619 added 26 Oct 2026 (federal deadline 29 Oct); Linux CVE-2026-46300 (CVSS&nbsp;v3.1 7.8, Red Hat) added 28 Oct 2026 (deadline 31 Oct), as of CISA&rsquo;s 30 Oct catalog</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Configuration fix, not a patch &mdash; remove exposure and change credentials</span>
-            <span class="ops-cc"><b>Action:</b> Find every HMI, PLC, pump, refrigeration and HVAC controller reachable from the internet, remove the exposure or put it behind a VPN with multi-factor authentication, replace default and shared passwords, close open VNC, and alarm on setpoint and mode changes. Confirm operators can run the process manually if a controller is tampered with.</span>
+            <span class="ops-tag patch-now">Fixes: PHP 8.2.35, 8.3.36, 8.4.27 and 8.5.12 (21 Oct); all PAN-OS hotfixes out by 29 Oct; APE1808 via Siemens support; Siemens Spectrum Power 3, 7 and TG and Energy Engage V3.1SP1 via PHP or Red Hat updates; Schneider Control Engineering remediation and Security Expert 1.48.4.0. No fix: Spectrum Power 4, AMIS TS, blueplanet 360, Energy Engage V2.0SP9, Foxboro DCS H90 (block ports), ABB Netcontrol/NAM, ASPECT and Arctic (never); ABB APROL patch not yet published</span>
+            <span class="ops-cc"><b>Action:</b> Take PAN-OS and RUGGEDCOM APE1808 management interfaces off the internet, restrict them to a jump host and apply the hotfixes; if one was exposed before patching, hunt for web shells and root-level changes and reset the Active Directory credentials it could reach. Ask Siemens which Spectrum Power, AMIS TS and Energy Engage components you run, and keep no-fix web and monitoring components reachable only from a management network. Block TCP 2301 and 2381 to Foxboro DCS H90 servers; keep ABB RTUs, NAM and Arctic gateways off the internet, reach their web interfaces only over VPN from a dedicated host, and plan replacement of the Arctic units. Get every other OT vendor&rsquo;s PHP2Shell position in writing.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure check &mdash; 48 hours; default-password and remote-access cleanup &mdash; 7 days; setpoint-change alerting and manual-operation drill &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ru-hacktivist-ot" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="ru-hacktivist-ot">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Restrict exposed PAN-OS / APE1808 management interfaces &mdash; immediately (actively exploited); compromise hunt on any device exposed before patching &mdash; 72 hours; OT vendor inventory and isolation of no-fix products &mdash; 7 days; patch where fixes exist &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="php2shell-ot-vendors" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="php2shell-ot-vendors">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Bloomberg News via Bloomberg Law (27 Oct 2026; partly paywalled); Meduza summary (28 Oct 2026); Tech Times (29 Oct 2026)</span>
+          <span>Unit&nbsp;42 (updated 29 Oct 2026); Palo Alto Networks advisory for CVE-2026-109618 (updated 29 Oct 2026); The Record (29 Oct 2026) and Infosecurity Magazine (30 Oct 2026), citing Dream; CISA KEV catalog (30 Oct 2026 release); Siemens SSA-166980 V1.2 (29 Oct 2026), SSA-566512 V1.1 (28 Oct 2026), SSA-019113 and SSA-082556; Schneider Electric SESB-2026-295-01 v3.2.0 (30 Oct 2026); ABB Netcontrol and Arctic advisories (30 Oct 2026), ASPECT advisory (29 Oct 2026) and APROL SA26P015 (23 Oct 2026); CERT@VDE VDE-2026-127 and VDE-2026-137</span>
           <span class="dot">&bull;</span>
-          <span>Published 27 Oct 2026; incidents span late 2024 to summer 2026</span>
+          <span>Root compromises 23&ndash;24 Oct 2026, verified by Unit&nbsp;42 29 Oct 2026; KEV additions 26 and 28 Oct 2026; Siemens, Schneider and ABB updates 28&ndash;30 Oct 2026</span>
         </div>
-        <a href="https://news.bloomberglaw.com/business-and-practice/hackers-sympathetic-to-russia-are-hitting-utilities-factories" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -789,27 +789,33 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-ru-hacktivist-ot"><circle class="blip crit" cx="180.0" cy="95.0" r="15.00"/><text class="blip-num" style="font-size:14.2px" x="180.0" y="99.7">1</text></a>
-        <a href="#story-fr-refrigeration"><circle class="blip crit" cx="253.6" cy="222.5" r="13.50"/><text class="blip-num" style="font-size:12.8px" x="253.6" y="226.7">2</text></a>
-        <a href="#story-php2shell-ot-vendors"><circle class="blip crit" cx="106.4" cy="222.5" r="12.00"/><text class="blip-num" style="font-size:11.4px" x="106.4" y="226.3">3</text></a>
-        <a href="#story-pentagon-freezers"><circle class="blip high" cx="247.5" cy="63.1" r="9.00"/><text class="blip-num" style="font-size:8.5px" x="247.5" y="65.9">4</text></a>
-        <a href="#story-safepay-aa26-293a"><circle class="blip high" cx="315.0" cy="180.0" r="8.40"/><text class="blip-num" style="font-size:8.0px" x="315.0" y="182.6">5</text></a>
-        <a href="#story-panos-globalprotect"><circle class="blip high" cx="247.5" cy="296.9" r="7.80"/><text class="blip-num" style="font-size:7.4px" x="247.5" y="299.4">6</text></a>
-        <a href="#story-siemens-software-center"><circle class="blip high" cx="112.5" cy="296.9" r="7.20"/><text class="blip-num" style="font-size:6.8px" x="112.5" y="299.2">7</text></a>
-        <a href="#story-oct-patch-tuesday"><circle class="blip high" cx="45.0" cy="180.0" r="6.60"/><text class="blip-num" style="font-size:6.3px" x="45.0" y="182.1">8</text></a>
-        <a href="#story-epics-base"><circle class="blip high" cx="112.5" cy="63.1" r="6.00"/><text class="blip-num" style="font-size:5.7px" x="112.5" y="65.0">9</text></a>
+        <a href="#story-php2shell-ot-vendors"><circle class="blip crit" cx="265.0" cy="180.0" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="265.0" y="184.7">1</text></a>
+        <a href="#story-fr-refrigeration"><circle class="blip crit" cx="95.0" cy="180.0" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="95.0" y="184.2">2</text></a>
+        <a href="#story-ru-hacktivist-ot"><circle class="blip high" cx="221.7" cy="51.6" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="221.7" y="54.4">3</text></a>
+        <a href="#story-pentagon-freezers"><circle class="blip high" cx="289.2" cy="100.6" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="289.2" y="103.4">4</text></a>
+        <a href="#story-volt-typhoon-silent-train"><circle class="blip high" cx="315.0" cy="180.0" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="315.0" y="182.6">5</text></a>
+        <a href="#story-asa-ivanti-kev"><circle class="blip high" cx="289.2" cy="259.4" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="289.2" y="261.8">6</text></a>
+        <a href="#story-safepay-aa26-293a"><circle class="blip high" cx="221.7" cy="308.4" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="221.7" y="310.7">7</text></a>
+        <a href="#story-panos-globalprotect"><circle class="blip high" cx="138.3" cy="308.4" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="138.3" y="310.6">8</text></a>
+        <a href="#story-siemens-software-center"><circle class="blip high" cx="70.8" cy="259.4" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="70.8" y="261.4">9</text></a>
+        <a href="#story-hitachi-energy-tro600-coretec"><circle class="blip high" cx="45.0" cy="180.0" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="45.0" y="181.9">10</text></a>
+        <a href="#story-oct-patch-tuesday"><circle class="blip high" cx="70.8" cy="100.6" r="6.0"/><text class="blip-num" style="font-size:5.7px" x="70.8" y="102.5">11</text></a>
+        <a href="#story-epics-base"><circle class="blip high" cx="138.3" cy="51.6" r="6.0"/><text class="blip-num" style="font-size:5.7px" x="138.3" y="53.5">12</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-ru-hacktivist-ot"><span class="ld crit"></span><b>1</b> Russia-aligned hackers tamper with exposed controls (Bloomberg)</a>
+        <a href="#story-php2shell-ot-vendors"><span class="ld crit"></span><b>1</b> PHP2Shell: firewalls rooted, OT products hit</a>
         <a href="#story-fr-refrigeration"><span class="ld crit"></span><b>2</b> French supermarket refrigeration attack</a>
-        <a href="#story-php2shell-ot-vendors"><span class="ld crit"></span><b>3</b> PHP2Shell: in KEV, PAN-OS attacks, OT products</a>
-        <a href="#story-pentagon-freezers"><span class="ld high"></span><b>4</b> Pentagon: suspected cyberattack on base freezers (Reuters)</a>
-        <a href="#story-safepay-aa26-293a"><span class="ld high"></span><b>5</b> SafePay ransomware: 600+ victims (AA26-293A)</a>
-        <a href="#story-panos-globalprotect"><span class="ld high"></span><b>6</b> PAN-OS GlobalProtect bypass: ransomware use</a>
-        <a href="#story-siemens-software-center"><span class="ld high"></span><b>7</b> Siemens Software Center: exploited, in KEV</a>
-        <a href="#story-oct-patch-tuesday"><span class="ld high"></span><b>8</b> October ICS fixes: ICONICS, WAGO, Siemens</a>
-        <a href="#story-epics-base"><span class="ld high"></span><b>9</b> EPICS Base: four flaws, one rated critical</a>
+        <a href="#story-ru-hacktivist-ot"><span class="ld high"></span><b>3</b> Russia-aligned hackers tamper with controls</a>
+        <a href="#story-pentagon-freezers"><span class="ld high"></span><b>4</b> Base freezer failures: suspected cyberattack</a>
+        <a href="#story-volt-typhoon-silent-train"><span class="ld high"></span><b>5</b> Volt Typhoon &ldquo;Silent Train&rdquo; (Lumen)</a>
+        <a href="#story-asa-ivanti-kev"><span class="ld high"></span><b>6</b> Cisco ASA/FTD and Ivanti VPN flaws in KEV</a>
+        <a href="#story-safepay-aa26-293a"><span class="ld high"></span><b>7</b> SafePay ransomware: 600+ victims (AA26-293A)</a>
+        <a href="#story-panos-globalprotect"><span class="ld high"></span><b>8</b> PAN-OS GlobalProtect bypass: ransomware use</a>
+        <a href="#story-siemens-software-center"><span class="ld high"></span><b>9</b> Siemens Software Center: exploited, in KEV</a>
+        <a href="#story-hitachi-energy-tro600-coretec"><span class="ld high"></span><b>10</b> Hitachi Energy TRO600 and CoreTec flaws</a>
+        <a href="#story-oct-patch-tuesday"><span class="ld high"></span><b>11</b> October ICS fixes: ICONICS, WAGO, Siemens</a>
+        <a href="#story-epics-base"><span class="ld high"></span><b>12</b> EPICS Base: four flaws, one rated critical</a>
       </div>
     </div>
   </div>
@@ -821,34 +827,34 @@
     <div class="trends-sub">What the OT/ICS community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
       <div class="trend">
-        <span class="trend-tag">Hacktivism</span>
-        <b class="trend-head">Pro-Russian crews are tampering with exposed controls, and the damage is physical but low-skill</b>
-        <p>Bloomberg&rsquo;s 27&nbsp;October investigation (see top story) ties water, food, HVAC and factory incidents in Denmark, Spain and the US to groups such as CARR and Z-Pentest, whose members face US and EU charges or sanctions. The cases mostly involved weak passwords and exposed HMIs rather than custom malware, and CISA has warned the groups overstate their reach, so claims need independent confirmation.</p>
-        <a href="https://news.bloomberglaw.com/business-and-practice/hackers-sympathetic-to-russia-are-hitting-utilities-factories" class="source-link" target="_blank" rel="noopener">Bloomberg Law (Russia-aligned hackers)</a>
+        <span class="trend-tag">Edge Devices</span>
+        <b class="trend-head">Exploited flaws went from patch day to rooted firewalls within days, and the edge KEV list kept growing</b>
+        <p>PHP shipped its PHP2Shell fixes on 21&nbsp;October; on 23&ndash;24&nbsp;October a suspected China-nexus actor chained the flaws with Linux kernel bug CVE-2026-46300 to root about two dozen exposed PAN-OS devices, which Unit&nbsp;42 verified on 29&nbsp;October (see top story). In the same week CISA added a Cisco ASA/FTD remote-access VPN zero-day that reloads the firewall (29&nbsp;October) and two more Ivanti Connect Secure flaws that chain to root (30&nbsp;October) to KEV (see Critical Advisories). None of these devices runs a control loop, but each sits on a path vendors and operators use to reach one.</p>
+        <a href="https://therecord.media/php2shell-successful-exploitation-reports-emerge" class="source-link" target="_blank" rel="noopener">The Record (PHP2Shell intrusions)</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Edge Devices</span>
-        <b class="trend-head">Exploitation keeps clustering at the remote-access and WAN edge, not in control-loop devices</b>
-        <p>The exploited flaws this cycle sit where outside networks meet the plant. On 16&nbsp;October CISA added the BeyondTrust Remote Support zero-day (exploited since late August) and the FortiOS flaw behind Unit 42&rsquo;s Peerstitch case to KEV with three-day deadlines, and on 22&nbsp;October Arista disclosed a third exploited VeloCloud Orchestrator zero-day in four months (CVE-2026-114625; added to CISA KEV on 23 October). They follow October&rsquo;s Citrix NetScaler and Ivanti Connect Secure zero-days (see Incidents &amp; Attacks and Critical Advisories). PHP2Shell showed the same speed in a software component: Amazon saw attempts four days before PHP shipped fixes on 21&nbsp;October. On 19&ndash;20&nbsp;October Unit 42 added that ransomware crews are using the PAN-OS GlobalProtect bypass (CVE-2026-0257) to get past MFA (see Incidents &amp; Attacks). None of these devices runs a control loop, but each is a path a vendor, integrator or technician uses to reach one.</p>
-        <a href="https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/" class="source-link" target="_blank" rel="noopener">SecurityWeek (VeloCloud)</a>
+        <span class="trend-tag">OT Supply Chain</span>
+        <b class="trend-head">Bundled open-source code is pulling grid, DCS and RTU products into an IT vulnerability</b>
+        <p>Between 28 and 30&nbsp;October PHP2Shell moved from web servers into major OT vendors&rsquo; advisories: Siemens added web and monitoring components of its Spectrum Power grid-control systems, AMIS TS and Energy Engage (29&nbsp;October), Schneider added a Foxboro DCS server (28&nbsp;October), and ABB listed Netcontrol RTUs and ASPECT (no fix yet) and end-of-life Arctic gateways it will not fix (29&ndash;30&nbsp;October). Hitachi Energy&rsquo;s 27&nbsp;October CoreTec advisory likewise carries a Linux kernel flaw with public exploit code, and the kernel bug used against the firewalls is also listed for Siemens&rsquo; S7-1500 MFP CPU. For bundled components the fix date is set by the OT vendor, not the upstream project, which is why several of these have no fix yet (editorial assessment).</p>
+        <a href="https://cert-portal.siemens.com/productcert/html/ssa-166980.html" class="source-link" target="_blank" rel="noopener">Siemens SSA-166980 (PHP2Shell)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Nation-State</span>
+        <b class="trend-head">China-linked operators are going after the management plane that critical infrastructure runs on</b>
+        <p>Lumen&rsquo;s 28&nbsp;October &ldquo;Silent Train&rdquo; report says Volt Typhoon has used rotating single-use relay chains since November 2023 to exploit zero-days in SD-WAN, VeloCloud, N-able N-central, Versa and (likely) Quest KACE management platforms, with water, energy, rail, maritime and aviation among the victim sectors and no OT access described (see Threat Intelligence &amp; Research). The suspected China-nexus PHP2Shell intruders likewise rooted firewall management servers (see top story). Management and orchestration platforms often hold trusted paths into plant networks (editorial assessment).</p>
+        <a href="https://www.lumen.com/blog/en-us/silent-train-volt-typhoon-operational-framework" class="source-link" target="_blank" rel="noopener">Lumen Black Lotus Labs (Silent Train)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Cold Chain &amp; Hacktivism</span>
+        <b class="trend-head">Exposed refrigeration, pump and HVAC controllers remain the easiest OT target, and investigators are comparing cases</b>
+        <p>Bloomberg&rsquo;s 27&nbsp;October review documents Russia-aligned crews tampering with exposed water, food, HVAC and factory controls since 2024, including a Danish waterworks attack officially attributed to Z-Pentest (see Incidents &amp; Attacks). On 29&nbsp;October Reuters reported that the Pentagon is treating August freezer failures at no fewer than six US commissaries as a suspected cyberattack, and that investigators have spoken with French police about the 11&ndash;13&nbsp;October supermarket attack; the US cause is unconfirmed. On 22&nbsp;October Forescout counted 12,976 internet-exposed refrigeration management services in 99 countries.</p>
+        <a href="https://thenextweb.com/news/pentagon-military-base-freezer-failures-suspected-cyberattack" class="source-link" target="_blank" rel="noopener">The Next Web (Reuters, base freezers)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">AI &amp; Defense</span>
-        <b class="trend-head">AI agents are now finding OT bugs in hours, and the lab results keep coming</b>
-        <p>On 27&nbsp;October The Register reported that Causal Security&rsquo;s agent found four EPICS Base flaws in under four hours (see Critical Advisories). That follows Booz Allen&rsquo;s 8&nbsp;October lab report of AI models going from a perimeter foothold to a control-zone action in about 16 minutes with a human approving each step, and Frenos&rsquo;s 21&nbsp;October study in which three of ten frontier models produced workable OT attack plans on about 90% of first attempts (a vendor simulation, with results varying between runs).</p>
-        <a href="https://www.theregister.com/security/2026/10/27/ai-hacker-finds-4-severe-bugs-in-popular-industrial-control-software-in-under-4-hours/5305811" class="source-link" target="_blank" rel="noopener">The Register (EPICS bugs)</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Cold Chain &amp; Building OT</span>
-        <b class="trend-head">After France, the community is counting exposed refrigeration controllers, and the count is large</b>
-        <p>On 29&nbsp;October Reuters reported that the Pentagon suspects hackers caused August freezer failures at several US military commissaries (unconfirmed; see Incidents &amp; Attacks). The 11&ndash;13&nbsp;October forced-defrost attack on French supermarket refrigeration put web-managed cold-chain controllers in the spotlight. On 22&nbsp;October Forescout counted 12,976 exposed refrigeration management services in 99 countries and more than 20 claimed hacktivist attacks on refrigeration systems since January, mostly against Spain and Italy (claims, unverified). Censys separately counts roughly 134,000 internet-reachable ICS devices, about 70% on mobile or consumer networks. On 20&nbsp;October The Record reported that the EU Cyber Resilience Act will not require fixes for the end-of-life controllers involved: ENISA told it that products whose support has ended, or that were placed on the market before 11&nbsp;December 2027, are exempt from the law&rsquo;s vulnerability-handling duties.</p>
-        <a href="https://therecord.media/eu-cyber-law-wont-force-fixes-for-fridges-in-french-attack" class="source-link" target="_blank" rel="noopener">The Record (Cyber Resilience Act)</a>
-      </div>
-      <div class="trend">
-        <span class="trend-tag">Third-Party Access</span>
-        <b class="trend-head">Remote-management, backup and MSP platforms keep turning up as the way in</b>
-        <p>Three cases this month ran through tools that sit on contractor paths into operations: Microsoft&rsquo;s 21&nbsp;October assessment that China-state-aligned Storm-0940 used ConnectWise Cloud Backup&rsquo;s own app identities to try more than 2,250 customer tenants (most attempts failed; energy, chemicals and manufacturing are among the sectors it lists, with no OT impact described); the BeyondTrust Remote Support zero-day added to KEV on 16&nbsp;October; and Unit 42&rsquo;s account of a telecom MSP whose FortiManager compromise exposed configuration and credential material for more than 500 managed firewalls. Claroty&rsquo;s 8&nbsp;October survey, in which 75% of respondents tied an incident to third-party access, is vendor-run and self-reported but points the same way.</p>
-        <a href="https://www.cybersecuritydive.com/news/china-nexus-actor-attack-connectwise-cloud-backup/833727/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive (ConnectWise)</a>
+        <b class="trend-head">AI agents are speeding up both bug-hunting and intrusions</b>
+        <p>On 27&nbsp;October The Register reported that Causal Security&rsquo;s agent found four EPICS Base flaws in under four hours (see Critical Advisories). On 29&nbsp;October CrowdStrike reported that China-nexus VAPOR PANDA is running intrusions through ARTEX, an agentic-AI framework steered by a human operator, and confirmed post-exploitation at nine organisations; it describes no OT targeting. SOCRadar&rsquo;s 20&ndash;23&nbsp;October Phantom findings showed ransomware affiliates using a similar agent framework against edge devices (see Threat Intelligence &amp; Research).</p>
+        <a href="https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/" class="source-link" target="_blank" rel="noopener">CrowdStrike (VAPOR PANDA)</a>
       </div>
 
     </div>
@@ -860,16 +866,45 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="story-ru-hacktivist-ot" data-published="2026-10-27">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Investigation &mdash; Bloomberg review (27 Oct) of Russia-aligned hacktivists tampering with exposed industrial controls in NATO countries since 2024; most cases date from 2024&ndash;2025; the Danish waterworks attack is officially attributed</span>
+        </div>
+        <h3>Russia-aligned hackers have been manipulating exposed industrial controls across NATO countries since 2024, Bloomberg reports</h3>
+        <p>Bloomberg&rsquo;s 27&nbsp;October investigation describes a loose network of pro-Russian hacktivist crews, chiefly CARR and Z-Pentest, tampering with internet-exposed industrial controls across NATO countries since 2024. The review is new, but most cases date from 2024 and 2025, with Spanish incidents running into summer 2026. The best-established is the December 2024 attack on the Tureby Alkestrup waterworks in Denmark, where pressure control was reset to zero and then surged, bursting pipes (the utility&rsquo;s password was reportedly &ldquo;1234&rdquo;). Denmark&rsquo;s Defence Intelligence Service publicly attributed that attack to Z-Pentest in December 2025; Danish officials put the impact at about 50 households without water for seven hours and about 450 for one hour, while Bloomberg says 450 homes. Bloomberg also reports a Texas public water system whose settings were changed in 2024, a Los Angeles-area meatpacker whose refrigeration was shut off, spoiling meat and causing an ammonia leak, and, in Spain, a crematorium, a transformer-factory fire and two wineries whose heating and ventilation were disrupted; who confirmed each case is not always stated. US charges and US and EU sanctions target members of these groups, and US authorities treat CARR as GRU-linked. The common thread is internet-exposed controllers with weak passwords, not sophisticated malware, so removing exposure and fixing passwords blocks most of it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span><b>Confirmed vs claimed:</b> the Danish waterworks attack is officially attributed to Z-Pentest by Denmark&rsquo;s Defence Intelligence Service; US and EU charges and sanctions on CARR and Z-Pentest members are official; the Texas, Los Angeles and Spanish cases are as Bloomberg reports them and are mostly unattributed; the groups&rsquo; own claims are not independently verified</span>
+            <span class="ops-tag kev-off">No CVE &mdash; weak or default passwords and exposed remote access (such as VNC) on HMIs and controllers; not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Configuration fix, not a patch &mdash; remove exposure and change credentials</span>
+            <span class="ops-cc"><b>Action:</b> Find every HMI, PLC, pump, refrigeration and HVAC controller reachable from the internet, remove the exposure or put it behind a VPN with multi-factor authentication, replace default and shared passwords, close open VNC, and alarm on setpoint and mode changes. Confirm operators can run the process manually if a controller is tampered with.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure check &mdash; 48 hours; default-password and remote-access cleanup &mdash; 7 days; setpoint-change alerting and manual-operation drill &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ru-hacktivist-ot" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ru-hacktivist-ot">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Bloomberg News via Bloomberg Law (27 Oct 2026; partly paywalled); Meduza summary (28 Oct 2026); Danish attribution and household figures from Denmark&rsquo;s Defence Intelligence Service, as reported by AP/SecurityWeek and Euronews (Dec 2025)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 27 Oct 2026; incidents span 2024 to summer 2026</span>
+        </div>
+        <a href="https://news.bloomberglaw.com/business-and-practice/hackers-sympathetic-to-russia-are-hitting-utilities-factories" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-pentagon-freezers" data-published="2026-10-29">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident &mdash; Suspected cyberattack on refrigeration at US military commissaries; reported 29 Oct</span>
+          <span class="category">Incident &mdash; Suspected cyberattack on refrigeration at US military commissaries in late August; reported 29 Oct; cause not confirmed</span>
         </div>
         <h3>The Pentagon is treating August freezer failures at US military base stores as a suspected cyberattack, Reuters reports</h3>
-        <p>Reuters reported on 29&nbsp;October, citing four unnamed officials, that investigators suspect hackers caused refrigerators and freezers at no fewer than six US military commissaries to switch to defrost mode in late August, spoiling food. A Cyber Command unit and Army criminal investigators are involved and have spoken with French police about the October supermarket attack. The cause, the entry route and any responsible party are not established, and Reuters could not confirm that Danfoss or any other controller brand was used. The Pentagon has acknowledged only that the refrigeration problems occurred.</p>
+        <p>Reuters reported on 29&nbsp;October, citing four unnamed officials, that investigators are treating late-August refrigeration failures at no fewer than six US military commissaries, including Fort Huachuca and Fort Irwin, as a suspected cyberattack: refrigerators and freezers switched to defrost mode and warmed, spoiling food. Army and Air Force investigators, including an Army cybercrime unit, opened inquiries soon after, US Cyber Command has since joined, and one official said investigators have spoken with French police about the October supermarket attack. The Pentagon says it is working closely with interagency and law-enforcement partners and has not confirmed a cause. Reuters could not establish whether the stores used Danfoss equipment, though records for the commissary at Naval Air Facility El Centro list a Danfoss control system. Nextgov/FCW, citing two unnamed sources, reports officials suspect Iran-linked hackers; no agency has attributed it. The entry route and any responsible party are not established.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span><b>Confirmed vs claimed:</b> the malfunctions are confirmed; that they were a cyberattack is only suspected by officials speaking anonymously; no actor, vulnerability or link to the French attack is established</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Suspected &mdash; <b>Confirmed vs claimed:</b> the malfunctions are confirmed; that they were a cyberattack is only suspected by officials speaking anonymously; the Iran-linked suspicion rests on two unnamed sources; no actor, vulnerability or link to the French attack is established</span>
             <span class="ops-tag kev-off">No CVE named; not in CISA KEV</span>
           </div>
           <div class="ops-row">
@@ -883,9 +918,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Reuters (29 Oct 2026), via The Business Standard and The Next Web</span>
+          <span>Reuters (29 Oct 2026), via The Next Web and The Business Standard; Nextgov/FCW (29 Oct 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Published 29 Oct 2026; incidents occurred in late August 2026 &mdash; investigation ongoing</span>
+          <span>Published 29 Oct 2026; incidents occurred in late August 2026 &mdash; investigation ongoing, cause unconfirmed</span>
         </div>
         <a href="https://thenextweb.com/news/pentagon-military-base-freezer-failures-suspected-cyberattack" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -895,7 +930,7 @@
           <span class="category">Incident &mdash; Attack on refrigeration controllers at about 700 French supermarkets, 11&ndash;13 Oct; Forescout exposure data 22 Oct</span>
         </div>
         <h3>French supermarket refrigeration attack: about 700 stores hit, and Forescout counts nearly 13,000 exposed refrigeration controllers worldwide</h3>
-        <p>Attackers forced web-managed refrigeration controllers into continuous defrost at French supermarkets on the nights of 11&ndash;13&nbsp;October; France&rsquo;s finance minister put the toll at about 700 stores, and the Paris prosecutor, working with ANSSI, says fires also resulted. CERT-FR names Danfoss AK-SC and AK-SM plus Copeland and Dixell XWEB controllers and judged on 16&nbsp;October that the campaigns are probably still under way. On 22&nbsp;October Forescout reported 12,976 internet-exposed refrigeration management services in 99 countries; most affected units are end-of-life. No actor, CVE or entry route has been named, and no new attack nights have been reported since 13&nbsp;October.</p>
+        <p>Attackers forced web-managed refrigeration controllers into continuous defrost at French supermarkets on the nights of 11&ndash;13&nbsp;October; France&rsquo;s finance minister put the toll at about 700 stores, and the Paris prosecutor, working with ANSSI, says fires also resulted. CERT-FR names Danfoss AK-SC and AK-SM plus Copeland and Dixell XWEB controllers and judged on 16&nbsp;October that the campaigns are probably still under way. On 22&nbsp;October Forescout reported 12,976 internet-exposed refrigeration management services in 99 countries; most affected units are end-of-life. No actor, CVE or entry route has been named, and no new attack nights have been reported since 13&nbsp;October; CERT-FR&rsquo;s alert was still at its third version (16&nbsp;October) when re-checked on 31&nbsp;October.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span><b>Confirmed vs claimed:</b> the attack, the forced-defrost effect and the ~700-store figure are official statements; no actor, entry route or CVE is named and no group has claimed it; Forescout&rsquo;s counts are exposure data, not victims</span>
@@ -912,7 +947,7 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CERT-FR alert CERTFR-2026-ALE-012 (v3 16 Oct); Forescout Vedere Labs (22 Oct 2026); The Record (20 Oct 2026)</span>
+          <span>CERT-FR alert CERTFR-2026-ALE-012 (v3 16 Oct, unchanged when re-checked 31 Oct); Forescout Vedere Labs (22 Oct 2026); The Record (20 Oct 2026)</span>
           <span class="dot">&bull;</span>
           <span>Attacks on 11&ndash;13 Oct 2026, none reported since; updated 22 Oct 2026 with Forescout exposure data &mdash; investigation ongoing</span>
         </div>
@@ -1011,7 +1046,7 @@
           <span class="category">Incident &mdash; cyberattack on a major grocery group&rsquo;s IT and online services that disrupted logistics; not a confirmed OT compromise (Food &amp; Ag-adjacent)</span>
         </div>
         <h3>Albert Heijn restarts home deliveries after the Ahold Delhaize cyberattack; the group confirms malicious activity, and stores stayed open</h3>
-        <p>Albert Heijn restarted grocery home deliveries on 23&nbsp;October at about a third of normal capacity, nearly two weeks after Ahold Delhaize took systems offline on 12&nbsp;October across most of its brands in Europe and the US; it expected to deliver all orders again from 28&nbsp;October (not yet confirmed), and Dutch police are investigating the attack as a criminal case (NL Times). In its latest statement, on 19&nbsp;October, the group said outside experts had confirmed &ldquo;malicious actions of others&rdquo;, that it had notified the Dutch NCSC and filed a police report, and that it had no evidence so far that sensitive data was taken; stores stayed open throughout. Ahold Delhaize USA&rsquo;s banner websites and apps came back online on 20&nbsp;October (Grocery Dive). The group has issued no cyber update since 19&nbsp;October; its third-quarter results are due on 4&nbsp;November. Albert Heijn said its distribution centres had to be restarted on 13&ndash;14&nbsp;October (as reported by NL Times). No attacker or ransomware claim is known. This was an IT-side attack that disrupted logistics, not a confirmed OT compromise, and the Dutch NCSC saw no link to the French refrigeration attack.</p>
+        <p>Albert Heijn restarted grocery home deliveries on 23&nbsp;October at about a third of normal capacity, nearly two weeks after Ahold Delhaize took systems offline on 12&nbsp;October across most of its brands in Europe and the US; it expected to deliver all orders again from 28&nbsp;October (not confirmed as of 31&nbsp;October), and Dutch police are investigating the attack as a criminal case (NL Times). In its latest statement, on 19&nbsp;October, the group said outside experts had confirmed &ldquo;malicious actions of others&rdquo;, that it had notified the Dutch NCSC and filed a police report, and that it had no evidence so far that sensitive data was taken; stores stayed open throughout. Ahold Delhaize USA&rsquo;s banner websites and apps came back online on 20&nbsp;October (Grocery Dive). The group has issued no cyber update since 19&nbsp;October; its third-quarter results are due on 4&nbsp;November. Albert Heijn said its distribution centres had to be restarted on 13&ndash;14&nbsp;October (as reported by NL Times). No attacker or ransomware claim is known. This was an IT-side attack that disrupted logistics, not a confirmed OT compromise, and the Dutch NCSC saw no link to the French refrigeration attack.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed cyberattack per the company &mdash; <b>Confirmed vs claimed:</b> the attack, the NCSC and police notifications and store status are company statements; the distribution-centre restart comes from an Albert Heijn statement reported by NL Times; &ldquo;no evidence of data theft&rdquo; is the company&rsquo;s own finding; expert estimates of &euro;120&ndash;150 million in missed revenue are not company figures; no actor, method or OT involvement is stated</span>
@@ -1043,6 +1078,35 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+      <div class="card" id="story-volt-typhoon-silent-train" data-published="2026-10-28">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Intel &mdash; Lumen Black Lotus Labs report (28 Oct) on Volt Typhoon&rsquo;s &ldquo;Silent Train&rdquo; relay network and zero-day campaigns against management platforms; water, energy, transportation, maritime, rail and aviation among victim sectors; no OT intrusion described</span>
+        </div>
+        <h3>Volt Typhoon has used a rotating &ldquo;Silent Train&rdquo; relay network since 2023 to break into management platforms, with water, energy and transport among the victims, Lumen reports</h3>
+        <p>Lumen&rsquo;s Black Lotus Labs reported on 28&nbsp;October that Volt Typhoon has used &ldquo;Silent Train&rdquo;, a covert network of rapidly rotating, single-use chains of compromised small-office routers, IoT and enterprise devices, since November 2023 to reach targets and keep access to management and control-plane systems. Lumen ties the group to four confirmed zero-day campaigns and one likely one: Cisco Catalyst SD-WAN (CVE-2026-20127, CVSS&nbsp;v3.1 10.0, Cisco), VeloCloud Orchestrator (CVE-2026-16812), N-able N-central (CVE-2025-8875 and CVE-2025-8876), Versa Director (no CVE given) and, with moderate confidence, Quest KACE (no CVE). These are older flaws, not the VeloCloud flaw CVE-2026-114625 that CISA added to KEV on 23&nbsp;October. Victims include telecoms, government, defence contractors, IT firms and MSPs, and universities, and Lumen lists water, energy, transportation, maritime, rail, aviation and emergency services among the critical-infrastructure sectors hit; Hawaii, California and Texas recur as focal points (Zero Day). No victim is named and no OT or ICS intrusion is described. Lumen points defenders to CISA&rsquo;s Volt Typhoon guidance (AA24-038A) and its advisory on China-nexus covert networks (AA26-113A). Management and orchestration platforms often hold trusted paths into plant networks, which makes them the asset to protect here (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation of management platforms (vendor research) &mdash; <b>Confirmed vs claimed:</b> the relay network, zero-day campaigns and victim sectors are Lumen&rsquo;s findings; the Volt Typhoon attribution is Lumen&rsquo;s, in line with long-standing US government attribution of the group to China; no victim is named and no OT access or disruption is described</span>
+            <span class="ops-tag kev-on"><span class="d"></span>All four named CVEs are in CISA KEV &mdash; CVE-2026-20127 (added 25 Feb 2026), CVE-2026-16812 (27 Jul 2026) and CVE-2025-8875/-8876 (13 Aug 2025), as of CISA&rsquo;s 30 Oct catalog</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Fixes exist for the named CVEs; the Versa Director and Quest KACE flaws carry no CVE in the report &mdash; run current vendor releases</span>
+            <span class="ops-cc"><b>Action:</b> Inventory SD-WAN orchestrators, remote-monitoring and IT-management platforms (such as N-central, KACE, Versa and VeloCloud), especially any that can reach OT networks; take their admin interfaces off the internet and behind a VPN or jump host, patch them first, extend log retention, and hunt for unusual admin logins, remote file transfers and living-off-the-land activity. Replace end-of-life small-office routers at remote sites so they cannot be used as relays.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm the named CVEs are patched &mdash; 7 days; management-platform exposure review &mdash; 14 days; log retention and threat hunt &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="volt-typhoon-silent-train" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="volt-typhoon-silent-train">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Lumen Black Lotus Labs (28 Oct 2026); CyberScoop (28 Oct 2026); Zero Day (28 Oct 2026); CISA KEV catalog</span>
+          <span class="dot">&bull;</span>
+          <span>Report published 28 Oct 2026; activity tracked since November 2023</span>
+        </div>
+        <a href="https://www.lumen.com/blog/en-us/silent-train-volt-typhoon-operational-framework" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-blue-initiative-maritime" data-published="2026-10-26">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1110,6 +1174,64 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="story-asa-ivanti-kev" data-published="2026-10-30">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; exploited remote-access flaws added to CISA KEV 29&ndash;30 Oct: Cisco Secure Firewall ASA/FTD VPN denial of service CVE-2026-76418, and Ivanti Connect Secure CVE-2026-111357 and CVE-2026-118527</span>
+        </div>
+        <h3>Exploited VPN flaws: a Cisco ASA/FTD zero-day can knock firewalls offline, and two more Ivanti Connect Secure flaws that chain to root join CISA KEV</h3>
+        <p>Cisco disclosed on 28&nbsp;October that attackers were exploiting CVE-2026-76418 (CVSS&nbsp;v3.1 8.6, Cisco) in the Remote Access SSL VPN of Secure Firewall ASA and FTD software: when secondary authentication is configured on any tunnel group, including the default one, an unauthenticated remote attacker can make the firewall reload. There is no workaround; Cisco&rsquo;s only mitigation, turning off secondary authentication, weakens VPN security, and the fixed ASA and FTD releases are listed in its advisory. CISA added the flaw to KEV on 29&nbsp;October. Cisco has not said who is exploiting it or how widely. On 30&nbsp;October CISA added two Ivanti Connect Secure flaws to KEV: CVE-2026-111357 (CVSS&nbsp;v3.1 7.0, MITRE), a privilege escalation to root whose CVE record has existed since 15&nbsp;October, and CVE-2026-118527, which CISA lists as a predictable-identifier flaw. CISA says both chain with CVE-2026-104935, the authentication bypass it added to KEV on 13&nbsp;October; Volexity tied exploitation of that flaw to a group it tracks as UTA0576, which went after Active Directory credentials, BitLocker recovery keys and LAPS data once it had root. These are IT-side boundary devices, but a firewall reload cuts vendor and operator remote access to plant networks, and a rooted VPN gateway hands an intruder credentials that often reach OT (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> exploitation is confirmed by Cisco PSIRT and by CISA&rsquo;s KEV listings; the attackers, targets and scale are not disclosed for either product; the UTA0576 link is Volexity&rsquo;s finding for the earlier Ivanti flaw; no OT impact is reported</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; Cisco CVE-2026-76418 added 29 Oct (federal deadline 1 Nov); Ivanti CVE-2026-111357 (deadline 2 Nov) and CVE-2026-118527 (deadline 13 Nov) added 30 Oct; Ivanti CVE-2026-104935 since 13 Oct; as of CISA&rsquo;s 30 Oct catalog</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Cisco: upgrade to the fixed ASA/FTD releases in advisory cisco-sa-asaftd-tunnel-dos-s6mgkb75 (no workaround). Ivanti: check Ivanti&rsquo;s advisory for the build that fixes CVE-2026-111357; NVD lists versions up to 22.8R2.5 and 25.1.x before 25.1.1.3 as affected</span>
+            <span class="ops-cc"><b>Action:</b> Find every ASA/FTD and Ivanti Connect Secure gateway that staff, vendors or integrators use to reach plant networks. Patch the ASA/FTD units and check whether secondary authentication is configured. For Ivanti, apply the fixed build once confirmed, check appliances for compromise with an external integrity check (CISA has warned that Ivanti&rsquo;s own Integrity Checker Tool may miss this activity), and reset Active Directory credentials an exposed gateway could reach. Keep a tested fallback way to reach critical OT sites if the VPN headend goes down.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch ASA/FTD &mdash; 72 hours (federal KEV deadline 1 Nov); Ivanti fix and compromise check &mdash; 72 hours (deadline 2 Nov); VPN-outage fallback plan for OT sites &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="asa-ivanti-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="asa-ivanti-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco advisory cisco-sa-asaftd-tunnel-dos-s6mgkb75 (28 Oct 2026); CISA KEV catalog (29 and 30 Oct 2026 releases); CIRCL vulnerability records for CVE-2026-76418 and CVE-2026-111357; Volexity and Cybersecurity Dive (13&ndash;14 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Cisco disclosure 28 Oct 2026; KEV additions 29 Oct (Cisco) and 30 Oct 2026 (Ivanti)</span>
+        </div>
+        <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="story-hitachi-energy-tro600-coretec" data-published="2026-10-29">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory &mdash; CISA ICSA-26-302-02 (Hitachi Energy TRO600) and ICSA-26-302-03 (Hitachi Energy CoreTec 4/5), energy sector, 27&ndash;29 Oct; fixes for TRO600 and CoreTec5; no exploitation reported</span>
+        </div>
+        <h3>Hitachi Energy TRO600 wireless routers can leak configuration and password files without a login, and CoreTec transformer-monitoring devices carry a command-injection flaw</h3>
+        <p>CISA published advisories for two Hitachi Energy product lines on 27&ndash;29&nbsp;October (ICSA-26-302-02 and -03), both tagged for the energy sector and based on Hitachi Energy&rsquo;s own 27&nbsp;October advisories. The TRO600 series, which Hitachi Energy sells as industrial wireless routers for utilities, oil and gas and mining networks, has an unauthenticated flaw (CVE-2026-106087; CVSS&nbsp;v3.1 7.5 per CISA, v4.0 8.7 per Hitachi Energy) that lets a remote attacker read or download any file on the device, including configuration and password data, plus an authenticated flaw (CVE-2026-10756; v3.1 7.5 per CISA, v4.0 7.7 per Hitachi Energy) that abuses port forwarding to reach services meant to be local only; firmware 9.2.2.1 fixes both. CoreTec 4 and 5, which power Hitachi Energy&rsquo;s TXpert Hub for transformer monitoring and diagnostics, have a command-injection flaw (CVE-2026-13162; v3.1 7.5 per CISA, v4.0 7.7 in the CVE record) that lets an authenticated user with certain roles take full control of the device, and CoreTec5 also carries Linux kernel flaw CVE-2026-43284, which gives a local user root and has public exploit code (sources give different scores). CISA lists CoreTec5 5.0.0 as the fix; CoreTec4 has no fixed version, and the path is migrating to CoreTec5 5.0.0. Neither advisory reports exploitation, and none of these flaws is in KEV. Configuration and password data taken from a field router could help an attacker get onto the utility network behind it (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported &mdash; <b>Confirmed vs claimed:</b> flaws, scores and fixes come from Hitachi Energy&rsquo;s advisories as republished by CISA; the CoreTec5 kernel flaw has public exploit code, but no attack on either product is reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV (as of CISA&rsquo;s 30 Oct catalog)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">TRO600: firmware 9.2.2.1. CoreTec5: 5.0.0 per CISA (the CVE-2026-13162 record also lists 5.0.0 as affected &mdash; confirm with Hitachi Energy). CoreTec4: no fix &mdash; migrate to CoreTec5</span>
+            <span class="ops-cc"><b>Action:</b> Find TRO600 routers and CoreTec 4/5 devices in substations, pipeline and field networks. Update TRO600 firmware, make sure their management interfaces are not reachable from the internet or untrusted segments, and rotate any passwords stored on the routers after updating. For CoreTec, limit which accounts hold configuration roles, restrict network access to the device, and plan the CoreTec4 migration.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &mdash; 7 days; TRO600 firmware update and password rotation &mdash; 30 days; CoreTec update or migration plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="hitachi-energy-tro600-coretec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="hitachi-energy-tro600-coretec">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICSA-26-302-02 and ICSA-26-302-03, via CIRCL&rsquo;s advisory mirror; Hitachi Energy advisories 8DBD000224 and 8DBD000258 (27 Oct 2026); product descriptions from Hitachi Energy</span>
+          <span class="dot">&bull;</span>
+          <span>Hitachi Energy advisories 27 Oct 2026; CISA republication 29 Oct 2026 (CoreTec advisory revised the same day)</span>
+        </div>
+        <a href="https://vulnerability.circl.lu/vuln/icsa-26-302-02" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-epics-base" data-published="2026-10-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1120,7 +1242,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-none">No exploitation reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag kev-off">Not in CISA KEV (as of CISA&rsquo;s 30 Oct catalog)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Upgrade to EPICS Base 7.0.11 and test legacy Channel Access clients first</span>
@@ -1139,46 +1261,17 @@
         </div>
         <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="story-php2shell-ot-vendors" data-published="2026-10-29">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory &mdash; PHP2Shell (CVE-2026-109618 and CVE-2026-109619, CVSS v4.0 9.2 per the PHP Group): both in CISA KEV since 26 Oct; Palo Alto reports exploitation of internet-exposed PAN-OS management interfaces; Siemens, Schneider and ABB list affected OT products; no OT victim named</span>
-        </div>
-        <h3>PHP2Shell is in CISA KEV and Palo Alto reports attacks on exposed PAN-OS management interfaces; Siemens, Schneider and ABB list affected OT products, and Schneider now has a Control Engineering fix</h3>
-        <p>PHP2Shell is a pair of unauthenticated remote-code-execution flaws in PHP (CVE-2026-109618 and CVE-2026-109619, CVSS&nbsp;v4.0 9.2 per the PHP Group) fixed on 21&nbsp;October in PHP 8.2.35, 8.3.36, 8.4.27 and 8.5.12. Exploitation attempts began on 17&nbsp;October, and over 24&ndash;25&nbsp;October researchers at Perplexity, backed by Expel&rsquo;s Marcus Hutchins, confirmed working remote code execution against a honeypot. CISA, which had published a SIGMA detection rule on 23&nbsp;October, added both flaws to its KEV catalog on 26&nbsp;October with a 29&nbsp;October federal deadline, without describing the activity. Palo Alto Networks&rsquo; advisory, raised to Critical on 27&nbsp;October and updated on 28&nbsp;October, reports active exploitation targeting PAN-OS management interfaces exposed to the internet on PA-Series, VM-Series and Panorama (web UI and XML API; GlobalProtect is not affected); it names no victims, and hotfixes are rolling out 21&ndash;30&nbsp;October. That reaches OT directly: Siemens&rsquo; SSA-566512 lists RUGGEDCOM APE1808 units running PAN-OS as affected, with remediation through Siemens customer support plus Palo Alto&rsquo;s workarounds. Schneider&rsquo;s bulletin SESB-2026-295-01, revised to v2.0.0 on 26&nbsp;October, says remediation is now available for EcoStruxure Control Engineering (applied automatically when the VM can reach the debian.org and sury.org repositories; otherwise request a patch from Schneider support); Security Expert is fixed in 1.48.4.0 and LINEoptimize is handled through ProLeiT support. ABB lists APROL R&nbsp;4.4-65 and earlier, with patches planned for 26 and 29&nbsp;October, and ABB MES installations that use DokuWiki (update PHP or shut DokuWiki down). On 29&nbsp;October The Register reported that Israeli startup Dream, with Unit 42 verifying the attacker tooling, found suspected China-linked intruders who chained the PHP2Shell flaws with a Linux kernel bug to gain root on 25 PAN-OS 12.1/12.2 firewall servers across the US, Japan, Taiwan and South Korea before moving into Active Directory (attribution suspected, not confirmed; no OT impact described). Rockwell (SD1802, 23&nbsp;October) has confirmed no affected products while its review continues, and Siemens lists 31 software products and 20 Smart Infrastructure products as not affected, with its evaluation ongoing. No victim organisation has been named and no compromise of an OT product has been reported. Sophos and Unit 42 withdrew earlier reports of successful exploitation, including Unit 42&rsquo;s link to a European government agency compromise, and CYFIRMA&rsquo;s tie between a scanning campaign and North Korea is a single-vendor assessment. Software that bundles PHP is easy to miss in IT patch sweeps (editorial assessment), so ask OT vendors directly.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; in CISA KEV; working RCE confirmed on a research honeypot 24&ndash;25 Oct; Palo Alto reports active exploitation of internet-exposed PAN-OS management interfaces. <b>Confirmed vs claimed:</b> the flaws, fixed versions and product positions come from the PHP Group&rsquo;s and the vendors&rsquo; own advisories; the honeypot RCE is Perplexity&rsquo;s finding, backed by Expel; no victim organisation or OT-product compromise has been named; Sophos and Unit 42 withdrew earlier success claims; the suspected North Korea-linked scanning is one vendor&rsquo;s assessment (CYFIRMA)</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-109618 and CVE-2026-109619 added 26 Oct 2026; federal deadline 29 Oct 2026 (as of CISA&rsquo;s 27 October catalog)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-now">Fixes available &mdash; PHP 8.2.35, 8.3.36, 8.4.27 and 8.5.12 (21 Oct); PAN-OS hotfixes rolling out 21&ndash;30 Oct (some ETAs 29&ndash;30 Oct); RUGGEDCOM APE1808 via Siemens support plus Palo Alto workarounds; Schneider Security Expert 1.48.4.0 and EcoStruxure Control Engineering remediation (SESB v2.0.0, 26 Oct); ABB APROL patches planned for 26 and 29 Oct</span>
-            <span class="ops-cc"><b>Action:</b> Take PAN-OS and RUGGEDCOM APE1808 management interfaces off the internet now and restrict them to a jump host (Palo Alto scores the flaw CVSS&nbsp;v4.0 5.2 under that restriction, against 9.2 when exposed), then apply the hotfixes as they land. Ask every OT vendor whether its engineering, historian, MES or management software bundles PHP, and get its PHP2Shell position in writing. Apply the Schneider Security Expert and EcoStruxure Control Engineering remediations and ABB&rsquo;s APROL patches; for ABB MES with DokuWiki, update PHP or shut DokuWiki down. Update any standalone PHP web servers in the OT DMZ to the fixed releases.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Restrict exposed PAN-OS / RUGGEDCOM APE1808 management interfaces &mdash; immediately (actively exploited); vendor and inventory check &mdash; 72 hours; patch where fixes exist &mdash; 7 days (federal KEV deadline 29 Oct)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="php2shell-ot-vendors" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="php2shell-ot-vendors">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Palo Alto Networks advisory for CVE-2026-109618 (raised to Critical 27 Oct, updated 28 Oct 2026); CISA KEV catalog (27 Oct 2026 release); Schneider Electric SESB-2026-295-01 v2.0.0 (26 Oct 2026); Siemens SSA-566512 (23 Oct 2026), SSA-566435 and SSA-166980; ABB SA26P015 and 4HZK000017 (23 Oct 2026); Rockwell SD1802 (23 Oct 2026); BleepingComputer (26 Oct 2026, honeypot RCE); The Hacker News (25 Oct 2026, CYFIRMA claim)</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation attempts since 17 Oct 2026; PHP fixes 21 Oct 2026; honeypot RCE 24&ndash;25 Oct 2026; Schneider Control Engineering remediation 26 Oct 2026; CISA KEV addition 26 Oct 2026 (federal deadline 29 Oct); Palo Alto advisory raised to Critical 27 Oct and updated 28 Oct 2026</span>
-        </div>
-        <a href="https://security.paloaltonetworks.com/CVE-2026-109618" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-oct-patch-tuesday" data-published="2026-10-27">
+<div class="card" id="story-oct-patch-tuesday" data-published="2026-10-28">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; October ICS advisories: CISA&rsquo;s 22 Oct republication of Siemens&rsquo; 13 Oct advisories, its 20 Oct batch (WAGO, Moxa), Mitsubishi Electric ICONICS GENESIS64 (15 Oct; republished by CISA as ICSA-26-300-02 on 27 Oct), Rockwell 1732E ArmorBlock and ABB dynovaPRO; no exploitation reported</span>
         </div>
         <h3>October ICS fixes: critical ICONICS GENESIS64 flaws and a WAGO controller bug join Siemens, Rockwell and ABB, and some Siemens flaws still have no fix</h3>
-        <p>On 22&nbsp;October CISA republished Siemens&rsquo; 13&nbsp;October advisories (ICSA-26-295-02 to -18): fixes are still pending for the S7 PLC web server, the S7-1500 MFP Linux subsystems and WinCC V7.5, and none is planned for APOGEE MBC/MEC. CISA&rsquo;s 20&nbsp;October batch covered WAGO controller firmware (CVE-2026-80466, CVSS&nbsp;v3.1 8.8: a low-privileged user can inject commands that run as root; fixed in 4.10.0/FW32) and Moxa&rsquo;s AIG-302 edge gateway (hard-coded key CVE-2026-109813, v3.1 8.1 / v4.0 8.6; fixed in 1.4.1). Mitsubishi Electric&rsquo;s 15&nbsp;October advisory fixes an authentication bypass (CVE-2026-16436, CVSS&nbsp;v3.1 8.1) and over-permissive DCOM defaults (CVE-2026-16438, v3.1 9.1) across ICONICS GENESIS64, GENESIS, Hyper Historian and related products; MC Works64, GENESIS32 and BizViz get no fix, and Mitsubishi advises replacing them. CISA republished the advisory on 27&nbsp;October as ICSA-26-300-02. Earlier in the month Rockwell fixed a critical 1732E ArmorBlock admin-takeover flaw and ABB a dynovaPRO password-reset flaw. None is reported exploited.</p>
+        <p>On 22&nbsp;October CISA republished Siemens&rsquo; 13&nbsp;October advisories (ICSA-26-295-02 to -18): fixes are still pending for the S7 PLC web server, some S7-1500 MFP Linux-subsystem flaws and WinCC V7.5, and none is planned for APOGEE MBC/MEC. One Linux kernel flaw listed in Siemens&rsquo; S7-1500 MFP advisories, CVE-2026-46300, was added to CISA&rsquo;s KEV catalog on 28&nbsp;October after it was used to root firewalls (see top story); Siemens lists V3.1.7 as fixing it on V3.1.6 and no fix for V3.1.5, and it needs local access to the Linux subsystem. CISA&rsquo;s 20&nbsp;October batch covered WAGO controller firmware (CVE-2026-80466, CVSS&nbsp;v3.1 8.8: a low-privileged user can inject commands that run as root; fixed in 4.10.0/FW32) and Moxa&rsquo;s AIG-302 edge gateway (hard-coded key CVE-2026-109813, v3.1 8.1 / v4.0 8.6; fixed in 1.4.1). Mitsubishi Electric&rsquo;s 15&nbsp;October advisory fixes an authentication bypass (CVE-2026-16436, CVSS&nbsp;v3.1 8.1) and over-permissive DCOM defaults (CVE-2026-16438, v3.1 9.1) across ICONICS GENESIS64, GENESIS, Hyper Historian and related products; MC Works64, GENESIS32 and BizViz get no fix, and Mitsubishi advises replacing them. CISA republished the advisory on 27&nbsp;October as ICSA-26-300-02. Earlier in the month Rockwell fixed a critical 1732E ArmorBlock admin-takeover flaw and ABB a dynovaPRO password-reset flaw. No exploitation of any of these products is reported.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported &mdash; per Mitsubishi Electric, CISA and the vendors. <b>Confirmed vs claimed:</b> affected versions and scores come from vendor and CISA advisories; ABB&rsquo;s count of 26 password changes across 9 dynovaPRO customers is its own observation and is not confirmed as an attack</span>
-            <span class="ops-tag kev-off">None in CISA KEV as of CISA&rsquo;s 27 October catalog</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation of these products reported &mdash; per Mitsubishi Electric, CISA and the vendors (the S7-1500 MFP kernel flaw has been exploited in attacks on firewalls; no S7-1500 exploitation is reported). <b>Confirmed vs claimed:</b> affected versions and scores come from vendor and CISA advisories; ABB&rsquo;s count of 26 password changes across 9 dynovaPRO customers is its own observation and is not confirmed as an attack</span>
+            <span class="ops-tag kev-on"><span class="d"></span>Partly in CISA KEV &mdash; Linux CVE-2026-46300 (S7-1500 MFP) added 28 Oct 2026. None of the ICONICS-specific flaws is in KEV; the bundled libwebp flaw CVE-2023-4863 has been in KEV since 13 Sep 2023 from browser exploitation, and no exploitation of ICONICS products is reported. The WAGO and Moxa flaws are not in KEV. As of CISA&rsquo;s 30 Oct catalog</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Fixes for most items (ICONICS Suite 10.98+, GENESIS 11.04+, WAGO firmware 4.10.0, Moxa AIG-302 1.4.1, Siemens and Rockwell releases); no fix for MC Works64, GENESIS32, BizViz, APOGEE MBC/MEC and several Siemens items &mdash; mitigate</span>
@@ -1191,9 +1284,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisories ICSA-26-293-02 and -03 (20 Oct 2026) and ICSA-26-295-02 to -18 (22 Oct 2026); Mitsubishi Electric advisory 2026-006 (15 Oct 2026), republished by CISA as ICSA-26-300-02 (27 Oct 2026); SecurityWeek ICS Patch Tuesday (14 Oct 2026), summarizing Siemens ProductCERT, Rockwell, Schneider Electric and ABB releases</span>
+          <span>CISA ICS advisories ICSA-26-293-02 and -03 (20 Oct 2026) and ICSA-26-295-02 to -18 (22 Oct 2026); Mitsubishi Electric advisory 2026-006 (15 Oct 2026), republished by CISA as ICSA-26-300-02 (27 Oct 2026); SecurityWeek ICS Patch Tuesday (14 Oct 2026), summarizing Siemens ProductCERT, Rockwell, Schneider Electric and ABB releases; Siemens SSA-019113 and SSA-082556; CISA KEV catalog (30 Oct 2026 release)</span>
           <span class="dot">&bull;</span>
-          <span>Siemens, Rockwell and ABB releases 13&ndash;14 Oct 2026; Mitsubishi Electric 15 Oct 2026; CISA batches 20, 22 and 27 Oct 2026</span>
+          <span>Siemens, Rockwell and ABB releases 13&ndash;14 Oct 2026; Mitsubishi Electric 15 Oct 2026; CISA batches 20, 22 and 27 Oct 2026; S7-1500 MFP kernel flaw CVE-2026-46300 added to KEV 28 Oct 2026</span>
         </div>
         <a href="https://www.mitsubishielectric.com/psirt/vulnerability/pdf/2026-006_en.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1207,7 +1300,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> exploitation is confirmed by Siemens and by CISA&rsquo;s KEV listing; who runs the Romulus campaign is unknown; no impact on Siemens controllers is reported</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; added 20 Oct 2026; federal deadline 3 Nov 2026</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; added 20 Oct 2026; federal deadline 3 Nov 2026 (as of CISA&rsquo;s 30 Oct catalog)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Fixed in Siemens Software Center V4.0.9.8; existing installs update automatically on next start</span>
@@ -1271,7 +1364,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition: refreshed 30&nbsp;October 2026, 10:17 AM ET (a further mid-morning re-check of CISA, SecurityWeek, Industrial Cyber and general-security outlets found no new qualifying OT/ICS incident or advisory, so the cards, trends and 5.8 Medium threat level are unchanged; the earlier morning re-check likewise found no new qualifying incident; the PHP2Shell card now carries The Register&rsquo;s 29&nbsp;October report on suspected China-linked exploitation of PAN-OS firewalls, an IT-side finding with no OT impact described). Previous edition: 29&nbsp;October 2026 (late-evening re-check found no newer qualifying OT/ICS reporting; the afternoon update added Reuters&rsquo; report on the suspected Pentagon freezer cyberattack, read via The Next Web and The Business Standard). The news window was re-queried for 22&ndash;29&nbsp;October, and carried-over cards were re-checked for freshness (all within 30 days; older cards were dropped). KEV status is as of CISA&rsquo;s 27&nbsp;October catalog. The top story rests on Bloomberg&rsquo;s 27&nbsp;October investigation, read through Bloomberg Law&rsquo;s partly paywalled page, Meduza&rsquo;s 28&nbsp;October summary and Tech Times&rsquo; 29&nbsp;October follow-up; incident details are Bloomberg&rsquo;s and are mostly unattributed or claimed rather than independently confirmed. The Threat Level moves to 5.8 (Medium): documented hands-on tampering by Russia-aligned crews and one confirmed OT-disruptive attack (French supermarket refrigeration), but no new confirmed disruption this week, no multi-sector OT impact and no confirmed live hands-on-OT nation-state activity; PHP2Shell and other exploited edge flaws are exposures, not OT incidents. Sources this edition: CISA (KEV catalog, ICS advisories, AA26-293A), CERT-FR, CERT-UA, Forescout, Palo Alto Networks and Unit 42, Siemens ProductCERT, Mitsubishi Electric, Causal Security, Booz Allen, Frenos, OT-ISAC, Dragos and the US Coast Guard; corroborated against Bloomberg Law, The Register, BleepingComputer, The Record, The Hacker News, SecurityWeek, Industrial Cyber and Cyware. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition was refreshed on 31&nbsp;October 2026 (midday re-check: SecurityWeek, Dark Reading, CISA KEV and ICS advisory feeds were re-queried and surfaced no new, verifiable OT incident or advisory since the morning build, so the cards, radar and Threat Level are unchanged). The news window was re-queried for 28&ndash;31&nbsp;October, and every carried-over card was fact-checked and re-checked for freshness (all are dated 1&nbsp;October or later). New top story: the PHP2Shell intrusion campaign, because it is the newest confirmed attack (verified by Unit&nbsp;42 on 29&nbsp;October) on widely deployed IT/OT boundary gear and OT vendors now list grid-control, DCS and RTU products, several unfixed; Bloomberg&rsquo;s review of Russia-aligned hacktivism moves to Incidents &amp; Attacks because its cases date mostly from 2024&ndash;2025, and the commissary freezer case remains suspected only. Added: Volt Typhoon &ldquo;Silent Train&rdquo; (Lumen), the Cisco ASA/FTD and Ivanti Connect Secure KEV additions, and the Hitachi Energy TRO600 and CoreTec advisories. Updated: the PHP2Shell card (Unit&nbsp;42-verified root compromises, Linux CVE-2026-46300, Siemens SSA-166980 V1.2, Schneider v3.2.0 with Foxboro DCS H90, new ABB advisories, ABB&rsquo;s APROL patch still unpublished) and the October ICS fixes card (the S7-1500 MFP kernel flaw is now in KEV); other KEV lines re-dated. Corrected: the Bloomberg card (the Danish waterworks attack is officially attributed to Z-Pentest, official household figures added, &ldquo;since 2024&rdquo;, and an unverified CISA characterisation removed); the freezer card (Army and Air Force investigators and US Cyber Command; Nextgov/FCW&rsquo;s unconfirmed Iran-linked report labelled as such); and the ICONICS KEV line (the bundled libwebp flaw CVE-2023-4863 has been in KEV since 2023). Retired: none. KEV status is as of CISA&rsquo;s 30&nbsp;October catalog. The Threat Level moves from 5.8 to 5.5 (Medium): the single-sector French refrigeration attack remains the only confirmed OT-disruptive incident in the 30-day window, and edge intrusions, state pre-positioning and unexploited ICS advisories do not stack. Sources this edition: CISA (KEV catalog and ICS advisories, read through CIRCL&rsquo;s vulnerability database), Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, CERT@VDE, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, CERT-UA and Forescout; corroborated against Bloomberg Law, Meduza, Reuters (via The Next Web), Nextgov/FCW, The Record, Infosecurity Magazine, Cybersecurity Dive, CyberScoop, Zero Day and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
