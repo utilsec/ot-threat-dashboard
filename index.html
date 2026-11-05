@@ -690,13 +690,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Thu, 5 Nov 2026, 10:10 AM ET</span>
+        <span>Generated Thu, 5 Nov 2026, 4:10 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>20</strong> stories across <strong>4</strong> categories
+      <strong>21</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -1358,6 +1358,37 @@
         <a href="https://productcert.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+<div class="card" id="story-zyxel-gs1900" data-published="2026-11-05">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Zyxel GS1900 managed switches: unauthenticated root command execution flaw CVE-2026-107441 found by Binarly; an earlier flaw in the same line is in CISA KEV (editorial: switches of this class are common in plant and building networks)</span>
+        </div>
+        <h3>Zyxel GS1900 switch patch fails to stop a new root-level flaw; Patch 3 firmware is the fix</h3>
+        <p>Binarly reports that CVE-2026-107441, an out-of-bounds write in the web management program of Zyxel GS1900 switches, lets an unauthenticated attacker run commands as root, and that its exploit still works against Patch 2, the fix for the earlier CVE-2026-7273. Binarly rates it 9.8 while Zyxel&rsquo;s entry lists 8.8. Patch 3 firmware was posted on 23&nbsp;October and announced in an advisory in early November, covering ten models. Zyxel has not said whether the new flaw is exploited and it is not in CISA KEV. The earlier flaw is in KEV: GreyNoise reported in September that attackers took data from 996 of these switches, 564 of them still on factory-default credentials, and ties it to a group Acronis tracks as Red Heron. No workaround is listed, and the advisory does not say whether patching removes existing attacker access.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Exploit exists &mdash; <b>Confirmed vs claimed:</b> Binarly says a working exploit exists; Zyxel has not confirmed exploitation of CVE-2026-107441; exploitation of the earlier CVE-2026-7273 is reported by GreyNoise and listed in KEV; no OT impact is reported</span>
+            <span class="ops-tag kev-off">CVE-2026-107441 not in CISA KEV as of 5 Nov 2026; CVE-2026-7273 added 21 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Fixed in model-specific Patch 3 builds (for example 2.90(AAHH.3)C0 for GS1900-8); all Patch 2 and earlier builds are affected</span>
+            <span class="ops-cc"><b>Action:</b> Find every GS1900 switch, including those in plant, building and substation networks, and apply Patch 3. Close the web management interface to everything except a management network, change factory-default credentials, and if a switch was reachable before patching, treat it as possibly compromised and review its configuration.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Management-interface restriction and default-password change &mdash; 72 hours; Patch 3 &mdash; 14 days; review of switches exposed before patching &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="zyxel-gs1900" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="zyxel-gs1900">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (5 Nov 2026), citing Binarly and Zyxel; GreyNoise (21 Sep 2026); CISA KEV catalog</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 5 Nov 2026; Patch 3 posted 23 Oct 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+
     </div>
   </div>
 
@@ -1461,7 +1492,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated 5 Nov 2026, 2:10 AM ET) re-checked the supermarket-refrigeration coverage (The Hacker News, SecurityWeek, wire reports), the CISA KEV and ICS-advisory bulletins and the 4&nbsp;November daily OT news digest since the 12:09&nbsp;AM edition. It found no new confirmed OT incident or KEV addition, so the cards are unchanged; a CISA advisory for Subnet Solutions PowerSYSTEM Center (ICSA-26-307-01, 3&nbsp;November) appeared in the digest but its details could not be retrieved for verification, so it is not carded. Every card is within 30 days of its source date (oldest 20&nbsp;October). The Threat Level stays at 5.8 (Medium): a confirmed single-sector OT-disruptive incident spreading across countries, with no confirmed multi-sector OT disruption or live hands-on-OT nation-state activity. Sources: CISA, Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, Forescout and the University of British Columbia; corroborated against The Hacker News, Euronews, Xinhua, AFP, Reuters, The Record, Security Affairs, Cybersecurity Dive, CyberScoop and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Thu, 5 Nov 2026, 12:09 PM ET) re-checked the supermarket-refrigeration coverage (Cybersecurity Dive, The Record), The Hacker News and the CISA KEV and ICS-advisory bulletins since the 10:10&nbsp;AM edition. It added one card, the Zyxel GS1900 switch flaw reported on 5&nbsp;November (The Hacker News, citing Binarly); no new confirmed OT incident or KEV addition was found, so the other cards are unchanged. Every card is within 30 days of its source date (oldest 20&nbsp;October). The Threat Level stays at 5.8 (Medium): a confirmed single-sector OT-disruptive incident spreading across countries, with no confirmed multi-sector OT disruption or live hands-on-OT nation-state activity. Sources: CISA, Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, Forescout and the University of British Columbia; corroborated against The Hacker News, Euronews, Xinhua, AFP, Reuters, The Record, Security Affairs, Cybersecurity Dive, CyberScoop and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
