@@ -690,13 +690,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 7 Nov 2026, 4:09 AM ET</span>
+        <span>Generated Sat, 7 Nov 2026, 10:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>23</strong> stories across <strong>4</strong> categories
+      <strong>27</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -1358,6 +1358,96 @@
         <a href="https://productcert.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-jci-ccure-installer-logs" data-published="2026-11-05">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Johnson Controls C&bull;CURE 9000 and victor installer builds (building and physical-security systems common at plants and campuses); no CVE listed in the source</span>
+        </div>
+        <h3>Johnson Controls warns that installer logs may store security-system credentials in plain text</h3>
+        <p>Johnson Controls says certain installer builds of its C&bull;CURE 9000 access-control and victor video software can write sensitive login details in plain text to local log files, and its advisory (JCI-PSA-2026-45) lists the fixed builds. The risk is credential exposure to anyone who can read those logs, not remote code execution. Access-control and video systems often sit on or beside plant and building networks, so a leaked service account can become a way into other systems. The vendor does not report exploitation.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported &mdash; <b>Confirmed vs claimed:</b> vendor-disclosed weakness; no attack activity is reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Fixed builds are listed in the vendor advisory</span>
+            <span class="ops-cc"><b>Action:</b> Check which C&bull;CURE 9000 and victor installer builds were used, move to the fixed builds, then find and securely delete old installer logs. Rotate any account or service credential those logs may have held, and restrict who can read installer and support folders.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Credential rotation and log cleanup &mdash; 14 days; move to fixed builds &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="jci-ccure-installer-logs" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="jci-ccure-installer-logs">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Johnson Controls advisory JCI-PSA-2026-45; Viakoo Daily OT Security News (6 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 5 Nov 2026</span>
+        </div>
+        <a href="https://tyco.widen.net/s/jmcjbkpf65/jci-psa-2026-45" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-mitsubishi-cclink-update" data-published="2026-11-05">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory update &mdash; Mitsubishi Electric CC-Link IE TSN devices (CISA ICSA-26-211-07, Update B); no CVE listed in the source</span>
+        </div>
+        <h3>CISA widens its Mitsubishi CC-Link IE TSN advisory to two more products</h3>
+        <p>On 5&nbsp;November CISA updated advisory ICSA-26-211-07 to cover two additional Mitsubishi Electric devices that use the CC-Link IE TSN industrial network. As described, crafted packets sent from the same network segment can disrupt control data, which in a plant means stalled or confused communication between controllers and I/O. The attacker must already be on the segment, which limits exposure but makes flat networks risky. This is an update to an older advisory, so the new part is the longer product list.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported &mdash; <b>Confirmed vs claimed:</b> CISA update adds affected products; no attack activity is reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">See the CISA advisory and Mitsubishi bulletin for fixed versions and mitigations</span>
+            <span class="ops-cc"><b>Action:</b> Check whether any of the newly added Mitsubishi devices are on your CC-Link IE TSN segments, follow the vendor mitigations, and keep those segments isolated so only controllers and engineering tools can send traffic to them.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory check &mdash; 14 days; mitigations or updates &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="mitsubishi-cclink-update" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="mitsubishi-cclink-update">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA ICSA-26-211-07 (Update B); Viakoo Daily OT Security News (6 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Updated 5 Nov 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-07" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-phoenix-codemeter-plcnext" data-published="2026-11-04">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Phoenix Contact PLCnext and Virtual Controls using Wibu CodeMeter Runtime (CERT@VDE VDE-2026-084); no CVE listed in the source</span>
+        </div>
+        <h3>Phoenix Contact flags CodeMeter licensing flaws in PLCnext controllers and Virtual Controls</h3>
+        <p>CERT@VDE and Wibu-Systems describe flaws in the CodeMeter Runtime bundled into listed Phoenix Contact PLCnext and Virtual Controls firmware. An attacker could crash the runtime and block access to licenses, which can stop licensed functions on the controller. Phoenix Contact plans a fix in the fourth quarter. This is another case of third-party code inside an OT product, where the fix date depends on the controller vendor rather than the component maker.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported &mdash; <b>Confirmed vs claimed:</b> vendor-coordinated disclosure; no attack activity is reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">Fix planned for Q4 2026 &mdash; no firmware yet</span>
+            <span class="ops-cc"><b>Action:</b> Identify the PLCnext and Virtual Controls units on the affected firmware, block CodeMeter ports from untrusted networks, and plan the firmware update once Phoenix Contact releases it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Network restriction &mdash; 14 days; firmware update &mdash; within 30 days of release</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="phoenix-codemeter-plcnext" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="phoenix-codemeter-plcnext">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CERT@VDE VDE-2026-084; Wibu-Systems WIBU-103401; Viakoo Daily OT Security News (5 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 4 Nov 2026</span>
+        </div>
+        <a href="https://certvde.com/en/advisories/VDE-2026-084/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
 <div class="card" id="story-zyxel-gs1900" data-published="2026-11-05">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1516,7 +1606,37 @@
         <a href="https://industrialcyber.co/utilities-energy-power-water-waste/centrii-flags-audit-risks-as-nerc-cip-003-9-tightens-vendor-remote-access-controls-for-low-impact-bes-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-ncsc-caf-core" data-published="2026-10-30">
+            <div class="card" id="story-odva-cip-security-62443" data-published="2026-11-02">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation &mdash; ODVA CIP Security certified to IEC 62443-4-2 Security Level 3 by T&Uuml;V Rheinland; no CVE</span>
+        </div>
+        <h3>ODVA&rsquo;s CIP Security specification earns IEC 62443-4-2 Security Level 3 certification</h3>
+        <p>Industrial Cyber reports that T&Uuml;V Rheinland has certified ODVA&rsquo;s CIP Security specification against IEC&nbsp;62443-4-2, up to Security Level&nbsp;3 (ODVA&rsquo;s own announcement is dated 22&nbsp;October). The certification applies to the specification, not to every product that implements it, so a vendor&rsquo;s device still needs its own assessment. For buyers of EtherNet/IP gear, it gives a clearer way to ask suppliers whether their products use CIP Security and have been tested to the standard.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Certification announced &mdash; <b>Confirmed vs claimed:</b> reported by Industrial Cyber from the ODVA and T&Uuml;V Rheinland announcements</span>
+            <span class="ops-tag kev-off">No CVE &mdash; standards and procurement item</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; procurement and design guidance</span>
+            <span class="ops-cc"><b>Action:</b> When specifying or renewing EtherNet/IP and CIP devices, ask suppliers whether the product supports CIP Security and what IEC 62443-4-2 level it has been certified to, and add the answer to your purchasing requirements.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Update procurement language &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="odva-cip-security-62443" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="odva-cip-security-62443">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Industrial Cyber (2 Nov 2026), citing ODVA and T&Uuml;V Rheinland</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 2 Nov 2026; ODVA announcement 22 Oct 2026</span>
+        </div>
+        <a href="https://industrialcyber.co/news/odvas-cip-security-achieves-tuv-rheinland-certification-against-iec-62443-4-2-at-security-level-3/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+<div class="card" id="story-ncsc-caf-core" data-published="2026-10-30">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Regulation &mdash; UK NCSC Cyber Assessment Framework (CAF) v4.0 Core Profile for essential services and critical national infrastructure; no CVE</span>
@@ -1552,7 +1672,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Sat, 7 Nov 2026, 4:09 AM ET) re-checked CISA ICS advisory and KEV bulletins, CERT@VDE, the refrigeration-attack coverage (SecurityWeek, The Record, Dark Reading, SecureWorld) and the daily OT digests since the previous edition. The CISA and FBI joint warning (5&nbsp;Nov) and the European wave details are unchanged; the one addition is Festo&rsquo;s revised PHP2Shell advisory (5&nbsp;Nov). Every card is within 30 days of its source date (oldest 20&nbsp;October). The Threat Level is 5.8 (Medium): a confirmed single-sector OT-disruptive incident spreading across countries, with no confirmed multi-sector OT disruption or live hands-on-OT nation-state activity. Sources: CISA, CERT@VDE, Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, Forescout and the University of British Columbia; corroborated against The Hacker News, TechCrunch, The Record, Cybersecurity Dive, SecurityWeek and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Sat, 7 Nov 2026, 10:10 AM ET) re-checked CISA ICS advisory and KEV bulletins, CERT@VDE, the refrigeration-attack coverage (The Record, BleepingComputer, Help Net Security) and the daily OT digests since the previous edition. The CISA and FBI joint warning (5&nbsp;Nov) is unchanged; additions are the Johnson Controls C&bull;CURE/victor advisory (5&nbsp;Nov), the Mitsubishi CC-Link IE TSN advisory update (5&nbsp;Nov), Phoenix Contact&rsquo;s CodeMeter advisory (4&nbsp;Nov) and ODVA&rsquo;s IEC&nbsp;62443 certification (2&nbsp;Nov). Every card is within 30 days of its source date (oldest 20&nbsp;October). The Threat Level is 5.8 (Medium): a confirmed single-sector OT-disruptive incident spreading across countries, with no confirmed multi-sector OT disruption or live hands-on-OT nation-state activity. Sources: CISA, CERT@VDE, Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, Forescout and the University of British Columbia; corroborated against The Hacker News, TechCrunch, The Record, Cybersecurity Dive, SecurityWeek and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
