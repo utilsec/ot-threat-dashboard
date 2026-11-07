@@ -690,13 +690,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Fri, 6 Nov 2026, 10:08 PM ET</span>
+        <span>Generated Sat, 7 Nov 2026, 4:09 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>22</strong> stories across <strong>4</strong> categories
+      <strong>23</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -727,7 +727,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:58.0%;"></span></div>
-      <div class="tl-why"><b>Why 5.8 (Medium):</b> Refrigeration attacks keep spreading and the 5&nbsp;Nov US joint warning spans food, health, chemical and transport cold chains, but no OT disruption is confirmed beyond one family of controllers.<br><b>Top threat:</b> Tampering with internet-reachable refrigeration controllers; at least 11 countries hit 1&ndash;2&nbsp;Nov; CISA and FBI warned 5&nbsp;Nov.<br><b>Confirmed OT attack:</b> Refrigeration in France (Oct) and Europe (Nov); actor unnamed; pro-Russian claim unverified.<br><b>Also watching:</b> PHP2Shell in grid and DCS products; Siemens IoT2050 Node-RED exploited; Volt Typhoon; Cisco and Ivanti KEV flaws.<br><b>What would raise it:</b> Confirmed OT disruption in an unrelated sector, or live nation-state hands-on OT activity.</div>
+      <div class="tl-why"><b>Why 5.8 (Medium):</b> Refrigeration attacks keep spreading and the 5&nbsp;Nov US joint warning spans food, health, chemical and transport cold chains, but no OT disruption is confirmed beyond one family of controllers.<br><b>Top threat:</b> Tampering with internet-reachable refrigeration controllers; at least 11 countries hit 1&ndash;2&nbsp;Nov; CISA and FBI warned 5&nbsp;Nov.<br><b>Confirmed OT attack:</b> Refrigeration in France (Oct) and Europe (Nov); actor unnamed; pro-Russian claim unverified.<br><b>Also watching:</b> PHP2Shell in grid, DCS and Festo training/MES products; Siemens IoT2050 Node-RED exploited; Volt Typhoon; Cisco and Ivanti KEV flaws.<br><b>What would raise it:</b> Confirmed OT disruption in an unrelated sector, or live nation-state hands-on OT activity.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1388,6 +1388,35 @@
         <a href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-festo-php2shell" data-published="2026-11-05">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory &mdash; Festo Didactic FactoryViews and MES4 (CERT@VDE VDE-2026-139): PHP2Shell flaws CVE-2026-109618 (CVSS&nbsp;9.8) and CVE-2026-109619 (CVSS&nbsp;8.1); editorial severity Medium because these are training and MES software, not plant controllers</span>
+        </div>
+        <h3>Festo revises its PHP2Shell guidance: FactoryViews has a fix, MES4 on XAMPP does not</h3>
+        <p>CERT@VDE published Festo Didactic&rsquo;s advisory on 2&nbsp;November and revised it on 5&nbsp;November. Two use-after-free flaws in the bundled PHP (the PHP2Shell pair) can lead to remote code execution on FactoryViews 1.0.0 through 1.12.1 and on MES4 wherever it ships with the XAMPP web stack. Festo recommends FactoryViews 1.12.2 (versions before 1.12 must go to 1.12 first). No fix exists for MES4 because the bundled XAMPP and PHP 7.3 and earlier are out of support, so Festo lists php.ini workarounds and firewall limits on the web server. The advisory does not say Festo products have been attacked, though the underlying PHP flaws are exploited elsewhere.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No Festo exploitation reported &mdash; <b>Confirmed vs claimed:</b> the advisory reports no attacks on Festo products; exploitation of the underlying PHP flaws elsewhere is covered in the top-level PHP2Shell story</span>
+            <span class="ops-tag kev-off">Festo products not named in CISA KEV; confirm the PHP CVE status in the KEV catalog</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Partial &mdash; FactoryViews 1.12.2 available; MES4 with XAMPP has no fix</span>
+            <span class="ops-cc"><b>Action:</b> Update FactoryViews to 1.12.2. For MES4, apply the vendor&rsquo;s php.ini settings, limit the web server to the HMI panels and workstations that need it, keep it off the internet, and plan to replace the out-of-support XAMPP stack.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check and php.ini workarounds &mdash; 7 days; FactoryViews update &mdash; 30 days; MES4 stack replacement plan &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="festo-php2shell" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="festo-php2shell">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CERT@VDE VDE-2026-139 / Festo FSA-202603</span>
+          <span class="dot">&bull;</span>
+          <span>Published 2 Nov 2026; revised 5 Nov 2026</span>
+        </div>
+        <a href="https://certvde.com/en/advisories/VDE-2026-139/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="story-subnet-powersystem" data-published="2026-11-03">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1523,7 +1552,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Fri, 6 Nov 2026, 10:08 PM ET) re-checked CISA ICS advisory and KEV bulletins, the refrigeration-attack coverage (including Dark Reading, SecureWorld and The Packer follow-ups), SecurityWeek and The Record since the previous edition. The CISA and FBI joint warning (5&nbsp;Nov) and the European wave details are unchanged, and no new confirmed OT incident, ICS advisory or relevant KEV addition surfaced, so the cards are carried forward. Every card is within 30 days of its source date (oldest 20&nbsp;October). The Threat Level is 5.8 (Medium): a confirmed single-sector OT-disruptive incident spreading across countries, with no confirmed multi-sector OT disruption or live hands-on-OT nation-state activity. Sources: CISA, Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, Forescout and the University of British Columbia; corroborated against The Hacker News, TechCrunch, The Record, Cybersecurity Dive, SecurityWeek and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Sat, 7 Nov 2026, 4:09 AM ET) re-checked CISA ICS advisory and KEV bulletins, CERT@VDE, the refrigeration-attack coverage (SecurityWeek, The Record, Dark Reading, SecureWorld) and the daily OT digests since the previous edition. The CISA and FBI joint warning (5&nbsp;Nov) and the European wave details are unchanged; the one addition is Festo&rsquo;s revised PHP2Shell advisory (5&nbsp;Nov). Every card is within 30 days of its source date (oldest 20&nbsp;October). The Threat Level is 5.8 (Medium): a confirmed single-sector OT-disruptive incident spreading across countries, with no confirmed multi-sector OT disruption or live hands-on-OT nation-state activity. Sources: CISA, CERT@VDE, Palo Alto Networks and Unit&nbsp;42, Siemens ProductCERT, Schneider Electric, ABB, Hitachi Energy, Cisco, Lumen Black Lotus Labs, CrowdStrike, CERT-FR, Forescout and the University of British Columbia; corroborated against The Hacker News, TechCrunch, The Record, Cybersecurity Dive, SecurityWeek and The Register. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
