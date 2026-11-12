@@ -690,7 +690,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Wed, 11 Nov 2026, 4:10 PM ET</span>
+        <span>Generated Wed, 11 Nov 2026, 8:10 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -727,7 +727,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:70.0%;"></span></div>
-      <div class="tl-why"><b>Why 7.0 (High):</b> A state-backed actor is officially named for OT sabotage that caused fires, and refrigeration-control attacks have reached about a dozen countries.<br><b>Top threat:</b> Internet-reachable controllers in any sector, now a proven target for Iran&rsquo;s IRGC.<br><b>Confirmed OT attack:</b> About 700 French stores (Oct, 15+ fires) and small hydro sites, attributed by France to the IRGC (Iran denies); an unattributed November wave across Europe.<br><b>Also watching:</b> Node2Shell in Siemens SCADA and PCS&nbsp;7; N-central RMM exploit dump; Barracuda and OpenSSH flaws in KEV; PHP2Shell in OT products; Volt Typhoon.<br><b>What would raise it:</b> An outage at a power, water or gas operator, or a state attribution of the November wave.</div>
+      <div class="tl-why"><b>Why 7.0 (High):</b> Confirmed controller sabotage has disrupted more than one sector in several countries, and France has tied part of it to a state actor.<br><b>Top threat:</b> Internet-reachable controllers of any kind, now a proven target for Iran&rsquo;s IRGC.<br><b>Confirmed OT attack:</b> October sabotage of ~700 French stores (15+ fires) and small hydro sites, attributed by France to the IRGC (Iran denies); an unattributed November wave in ~11 countries.<br><b>Also watching:</b> Node2Shell in Siemens SCADA and PCS&nbsp;7; PHP2Shell in OT products; N-central exploit dump; Barracuda, OpenSSH and SonicWall flaws in KEV; Volt Typhoon.<br><b>What would raise it:</b> An outage at a power, water or gas operator, or proof the November wave is spreading under state direction.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -993,36 +993,35 @@
         </div>
         <a href="https://globenewswire.com/news-release/2026/11/10/3399581/0/en/34-of-industrial-organizations-suffered-a-cyber-incident-and-72-of-those-incidents-disrupted-operations-new-sans-institute-survey-finds.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-checkpoint-sparrow" data-published="2026-11-10">
+      <div class="card" id="story-ics-sniper-research" data-published="2026-11-03">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Threat Intel &mdash; Check Point Research report (10 Nov 2026) linking three China-nexus espionage campaigns through the Sparrow malware ecosystem; critical-infrastructure operators among targets; no OT access reported</span>
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research &mdash; University of British Columbia &ldquo;ICS-Sniper&rdquo; paper (announced 3 Nov 2026, accepted for NDSS 2027); lab demonstration, no CVE, no real-world use reported</span>
         </div>
-        <h3>Check Point links three China-nexus spying campaigns to one malware supplier, with telecoms and critical-infrastructure operators among the targets</h3>
-        <p>Check Point Research said on 10&nbsp;November that a tool developer it calls CopperDragon supplies the Sparrow malware family to several China-nexus groups, including FamousSparrow, Earth Estries and Tropic Trooper, and it ties three campaigns together through that toolset. One, OceanGate, starts on internet-facing Linux servers and moves into Windows networks over RDP using new backdoors and kernel-level techniques; another uses watering-hole sites, some in shipping, that push fake &ldquo;certificate fix&rdquo; utilities. Targets span telecoms, government, military, research and critical infrastructure across Asia, Europe and Latin America. No OT intrusion or disruption is described and no CVE is named; for OT defenders the lesson is the entry path, exposed Linux servers and RDP, which also lead toward plant networks.</p>
+        <h3>Researchers show encrypted plant-to-cloud control traffic can be selectively blocked from a compromised router, delaying water-treatment steps</h3>
+        <p>University of British Columbia researchers described on 3&nbsp;November an attack they call ICS-Sniper, accepted for the NDSS 2027 symposium. An attacker who already controls a router between a facility and its cloud monitoring or control service studies the size and timing of encrypted messages, predicts which ones carry critical commands, and quietly drops a small share of them without breaking the encryption or touching the plant. On a cloud-connected water-treatment testbed in Singapore this delayed clean-water pumping by about 15 minutes and held a valve open more than nine minutes too long, and the detectors tested did not flag it. Traffic analysis was also tried on a power-grid dataset, but disruption was shown only on the water models. This is lab research, not an observed attack; the lesson is that the network path to the cloud is part of the control system.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active espionage (vendor research) &mdash; <b>Confirmed vs claimed:</b> the campaigns, toolset links and China-nexus attribution are Check Point&rsquo;s findings; victims are not named; no OT access is reported</span>
-            <span class="ops-tag kev-off">No CVE named; not in CISA KEV</span>
+            <span class="ops-tag ex-info"><span class="d"></span>Research finding &mdash; <b>Confirmed vs claimed:</b> results are the researchers&rsquo; own lab measurements on a testbed; no in-the-wild use and no affected vendor are reported</span>
+            <span class="ops-tag kev-off">No CVE &mdash; not applicable</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; harden internet-facing Linux and restrict RDP</span>
-            <span class="ops-cc"><b>Action:</b> Review internet-facing Linux servers at OT-owning sites for unfamiliar services and kernel modules, allow RDP from IT into OT only through a monitored jump host with multi-factor authentication, and check Check Point&rsquo;s published indicators against DNS and proxy logs.</span>
+            <span class="ops-tag patch-na">Not a patch issue &mdash; protect the WAN path and make control logic tolerate lost messages</span>
+            <span class="ops-cc"><b>Action:</b> List every control or setpoint command that travels through a cloud service, treat the routers and carrier links on that path as OT assets, and make sure local logic fails safe and alarms when an expected command or acknowledgement does not arrive in time.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Indicator sweep &mdash; 7 days; review of RDP paths into OT &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="checkpoint-sparrow" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="checkpoint-sparrow">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of cloud-routed control commands &mdash; 30 days; timeout and fail-safe review &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ics-sniper-research" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ics-sniper-research">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Check Point Research (10 Nov 2026); The Hacker News (10 Nov 2026)</span>
+          <span>University of British Columbia, Faculty of Science (3 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Published 10 Nov 2026</span>
+          <span>Published 3 Nov 2026; paper to be presented at NDSS 2027</span>
         </div>
-        <a href="https://research.checkpoint.com/2026/not-all-that-glitters-is-gold-tracking-copperdragons-sparrow-framework-around-the-globe/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://science.ubc.ca/news/2026-11/ubc-researchers-uncover-new-cyber-threat-water-and-energy-networks" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
       <div class="card" id="story-operation-snowball" data-published="2026-11-09">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1150,16 +1149,16 @@
         </div>
         <a href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-barracuda-esg-kev" data-published="2026-11-10">
+      <div class="card" id="story-barracuda-esg-kev" data-published="2026-11-11">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory &mdash; Barracuda Email Security Gateway authentication bypass CVE-2026-116606 (CVSS 9.3) and appliance command injection CVE-2026-111560 (CVSS 8.6) added to CISA KEV (10 Nov 2026); three-day federal deadline</span>
         </div>
         <h3>Barracuda gateway flaws that chain to root are now exploited, and CISA gave agencies three days to fix them</h3>
-        <p>Barracuda disclosed two flaws on 4&nbsp;November. CVE-2026-116606 (CVSS 9.3) lets an attacker who can reach the Email Security Gateway&rsquo;s admin interface restore a crafted configuration backup without valid credentials; CVE-2026-111560 (CVSS 8.6), a command-injection bug that also affects Barracuda&rsquo;s Load Balancer ADC, Message Archiver, WAF, WAF Control Center and Web Security Gateway, then runs commands as root. On 10&nbsp;November CISA added both to its Known Exploited Vulnerabilities catalog with a 13&nbsp;November deadline for federal agencies, and SecurityOnline reports that Barracuda has confirmed attacks on a small number of organizations and that exploit code is public. Email and web gateways are not OT, but at many utilities and plants they sit on the same corporate edge attackers use to reach domain credentials and remote-access paths into operations.</p>
+        <p>Barracuda disclosed two flaws in early November. CVE-2026-116606 (CVSS 9.3) lets an attacker who can reach the Email Security Gateway&rsquo;s admin interface restore a crafted configuration backup without valid credentials; CVE-2026-111560 (CVSS 8.6), a command-injection bug that also affects Barracuda&rsquo;s Load Balancer ADC, Message Archiver, WAF, WAF Control Center and Web Security Gateway, then runs commands as root. On 10&nbsp;November CISA added both to its Known Exploited Vulnerabilities catalog with a 13&nbsp;November deadline for federal agencies, and Barracuda&rsquo;s updated advisory now confirms both are being exploited against a small number of organizations; Previdian logged 17 attempts against the bypass from 15 addresses between 9 and 11&nbsp;November. Email and web gateways are not OT, but at many utilities and plants they sit on the same corporate edge attackers use to reach domain credentials and remote-access paths into operations.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> exploitation is confirmed by CISA&rsquo;s KEV listing (10 Nov); Barracuda&rsquo;s confirmation of attacks on a small number of organizations is as reported by SecurityOnline; no victims, actor or OT impact are reported</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> exploitation is confirmed by Barracuda&rsquo;s updated advisory and CISA&rsquo;s KEV listing (10 Nov); Previdian&rsquo;s attempt counts are honeypot data; neither Barracuda nor CISA has named victims or an actor, and no OT impact is reported</span>
             <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV (added 10 Nov 2026; federal deadline 13 Nov) &mdash; CVE-2026-116606, CVE-2026-111560</span>
           </div>
           <div class="ops-row">
@@ -1173,11 +1172,11 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek (4 Nov 2026, Barracuda advisories); SecurityOnline (10 Nov 2026, CISA KEV additions); CISA KEV alert (10 Nov 2026)</span>
+          <span>SecurityWeek (11 Nov 2026, Barracuda confirms exploitation; 4 Nov 2026, advisories); SecurityOnline (10 Nov 2026, CISA KEV additions); CISA KEV alert (10 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 4 Nov 2026; KEV addition 10 Nov 2026</span>
+          <span>Disclosed early Nov 2026; KEV addition 10 Nov 2026; exploitation confirmed by Barracuda 11 Nov 2026</span>
         </div>
-        <a href="https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="story-nov11-ics-patch-tuesday" data-published="2026-11-11">
         <div class="card-header">
@@ -1403,7 +1402,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Wed, 11 Nov 2026, 4:10 PM ET) re-checked CISA KEV and ICS advisory bulletins, NIST, vendor PSIRT coverage (Siemens, Schneider Electric, Rockwell Automation), refrigeration-attack and attribution coverage, The Hacker News, BleepingComputer, The Record, SecurityWeek, Industrial Cyber and Zero Day since the previous edition. The lead remains France&rsquo;s 9&nbsp;November attribution of the October refrigeration sabotage to Iran&rsquo;s Revolutionary Guard; no material new development was found. New card: NIST&rsquo;s draft SP&nbsp;800-82 Rev.&nbsp;4 OT security guide, whose public comment period closes 30&nbsp;November (a forward-looking deadline). The 6&nbsp;November Censys exposure-research card was retired to keep the page at 18 stories; its exposure figures remain cited on the refrigeration card. A report recirculating the August US water-utility attacks in 12 states was checked and not added, because the underlying events and reporting date from August. Every card is within 30 days of its source date (oldest 28&nbsp;October) or carries a forward-looking deadline. The Threat Level stays 7.0 (High): confirmed OT-disruptive attacks across retail refrigeration, small hydroelectric sites and a blood service in multiple countries, attributed in part by France to a state-backed actor; no new OT incident was reported since the last edition. Sources: CISA, NIST, CERT-FR, ANSSI, ENISA, SANS Institute, Check Point Research, Malbear Labs, N-able, Tenable, Barracuda, Siemens ProductCERT, Schneider Electric, ABB, Cisco, SonicWall, Lumen Black Lotus Labs, Censys, Binarly, GreyNoise and SecurityScorecard; corroborated against The Hacker News, TechCrunch, BleepingComputer, The Record, SecurityWeek, GovInfoSecurity, SecurityOnline, Infosecurity Magazine, Euronews, Nextgov/FCW, Cybersecurity Dive and Industrial Cyber. Wired was not used this run. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Wed, 11 Nov 2026, 8:10 PM ET) re-checked CISA KEV and ICS advisory bulletins, vendor PSIRT coverage (Siemens, Schneider Electric, Rockwell Automation, Barracuda), refrigeration-attack and attribution coverage, The Hacker News, BleepingComputer, The Record, SecurityWeek, Cybersecurity Dive and Industrial Cyber since the previous edition. The lead remains France&rsquo;s 9&nbsp;November attribution of the October refrigeration sabotage to Iran&rsquo;s Revolutionary Guard; no material new OT incident, ICS advisory or OT-relevant KEV addition was found in the interval. Updated card: Barracuda has now confirmed in its own advisory that both gateway flaws are exploited (SecurityWeek, 11&nbsp;November). Reports recirculating the August US water-utility attacks in 12 states were checked again and not added, because the underlying events date from July and August; Apple&rsquo;s 11&nbsp;November fix for the exploited Brotli bug was reviewed and judged not OT-relevant. Every card is within 30 days of its source date (oldest 28&nbsp;October) or carries a forward-looking deadline. The Threat Level stays at 7.0 (High): confirmed OT-disruptive attacks across retail refrigeration, small hydroelectric sites and a blood service in multiple countries, part of it attributed by France to a state-backed actor. Sources: CISA, NIST, CERT-FR, ANSSI, ENISA, SANS Institute, University of British Columbia, Malbear Labs, N-able, Tenable, Barracuda, Siemens ProductCERT, Schneider Electric, ABB, Cisco, SonicWall, Lumen Black Lotus Labs, Censys, Binarly, GreyNoise and SecurityScorecard; corroborated against The Hacker News, TechCrunch, BleepingComputer, The Record, SecurityWeek, GovInfoSecurity, SecurityOnline, Infosecurity Magazine, Euronews, Nextgov/FCW, Cybersecurity Dive and Industrial Cyber. Wired was not used this run. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
