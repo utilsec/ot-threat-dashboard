@@ -690,7 +690,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 14 Nov 2026, 8:58 PM ET</span>
+        <span>Generated Sun, 15 Nov 2026, 10:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -727,7 +727,7 @@
         <span class="tl-band">High</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:70.0%;"></span></div>
-      <div class="tl-why"><b>Why 7.0 (High):</b> State-linked sabotage of industrial controllers is confirmed across several countries and sectors, though no new wave has been reported since early November.<br><b>Top threat:</b> Internet-reachable controllers, led by refrigeration units such as Danfoss AK-SM&nbsp;800A with six unpatched pre-login flaws.<br><b>Confirmed OT attack:</b> Refrigeration sabotage in food retail, a blood service and small hydro, which France attributes to Iran&rsquo;s IRGC.<br><b>Also watching:</b> reported Iranian water and tanker intrusions; drone-update hijack; PHP2Shell wiper; N-central and ScreenConnect abuse.<br><b>What would raise it:</b> A fresh attack wave, or a confirmed outage at a power, water or gas operator.</div>
+      <div class="tl-why"><b>Why 7.0 (High):</b> Confirmed, state-linked sabotage of industrial controllers spans several countries and sectors, but no new attack wave has been reported since early November or over this weekend.<br><b>Top threat:</b> Any internet-reachable controller, led by refrigeration units such as Danfoss AK-SM&nbsp;800A with six unpatched pre-login flaws.<br><b>Confirmed OT attack:</b> Refrigeration sabotage at supermarkets, a blood service and small hydro, which France attributes to Iran&rsquo;s IRGC.<br><b>Also watching:</b> reported water and tanker intrusions; drone-update hijack; PHP2Shell wiper; N-central and ScreenConnect abuse.<br><b>What would raise it:</b> A fresh attack wave, or a confirmed outage at a power, water or gas operator.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -839,10 +839,10 @@
         <a href="https://www.cybersecuritydive.com/news/ai-vulnerabilities-critical-infrastructure-embedded-software/874499/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive (Forescout AI research)</a>
       </div>
       <div class="trend">
-        <span class="trend-tag">Supply Chain</span>
-        <b class="trend-head">Vendor update channels and bundled components are the soft spot</b>
-        <p>A malicious update pushed from Quantum Systems&rsquo; own server reportedly grounded military drones (see Incidents &amp; Attacks), while Siemens, Hitachi Energy and Phoenix Contact keep confirming that exploited open-source bugs such as Node2Shell and PHP2Shell sit inside their products. The OT vendor, not the upstream project, sets the fix date, so update integrity and component inventories are becoming procurement questions (editorial assessment).</p>
-        <a href="https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/" class="source-link" target="_blank" rel="noopener">BleepingComputer (Quantum Systems)</a>
+        <span class="trend-tag">Governance</span>
+        <b class="trend-head">US debate turns to reporting liability and information-sharing as AI speeds up attacks</b>
+        <p>After its 12&nbsp;November meeting, the White House AI task force urged regulators to limit liability for good-faith voluntary reporting of vulnerabilities and incidents for at least 12 months, asked that CISA&rsquo;s coming incident-reporting rule avoid duplicate requirements, and backed long-term renewal of the 2015 information-sharing law. Operators are watching how this lands alongside sector reporting rules they already follow.</p>
+        <a href="https://www.cybersecuritydive.com/news/ai-white-house-task-force-cybersecurity-regulation/874679/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive (AI task force readout)</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Remote Access</span>
@@ -1138,38 +1138,6 @@
         </div>
         <a href="https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-ubc-ics-sniper" data-published="2026-11-03">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; University of British Columbia &ldquo;ICS-Sniper&rdquo; technique (published 3 Nov 2026), lab demonstration on a water-treatment testbed; no CVE, no vendor named</span>
-        </div>
-        <h3>Researchers show attackers can delay pumps and valves by selectively dropping encrypted cloud-control traffic, without breaking into the plant</h3>
-        <p>University of British Columbia researchers described on 3&nbsp;November a technique they call ICS-Sniper that disrupts cloud-connected industrial control without touching the plant&rsquo;s own systems or breaking encryption. An attacker who controls a router on the path between a facility and its cloud monitoring and control service studies the timing and size of encrypted messages, predicts when a critical command is about to be sent, and quietly drops only that small fraction of traffic. On a cloud-adapted water-treatment testbed from the Singapore University of Technology and Design, this delayed clean-water pumping by about 15 minutes and held a simulated valve open more than nine minutes too long. The traffic analysis was also tried on other industrial protocols, including a power-grid dataset, but disruption was only shown on the water models. It is lab research, not an observed attack, but it shows encryption alone does not protect cloud-dependent control loops (editorial assessment).</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Research finding &mdash; <b>Confirmed vs claimed:</b> results are the UBC team&rsquo;s laboratory demonstration as described by the university; no in-the-wild use is reported and no specific product or vendor is named</span>
-            <span class="ops-tag kev-off">No CVE &mdash; not applicable</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not a patch issue &mdash; architecture and command-delivery monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Inventory which control functions depend on a cloud or remote service, make sure the local controller fails safe if a command arrives late or not at all, and alarm on missed or delayed command acknowledgements rather than only on outright link loss. Prefer private or dedicated paths for cloud control traffic and treat the routers that carry it as part of the OT attack surface.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Cloud-dependent control inventory &mdash; 30 days; late-command fail-safe review &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ubc-ics-sniper" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="ubc-ics-sniper">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>University of British Columbia, Faculty of Science (3 Nov 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 3 Nov 2026</span>
-        </div>
-        <a href="https://science.ubc.ca/news/2026-11/ubc-researchers-uncover-new-cyber-threat-water-and-energy-networks" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      
-
     </div>
   </div>
 
@@ -1391,6 +1359,35 @@
         </div>
         <a href="https://industrialcyber.co/cisa/cisas-installed-base-program-to-help-oems-identify-and-secure-internet-exposed-ot-assets-across-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="story-ncsc-cyas" data-published="2026-11-11">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Program &mdash; UK NCSC Cyber Adversary Simulation (CyAS) assurance scheme (announced 11 Nov 2026); launches as a minimum viable product; no CVE</span>
+        </div>
+        <h3>UK NCSC launches an assured adversary-simulation scheme so critical operators can test whether they would actually catch a real attacker</h3>
+        <p>On 11&nbsp;November the UK National Cyber Security Centre launched CyAS, a scheme that assesses commercial adversary-simulation providers against an NCSC-defined standard so that critical national infrastructure operators, government bodies and their regulators can find testers they can trust. Unlike a penetration test or a controls audit, an assured engagement starts with reconnaissance of the customer&rsquo;s technology, exposure and threats, then runs a tailored, end-to-end attack plan to see whether the organisation can prevent, detect and respond. It was built with sector regulators and lead government departments, who can use the results as evidence of resilience across their sectors, and it complements the Cyber Assessment Framework. The scheme starts as a minimum viable product before a fuller operating model; no date for that move is given. For OT owners, the value lies in testing the IT-to-OT path and detection end to end, but rules of engagement must keep live control systems out of harm&rsquo;s way (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>New program &mdash; <b>Confirmed vs claimed:</b> the scheme, its methodology and its MVP launch are from the NCSC&rsquo;s own announcement, summarised by Industrial Cyber; how sector regulators will use it in the UK is not yet set out in detail</span>
+            <span class="ops-tag kev-off">No CVE &mdash; program item</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; assurance and testing planning</span>
+            <span class="ops-cc"><b>Action:</b> If you are a UK operator, ask your regulator whether CyAS evidence will count towards CAF assurance. Anywhere, before commissioning adversary simulation, write OT rules of engagement first: which zones are in scope, passive-only limits near controllers, a stop-work contact in operations, and a plan to test detection at the IT/OT boundary.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm regulator stance (UK) &mdash; 30 days; draft OT rules of engagement for any red-team or simulation work &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="ncsc-cyas" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="ncsc-cyas">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>UK National Cyber Security Centre (11 Nov 2026); Industrial Cyber (13 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 11 Nov 2026</span>
+        </div>
+        <a href="https://www.ncsc.gov.uk/news/ncsc-scheme-help-critical-organisations-test-their-cyber-defences" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
 
 
@@ -1401,7 +1398,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Sat, 14 Nov 2026, 4:07 PM ET) re-checked CISA KEV and ICS advisory bulletins, vendor PSIRT coverage, coverage of the Iran-linked refrigeration, water and tanker sabotage, the FAA ground-stop investigation, and The Hacker News, BleepingComputer, The Record, SecurityWeek, Industrial Cyber, Nextgov/FCW and Zero Day since the 2:55&nbsp;PM edition. Changes: the FAA ground-stop card now notes that the FBI is reportedly examining a software update as a possible cause and adds Nextgov&rsquo;s impact figures (at least 10,000 flights and two million passengers). No new confirmed OT incident, refrigeration wave, ICS advisory or OT-relevant KEV addition surfaced; CISA&rsquo;s 12&nbsp;November republication of the Siemens energy-product PHP2Shell advisories is already covered. Checked and not added: the Stadtwerke Landsberg ransomware attack and the 22&nbsp;October CISA advisory batch (both outside the 30-day window), DOE AI-FORTS and NCSC CyAS programme announcements, and IT-only breaches. Every card is within 30 days of its source date (oldest 28&nbsp;October) or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards and stays at 7.0 (High): confirmed, state-attributed OT sabotage across several countries and sectors, with no new wave since 2&nbsp;November. Sources: CISA, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB (via Bytes Europe), Midnight Blue, Sekoia, Paris prosecutor (via RFI), Check Point Research, Canadian Centre for Cyber Security, CERT-FR, SANS Institute, Forescout, University of British Columbia, Huntress, Blackpoint Cyber, ConnectWise, N-able, Maersk, Siemens ProductCERT, Schneider Electric, ABB, Palo Alto Networks Unit&nbsp;42, Lumen Black Lotus Labs, Binarly, and DOT, FAA and DHS statements; corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Bloomberg (via SecurityWeek), CBS News and FlightAware (via Yahoo News live updates), CNBC, Nextgov/FCW, BleepingComputer, The Hacker News, TechCrunch, SecurityWeek, Cybersecurity Dive, AVweb, Al Jazeera, Help Net Security and Zero Day. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Sun, 15 Nov 2026, 10:10 AM ET) re-checked CISA KEV and ICS advisory bulletins, vendor PSIRT coverage, the Iran-linked refrigeration, water and tanker sabotage reporting, and The Hacker News, BleepingComputer, The Record, SecurityWeek, Industrial Cyber, Help Net Security and Cybersecurity Dive since the 8:10&nbsp;AM edition. No new confirmed OT incident, refrigeration wave, ICS advisory or OT-relevant KEV addition surfaced on Sunday morning; resurfaced reports of US water-system intrusions in 12 states and Minnesota date from April&ndash;August 2026 and were not re-added. Story selection is unchanged from the previous edition. Every card is within 30 days of its source date (oldest 28&nbsp;October) or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards and holds at 7.0 (High): confirmed, state-attributed refrigeration sabotage spans multiple sectors and countries, with no fresh wave to push it higher. Sources: CISA, NIST, UK NCSC, German BSI (via Reuters/Insurance Journal), Belgian CCB (via Bytes Europe), Midnight Blue, Sekoia, Paris prosecutor (via RFI), Check Point Research, Canadian Centre for Cyber Security, CERT-FR, SANS Institute, Forescout, Huntress, Blackpoint Cyber, ConnectWise, N-able, Maersk, Siemens ProductCERT, Schneider Electric, ABB, Palo Alto Networks Unit&nbsp;42, Lumen Black Lotus Labs, Binarly, and DOT, FAA and DHS statements; corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, Bloomberg (via SecurityWeek), CBS News and FlightAware (via Yahoo News live updates), CNBC, NPR, Nextgov/FCW, BleepingComputer, The Hacker News, TechCrunch, SecurityWeek, Cybersecurity Dive, Industrial Cyber, Help Net Security and Zero Day. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
