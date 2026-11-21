@@ -690,13 +690,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Fri, 20 Nov 2026, 10:11 AM ET</span>
+        <span>Generated Fri, 20 Nov 2026, 10:10 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>18</strong> stories across <strong>4</strong> categories
+      <strong>19</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -720,14 +720,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to operators across all critical-infrastructure sectors. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity that is currently live. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:65.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.5 (Medium):</b> State-attributed refrigeration sabotage across several countries holds upper Medium, but no new wave has been reported since early November.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, above all unpatched Danfoss AK-SM 800A and end-of-life Copeland XWEB EVO units.<br><b>Confirmed OT attack:</b> October and early-November setpoint tampering at European supermarkets and French blood-service sites, attributed by France to the IRGC.<br><b>Also watching:</b> PHP2Shell and Check Point attacks; vCenter zero-day; Java4Shell probing; Osaki meter halt; Santos port; Equinor (contained).<br><b>What would raise it:</b> A fresh sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:64.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.4 (Medium):</b> State-attributed refrigeration sabotage across several countries still holds upper Medium; no new wave has been reported since early November.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, above all unpatched Danfoss AK-SM 800A and end-of-life Copeland XWEB EVO units.<br><b>Confirmed OT attack:</b> October and early-November setpoint tampering at European supermarkets and French blood-service sites, attributed by France to the IRGC.<br><b>Also watching:</b> vCenter zero-day; PHP2Shell and Check Point attacks; Java4Shell probing; Equinor and Skagerak; Osaki meter halt; Santos port.<br><b>What would raise it:</b> A fresh sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1171,8 +1171,45 @@
         </div>
         <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q3-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="story-trellix-ot-report" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research &mdash; Trellix Advanced Research Center OT Threat Report (November 2026 edition, covering April&ndash;September 2026) and companion blog (18 Nov 2026)</span>
+        </div>
+        <h3>Trellix says OT attackers keep moving from digital access to physical disruption, with water PLCs and refrigeration the clearest cases</h3>
+        <p>Trellix&rsquo;s November OT threat report, covering April to September 2026, finds water-sector PLCs and HMIs were the main OT target, drawing on three separate government reports it deliberately does not merge: CISA&rsquo;s April advisory on Iran-affiliated CyberAv3ngers activity against Rockwell controllers, Minnesota&rsquo;s reporting on more than 30 community water systems, and a July FBI/EPA alert on MicroLogix units in at least seven states. Ransomware leak-site posts naming industrial victims rose about 51% quarter on quarter, and manufacturing accounted for nearly half of the malicious files Trellix detected. A companion blog on 18&nbsp;November ties the pattern to October&rsquo;s refrigeration sabotage in France (see top story). Exploited edge appliances such as Check Point VPNs, NetScaler and Cisco ISE feature heavily, though Trellix found no confirmed path from them into OT networks.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Vendor research &mdash; <b>Confirmed vs claimed:</b> the water-sector incidents rest on CISA, FBI/EPA and Minnesota reporting; a destructive May attack on an Israeli food plant is Profero&rsquo;s claim alone, which Trellix itself flags as uncorroborated; telemetry figures are Trellix&rsquo;s own; ransomware counts are leak-site claims</span>
+            <span class="ops-tag kev-off">No single CVE &mdash; cites exploited edge-appliance flaws; AVEVA and Schneider SCADAPack disclosures it covers had no in-the-wild exploitation</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Not a single patch issue &mdash; exposure reduction and controller hardening</span>
+            <span class="ops-cc"><b>Action:</b> Use the report as a checklist: confirm no PLC or HMI is reachable from the internet, change default and shared controller passwords, set controllers to run mode with key switches where supported, and alarm on program downloads and setpoint changes. Patch exploited edge appliances within days and review what they can reach on the plant side.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure check for PLCs/HMIs &mdash; 7 days; controller password and mode review &mdash; 30 days; download/setpoint alerting &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="trellix-ot-report" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="trellix-ot-report">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Trellix Advanced Research Center, OT Threat Report (Nov 2026; page updated 12 Nov 2026); Trellix blog by John Fokker and Jonathan Omakun (18 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Blog published 18 Nov 2026; report data covers April&ndash;September 2026</span>
+        </div>
+        <a href="https://www.trellix.com/blogs/research/ot-playbook-digital-access-to-physical-disruption/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
-<div class="card" id="story-vcenter-zero-day" data-published="2026-11-19">
+    </div>
+  </div>
+
+<!-- SECTION: Critical Advisories -->
+
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+      <div class="card" id="story-vcenter-zero-day" data-published="2026-11-19">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Active exploitation &mdash; VMware vCenter authentication bypass CVE-2026-123890 (CVSS 9.8) exploited as a zero-day for more than two months by a suspected China-linked group, per Mandiant; Broadcom fix released 19 Nov 2026; no public fix for vCenter&nbsp;7.0</span>
@@ -1182,7 +1219,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> zero-day exploitation and the attack chain are Mandiant&rsquo;s incident findings, as reported by SecurityWeek; the Armory Castle attribution is Mandiant&rsquo;s suspected assessment; victims, sectors and the number of incidents are not disclosed; Broadcom&rsquo;s advisory itself does not mention in-the-wild exploitation; no OT impact is reported</span>
-            <span class="ops-tag kev-off">CVE-2026-123890 &mdash; not in CISA KEV as of this edition; BeyondTrust Remote Support CVE-2026-102764 used for initial access</span>
+            <span class="ops-tag kev-off">CVE-2026-123890 &mdash; KEV trackers report CISA added it on 20 Nov 2026 (federal due date 23 Nov); not yet confirmed from CISA&rsquo;s own alert in this edition, so check the catalog; BeyondTrust Remote Support CVE-2026-102764 used for initial access</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-now">Patch now &mdash; vCenter 9.1.1.0200, 9.0.2.0200 or 8.0&nbsp;U3m; no public fix for vCenter&nbsp;7.0 (end of general support Oct 2025)</span>
@@ -1195,9 +1232,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek (19 Nov 2026, citing Broadcom, Google Threat Intelligence/Mandiant and Mandiant CTO Charles Carmakal)</span>
+          <span>SecurityWeek (19 Nov 2026, citing Broadcom, Google Threat Intelligence/Mandiant and Mandiant CTO Charles Carmakal); SentryAlert KEV tracker (20 Nov 2026, reported KEV addition)</span>
           <span class="dot">&bull;</span>
-          <span>Patched 19 Nov 2026; exploited from at least early Sep 2026</span>
+          <span>KEV addition reported 20 Nov 2026; patched 19 Nov 2026; exploited from at least early Sep 2026</span>
         </div>
         <a href="https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1262,16 +1299,16 @@
         <a href="https://www.midnightblue.nl/blog/multiple-rce-danfoss-aksm800a" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-nable-able2shell" data-published="2026-11-17">
+      <div class="card" id="story-nable-able2shell" data-published="2026-11-20">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Active exploitation &mdash; N-able N-central: 4EverAble2Shell exploited to plant miners (13 Nov 2026); N-central 2026.4 Hotfix&nbsp;3 fixes 17 more CVEs and removes the Legacy API (16&ndash;17 Nov 2026)</span>
+          <span class="category">Active exploitation &mdash; N-able N-central: 4EverAble2Shell exploited to plant miners (13 Nov 2026); N-central 2026.4 Hotfix&nbsp;3 fixes 17 more CVEs and removes the Legacy API (16&ndash;17 Nov 2026); separate breach of N-able&rsquo;s hosted Mail Assure/SpamExperts cloud disclosed 20 Nov 2026</span>
         </div>
         <h3>N-able ships Hotfix&nbsp;3 for 17 more N-central flaws after attackers planted miners on servers already running Hotfix&nbsp;2</h3>
-        <p>N-able released N-central 2026.4 Hotfix&nbsp;3 on 16&nbsp;November, which it calls a critical security update. It fixes 17 new CVEs, including authentication bypasses, missing authorization checks, path traversal leading to code execution and a syslog injection that runs commands as root, and it removes the Legacy API option that the actively exploited 4EverAble2Shell chain depends on. On-premises servers need the upgrade now; hosted servers update automatically, but every customer must also upgrade Agents and Probes, which N-able warns can otherwise be impersonated. The fix follows Huntback&rsquo;s 13&nbsp;November finding of cryptocurrency miners on 21 N-central servers, 19 of them on Hotfix&nbsp;2. Remote control and Intune integration stay blocked for now. Many integrators manage plant-side Windows hosts through RMM tools, and a miner today can be a hands-on intruder tomorrow (editorial assessment).</p>
+        <p>N-able released N-central 2026.4 Hotfix&nbsp;3 on 16&nbsp;November, which it calls a critical security update. It fixes 17 new CVEs, including authentication bypasses, missing authorization checks, path traversal leading to code execution and a syslog injection that runs commands as root, and it removes the Legacy API option that the actively exploited 4EverAble2Shell chain depends on. On-premises servers need the upgrade now; hosted servers update automatically, but every customer must also upgrade Agents and Probes, which N-able warns can otherwise be impersonated. The fix follows Huntback&rsquo;s 13&nbsp;November finding of cryptocurrency miners on 21 N-central servers, 19 of them on Hotfix&nbsp;2. Remote control and Intune integration stay blocked for now. Separately, N-able said on 20&nbsp;November that attackers reached a server in its hosted Mail Assure and SpamExperts email-filtering cloud, forcing it to take the management portal and APIs offline; it says mail flow continued, it has found no access to customer data, and the breach is unrelated to N-central. Many integrators manage plant-side Windows hosts through RMM tools, and a miner today can be a hands-on intruder tomorrow (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> Hotfix&nbsp;3, its 17 CVEs and the Agent/Probe warning are N-able&rsquo;s own release notes (16 Nov), as reported by The Hacker News; exploitation of 4EverAble2Shell is confirmed by Huntback&rsquo;s findings, and the 21-server count is theirs and not independently verified; no exploitation of Agent2Shell or of the 17 new CVEs has been reported; no actor is named and no OT victims are reported</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> Hotfix&nbsp;3, its 17 CVEs and the Agent/Probe warning are N-able&rsquo;s own release notes (16 Nov), as reported by The Hacker News; exploitation of 4EverAble2Shell is confirmed by Huntback&rsquo;s findings, and the 21-server count is theirs and not independently verified; no exploitation of Agent2Shell or of the 17 new CVEs has been reported; no actor is named and no OT victims are reported; the Mail Assure breach and its scope are N-able&rsquo;s own statements (via BleepingComputer), with the investigation ongoing</span>
             <span class="ops-tag kev-off">New chains and Hotfix&nbsp;3 CVEs not in CISA KEV (as of 17 Nov; five older N-central CVEs are in KEV)</span>
           </div>
           <div class="ops-row">
@@ -1285,9 +1322,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News (17 Nov 2026, Hotfix&nbsp;3, citing N-able release notes of 16 Nov); The Hacker News (13 Nov 2026, citing Huntback and Previdian); The Hacker News (12 Nov 2026, new chains); SecurityWeek (13 Nov 2026); Tenable (10 Nov 2026)</span>
+          <span>BleepingComputer (20 Nov 2026, Mail Assure/SpamExperts breach); The Hacker News (17 Nov 2026, Hotfix&nbsp;3, citing N-able release notes of 16 Nov); The Hacker News (13 Nov 2026, citing Huntback and Previdian); The Hacker News (12 Nov 2026, new chains); SecurityWeek (13 Nov 2026); Tenable (10 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Hotfix&nbsp;3 released 16 Nov 2026; exploitation reported 13 Nov 2026; Able2Shell disclosed 9 Nov 2026</span>
+          <span>Mail Assure breach disclosed 20 Nov 2026; Hotfix&nbsp;3 released 16 Nov 2026; exploitation reported 13 Nov 2026; Able2Shell disclosed 9 Nov 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1397,7 +1434,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Fri, 20 Nov 2026, 10:11 AM ET) re-checked CISA ICS advisory bulletins and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi and Forescout research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no new development since France&rsquo;s 17&ndash;18&nbsp;November statements), Equinor and Norwegian energy-sector reporting, plus The Record, SecurityWeek, BleepingComputer, The Hacker News, Dark Reading, Cybersecurity Dive, CyberScoop and Industrial Cyber. Changes this edition: a new Incidents &amp; Attacks card covers the 18&nbsp;November Ukrainian Prosecutor General and FBI exposure of an extortion ring that targeted oil &amp; gas, industrial and logistics firms. To keep the main page within its standard size, four lower-priority cards from earlier editions were retired (Trellix&rsquo;s OT threat report, Claroty&rsquo;s consumer-device research, the 19&nbsp;November PHP release and the Apache Axis&nbsp;1.x KEV addition, which is still noted in Trends). No new CISA ICS advisory, vendor PSIRT bulletin or OT incident was found since the previous edition. Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards at 6.5 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country, but no new wave has been reported since early November, Equinor&rsquo;s attack is contained, and the Osaki, Santos and Huatacondo incidents are single-organisation events. Sources: Ukraine&rsquo;s Office of the Prosecutor General (via Ukrainian National News), AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Riviera Maritime Media, Equinor and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ (via Water Online and WaterWorld), Osaki Electric (via TipRanks), CISA, Dorsett Controls and Siemens (via CISA), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Midnight Blue, VulnCheck, Rapid7 and Previdian (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Siemens ProductCERT, Forescout Vedere Labs, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric, ABB (via The Hacker News and SecurityWeek); corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, Nextgov/FCW, TechCrunch, BleepingComputer, CyberScoop, Industrial Cyber, Security Boulevard (Viakoo daily OT roundup) and The Register. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Fri, 20 Nov 2026, 10:10 PM ET) re-checked CISA ICS advisory bulletins and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi and Forescout research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no new development since France&rsquo;s 17&ndash;18&nbsp;November statements), Equinor and Norwegian energy-sector reporting, plus The Record, SecurityWeek, BleepingComputer, The Hacker News, Dark Reading, Cybersecurity Dive, CyberScoop and Industrial Cyber. Changes this edition: a new Threat Intelligence &amp; Research card covers Trellix&rsquo;s November OT threat report and its 18&nbsp;November companion blog. Searches of CISA ICS advisories and KEV alerts, vendor PSIRTs, Industrial Cyber, Dark Reading and SecurityWeek found no new CISA ICS advisory, vendor bulletin, OT incident or development in the Iran refrigeration campaign since the previous edition; a Dark Reading headline describing Skagerak Energi as &ldquo;breached&rdquo; could not be opened, so the Equinor card keeps the company&rsquo;s own description of an attempted attack, and the Texas Project Watershed&nbsp;250 expansion was not used because its date could not be confirmed. Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards at 6.4 (Medium), unchanged from the previous edition, as no new sabotage wave has been reported: the refrigeration sabotage remains confirmed, state-attributed and multi-country, but no new wave has been reported since early November, Equinor&rsquo;s attack is contained, and the Osaki, Santos and Huatacondo incidents are single-organisation events. Sources: Trellix Advanced Research Center, BleepingComputer (N-able Mail Assure breach), SentryAlert KEV tracker, Viakoo daily OT roundup (via Security Boulevard), Ukraine&rsquo;s Office of the Prosecutor General (via Ukrainian National News), AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Riviera Maritime Media, Equinor and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ (via Water Online and WaterWorld), Osaki Electric (via TipRanks), CISA, Dorsett Controls and Siemens (via CISA), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Midnight Blue, VulnCheck, Rapid7 and Previdian (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Siemens ProductCERT, Forescout Vedere Labs, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric, ABB (via The Hacker News and SecurityWeek); corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, Nextgov/FCW, TechCrunch, BleepingComputer, CyberScoop, Industrial Cyber, Security Boulevard (Viakoo daily OT roundup) and The Register. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
