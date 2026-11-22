@@ -660,7 +660,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -747,6 +750,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -802,13 +808,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sun, 22 Nov 2026, 4:10 AM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 10:11 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across <strong>4</strong> categories
+      <strong>18</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -839,7 +845,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:61.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.1 (Medium):</b> Confirmed, state-attributed sabotage of refrigeration controllers in several countries holds the level in upper Medium, but no new wave has followed since early November.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, especially Danfoss AK-SM units (critical CVEs, fix not out) and end-of-life Copeland XWEB EVO.<br><b>Confirmed OT attack:</b> Setpoint tampering at European supermarkets and French blood-service sites, which France attributes to the IRGC.<br><b>Also watching:</b> Algonquin Dam attempt; vCenter and Cisco Expressway in KEV; PHP2Shell attacks; Osaki meter halt; Santos port; Chile solar plant.<br><b>What would raise it:</b> A fresh sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
+      <div class="tl-why"><b>Why 6.1 (Medium):</b> Confirmed, state-attributed sabotage of refrigeration controllers in several countries holds the level in upper Medium, but no new wave has followed since early November.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, especially Danfoss AK-SM units (critical CVEs, fix not out) and end-of-life Copeland XWEB EVO.<br><b>Confirmed OT attack:</b> Setpoint tampering at European supermarkets and French blood-service sites, which France attributes to the IRGC.<br><b>Also watching:</b> Algonquin Dam attempt; PHP2Shell and vCenter attacks; Siemens WinCC Brotli flaw (KEV); Osaki meter halt; Santos port; Chile solar plant.<br><b>What would raise it:</b> A fresh sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -935,37 +941,35 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-iran-physical-sabotage"><circle class="blip crit" cx="240.1" cy="119.9" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="240.1" y="124.6">1</text></a>
-        <a href="#story-eu-refrigeration-wave2"><circle class="blip crit" cx="240.1" cy="240.1" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="240.1" y="244.3">2</text></a>
-        <a href="#story-checkpoint-php2shell-wiper"><circle class="blip crit" cx="119.9" cy="240.1" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="119.9" y="243.9">3</text></a>
-        <a href="#story-php2shell-ot-vendors"><circle class="blip crit" cx="119.9" cy="119.9" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="119.9" y="123.2">4</text></a>
-        <a href="#story-algonquin-dam"><circle class="blip high" cx="226.2" cy="53.1" r="9.00"/><text class="blip-num" style="font-size:8.5px" x="226.2" y="56.0">5</text></a>
-        <a href="#story-osaki-electric-ransomware"><circle class="blip high" cx="291.9" cy="104.5" r="8.75"/><text class="blip-num" style="font-size:8.3px" x="291.9" y="107.3">6</text></a>
-        <a href="#story-huatacondo-chile-solar"><circle class="blip high" cx="314.9" cy="184.7" r="8.50"/><text class="blip-num" style="font-size:8.1px" x="314.9" y="187.4">7</text></a>
-        <a href="#story-santos-port-cyberattack"><circle class="blip high" cx="286.4" cy="263.1" r="8.25"/><text class="blip-num" style="font-size:7.8px" x="286.4" y="265.8">8</text></a>
-        <a href="#story-vcenter-zero-day"><circle class="blip high" cx="217.2" cy="309.8" r="8.00"/><text class="blip-num" style="font-size:7.6px" x="217.2" y="312.3">9</text></a>
-        <a href="#story-cisco-expressway-kev"><circle class="blip high" cx="133.8" cy="306.9" r="7.75"/><text class="blip-num" style="font-size:7.4px" x="133.8" y="309.3">10</text></a>
-        <a href="#story-bsi-danfoss-aksm800a"><circle class="blip high" cx="68.1" cy="255.5" r="7.50"/><text class="blip-num" style="font-size:7.1px" x="68.1" y="257.9">11</text></a>
-        <a href="#story-copeland-xweb-evo-vulncheck"><circle class="blip high" cx="45.1" cy="175.3" r="7.25"/><text class="blip-num" style="font-size:6.9px" x="45.1" y="177.6">12</text></a>
-        <a href="#story-nable-able2shell"><circle class="blip high" cx="73.6" cy="96.9" r="7.00"/><text class="blip-num" style="font-size:6.6px" x="73.6" y="99.1">13</text></a>
-        <a href="#story-java4shell-siemens-edge"><circle class="blip high" cx="142.8" cy="50.2" r="6.75"/><text class="blip-num" style="font-size:6.4px" x="142.8" y="52.4">14</text></a>
+        <a href="#story-iran-physical-sabotage"><circle class="blip crit" cx="222.5" cy="106.4" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="222.5" y="111.0">1</text></a>
+        <a href="#story-eu-refrigeration-wave2"><circle class="blip crit" cx="222.5" cy="253.6" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="222.5" y="257.8">2</text></a>
+        <a href="#story-php2shell-ot-vendors"><circle class="blip crit" cx="95.0" cy="180.0" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="95.0" y="183.7">3</text></a>
+        <a href="#story-algonquin-dam"><circle class="blip high" cx="133.8" cy="53.1" r="9.00"/><text class="blip-num" style="font-size:8.5px" x="133.8" y="55.9">4</text></a>
+        <a href="#story-osaki-electric-ransomware"><circle class="blip high" cx="217.2" cy="50.2" r="8.78"/><text class="blip-num" style="font-size:8.3px" x="217.2" y="53.0">5</text></a>
+        <a href="#story-huatacondo-chile-solar"><circle class="blip high" cx="286.4" cy="96.9" r="8.56"/><text class="blip-num" style="font-size:8.1px" x="286.4" y="99.5">6</text></a>
+        <a href="#story-santos-port-cyberattack"><circle class="blip high" cx="314.9" cy="175.3" r="8.33"/><text class="blip-num" style="font-size:7.9px" x="314.9" y="177.9">7</text></a>
+        <a href="#story-vcenter-zero-day"><circle class="blip high" cx="291.9" cy="255.5" r="8.11"/><text class="blip-num" style="font-size:7.7px" x="291.9" y="258.0">8</text></a>
+        <a href="#story-cisco-expressway-kev"><circle class="blip high" cx="226.2" cy="306.9" r="7.89"/><text class="blip-num" style="font-size:7.5px" x="226.2" y="309.3">9</text></a>
+        <a href="#story-bsi-danfoss-aksm800a"><circle class="blip high" cx="142.8" cy="309.8" r="7.67"/><text class="blip-num" style="font-size:7.3px" x="142.8" y="312.1">10</text></a>
+        <a href="#story-copeland-xweb-evo-vulncheck"><circle class="blip high" cx="73.6" cy="263.1" r="7.44"/><text class="blip-num" style="font-size:7.1px" x="73.6" y="265.4">11</text></a>
+        <a href="#story-siemens-brotli-kev"><circle class="blip high" cx="45.1" cy="184.7" r="7.22"/><text class="blip-num" style="font-size:6.9px" x="45.1" y="187.0">12</text></a>
+        <a href="#story-java4shell-siemens-edge"><circle class="blip high" cx="68.1" cy="104.5" r="7.00"/><text class="blip-num" style="font-size:6.6px" x="68.1" y="106.7">13</text></a>
       </svg>
 
       <div class="radar-legend">
         <a href="#story-iran-physical-sabotage"><span class="ld crit"></span><b>1</b> Iran sabotage: EU sanctions due 14 Dec</a>
         <a href="#story-eu-refrigeration-wave2"><span class="ld crit"></span><b>2</b> Fridge attacks: 11+ countries, CISA/FBI warn</a>
-        <a href="#story-checkpoint-php2shell-wiper"><span class="ld crit"></span><b>3</b> Check Point gateways rooted, ESXi wiped</a>
-        <a href="#story-php2shell-ot-vendors"><span class="ld crit"></span><b>4</b> PHP2Shell: firewalls rooted, OT gear hit</a>
-        <a href="#story-algonquin-dam"><span class="ld high"></span><b>5</b> Algonquin Dam: attempted cyberattack</a>
-        <a href="#story-osaki-electric-ransomware"><span class="ld high"></span><b>6</b> Osaki Electric: meter output halted</a>
-        <a href="#story-huatacondo-chile-solar"><span class="ld high"></span><b>7</b> Chile solar plant offline after cyberattack</a>
-        <a href="#story-santos-port-cyberattack"><span class="ld high"></span><b>8</b> Santos port: manual workarounds after attack</a>
-        <a href="#story-vcenter-zero-day"><span class="ld high"></span><b>9</b> vCenter zero-day exploited for two months</a>
-        <a href="#story-cisco-expressway-kev"><span class="ld high"></span><b>10</b> Cisco Expressway rooted; added to KEV</a>
-        <a href="#story-bsi-danfoss-aksm800a"><span class="ld high"></span><b>11</b> Danfoss AK-SM: 2 critical CVEs, no fix yet</a>
-        <a href="#story-copeland-xweb-evo-vulncheck"><span class="ld high"></span><b>12</b> Copeland XWEB EVO: 14 flaws, probed</a>
-        <a href="#story-nable-able2shell"><span class="ld high"></span><b>13</b> N-central Hotfix&nbsp;3 after miner attacks</a>
-        <a href="#story-java4shell-siemens-edge"><span class="ld high"></span><b>14</b> Java4Shell probed; Siemens Edge offline advice</a>
+        <a href="#story-php2shell-ot-vendors"><span class="ld crit"></span><b>3</b> PHP2Shell: firewalls rooted, OT gear hit</a>
+        <a href="#story-algonquin-dam"><span class="ld high"></span><b>4</b> Algonquin Dam: attempted cyberattack</a>
+        <a href="#story-osaki-electric-ransomware"><span class="ld high"></span><b>5</b> Osaki Electric: meter output halted</a>
+        <a href="#story-huatacondo-chile-solar"><span class="ld high"></span><b>6</b> Chile solar plant offline after cyberattack</a>
+        <a href="#story-santos-port-cyberattack"><span class="ld high"></span><b>7</b> Santos port: manual workarounds after attack</a>
+        <a href="#story-vcenter-zero-day"><span class="ld high"></span><b>8</b> vCenter zero-day exploited for two months</a>
+        <a href="#story-cisco-expressway-kev"><span class="ld high"></span><b>9</b> Cisco Expressway rooted; added to KEV</a>
+        <a href="#story-bsi-danfoss-aksm800a"><span class="ld high"></span><b>10</b> Danfoss AK-SM: 2 critical CVEs, no fix yet</a>
+        <a href="#story-copeland-xweb-evo-vulncheck"><span class="ld high"></span><b>11</b> Copeland XWEB EVO: 14 flaws, probed</a>
+        <a href="#story-siemens-brotli-kev"><span class="ld high"></span><b>12</b> Siemens WinCC/BRAUMAT: KEV Brotli flaw</a>
+        <a href="#story-java4shell-siemens-edge"><span class="ld high"></span><b>13</b> Java4Shell probed; Siemens Edge offline advice</a>
       </div>
     </div>
   </div>
@@ -1045,36 +1049,7 @@
         </div>
         <a href="https://techcrunch.com/2026/11/05/u-s-government-warns-of-ongoing-cyber-threat-amid-mass-hacks-of-industrial-retail-and-military-freezers/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-checkpoint-php2shell-wiper" data-published="2026-11-13">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Incident &mdash; PHP2Shell plus Gaia root flaw CVE-2026-123039 used to backdoor Check Point gateways and wipe a VMware ESXi host (wave 1 from 30 Oct, Israel; wave 2 from 2 Nov, multiple countries); CVE-2026-123039 added to CISA KEV 13 Nov 2026</span>
-        </div>
-        <h3>Attackers rooted unpatched Check Point gateways through PHP2Shell, planted backdoors and wiped a VMware host; the root flaw is now in KEV</h3>
-        <p>Check Point Research said on 12&nbsp;November that attackers exploited the PHP2Shell flaws on unpatched Check Point Mobile Access portals from 30&nbsp;October, then used a local flaw (CVE-2026-123039) to become root. They planted backdoors, pivoted to a VMware ESXi host and ran a wiper. The first wave hit Israeli organizations, some destructively; a second wave from 2&nbsp;November reached several countries without destruction. Attribution is unconfirmed (tooling resembles China-nexus UNC5221). CISA added the root flaw to KEV on 13&nbsp;November. No OT victim is reported, but these firewalls often sit at the IT/OT boundary and ESXi often hosts HMIs and historians (editorial assessment).</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> the attack chain, backdoors and ESXi wipe are Check Point Research&rsquo;s own incident findings; Check Point confirms CVE-2026-123039 is exploited and CISA lists it in KEV; victims are unnamed and no count is given; the China-nexus link is a tooling resemblance, and Check Point raises false-flag and access-broker scenarios; no OT impact is reported</span>
-            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; CVE-2026-123039 added 13 Nov 2026; PHP2Shell CVE-2026-109618 and CVE-2026-109619 added 26 Oct 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-now">Patch now &mdash; Check Point fix for CVE-2026-123039 (sk1000362; Gaia R80.30 to R82.20 affected per CCCS AV26-1154) plus the PHP2Shell updates</span>
-            <span class="ops-cc"><b>Action:</b> Patch Check Point gateways and management servers, and keep Mobile Access and Gaia portal interfaces off the open internet where you can. If a portal was exposed and unpatched after 21 October, assume compromise: look for zz*.tpl files in the portal template directory and unfamiliar daemons, rebuild rather than clean, rotate every credential the gateway held, and check any ESXi host it could reach over SSH. Confirm you have offline backups of virtualized HMIs, historians and engineering workstations.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch and restrict portal exposure &mdash; immediately (actively exploited, in KEV); compromise hunt on gateways exposed before patching &mdash; 72 hours; offline-backup check for virtualized OT hosts &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="checkpoint-php2shell-wiper" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="checkpoint-php2shell-wiper">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Check Point Research (12 Nov 2026); SecurityWeek (13 Nov 2026); Canadian Centre for Cyber Security AV26-1154 (12 Nov 2026, updated 13 Nov); CISA KEV alert (13 Nov 2026); BleepingComputer (Nov 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Wave 1 from 30 Oct 2026; wave 2 from 2 Nov 2026; research published 12 Nov 2026; KEV addition 13 Nov 2026</span>
-        </div>
-        <a href="https://research.checkpoint.com/2026/php2shell-exploitation-on-check-point-gateway/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="story-php2shell-ot-vendors" data-published="2026-11-16">
+<div class="card" id="story-php2shell-ot-vendors" data-published="2026-11-16">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Active exploitation &mdash; PHP2Shell chained with a Linux kernel flaw to root exposed PAN-OS firewalls, 23&ndash;24 Oct; OT vendor advisories 28&ndash;30 Oct; Siemens adds metering gateways 16 Nov</span>
@@ -1133,34 +1108,34 @@
         </div>
         <a href="https://www.ess-news.com/2026/11/17/chile-solar-plus-storage-plant-remains-offline-after-cyberattack/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="story-equinor-it-attack" data-published="2026-11-20">
+      <div class="card" id="story-usda-breach" data-published="2026-11-21">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident &mdash; Cyberattack on certain IT systems at Norway&rsquo;s Equinor, disclosed 17 Nov 2026 and declared stopped on 20 Nov 2026; production unaffected throughout; Skagerak Energi reported an attempted attack on 18 Nov 2026; no attribution</span>
+          <span class="category">Incident &mdash; Security incident at the US Department of Agriculture; applications offline since about 16 Nov 2026 after a department-wide password reset; officially acknowledged 20 Nov 2026; IT systems only; no attribution</span>
         </div>
-        <h3>Equinor says the cyberattack on its IT systems has been stopped after three days, as a second Norwegian energy firm reports an attempted attack</h3>
-        <p>Equinor, Norway&rsquo;s state-controlled energy company and the EU&rsquo;s largest pipeline-gas supplier, said on 20&nbsp;November that the cyberattack on certain IT systems it disclosed on 17&nbsp;November has been stopped. Production ran normally throughout, and it has found no sign that data was stolen or altered. Equinor says the attack was not a self-spreading virus and did not appear aimed specifically at it; police and Norway&rsquo;s National Security Authority, which raised the national cyber risk level to &ldquo;high&rdquo; on 27&nbsp;October, are involved. A day after Equinor&rsquo;s first report, utility Skagerak Energi reported an attempted attack with operations unaffected. Neither has disclosed the entry route or attacker, and nothing points to OT. Two incidents at Norwegian energy firms in one week are reason to check IT-to-OT boundaries now (editorial assessment).</p>
+        <h3>A security breach keeps USDA payment, loan and mapping systems offline for farmers for most of a week</h3>
+        <p>The US Department of Agriculture has kept many applications offline since about 16&nbsp;November after its security operations centre found an intrusion, including payment, loan and mapping tools that farmers and field staff use. An internal email reported by Nextgov says IT staff reset every database password across all environments, which caused the outages. On 20&nbsp;November Under Secretary Richard Fordyce called it a cyberthreat, said no personal information was involved and no data was lost, and expected most systems back within days. Former officials quoted by NBC News say data theft has not been ruled out. No attacker has been named and nothing points to OT. Food and agriculture operators should plan for agency systems they depend on being unavailable for a week (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed attack on IT systems, now stopped &mdash; <b>Confirmed vs claimed:</b> Equinor&rsquo;s own statements (17&ndash;20 Nov) confirm the attack, its containment, no production impact and no sign of data theft; NSM confirms it assisted the company and PST was notified (per NTB); Skagerak Energi&rsquo;s attempted attack is the company&rsquo;s own statement; no link between the two incidents and no attacker has been named; the 19 Nov view that the attack was not aimed at Equinor is the company&rsquo;s assessment; entry route and malware are not disclosed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed security incident on IT systems &mdash; <b>Confirmed vs claimed:</b> the incident and the password reset are confirmed by USDA&rsquo;s internal email and bulletin (reported by Nextgov, 19 Nov) and by Under Secretary Fordyce&rsquo;s public remarks on 20 Nov (reported by DTN, via ABC News); his statements that no personal information was involved and no data was lost are USDA&rsquo;s own; the named affected systems (FSA loan software, NRCS ProTracts and service-desk tools) and the view that theft is not ruled out come from former officials quoted by NBC News (via IBTimes UK); the start date differs between reports (notice on 16 or 19 Nov); entry route and attacker are not disclosed</span>
             <span class="ops-tag kev-off">No CVE disclosed; not linked to a KEV entry</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not a patch issue &mdash; containment and IT/OT boundary control</span>
-            <span class="ops-cc"><b>Action:</b> Energy operators should check the IT/OT boundary now: confirm which IT-side accounts, jump hosts and file transfers can reach production networks, be ready to cut those paths during an IT incident, and hunt for new remote-access tools and unusual logins on DMZ and historian hosts. Confirm that production can run safely if corporate IT is isolated for days.</span>
+            <span class="ops-tag patch-na">Not a patch issue &mdash; dependency and continuity planning</span>
+            <span class="ops-cc"><b>Action:</b> Farm, food and agriculture operators should list the government and third-party portals they depend on for payments, permits and reporting, and keep a manual fallback for each. Treat any unexpected credential-reset or re-verification email that appears to come from USDA as possible phishing and confirm it through a known channel.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> IT/OT conduit review and isolation plan &mdash; 7 days; DMZ and jump-host hunt &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="equinor-it-attack" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="equinor-it-attack">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Phishing awareness note to staff &mdash; 48 hours; external-dependency fallback review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="usda-breach" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="usda-breach">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Rigzone (20 Nov 2026, attack stopped; Skagerak Energi attempted attack); Riviera Maritime Media (20 Nov 2026, timeline of Equinor updates and NSM risk level); Equinor statements (17&ndash;20 Nov 2026); Reuters (19 Nov 2026, attack still ongoing); The Record (18 Nov 2026)</span>
+          <span>Nextgov/FCW (19 Nov 2026, internal email and password reset); ABC News, citing DTN (20 Nov 2026, Fordyce remarks; Iowa Farmers Union); IBTimes UK, citing NBC News (21 Nov 2026, affected systems and former officials)</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 17 Nov 2026; declared stopped 20 Nov 2026; Skagerak attempt reported 18&ndash;19 Nov 2026</span>
+          <span>Outages from about 16 Nov 2026; USDA acknowledged a cyberthreat 20 Nov 2026; restoration ongoing</span>
         </div>
-        <a href="https://www.rigzone.com/news/equinor_says_cyberattack_stopped-20-nov-2026-185131-article/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.nextgov.com/cybersecurity/2026/11/usda-grapples-security-breach-it-staff-take-multiple-systems-offline/417350/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="story-algonquin-dam" data-published="2026-11-20">
         <div class="card-header">
@@ -1323,35 +1298,6 @@
         <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q3-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-trellix-ot-report" data-published="2026-11-18">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; Trellix Operational Technology Threat Report, November 2026 (data April&ndash;September 2026), and Trellix&rsquo;s 18 Nov 2026 analysis &ldquo;From Digital Access to Physical Disruption&rdquo;</span>
-        </div>
-        <h3>Trellix warns that the same short path from exposed controller to physical damage keeps repeating, from US water PLCs to refrigeration sabotage</h3>
-        <p>Trellix&rsquo;s November OT Threat Report, covering April to September 2026, counted about 1,500 ransomware leak-site posts naming industrial victims, up roughly 51% on the previous quarter, with Qilin and The Gentlemen each behind about a sixth, and manufacturing taking nearly half of the malicious-file detections it saw in industrial networks. It cautions against merging the year&rsquo;s US water reports into one campaign: CISA&rsquo;s April advisory on Iran-linked attacks on Rockwell PLCs, the Minnesota community-system intrusions and the FBI/EPA MicroLogix alert are separate streams. In an 18&nbsp;November follow-up, Trellix ties these to France&rsquo;s refrigeration sabotage (see top story) as one recurring playbook: reach an internet-facing controller, change its logic or setpoints, and cause physical harm. Its advice to executives is to map exposure, including vendor-maintained links, detect unauthorised controller changes and rehearse manual operation (editorial assessment: this matches the lesson of every incident in this edition).</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Vendor research &mdash; <b>Confirmed vs claimed:</b> ransomware counts are Trellix&rsquo;s tally of leak-site claims and its own telemetry; the CISA, Minnesota and FBI/EPA water reports are official; a May 2026 destructive attack on an Israeli food plant that Trellix cites is Profero&rsquo;s account, attributed by Profero and not corroborated by Trellix; the French attribution to the IRGC is France&rsquo;s official position, not a court finding</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; the report lists exploited Check Point, Citrix NetScaler and Cisco ISE edge flaws as entry routes</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not a single patch issue &mdash; exposure, change detection and manual-operation readiness</span>
-            <span class="ops-cc"><b>Action:</b> List every controller, HMI and vendor connection reachable from the internet and close or broker each one. Alarm on PLC logic downloads, mode changes and setpoint edits, and compare running logic with a known-good copy. Run a manual-operation drill for at least one critical process this quarter.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure inventory &mdash; 7 days; controller change alerting &mdash; 30 days; manual-operation drill &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="trellix-ot-report" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="trellix-ot-report">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Trellix Advanced Research Center (18 Nov 2026, OT playbook analysis); Trellix OT Threat Report, November 2026</span>
-          <span class="dot">&bull;</span>
-          <span>Analysis published 18 Nov 2026; report data covers April&ndash;September 2026</span>
-        </div>
-        <a href="https://www.trellix.com/blogs/research/ot-playbook-digital-access-to-physical-disruption/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
 
     </div>
@@ -1482,34 +1428,34 @@
         <a href="https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2026-12-01/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-nable-able2shell" data-published="2026-11-20">
+      <div class="card" id="story-siemens-brotli-kev" data-published="2026-11-17">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Active exploitation &mdash; N-able N-central: 4EverAble2Shell exploited to plant miners (13 Nov 2026); N-central 2026.4 Hotfix&nbsp;3 fixes 17 more CVEs and removes the Legacy API (16&ndash;17 Nov 2026); separate breach of N-able&rsquo;s hosted Mail Assure/SpamExperts cloud disclosed 20 Nov 2026</span>
+          <span class="category">Advisory &mdash; Siemens SSA-242944 (10 Nov 2026), republished by CISA as ICSA-26-321-03 (17 Nov 2026): CVE-2026-111497, Brotli decoder out-of-bounds write, already in CISA KEV since 27 Oct 2026; WinCC, WinCC OA, BRAUMAT/SISTAR and TIA Administrator affected; most products have no fix yet</span>
         </div>
-        <h3>N-able ships Hotfix&nbsp;3 for 17 more N-central flaws after attackers planted miners on servers already running Hotfix&nbsp;2</h3>
-        <p>N-able released N-central 2026.4 Hotfix&nbsp;3 on 16&nbsp;November, which it calls a critical security update. It fixes 17 new CVEs, including authentication bypasses, missing authorization checks, path traversal leading to code execution and a syslog injection that runs commands as root, and it removes the Legacy API option that the actively exploited 4EverAble2Shell chain depends on. On-premises servers need the upgrade now; hosted servers update automatically, but every customer must also upgrade Agents and Probes, which N-able warns can otherwise be impersonated. The fix follows Huntback&rsquo;s 13&nbsp;November finding of cryptocurrency miners on 21 N-central servers, 19 of them on Hotfix&nbsp;2. Remote control and Intune integration stay blocked for now. Separately, N-able said on 20&nbsp;November that attackers reached a server in its hosted Mail Assure and SpamExperts email-filtering cloud, forcing it to take the management portal and APIs offline; it says mail flow continued, it has found no access to customer data, and the breach is unrelated to N-central. Many integrators manage plant-side Windows hosts through RMM tools, and a miner today can be a hands-on intruder tomorrow (editorial assessment).</p>
+        <h3>A Brotli flaw already in CISA&rsquo;s exploited list turns up in Siemens WinCC, WinCC&nbsp;OA and BRAUMAT, and most products have no fix yet</h3>
+        <p>Siemens says a widely used compression library flaw, CVE-2026-111497, reaches into several of its industrial software lines, and CISA republished the assessment as an ICS advisory on 17&nbsp;November. The bug is an out-of-bounds write in the Brotli decoder that can crash the software, leak information or possibly allow code execution. CISA added the CVE to its Known Exploited Vulnerabilities catalog on 27&nbsp;October because of attacks elsewhere; nobody has reported exploitation through a Siemens product. Affected products named include BRAUMAT and SISTAR V8.2, WinCC OA V3.20 and V3.21, WinCC Runtime Professional, WinCC V7/V8 and TIA Administrator. Fixes exist only for BRAUMAT/SISTAR (V8.2 Update&nbsp;5) and WinCC OA V3.20 (P17.1), so most sites must rely on the workaround for now (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> Hotfix&nbsp;3, its 17 CVEs and the Agent/Probe warning are N-able&rsquo;s own release notes (16 Nov), as reported by The Hacker News; exploitation of 4EverAble2Shell is confirmed by Huntback&rsquo;s findings, and the 21-server count is theirs and not independently verified; no exploitation of Agent2Shell or of the 17 new CVEs has been reported; no actor is named and no OT victims are reported; the Mail Assure breach and its scope are N-able&rsquo;s own statements (via BleepingComputer), with the investigation ongoing</span>
-            <span class="ops-tag kev-off">New chains and Hotfix&nbsp;3 CVEs not in CISA KEV (as of 17 Nov; five older N-central CVEs are in KEV)</span>
+            <span class="ops-tag ex-info"><span class="d"></span>Exploited elsewhere, not via Siemens products &mdash; <b>Confirmed vs claimed:</b> the affected products, fixes and workaround are from Siemens SSA-242944 as republished by CISA; the KEV listing reflects exploitation of the underlying library in other software; no exploitation of a Siemens product has been reported; no CVSS score is restated here</span>
+            <span class="ops-tag kev-on">CVE-2026-111497 &mdash; in CISA KEV (added 27 Oct 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-now">Patch available &mdash; N-central 2026.4 Hotfix&nbsp;3 for on-premises servers, plus Agent and Probe upgrades for every customer</span>
-            <span class="ops-cc"><b>Action:</b> Upgrade on-premises N-central servers to Hotfix&nbsp;3 and upgrade every Agent and Probe. Because Hotfix&nbsp;2 servers were compromised, hunt before you trust a patched server: look for jup.sh downloads, connections to 157.20.241[.]16, XMRig processes and new admin accounts or scripts. Ask every integrator and MSP whether N-central reaches OT-side hosts, and block RMM agents from plant networks unless the path is approved and monitored.</span>
+            <span class="ops-tag patch-now">Partial fix &mdash; BRAUMAT/SISTAR V8.2 Update&nbsp;5; WinCC OA V3.20 P17.1; other products: disable Brotli at the application or proxy layer</span>
+            <span class="ops-cc"><b>Action:</b> List every WinCC, WinCC&nbsp;OA, BRAUMAT/SISTAR and TIA Administrator install, apply the two available updates, and where no fix exists disable Brotli compression at the application or reverse proxy if it is not needed. Keep these hosts off the internet and out of reach of the corporate network except through a monitored jump host, and watch for unexpected crashes of the HMI or web services.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Hotfix&nbsp;3 on internet-reachable servers &mdash; 24 hours; compromise hunt and Agent/Probe upgrades &mdash; 72 hours; RMM-to-OT path review &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="nable-able2shell" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="nable-able2shell">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and Brotli workaround &mdash; 14 days; available updates &mdash; 30 days, in the next maintenance window</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="siemens-brotli-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="siemens-brotli-kev">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (20 Nov 2026, Mail Assure/SpamExperts breach); The Hacker News (17 Nov 2026, Hotfix&nbsp;3, citing N-able release notes of 16 Nov); The Hacker News (13 Nov 2026, citing Huntback and Previdian); The Hacker News (12 Nov 2026, new chains); SecurityWeek (13 Nov 2026); Tenable (10 Nov 2026)</span>
+          <span>CISA ICSA-26-321-03 (17 Nov 2026); Siemens ProductCERT SSA-242944 (10 Nov 2026); CISA KEV alert (27 Oct 2026); Viakoo daily OT briefing via Security Boulevard (22 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Mail Assure breach disclosed 20 Nov 2026; Hotfix&nbsp;3 released 16 Nov 2026; exploitation reported 13 Nov 2026; Able2Shell disclosed 9 Nov 2026</span>
+          <span>Siemens advisory 10 Nov 2026; CISA republication 17 Nov 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-03" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
 <div class="card" id="story-java4shell-siemens-edge" data-published="2026-11-19">
@@ -1550,6 +1496,36 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+      <div class="card" id="story-texas-watershed-250" data-published="2026-11-17">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Program &mdash; Texas Cyber Command names 63 industry partners for Project Watershed 250 (17 Nov 2026), the no-cost water-utility cyber pilot launched with the Office of the National Cyber Director in Aug 2026; no CVE</span>
+        </div>
+        <h3>Texas names 63 companies to give water utilities free cyber help under Project Watershed 250</h3>
+        <p>Texas Cyber Command said on 17&nbsp;November that 63 companies have joined the first cohort of Project Watershed 250, the no-cost pilot launched in August with the White House Office of the National Cyber Director to harden the state&rsquo;s water and wastewater systems. Partners offer services such as asset inventory, network assessment and monitoring to utilities that sign up. How many utilities have enrolled, and what the pilot has found so far, has not been published. For small water systems, which rarely have OT security staff, free inventory and exposure checks are the most useful part, because internet-facing PLCs and HMIs remain the main way attackers reach them (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Program announcement, not an incident &mdash; <b>Confirmed vs claimed:</b> the partner count and pilot terms are Texas Cyber Command&rsquo;s own announcement as reported by GovTech; enrolment numbers and results are not yet public</span>
+            <span class="ops-tag kev-off">No CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Not a patch issue &mdash; voluntary assistance program</span>
+            <span class="ops-cc"><b>Action:</b> Texas water and wastewater utilities: consider enrolling and ask for an asset inventory and an internet-exposure check first. Utilities elsewhere: run the same checks yourself or through state and WaterISAC programs, and take any PLC or HMI that answers from the internet offline.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure check &mdash; 30 days; enrolment decision &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="texas-watershed-250" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="texas-watershed-250">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Texas Cyber Command (17 Nov 2026), via GovTech; Viakoo daily OT briefing via Security Boulevard (22 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Partners announced 17 Nov 2026; pilot launched Aug 2026</span>
+        </div>
+        <a href="https://www.govtech.com/security/texas-enlists-63-companies-to-help-secure-water-systems" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="story-nist-800-82r4" data-published="2026-09-21">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
@@ -1585,7 +1561,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Sun, 22 Nov 2026, 2:10 AM ET) re-checked CISA ICS advisories and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi, Forescout and Trellix research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no material development since France&rsquo;s 17&ndash;18&nbsp;November statements), and the Algonquin Dam and Equinor follow-ups (no new detail), plus SecurityWeek, Security Affairs, The Record, The Hacker News, BleepingComputer, Cybersecurity Dive, Dark Reading, Nextgov and Industrial Cyber. Changes this edition: a new Threat Intelligence &amp; Research card covers Trellix&rsquo;s November 2026 OT Threat Report and its 18&nbsp;November OT-playbook analysis; no other card changed. Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards at 6.1 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country but has had no new wave in about three weeks, the Algonquin Dam attempt caused no reported impact, the Osaki, Santos and Huatacondo incidents are single-organisation events, and the new KEV entries are IT/edge exposure that does not aggregate upward. Sources: Illinois Department of Natural Resources (via CBS Chicago), CISA (ICS advisories and KEV alerts), F6 (via SecurityWeek and Security Affairs), Siemens ProductCERT, AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Equinor and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ, Osaki Electric (via TipRanks), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Danfoss, Midnight Blue, VulnCheck (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric and ABB (via The Hacker News and SecurityWeek), Trellix Advanced Research Center; corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, TechCrunch, CyberScoop and Industrial Cyber. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Sun, 22 Nov 2026, 10:11 AM ET) re-checked CISA ICS advisories and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi and Forescout research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no material development since France&rsquo;s 17&ndash;18&nbsp;November statements), and the Equinor and Skagerak Energi IT incidents (both IT-only with production unaffected; Equinor declared its attack stopped on 20&nbsp;November, so neither gets a card), plus SecurityWeek, Security Affairs, The Record, The Hacker News, BleepingComputer, Dark Reading, Nextgov/FCW, GovTech, Industrial Cyber and the Viakoo daily OT briefing (via Security Boulevard). Changes this edition: a new Critical Advisories card covers CISA&rsquo;s 17&nbsp;November republication of Siemens SSA-242944 (the KEV-listed Brotli flaw in WinCC, WinCC&nbsp;OA and BRAUMAT), and a new Regulation &amp; Policy card covers Texas&rsquo;s 63-partner Project Watershed 250 water pilot; the Check Point gateway wiper card (13&nbsp;November, now covered by the broader PHP2Shell card) and the N-able N-central card (an MSP tool, still summarised in Trends) were retired to keep the edition within its 14&ndash;18 story range. Every card is within 30 days of its source date or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards and holds at 6.1 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country but has had no new wave in about three weeks, the Algonquin Dam attempt caused no reported impact, the Osaki, Santos and Huatacondo incidents are single-organisation events, and the new Siemens advisory and KEV entries are exposure that does not aggregate upward. Sources: Siemens ProductCERT and CISA (ICSA-26-321-03), Texas Cyber Command (via GovTech), Equinor, Illinois Department of Natural Resources (via CBS Chicago), CISA (ICS advisories and KEV alerts), F6 (via SecurityWeek and Security Affairs), Siemens ProductCERT, AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, USDA (via Nextgov/FCW, ABC News/DTN and IBTimes UK, citing NBC News), Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ, Osaki Electric (via TipRanks), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Danfoss, Midnight Blue, VulnCheck (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Huntress, Paris prosecutor (via RFI), SANS Institute, Schneider Electric and ABB (via The Hacker News and SecurityWeek); corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, TechCrunch, CyberScoop and Industrial Cyber. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>

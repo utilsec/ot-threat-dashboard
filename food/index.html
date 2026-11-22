@@ -659,7 +659,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -746,6 +749,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
