@@ -653,8 +653,47 @@
   html body.dark .threat-level{background-color:#0a1417;border-color:#1f3a41;}
   html body.dark .tl-why{color:#c3cfd6;}html body.dark .tl-why b{color:#fff;}html body.dark .tl-marker{background:#0a1417;}
   @media(max-width:640px){html .threat-level{padding:18px 16px;}html .tl-score{width:92px;height:92px;}html .tl-num{font-size:32px;}}
+  /* Cards v2: calmer evidence tags, one-line category, collapsible sources */
+  html .ops-tag{text-transform:none;letter-spacing:0;font-weight:600;font-size:11.5px;line-height:1.45;border-radius:8px;padding:4px 10px;align-items:flex-start;}
+  html .ops-tag .d{flex:0 0 auto;margin-top:5px;}
+  html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .card-header{min-width:0;}
+  html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  html details.tf-src{display:inline;}
+  html details.tf-src summary{display:inline;cursor:pointer;color:#2c7480;font-weight:600;list-style:none;}
+  html details.tf-src summary::-webkit-details-marker{display:none;}
+  html details.tf-src summary::before{content:"\25B8  ";}
+  html details.tf-src[open] summary::before{content:"\25BE  ";}
+  html details.tf-src ul{margin:6px 0 4px 16px;padding:0;}
+  html details.tf-src li{margin:2px 0;}
+  body.dark .tf-more,body.dark details.tf-src summary{color:#7cc7d2;}
+  /* Section jump links */
+  html .tf-jump{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 18px;}
+  html .tf-jump span{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6e7781;margin-right:4px;}
+  html .tf-jump a{font-size:12.5px;font-weight:600;color:#11535d;text-decoration:none;padding:6px 12px;border-radius:999px;background:#eef6f7;border:1px solid #cfe5e8;}
+  html .tf-jump a:hover{background:#dff0f2;border-color:#7cc7d2;}
+  body.dark .tf-jump a{color:#b8eef4;background:#10262b;border-color:#1f3a41;}
+  /* Guarding Gears newsletter signup */
+  html .tf-news{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin:8px 0 22px;padding:22px 26px;border-radius:16px;color:#e6edf3;background:linear-gradient(120deg,#0b1d22 0%,#123a42 100%);border:1px solid #1d3a40;box-shadow:0 10px 30px rgba(5,20,25,.2);}
+  html .tf-news h2{font-size:21px;font-weight:800;margin:0 0 4px;color:#fff;}
+  html .tf-news p{margin:0;font-size:14px;color:#c4ced8;max-width:640px;}
+  html .tf-news a{flex:0 0 auto;background:#f5a524;color:#1a1204;font-weight:800;font-size:15px;text-decoration:none;padding:12px 22px;border-radius:10px;box-shadow:0 4px 14px rgba(245,165,36,.3);}
+  html .tf-news a:hover{background:#ffb83d;}
+  html .tf-news a:focus-visible,html .tf-jump a:focus-visible{outline:3px solid #7cc7d2;outline-offset:2px;}
+  @media(max-width:640px){html .tf-news a{width:100%;text-align:center;}}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
+  <script>
+  (function(){function run(){try{
+    document.querySelectorAll('.ops-tag').forEach(function(t){if(t.textContent.length<=170||t.querySelector('.tf-more'))return;var d=t.querySelector('.d');if(d)t.removeChild(d);var w=document.createElement('span');w.className='tf-clamp';while(t.firstChild)w.appendChild(t.firstChild);var box=document.createElement('span');box.appendChild(w);var b=document.createElement('button');b.type='button';b.className='tf-more';b.textContent='Show more';b.setAttribute('aria-expanded','false');b.addEventListener('click',function(){var c=w.classList.toggle('tf-clamp');b.textContent=c?'Show more':'Show less';b.setAttribute('aria-expanded',String(!c));});box.appendChild(document.createElement('br'));box.appendChild(b);if(d)t.appendChild(d);t.appendChild(box);});
+    document.querySelectorAll('.card-header .category').forEach(function(c){c.title=c.textContent.trim();});
+    document.querySelectorAll('.card-meta').forEach(function(m){var s=m.querySelector('span');if(!s||m.querySelector('details'))return;var parts=s.textContent.split(/;\s+/).map(function(x){return x.trim();}).filter(Boolean);if(parts.length<3)return;var d=document.createElement('details');d.className='tf-src';var sm=document.createElement('summary');sm.textContent='Sources ('+parts.length+')';d.appendChild(sm);var ul=document.createElement('ul');parts.forEach(function(p){var li=document.createElement('li');li.textContent=p;ul.appendChild(li);});d.appendChild(ul);s.replaceWith(d);});
+    if(!document.querySelector('.tf-jump')){var secs=[].slice.call(document.querySelectorAll('.section'));var nav=document.createElement('nav');nav.className='tf-jump';nav.setAttribute('aria-label','Jump to section');nav.innerHTML='<span>Jump to</span>';secs.forEach(function(sec){var ti=sec.querySelector('.section-title');if(!ti)return;if(!sec.id)sec.id='sec-'+ti.textContent.trim().toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');var a=document.createElement('a');a.href='#'+sec.id;a.textContent=ti.textContent.trim();nav.appendChild(a);});
+      var anchor=document.querySelector('.course-ad,.book-ad')||document.querySelector('.threat-level');if(anchor&&nav.children.length>1)anchor.parentNode.insertBefore(nav,anchor.nextSibling);}
+    if(!document.querySelector('.tf-news')){var f=document.querySelector('.footer');if(f){var n=document.createElement('section');n.className='tf-news';n.setAttribute('aria-label','Newsletter signup');n.innerHTML='<div><h2>Get the week\u2019s threats in your inbox</h2><p>Guarding Gears is Mike Holcomb\u2019s free weekly OT/ICS cybersecurity newsletter: the incidents that matter, what to do about them, and free resources to learn more.</p></div><a href="https://utilsec.kit.com/guarding-gears" target="_blank" rel="noopener">Subscribe to Guarding Gears &rarr;</a>';f.parentNode.insertBefore(n,f);}}
+  }catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();})();
+  </script>
   <!-- /THEME V2 -->
   <!-- SECTOR HERO (water; Higgsfield banner hosted in the OT Threat Feed Wix media library — preserve verbatim, see CLAUDE.md) -->
   <style>html body .header{background-image:url("https://static.wixstatic.com/media/bcbe7a_bca0a64a691f495584dcb5b0d142d82b~mv2.png/v1/fill/w_1600,h_679,al_c,q_75,enc_auto/hero-water.jpg");}</style>
