@@ -610,43 +610,37 @@
 <script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
 <div class="container">
 
-  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md) -->
+  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md; v2 Higgsfield banner 21 Nov 2026) -->
   <style>
-  .course-ad{display:flex;align-items:center;gap:18px;margin:0 0 16px;padding:14px 18px;border:1px solid #bfe0e3;border-left:5px solid #2c7480;border-radius:10px;background:linear-gradient(135deg,#e6f1f2 0%,#ffffff 72%);}
-  .course-ad__icon{flex:0 0 auto;display:block;width:64px;height:64px;}
-  .course-ad__body{flex:1 1 auto;min-width:0;}
-  .course-ad__tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#1f5c66;background:#d5eaec;padding:2px 9px;border-radius:999px;margin-bottom:6px;}
-  .course-ad__title{font-size:17px;font-weight:700;color:#1f2328;margin:0 0 3px;line-height:1.22;}
-  .course-ad__title span{color:#2c7480;font-weight:600;}
-  .course-ad__meta{font-size:13px;color:#4a4f55;margin:0 0 2px;}
-  .course-ad__blurb{font-size:12.5px;color:#5b6169;margin:2px 0 0;}
-  .course-ad__cta{flex:0 0 auto;display:inline-block;background:#2c7480;color:#fff;font-weight:700;font-size:13px;text-decoration:none;padding:10px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);}
-  .course-ad__cta:hover{background:#225c66;color:#fff;}
-  body.dark .course-ad{background:linear-gradient(135deg,rgba(44,116,128,.18) 0%,#0d1117 72%);border-color:#30363d;border-left-color:#3fa3b3;}
-  body.dark .course-ad__title{color:#e6edf3;}
-  body.dark .course-ad__title span{color:#7cc7d2;}
-  body.dark .course-ad__tag{color:#b8e3e9;background:rgba(44,116,128,.30);}
-  body.dark .course-ad__meta{color:#b9c1ca;}
-  body.dark .course-ad__blurb{color:#98a1ab;}
-  body.dark .course-ad__cta{background:#3a8f9c;color:#fff;}
-  body.dark .course-ad__cta:hover{background:#2c7480;}
-  @media(max-width:640px){.course-ad{flex-wrap:wrap;gap:12px;}.course-ad__cta{width:100%;text-align:center;}}
+  .course-ad{position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;min-height:210px;margin:0 0 18px;padding:28px 32px;border-radius:14px;border:1px solid #1d3a40;color:#e6edf3;background:#071216 url("https://utilsec.github.io/ot-threat-dashboard/course-ad-bg.jpg") right center/cover no-repeat;box-shadow:0 6px 24px rgba(4,20,24,.28);}
+  .course-ad::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,14,17,.97) 0%,rgba(5,14,17,.90) 38%,rgba(5,14,17,.45) 68%,rgba(5,14,17,.10) 100%);}
+  .course-ad::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#3fd0e0,#2c7480);}
+  .course-ad__body{position:relative;z-index:1;flex:1 1 auto;min-width:0;max-width:640px;}
+  .course-ad__tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fe7ef;background:rgba(63,208,224,.12);border:1px solid rgba(63,208,224,.35);padding:4px 11px;border-radius:999px;margin-bottom:12px;}
+  .course-ad__tag i{width:7px;height:7px;border-radius:50%;background:#3fd0e0;box-shadow:0 0 0 3px rgba(63,208,224,.25);}
+  .course-ad__title{font-size:30px;font-weight:800;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;color:#fff;}
+  .course-ad__title span{color:#5fd9e6;}
+  .course-ad__blurb{font-size:15px;line-height:1.45;color:#c4ced8;margin:0 0 14px;max-width:560px;}
+  .course-ad__chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;}
+  .course-ad__chips li{font-size:12.5px;font-weight:600;color:#dbe4ec;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:5px 11px;border-radius:7px;}
+  .course-ad__side{position:relative;z-index:1;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .course-ad__cta{display:inline-block;background:#f5a524;color:#1a1204;font-weight:800;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:10px;white-space:nowrap;box-shadow:0 4px 14px rgba(245,165,36,.35);transition:transform .15s,background .15s;}
+  .course-ad__cta:hover{background:#ffb83d;color:#1a1204;transform:translateY(-1px);}
+  .course-ad__cta:focus-visible{outline:3px solid #9fe7ef;outline-offset:3px;}
+  .course-ad__by{font-size:12px;color:#9aa6b2;}
+  @media(max-width:760px){.course-ad{flex-direction:column;align-items:flex-start;padding:22px 20px 20px 24px;background-position:70% center;}.course-ad::before{background:linear-gradient(180deg,rgba(5,14,17,.80),rgba(5,14,17,.95));}.course-ad__title{font-size:23px;}.course-ad__side{width:100%;align-items:stretch;}.course-ad__cta{text-align:center;}}
   </style>
-  <div class="course-ad">
-    <svg class="course-ad__icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On-demand video course">
-      <rect x="1" y="1" width="62" height="62" rx="12" fill="#2c7480"/>
-      <rect x="10" y="14" width="44" height="29" rx="3.5" fill="#ffffff"/>
-      <path d="M28 21.5 L40 28.5 L28 35.5 Z" fill="#2c7480"/>
-      <rect x="28" y="44" width="8" height="4" fill="#ffffff"/>
-      <rect x="20" y="48" width="24" height="3.5" rx="1.75" fill="#ffffff"/>
-    </svg>
+  <div class="course-ad" role="complementary" aria-label="Course: Getting Started in OT/ICS Cybersecurity">
     <div class="course-ad__body">
-      <span class="course-ad__tag">On-demand course &middot; Start anytime</span>
-      <div class="course-ad__title">Getting Started in OT/ICS Cybersecurity <span>&mdash; now on demand</span></div>
-      <div class="course-ad__meta">With Mike Holcomb &middot; Self-paced, with hands-on labs</div>
-      <div class="course-ad__blurb">Learn to protect our families, friends, and communities &mdash; the fundamentals of industrial control system security, at your own pace.</div>
+      <span class="course-ad__tag"><i></i>On-demand course &middot; Start anytime</span>
+      <div class="course-ad__title">Getting Started in <span>OT/ICS Cybersecurity</span></div>
+      <p class="course-ad__blurb">Learn to protect the systems that keep the water clean and the lights on &mdash; the fundamentals of industrial control system security, at your own pace.</p>
+      <ul class="course-ad__chips"><li>Self-paced video</li><li>Hands-on labs</li><li>Built for IT &rarr; OT</li></ul>
     </div>
-    <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Get started today &rarr;</a>
+    <div class="course-ad__side">
+      <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Start the course &rarr;</a>
+      <span class="course-ad__by">With Mike Holcomb</span>
+    </div>
   </div>
   <!-- /COURSE AD -->
 
@@ -690,7 +684,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 4:11 PM ET</span>
+        <span>Generated Sat, 21 Nov 2026, 6:48 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
@@ -720,14 +714,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0&ndash;10 threat level, weighted to operators across all critical-infrastructure sectors. Bands: Critical 9.0+, High 7.0&ndash;8.9, Medium 4.0&ndash;6.9, Low under 4.0. A confirmed single-sector OT-disruptive incident rates upper Medium; High and Critical are reserved for confirmed OT impact across multiple environments or sectors, or hands-on-OT nation-state activity that is currently live. Unexploited advisories and IT/edge exposure do not aggregate upward.">
-    <div class="tl-score"><span class="tl-num">6.2</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.1</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:62.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.2 (Medium):</b> Confirmed, state-attributed sabotage of refrigeration controllers in several countries keeps the level in upper Medium; no new wave has surfaced in about three weeks.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, especially unpatched Danfoss AK-SM 800A and end-of-life Copeland XWEB EVO units.<br><b>Confirmed OT attack:</b> October and early-November setpoint tampering at European supermarkets and French blood-service sites, which France attributes to the IRGC.<br><b>Also watching:</b> Algonquin Dam attempt; vCenter zero-day; PHP2Shell and Check Point attacks; Java4Shell probing; Osaki meter halt; Santos port; Chile solar outage.<br><b>What would raise it:</b> A new sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:61.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.1 (Medium):</b> Confirmed, state-attributed sabotage of refrigeration controllers keeps the level in upper Medium, easing slightly as no new wave has appeared in about three weeks.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, above all unpatched Danfoss AK-SM 800A and end-of-life Copeland XWEB EVO units.<br><b>Confirmed OT attack:</b> October and early-November setpoint tampering at European supermarkets and French blood-service sites, which France attributes to the IRGC.<br><b>Also watching:</b> Algonquin Dam attempt; vCenter and Cisco Expressway in KEV; PHP2Shell and Check Point attacks; Osaki meter halt; Santos port; Chile solar outage.<br><b>What would raise it:</b> A new sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -794,14 +788,15 @@
         <a href="#story-checkpoint-php2shell-wiper"><circle class="blip crit" cx="119.9" cy="240.1" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="119.9" y="243.9">3</text></a>
         <a href="#story-php2shell-ot-vendors"><circle class="blip crit" cx="119.9" cy="119.9" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="119.9" y="123.2">4</text></a>
         <a href="#story-algonquin-dam"><circle class="blip high" cx="226.2" cy="53.1" r="9.00"/><text class="blip-num" style="font-size:8.5px" x="226.2" y="56.0">5</text></a>
-        <a href="#story-osaki-electric-ransomware"><circle class="blip high" cx="296.9" cy="112.5" r="8.75"/><text class="blip-num" style="font-size:8.3px" x="296.9" y="115.2">6</text></a>
-        <a href="#story-huatacondo-chile-solar"><circle class="blip high" cx="312.9" cy="203.4" r="8.50"/><text class="blip-num" style="font-size:8.1px" x="312.9" y="206.1">7</text></a>
-        <a href="#story-santos-port-cyberattack"><circle class="blip high" cx="266.8" cy="283.4" r="8.25"/><text class="blip-num" style="font-size:7.8px" x="266.8" y="286.0">8</text></a>
-        <a href="#story-vcenter-zero-day"><circle class="blip high" cx="180.0" cy="315.0" r="8.00"/><text class="blip-num" style="font-size:7.6px" x="180.0" y="317.5">9</text></a>
-        <a href="#story-bsi-danfoss-aksm800a"><circle class="blip high" cx="93.2" cy="283.4" r="7.75"/><text class="blip-num" style="font-size:7.4px" x="93.2" y="285.8">10</text></a>
-        <a href="#story-copeland-xweb-evo-vulncheck"><circle class="blip high" cx="47.1" cy="203.4" r="7.50"/><text class="blip-num" style="font-size:7.1px" x="47.1" y="205.8">11</text></a>
-        <a href="#story-nable-able2shell"><circle class="blip high" cx="63.1" cy="112.5" r="7.25"/><text class="blip-num" style="font-size:6.9px" x="63.1" y="114.8">12</text></a>
-        <a href="#story-java4shell-siemens-edge"><circle class="blip high" cx="133.8" cy="53.1" r="7.00"/><text class="blip-num" style="font-size:6.6px" x="133.8" y="55.3">13</text></a>
+        <a href="#story-osaki-electric-ransomware"><circle class="blip high" cx="291.9" cy="104.5" r="8.75"/><text class="blip-num" style="font-size:8.3px" x="291.9" y="107.3">6</text></a>
+        <a href="#story-huatacondo-chile-solar"><circle class="blip high" cx="314.9" cy="184.7" r="8.50"/><text class="blip-num" style="font-size:8.1px" x="314.9" y="187.4">7</text></a>
+        <a href="#story-santos-port-cyberattack"><circle class="blip high" cx="286.4" cy="263.1" r="8.25"/><text class="blip-num" style="font-size:7.8px" x="286.4" y="265.8">8</text></a>
+        <a href="#story-vcenter-zero-day"><circle class="blip high" cx="217.2" cy="309.8" r="8.00"/><text class="blip-num" style="font-size:7.6px" x="217.2" y="312.3">9</text></a>
+        <a href="#story-cisco-expressway-kev"><circle class="blip high" cx="133.8" cy="306.9" r="7.75"/><text class="blip-num" style="font-size:7.4px" x="133.8" y="309.3">10</text></a>
+        <a href="#story-bsi-danfoss-aksm800a"><circle class="blip high" cx="68.1" cy="255.5" r="7.50"/><text class="blip-num" style="font-size:7.1px" x="68.1" y="257.9">11</text></a>
+        <a href="#story-copeland-xweb-evo-vulncheck"><circle class="blip high" cx="45.1" cy="175.3" r="7.25"/><text class="blip-num" style="font-size:6.9px" x="45.1" y="177.6">12</text></a>
+        <a href="#story-nable-able2shell"><circle class="blip high" cx="73.6" cy="96.9" r="7.00"/><text class="blip-num" style="font-size:6.6px" x="73.6" y="99.1">13</text></a>
+        <a href="#story-java4shell-siemens-edge"><circle class="blip high" cx="142.8" cy="50.2" r="6.75"/><text class="blip-num" style="font-size:6.4px" x="142.8" y="52.4">14</text></a>
       </svg>
 
       <div class="radar-legend">
@@ -814,10 +809,11 @@
         <a href="#story-huatacondo-chile-solar"><span class="ld high"></span><b>7</b> Chile solar plant offline after cyberattack</a>
         <a href="#story-santos-port-cyberattack"><span class="ld high"></span><b>8</b> Santos port: manual workarounds after attack</a>
         <a href="#story-vcenter-zero-day"><span class="ld high"></span><b>9</b> vCenter zero-day exploited for two months</a>
-        <a href="#story-bsi-danfoss-aksm800a"><span class="ld high"></span><b>10</b> Danfoss AK-SM 800A: six pre-login flaws</a>
-        <a href="#story-copeland-xweb-evo-vulncheck"><span class="ld high"></span><b>11</b> Copeland XWEB EVO: 14 flaws, probed</a>
-        <a href="#story-nable-able2shell"><span class="ld high"></span><b>12</b> N-central Hotfix&nbsp;3 after miner attacks</a>
-        <a href="#story-java4shell-siemens-edge"><span class="ld high"></span><b>13</b> Java4Shell probed; Siemens Edge offline advice</a>
+        <a href="#story-cisco-expressway-kev"><span class="ld high"></span><b>10</b> Cisco Expressway rooted; added to KEV</a>
+        <a href="#story-bsi-danfoss-aksm800a"><span class="ld high"></span><b>11</b> Danfoss AK-SM 800A: six pre-login flaws</a>
+        <a href="#story-copeland-xweb-evo-vulncheck"><span class="ld high"></span><b>12</b> Copeland XWEB EVO: 14 flaws, probed</a>
+        <a href="#story-nable-able2shell"><span class="ld high"></span><b>13</b> N-central Hotfix&nbsp;3 after miner attacks</a>
+        <a href="#story-java4shell-siemens-edge"><span class="ld high"></span><b>14</b> Java4Shell probed; Siemens Edge offline advice</a>
       </div>
     </div>
   </div>
@@ -849,7 +845,7 @@
       <div class="trend">
         <span class="trend-tag">Remote Access</span>
         <b class="trend-head">Remote-management tools remain the busiest attack path</b>
-        <p>N-able shipped a third N-central hotfix on 16&nbsp;November after exploits reached servers that took the second, and ConnectWise said on 16&nbsp;November that attacks on unpatched ScreenConnect systems continue after rogue clients spread through hijacked support panels at 48 organizations, with Huntress counting about 688,000 file-push attempts against 42 MSP servers, an exploited SonicWall VPN flaw that skips SAML-enforced MFA joined CISA&rsquo;s KEV list earlier this month, and on 18&nbsp;November CISA added an exploited, end-of-life Apache Axis&nbsp;1.x flaw that N-able links to some N-central attacks to its KEV list. Both tools are how many integrators and MSPs reach plant-side hosts, so a supplier&rsquo;s remote-access hygiene is part of the plant&rsquo;s own attack surface (editorial assessment). On 19&nbsp;November Mandiant said a suspected China-linked group entered the networks behind a two-month vCenter zero-day campaign through a BeyondTrust Remote Support flaw (see Critical Advisories). On 20&nbsp;November SonicWall said its Gen&nbsp;6 firewalls, still common at small sites, will get no further security patches and should come off the internet edge.</p>
+        <p>N-able shipped a third N-central hotfix on 16&nbsp;November after exploits reached servers that took the second, and ConnectWise said on 16&nbsp;November that attacks on unpatched ScreenConnect systems continue after rogue clients spread through hijacked support panels at 48 organizations, with Huntress counting about 688,000 file-push attempts against 42 MSP servers, an exploited SonicWall VPN flaw that skips SAML-enforced MFA joined CISA&rsquo;s KEV list earlier this month, and on 18&nbsp;November CISA added an exploited, end-of-life Apache Axis&nbsp;1.x flaw that N-able links to some N-central attacks to its KEV list. Both tools are how many integrators and MSPs reach plant-side hosts, so a supplier&rsquo;s remote-access hygiene is part of the plant&rsquo;s own attack surface (editorial assessment). On 19&nbsp;November Mandiant said a suspected China-linked group entered the networks behind a two-month vCenter zero-day campaign through a BeyondTrust Remote Support flaw (see Critical Advisories). On 20&nbsp;November CISA also added an exploited Cisco Expressway flaw to KEV after F6 traced a break-in that moved through a clustered gateway into an internal network (see Critical Advisories). On 20&nbsp;November SonicWall said its Gen&nbsp;6 firewalls, still common at small sites, will get no further security patches and should come off the internet edge.</p>
         <a href="https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html" class="source-link" target="_blank" rel="noopener">The Hacker News (N-central Hotfix&nbsp;3)</a>
       </div>
       <div class="trend">
@@ -874,7 +870,7 @@
           <span class="category">Incident &mdash; CISA/FBI/HHS/USDA/DOT joint warning (5 Nov 2026) and a second wave of refrigeration attacks across about 11 European countries (1&ndash;4 Nov); Belgium says its evidence points to Iran (12 Nov), no formal attribution</span>
         </div>
         <h3>CISA and FBI warn of an ongoing threat to internet-connected refrigeration as European supermarket attacks reach at least 11 countries</h3>
-        <p>Hackers are tampering with internet-connected refrigeration controllers in European supermarkets, and on 5&nbsp;November CISA and the FBI, with HHS, USDA and DOT, warned the threat is ongoing and also reaches healthcare, chemical, transport and cold-storage operations. Hundreds of French stores were hit in October; a second wave on 1&ndash;2&nbsp;November reached about 11 countries, forcing units into continuous heating or defrost, and three French blood-service sites had settings changed with no blood lost. On 10&nbsp;November Sweden warned that more incidents are likely after refrigeration was tampered with at seven Coop stores and an undisclosed number of ICA stores on 2&nbsp;November; its NCSC says the victims mainly ran older systems from one manufacturer protected by weak passwords. On 12&nbsp;November Belgium&rsquo;s interior minister said evidence on the Belgian attacks points to Iran but stopped short of an official attribution (see top story); a pro-Russian claim is unverified, and France has formally attributed only the separate 12&nbsp;October attack, to Iran&rsquo;s Revolutionary Guard. Exposure is falling but not gone: exposed Danfoss StoreView instances dropped from 3,004 to 708 between 9&nbsp;October and 5&nbsp;November (The Hacker News, 9&nbsp;November). Sekoia reported on 10&nbsp;November that the second wave used a non-public, unauthenticated flaw that renames the controller&rsquo;s admin account, apparently a step towards resetting its password, and assesses that both waves may come from the same actor. If a controller is reachable from the internet, treat it as at risk today.</p>
+        <p>Hackers are tampering with internet-connected refrigeration controllers in European supermarkets, and on 5&nbsp;November CISA and the FBI, with HHS, USDA and DOT, warned the threat is ongoing and also reaches healthcare, chemical, transport and cold-storage operations. Hundreds of French stores were hit in October; a second wave on 1&ndash;2&nbsp;November reached about 11 countries, forcing units into continuous heating or defrost, and three French blood-service sites had settings changed with no blood lost. Sweden&rsquo;s NCSC says victims at Coop and ICA stores mainly ran older systems from one manufacturer with weak passwords. Belgium&rsquo;s interior minister said on 12&nbsp;November that evidence points to Iran, short of formal attribution (see top story); a pro-Russian claim is unverified. Exposed Danfoss StoreView instances fell from 3,004 to 708 between 9&nbsp;October and 5&nbsp;November. Sekoia says the second wave used a non-public, unauthenticated flaw that renames the controller&rsquo;s admin account. If a controller is reachable from the internet, treat it as at risk today.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed attacks &mdash; <b>Confirmed vs claimed:</b> CISA and the FBI (5 Nov) confirm hackers are compromising internet-connected refrigeration and cold-chain monitoring and name no actor; Copeland confirmed on 4 Nov that its xweb controllers were targeted; officials confirmed Germany, Romania and the UK on 4 Nov, for about 11 countries; Belgian prosecutors are investigating. The pro-Russian claim (NoName057(16), Z-Pentest, 5 Nov) is unverified, and SentinelOne rates Russian involvement credible but unproven. France formally attributed its 12 October attack to Iran&rsquo;s IRGC on 9 Nov (see top story); no government has formally attributed the November wave or the US commissary freezers, though on 12 Nov Belgium&rsquo;s interior minister said Belgian evidence points to Iran (not an official attribution). ANSSI told the French Senate the French cases pointed to exposed administration interfaces and weak passwords rather than the Danfoss flaws.</span>
@@ -903,7 +899,7 @@
           <span class="category">Incident &mdash; PHP2Shell plus Gaia root flaw CVE-2026-123039 used to backdoor Check Point gateways and wipe a VMware ESXi host (wave 1 from 30 Oct, Israel; wave 2 from 2 Nov, multiple countries); CVE-2026-123039 added to CISA KEV 13 Nov 2026</span>
         </div>
         <h3>Attackers rooted unpatched Check Point gateways through PHP2Shell, planted backdoors and wiped a VMware host; the root flaw is now in KEV</h3>
-        <p>Check Point Research said on 12&nbsp;November that attackers exploited the PHP2Shell flaws on unpatched Check Point Mobile Access portals from 30&nbsp;October, about a week after fixes shipped, then used a local flaw in the gateway&rsquo;s DynamicCLI service (CVE-2026-123039) to become root. They planted web shells and backdoors named TSGA and TSProxy, scanned the internal network, moved over SSH to a VMware ESXi host and ran a wiper that overwrites and deletes files. The first wave hit Israeli organizations, some destructively; a second wave from 2&nbsp;November reached gateways in several countries and sectors with no destruction seen. The backdoors resemble tooling linked to the China-nexus group UNC5221, but Check Point does not attribute the campaign with confidence. CISA added CVE-2026-123039 to KEV on 13&nbsp;November. No OT victim is reported, but these firewalls often sit at the IT/OT boundary and ESXi hosts often run HMIs and historians (editorial assessment).</p>
+        <p>Check Point Research said on 12&nbsp;November that attackers exploited the PHP2Shell flaws on unpatched Check Point Mobile Access portals from 30&nbsp;October, then used a local flaw (CVE-2026-123039) to become root. They planted backdoors, pivoted to a VMware ESXi host and ran a wiper. The first wave hit Israeli organizations, some destructively; a second wave from 2&nbsp;November reached several countries without destruction. Attribution is unconfirmed (tooling resembles China-nexus UNC5221). CISA added the root flaw to KEV on 13&nbsp;November. No OT victim is reported, but these firewalls often sit at the IT/OT boundary and ESXi often hosts HMIs and historians (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> the attack chain, backdoors and ESXi wipe are Check Point Research&rsquo;s own incident findings; Check Point confirms CVE-2026-123039 is exploited and CISA lists it in KEV; victims are unnamed and no count is given; the China-nexus link is a tooling resemblance, and Check Point raises false-flag and access-broker scenarios; no OT impact is reported</span>
@@ -932,7 +928,7 @@
           <span class="category">Active exploitation &mdash; PHP2Shell chained with a Linux kernel flaw to root exposed PAN-OS firewalls, 23&ndash;24 Oct; OT vendor advisories 28&ndash;30 Oct; Siemens adds metering gateways 16 Nov</span>
         </div>
         <h3>PHP2Shell attacks rooted about two dozen Palo Alto firewalls, and Siemens, Schneider and ABB now list grid-control, DCS and RTU products, several with no fix</h3>
-        <p>Palo Alto&rsquo;s Unit&nbsp;42 verified on 29&nbsp;October that a suspected China-nexus actor chained the PHP2Shell flaws (CVE-2026-109618 and CVE-2026-109619) with Linux kernel bug CVE-2026-46300 to gain root on about two dozen internet-exposed PAN-OS firewalls on 23&ndash;24&nbsp;October, then stole Active Directory credentials. Victims were in the US, Japan, Taiwan and South Korea. The OT exposure keeps widening: Siemens lists Spectrum Power grid-control systems and AMIS TS, and on 16&nbsp;November added its WTV676 and WTV776 metering gateways (all versions, no fix), Schneider lists a Foxboro DCS server, and ABB lists Netcontrol RTUs and ASPECT gateways, several with no fix yet. Attribution is suspected, not confirmed, and no Siemens, Schneider or ABB product is reported exploited. No OT operator has been named, so treat this as an IT-to-OT boundary warning.</p>
+        <p>Palo Alto&rsquo;s Unit&nbsp;42 verified that a suspected China-nexus actor chained the PHP2Shell flaws (CVE-2026-109618, CVE-2026-109619) with Linux kernel bug CVE-2026-46300 to root about two dozen internet-exposed PAN-OS firewalls on 23&ndash;24&nbsp;October and steal Active Directory credentials. Siemens (Spectrum Power, AMIS TS and, since 16&nbsp;November, WTV676/WTV776 metering gateways), Schneider (a Foxboro DCS server) and ABB (Netcontrol RTUs, ASPECT gateways) now list affected products, several unfixed. None is reported exploited and no OT operator is named: treat it as an IT-to-OT boundary warning.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> the root compromises are Dream&rsquo;s findings, verified by Unit&nbsp;42, and Palo Alto confirms exploitation of exposed PAN-OS management interfaces; the China-nexus attribution is suspected, not confirmed; victims are unnamed; the affected OT products come from Siemens&rsquo;, Schneider&rsquo;s and ABB&rsquo;s own advisories, and none of them is reported exploited</span>
@@ -962,7 +958,7 @@
           <span class="category">Incident &mdash; cyberattack forced Chile&rsquo;s 103&nbsp;MW Huatacondo solar plant and its battery system off the grid (attack 26 Aug 2026, forced disconnection 27 Aug); still offline per the 14 Nov 2026 grid-coordinator report; congressional information requests filed 11 Nov 2026; no attribution</span>
         </div>
         <h3>A Chilean solar-and-battery plant is still off the grid nearly three months after a cyberattack, and lawmakers want answers</h3>
-        <p>The 103&nbsp;MW Huatacondo solar plant in Chile&rsquo;s Tarapac&aacute; region, with a 98&nbsp;MW / 312&nbsp;MWh battery system still in commissioning, has been disconnected from the national grid since late August after a cyberattack. Chile&rsquo;s National Electric Coordinator triggered its disconnection protocol on 27&nbsp;August after the owner reported the attack, and its 14&nbsp;November daily report still lists both assets at zero availability under forced outage. The coordinator calls the case exceptional and is withholding details while it investigates. On 11&nbsp;November a member of Congress asked the security and energy ministries whether the national cybersecurity agency was notified as Chilean law requires and which control systems were hit; no answer had been published by 16&nbsp;November. The owner, entry route and affected systems are undisclosed. Two suspected attacks on plants in Coquimbo the next day were reportedly ruled out. For renewables operators, the lesson is how long a plant stays dark once it is pulled off the grid for safety and cannot be restored with confidence (editorial assessment).</p>
+        <p>The 103&nbsp;MW Huatacondo solar plant in Chile&rsquo;s Tarapac&aacute; region, with a 98&nbsp;MW / 312&nbsp;MWh battery system in commissioning, has been off the national grid since the National Electric Coordinator triggered its disconnection protocol on 27&nbsp;August after a reported cyberattack. Its 14&nbsp;November report still lists both assets at zero availability. On 11&nbsp;November a member of Congress asked whether the national cybersecurity agency was notified as the law requires and which control systems were hit; no answer by 16&nbsp;November. The owner, entry route and affected systems are undisclosed. The lesson: a plant pulled off the grid for safety can stay dark for months if it cannot be restored with confidence (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed outage, details withheld &mdash; <b>Confirmed vs claimed:</b> the grid coordinator&rsquo;s operational records attribute the forced disconnection to a cyberattack and its cybersecurity director confirmed the protocol was activated; no technical findings, owner name, attacker or affected systems (SCADA, inverters, protection or battery management) have been published; the questions about those systems come from lawmakers&rsquo; information requests, not from findings; ransomware is not reported</span>
@@ -991,7 +987,7 @@
           <span class="category">Incident &mdash; Cyberattack on certain IT systems at Norway&rsquo;s Equinor, disclosed 17 Nov 2026 and declared stopped on 20 Nov 2026; production unaffected throughout; Skagerak Energi reported an attempted attack on 18 Nov 2026; no attribution</span>
         </div>
         <h3>Equinor says the cyberattack on its IT systems has been stopped after three days, as a second Norwegian energy firm reports an attempted attack</h3>
-        <p>Equinor, Norway&rsquo;s state-controlled energy company and the largest supplier of pipeline gas to the EU, said on the morning of 20&nbsp;November that the cyberattack on certain IT systems it first disclosed on 17&nbsp;November has been stopped. Production ran normally throughout, and the company says it has found no sign that data was stolen or altered, or any effect on employees, partners or suppliers. During the incident Equinor said the attack was not a self-spreading virus, that it had a clear view of how it was carried out and which systems were hit, and on 19&nbsp;November that it did not appear aimed specifically at the company. It has reported the matter to police and worked with Norway&rsquo;s National Security Authority (NSM), which raised the national cyber risk level to &ldquo;high&rdquo; on 27&nbsp;October. A day after Equinor&rsquo;s first report, power utility Skagerak Energi reported an attempted cyberattack; it says operations were unaffected and it has seen no misuse of data. Neither company has disclosed the entry route or the attacker, and nothing reported points to OT. Two incidents at Norwegian energy firms in one week are still a reason for energy operators to check their IT-to-OT boundaries now (editorial assessment).</p>
+        <p>Equinor, Norway&rsquo;s state-controlled energy company and the EU&rsquo;s largest pipeline-gas supplier, said on 20&nbsp;November that the cyberattack on certain IT systems it disclosed on 17&nbsp;November has been stopped. Production ran normally throughout, and it has found no sign that data was stolen or altered. Equinor says the attack was not a self-spreading virus and did not appear aimed specifically at it; police and Norway&rsquo;s National Security Authority, which raised the national cyber risk level to &ldquo;high&rdquo; on 27&nbsp;October, are involved. A day after Equinor&rsquo;s first report, utility Skagerak Energi reported an attempted attack with operations unaffected. Neither has disclosed the entry route or attacker, and nothing points to OT. Two incidents at Norwegian energy firms in one week are reason to check IT-to-OT boundaries now (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed attack on IT systems, now stopped &mdash; <b>Confirmed vs claimed:</b> Equinor&rsquo;s own statements (17&ndash;20 Nov) confirm the attack, its containment, no production impact and no sign of data theft; NSM confirms it assisted the company and PST was notified (per NTB); Skagerak Energi&rsquo;s attempted attack is the company&rsquo;s own statement; no link between the two incidents and no attacker has been named; the 19 Nov view that the attack was not aimed at Equinor is the company&rsquo;s assessment; entry route and malware are not disclosed</span>
@@ -1020,7 +1016,7 @@
           <span class="category">Incident &mdash; Attempted cyberattack on the state-run Algonquin Dam, Fox River, Illinois (16 Nov 2026; disclosed by IDNR 20 Nov 2026); dam kept secure and operating; CISA and state agencies investigating; no attribution</span>
         </div>
         <h3>Illinois investigates an apparent cyberattack attempt on the Algonquin Dam on the Fox River</h3>
-        <p>The Illinois Department of Natural Resources said on 20&nbsp;November that its Office of Water Resources detected an apparent attempted cyberattack on the Algonquin Dam, about 45 miles northwest of Chicago, on Monday 16&nbsp;November. Staff acted at once to block the unauthorised access, and the department says the dam stayed secure and fully operational. It has not said which system was targeted, how the attempt was spotted or whether gate controls were reachable. Illinois State Police, the state emergency-management and technology agencies and CISA are investigating, and IDNR says it is working with state and federal partners to secure dams across Illinois. The department said it had no sign of a link to other recent attacks or outages, and no group has been named. For dam and flood-control owners it is a timely prompt to check who and what can reach gate and spillway controls remotely (editorial assessment).</p>
+        <p>The Illinois Department of Natural Resources said on 20&nbsp;November that it detected an apparent attempted cyberattack on the Algonquin Dam, about 45 miles northwest of Chicago, on 16&nbsp;November. Staff blocked the unauthorised access at once, and the dam stayed secure and fully operational. IDNR has not said which system was targeted or whether gate controls were reachable. Illinois State Police, state agencies and CISA are investigating; no link to other attacks and no group has been named. For dam and flood-control owners, it is a prompt to check who can reach gate and spillway controls remotely (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed attempt, no reported impact &mdash; <b>Confirmed vs claimed:</b> the attempt, the dates, the investigating agencies and the &ldquo;secure and fully operational&rdquo; status are IDNR&rsquo;s own statement (via CBS Chicago, ABC7 Chicago and BNO News); the targeted system, method and attacker are undisclosed; IDNR says it has found no link to other recent incidents; nothing suggests any gate or water-level change</span>
@@ -1050,7 +1046,7 @@
           <span class="category">Incident &mdash; Ransomware at Japanese smart-meter maker Osaki Electric (confirmed 17 Nov 2026); production and shipments suspended at its Saitama centre and group plants (reported 18 Nov 2026); no group named</span>
         </div>
         <h3>Ransomware halts smart-meter production and shipments at Japan&rsquo;s Osaki Electric</h3>
-        <p>Osaki Electric, a Japanese maker of electricity smart meters, said ransomware encrypted data on its servers on 17&nbsp;November. It confirmed the attack at about 10:35 a.m. local time, cut its systems off from outside networks around midday, and suspended production and shipments of smart meters and other products at its Saitama R&amp;D and manufacturing centre and at group production companies Iwate Osaki Electric and Osaki Platech. NHK reported on 18&nbsp;November that the production-management system was among the systems knocked out. Outside specialists are checking whether data was stolen, and the company has informed police and customers. In a 20&nbsp;November update the company said the intruder most likely got in at about 1:30&nbsp;a.m. on 15&nbsp;November through a VPN device, by repeated password guessing against an account without multi-factor authentication; some virtual servers were encrypted and technical information believed to come from its systems has been posted online. No group has claimed the attack. Nothing reported suggests meters already in the field or electricity supply are affected. For utilities, the risk is supply-chain: delayed meter rollouts, and the question of how a supplier protects the systems that build, configure and sign the devices it ships (editorial assessment).</p>
+        <p>Osaki Electric, a Japanese smart-meter maker, said ransomware encrypted data on its servers on 17&nbsp;November. It cut its systems off from outside networks and suspended production and shipments at its Saitama R&amp;D and manufacturing centre and at group companies Iwate Osaki Electric and Osaki Platech; NHK reported the production-management system was among those knocked out. On 20&nbsp;November the company said the intruder most likely got in on 15&nbsp;November through a VPN device, by password guessing against an account without multi-factor authentication; some virtual servers were encrypted and technical information believed to be its own was posted online. No group has claimed it, and nothing suggests field meters or electricity supply are affected. For utilities, the risk is supply-chain: delayed meter rollouts, and how suppliers protect the systems that build and sign their devices (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware, production halted &mdash; <b>Confirmed vs claimed:</b> the ransomware, the shutdown of production-related systems and the suspension of production and shipments are Osaki Electric&rsquo;s own disclosure (via TipRanks) and NHK&rsquo;s report; the VPN entry route is the company&rsquo;s own 20&nbsp;November estimate, and the scope of the leaked technical data is still under investigation; no ransomware group or attacker is named; no effect on installed meters or power supply is reported</span>
@@ -1080,7 +1076,7 @@
           <span class="category">Incident &mdash; Cyberattack on the Santos Port Authority (APS), Brazil; systems down from 6 Nov 2026, attack confirmed 10 Nov; port security raised to level 2 of 3 (8 Nov); core systems in final tests 16 Nov 2026; about 70% of backups recovered; Federal Police inquiry opened 10 Nov; no attribution</span>
         </div>
         <h3>Cyberattack on Brazil&rsquo;s Santos port authority forces manual workarounds at Latin America&rsquo;s busiest port</h3>
-        <p>The authority that runs the Port of Santos, Brazil&rsquo;s largest port, lost its IT systems on 6&nbsp;November after a power fluctuation hit its servers, and on 10&nbsp;November confirmed the outage was a cyberattack. Access-control and identification systems and digital tools used to coordinate port operations went down, so vessel, truck and train procedures were delayed and some automated checks, such as matching ship dimensions to berths, were done by hand. On 8&nbsp;November S&atilde;o Paulo&rsquo;s port security commission raised the port&rsquo;s protection level to 2 of 3, adding police presence. Internet and phones were back on 9&nbsp;November, and on 16&nbsp;November the authority said its main internal systems were in final tests, with some services still running by email and about 70% of affected file backups recovered. Ship movements and landside access continued throughout. Brazil&rsquo;s Federal Police are investigating; the authority has not said who was behind it, how they got in or whether data was taken. For port and terminal operators, the lesson is that access control and berth planning are operational systems that need a tested manual fallback (editorial assessment).</p>
+        <p>The Port of Santos authority, which runs Brazil&rsquo;s largest port, lost its IT systems on 6&nbsp;November and on 10&nbsp;November confirmed a cyberattack. Access-control systems and digital tools for coordinating port operations went down, delaying vessel, truck and train procedures and forcing some checks, such as matching ship dimensions to berths, to be done by hand. The port&rsquo;s protection level was raised to 2 of 3 on 8&nbsp;November. By 16&nbsp;November main internal systems were in final tests and about 70% of affected file backups were recovered; ship movements and landside access continued throughout. Brazil&rsquo;s Federal Police are investigating; the attacker, entry route and any data theft are undisclosed. For port operators, access control and berth planning need a tested manual fallback (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed attack, operations degraded &mdash; <b>Confirmed vs claimed:</b> the cyberattack, the security-level increase and the restoration timeline are the port authority&rsquo;s and S&atilde;o Paulo officials&rsquo; statements (via DatamarNews and The Rio Times); a ransom demand was reported by local media (A Tribuna) but not confirmed by the authority; attacker, entry route and any data access are undisclosed; terminal operators&rsquo; own systems are not reported affected; CNN Brasil&rsquo;s report that malware was already on the network before the 6&nbsp;November power event and activated afterwards is unconfirmed by the authority (via CyberDelegate)</span>
@@ -1175,35 +1171,6 @@
         <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q3-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="story-forescout-ai-tcpip-stacks" data-published="2026-11-19">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research &mdash; Forescout Vedere Labs AI-assisted study of ten embedded TCP/IP stacks (published 16 Nov 2026, reported 19 Nov 2026); 66 new flaws, 54 reported to developers; no CVE IDs published yet; no exploitation reported</span>
-        </div>
-        <h3>Forescout&rsquo;s AI-assisted hunt finds 66 new flaws in embedded network stacks, including the Siemens Nucleus NET stack in building-automation controllers</h3>
-        <p>Forescout&rsquo;s Vedere Labs says an AI-assisted pipeline, pairing Claude models with Ghidra, Semgrep and Joern under human review, found 99 vulnerabilities across ten embedded TCP/IP stacks in about 90 hours, work that took its earlier Project Memoria effort roughly nine months. Sixty-six of the flaws are new and just over half are rated high or critical; 54 have been reported to developers, and three stacks are still under investigation. Named stacks include Contiki, lwIP, PicoTCP, FNET, wolfIP and Siemens Nucleus NET, and Forescout lists Siemens APOGEE, Desigo and TALON building-automation controllers as affected by the Nucleus NET issues. A discontinued wireless access point yielded seven more flaws, including admin credentials that cannot be changed, that no vendor is left to fix. Model costs ran about $1,200&ndash;$2,300. For OT teams the lesson is that cheap AI-assisted discovery will surface bugs in long-lived embedded gear faster than vendors can patch it (editorial assessment).</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-info"><span class="d"></span>Research disclosure &mdash; <b>Confirmed vs claimed:</b> the counts, costs and affected stacks are Forescout&rsquo;s own findings; no exploitation has been reported; product-level details beyond those named await vendor advisories</span>
-            <span class="ops-tag kev-off">No CVE IDs published yet; not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-no">Fixes pending &mdash; coordinated disclosure under way; discontinued devices will not be fixed</span>
-            <span class="ops-cc"><b>Action:</b> Inventory building-automation controllers (Siemens APOGEE, Desigo, TALON) and other embedded devices by firmware and network stack, and watch Siemens ProductCERT and CISA for the resulting advisories. Until fixes land, keep these devices off the internet and off flat networks, allow only the hosts that need to reach them, disable unused services, and plan replacement of end-of-life gear that cannot be patched.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check for building-automation controllers &mdash; 14 days; embedded-device firmware and stack inventory &mdash; 30 days; vendor-advisory tracking &mdash; ongoing</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="forescout-ai-tcpip-stacks" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="forescout-ai-tcpip-stacks">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Forescout Vedere Labs research, via Help Net Security (16 Nov 2026) and IoT Business News (19 Nov 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 16 Nov 2026; reported 19 Nov 2026</span>
-        </div>
-        <a href="https://www.helpnetsecurity.com/2026/11/16/forescout-ai-models-vulnerability-research/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
     </div>
   </div>
@@ -1241,6 +1208,36 @@
           <span>Added to CISA KEV 20 Nov 2026; patched 19 Nov 2026; exploited from at least early Sep 2026</span>
         </div>
         <a href="https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="story-cisco-expressway-kev" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Active exploitation &mdash; Cisco Expressway CVE-2026-76466 (CVSS 9.8), clustered Expressway Core/Edge; exploited after a public PoC (reported by F6); added to CISA KEV 20 Nov 2026; fixed in X15.5.20</span>
+        </div>
+        <h3>Attackers root clustered Cisco Expressway gateways soon after a public exploit, and CISA adds the flaw to KEV</h3>
+        <p>Security firm F6 says attackers exploited CVE-2026-76466, a critical flaw in clustered Cisco Expressway Core and Edge deployments, shortly after proof-of-concept code appeared on GitHub. They broke into two internet-facing Expressway nodes at an unnamed Russian organization, moved to two more cluster nodes inside the network, and gained root. From there they ran Python scripts, which F6 says show signs of AI-assisted writing, to scan for SMB shares, SQL Server and WinRM hosts and to search GitLab for credentials. CISA added the flaw to its KEV catalog on 20&nbsp;November alongside the vCenter zero-day. Cisco disclosed and fixed it on 21&nbsp;October; there is no workaround. No OT victim is reported, but Expressway is a perimeter gateway that often bridges outside callers into internal networks, so an exposed, unpatched cluster is a foothold close to plant-side systems (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited in the wild &mdash; <b>Confirmed vs claimed:</b> exploitation is confirmed by CISA&rsquo;s KEV listing; the intrusion details are F6&rsquo;s own findings, with the victim unnamed and no actor attributed; Cisco&rsquo;s advisory had not yet been updated to note exploitation when SecurityWeek reported it; no OT impact reported</span>
+            <span class="ops-tag kev-on"><span class="d"></span>In CISA KEV &mdash; added 20 Nov 2026 (federal deadline 23 Nov)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-now">Patch now &mdash; upgrade to Expressway X15.5.20; X14 and earlier must move to a fixed release; no workaround</span>
+            <span class="ops-cc"><b>Action:</b> Find every Expressway Core and Edge node, upgrade clustered deployments to X15.5.20, and until then block TCP 4371&ndash;4372 except between trusted cluster nodes. Review the Erlang system log for signs of misuse, and if a node was exposed and unpatched, treat it as compromised: rebuild it, rotate credentials it held, and check what it could reach, including any OT DMZ hosts.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or port-block &mdash; immediately (actively exploited, in KEV); log review and compromise hunt on exposed nodes &mdash; 72 hours</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="cisco-expressway-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="cisco-expressway-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs (21 Nov 2026, CISA KEV additions of 20 Nov); SecurityWeek (Nov 2026, citing F6); Security Affairs (20 Nov 2026, F6 findings)</span>
+          <span class="dot">&bull;</span>
+          <span>Added to CISA KEV 20 Nov 2026; exploitation reported 18&ndash;20 Nov 2026; patched 21 Oct 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203639/security/u-s-cisa-adds-cisco-expressway-sap-netweaver-broadcom-vmware-vcenter-and-apache-roller-flaws-to-its-known-exploited-vulnerabilities-catalog.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="story-copeland-xweb-evo-vulncheck" data-published="2026-11-16">
@@ -1406,7 +1403,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Sat, 21 Nov 2026, 4:11 PM ET) re-checked CISA ICS advisories and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi and Forescout research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no material development since France&rsquo;s 17&ndash;18&nbsp;November statements and the EU&rsquo;s 16&nbsp;November confirmation that sanctions are being prepared), and the Algonquin Dam, Equinor and Skagerak Energi reports, plus The Record, SecurityWeek (including its 20&nbsp;November In Other News roundup), The Hacker News, BleepingComputer, Cybersecurity Dive, CyberScoop, Dark Reading, Industrial Cyber, Help Net Security and the Viakoo daily OT digest. No new OT-relevant incident or advisory was published between the previous edition and this one. Changes this edition: retired the GAO food-sector report and the 19&nbsp;November CISA ICS advisory roundup (unexploited trailer-brake, OpenPLC and MQTT-library flaws) to bring the main page back within its 14&ndash;18 story target. Two widely shared items were checked and excluded as stale: the Cisco FMC static-credential zero-day (CVE-2026-20316, July&nbsp;2026) and a CISA warning on water-utility attacks (August&nbsp;2026). Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards and holds at 6.2 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country but has had no new wave in about three weeks, the Algonquin Dam attempt caused no reported impact, the Osaki, Santos and Huatacondo incidents are single-organisation events, and the advisories are unexploited. Sources: Illinois Department of Natural Resources (via CBS Chicago), Forescout Vedere Labs (via Help Net Security), CISA (ICS advisories and KEV alerts), Siemens ProductCERT, Amazon Threat Intelligence (via The Hacker News and The Record), AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Equinor, Skagerak Energi and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ, Osaki Electric (via TipRanks), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Midnight Blue, VulnCheck (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric and ABB (via The Hacker News and SecurityWeek); corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, TechCrunch, CyberScoop and Industrial Cyber. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Sat, 21 Nov 2026, 6:48 PM ET) re-checked CISA ICS advisories and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi and Forescout research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no material development since France&rsquo;s 17&ndash;18&nbsp;November statements and the EU&rsquo;s 16&nbsp;November confirmation that sanctions are being prepared), and the Algonquin Dam and Equinor follow-ups (no new detail), plus The Record, SecurityWeek, Security Affairs, The Hacker News, BleepingComputer, Cybersecurity Dive, CyberScoop, Industrial Cyber and the Cloud Security Alliance daily CISO briefing of 21&nbsp;November. Changes this edition: added CISA&rsquo;s 20&nbsp;November KEV listing of the exploited Cisco Expressway flaw CVE-2026-76466 (F6 findings, via SecurityWeek and Security Affairs), and retired the Forescout embedded TCP/IP stack research card (unexploited, no CVEs yet; still noted under Trends) to keep the main page within its 14&ndash;18 story target. A Polish ABW report on water-plant ICS breaches was checked and excluded as stale (May&nbsp;2026). Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards at 6.1 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country but has had no new wave in about three weeks, the Algonquin Dam attempt caused no reported impact, the Osaki, Santos and Huatacondo incidents are single-organisation events, and the new KEV entries are IT/edge exposure that does not aggregate upward. Sources: Illinois Department of Natural Resources (via CBS Chicago), CISA (ICS advisories and KEV alerts), F6 (via SecurityWeek and Security Affairs), Siemens ProductCERT, AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Equinor and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ, Osaki Electric (via TipRanks), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Midnight Blue, VulnCheck (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric and ABB (via The Hacker News and SecurityWeek); corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, TechCrunch, CyberScoop and Industrial Cyber. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
