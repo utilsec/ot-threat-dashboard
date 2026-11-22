@@ -610,39 +610,52 @@
 <script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
 <div class="container">
 
-  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md; v2 Higgsfield banner 21 Nov 2026) -->
+  <!-- THEME V2 (header, sector nav, threat level restyle — preserve verbatim every run on every page; CSS only, see CLAUDE.md; added 21 Nov 2026) -->
   <style>
-  .course-ad{position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;min-height:210px;margin:0 0 18px;padding:28px 32px;border-radius:14px;border:1px solid #1d3a40;color:#e6edf3;background:#071216 url("https://utilsec.github.io/ot-threat-dashboard/course-ad-bg.jpg") right center/cover no-repeat;box-shadow:0 6px 24px rgba(4,20,24,.28);}
-  .course-ad::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,14,17,.97) 0%,rgba(5,14,17,.90) 38%,rgba(5,14,17,.45) 68%,rgba(5,14,17,.10) 100%);}
-  .course-ad::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#3fd0e0,#2c7480);}
-  .course-ad__body{position:relative;z-index:1;flex:1 1 auto;min-width:0;max-width:640px;}
-  .course-ad__tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fe7ef;background:rgba(63,208,224,.12);border:1px solid rgba(63,208,224,.35);padding:4px 11px;border-radius:999px;margin-bottom:12px;}
-  .course-ad__tag i{width:7px;height:7px;border-radius:50%;background:#3fd0e0;box-shadow:0 0 0 3px rgba(63,208,224,.25);}
-  .course-ad__title{font-size:30px;font-weight:800;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;color:#fff;}
-  .course-ad__title span{color:#5fd9e6;}
-  .course-ad__blurb{font-size:15px;line-height:1.45;color:#c4ced8;margin:0 0 14px;max-width:560px;}
-  .course-ad__chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;}
-  .course-ad__chips li{font-size:12.5px;font-weight:600;color:#dbe4ec;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:5px 11px;border-radius:7px;}
-  .course-ad__side{position:relative;z-index:1;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;}
-  .course-ad__cta{display:inline-block;background:#f5a524;color:#1a1204;font-weight:800;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:10px;white-space:nowrap;box-shadow:0 4px 14px rgba(245,165,36,.35);transition:transform .15s,background .15s;}
-  .course-ad__cta:hover{background:#ffb83d;color:#1a1204;transform:translateY(-1px);}
-  .course-ad__cta:focus-visible{outline:3px solid #9fe7ef;outline-offset:3px;}
-  .course-ad__by{font-size:12px;color:#9aa6b2;}
-  @media(max-width:760px){.course-ad{flex-direction:column;align-items:flex-start;padding:22px 20px 20px 24px;background-position:70% center;}.course-ad::before{background:linear-gradient(180deg,rgba(5,14,17,.80),rgba(5,14,17,.95));}.course-ad__title{font-size:23px;}.course-ad__side{width:100%;align-items:stretch;}.course-ad__cta{text-align:center;}}
+  /* Sector nav: glassy pills with a lit active state */
+  html .navrow{padding:8px 10px;border-radius:14px;background:linear-gradient(180deg,#f7fafb,#eef4f5);border:1px solid #dbe7e9;}
+  html .sector-nav{gap:6px;}
+  html .sector-nav a{font-size:12.5px;font-weight:650;color:#33424a;padding:7px 14px;border-radius:999px;border:1px solid #d5e2e5;background:#fff;box-shadow:0 1px 2px rgba(16,40,48,.06);transition:color .15s,border-color .15s,box-shadow .15s,transform .15s;}
+  html .sector-nav a:hover{color:#11535d;border-color:#7cc7d2;box-shadow:0 3px 10px rgba(44,116,128,.18);transform:translateY(-1px);}
+  html .sector-nav a:focus-visible{outline:3px solid #7cc7d2;outline-offset:2px;}
+  html .sector-nav a.sn-active{color:#fff;border-color:transparent;background:linear-gradient(135deg,#1f6d78,#2f9aa8);box-shadow:0 4px 14px rgba(31,109,120,.35),inset 0 1px 0 rgba(255,255,255,.25);}
+  html body.dark .navrow{background:linear-gradient(180deg,#111a1e,#0d1417);border-color:#1f2e33;}
+  html body.dark .sector-nav a{color:#c4d0d6;background:#121c20;border-color:#24353b;box-shadow:none;}
+  html body.dark .sector-nav a:hover{color:#fff;border-color:#3fa3b3;}
+  /* Header: dark hero with Higgsfield skyline */
+  html .header{min-height:190px;padding:30px 32px 26px;border:1px solid #17343b;border-radius:16px;align-items:flex-end;color:#e6edf3;background:#08161a url("https://static.wixstatic.com/media/bcbe7a_ea8411db07db4e22906776009cb66ee4~mv2.png/v1/fill/w_1600,h_679,al_c,q_75,enc_auto/hero-skyline.jpg") right center/cover no-repeat;box-shadow:0 10px 30px rgba(5,20,25,.25);}
+  html .header::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,20,.96) 0%,rgba(6,16,20,.86) 42%,rgba(6,16,20,.35) 75%,rgba(6,16,20,.15) 100%);z-index:0;}
+  html .header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#3fd0e0,#2c7480 45%,transparent);}
+  html .header .sector-icon{display:none;}
+  html .header-title h1{font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-.015em;color:#fff;margin-bottom:8px;text-wrap:balance;max-width:720px;}
+  html .header-sub{font-size:15px;font-weight:600;color:#8fdde7;margin-bottom:12px;}
+  html .header-meta{color:#a9b6bf;font-size:12.5px;}
+  html .header-meta .dot{color:#3b5158;}
+  html .header .sector-badge{background:rgba(63,208,224,.12);color:#b8eef4;border:1px solid rgba(63,208,224,.35);}
+  html .header .story-count{color:#a9b6bf;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;backdrop-filter:blur(4px);font-size:12.5px;}
+  html .header .story-count strong{color:#fff;font-size:20px;}
+  html body.dark .header{border-color:#1f3a41;}
+  @media(max-width:640px){html .header{padding:22px 18px 18px;min-height:0;background-position:72% center;}html .header::before{background:linear-gradient(180deg,rgba(6,16,20,.80),rgba(6,16,20,.95));}html .header-title h1{font-size:24px;}}
+  /* Overall Threat Level: instrument panel */
+  html .threat-level{position:relative;overflow:hidden;padding:20px 24px;gap:14px 26px;border:1px solid #1d2f35;border-left:0;border-radius:16px;color:#d6e0e6;background:#0a1417 url("https://static.wixstatic.com/media/bcbe7a_9988379803ee42ab98353bc834576d70~mv2.png/v1/fill/w_1600,h_679,al_c,q_70,enc_auto/threat-panel-bg.jpg") right center/cover no-repeat;box-shadow:0 10px 30px rgba(5,20,25,.22);}
+  html .threat-level::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,16,19,.94) 0%,rgba(8,16,19,.84) 55%,rgba(8,16,19,.55) 100%);pointer-events:none;}
+  html .threat-level::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--tl-c,#dc2626);box-shadow:0 0 18px var(--tl-c,#dc2626);}
+  html .threat-level>*{position:relative;z-index:1;}
+  html .tl-score{flex:0 0 auto;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:112px;height:112px;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.06),rgba(0,0,0,0) 70%),#0d1a1e;border:3px solid var(--tl-c,#dc2626);box-shadow:0 0 0 6px rgba(255,255,255,.03),0 0 26px -4px var(--tl-c,#dc2626);}
+  html .tl-num{font-size:40px;color:#fff;text-shadow:0 0 18px var(--tl-c,#dc2626);}
+  html .tl-den{font-size:12px;color:#8a9aa3;}
+  html .tl-label{color:#8fdde7;font-size:12px;letter-spacing:.1em;}
+  html .tl-band{color:#111;background:var(--tl-c,#dc2626);box-shadow:0 0 14px -2px var(--tl-c,#dc2626);padding:3px 12px;}
+  html .tl-meter{height:10px;margin:4px 0 2px;box-shadow:inset 0 1px 2px rgba(0,0,0,.5);opacity:.95;}
+  html .tl-marker{width:18px;height:18px;background:#0a1417;border-width:4px;box-shadow:0 0 12px var(--tl-c,#dc2626);}
+  html .tl-why{font-size:13.5px;line-height:1.6;color:#c3cfd6;margin-top:6px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);}
+  html .tl-why b{color:#fff;}
+  html body.dark .threat-level{background-color:#0a1417;border-color:#1f3a41;}
+  html body.dark .tl-why{color:#c3cfd6;}html body.dark .tl-why b{color:#fff;}html body.dark .tl-marker{background:#0a1417;}
+  @media(max-width:640px){html .threat-level{padding:18px 16px;}html .tl-score{width:92px;height:92px;}html .tl-num{font-size:32px;}}
+  @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
-  <div class="course-ad" role="complementary" aria-label="Course: Getting Started in OT/ICS Cybersecurity">
-    <div class="course-ad__body">
-      <span class="course-ad__tag"><i></i>On-demand course &middot; Start anytime</span>
-      <div class="course-ad__title">Getting Started in <span>OT/ICS Cybersecurity</span></div>
-      <p class="course-ad__blurb">Learn to protect the systems that keep the water clean and the lights on &mdash; the fundamentals of industrial control system security, at your own pace.</p>
-      <ul class="course-ad__chips"><li>Self-paced video</li><li>Hands-on labs</li><li>Built for IT &rarr; OT</li></ul>
-    </div>
-    <div class="course-ad__side">
-      <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Start the course &rarr;</a>
-      <span class="course-ad__by">With Mike Holcomb</span>
-    </div>
-  </div>
-  <!-- /COURSE AD -->
+  <!-- /THEME V2 -->
 
 
   <!-- DISCLAIMER -->
@@ -725,6 +738,40 @@
     </div>
   </div>
   <!-- /THREAT LEVEL -->
+
+  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md; v2 Higgsfield banner 21 Nov 2026) -->
+  <style>
+  .course-ad{position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;min-height:210px;margin:0 0 18px;padding:28px 32px;border-radius:14px;border:1px solid #1d3a40;color:#e6edf3;background:#071216 url("https://utilsec.github.io/ot-threat-dashboard/course-ad-bg.jpg") right center/cover no-repeat;box-shadow:0 6px 24px rgba(4,20,24,.28);}
+  .course-ad::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,14,17,.97) 0%,rgba(5,14,17,.90) 38%,rgba(5,14,17,.45) 68%,rgba(5,14,17,.10) 100%);}
+  .course-ad::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#3fd0e0,#2c7480);}
+  .course-ad__body{position:relative;z-index:1;flex:1 1 auto;min-width:0;max-width:640px;}
+  .course-ad__tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fe7ef;background:rgba(63,208,224,.12);border:1px solid rgba(63,208,224,.35);padding:4px 11px;border-radius:999px;margin-bottom:12px;}
+  .course-ad__tag i{width:7px;height:7px;border-radius:50%;background:#3fd0e0;box-shadow:0 0 0 3px rgba(63,208,224,.25);}
+  .course-ad__title{font-size:30px;font-weight:800;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;color:#fff;}
+  .course-ad__title span{color:#5fd9e6;}
+  .course-ad__blurb{font-size:15px;line-height:1.45;color:#c4ced8;margin:0 0 14px;max-width:560px;}
+  .course-ad__chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;}
+  .course-ad__chips li{font-size:12.5px;font-weight:600;color:#dbe4ec;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:5px 11px;border-radius:7px;}
+  .course-ad__side{position:relative;z-index:1;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .course-ad__cta{display:inline-block;background:#f5a524;color:#1a1204;font-weight:800;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:10px;white-space:nowrap;box-shadow:0 4px 14px rgba(245,165,36,.35);transition:transform .15s,background .15s;}
+  .course-ad__cta:hover{background:#ffb83d;color:#1a1204;transform:translateY(-1px);}
+  .course-ad__cta:focus-visible{outline:3px solid #9fe7ef;outline-offset:3px;}
+  .course-ad__by{font-size:12px;color:#9aa6b2;}
+  @media(max-width:760px){.course-ad{flex-direction:column;align-items:flex-start;padding:22px 20px 20px 24px;background-position:70% center;}.course-ad::before{background:linear-gradient(180deg,rgba(5,14,17,.80),rgba(5,14,17,.95));}.course-ad__title{font-size:23px;}.course-ad__side{width:100%;align-items:stretch;}.course-ad__cta{text-align:center;}}
+  </style>
+  <div class="course-ad" role="complementary" aria-label="Course: Getting Started in OT/ICS Cybersecurity">
+    <div class="course-ad__body">
+      <span class="course-ad__tag"><i></i>On-demand course &middot; Start anytime</span>
+      <div class="course-ad__title">Getting Started in <span>OT/ICS Cybersecurity</span></div>
+      <p class="course-ad__blurb">Learn to protect the systems that keep the water clean and the lights on &mdash; the fundamentals of industrial control system security, at your own pace.</p>
+      <ul class="course-ad__chips"><li>Self-paced video</li><li>Hands-on labs</li><li>Built for IT &rarr; OT</li></ul>
+    </div>
+    <div class="course-ad__side">
+      <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Start the course &rarr;</a>
+      <span class="course-ad__by">With Mike Holcomb</span>
+    </div>
+  </div>
+  <!-- /COURSE AD -->
 
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
