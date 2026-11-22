@@ -683,8 +683,33 @@
   html .tf-news a:hover{background:#ffb83d;}
   html .tf-news a:focus-visible,html .tf-jump a:focus-visible{outline:3px solid #7cc7d2;outline-offset:2px;}
   @media(max-width:640px){html .tf-news a{width:100%;text-align:center;}}
+  /* Unified look: navy-teal dark is the default; retints the old grey dark mode to match the header and threat panel */
+  html body.dark{background:#071216 radial-gradient(1400px 520px at 50% -8%,rgba(44,116,128,.20),rgba(7,18,22,0) 70%) no-repeat;color:#dbe4ea;}
+  html body.dark .disclaimer{background:#0c191d;border-color:#1c343a;color:#93a4ad;}
+  html body.dark .navrow{background:linear-gradient(180deg,#0d1b20,#0a1619);border-color:#1c343a;}
+  html body.dark .sector-nav a{background:#0f2025;border-color:#1f3a41;color:#c4d0d6;}
+  html body.dark .sector-nav a:hover{color:#fff;border-color:#3fa3b3;}
+  html body.dark .sector-nav a.sn-active{color:#fff;border-color:transparent;background:linear-gradient(135deg,#1f6d78,#2f9aa8);}
+  html body.dark .theme-toggle{background:#0f2025;border-color:#1f3a41;color:#c4d0d6;}
+  html body.dark .card,html body.dark .top-story,html body.dark .radar-panel,html body.dark .trends-strip{background:linear-gradient(180deg,#0e1e23 0%,#0b181c 100%);border-color:#1c343a;box-shadow:0 8px 24px rgba(0,0,0,.28);}
+  html body.dark .card:hover{border-color:#2f5a63;}
+  html body.dark .card:target{border-color:#3fd0e0;}
+  html body.dark .top-story{border-left-color:#3fd0e0;}
+  html body.dark .section-title{color:#8fdde7;border-bottom-color:#1c343a;}
+  html body.dark .ops-strip{border-top-color:#1c343a;}
+  html body.dark .ops-assign{background:#0a1619;border-color:#1c343a;}
+  html body.dark .kev-off,html body.dark .patch-na,html body.dark .cve-badge,html body.dark .status-pill.st-na{background:#12242a;border-color:#1f3a41;}
+  html body.dark .status-pill.st-open{background:#0c191d;border-color:#1f3a41;}
+  html body.dark .radar-legend a:hover{background:#12242a;}
+  html body.dark .footer{border-top-color:#1c343a;}
+  /* Shared shape language in both modes */
+  html .card,html .top-story,html .radar-panel,html .trends-strip{border-radius:14px;}
+  html .section-title{background:linear-gradient(90deg,#3fa3b3,rgba(63,163,179,0) 45%) left bottom/100% 2px no-repeat;}
+  html body.dark .header{background:#08161a url("https://static.wixstatic.com/media/bcbe7a_ea8411db07db4e22906776009cb66ee4~mv2.png/v1/fill/w_1600,h_679,al_c,q_75,enc_auto/hero-skyline.jpg") right center/cover no-repeat;border-color:#1f3a41;}
+  html body.dark .threat-level{background:#0a1417 url("https://static.wixstatic.com/media/bcbe7a_9988379803ee42ab98353bc834576d70~mv2.png/v1/fill/w_1600,h_679,al_c,q_70,enc_auto/threat-panel-bg.jpg") right center/cover no-repeat;border-color:#1f3a41;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
+  <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
   <script>
   (function(){function run(){try{
     document.querySelectorAll('.ops-tag').forEach(function(t){if(t.textContent.length<=170||t.querySelector('.tf-more'))return;var d=t.querySelector('.d');if(d)t.removeChild(d);var w=document.createElement('span');w.className='tf-clamp';while(t.firstChild)w.appendChild(t.firstChild);var box=document.createElement('span');box.appendChild(w);var b=document.createElement('button');b.type='button';b.className='tf-more';b.textContent='Show more';b.setAttribute('aria-expanded','false');b.addEventListener('click',function(){var c=w.classList.toggle('tf-clamp');b.textContent=c?'Show more':'Show less';b.setAttribute('aria-expanded',String(!c));});box.appendChild(document.createElement('br'));box.appendChild(b);if(d)t.appendChild(d);t.appendChild(box);});
@@ -697,7 +722,7 @@
   </script>
   <!-- /THEME V2 -->
   <!-- SECTOR HERO (marine; Higgsfield banner hosted in the OT Threat Feed Wix media library — preserve verbatim, see CLAUDE.md) -->
-  <style>html body .header{background-image:url("https://static.wixstatic.com/media/bcbe7a_4f8e354bc257476f9e60b71c13ec82c6~mv2.png/v1/fill/w_1600,h_679,al_c,q_75,enc_auto/hero-marine.jpg");}</style>
+  <style>html body .header,html body.dark .header{background-image:url("https://static.wixstatic.com/media/bcbe7a_4f8e354bc257476f9e60b71c13ec82c6~mv2.png/v1/fill/w_1600,h_679,al_c,q_75,enc_auto/hero-marine.jpg");}</style>
   <!-- /SECTOR HERO -->
 
 
