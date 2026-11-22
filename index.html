@@ -802,13 +802,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 10:11 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 4:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: All Critical Infrastructure</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>18</strong> stories across <strong>4</strong> categories
+      <strong>19</strong> stories across <strong>4</strong> categories
     </div>
   </div>
   <!-- THREAT LEVEL (composite 0-10; Critical gated on active exploitation or a multi-sector incident; audience-weighted; recompute each run) -->
@@ -839,7 +839,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:61.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.1 (Medium):</b> Confirmed, state-attributed sabotage of refrigeration controllers keeps the level in upper Medium; no new wave has appeared in about three weeks.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, above all Danfoss AK-SM units (two new critical CVEs, no fix yet) and end-of-life Copeland XWEB EVO.<br><b>Confirmed OT attack:</b> October and early-November setpoint tampering at European supermarkets and French blood-service sites, which France attributes to the IRGC.<br><b>Also watching:</b> Algonquin Dam attempt; vCenter and Cisco Expressway in KEV; PHP2Shell and Check Point attacks; Osaki meter halt; Santos port; Chile solar outage.<br><b>What would raise it:</b> A new sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
+      <div class="tl-why"><b>Why 6.1 (Medium):</b> Confirmed, state-attributed sabotage of refrigeration controllers in several countries holds the level in upper Medium, but no new wave has followed since early November.<br><b>Top threat:</b> Internet-reachable controllers and HMIs, especially Danfoss AK-SM units (critical CVEs, fix not out) and end-of-life Copeland XWEB EVO.<br><b>Confirmed OT attack:</b> Setpoint tampering at European supermarkets and French blood-service sites, which France attributes to the IRGC.<br><b>Also watching:</b> Algonquin Dam attempt; vCenter and Cisco Expressway in KEV; PHP2Shell attacks; Osaki meter halt; Santos port; Chile solar plant.<br><b>What would raise it:</b> A fresh sabotage wave, or confirmed OT disruption at several power, water or gas operators.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -1323,6 +1323,36 @@
         <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q3-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="story-trellix-ot-report" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research &mdash; Trellix Operational Technology Threat Report, November 2026 (data April&ndash;September 2026), and Trellix&rsquo;s 18 Nov 2026 analysis &ldquo;From Digital Access to Physical Disruption&rdquo;</span>
+        </div>
+        <h3>Trellix warns that the same short path from exposed controller to physical damage keeps repeating, from US water PLCs to refrigeration sabotage</h3>
+        <p>Trellix&rsquo;s November OT Threat Report, covering April to September 2026, counted about 1,500 ransomware leak-site posts naming industrial victims, up roughly 51% on the previous quarter, with Qilin and The Gentlemen each behind about a sixth, and manufacturing taking nearly half of the malicious-file detections it saw in industrial networks. It cautions against merging the year&rsquo;s US water reports into one campaign: CISA&rsquo;s April advisory on Iran-linked attacks on Rockwell PLCs, the Minnesota community-system intrusions and the FBI/EPA MicroLogix alert are separate streams. In an 18&nbsp;November follow-up, Trellix ties these to France&rsquo;s refrigeration sabotage (see top story) as one recurring playbook: reach an internet-facing controller, change its logic or setpoints, and cause physical harm. Its advice to executives is to map exposure, including vendor-maintained links, detect unauthorised controller changes and rehearse manual operation (editorial assessment: this matches the lesson of every incident in this edition).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Vendor research &mdash; <b>Confirmed vs claimed:</b> ransomware counts are Trellix&rsquo;s tally of leak-site claims and its own telemetry; the CISA, Minnesota and FBI/EPA water reports are official; a May 2026 destructive attack on an Israeli food plant that Trellix cites is Profero&rsquo;s account, attributed by Profero and not corroborated by Trellix; the French attribution to the IRGC is France&rsquo;s official position, not a court finding</span>
+            <span class="ops-tag kev-off">No single CVE &mdash; the report lists exploited Check Point, Citrix NetScaler and Cisco ISE edge flaws as entry routes</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Not a single patch issue &mdash; exposure, change detection and manual-operation readiness</span>
+            <span class="ops-cc"><b>Action:</b> List every controller, HMI and vendor connection reachable from the internet and close or broker each one. Alarm on PLC logic downloads, mode changes and setpoint edits, and compare running logic with a known-good copy. Run a manual-operation drill for at least one critical process this quarter.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure inventory &mdash; 7 days; controller change alerting &mdash; 30 days; manual-operation drill &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="trellix-ot-report" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="trellix-ot-report">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Trellix Advanced Research Center (18 Nov 2026, OT playbook analysis); Trellix OT Threat Report, November 2026</span>
+          <span class="dot">&bull;</span>
+          <span>Analysis published 18 Nov 2026; report data covers April&ndash;September 2026</span>
+        </div>
+        <a href="https://www.trellix.com/blogs/research/ot-playbook-digital-access-to-physical-disruption/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
 
     </div>
   </div>
@@ -1555,7 +1585,7 @@
 <!-- FOOTER -->  <div class="footer">
     <p class="byline">Curated by <span>Mike Holcomb, OT/ICS Cybersecurity</span> &mdash; in partnership with UtilSec.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No confirmed exploitation reported / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-<p><strong>Methodology.</strong> This edition (generated Sat, 21 Nov 2026, 10:11 PM ET) re-checked CISA ICS advisories and the KEV catalog (20&nbsp;November additions: Cisco Expressway, VMware vCenter, SAP NetWeaver and Apache Roller), vendor PSIRT coverage, Dragos, Claroty, Nozomi and Forescout research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no material development since France&rsquo;s 17&ndash;18&nbsp;November statements), and the Algonquin Dam and Equinor follow-ups (no new detail), plus SecurityWeek, Security Affairs, The Record, The Hacker News, BleepingComputer, Cybersecurity Dive, CyberScoop, Industrial Cyber and the CVE Brief daily digest of 21&nbsp;November. Changes this edition: the Danfoss card now leads with Danfoss&rsquo;s 20&nbsp;November advisories (DSA-2026-12-01/-02) assigning CVE-2026-129713 and CVE-2026-127057, confirming firmware 5.4.0 is affected and pointing to a 5.5.x fix; the lead refrigeration incident card was tightened to the 140-word cap. The European Commission&rsquo;s AI-assisted intrusion, Artivion&rsquo;s ransomware attack (date not yet confirmable) and Elecbrakes trailer-brake CVEs were checked and left off as outside OT scope or unverified. Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards at 6.1 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country but has had no new wave in about three weeks, the Algonquin Dam attempt caused no reported impact, the Osaki, Santos and Huatacondo incidents are single-organisation events, and the new KEV entries are IT/edge exposure that does not aggregate upward. Sources: Illinois Department of Natural Resources (via CBS Chicago), CISA (ICS advisories and KEV alerts), F6 (via SecurityWeek and Security Affairs), Siemens ProductCERT, AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Equinor and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ, Osaki Electric (via TipRanks), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Danfoss, Midnight Blue, VulnCheck (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric and ABB (via The Hacker News and SecurityWeek); corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, TechCrunch, CyberScoop and Industrial Cyber. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
+<p><strong>Methodology.</strong> This edition (generated Sun, 22 Nov 2026, 2:10 AM ET) re-checked CISA ICS advisories and the KEV catalog, vendor PSIRT coverage, Dragos, Claroty, Nozomi, Forescout and Trellix research, the Iran-linked refrigeration sabotage and EU sanctions reporting (no material development since France&rsquo;s 17&ndash;18&nbsp;November statements), and the Algonquin Dam and Equinor follow-ups (no new detail), plus SecurityWeek, Security Affairs, The Record, The Hacker News, BleepingComputer, Cybersecurity Dive, Dark Reading, Nextgov and Industrial Cyber. Changes this edition: a new Threat Intelligence &amp; Research card covers Trellix&rsquo;s November 2026 OT Threat Report and its 18&nbsp;November OT-playbook analysis; no other card changed. Every card is within 30 days of its source date, carries a documented development within 30 days, or carries a forward-looking deadline (NIST SP&nbsp;800-82r4 comments close 30&nbsp;November). The Threat Level was recomputed from this edition&rsquo;s cards at 6.1 (Medium): the refrigeration sabotage remains confirmed, state-attributed and multi-country but has had no new wave in about three weeks, the Algonquin Dam attempt caused no reported impact, the Osaki, Santos and Huatacondo incidents are single-organisation events, and the new KEV entries are IT/edge exposure that does not aggregate upward. Sources: Illinois Department of Natural Resources (via CBS Chicago), CISA (ICS advisories and KEV alerts), F6 (via SecurityWeek and Security Affairs), Siemens ProductCERT, AFP (via Arab News), APA, dpa, Asharq Al-Awsat, The New Arab, Health-ISAC, Rigzone, Equinor and Reuters, Santos Port Authority (via The Rio Times), DHS (via the Jerusalem Post), AttackIQ, Osaki Electric (via TipRanks), FBI, Palo Alto Networks Unit&nbsp;42, Coordinador El&eacute;ctrico Nacional (via ESS News), Dragos, Check Point Research, NIST, German BSI (via Reuters/Insurance Journal), Belgian CCB, Danfoss, Midnight Blue, VulnCheck (via SecurityWeek), Broadcom and Google Threat Intelligence/Mandiant (via SecurityWeek), GreyNoise, Huntress, Paris prosecutor (via RFI), SANS Institute, N-able, Schneider Electric and ABB (via The Hacker News and SecurityWeek), Trellix Advanced Research Center; corroborated against the Wall Street Journal (via Newsmax wire and Voice of Emirates), Iran International, NPR, TechCrunch, CyberScoop and Industrial Cyber. Wired was not used this edition. This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors&rsquo; PSIRT feeds directly.</p>
   </div>
 
 </div>
