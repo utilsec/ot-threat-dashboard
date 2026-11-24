@@ -808,13 +808,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 23 Nov 2026, 3:05 AM ET</span>
+        <span>Generated Tuesday, 24 Nov 2026, 3:04 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Aviation</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>20</strong> stories across
+      <strong>21</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -847,7 +847,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:57.0%"></span></div>
-      <div class="tl-why"><b>Why 5.7 (Medium):</b> Suppliers keep leaking airline data and Iran-linked actors are hitting weak controllers in other sectors, but no aviation OT attack is confirmed, so the 5.9 cap holds.<br><b>Top threat:</b> Supplier compromise: the Norwegian, airBaltic and Amadeus breaches show one supplier account can expose many carriers.<br><b>Confirmed OT attack:</b> None in aviation; the FAA ground stop and United outage were technical faults, with no sign of hacking.<br><b>Also watching:</b> GPS jamming near Schiphol; DHS on Iran targeting transport; vCenter and Check Point exploits; Brotli KEV in Siemens WinCC.<br><b>What would raise it:</b> A confirmed cyber cause behind an airport, airline or air traffic disruption, or an intrusion into aviation OT.</div>
+      <div class="tl-why"><b>Why 5.7 (Medium):</b> Suppliers keep leaking airline data and Iran-linked actors are hitting weak controllers elsewhere, but no aviation OT attack is confirmed, so the 5.9 cap holds.<br><b>Top threat:</b> Supplier and cloud compromise: Norwegian, airBaltic and Amadeus show one supplier account can expose many carriers.<br><b>Confirmed OT attack:</b> None in aviation; the FAA ground stop and United outage were technical faults, not hacking.<br><b>Also watching:</b> Azure API Management abuse (Norway); GPS jamming near Schiphol; Iran targeting transport; vCenter and Check Point exploits; Siemens Brotli KEV.<br><b>What would raise it:</b> A confirmed cyber cause behind an airport, airline or air traffic disruption, or an intrusion into aviation OT.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -988,7 +988,7 @@
       <div class="trend">
         <span class="trend-tag">Suppliers</span>
         <b class="trend-head">Airline data is leaking through suppliers, not airlines</b>
-        <p>In five weeks at least nine airlines have disclosed customer data taken through suppliers: Amadeus’s reservation system (JAL, Korean Air, Asiana, Cathay Pacific, ANA, Malaysia Airlines, Condor), an unnamed IT provider holding 618,000 airBaltic bookings, and a supplier whose breach let attackers plant card-skimming code on Norwegian’s booking sites. None touched flight operations. The same concentration runs through shared check-in, departure-control, baggage and ground-handling platforms, so supplier accounts are an OT question too (see Incidents &amp; Attacks).</p>
+        <p>In five weeks at least nine airlines have disclosed customer data taken through suppliers: Amadeus&rsquo;s reservation system (JAL, Korean Air, Asiana, Cathay Pacific, ANA, Malaysia Airlines, Condor), an unnamed IT provider holding 618,000 airBaltic bookings, and a supplier whose breach let attackers plant card-skimming code on Norwegian&rsquo;s booking sites. None touched flight operations. On 23&nbsp;November Norway&rsquo;s NSM added a cloud angle: intruders reached Equinor and Skagerak through Microsoft Azure API Management. Shared check-in, departure-control, baggage and API platforms make supplier accounts an OT question too (see Threat Intelligence &amp; Research).</p>
         <a href="https://www.err.ee/1610196865/air-balticu-ligi-618-000-reisija-broneeringuandmed-sattusid-loogi-alla" class="source-link" target="_blank" rel="noopener">ERR</a>
       </div>
       <div class="trend">
@@ -1158,6 +1158,36 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="story-norway-azure-apim" data-published="2026-11-23">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research &mdash; Cross-sector (editorial assessment): Norway&rsquo;s NSM ties the Equinor and Skagerak Energi IT intrusions to a campaign abusing Microsoft Azure API Management; no aviation victim named</span>
+        </div>
+        <h3>Norway says intruders reached Equinor and Skagerak through Microsoft&rsquo;s Azure API Management, a cloud layer that also links airline and airport systems</h3>
+        <p>On 23&nbsp;November Norway&rsquo;s National Security Authority (NSM) said an unidentified actor has been stealing access tokens and other sensitive data from Microsoft Azure API Management (APIM), and that energy companies Equinor and Skagerak Energi were among those hit. Equinor detected its intrusion on 17&nbsp;November and contained it by 20&nbsp;November; both firms say production carried on normally, and NSM found no service disruption. A reported, non-public Microsoft notice says an issue in older &ldquo;Classic&rdquo; APIM tiers was found on 18&nbsp;November and closed the next day; Microsoft has issued credential-rotation guidance but has not publicly linked it to Norway. No aviation organisation is named. Airlines and airports that publish booking, check-in, flight-status or ground-handling APIs through APIM should rotate those secrets now (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed IT intrusions in energy, no OT impact reported &mdash; <b>Confirmed vs claimed:</b> the intrusions and &ldquo;production unaffected&rdquo; are the companies&rsquo; statements; the APIM link is NSM&rsquo;s finding (via The Record, 23 Nov 2026); Microsoft&rsquo;s role rests on a reported non-public notice; no attacker named; no aviation victim reported</span>
+            <span class="ops-tag kev-off">Entry route: Azure API Management (older Classic tiers, per reported notice); no CVE published; not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Cloud-side fix by Microsoft (per reported notice); customers must rotate APIM keys, tokens and backend credentials</span>
+            <span class="ops-cc"><b>Action:</b> Ask IT and every supplier that runs APIs for you (booking, departure control, baggage messaging, flight-information displays, fuel or ground-handling integrations) whether they use Azure API Management, especially Classic tiers. Where they do, rotate subscription keys, tokens and backend secrets and review APIM logs since early November. Check that no API path reaches airport OT networks without passing a monitored boundary.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> APIM inventory and credential rotation &mdash; 72 hours; supplier confirmations &mdash; 7 days; API-to-OT path review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="av-norway-azure-apim" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="av-norway-azure-apim">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record (NSM finding on Azure API Management; Equinor statement)</span>
+          <span class="dot">&bull;</span>
+          <span>NSM finding reported 23 Nov 2026; Equinor intrusion 17&ndash;20 Nov 2026</span>
+        </div>
+        <a href="https://therecord.media/norway-microsoft-cyberattack-equinor" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
 <div class="card" id="story-gnss-netherlands-jamming" data-published="2026-11-16">
         <div class="card-header">
           <span class="severity sev-high">High</span>

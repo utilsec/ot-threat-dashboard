@@ -808,13 +808,13 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Monday, 23 Nov 2026, 3:04 AM ET</span>
+        <span>Generated Tuesday, 24 Nov 2026, 3:05 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Rail &amp; Transit</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>21</strong> stories across
+      <strong>22</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -847,7 +847,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:58.0%"></span></div>
-      <div class="tl-why"><b>Why 5.8 (Medium):</b> Iran-linked sabotage of exposed controllers is confirmed in other sectors and DHS now names transportation as a target, but no rail OT attack is confirmed.<br><b>Top threat:</b> Internet-reachable controllers, and the VPN, gateway and vCenter layers that rail operations depend on.<br><b>Confirmed OT attack:</b> None in rail; the Santos port attack delayed trains through IT outages, not OT.<br><b>Also watching:</b> vCenter and Cisco Expressway in KEV; PHP2Shell and Check Point wipes; unfixed Siemens WinCC flaws; Volt Typhoon.<br><b>What would raise it:</b> A confirmed intrusion reaching signalling, traction-power or control-centre systems at a rail or transit operator.</div>
+      <div class="tl-why"><b>Why 5.8 (Medium):</b> Iran-linked sabotage of exposed controllers is confirmed in other sectors and DHS names transportation as a target, but no rail OT attack is confirmed.<br><b>Top threat:</b> Internet-reachable controllers, and the VPN, gateway, vCenter and cloud-API layers rail operations depend on.<br><b>Confirmed OT attack:</b> None in rail; the Santos port attack delayed trains through IT outages, not OT.<br><b>Also watching:</b> vCenter and Cisco Expressway in KEV; Azure API Management token theft in Norway; PHP2Shell; unfixed Siemens WinCC flaws; Volt Typhoon.<br><b>What would raise it:</b> A confirmed intrusion reaching signalling, traction-power or control-centre systems at a rail or transit operator.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -997,8 +997,8 @@
       </div>
       <div class="trend">
         <span class="trend-tag">Virtualization</span>
-        <b class="trend-head">Attackers aim for the hypervisor and the gateways in front of it</b>
-        <p>In one week Mandiant showed a China-linked group exploiting a vCenter zero-day for two months, Check Point Research described PHP2Shell intrusions that ended with a wiped ESXi host, and CISA added both vCenter and Cisco Expressway flaws to KEV on 20&nbsp;November. Rail control centres increasingly run SCADA, passenger-information and crew systems as virtual machines, so vCenter and the remote-access gateways in front of it are now control-system assets in their own right.</p>
+        <b class="trend-head">Attackers aim for the hypervisor, the gateways in front of it and the cloud APIs beside it</b>
+        <p>In one week Mandiant showed a China-linked group exploiting a vCenter zero-day for two months, Check Point Research described PHP2Shell intrusions that ended with a wiped ESXi host, and CISA added both vCenter and Cisco Expressway flaws to KEV on 20&nbsp;November; on 23&nbsp;November Norway tied the Equinor and Skagerak intrusions to Microsoft&rsquo;s Azure API Management. Rail control centres increasingly run SCADA, passenger-information and crew systems as virtual machines, so vCenter, the remote-access gateways in front of it and the cloud APIs that feed it are now control-system assets in their own right.</p>
         <a href="https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
       </div>
       <div class="trend">
@@ -1137,6 +1137,37 @@
         </div>
         <a href="https://research.checkpoint.com/2026/php2shell-exploitation-on-check-point-gateway/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+
+      <div class="card" id="story-norway-azure-apim-rail" data-published="2026-11-23">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident &mdash; Updated 23 Nov 2026: Norway&rsquo;s NSM ties the Equinor and Skagerak Energi IT intrusions (17&ndash;20 Nov 2026) to a campaign abusing Microsoft Azure API Management; production unaffected; actor unidentified; cross-sector item carried for rail (editorial assessment)</span>
+        </div>
+        <h3>Norway says the Equinor and Skagerak intrusions came through Microsoft&rsquo;s Azure API Management, a cloud service many operators use to share operational data</h3>
+        <p>On 23&nbsp;November Norway&rsquo;s National Security Authority (NSM) said an unidentified actor has been stealing access tokens and other sensitive data from Microsoft Azure API Management (APIM), and that energy companies Equinor and Skagerak Energi were among those hit. Equinor detected its intrusion on 17&nbsp;November and contained it by 20&nbsp;November; both firms say production carried on normally, and NSM found no service disruption. A reported, non-public Microsoft notice says an issue in older &ldquo;Classic&rdquo; APIM tiers was closed on 19&nbsp;November; Microsoft has issued credential-rotation guidance but has not publicly linked it to Norway. No rail operator is named. Rail and transit operators that publish train-running, passenger-information or maintenance data through cloud APIs should treat those keys as exposed (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed IT intrusions, no OT impact reported &mdash; <b>Confirmed vs claimed:</b> the intrusions and &ldquo;production unaffected&rdquo; are the companies&rsquo; own statements; the Azure APIM link is NSM&rsquo;s finding as reported by The Record; Microsoft&rsquo;s role rests on a reported non-public notice; no attacker named; no rail or transit victim reported; rail relevance is our editorial assessment</span>
+            <span class="ops-tag kev-off">Entry route: Azure API Management (older Classic tiers, per reported Microsoft notice); no CVE published; not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Cloud-side fix by Microsoft (per reported notice); customers must rotate APIM keys, tokens and backend credentials</span>
+            <span class="ops-cc"><b>Action:</b> List every Azure API Management instance that fronts train-running, passenger-information, ticketing, asset-maintenance or open-data feeds, rotate subscription keys, tokens and backend secrets, and review APIM logs since early November. Make sure no API back end can reach control-centre, signalling or SCADA networks directly, and be ready to cut the IT&ndash;OT link during any cloud incident.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Azure APIM credential rotation &mdash; 72 hours; APIM log review &mdash; 7 days; check that API back ends have no path to control networks &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-norway-azure-apim-rail" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-norway-azure-apim-rail">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record (23 Nov 2026, NSM on Azure API Management; 18 Nov 2026, Equinor statement); Equinor and Skagerak Energi statements (17&ndash;20 Nov 2026); rail relevance is our editorial assessment</span>
+          <span class="dot">&bull;</span>
+          <span>Updated 23 Nov 2026 (NSM finding); Equinor intrusion 17&ndash;20 Nov 2026</span>
+        </div>
+        <a href="https://therecord.media/norway-microsoft-cyberattack-equinor" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1264,6 +1295,37 @@
         <a href="https://www.welivesecurity.com/en/eset-research/eset-apt-activity-report-q2-2026-q3-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
         <a href="https://www.welivesecurity.com/en/eset-research/mythicratatoskr-yggdrasil-enabled-backdoor-deployed-uac0099-sandworm-collaboration/" class="source-link" target="_blank" rel="noopener">ESET MythicRatatoskr</a>
       </div>
+
+      <div class="card" id="story-claroty-consumer-devices-rail" data-published="2026-11-17">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research &mdash; Claroty analysis of 45 million devices at 30,000+ critical-infrastructure sites (released 17 Nov 2026); no CVE IDs published; cross-sector item carried for rail (editorial assessment)</span>
+        </div>
+        <h3>Claroty finds 65,000 game consoles, smart speakers and cars on critical-infrastructure networks, most of them on production segments</h3>
+        <p>Claroty said on 17&nbsp;November that, across 45 million devices at more than 30,000 critical-infrastructure sites, it found about 65,000 consumer gadgets that do not belong on operational networks: game consoles, smart-home and entertainment devices, and connected cars. Industrial sites held 963 game consoles, nearly 90% of them on production rather than guest networks. Thousands of Teslas, Fords and other vehicles were connected to site networks, almost none isolated on a guest segment, and Claroty cites six critical flaws in the Tesla Model&nbsp;3 alone. The report does not break out rail. Depots, stations and control centres with staff Wi-Fi and vehicle chargers are exactly where such devices land on networks that also carry building, SCADA or maintenance traffic (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-info"><span class="d"></span>Vendor research &mdash; <b>Confirmed vs claimed:</b> device counts are Claroty&rsquo;s own telemetry as reported by Help Net Security and Facilities Dive; no exploitation of these devices is reported; the vehicle findings were published without CVE numbers; no rail-specific figures were released</span>
+            <span class="ops-tag kev-off">No CVE IDs published; not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Not a patch issue &mdash; segmentation and asset governance</span>
+            <span class="ops-cc"><b>Action:</b> Run an asset-discovery pass on depot, station, control-centre and wayside networks and flag every consumer device, vehicle, charger and personal gadget. Move anything that must stay to a guest or IoT segment with no route to signalling, SCADA or building-control systems, block unknown devices at the switch port or wireless controller, and write a short policy on what may connect.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Discovery sweep &mdash; 14 days; move or remove consumer devices &mdash; 30 days; port and wireless enforcement plus written policy &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-claroty-consumer-devices-rail" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="rl-claroty-consumer-devices-rail">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Claroty press release via PR Newswire (17 Nov 2026); Facilities Dive (18 Nov 2026); Help Net Security (19 Nov 2026); rail relevance is our editorial assessment</span>
+          <span class="dot">&bull;</span>
+          <span>Research released 17 Nov 2026</span>
+        </div>
+        <a href="https://www.helpnetsecurity.com/2026/11/19/slipping-past-ot-network-segmentation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
     </div>
   </div>
 
@@ -1543,42 +1605,7 @@
         <a href="https://vulnerability.circl.lu/vuln/cve-2026-111461" class="source-link" target="_blank" rel="noopener">CVE-2026-111461 record</a>
         <a href="https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1393" class="source-link" target="_blank" rel="noopener">CERT-FR</a>
       </div>
-<div class="card" id="story-cisa-ics-22-27oct" data-published="2026-10-29">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory &mdash; CISA ICS releases of 22, 27 and 29 Oct; no transport label; no reported exploitation</span>
-        </div>
-        <h3>CISA&rsquo;s 22&ndash;29&nbsp;October ICS releases are light for rail: ICONICS SCADA products with three legacy lines that will never be fixed, two Hitachi Energy devices, EPICS Base and a video encoder</h3>
-        <p>Beyond its republication of Siemens&rsquo; October advisories, covered in the Siemens card below, the CISA ICS advisories we could confirm for the window are six. ICSA-26-300-02 (27&nbsp;October) republishes Mitsubishi Electric&rsquo;s ICONICS advisory 2026-006 of 15&nbsp;October: CVE-2026-16438, an incorrect privilege assignment rated CVSS&nbsp;v3.1 9.1, two weak password-recovery flaws (CVE-2026-16436 at 8.1 and CVE-2026-16437 at 6.4) and the libwebp flaw CVE-2023-4863 (8.2), across GENESIS, GENESIS64, ICONICS Suite, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64, GENESIS32 and BizViz. GENESIS 11.04 and release 10.98 of the GENESIS64 family fix them, but no fix is planned for MC Works64, GENESIS32 or BizViz, which Mitsubishi Electric says should be replaced; meanwhile it advises replacing the password-recovery challenge file with a blank one and restricting write access to it. ICSA-26-300-01 (27&nbsp;October) covers four network-reachable flaws in EPICS Base 7.0.10 and earlier, the open-source control toolkit used at accelerators and research facilities, including an integer overflow rated CVSS&nbsp;v3.1 9.8 / v4.0 9.3 (CVE-2026-114595); 7.0.11 fixes them. ICSA-26-295-01 (22&nbsp;October) covers nine flaws in the Kiloview E3 video encoder, fixed in firmware 1.30. On 29&nbsp;October CISA added three more. ICSA-26-302-02 covers Hitachi Energy TRO600 series firmware: CVE-2026-106087 lets an unauthenticated attacker read or download arbitrary files, including configuration and password data (CVSS&nbsp;v3.1 7.5 per CISA, v4.0 8.7 per Hitachi Energy), and CVE-2026-10756 lets an authenticated attacker use port forwarding to reach services bound to localhost (v3.1 7.5); 9.2.2.1 fixes both. ICSA-26-302-03 covers Hitachi Energy CoreTec 4 and 5: an authenticated command injection (CVE-2026-13162) and, on CoreTec5, the Linux kernel flaw CVE-2026-43284, for which public exploit code exists. CISA lists CoreTec5 5.0.0 as the fix and migration to CoreTec5 for CoreTec4, but the CVE record also lists 5.0.0 as affected, so check Hitachi Energy&rsquo;s notice. ICSA-26-302-01 republishes Siemens&rsquo; Mendix SAML module advisory, a replay flaw rated CVSS&nbsp;v3.1 6.8. CISA lists Critical Manufacturing, not transportation, for the two 27&nbsp;October advisories and Energy for the two Hitachi Energy advisories, and reports no known exploitation for any of the six. The rail relevance is our editorial assessment: ICONICS software turns up as the HMI and energy-monitoring layer in facilities, including stations, depots and control buildings, and unfixable legacy lines are exactly what lingers in long-lived installations; Hitachi Energy equipment can sit in the substations that feed traction power, so the two Hitachi Energy advisories are worth a check even without a transport label.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">No known exploitation &mdash; CISA reports none for ICSA-26-295-01, -300-01, -300-02 or -302-01 to -03; public exploit code exists for the CoreTec kernel flaw CVE-2026-43284</span>
-            <span class="ops-tag kev-off">ICONICS-specific flaws not in CISA KEV &mdash; none of the ICONICS-specific flaws is in KEV; the bundled libwebp flaw CVE-2023-4863 has been in KEV since 13 Sep 2023 from browser exploitation, and no exploitation of ICONICS products is reported; the EPICS Base, Kiloview, Hitachi Energy and Mendix CVEs are not listed as of CISA&rsquo;s 30 Oct 2026 catalogue</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-no">Mixed &mdash; ICONICS GENESIS 11.04 and GENESIS64-family 10.98; EPICS Base 7.0.11; Kiloview E3 firmware 1.30; Hitachi Energy TRO600 9.2.2.1; CoreTec5 5.0.0 per CISA (CoreTec4: migrate); Mendix SAML 4.2.4 or 3.6.29; no fix planned for MC Works64, GENESIS32 or BizViz</span>
-            <span class="ops-cc"><b>Action:</b> Ask facilities, energy-monitoring and building-management suppliers whether ICONICS GENESIS64, GENESIS32, MC Works64 or BizViz runs at your stations, depots or control buildings. Move supported products to 10.98 or 11.04 and plan replacement of the three lines that will not be fixed; until then apply Mitsubishi Electric&rsquo;s challenge-file workaround and keep those hosts reachable only by administrators on the local network. Ask traction-power and substation suppliers whether Hitachi Energy TRO600 or CoreTec devices are installed; update TRO600 to 9.2.2.1 and, if its interface was reachable, treat the configuration and passwords on it as exposed, and follow Hitachi Energy&rsquo;s notice for CoreTec. EPICS Base and Kiloview encoders are unlikely in rail estates: confirm and move on.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> ICONICS inventory &mdash; 30 days; updates to supported releases &mdash; 30 days; Hitachi Energy inventory &mdash; 14 days; TRO600 update &mdash; 30 days; replacement plan for unfixable lines &mdash; 90 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="rl-cisa-ics-22-27oct" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="rl-cisa-ics-22-27oct">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICS advisories ICSA-26-295-01, ICSA-26-300-01, ICSA-26-300-02 and ICSA-26-302-01 to -03, read via CISA&rsquo;s CSAF data as mirrored by CIRCL Vulnerability-Lookup; Mitsubishi Electric advisory 2026-006; KEV status per the CISA catalogue (30 Oct 2026 release) via CIRCL; rail relevance is our editorial assessment</span>
-          <span class="dot">&bull;</span>
-          <span>Mitsubishi Electric advisory 15 Oct 2026; Kiloview advisory 22 Oct 2026; ICONICS republication and EPICS Base advisory 27 Oct 2026; Hitachi Energy and Mendix republications 29 Oct 2026</span>
-        </div>
-        <a href="https://vulnerability.circl.lu/vuln/icsa-26-300-02" class="source-link" target="_blank" rel="noopener">Read source</a>
-        <a href="https://www.mitsubishielectric.com/psirt/vulnerability/pdf/2026-006_en.pdf" class="source-link" target="_blank" rel="noopener">Mitsubishi Electric 2026-006</a>
-        <a href="https://vulnerability.circl.lu/vuln/icsa-26-300-01" class="source-link" target="_blank" rel="noopener">EPICS Base advisory</a>
-        <a href="https://vulnerability.circl.lu/vuln/icsa-26-295-01" class="source-link" target="_blank" rel="noopener">Kiloview advisory</a>
-        <a href="https://vulnerability.circl.lu/vuln/icsa-26-302-02" class="source-link" target="_blank" rel="noopener">Hitachi Energy TRO600 advisory</a>
-        <a href="https://vulnerability.circl.lu/vuln/icsa-26-302-03" class="source-link" target="_blank" rel="noopener">Hitachi Energy CoreTec advisory</a>
-        <a href="https://vulnerability.circl.lu/vuln/cve-2023-4863" class="source-link" target="_blank" rel="noopener">CVE-2023-4863 record (KEV)</a>
-      </div>
-    </div>
+</div>
   </div>
 
   <!-- SECTION: Regulation &amp; Policy -->
