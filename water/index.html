@@ -808,7 +808,7 @@
       <h1>Free OT/ICS Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What could impact your environment? And how would you prevent it?</div>
       <div class="header-meta">
-        <span>Generated Friday, 27 Nov 2026, 3:07 AM ET</span>
+        <span>Generated Saturday, 28 Nov 2026, 3:06 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Sector: Water &amp; Wastewater</span>
       </div>
@@ -847,7 +847,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:59.0%"></span></div>
-      <div class="tl-why"><b>Why 5.9 (Medium):</b> Officials and agencies report attacks on water operators, but no disruption of a water control system has been confirmed in the past 30 days, so the level stays below 6.0.<br><b>Top threat:</b> Iran-linked tampering with internet-exposed water PLCs and HMIs; the WSJ reports operators locked out of panels at small Midwest stations.<br><b>Confirmed OT attack:</b> None; Swiss AI-agent intrusions hit a water operator with no OT impact disclosed, and the Algonquin Dam attempt was blocked.<br><b>Also watching:</b> tanker attacks blamed on Iran; GT13 Check Point breaches; PHP2Shell wipers; vCenter zero-day; 791 exposed MicroLogix PLCs.<br><b>What would raise it:</b> Official confirmation that a water or wastewater control system was manipulated, or attacks on several utilities at once.</div>
+      <div class="tl-why"><b>Why 5.9 (Medium):</b> Ransomware reached a water plant&rsquo;s network and officials report Iran-linked tampering, but no disruption of a water control system has been confirmed in the past 30 days, so the level stays below 6.0.<br><b>Top threat:</b> Iran-linked tampering with internet-exposed water PLCs and HMIs, reported by officials to the WSJ.<br><b>Confirmed OT attack:</b> None; Booba ransomware hit an East Coast plant&rsquo;s IT and its town with no treatment impact reported.<br><b>Also watching:</b> Swiss AI-agent intrusions; Algonquin Dam attempt; GT13 Check Point breaches; PHP2Shell wipers; vCenter zero-day.<br><b>What would raise it:</b> Official confirmation that a water or wastewater control system was manipulated, or attacks on several utilities at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -889,32 +889,31 @@
     <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="story-iran-water-lockouts" data-published="2026-11-18">
+    <div class="top-story" id="story-booba-water-plant" data-published="2026-11-24">
         <span class="top-story-pill">Top Story</span>
-        <h2>Iran-linked hackers locked operators out of control panels at small Midwest water stations, the Wall Street Journal reports, as DHS tells Congress that water is increasingly in Iran-backed hackers&rsquo; sights</h2>
-        <p>The Wall Street Journal reported on 13 November, citing unnamed US and Israeli officials, that since the summer Iran-linked hackers have locked operators out of control panels at water stations in small Midwestern towns. No utility, state or date has been named. Check Point&rsquo;s Sergey Shykevich linked the activity mainly to CyberAv3ngers, which works under Iran&rsquo;s cyber command, and acting CISA head Nick Andersen named programmable logic controllers as the equipment at risk. On 18 November DHS Secretary Markwayne Mullin&rsquo;s written testimony to the House Homeland Security Committee said Iran-backed actors have targeted US critical infrastructure since February, with water increasingly in their sights, mostly through localized disruptions of poorly secured control systems. Iran&rsquo;s ambassador to France denies that Iran carries out cyberattacks abroad. It leads as the clearest official signal that exposed water controllers are the target (editorial assessment).</p>
+        <h2>Booba ransomware moves from a US East Coast water treatment plant&rsquo;s network into the local government that runs it, with no effect on treatment reported</h2>
+        <p>Managed-detection firm ThreatDown said on 24&nbsp;November that Booba ransomware, a group first seen this summer, was staged in November on the network of an unnamed US East Coast water treatment plant and then spread into the network of the local government that oversees it. The plant&rsquo;s side was run by a separate IT provider without ThreatDown coverage, and encryption launched from an unprotected machine there. ThreatDown isolated 48 government machines, three already encrypted, and the plant&rsquo;s computers were taken offline for on-site remediation. No source reports any effect on SCADA, PLCs, treatment or water quality, and the utility is not named. It leads as this window&rsquo;s only confirmed attack on a water utility: a plant that shares a network with its town shares its risk (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Reported by officials, not confirmed on the record &mdash; Confirmed vs claimed: the water-station lockouts rest on unnamed US and Israeli officials quoted by the WSJ, with no utility, state or date named; the CyberAv3ngers link is Check Point&rsquo;s assessment; the DHS statement is official written testimony but names no new incident; Iran denies the attacks</span>
-            <span class="ops-tag kev-off">No CVE &mdash; earlier Iranian attacks on water PLCs used internet-exposed devices and default or weak passwords (CISA AA26-097A)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware, OT impact not reported &mdash; <b>Confirmed vs claimed:</b> the attack path, machine counts and Booba&rsquo;s share of cases are ThreatDown&rsquo;s own account as a vendor, which had no forensic visibility on the plant side; the utility, town and state are not named; no source reports any effect on SCADA, treatment or water quality; aggregator claims that officials ruled out treatment impact could not be traced to a primary source; the motive is unknown and nothing points to a nation-state actor</span>
+            <span class="ops-tag kev-off">No CVE or entry route disclosed; not linked to a CISA KEV entry</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Configuration fix, not a patch &mdash; remove internet exposure, change passwords, restrict remote access</span>
-            <span class="ops-cc"><b>Action:</b> Find every PLC, HMI and cellular modem at wells, tanks, lift stations and booster stations that is reachable from the internet, including any your integrator installed, and take it off or put it behind a VPN with multi-factor authentication. Change default and shared passwords, keep controllers in RUN mode where you can, alarm on setpoint and logic changes, and confirm operators can run each site by hand if they are locked out of the panel.</span>
+            <span class="ops-tag patch-na">Not a patch issue &mdash; segmentation between utility, municipal and plant networks</span>
+            <span class="ops-cc"><b>Action:</b> Water utilities and the towns that run them: confirm the plant&rsquo;s business network, the municipal network and the SCADA network are separated by a firewall with deny-by-default rules, and that a third-party IT provider&rsquo;s machines are covered by the same endpoint monitoring as yours. Keep offline backups of HMI projects and PLC logic, check that operators can run the plant by hand if plant computers are pulled offline, and report incidents to CISA and WaterISAC.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure sweep &mdash; 48 hours; password and remote-access cleanup &mdash; 7 days; lockout and manual-operation drill &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iran-water-lockouts" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-iran-water-lockouts">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Network separation check between plant, municipal and SCADA networks &mdash; 14 days; endpoint coverage of third-party-managed machines &mdash; 14 days; offline backup and manual-operation check &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-booba-water-plant" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-booba-water-plant">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Wall Street Journal (13 Nov 2026), via Iran International and the Newsmax wire on Yahoo News; DHS Secretary&rsquo;s written testimony to the House Homeland Security Committee, via the Jerusalem Post (18 Nov 2026); CISA AA26-097A (updated 22 Jul 2026)</span>
+          <span>ThreatDown (Malwarebytes) blog (24 Nov 2026), reposted by Malware News (25 Nov 2026); Industrial Cyber (Nov 2026); Finexus (27 Nov 2026, aggregator)</span>
           <span class="dot">&bull;</span>
-          <span>WSJ report 13 Nov 2026; testimony 18 Nov 2026; water-station incidents since summer 2026, undated</span>
+          <span>Attack in November 2026; reported 24 Nov 2026</span>
         </div>
-        <a href="https://www.iranintl.com/en/202611135713" class="source-link" target="_blank" rel="noopener">Read source</a>
-        <a href="https://www.jpost.com/middle-east/iran-news/article-915348" class="source-link" target="_blank" rel="noopener">DHS testimony (Jerusalem Post)</a>
+        <a href="https://www.threatdown.com/blog/ransomware-water-plant-local-government/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <!-- RADAR -->
@@ -943,16 +942,16 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#story-iran-water-lockouts"><circle class="blip high" cx="210.0" cy="48.4" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="210.0" y="53.1">1</text></a>
-        <a href="#story-algonquin-dam-water"><circle class="blip high" cx="253.6" cy="137.5" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="253.6" y="141.7">2</text></a>
-        <a href="#story-swiss-ai-agent-attacks-water"><circle class="blip high" cx="180.0" cy="265.0" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="180.0" y="268.8">3</text></a>
-        <a href="#story-eu-refrigeration-water"><circle class="blip high" cx="106.4" cy="137.5" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="106.4" y="140.8">4</text></a>
-        <a href="#story-checkpoint-php2shell-wiper-water"><circle class="blip crit" cx="264.2" cy="74.5" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="264.2" y="77.3">5</text></a>
-        <a href="#story-php2shell-ot-water"><circle class="blip crit" cx="301.6" cy="121.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="301.6" y="124.1">6</text></a>
-        <a href="#story-vcenter-zero-day-water"><circle class="blip high" cx="315.0" cy="180.0" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="315.0" y="182.6">7</text></a>
-        <a href="#story-nable-able2shell-water"><circle class="blip high" cx="301.6" cy="238.6" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="301.6" y="241.0">8</text></a>
-        <a href="#story-java4shell-siemens-edge-water"><circle class="blip high" cx="264.2" cy="285.5" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="264.2" y="287.9">9</text></a>
-        <a href="#story-volt-typhoon-silent-train-water"><circle class="blip high" cx="210.0" cy="311.6" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="210.0" y="313.8">10</text></a>
+        <a href="#story-booba-water-plant"><circle class="blip high" cx="210.0" cy="48.4" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="210.0" y="53.1">1</text></a>
+        <a href="#story-iran-water-lockouts"><circle class="blip high" cx="253.6" cy="137.5" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="253.6" y="141.7">2</text></a>
+        <a href="#story-algonquin-dam-water"><circle class="blip high" cx="180.0" cy="265.0" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="180.0" y="268.8">3</text></a>
+        <a href="#story-swiss-ai-agent-attacks-water"><circle class="blip high" cx="106.4" cy="137.5" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="106.4" y="140.8">4</text></a>
+        <a href="#story-eu-refrigeration-water"><circle class="blip high" cx="264.2" cy="74.5" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="264.2" y="77.3">5</text></a>
+        <a href="#story-checkpoint-php2shell-wiper-water"><circle class="blip crit" cx="301.6" cy="121.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="301.6" y="124.1">6</text></a>
+        <a href="#story-php2shell-ot-water"><circle class="blip crit" cx="315.0" cy="180.0" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="315.0" y="182.6">7</text></a>
+        <a href="#story-vcenter-zero-day-water"><circle class="blip high" cx="301.6" cy="238.6" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="301.6" y="241.0">8</text></a>
+        <a href="#story-nable-able2shell-water"><circle class="blip high" cx="264.2" cy="285.5" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="264.2" y="287.9">9</text></a>
+        <a href="#story-java4shell-siemens-edge-water"><circle class="blip high" cx="210.0" cy="311.6" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="210.0" y="313.8">10</text></a>
         <a href="#story-siemens-nov-patch-water"><circle class="blip high" cx="150.0" cy="311.6" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="150.0" y="313.7">11</text></a>
         <a href="#story-cisco-expressway-water"><circle class="blip high" cx="106.4" cy="222.5" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="106.4" y="224.6">12</text></a>
         <a href="#story-gt13-checkpoint-sms-water"><circle class="blip high" cx="75.0" cy="105.0" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="75.0" y="107.0">13</text></a>
@@ -960,16 +959,16 @@
       </svg>
 
       <div class="radar-legend">
-        <a href="#story-iran-water-lockouts"><span class="ld high"></span><b>1</b> Iran-linked lockouts at Midwest water stations</a>
-        <a href="#story-algonquin-dam-water"><span class="ld high"></span><b>2</b> Algonquin Dam intrusion attempt blocked</a>
-        <a href="#story-swiss-ai-agent-attacks-water"><span class="ld high"></span><b>3</b> Swiss AI-agent attacks hit a water operator</a>
-        <a href="#story-eu-refrigeration-water"><span class="ld high"></span><b>4</b> Refrigeration sabotage; EU sanctions due 14 Dec</a>
-        <a href="#story-checkpoint-php2shell-wiper-water"><span class="ld crit"></span><b>5</b> PHP2Shell gateways rooted, VMware host wiped</a>
-        <a href="#story-php2shell-ot-water"><span class="ld crit"></span><b>6</b> PHP2Shell: OT vendor products, some unfixed</a>
-        <a href="#story-vcenter-zero-day-water"><span class="ld high"></span><b>7</b> vCenter zero-day exploited for two months</a>
-        <a href="#story-nable-able2shell-water"><span class="ld high"></span><b>8</b> N-central exploited; Hotfix 3 fixes 17 more</a>
-        <a href="#story-java4shell-siemens-edge-water"><span class="ld high"></span><b>9</b> Java4Shell: take Siemens Edge offline</a>
-        <a href="#story-volt-typhoon-silent-train-water"><span class="ld high"></span><b>10</b> Volt Typhoon relay network names water</a>
+        <a href="#story-booba-water-plant"><span class="ld high"></span><b>1</b> Booba ransomware: water plant to town network</a>
+        <a href="#story-iran-water-lockouts"><span class="ld high"></span><b>2</b> Iran-linked lockouts at Midwest water stations</a>
+        <a href="#story-algonquin-dam-water"><span class="ld high"></span><b>3</b> Algonquin Dam intrusion attempt blocked</a>
+        <a href="#story-swiss-ai-agent-attacks-water"><span class="ld high"></span><b>4</b> Swiss AI-agent attacks hit a water operator</a>
+        <a href="#story-eu-refrigeration-water"><span class="ld high"></span><b>5</b> Refrigeration sabotage; EU sanctions due 14 Dec</a>
+        <a href="#story-checkpoint-php2shell-wiper-water"><span class="ld crit"></span><b>6</b> PHP2Shell gateways rooted, VMware host wiped</a>
+        <a href="#story-php2shell-ot-water"><span class="ld crit"></span><b>7</b> PHP2Shell: OT vendor products, some unfixed</a>
+        <a href="#story-vcenter-zero-day-water"><span class="ld high"></span><b>8</b> vCenter zero-day exploited for two months</a>
+        <a href="#story-nable-able2shell-water"><span class="ld high"></span><b>9</b> N-central exploited; Hotfix 3 fixes 17 more</a>
+        <a href="#story-java4shell-siemens-edge-water"><span class="ld high"></span><b>10</b> Java4Shell: take Siemens Edge offline</a>
         <a href="#story-siemens-nov-patch-water"><span class="ld high"></span><b>11</b> Siemens SCADA, PCS 7, WinCC flaws; Node2Shell</a>
         <a href="#story-cisco-expressway-water"><span class="ld high"></span><b>12</b> Cisco Expressway exploited; in KEV</a>
         <a href="#story-gt13-checkpoint-sms-water"><span class="ld high"></span><b>13</b> GT13 breaches Check Point management servers</a>
@@ -986,8 +985,8 @@
     <div class="trends-strip">
       <div class="trend">
         <span class="trend-tag">Iran</span>
-        <b class="trend-head">Iran-linked hackers are moving from defacement to physical effects, now on ships too</b>
-        <p>The Wall Street Journal reported on 13&nbsp;November that Iran-linked hackers have locked operators out of control panels at small Midwest water stations, and on 18&nbsp;November the DHS Secretary told Congress that water is increasingly in Iran-backed actors&rsquo; sights. On 23&ndash;24&nbsp;November US officials told the Journal that Iran is the main suspect in up to 50 cyberattacks on oil, gas and chemical tankers, though some also name Russia and no ship is reported disabled. France blames Iran&rsquo;s IRGC for October&rsquo;s refrigeration sabotage and expects EU sanctions on 14&nbsp;December; Iran denies it. The common thread is easy access to exposed controllers and edge devices with weak passwords, not sophisticated malware (editorial assessment; see top story).</p>
+        <b class="trend-head">Iran-linked pressure on water keeps building, though most of it is still reported rather than confirmed</b>
+        <p>The Wall Street Journal reported on 13&nbsp;November that Iran-linked hackers have locked operators out of control panels at small Midwest water stations, and on 18&nbsp;November DHS told Congress that water is increasingly in Iran-backed actors&rsquo; sights. On 25&nbsp;November the National Rural Water Association said suspected Iran-linked actors have breached water systems in a dozen states, a claim it has not tied to named cases. US officials also see Iran as the main suspect in up to 50 cyberattacks on energy tankers, though no ship is reported disabled, and France expects EU sanctions on 14&nbsp;December over October&rsquo;s refrigeration sabotage; Iran denies the attacks. The common thread is exposed controllers and weak passwords, not sophisticated malware (editorial assessment; see Incidents &amp; Attacks).</p>
         <a href="https://www.iranintl.com/en/202611135713" class="source-link" target="_blank" rel="noopener">Iran International (WSJ)</a>
       </div>
       <div class="trend">
@@ -998,14 +997,14 @@
       </div>
       <div class="trend">
         <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Ransomware keeps climbing, and stops operations through IT rather than the controls</b>
-        <p>Dragos counted 1,266 ransomware attacks on industrial organizations in the third quarter, up 11%, including four at water utilities, and found no case of an operator manipulating a control system: operations stopped when the IT, ERP and virtualization layers went down. Trellix&rsquo;s November OT report, covering April to September, likewise puts utilities at under 2% of industrial leak-site posts and says enterprise-edge exploitation did not open a path into ICS networks. With a vCenter zero-day and a PHP2Shell wiper both reported this month, utilities should check whether SCADA servers and historians share hypervisors or domains with business IT (editorial assessment).</p>
+        <b class="trend-head">Ransomware is reaching water plants through shared IT, not through the controls</b>
+        <p>ThreatDown said on 24&nbsp;November that Booba ransomware moved from an unnamed East Coast water treatment plant&rsquo;s network into its local government, encrypting three of 48 isolated machines, with no treatment impact reported (see top story). That matches the wider pattern: Dragos counted 1,266 ransomware attacks on industrial organizations in the third quarter, four at water utilities, and found operations stopped when IT, ERP and virtualization layers went down, not through manipulated controls. With a vCenter zero-day and a PHP2Shell wiper both reported this month, utilities should check whether SCADA servers and historians share hypervisors, domains or networks with business or municipal IT (editorial assessment).</p>
         <a href="https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q3-2026" class="source-link" target="_blank" rel="noopener">Dragos</a>
       </div>
       <div class="trend">
         <span class="trend-tag">Small Utilities</span>
         <b class="trend-head">Free help for small water systems is arriving faster than they can staff it</b>
-        <p>The Water Watch Center, run by the National Rural Water Association and DEF CON Franklin, now gives free monitoring and help to water utilities in 26 states, and nearly 100 utilities have asked about it (Cybersecurity Dive, 23 November). Texas Cyber Command has signed up 63 companies to support Texas water and wastewater utilities under Project Watershed 250, Indiana&rsquo;s SEA 459 reaches systems serving as few as 500 people, and NIST&rsquo;s draft SP 800-82 Rev. 4, which adds water and wastewater coverage, closes for comment on Monday, 30 November. For small systems the bottleneck is staff time to take up the help and act on alerts (editorial assessment; see Regulation &amp; Policy).</p>
+        <p>The Water Watch Center, run by the National Rural Water Association and DEF CON Franklin, says nearly 100 utilities in 26 states have asked for its free help and the first systems are now under 24/7 monitoring (NRWA, 25&nbsp;November). Texas Cyber Command has signed up 63 companies for Project Watershed 250, and Indiana&rsquo;s SEA 459 reaches systems serving as few as 500 people. NIST&rsquo;s draft SP 800-82 Rev. 4, which adds water and wastewater coverage, closes for comment on Monday, 30&nbsp;November. For small systems the bottleneck is staff time to take up the help and act on alerts (editorial assessment; see Regulation &amp; Policy).</p>
         <a href="https://www.cybersecuritydive.com/news/water-cybersecurity-watch-center-initial-support/875486/" class="source-link" target="_blank" rel="noopener">Cybersecurity Dive</a>
       </div>
       <div class="trend">
@@ -1022,6 +1021,36 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="story-iran-water-lockouts" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident (reported by officials) &mdash; Iran-linked lockouts of operators from control panels at small Midwest water stations (since summer 2026; WSJ 13 Nov 2026); DHS written testimony 18 Nov 2026; attribution by unnamed officials and Check Point, denied by Iran; no CVE</span>
+        </div>
+        <h3>Iran-linked hackers locked operators out of control panels at small Midwest water stations, the Wall Street Journal reports, as DHS tells Congress water is increasingly in Iran-backed hackers&rsquo; sights</h3>
+        <p>The Wall Street Journal reported on 13&nbsp;November, citing unnamed US and Israeli officials, that since the summer Iran-linked hackers have locked operators out of control panels at water stations in small Midwestern towns; no utility, state or date has been named. Check Point&rsquo;s Sergey Shykevich linked the activity mainly to CyberAv3ngers, and acting CISA head Nick Andersen named programmable logic controllers as the equipment at risk. On 18&nbsp;November the DHS Secretary&rsquo;s written testimony to the House Homeland Security Committee said Iran-backed actors have targeted US critical infrastructure since February, with water increasingly in their sights, mostly through localized disruptions of poorly secured control systems. Iran denies carrying out cyberattacks abroad. It remains the clearest official signal that exposed water controllers are the target (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Reported by officials, not confirmed on the record &mdash; Confirmed vs claimed: the water-station lockouts rest on unnamed US and Israeli officials quoted by the WSJ, with no utility, state or date named; the CyberAv3ngers link is Check Point&rsquo;s assessment; the DHS statement is official written testimony but names no new incident; Iran denies the attacks</span>
+            <span class="ops-tag kev-off">No CVE &mdash; earlier Iranian attacks on water PLCs used internet-exposed devices and default or weak passwords (CISA AA26-097A)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Configuration fix, not a patch &mdash; remove internet exposure, change passwords, restrict remote access</span>
+            <span class="ops-cc"><b>Action:</b> Find every PLC, HMI and cellular modem at wells, tanks, lift stations and booster stations that is reachable from the internet, including any your integrator installed, and take it off or put it behind a VPN with multi-factor authentication. Change default and shared passwords, keep controllers in RUN mode where you can, alarm on setpoint and logic changes, and confirm operators can run each site by hand if they are locked out of the panel.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-exposure sweep &mdash; 48 hours; password and remote-access cleanup &mdash; 7 days; lockout and manual-operation drill &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-iran-water-lockouts" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="wd-iran-water-lockouts">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Wall Street Journal (13 Nov 2026), via Iran International and the Newsmax wire on Yahoo News; DHS Secretary&rsquo;s written testimony to the House Homeland Security Committee, via the Jerusalem Post (18 Nov 2026); CISA AA26-097A (updated 22 Jul 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>WSJ report 13 Nov 2026; testimony 18 Nov 2026; water-station incidents since summer 2026, undated</span>
+        </div>
+        <a href="https://www.iranintl.com/en/202611135713" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.jpost.com/middle-east/iran-news/article-915348" class="source-link" target="_blank" rel="noopener">DHS testimony (Jerusalem Post)</a>
+      </div>
 <div class="card" id="story-algonquin-dam-water" data-published="2026-11-20">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1235,35 +1264,6 @@
           <span>Reported 25 Nov 2026</span>
         </div>
         <a href="https://www.theregister.com/security/2026/11/25/the-security-of-us-water-systems-is-even-leakier-than-we-thought/5312243" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="story-volt-typhoon-silent-train-water" data-published="2026-10-28">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research &mdash; China-linked relay network and management-platform exploitation; water among the named sectors; no OT intrusion described</span>
-        </div>
-        <h3>Lumen: Volt Typhoon&rsquo;s &ldquo;Silent Train&rdquo; network has reached targets since 2023 through hijacked routers and flaws in management platforms, and lists water among the sectors hit</h3>
-        <p>Lumen&rsquo;s Black Lotus Labs reported on 28&nbsp;October on Silent Train, a framework it attributes to Volt Typhoon, which US agencies link to the Chinese state, in use since November 2023. For each operation the operators build a single-use chain of overseas servers and hijacked home-office routers and IoT devices, sometimes in under two minutes, then take it apart, making the traffic hard to trace or block. Lumen ties the group to exploitation of Cisco Catalyst SD-WAN (CVE-2026-20127, CVSS v3.1 10.0), VeloCloud Orchestrator (CVE-2026-16812), N-able N-central (CVE-2025-8875, CVE-2025-8876), Versa Director and likely an undisclosed Quest KACE flaw. Its findings list water among affected sectors; Lumen has notified hundreds of victims over three years, most in Hawaii, California and Texas. No victim or OT intrusion is described. A compromised management platform reaches every site at once (editorial assessment).</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; <b>Confirmed vs claimed:</b> Lumen research; the Volt Typhoon attribution is Lumen&rsquo;s; no victim named and no OT intrusion described</span>
-            <span class="ops-tag kev-on">Named flaws in CISA KEV &mdash; CVE-2026-20127 (added 25 Feb 2026), CVE-2026-16812 (27 Jul 2026) and CVE-2025-8875/-8876 (13 Aug 2025), as of CISA&rsquo;s 30 Oct catalog; the Versa and Quest KACE flaws have no CVE in the report</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixes exist for the named CVEs &mdash; check each vendor&rsquo;s advisory; the relay devices are mostly home-office routers, so detection and access control matter most</span>
-            <span class="ops-cc"><b>Action:</b> Ask your IT or managed-network provider whether it runs Cisco Catalyst SD-WAN, VeloCloud Orchestrator, N-able N-central, Versa Director or Quest KACE for you, confirm each is patched and that its management interface is not reachable from the internet, and review administrator logins for short sessions from unfamiliar addresses. Replace end-of-life routers at remote sites, change default credentials, and use CISA&rsquo;s Volt Typhoon guidance (AA24-038A), which Lumen cites, for hunting.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Provider confirmation &mdash; 7 days; management-interface exposure check &mdash; 7 days; remote-site router review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="wd-volt-silent-train" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="wd-volt-silent-train">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Lumen Black Lotus Labs, 28 Oct 2026 (primary); Zero Day (Kim Zetter) and CyberScoop, 28 Oct 2026; KEV dates from CISA&rsquo;s 30 Oct 2026 catalog</span>
-          <span class="dot">&bull;</span>
-          <span>Activity since Nov 2023; report published 28 Oct 2026</span>
-        </div>
-        <a href="https://www.lumen.com/blog/en-us/silent-train-volt-typhoon-operational-framework" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="story-dragos-q3-ransomware-water" data-published="2026-11-16">
         <div class="card-header">
@@ -1575,16 +1575,16 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-<div class="card" id="story-water-watch-center-26-states" data-published="2026-11-23">
+<div class="card" id="story-water-watch-center-26-states" data-published="2026-11-25">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
-          <span class="category">Policy &amp; support &mdash; NRWA and DEF CON Franklin Water Watch Center (launched Aug 2026); free monitoring now in 26 states (announced 20 Nov 2026); no CVE</span>
+          <span class="category">Policy &amp; support &mdash; NRWA and DEF CON Franklin Water Watch Center (launched Aug 2026); 26 states (20 Nov 2026); first systems in 24/7 monitoring (NRWA, 25 Nov 2026); no CVE</span>
         </div>
-        <h3>The Water Watch Center now gives free security monitoring and help to water utilities in 26 states</h3>
-        <p>The Water Watch Center, a joint effort of the National Rural Water Association and the volunteer hacker group DEF CON Franklin, said on Friday 20&nbsp;November that it is providing free security monitoring and assistance to water utilities in 26 states, Cybersecurity Dive reported on 23&nbsp;November. Launched in August, the center pays security firms, including Rapid7, Defendify, Legato Security, TPO Group and BlastWave, to give rural utilities free intrusion detection and defensive consultations. Nearly 100 utilities have contacted it so far. It is funded by grants from Craig Newmark Philanthropies, the Hewlett Foundation and DARPA. For small systems with no security staff it is one of the few no-cost ways to get eyes on the network; the limit is staff time to install sensors and act on alerts (editorial assessment).</p>
+        <h3>Demand for the free Water Watch Center jumps: nearly 100 utilities in 26 states ask for help, and the first systems go under 24/7 monitoring</h3>
+        <p>The National Rural Water Association said on 25&nbsp;November that demand for the Water Watch Center, its free security program with the volunteer group DEF CON Franklin, has surged: nearly 100 utilities in 26 states have asked for help, and the first systems are now under 24/7 monitoring. Launched in August, the center pays security firms including Rapid7, Defendify, Legato Security, TPO Group and BlastWave to give rural utilities free intrusion detection and defensive consultations, funded by Craig Newmark Philanthropies, the Hewlett Foundation and DARPA. NRWA also says suspected Iran-linked actors have breached water systems in a dozen states, a claim it has not tied to named cases. For small systems with no security staff it is one of the few no-cost ways to get eyes on the network (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Support program &mdash; <b>Confirmed vs claimed:</b> the 26-state reach, the inquiry count, partners and funders are the center&rsquo;s own figures as reported by Cybersecurity Dive; the states and participating utilities are not listed</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Support program &mdash; <b>Confirmed vs claimed:</b> the 26-state reach, the inquiry count and the start of 24/7 monitoring are NRWA&rsquo;s and the center&rsquo;s own figures, reported by Cybersecurity Dive and Industrial Cyber; the claim that suspected Iran-linked actors breached systems in a dozen states is NRWA&rsquo;s and is not established by any agency or named case; participating states and utilities are not listed</span>
             <span class="ops-tag kev-off">No CVE &mdash; program item</span>
           </div>
           <div class="ops-row">
@@ -1598,11 +1598,13 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Cybersecurity Dive (Eric Geller, 23 Nov 2026); Water Watch Center announcement (20 Nov 2026)</span>
+          <span>NRWA press release (25 Nov 2026); Industrial Cyber (Nov 2026); Cybersecurity Dive (Eric Geller, 23 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Announced 20 Nov 2026; reported 23 Nov 2026; center launched Aug 2026</span>
+          <span>26-state reach announced 20 Nov 2026; NRWA update 25 Nov 2026; center launched Aug 2026</span>
         </div>
         <a href="https://www.cybersecuritydive.com/news/water-cybersecurity-watch-center-initial-support/875486/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://content.nrwa.org/cybersecurity/press-release/16542319/demand-for-cyber-support-to-water-utilities-skyrockets" class="source-link" target="_blank" rel="noopener">NRWA press release</a>
+        <a href="https://industrialcyber.co/utilities-energy-power-water-waste/nrwas-water-watch-center-supports-nearly-100-water-utilities-with-free-cybersecurity-monitoring-across-26-us-states/" class="source-link" target="_blank" rel="noopener">Industrial Cyber</a>
       </div>
 <div class="card" id="story-watershed-250-partners-water" data-published="2026-11-18">
         <div class="card-header">
